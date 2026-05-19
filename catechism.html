@@ -336,6 +336,126 @@
   .scroll-top:hover { transform: translateY(-2px); color: #2dd4bf; border-color: #2dd4bf; }
   .scroll-top.visible { opacity: 1; visibility: visible; }
 
+  /* ====================== STATUS EFFECTS ====================== */
+  .status-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #f0894a;
+    margin-top: 36px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    position: relative;
+    scroll-margin-top: 24px;
+  }
+
+  .status-header::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(240, 137, 74, 0.7) 0%, transparent 100%);
+  }
+
+  .status-header::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-header.positive::before { background: #3fb16c; box-shadow: 0 0 8px rgba(63, 177, 108, 0.5); }
+  .status-header.negative::before { background: #d63a3a; box-shadow: 0 0 8px rgba(214, 58, 58, 0.5); }
+
+  .status-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #14161a;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2c3038;
+    font-size: 14px;
+    margin: 0 0 32px;
+    table-layout: fixed;
+  }
+
+  .status-table thead { background: rgba(120, 40, 40, 0.4); }
+
+  .status-table th {
+    padding: 12px 16px;
+    color: #f0f1f3;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3c4047;
+  }
+
+  .status-table th.center { text-align: center; }
+
+  .status-table td {
+    padding: 14px 16px;
+    color: #c5c8d0;
+    border-top: 1px solid #2c3038;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .status-table tr:hover td { background: rgba(255, 255, 255, 0.025); }
+
+  .status-table .stack-cell { text-align: center; }
+
+  .status-name {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .tier-square {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .tier-square.common    { background: #6b7280; }
+  .tier-square.uncommon  { background: #3fb16c; }
+  .tier-square.rare      { background: #4aa3ff; }
+  .tier-square.epic      { background: #c084fc; }
+  .tier-square.legendary { background: #f0894a; }
+  .tier-square.mythic    { background: #efb73f; }
+
+  .stack-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .stack-badge.no  { background: rgba(214, 58, 58, 0.15); color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .stack-badge.yes { background: rgba(63, 177, 108, 0.18); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+
+  .tier-label { font-weight: 600; }
+  .tier-label.common    { color: #b8bdc8; }
+  .tier-label.uncommon  { color: #5fd189; }
+  .tier-label.rare      { color: #5fb0ff; }
+  .tier-label.epic      { color: #b378f0; }
+  .tier-label.legendary { color: #ffb070; }
+  .tier-label.mythic    { color: #ffd680; }
+
   /* ====================== RESPONSIVE ====================== */
   @media (max-width: 1000px) {
     .layout {
@@ -902,6 +1022,172 @@
 
       <h3>Danger Room</h3>
       <p>Trials which test your understanding of a Champion's kit. Staged environments which require proper ability usage within a set amount of turns. Acts like a "Mastery" for understanding of the Champion. Provides rewards which buff the specific Champion (such as a strong artifact, EXP or extra stars).</p>
+    </section>
+
+    <section id="status-effects">
+      <h2>✨ Status Effects</h2>
+      <p>Status effects are temporary modifications applied to a Champion — whether by self, ally or enemy. They divide into <strong>positive</strong> effects (applications, beneficial to the Champion) and <strong>negative</strong> effects (inflictions, harmful to the Champion).</p>
+      <p>Each effect has a <strong>tier</strong> indicating its rarity and power (Common, Uncommon, Rare, Epic, Legendary, Mythic) and a <strong>stackable</strong> flag determining whether multiple copies of the same effect can layer for stronger results. Non-stackable effects refresh their duration when reapplied; stackable effects accumulate. Tier also signals difficulty of resisting — higher-tier effects are harder to cleanse or shrug off through passives.</p>
+
+      <h3 id="positive-effects" class="status-header positive">Positive Effects</h3>
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th>Status Effect</th>
+            <th>Effect</th>
+            <th class="center">Stackable?</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Indestructible</div></td>
+            <td>Cannot die.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Overdrive</div></td>
+            <td>Ignores cooldowns.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Double Time</div></td>
+            <td>Whenever applying buffs (whether to self, allies, etc.), the stack amount is doubled (if possible).</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Invisible</div></td>
+            <td>Unable to be targeted or seen by enemies.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Stealth</div></td>
+            <td>Unable to be targeted by enemies. Expires (one stack at a time) upon using an attacking move.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Bloodlust</div></td>
+            <td>Attacks inflict Bleed for 2 turns; Bleed damage lifesteals for 20% of the damage dealt.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Arachno-Mines</div></td>
+            <td>Nullifies the next received (or evaded) melee attack and deals 300% ATK to the attacker (utilizing the stat of whoever applied this buff). Consumes one stack at a time.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Infiltration</div></td>
+            <td>Infiltrates behind enemy lines. Reverses targeting priority (except from taunt).</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Confidence</div></td>
+            <td>+20% ACC, +10% ATK and MAG.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Laughter</div></td>
+            <td>+10 EN REGEN and +3% REGEN.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Overflow</div></td>
+            <td>Increases MAX EN by 100. Any exceeding EN will remain after status effect expiration.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="negative-effects" class="status-header negative">Negative Effects</h3>
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th>Status Effect</th>
+            <th>Effect</th>
+            <th class="center">Stackable?</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Doomed</div></td>
+            <td>Will die at the end of the next turn. Bypasses Indestructible and revival effects.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Lockdown</div></td>
+            <td>Cannot use any abilities (basic, special or ULTIMATUM). Cannot move.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Identity Crisis</div></td>
+            <td>All currently active buffs are converted to debuffs and all debuffs are converted to buffs for the duration. Newly applied effects follow the reversal.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Banished</div></td>
+            <td>Removed from the battlefield until duration expires. Cannot act, be targeted, or be healed.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Silenced</div></td>
+            <td>Cannot use special abilities or ULTIMATUM. Basic abilities and Move remain available.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Bleed</div></td>
+            <td>Takes 10% of MAX HP as damage at the start of each turn. Bypasses block, DEF and RES.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Frozen</div></td>
+            <td>Cannot act. Takes 50% extra damage from melee attacks. Expires on receiving melee damage or at duration end.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Cursed</div></td>
+            <td>All healing received reduced by 75%. Revives are unaffected.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Confused</div></td>
+            <td>30% chance per action to target a random Champion (ally or enemy) instead of the intended target.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Slowed</div></td>
+            <td>−25% SPD and −15% EVA.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Weakened</div></td>
+            <td>−15% ATK and −15% MAG.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section id="term-definitions">
