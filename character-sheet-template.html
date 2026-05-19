@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spider-Man — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #ff5b5b; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #ff5b5b;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(255, 91, 91, 0.12);
+    color: #ff8585;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 91, 91, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #ff5b5b;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #ff5b5b;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #ff8585;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ====================== */
+  .ability--leader {
+    background: #efb73f;
+    color: #2e1f08;
+  }
+
+  .ability--basic {
+    background: #1f201d;
+    border: 1px solid #4a3a1c;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #ffc06a; }
+  .ability--basic .ability-tag { color: #c89150; }
+  .ability--basic .ability-meta { color: #c89150; }
+
+  .ability--special-1 { background: #3690ee; color: #08203d; }
+  .ability--special-2 { background: #4d5edb; color: #0a124a; }
+  .ability--special-3 { background: #3fb16c; color: #0a2a18; }
+  .ability--special-4 { background: #14b8a6; color: #062a26; }
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special { border-left-color: #5b6bd9; }
+  .ability--reserve-passive { border-left-color: #8b3fdb; }
+  .ability--reserve-ultimatum { border-left-color: #d63a3a; }
+
+  .ability--core-passive {
+    background: #5b2299;
+    color: #f0e0ff;
+  }
+
+  .ability--passive {
+    background: #8b3fdb;
+    color: #f5ebff;
+  }
+
+  .ability--ultimatum {
+    background: #d63a3a;
+    color: #2d0808;
+  }
+
+  .ability--synergy {
+    background: #e74c87;
+    color: #2d0814;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="character-image">
+      <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+      <span>Character art</span>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Spider-Man</h1>
+      <p class="subtitle">Peter Parker</p>
+      <span class="role-badge">Striker</span>
+      <p class="description">
+        Gifted with superhuman agility, reflexes, and a brilliant mind, Peter Parker balances the weight of responsibility with the power to protect. As Spider-Man, he weaves through danger with web-slinging grace, using his intellect and speed to outmaneuver stronger foes. On the battlefield, he's a scrappy, reactive striker — landing precision hits, dodging through openings, and punishing enemies who overcommit. When Spider-Man's back is against the wall, that's when he's most dangerous.
+      </p>
+      <p class="quote">"With great power, comes great responsibility."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">17,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">390</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">300</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">130</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">150</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">115</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <span class="pill">Spider-Verse</span>
+          <span class="pill">New Avengers</span>
+          <span class="pill">Hero</span>
+          <span class="pill">Pure Heart</span>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Human</span>
+          <span class="pill">Web Warrior</span>
+          <span class="pill">Marvel Universe</span>
+          <span class="pill">Quick Counter</span>
+          <span class="pill">Evasive</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="#miles-morales" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Miles Morales"> -->
+              <span>MM</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Miles Morales</strong>
+              <span class="real-name">Miles Morales</span>
+              <span class="synergy-name">Two Spiders</span>
+            </div>
+          </a>
+
+          <a href="#black-cat" class="partner-card">
+            <div class="partner-image">
+              <span>BC</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Black Cat</strong>
+              <span class="real-name">Felicia Hardy</span>
+              <span class="synergy-name">Cat &amp; Spider</span>
+            </div>
+          </a>
+
+          <a href="#mary-jane" class="partner-card">
+            <div class="partner-image">
+              <span>MJ</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Mary Jane</strong>
+              <span class="real-name">Mary Jane Watson</span>
+              <span class="synergy-name">Tiger's Heart</span>
+            </div>
+          </a>
+
+          <a href="#iron-man" class="partner-card">
+            <div class="partner-image">
+              <span>IM</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Tony Stark</span>
+              <span class="synergy-name">Stark Mentor</span>
+            </div>
+          </a>
+
+          <a href="#daredevil" class="partner-card">
+            <div class="partner-image">
+              <span>DD</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Daredevil</strong>
+              <span class="real-name">Matt Murdock</span>
+              <span class="synergy-name">Hell's Kitchen</span>
+            </div>
+          </a>
+
+          <a href="#spider-gwen" class="partner-card">
+            <div class="partner-image">
+              <span>SG</span>
+            </div>
+            <div class="partner-tooltip">
+              <strong>Spider-Gwen</strong>
+              <span class="real-name">Gwen Stacy</span>
+              <span class="synergy-name">Across the Spider-Verse</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Web of Heroes</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>Spider-Verse Champions gain +15% ATK and +10% EVA for the battle.</li>
+          <li>Whenever a Spider-Verse ally lands a critical hit, all Spider-Verse allies gain +5% ULT.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Swift Combo</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 2</div>
+        <ul>
+          <li>Deals 140% ATK to the target.</li>
+          <li>Restores 10 EN to self.</li>
+          <li class="condition"><em class="kw">Condition:</em> 3 turns have passed, once per turn —
+            <ul>
+              <li>ATK +20% for 2 turns.</li>
+              <li>Extends into Swift Combo (once).</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Rapid Web Onslaught</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 1 turn · Range: 8</div>
+        <ul>
+          <li>Deals 200% MAG to the target.</li>
+          <li class="condition"><em class="kw">Condition:</em> Self has 50+ stacks of "Web Fluid" —
+            <ul>
+              <li>Inflicts "Spider's Web" (target cannot act for 2 turns).</li>
+              <li>Deals 80% MAG to all enemies in range.</li>
+              <li>Nullifies all stacks of "Web Fluid" on self.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Crawler Assault</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 2</div>
+        <ul>
+          <li>Deals 300% ATK to the target.</li>
+          <li>30% chance to inflict "Deep Bruise" (−30% DEF for 3 turns) on target, rolls five times.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Spider Sense Surge</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: Self</div>
+        <ul>
+          <li>Gains +25% EVA for 2 turns.</li>
+          <li>Counters the next 3 incoming attacks within range with 100% ATK damage.</li>
+          <li>Restores 1 STA.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Web Bind</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 6</div>
+        <ul>
+          <li>Deals 120% MAG to target.</li>
+          <li>70% chance to inflict "Webbed" (immobilized for 1 turn) on target.</li>
+          <li>Generates 25 stacks of "Web Fluid" on self.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Aerial Takedown</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 45 · Cooldown: 2 turns · Range: 4</div>
+        <ul>
+          <li>Deals 250% ATK to a target. If the target is airborne, deals 400% ATK instead.</li>
+          <li>Spider-Man relocates to the target's panel after the attack lands.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Daring Rescue</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 40 · Cooldown: 4 turns · Range: 7</div>
+        <ul>
+          <li>Swap positions with an ally. That ally gains +20% EVA for 1 turn.</li>
+          <li>Spider-Man gains "Spider Focus" (next attack is a guaranteed critical hit).</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Spider-Sense</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>25% chance to fully evade any incoming attack (rolls before EVA).</li>
+          <li>Gains 5% ULT each time an attack is evaded.</li>
+          <li>Cannot be disabled.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Webbed Up</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Gains 10 stacks of "Web Fluid" at the start of every turn (max 100).</li>
+          <li>Each stack of "Web Fluid" grants +0.5% ACC.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Spectacular</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>When HP falls below 50%, ATK and MAG +30% for the rest of battle.</li>
+          <li>When HP falls below 25%, the next attack is a guaranteed critical hit.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Friendly Neighborhood</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Whenever an ally drops below 50% HP, Spider-Man gains 15% ULT.</li>
+          <li>Healing received +20%.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Wall-Crawler</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Ignores elevation differences when targeting or moving.</li>
+          <li>STA regen increased to 60% of MAX STA per turn.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Maximum Carnage Cleanup</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy + AoE (4 panels) · Range: 4 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 800% ATK to target.</li>
+          <li>Deals 200% MAG to all enemies within 4 panels of target.</li>
+          <li>Removes all stacks of "Web Fluid" from self, restoring EN equal to stacks nullified.</li>
+          <li>Inflicts "Webbed" on all hit enemies for 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Whatever a Spider Can</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: All Allies · Cost: 100% ULT</div>
+        <ul>
+          <li>Restores 30% HP to all allies (uses Spider-Man's MAG for healing calculations).</li>
+          <li>All allies gain +25% EVA for 2 turns.</li>
+          <li>Cleanses one infliction from each ally.</li>
+          <li>Spider-Man gains "Spider Focus" (next attack is a guaranteed critical hit).</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <div class="section-divider">Synergies</div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Two Spiders</span>
+          <span class="ability-tag">Synergy · w/ Miles Morales</span>
+        </div>
+        <ul>
+          <li>Both Champions gain +15% ATK and +10% EVA.</li>
+          <li>When either uses an ULTIMATUM, the other gains 30% ULT charge.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Cat &amp; Spider</span>
+          <span class="ability-tag">Synergy · w/ Black Cat</span>
+        </div>
+        <ul>
+          <li>Both Champions gain +20% CRIT RATE.</li>
+          <li>Each time Spider-Man lands a critical hit, Black Cat steals one item from a random enemy.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Tiger's Heart</span>
+          <span class="ability-tag">Synergy · w/ Mary Jane</span>
+        </div>
+        <ul>
+          <li>Spider-Man gains +25% MAG.</li>
+          <li>When Mary Jane uses any ability, Spider-Man gains 10% ULT.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Stark Mentor</span>
+          <span class="ability-tag">Synergy · w/ Iron Man</span>
+        </div>
+        <ul>
+          <li>Spider-Man unlocks "Iron Spider Arms": gains 1 extra counter per turn while at full HP.</li>
+          <li>When Iron Man uses his ULTIMATUM, Spider-Man gains 50% ULT.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Hell's Kitchen</span>
+          <span class="ability-tag">Synergy · w/ Daredevil</span>
+        </div>
+        <ul>
+          <li>Both Champions gain +15% EVA.</li>
+          <li>Shared line of sight: if either Champion has vision of an enemy, both do (ignores obstacles for targeting).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Across the Spider-Verse</span>
+          <span class="ability-tag">Synergy · w/ Spider-Gwen</span>
+        </div>
+        <ul>
+          <li>Both Champions accumulate "Web Fluid" stacks at double rate.</li>
+          <li>Each Champion's "Web Fluid" stacks count toward the other's ability conditions.</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic Red &amp; Blue</div>
+          <div class="costume-effect-label">Default — no costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Stealth Suit</div>
+          <div class="costume-effect-label">Shadow Step — +10% EVA, +5% CRIT RATE</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Symbiote (Black Suit)</div>
+          <div class="costume-effect-label">Alien Awareness — +15% MAG, Web Fluid grants +1% MAG dmg per stack</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Iron Spider</div>
+          <div class="costume-effect-label">Stark Tech — +12% ATK, +12% MAG, summons 4 spider-arms (counter once each)</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Future Foundation</div>
+          <div class="costume-effect-label">Reed Reflexes — +20% SPD, EN regen increased to 30%</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Spider-Armor MK IV</div>
+          <div class="costume-effect-label">Bulletproof — +25% DEF, +25% RES, immune to "Bleed" inflictions</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Spider-Man 2099</div>
+          <div class="costume-effect-label">Future Sight — starts battle with 30% ULT, ACC +5%</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <span>Costume art</span>
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Bombastic Bag-Man</div>
+          <div class="costume-effect-label">Glass Cannon — +50% ATK / MAG, -40% MAX HP</div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.2.3</span>
+          <span class="date">May 19, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span>ATK raised from <strong>380 → 390</strong>.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Rapid Web Onslaught</em> — cooldown reduced from 2 turns to <strong>1 turn</strong>.</span>
+          </li>
+        </ul>
+        <p class="rationale">Spider-Man was underperforming in mid-tier PvP. Small tune-up to keep his web-slinging pressure relevant against the current Arena meta without pushing him into broken territory.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.2.0</span>
+          <span class="date">April 15, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Spider Sense Surge</em> — counter damage reduced from 120% ATK to <strong>100% ATK</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Web Bind</em> — infliction chance lowered <strong>80% → 70%</strong>, range increased <strong>5 → 6</strong>.</span>
+          </li>
+        </ul>
+        <p class="rationale">The counter loop was dominating low-level Arena where most teams couldn't punch through it. Slight range buff on Web Bind to preserve his control identity now that the counters hit less hard.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.1.0</span>
+          <span class="date">March 4, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span>New synergy added with <em>Spider-Gwen</em>: "Across the Spider-Verse".</span>
+          </li>
+        </ul>
+        <p class="rationale">Spider-Gwen released and the thematic pairing was an obvious add. Both Champions accumulate Web Fluid faster and share stacks.</p>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">January 1, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Spider-Man enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>

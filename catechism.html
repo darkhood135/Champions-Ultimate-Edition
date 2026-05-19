@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Catechism — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #2dd4bf; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #f0f1f3;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== LAYOUT ====================== */
+  .layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+    padding: 32px;
+  }
+
+  /* ====================== TOC SIDEBAR ====================== */
+  .toc-sidebar {
+    position: relative;
+  }
+
+  .toc-inner {
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+  .toc-inner::-webkit-scrollbar { width: 6px; }
+  .toc-inner::-webkit-scrollbar-track { background: transparent; }
+  .toc-inner::-webkit-scrollbar-thumb { background: #2c3038; border-radius: 3px; }
+
+  .toc-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    transition: color 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  }
+
+  .toc-link:hover { color: #f0f1f3; background: rgba(255, 255, 255, 0.04); }
+
+  .toc-link.toc-sub {
+    margin-left: 14px;
+    font-size: 13px;
+    color: #6b7280;
+    padding: 4px 10px;
+  }
+
+  .toc-link.toc-sub:hover { color: #c5c8d0; }
+
+  .toc-link.active {
+    color: #2dd4bf;
+    border-left-color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.06);
+  }
+
+  /* ====================== CONTENT ====================== */
+  .content {
+    max-width: 800px;
+  }
+
+  .page-intro {
+    background: #14161a;
+    border-left: 3px solid #2dd4bf;
+    padding: 14px 20px;
+    border-radius: 6px;
+    color: #c5c8d0;
+    font-style: italic;
+    margin-bottom: 40px;
+    font-size: 15px;
+  }
+
+  section {
+    padding-top: 40px;
+    margin-bottom: 8px;
+    scroll-margin-top: 24px;
+  }
+
+  section:first-of-type { padding-top: 0; }
+
+  section + section { border-top: 1px solid #2c3038; margin-top: 24px; }
+
+  .content h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #f0f1f3;
+    margin-bottom: 18px;
+    letter-spacing: -0.3px;
+  }
+
+  .content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f0f1f3;
+    margin-top: 36px;
+    margin-bottom: 14px;
+    scroll-margin-top: 24px;
+  }
+
+  .content h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f1f3;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .content h4 .cat-icon {
+    margin-right: 6px;
+  }
+
+  .content p {
+    color: #c5c8d0;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .content strong { color: #f0f1f3; font-weight: 700; }
+  .content em { color: #d0d3da; }
+
+  .content ul, .content ol {
+    margin-bottom: 16px;
+    padding-left: 22px;
+    color: #c5c8d0;
+  }
+
+  .content li {
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  .content li::marker { color: #6b7280; }
+
+  .content a {
+    color: #2dd4bf;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.3);
+  }
+
+  .content a:hover { border-bottom-color: #2dd4bf; }
+
+  /* Callout-style blockquote for calculation order summaries */
+  .callout {
+    background: #14161a;
+    border-left: 3px solid #ff5b5b;
+    padding: 14px 20px;
+    border-radius: 6px;
+    margin: 18px 0 24px;
+    color: #c5c8d0;
+    font-size: 14px;
+  }
+
+  .callout strong {
+    display: block;
+    font-style: normal;
+    margin-bottom: 4px;
+    color: #ff8585;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .callout em {
+    font-style: italic;
+    color: #d0d3da;
+  }
+
+  /* Tables */
+  .content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 24px;
+    background: #14161a;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #2c3038;
+    font-size: 14px;
+  }
+
+  .content th {
+    background: #1c1d22;
+    text-align: left;
+    padding: 10px 14px;
+    color: #f0f1f3;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .content td {
+    padding: 10px 14px;
+    border-top: 1px solid #2c3038;
+    color: #c5c8d0;
+  }
+
+  .content tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+  /* Battlefield grid */
+  .grid-example {
+    margin: 18px 0 24px;
+    overflow-x: auto;
+  }
+
+  .grid-example table {
+    border: 1px solid #2c3038;
+    border-radius: 8px;
+    width: auto;
+    margin: 0 auto;
+    background: #0e1014;
+  }
+
+  .grid-example td {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    border: 1px solid #1c1d22;
+    font-size: 22px;
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  .grid-example tr:hover td { background: transparent; }
+
+  .legend {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  .legend ul { margin: 0; padding-left: 22px; }
+  .legend li { margin-bottom: 4px; }
+
+  /* Scroll to top button */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.15s ease;
+    z-index: 50;
+  }
+
+  .scroll-top:hover { transform: translateY(-2px); color: #2dd4bf; border-color: #2dd4bf; }
+  .scroll-top.visible { opacity: 1; visibility: visible; }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 20px;
+    }
+    .toc-inner {
+      position: static;
+      max-height: none;
+      background: #14161a;
+      border: 1px solid #2c3038;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .page-header { padding: 22px 20px; }
+    .page-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">📊 The Catechism</h1>
+    <p class="page-subtitle">Battle order, mechanics, every stat and how they function in the battle system.</p>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- =============================================
+       TABLE OF CONTENTS
+       ============================================= -->
+  <aside class="toc-sidebar">
+    <div class="toc-inner">
+      <div class="toc-title">Contents</div>
+      <nav class="toc">
+        <a href="#basics" class="toc-link">The Basics</a>
+        <a href="#champions" class="toc-link">Champions</a>
+        <a href="#roles" class="toc-link toc-sub">Roles</a>
+        <a href="#stats" class="toc-link toc-sub">Stats</a>
+        <a href="#vitals" class="toc-link toc-sub">Vitals</a>
+        <a href="#resources" class="toc-link toc-sub">Resources</a>
+        <a href="#items" class="toc-link toc-sub">Items</a>
+        <a href="#links-and-tags" class="toc-link toc-sub">Links and Tags</a>
+        <a href="#leader-ability" class="toc-link toc-sub">Leader Ability</a>
+        <a href="#basic-abilities" class="toc-link toc-sub">Basic Abilities</a>
+        <a href="#special-abilities" class="toc-link toc-sub">Special Abilities</a>
+        <a href="#passive-abilities" class="toc-link toc-sub">Passive Abilities</a>
+        <a href="#ultimatum" class="toc-link toc-sub">ULTIMATUM</a>
+        <a href="#synergies" class="toc-link toc-sub">Synergies</a>
+        <a href="#upgrades" class="toc-link toc-sub">Upgrades</a>
+        <a href="#modifiers" class="toc-link toc-sub">Modifiers</a>
+        <a href="#team-building" class="toc-link">Team Building</a>
+        <a href="#battle-system" class="toc-link">The Battle System</a>
+        <a href="#standard-battles" class="toc-link toc-sub">Standard Battles</a>
+        <a href="#clash-battles" class="toc-link toc-sub">Clash Battles</a>
+        <a href="#ability-calculations" class="toc-link">Ability Calculations</a>
+        <a href="#stat-calculations" class="toc-link">Stat Calculations</a>
+        <a href="#content-types" class="toc-link">Content Types</a>
+        <a href="#status-effects" class="toc-link">Status Effects</a>
+        <a href="#positive-effects" class="toc-link toc-sub">Positive Effects</a>
+        <a href="#negative-effects" class="toc-link toc-sub">Negative Effects</a>
+        <a href="#term-definitions" class="toc-link">Term Definitions</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- =============================================
+       MAIN CONTENT
+       ============================================= -->
+  <main class="content">
+
+    <section id="basics">
+      <h2>The Basics</h2>
+      <p><strong>Champions Ultimate Edition</strong> is an RPG starring characters from various iconic series such as Marvel, DC, Dragon Ball and more. The center of the game is combat, customization and progression.</p>
+      <p>The battle system of <strong>Champions Ultimate Edition</strong> is layered with complexity (in movement, battle and concept). Previous versions of the <strong>Champions</strong> battle system were akin to a simple RPG like Marvel Strike Force. This has been completely overhauled. More movement mechanics and abilities are present now to create an experience more akin to Baldur's Gate 3. That's where the <strong>Ultimate Edition</strong> comes in.</p>
+    </section>
+
+    <section id="champions">
+      <h2>🦸 Champions</h2>
+      <p>Champions are the playable characters in <strong>Champions Ultimate Edition</strong>. They have a variety of roles, abilities, stats, tags, etc. that define them. Some characters have more utility than others, while some specialize in tanking or specific types of damage. The variety is abundant, and balancing a team with this in mind is crucial (see Team Building for more information).</p>
+      <p>The main aspects that make up a Champion are as follows:</p>
+      <ol>
+        <li>Role</li>
+        <li>Stats</li>
+        <li>Vitals</li>
+        <li>Resources</li>
+        <li>Items</li>
+        <li>Links and Tags</li>
+        <li>Leader Ability</li>
+        <li>Basic Abilities</li>
+        <li>Special Abilities</li>
+        <li>Passive Abilities</li>
+        <li>ULTIMATUM</li>
+        <li>Synergies</li>
+        <li>Upgrades</li>
+        <li>Modifiers (Artifacts, Costume Effects)</li>
+      </ol>
+
+      <h3 id="roles">Roles</h3>
+      <p>A Champion's role defines the broad strokes of their gameplay archetype. <strong>Each Champion has exactly one role</strong>, which sets expectations for how they'll play. Specific behavior within a role — single-ally vs. team-wide buffs, melee vs. ranged emphasis, etc. — is refined further by tags.</p>
+      <p>The nine roles are organized into four categories:</p>
+
+      <h4><span class="cat-icon">⚔️</span>Offensive</h4>
+      <ul>
+        <li><strong>Striker</strong>: Single-target specialists. Primary focus is on eliminating one target at a time. Little to no utility or support. Often weak defensively with high damage.</li>
+        <li><strong>Blaster</strong>: Multi-target specialists. Primary focus is on eliminating multiple targets at a time. Little to no utility or support. Often very weak defensively with high damage.</li>
+        <li><strong>Berserker</strong>: High-risk, high-reward damage dealers. Trade their own HP, resources or defenses for massive damage spikes. Often have escalation mechanics — the worse off they are, the more dangerous they become. A reckless role that can win games when played correctly.</li>
+      </ul>
+
+      <h4><span class="cat-icon">🛡️</span>Defensive</h4>
+      <ul>
+        <li><strong>Defender</strong>: The tanks of a team. Use high health, high defenses, taunts and damage redirects to focus fire onto themselves. Deal moderate damage with moderate utility.</li>
+      </ul>
+
+      <h4><span class="cat-icon">💗</span>Supportive</h4>
+      <ul>
+        <li><strong>Healer</strong>: Restoration-focused. Keeps the team alive through healing, revival and cleansing. Often frail, but possibly the most important role a team can have.</li>
+        <li><strong>Booster</strong>: Buff-focused. Improves ally stats and grants supportive effects. Some Boosters spread buffs across the whole team; others act as a "sidekick" focused on a single ally — that distinction is captured by tags.</li>
+      </ul>
+
+      <h4><span class="cat-icon">🌀</span>Disruptive</h4>
+      <ul>
+        <li><strong>Breaker</strong>: Disrupts the enemy team with inflictions and debuffs. Seeks to mess up enemy strategy and harm enemy utility.</li>
+        <li><strong>Summoner</strong>: Focuses on summoning allies to aid in battle. Typically doesn't deal much damage by themselves but ramps up while summons are involved. Allows for solid board control and focus shifts. Summoned allies can exceed the 6 Champion requirement and are controlled the same way as normal Champions.</li>
+        <li><strong>Plunderer</strong>: A selfish role that harms allies and enemies alike to fuel themselves. Steals buffs, drains resources, and may even sacrifice teammates for personal power. Risky and abrasive, but capable of dominating in the right hands.</li>
+      </ul>
+
+      <h3 id="stats">Stats</h3>
+      <p>Stats are values that define a Champion's baseline capabilities. They can be modified temporarily by buffs and debuffs but are otherwise static. Every Champion has the following stats:</p>
+      <ul>
+        <li><strong>MAX HP</strong>: Maximum hit points. The maximum health value of a Champion. Can be exceeded with specific status effects.</li>
+        <li><strong>ATK</strong>: Attack. The main stat utilized for physical damage. Ex. <em>Deals 100% ATK damage</em>.</li>
+        <li><strong>MAG</strong>: Magic. The main stat utilized for ranged/magical damage. Ex. <em>Deals 100% MAG damage</em>.</li>
+        <li><strong>HEAL</strong>: The main stat utilized for healing abilities. Ex. <em>Restores 300% HEAL in HP</em>.</li>
+        <li><strong>DEF</strong>: Defense. The defensive stat utilized when damaged by an ATK move.</li>
+        <li><strong>RES</strong>: Resistance. The defensive stat utilized when damaged by a MAG move.</li>
+        <li><strong>ACC</strong>: Accuracy. Chance a move will successfully land. Only applies to moves which involve another character (healing, damaging, etc.).</li>
+        <li><strong>CRIT</strong>: Healing/damage percentile which applies if a critical hit is rolled successfully with CRIT RATE.</li>
+        <li><strong>CRIT RATE</strong>: Chance for a critical hit.</li>
+        <li><strong>SPD</strong>: Decides movement order (higher SPD goes first).</li>
+        <li><strong>EVA</strong>: Evasion. Chance to dodge an incoming attack.</li>
+      </ul>
+
+      <h3 id="vitals">Vitals</h3>
+      <p>Vitals are character-specific values that govern resource pools and regeneration. They behave like stats but are tracked separately because they don't scale through upgrades and aren't subject to skill allocation.</p>
+      <ul>
+        <li><strong>MAX EN</strong>: Maximum energy. Can be exceeded with specific status effects.</li>
+        <li><strong>MAX STA</strong>: Maximum stamina (the "furthest movement possible"). Can be exceeded with specific status effects.</li>
+        <li><strong>REGEN</strong>: The percentage of HP restored once a turn begins. Varies significantly between Champions — a Wolverine regenerates significantly more than a Bullseye.</li>
+      </ul>
+      <p>Every Champion also has default regeneration rates that apply at the start of their turn:</p>
+      <ul>
+        <li><strong>EN regen</strong>: 20% of MAX EN per turn</li>
+        <li><strong>STA regen</strong>: 40% of MAX STA per turn</li>
+        <li><strong>ULT gain</strong>: 5% per turn</li>
+      </ul>
+      <p>These defaults can be modified — or nullified entirely — by passives, status effects or kit-specific notes (e.g., <em>"cannot gain ULT passively"</em>). Most ULT charge typically comes from a Champion's actions, not the passive 5%.</p>
+
+      <h3 id="resources">Resources</h3>
+      <p>Resources are similar to stats but change dynamically throughout the fight. Stats only change when modified by an effect; resources are constantly in flux. Every Champion has the following resources:</p>
+      <ul>
+        <li><strong>HP</strong>: Hit points. The health of the Champion. When reduced to zero, the Champion is defeated and removed from battle (with exceptions of endurance or resurrection).</li>
+        <li><strong>EN</strong>: Energy. Consumed for special abilities.</li>
+        <li><strong>STA</strong>: Stamina. Consumed for mobility.</li>
+        <li><strong>ULT</strong>: Ultimate charge. Acts as a percentile. When at 100%, <strong>ULTIMATUM</strong> (the ultimate ability) can be utilized. Charges in various ways depending on the Champion.</li>
+      </ul>
+      <p>Unlike stats and vitals (which all Champions share), some Champions have <strong>extra resources</strong> unique to themselves. Examples include <strong>KI</strong>, <strong>CLUES</strong>, etc.</p>
+
+      <h3 id="items">Items</h3>
+      <p>Items are (usually) found throughout the battlefield and can provide various effects. Each Champion can hold up to <strong>8 unique items</strong> at a time with a per-item limit of <strong>3</strong> (though it's incredibly rare that either limit will be reached). Essentially, each Champion has their own inventory. Inventories start empty unless specified by a passive, artifact, etc.</p>
+      <p>Some Champions generate their own items under certain conditions. For example, some characters need ammo they can acquire by performing certain actions or movements.</p>
+      <p>Some items are non-consumable and simply remain in the inventory providing an effect (almost like an extra passive ability). In order to use a consumable item, a Champion must use their "Item" basic ability during their turn.</p>
+      <p>Items can be discarded freely. If an inventory is full, the player must discard an existing item to make room for a new pickup.</p>
+
+      <h3 id="links-and-tags">Links and Tags</h3>
+      <p>All Champions have <strong>links</strong> and <strong>tags</strong> which define what teams they'll work best on. They function similarly in execution and concept.</p>
+      <p><strong>Links</strong> define their personality, relationships and motivations. Examples include morality (Hero, Villain, Anti-Hero, etc.), teams (Avengers, Justice League, etc.) and mindset (Soldier of War, Road to Redemption, Pure Heart, etc.).</p>
+      <p><strong>Tags</strong> showcase how the Champion behaves in gameplay and allow players to narrow down Champions for skills they deem most valuable. For example, a Champion who counters could have the "Quick Counter" tag. Tags also handle the sub-distinctions inside a role — a Booster might have a "Single-Target Buff" tag to clarify their sidekick-style playstyle.</p>
+      <p>There is no limit to the amount of tags or links a Champion can have.</p>
+
+      <h3 id="leader-ability">Leader Ability</h3>
+      <p>Every Champion has one <strong>leader ability</strong> (essentially another passive, often providing a stat buff for the team) which only applies when they're the leader. Each team can only have one leader.</p>
+      <p>Most leader skills only apply to specific links, so focusing a team around 1-3 links is often the best choice. Many Champion skills trigger (or apply) when other Champions of a specific link are present, so keeping an eye on synergy and Champion kits is crucial when creating a team.</p>
+
+      <h3 id="basic-abilities">Basic Abilities</h3>
+      <p>Basic abilities encompass 6 major actions, 1 of which is unique to each Champion.</p>
+      <ul>
+        <li>Unique Basic Ability</li>
+        <li>Item</li>
+        <li>Block</li>
+        <li>Wait</li>
+        <li>Move</li>
+        <li>End Turn</li>
+      </ul>
+      <p>The <strong>unique basic ability</strong> is an ability unique to each Champion. It's essentially a special ability that doesn't require EN or have a cooldown. It typically deals less damage and is less effective but won't cost resources (allowing it to be used in tricky positions or when being conservative). Like a special ability, it has an effective range. This ability can only be used once per turn.</p>
+      <p>The <strong>Item</strong> action lets a Champion consume a consumable from their inventory. It's the only way to actively trigger an item's effect during a turn.</p>
+      <p><strong>Blocking</strong> causes the Champion to be inactive until their next turn. While blocking, the Champion's <strong>DEF and RES are multiplied by 1.5x</strong> for incoming damage. There is danger, however: some abilities can break a Champion's block for the turn (called <em>Piercing</em> abilities). Piercing abilities are automatic critical hits and ignore the block multiplier when hitting a blocking target. Blocking can only be chosen as the first ability used in the turn and will end the turn for that Champion.</p>
+      <p><strong>Waiting</strong> causes the Champion to be inactive until their next turn with the benefit that, on the next turn, the Champion gains <strong>1.5x</strong> the EN, STA and HP regeneration they would normally. The block multiplier does not apply while waiting — only while blocking. Waiting can only be chosen as the first ability used in the turn and will end the turn for that Champion.</p>
+      <p><strong>Moving</strong> allows the Champion to move where it wishes (assuming they have the STA) without committing to an action. Consumes 1 STA per panel in the battlefield's grid. This ability won't cause a Champion's turn to end — another ability can be used immediately after.</p>
+      <p><strong>Ending the turn</strong> will end your Champion's actions for the turn (acting as the "finished" button).</p>
+      <p>Character sheets do not list Block, Wait, Move and End Turn, but all Champions can use them at any time unless specified otherwise by a passive or status effect.</p>
+
+      <h3 id="special-abilities">Special Abilities</h3>
+      <p>Special abilities are the core abilities of a Champion. Each Champion has <strong>6 special abilities</strong> which can be interchanged, with only <strong>4 being chosen</strong> to use in battle. There is no "core" (required) special ability — they can all be interchanged (unlike passives where there is one core passive). These abilities are selected when teambuilding, not in battle. Whatever abilities are chosen before the battle will carry over and can't be changed in the middle of battle.</p>
+      <p>Every special ability utilizes EN and has a resource unique to itself called a <strong>cooldown</strong>. A cooldown is the amount of turns before it can be used again. If a Champion still has a cooldown on a special ability (or doesn't have enough EN), the action cannot be used. <strong>Multiple special abilities can be used in the same turn</strong> if the Champion has enough energy.</p>
+      <p>Likewise, every special ability has a <strong>range</strong> (almost like its "line of sight"). Since a battlefield consists of a shaped setup (divided into squares like a grid, see the battle system section), a Champion can only perform an action on another if they're within that many panels of their target. Range is also affected by obstacles, which get in the way. Champions who have enough STA to reach their target will path-find (consuming the least STA possible) into an effective, valid range. Basic abilities also utilize the range mechanic (when relevant).</p>
+      <p>Special abilities are divided into subtypes:</p>
+      <ul>
+        <li><strong>Melee</strong> — typically have short ranges and cannot affect flying/airborne targets.</li>
+        <li><strong>Ranged</strong> — typically have long ranges and can affect flying/airborne targets.</li>
+        <li><strong>Support</strong> — focus on providing support to their target (whether self or another ally).</li>
+        <li><strong>Transformation</strong> — transform the Champion into another form. This form will often have an entirely unique moveset to their base form. Abilities do not carry over between forms (unless they share abilities pre and post transformation, in which case the cooldowns are carried over). Status effects and resources carry over between forms.</li>
+      </ul>
+
+      <h3 id="passive-abilities">Passive Abilities</h3>
+      <p>Passive abilities are abilities that are activated passively (duh). Some of them are permanently and always active, while others require a condition to be fulfilled. Each Champion has <strong>1 guaranteed passive ability</strong> (the core passive) and <strong>4 other passive abilities</strong> which can be interchanged (with only <strong>2 being chosen</strong> to use in battle, <strong>3 total including the core</strong>). These abilities are selected when teambuilding, not in battle.</p>
+      <p>Passive abilities can range from simple stat buffs, to new strengths and playstyles, to automatic actions (like counters), to overrides of default vitals (e.g., <em>"EN regen is doubled; ULT cannot be gained passively"</em>), to status-resistance effects for Champions who specialize in shrugging off inflictions.</p>
+
+      <h3 id="ultimatum">ULTIMATUM</h3>
+      <p><strong>ULTIMATUM</strong>, also known as an ultimate ability, is a massive and powerful ability that relies upon the ULT resource. Once ULT reaches 100% for a Champion, they can use their ULTIMATUM. These abilities act as incredibly strong special abilities. As such, they come in many forms (melee, ranged, etc.). Some may be single-target, others may be multi-target.</p>
+      <p>ULTIMATUM costs no energy and has no cooldown. Once ULTIMATUM is used, ULT is reduced to 0% (unless specified otherwise by a passive or status effect).</p>
+
+      <h3 id="synergies">Synergies</h3>
+      <p><strong>Synergies</strong> act as extra special/passive abilities which are only active when specific members are present on the team. For example, a Champion with a deep friendship with another Champion could have a synergy with them that enables a new special ability or stat buff.</p>
+      <p>Synergies can exceed the ability limits (surpassing the 3 passive and 4 special roadblocks). <strong>Cross-franchise synergies are valid</strong> — the main story includes relationships that span universes and may at first seem strange.</p>
+      <p>There is no limit to the amount of synergies a Champion can have.</p>
+
+      <h3 id="upgrades">Upgrades</h3>
+      <p>Every Champion has an upgrade system behind all of their stats and abilities. Character sheets account for Champions at their max power (10 star, level 150, maxed out skill tree) but without the expanded skill tree (so custom stat allocations are not accounted for).</p>
+      <p>The stats upgraded by levels, stars and skill allocation are:</p>
+      <ul>
+        <li>MAX HP</li>
+        <li>ATK</li>
+        <li>MAG</li>
+        <li>HEAL</li>
+        <li>DEF</li>
+        <li>RES</li>
+        <li>SPD</li>
+      </ul>
+      <p>Stats that do <strong>not</strong> upgrade via levels, stars or skill allocation:</p>
+      <ul>
+        <li>ACC</li>
+        <li>CRIT</li>
+        <li>CRIT RATE</li>
+        <li>EVA</li>
+      </ul>
+      <p>All Vitals (MAX EN, MAX STA, REGEN) are also static — changes to these come from passives, modifiers and status effects rather than upgrades.</p>
+      <p>Boosts apply in the following order:</p>
+      <div class="callout">
+        <em>Raw stats → Level multiplier → Star multiplier → Skill allocation multiplier → Leader ability multiplier → In-game multipliers (passives, status effects, etc., all additive)</em>
+      </div>
+
+      <h4>Levels</h4>
+      <p>At level 1, every Champion starts with their core passive and their first special ability. All other special/passive/ultimate abilities will be locked. Synergies and modifiers do not need to be unlocked.</p>
+      <p>Levels are gained by earning XP for a Champion. When a Champion levels up, they unlock stat boosts and new abilities. The unlock order is as follows:</p>
+      <table>
+        <thead>
+          <tr><th>Level</th><th>Available Upgrade</th><th>Stat Improvement</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Level 5</td><td>1 of 5 Special Abilities</td><td>10%</td></tr>
+          <tr><td>Level 10</td><td>1 of 4 Passive Abilities</td><td>20%</td></tr>
+          <tr><td>Level 20</td><td>1 of 4 Special Abilities</td><td>40%</td></tr>
+          <tr><td>Level 30</td><td>1 of 3 Special Abilities</td><td>60%</td></tr>
+          <tr><td>Level 40</td><td>1 of 3 Passive Abilities</td><td>80%</td></tr>
+          <tr><td>Level 50</td><td>1 of 2 ULTIMATUMs</td><td>100%</td></tr>
+          <tr><td>Level 60</td><td>1 of 2 Special Abilities</td><td>120%</td></tr>
+          <tr><td>Level 70</td><td>1 of 2 Passive Abilities</td><td>140%</td></tr>
+          <tr><td>Level 80</td><td>1 of 1 Special Abilities</td><td>160%</td></tr>
+          <tr><td>Level 90</td><td>1 of 1 Passive Abilities</td><td>180%</td></tr>
+          <tr><td>Level 100</td><td>1 of 1 ULTIMATUMs</td><td>200%</td></tr>
+          <tr><td>Level 110</td><td>None</td><td>250%</td></tr>
+          <tr><td>Level 120</td><td>None</td><td>300%</td></tr>
+          <tr><td>Level 130</td><td>None</td><td>350%</td></tr>
+          <tr><td>Level 140</td><td>None</td><td>400%</td></tr>
+          <tr><td>Level 150</td><td>Unique Costume + Costume Effect + 2nd Effect Slot</td><td>500%</td></tr>
+        </tbody>
+      </table>
+      <p>By level 50, Champions will have unlocked a full kit worth of abilities (4 specials, 3 passives and 1 ULTIMATUM). Any further abilities unlocked can be interchanged with the others at any time.</p>
+      <p>The level 100-150 stretch is the endgame grind, with each tier granting meaningful but measured gains. Reaching <strong>level 150</strong> unlocks the ultimate Champion reward: a unique exclusive costume, a powerful new costume effect tied to it, and a permanent second costume effect slot (see Modifiers).</p>
+
+      <h4>Stars</h4>
+      <p>Stars are gained through collecting Champion shards (similar in function to a gacha system but earned through gameplay rather than gambling). They range from 1-10 and apply on top of the level boost (but below the skill allocation boost). The star stat boost system is as follows:</p>
+      <table>
+        <thead>
+          <tr><th>Stars</th><th>Stat Improvement</th><th>Required Shards</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>⭐</td><td>+0%</td><td>N/A</td></tr>
+          <tr><td>⭐⭐</td><td>+8%</td><td>50</td></tr>
+          <tr><td>⭐⭐⭐</td><td>+15%</td><td>100</td></tr>
+          <tr><td>⭐⭐⭐⭐</td><td>+20%</td><td>150</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐</td><td>+25%</td><td>200</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐⭐</td><td>+30%</td><td>300</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐⭐⭐</td><td>+40%</td><td>500</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐⭐⭐⭐</td><td>+50%</td><td>1000</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐⭐⭐⭐⭐</td><td>+60%</td><td>1500</td></tr>
+          <tr><td>⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</td><td>+70%</td><td>2000</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Skill Allocation</h4>
+      <p>By level 100, skill allocation is unlocked. For the next 50 (and final) levels, players can dedicate 1 skill point (per level) to raising one of the following stats:</p>
+      <table>
+        <thead>
+          <tr><th>Stat</th><th>Stat Raise Per Skill Point</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MAX HP</td><td>+0.5%</td></tr>
+          <tr><td>ATK</td><td>+0.3%</td></tr>
+          <tr><td>MAG</td><td>+0.3%</td></tr>
+          <tr><td>HEAL</td><td>+0.3%</td></tr>
+          <tr><td>DEF</td><td>+0.3%</td></tr>
+          <tr><td>RES</td><td>+0.3%</td></tr>
+          <tr><td>SPD</td><td>+0.2%</td></tr>
+        </tbody>
+      </table>
+      <p>Skill allocation is meant to broaden the horizons of Champion customization to make every Champion feel designed and catered to the player's wants and needs. It can be rearranged at any time.</p>
+
+      <h3 id="modifiers">Modifiers</h3>
+      <p>Modifiers are extra passives, usually stat buffs. They are only obtained from costume effects and artifacts. Since modifiers are extra passives, their increases multiply on top of skill allocation.</p>
+
+      <h4>Costume Effects</h4>
+      <p>Costume effects (also known as costume buffs) are extra passives that come attached with certain outfits (usually stat boosts). These effects have unique names and can be utilized without using the skin they came with. For example, upon unlocking a Symbiote skin for Spider-Man, the player would receive:</p>
+      <ul>
+        <li>Symbiote Outfit</li>
+        <li>"Alien Awareness"</li>
+      </ul>
+      <p>"Alien Awareness" became unlocked with the Symbiote Outfit, <strong>but</strong> it can be used on any other skin. By default, only <strong>one costume effect can be active at a time</strong>. Default skins do not have costume effects.</p>
+      <div class="callout">
+        <strong>Level 150 endgame unlock</strong>
+        Reaching level 150 with a Champion permanently grants them a <strong>second costume effect slot</strong> — the only way to slot two costume effects simultaneously. Alongside this, the level 150 unlock includes a unique exclusive costume and a powerful new costume effect tied to it. This is the headline endgame reward for maxing a Champion.
+      </div>
+
+      <h4>Artifacts</h4>
+      <p>Artifacts are unlocked as rewards from various modes. They typically have equip conditions referencing a specific link or tag. If an artifact's conditions fit a Champion then that artifact can be equipped onto that Champion. Similar to costume effects, artifacts provide an extra passive to their user.</p>
+      <p>Only one artifact can be equipped at a time.</p>
+    </section>
+
+    <section id="team-building">
+      <h2>👥 Team Building</h2>
+      <p>In normal battles, each team can have up to <strong>six Champions</strong>. These Champions have varying abilities, movesets, synergies, etc. which can be used in battle. Bringing Champions of various roles is important for variety and effective play.</p>
+      <p>Each team has one leader which grants the team bonus stats (or even an ability) based on the character's Leader Ability. Every Champion has a leader ability but only one can be active at a time. Choose this leader ability wisely.</p>
+      <p>Every player has <strong>50 team slots</strong> (allowing for a significant amount of different teams)! Choices made regarding Champion abilities, skill allocations, artifacts and modifiers stay within a party so they don't have to be changed whenever they're switched to a different team.</p>
+      <p>Champions can each be customized in-depth to allow for unique mixes and strengths. Ensuring each Champion has an artifact, a costume effect and their skill allocation maxed out is crucial for success in difficult battles.</p>
+    </section>
+
+    <section id="battle-system">
+      <h2>⚔️ The Battle System</h2>
+      <p>All battles utilize teams, with Champions, on a battlefield. Battlefields are stages with differing items, obstacles, themes and elevations.</p>
+
+      <h3 id="standard-battles">Standard Battles</h3>
+      <p>The new battle system that makes <strong>Champions Ultimate Edition</strong> brand new.</p>
+      <p>At the start of a battle, characters start with maximum EN, STA and HP. Their ULT starts at 0%, with 0 items. Their abilities will start with a cooldown of their <strong>normal cooldown minus two turns, minimum 0</strong> — so a 1-cooldown ability begins immediately usable, while a 5-cooldown ability begins with 3 turns remaining. These conditions can change if indicated otherwise by their kit.</p>
+      <p>Each Champion acts one at a time. Champions will act in order according to their SPD stat, with the highest SPD going first. Once all characters have acted, the cycle continues and a new turn begins for each Champion. If a Champion dies before their action can occur, their action is nullified.</p>
+      <p>When a Champion is about to act, they regenerate EN (default 20% of MAX EN), STA (default 40% of MAX STA), and HP (per their REGEN stat). They also gain ULT (default 5%). All of these defaults can be modified by passives.</p>
+      <p>While selecting abilities, each Champion can act as many times as they have the resources for and can choose who their ability targets per ability.</p>
+      <p>If a Champion has 100 EN, with two special abilities that each cost 50 EN, they can use both abilities in the same turn (assuming they're both off cooldown). They can also choose to save it for a future turn.</p>
+      <p>The most complicated aspect of standard battles is the movement system (described in the next section). Since characters can move around the battlefield, new aspects come into play.</p>
+      <p>The last team alive wins. If both teams die due to a self-destruction, the team who caused it wins.</p>
+
+      <h4>Movement and Battlefield Behavior</h4>
+      <p>All Champions have access to the "Move" basic ability at all times (unless indicated otherwise by a passive or status effect). A Champion moving consumes 1 STA per panel in the battlefield's grid. This ability won't cause a Champion's turn to end — another ability can be used immediately after. If a Champion runs out of stamina, they won't be able to move.</p>
+      <p>A battlefield consists of a shaped setup (divided into squares like a grid). A Champion can only perform an action on another if they're within the range (that many panels of their target) of their ability. Range is also affected by obstacles, which get in the way. Champions who have enough STA to reach their target will path-find (consuming the least STA possible) into an effective, valid range. Basic abilities also utilize the range mechanic (when relevant).</p>
+      <p>The following examples will utilize a 6x8 battlefield. Note that not all battlefields need to be rectangular so long as they are made up of panels.</p>
+      <div class="legend">
+        <ul>
+          <li>🟦 = Ally Champion</li>
+          <li>🟥 = Enemy Champion</li>
+          <li>🌀 = Range Indicator (from Ally Champion)</li>
+          <li>🧱 = Full Obstacle</li>
+          <li>&lt; = Elevation Change Indicator (Higher to the left)</li>
+        </ul>
+      </div>
+      <p>Assuming that both the ally and enemy Champion are on the same level of elevation, this table represents an ally attempting to use a 5 range ability on the enemy. In this case, it would be successful since the enemy is in direct line of sight of the range.</p>
+      <div class="grid-example">
+        <table>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🌀</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🟥</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🌀</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🌀</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🌀</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🟦</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <p>This applies diagonally and horizontally too (diagonally shown below).</p>
+      <div class="grid-example">
+        <table>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>🟥</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>🌀</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>🌀</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🟦</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <p>Obstacles will get in the way of abilities. They can only have their HP reduced, not increased. Some may have special effects. A player can choose to target an obstacle with an attack instead of an enemy.</p>
+      <p>There are two types of obstacles:</p>
+      <ul>
+        <li><strong>Half obstacles</strong> — cut the accuracy of the ability in half. If the attack misses the target, it'll hit the obstacle.</li>
+        <li><strong>Full obstacles</strong> — block the ability entirely and take the full force of the attack.</li>
+      </ul>
+      <p>If an obstacle is blocking an ability, the ability will not go through unless the obstacle is avoided or destroyed. Obstacles have differing amounts of HP.</p>
+      <p>The only exception to these are <em>Piercing</em> abilities which go through obstacles and enemies alike (meaning they could hit multiple enemies at once).</p>
+      <p>Below shows a full obstacle blocking a non-piercing ability (with the range being blocked at the obstacle).</p>
+      <div class="grid-example">
+        <table>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🟥</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🧱</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🌀</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>🟦</td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <p>An elevation difference can also prevent actions. Below shows an enemy at a higher elevation than the ally, preventing the ability. However, if the enemy is on the panel closest to the ledge, the enemy would be able to launch an ability at the ally from this position.</p>
+      <div class="grid-example">
+        <table>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>🟥</td><td>&lt;</td><td>🌀</td><td>🟦</td><td></td></tr>
+          <tr><td></td><td></td><td>&lt;</td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <p>If the ally is further away, it may be possible to land the ability on the enemy. An elevation of 0 would require a gap of 4 panels to hit an enemy on elevation 1. This ratio stays consistent.</p>
+      <p>In any of these positions (where an ability would not land), the Champion will pathfind and consume stamina (in the most optimal way) to move to a location where the ability would land (if possible).</p>
+      <p>Battlefields may also add item crates where, if attacked, will drop an item that the Champion can pick up. The item could also simply be lying on a panel to be retrieved upon being moved into.</p>
+      <p>Overall, battlefields add new layers to combat and revitalize the combat of <strong>Champions</strong>.</p>
+
+      <h4>Range Falloff</h4>
+      <p>Long-range abilities have an <strong>optimal range</strong> beyond which their accuracy decreases. The rules:</p>
+      <ul>
+        <li>Abilities with a range of <strong>9 panels or less</strong> have <strong>no falloff</strong> — their entire range is optimal.</li>
+        <li>Abilities with a range <strong>greater than 9 panels</strong> have an optimal range equal to <strong>80% of their total range</strong> (rounded down). Within optimal range, accuracy is unaffected. Beyond optimal range, <strong>ACC is reduced by 2% per panel</strong>.</li>
+      </ul>
+      <table>
+        <thead>
+          <tr><th>Total Range</th><th>Optimal Range</th><th>Max Falloff Penalty</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8 panels</td><td>Entire range</td><td>None</td></tr>
+          <tr><td>10 panels</td><td>8 panels</td><td>−2% at panel 9, −4% at panel 10</td></tr>
+          <tr><td>15 panels</td><td>12 panels</td><td>Up to −6% at panel 15</td></tr>
+          <tr><td>20 panels (sniper)</td><td>16 panels</td><td>Up to −8% at panel 20</td></tr>
+        </tbody>
+      </table>
+      <p>The falloff penalty is <strong>multiplicative</strong> with other ACC modifiers. For example, a long-range ability passing through a half-obstacle (−50% ACC) and fired beyond optimal range (−6% ACC) lands at <code>0.5 × 0.94 = 0.47</code> of its base accuracy, not <code>0.5 − 0.06</code>.</p>
+      <p>This creates a meaningful tradeoff for snipers and long-range Blasters: a Champion <em>can</em> fire at maximum range, but is rewarded for closing into optimal range first.</p>
+
+      <h3 id="clash-battles">Clash Battles</h3>
+      <p>A recreation of the battle system used in Champions I-III.</p>
+      <p>At the start of a battle, characters start with maximum EN and HP. Their ULT starts at 0%, with 0 items. Their abilities will start with a cooldown of their <strong>normal cooldown minus two turns, minimum 0</strong>. These conditions can change if indicated otherwise by their kit.</p>
+      <p>Clash battles function on a two-phase system: <strong>Preparation</strong> and <strong>Execution</strong>. Preparation begins first, where both sides select their actions for all of their Champions. During this time, Champions on both sides regenerate EN and HP per their defaults. There is no STA or STA regen, meaning there is no movement limit.</p>
+      <p>While selecting abilities, each Champion can only act <strong>once per turn</strong>. Characters can choose who their ability targets manually. Once all actions have been selected, the turn enters the <strong>Execution phase</strong>.</p>
+      <p>In the execution phase, Champions act in order according to their SPD stat, with the highest SPD going first. Once all characters have moved, the cycle continues and a new turn begins. If a character dies before their action can occur, their action is nullified.</p>
+      <p>Battlefields remain the same in this mode but distance, obstacles and range falloff become nearly irrelevant.</p>
+      <p>The last team alive wins. If both teams die due to a self-destruction, the team who caused it wins.</p>
+    </section>
+
+    <section id="ability-calculations">
+      <h2>🧮 Ability Calculations</h2>
+      <p>The order for attack calculations is detailed as follows:</p>
+      <ol>
+        <li><strong>Baseline damage.</strong> Calculate the percentage damage of the move using the relevant stat. Example: a 200% ATK move with 550 ATK = 1,100 baseline damage. Any buffs/debuffs applied to the source stat (leader skills, passives, etc.) are already baked in here.</li>
+        <li><strong>Critical roll.</strong> CRIT RATE is rolled. If successful, baseline damage is multiplied by the CRIT percentage.</li>
+        <li><strong>Infliction roll</strong> (if relevant). The attack rolls for its chance to inflict any negative status effects. Status resistance is not a stat — Champions who resist inflictions do so through specific passives.</li>
+        <li><strong>Accuracy and evasion.</strong> The defender rolls for EVA; the attacker rolls for ACC. If the defender's EVA roll is successful or the attacker's ACC roll fails, the attack is dodged.</li>
+        <li><strong>Block multiplier</strong> (if relevant). If the defender is blocking, multiply their relevant defensive stat (DEF for ATK damage, RES for MAG damage) by <strong>1.5x</strong>.</li>
+        <li><strong>Defense subtraction.</strong> Subtract the defender's DEF (for ATK damage) or RES (for MAG damage) from the damage number.</li>
+        <li><strong>Situational damage modifiers.</strong> Apply any passive or status-effect-based damage modifiers (e.g., "takes 50% less fire damage"). These are additive when stacked.</li>
+      </ol>
+      <div class="callout">
+        <strong>Attack Calculation Order</strong>
+        <em>Baseline percentage damage → Critical roll/multiplier → Infliction roll (if relevant) → ACC + EVA rolls → Block multiplier on DEF/RES (if blocking) → Subtract defensive stat → Apply situational damage modifiers</em>
+      </div>
+      <p>Healing works similarly but skips defenses and evasion:</p>
+      <ol>
+        <li>Calculate percentage healing</li>
+        <li>Roll for critical</li>
+        <li>Roll for application (if relevant)</li>
+        <li>Roll for accuracy</li>
+        <li>Apply target's healing modifier</li>
+      </ol>
+      <div class="callout">
+        <strong>Healing Calculation Order</strong>
+        <em>Baseline percentage healing → Critical roll/multiplier → Application roll (if relevant) → ACC roll → Apply target's healing modifier</em>
+      </div>
+      <p>Some exceptions could always apply (such as attacks ignoring defense altogether, guaranteed hits, guaranteed inflictions, immunity nullification, etc.). Any such exceptions will be made clear within an ability's description.</p>
+    </section>
+
+    <section id="stat-calculations">
+      <h2>📐 Stat Calculations</h2>
+      <p>Stats have a priority during calculations, similarly to ability calculations.</p>
+      <div class="callout">
+        <strong>Stat Calculation Order</strong>
+        <em>Raw stats → Level multiplier → Star multiplier → Skill allocation multiplier → Leader ability multiplier → In-game multipliers (passives, status effects, etc., all additive)</em>
+      </div>
+      <p>An example would be with a raw stat of 500, a level increase of 20%, a star increase of 8%, a skill allocation increase of 2% (not possible by normal means with this level), a leader ability increase of 8%, a passive increase of 20% and a status effect increase of 5%.</p>
+      <ul>
+        <li>500 × 120% = 600</li>
+        <li>600 × 108% = 648</li>
+        <li>648 × 102% = 660 (round down)</li>
+        <li>660 × 108% = 712 (round down)</li>
+        <li>712 × 125% = 890</li>
+      </ul>
+      <p>Stats round down to whole numbers in-game.</p>
+    </section>
+
+    <section id="content-types">
+      <h2>🎮 Content Types</h2>
+      <p><strong>Champions Ultimate Edition</strong> improves upon its predecessors by introducing more modes and ways to play.</p>
+
+      <h3>Main Story</h3>
+      <p>The main story of <strong>Champions Ultimate Edition</strong>. Tells a brand new and multiversal story of epic proportions directly tying into the previous. Also includes revamped and retconned stories from Champions I, II and III with revised story beats and improved missions. This mode unlocks many of the playable Champions and is the main source of early-game progression. Navigating the hubs between battles allows for resource gathering and plot development. Battles here are usually standard, but sometimes involve waves of enemies or unique bosses.</p>
+
+      <h3>Event Story</h3>
+      <p>Event stories are other campaigns (often limited-time) with new characters, artifacts, etc. Events tend to be a lot harder than the campaign but offer greater and more up-to-date rewards. Maintains the same gameplay style as the main campaign, offering explorable hubs and unique missions.</p>
+
+      <h3>Arena</h3>
+      <p>The main PvP gamemode utilizing the standard battle system. Two types of the Arena gamemode are available:</p>
+      <ul>
+        <li><strong>Sparring Session</strong> — simply for fun. It can still provide XP but serves primarily for casual play. Friends can compete against each other in this mode and all stars/levels are equalized. Each player is given 60 seconds to make their actions (excluding action animations) per Champion per turn.</li>
+        <li><strong>Death Battle</strong> — incredibly competitive, with a ranked system. Items found throughout the battlefield are no longer randomized and the battlefield pool (maps able to be played on) is shrunk to ensure balance. The top players in Death Battle receive huge rewards every season (with each season lasting a month). Provides a lot of XP and rewards upon victory. Friends can still compete against each other in this mode but there will be no rewards. Each player is given 30 seconds to make their actions (excluding action animations) per Champion per turn.</li>
+      </ul>
+
+      <h3>Clash</h3>
+      <p>A PvP mode which utilizes the old preparation/execution phase mechanics. This changes game flow entirely by requiring each side to choose all of their actions at once for the turn (rather than when the character is ready to act). On top of this, each Champion can only use one ability per turn (not including extensions). Stamina is disabled entirely in this mode (allowing Champions to move around the battlefield without limit), making it more reminiscent of the old style of Champions combat. Two types of the Clash gamemode are available:</p>
+      <ul>
+        <li><strong>Casual Clash</strong> — simply for fun. It can still provide XP but serves primarily for casual play. Friends can compete against each other in this mode and all stars/levels are equalized. Each player is given 120 seconds to make all of their actions per turn.</li>
+        <li><strong>Competitive Clash</strong> — incredibly competitive, with a ranked system. Items found throughout the battlefield are no longer randomized and the battlefield pool (maps able to be played on) is shrunk to ensure balance. The top players in Competitive Clash receive huge rewards every season (with each season lasting a month). Provides a lot of XP and rewards upon victory. Friends can still compete against each other in this mode but there will be no rewards. Each player is given 90 seconds to make all of their actions per turn.</li>
+      </ul>
+
+      <h3>The Dark Dimension</h3>
+      <p>Constant waves of enemies which repeatedly get stronger as the fight continues. Four types of this gamemode are available:</p>
+      <ul>
+        <li>10 Wave (Easy)</li>
+        <li>50 Wave (Medium)</li>
+        <li>100 Wave (Hard)</li>
+        <li>Endless (Insane)</li>
+      </ul>
+      <p>This gamemode is way longer than normal battles and gives Champions who specialize in long fights their time to shine. Encourages teams with strong stat-stacking and/or utility. By the high/final waves, you'll be dealing with enemies which have ridiculous stats (like 3000 ATK/MAG). Gives great rewards for those willing to take the trek to the top (ranging from okay to amazing depending on the wave number). Top players in Endless mode will receive great rewards at the end of a season.</p>
+      <p>The Dark Dimension can be quit and resumed at any time (unless the season ends). A separate run of any given mode cannot be begun until the other run is won, lost or cancelled.</p>
+
+      <h3>Crisis on Infinite Earths</h3>
+      <p>Players unite into clans of up to 30 people. These clans participate in a battle which sees top characters from each clan ally themselves in order to defeat other clans. Clanmates will each select their best character to defend their Earth as they also provide support members for the character to receive stats from. The support characters will not participate in battle.</p>
+      <p>The defending characters will essentially be bosses for the enemy clan to face, with massive stats and <strong>partial infliction immunity</strong>. Each defending boss has its own set of immunities that vary per boss — complete stuns and immobilization effects are always blocked, but most other inflictions can still apply (giving Breakers and Plunderers a real role in offense). Clans are given 24 hours to setup their defense and 24 hours to attack, with each player having up to 5 attack attempts. The clan to successfully take the other Earth and have the highest score (most bosses defeated or cleared in better time) wins. Top-ranking clans at the end of a season will get amazing rewards.</p>
+
+      <h3>Flashpoint</h3>
+      <p>Incredibly speedy game mode which encourages early-fight dominators. Functions within the normal battle system with a few waves of enemies. Enemies will be frail but will move incredibly fast and hit very hard (around 1000-1800 ATK/MAG), encouraging evasion or high damage reduction. Once the waves are cleared (typically 3), great rewards are given (acting as a resource replenisher). Up to 3 attempts can be made per day but it can only be completed once per day.</p>
+
+      <h3>Danger Room</h3>
+      <p>Trials which test your understanding of a Champion's kit. Staged environments which require proper ability usage within a set amount of turns. Acts like a "Mastery" for understanding of the Champion. Provides rewards which buff the specific Champion (such as a strong artifact, EXP or extra stars).</p>
+    </section>
+
+    <section id="term-definitions">
+      <h2>📖 Term Definitions</h2>
+
+      <h3>Turns</h3>
+      <p>Turns are acknowledged in various ways throughout the game. Many things such as cooldowns and status effects rely on turns so it's critical they're defined properly.</p>
+      <p>Turns can often be thought of like "active until all actions are chosen" for that many times. For example, a Champion could apply an ATK increasing status which lasts for 1 turn to themselves. That attack would provide a buff on their next rotation before vanishing (to give the character a chance to act before expiring). A status effect of 2 turns would apply on the following rotation as well. Negative effects apply in the same way, providing a negative effect for that many actions before expiring. Actions, as described here, don't account for extension abilities (which would count as an extension of the previous and thus would maintain the status effects which the previous action held).</p>
+      <p>If a status effect is damaging or disorienting (deals damage or impacts character choice), the effect of the status effect will apply at the start of a character's turn rather than waiting for the character to act first.</p>
+
+      <h3>Extension</h3>
+      <p>Extensions are abilities tacked onto another ability at no extra cost. They function like a "combo" where it'll continue the first ability. These abilities are often represented by the phrase "extends into…" on a character's ability.</p>
+    </section>
+
+  </main>
+</div>
+
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Scroll to top">↑</button>
+
+<script>
+  // Scroll-to-top button visibility
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Active TOC section highlighting via scroll position
+  // (Replaces an earlier IntersectionObserver approach that missed
+  // updates when scrolling between sections.)
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sectionIds = Array.from(tocLinks).map(a => a.getAttribute('href').slice(1));
+  const sections = sectionIds
+    .map(id => ({ id, el: document.getElementById(id) }))
+    .filter(s => s.el);
+
+  function updateActiveTocLink() {
+    const triggerLine = window.innerHeight * 0.3;
+    // Walk sections in document order. The deepest section whose top has
+    // crossed above the trigger line is the one the reader is currently on.
+    let activeId = sections.length > 0 ? sections[0].id : null;
+    for (const { id, el } of sections) {
+      const top = el.getBoundingClientRect().top;
+      if (top <= triggerLine) {
+        activeId = id;
+      } else {
+        break;
+      }
+    }
+    tocLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + activeId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActiveTocLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  updateActiveTocLink();
+</script>
+
+</body>
+</html>

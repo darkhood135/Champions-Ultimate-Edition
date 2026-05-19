@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #ff5b5b; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ff5b5b;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== TOOLBAR ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #ff5b5b; background: #1c1d22; }
+
+  .toolbar-btn {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toolbar-btn:hover { color: #f0f1f3; border-color: #3c4047; }
+  .toolbar-btn.active { color: #ff8585; border-color: #ff5b5b; background: rgba(255, 91, 91, 0.08); }
+
+  .toolbar-btn .count-pill {
+    background: #ff5b5b;
+    color: #2d0808;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== ACTIVE CHIPS ====================== */
+  .active-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 24px;
+    margin-bottom: 18px;
+  }
+
+  .active-chips:empty { margin-bottom: 0; min-height: 0; }
+
+  .chip {
+    background: rgba(255, 91, 91, 0.1);
+    border: 1px solid rgba(255, 91, 91, 0.4);
+    color: #ff8585;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px 4px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .chip:hover { background: rgba(255, 91, 91, 0.18); }
+
+  .chip .x { font-size: 14px; line-height: 1; opacity: 0.7; }
+
+  /* ====================== FILTER PANEL ====================== */
+  .filter-panel {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease, padding 0.2s ease, margin-bottom 0.2s ease;
+    margin-bottom: 0;
+  }
+
+  .filter-panel.open {
+    max-height: 1200px;
+    padding: 18px 22px 20px;
+    margin-bottom: 22px;
+  }
+
+  .filter-group { margin-bottom: 18px; }
+  .filter-group:last-child { margin-bottom: 0; }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter-pill {
+    background: #1c1d22;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .filter-pill:hover { color: #f0f1f3; border-color: #3c4047; }
+  .filter-pill.active {
+    background: rgba(255, 91, 91, 0.15);
+    border-color: #ff5b5b;
+    color: #ff8585;
+  }
+
+  /* ====================== CHAMPION GRID ====================== */
+  .champion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .champion-card {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .champion-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff5b5b;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .champion-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    color: #4f535c;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    transition: transform 0.25s ease;
+  }
+
+  .champion-card:hover .champion-image { transform: scale(1.04); }
+
+  .champion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .champion-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 35%,
+      rgba(13, 14, 17, 0.6) 70%,
+      rgba(13, 14, 17, 0.98) 100%);
+    pointer-events: none;
+  }
+
+  .role-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .role-badge[data-role="Striker"]    { color: #ff8585; }
+  .role-badge[data-role="Blaster"]    { color: #f0894a; }
+  .role-badge[data-role="Defender"]   { color: #6bb4ff; }
+  .role-badge[data-role="Healer"]     { color: #5fd189; }
+  .role-badge[data-role="Booster"]    { color: #c084fc; }
+  .role-badge[data-role="Breaker"]    { color: #ffd680; }
+  .role-badge[data-role="Summoner"]   { color: #5fe0c8; }
+  .role-badge[data-role="Berserker"]  { color: #ff5757; }
+  .role-badge[data-role="Plunderer"]  { color: #ff7eb3; }
+
+  .champion-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+  }
+
+  /* No results message */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 14px;
+    grid-column: 1 / -1;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .toolbar { gap: 8px; }
+    .toolbar .search-wrap { min-width: 100%; }
+    .count-badge { margin-left: 0; }
+    .champion-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Champions</h1>
+    <p class="page-subtitle">Every playable character in the roster.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search by name or real name…" autocomplete="off">
+    </div>
+    <button class="toolbar-btn" id="filter-toggle">
+      Filters
+      <span class="count-pill" id="filter-count" style="display: none;">0</span>
+    </button>
+    <button class="toolbar-btn" id="clear-filters">Clear</button>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> champions
+    </div>
+  </div>
+
+  <!-- ACTIVE FILTER CHIPS (auto-populated) -->
+  <div class="active-chips" id="active-chips"></div>
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel" id="filter-panel">
+    <div class="filter-group">
+      <div class="filter-label">Role</div>
+      <div class="filter-pills" data-category="role">
+        <button class="filter-pill" data-value="Striker">Striker</button>
+        <button class="filter-pill" data-value="Blaster">Blaster</button>
+        <button class="filter-pill" data-value="Defender">Defender</button>
+        <button class="filter-pill" data-value="Healer">Healer</button>
+        <button class="filter-pill" data-value="Booster">Booster</button>
+        <button class="filter-pill" data-value="Breaker">Breaker</button>
+        <button class="filter-pill" data-value="Summoner">Summoner</button>
+        <button class="filter-pill" data-value="Berserker">Berserker</button>
+        <button class="filter-pill" data-value="Plunderer">Plunderer</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Link</div>
+      <div class="filter-pills" data-category="link">
+        <button class="filter-pill" data-value="Hero">Hero</button>
+        <button class="filter-pill" data-value="Villain">Villain</button>
+        <button class="filter-pill" data-value="Anti-Hero">Anti-Hero</button>
+        <button class="filter-pill" data-value="Pure Heart">Pure Heart</button>
+        <button class="filter-pill" data-value="Avengers">Avengers</button>
+        <button class="filter-pill" data-value="New Avengers">New Avengers</button>
+        <button class="filter-pill" data-value="X-Men">X-Men</button>
+        <button class="filter-pill" data-value="Spider-Verse">Spider-Verse</button>
+        <button class="filter-pill" data-value="Justice League">Justice League</button>
+        <button class="filter-pill" data-value="Bat Family">Bat Family</button>
+        <button class="filter-pill" data-value="Z Fighters">Z Fighters</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Tag</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="Human">Human</button>
+        <button class="filter-pill" data-value="Mutant">Mutant</button>
+        <button class="filter-pill" data-value="Saiyan">Saiyan</button>
+        <button class="filter-pill" data-value="Kryptonian">Kryptonian</button>
+        <button class="filter-pill" data-value="Amazonian">Amazonian</button>
+        <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
+        <button class="filter-pill" data-value="DC Universe">DC Universe</button>
+        <button class="filter-pill" data-value="Dragon Ball Universe">Dragon Ball Universe</button>
+        <button class="filter-pill" data-value="Web Warrior">Web Warrior</button>
+        <button class="filter-pill" data-value="Quick Counter">Quick Counter</button>
+        <button class="filter-pill" data-value="Evasive">Evasive</button>
+        <button class="filter-pill" data-value="High Damage">High Damage</button>
+        <button class="filter-pill" data-value="Healing Factor">Healing Factor</button>
+        <button class="filter-pill" data-value="Magic User">Magic User</button>
+        <button class="filter-pill" data-value="Tactical">Tactical</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       CHAMPION GRID
+       Each card data-* attributes drive filtering.
+       Replace href, image, and metadata per champion.
+       ============================================= -->
+  <div class="champion-grid" id="champion-grid">
+
+    <a href="champions/spider-man.html" class="champion-card"
+       data-name="Spider-Man" data-realname="Peter Parker" data-role="Striker"
+       data-links="Spider-Verse,New Avengers,Hero,Pure Heart"
+       data-tags="Human,Web Warrior,Marvel Universe,Quick Counter,Evasive">
+      <div class="champion-image"><span>SM</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Spider-Man</div>
+    </a>
+
+    <a href="champions/miles-morales.html" class="champion-card"
+       data-name="Miles Morales" data-realname="Miles Morales" data-role="Striker"
+       data-links="Spider-Verse,New Avengers,Hero"
+       data-tags="Human,Web Warrior,Marvel Universe,Evasive">
+      <div class="champion-image"><span>MM</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Miles Morales</div>
+    </a>
+
+    <a href="champions/wolverine.html" class="champion-card"
+       data-name="Wolverine" data-realname="Logan" data-role="Berserker"
+       data-links="X-Men,Hero,Anti-Hero"
+       data-tags="Mutant,Marvel Universe,Healing Factor,High Damage">
+      <div class="champion-image"><span>WV</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Wolverine</div>
+    </a>
+
+    <a href="champions/iron-man.html" class="champion-card"
+       data-name="Iron Man" data-realname="Tony Stark" data-role="Blaster"
+       data-links="Avengers,Hero"
+       data-tags="Human,Marvel Universe,High Damage,Tactical">
+      <div class="champion-image"><span>IM</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Iron Man</div>
+    </a>
+
+    <a href="champions/doctor-strange.html" class="champion-card"
+       data-name="Doctor Strange" data-realname="Stephen Strange" data-role="Booster"
+       data-links="Avengers,Hero"
+       data-tags="Human,Marvel Universe,Magic User,Tactical">
+      <div class="champion-image"><span>DS</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Doctor Strange</div>
+    </a>
+
+    <a href="champions/hulk.html" class="champion-card"
+       data-name="Hulk" data-realname="Bruce Banner" data-role="Berserker"
+       data-links="Avengers,Hero,Anti-Hero"
+       data-tags="Mutant,Marvel Universe,High Damage,Healing Factor">
+      <div class="champion-image"><span>HK</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Hulk</div>
+    </a>
+
+    <a href="champions/captain-america.html" class="champion-card"
+       data-name="Captain America" data-realname="Steve Rogers" data-role="Defender"
+       data-links="Avengers,Hero,Pure Heart"
+       data-tags="Human,Marvel Universe,Tactical">
+      <div class="champion-image"><span>CA</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Captain America</div>
+    </a>
+
+    <a href="champions/goku.html" class="champion-card"
+       data-name="Goku" data-realname="Son Goku" data-role="Striker"
+       data-links="Z Fighters,Hero,Pure Heart"
+       data-tags="Saiyan,Dragon Ball Universe,High Damage">
+      <div class="champion-image"><span>GK</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Goku</div>
+    </a>
+
+    <a href="champions/vegeta.html" class="champion-card"
+       data-name="Vegeta" data-realname="Prince Vegeta" data-role="Striker"
+       data-links="Z Fighters,Anti-Hero"
+       data-tags="Saiyan,Dragon Ball Universe,High Damage">
+      <div class="champion-image"><span>VG</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Vegeta</div>
+    </a>
+
+    <a href="champions/batman.html" class="champion-card"
+       data-name="Batman" data-realname="Bruce Wayne" data-role="Breaker"
+       data-links="Justice League,Bat Family,Hero,Anti-Hero"
+       data-tags="Human,DC Universe,Tactical">
+      <div class="champion-image"><span>BM</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Batman</div>
+    </a>
+
+    <a href="champions/superman.html" class="champion-card"
+       data-name="Superman" data-realname="Clark Kent" data-role="Defender"
+       data-links="Justice League,Hero,Pure Heart"
+       data-tags="Kryptonian,DC Universe,High Damage">
+      <div class="champion-image"><span>SP</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Superman</div>
+    </a>
+
+    <a href="champions/wonder-woman.html" class="champion-card"
+       data-name="Wonder Woman" data-realname="Diana Prince" data-role="Defender"
+       data-links="Justice League,Hero,Pure Heart"
+       data-tags="Amazonian,DC Universe">
+      <div class="champion-image"><span>WW</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Wonder Woman</div>
+    </a>
+
+    <a href="champions/flash.html" class="champion-card"
+       data-name="The Flash" data-realname="Barry Allen" data-role="Striker"
+       data-links="Justice League,Hero"
+       data-tags="Human,DC Universe,Evasive,Quick Counter">
+      <div class="champion-image"><span>FL</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">The Flash</div>
+    </a>
+
+    <a href="champions/joker.html" class="champion-card"
+       data-name="The Joker" data-realname="Unknown" data-role="Plunderer"
+       data-links="Villain,Bat Family"
+       data-tags="Human,DC Universe">
+      <div class="champion-image"><span>JK</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">The Joker</div>
+    </a>
+
+    <a href="champions/magneto.html" class="champion-card"
+       data-name="Magneto" data-realname="Erik Lehnsherr" data-role="Blaster"
+       data-links="X-Men,Villain,Anti-Hero"
+       data-tags="Mutant,Marvel Universe,High Damage">
+      <div class="champion-image"><span>MG</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Magneto</div>
+    </a>
+
+    <a href="champions/storm.html" class="champion-card"
+       data-name="Storm" data-realname="Ororo Munroe" data-role="Blaster"
+       data-links="X-Men,Hero"
+       data-tags="Mutant,Marvel Universe">
+      <div class="champion-image"><span>ST</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Storm</div>
+    </a>
+
+    <a href="champions/black-cat.html" class="champion-card"
+       data-name="Black Cat" data-realname="Felicia Hardy" data-role="Plunderer"
+       data-links="Spider-Verse,Anti-Hero"
+       data-tags="Human,Marvel Universe,Evasive">
+      <div class="champion-image"><span>BC</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Black Cat</div>
+    </a>
+
+    <a href="champions/mary-jane.html" class="champion-card"
+       data-name="Mary Jane" data-realname="Mary Jane Watson" data-role="Booster"
+       data-links="Spider-Verse,Hero,Pure Heart"
+       data-tags="Human,Marvel Universe">
+      <div class="champion-image"><span>MJ</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Mary Jane</div>
+    </a>
+
+    <a href="champions/daredevil.html" class="champion-card"
+       data-name="Daredevil" data-realname="Matt Murdock" data-role="Striker"
+       data-links="Hero,Anti-Hero"
+       data-tags="Human,Marvel Universe,Quick Counter,Evasive">
+      <div class="champion-image"><span>DD</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Daredevil</div>
+    </a>
+
+    <a href="champions/spider-gwen.html" class="champion-card"
+       data-name="Spider-Gwen" data-realname="Gwen Stacy" data-role="Striker"
+       data-links="Spider-Verse,Hero"
+       data-tags="Human,Web Warrior,Marvel Universe,Evasive">
+      <div class="champion-image"><span>SG</span></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Spider-Gwen</div>
+    </a>
+
+  </div>
+
+  <!-- No-results state (shown via JS when grid is empty) -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No champions match those filters</strong>
+    Try removing one of the active filters or clearing them all.
+  </div>
+
+</div>
+
+<script>
+  const searchInput  = document.getElementById('search');
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterPanel  = document.getElementById('filter-panel');
+  const clearBtn     = document.getElementById('clear-filters');
+  const filterCount  = document.getElementById('filter-count');
+  const activeChips  = document.getElementById('active-chips');
+  const countEl      = document.getElementById('count');
+  const totalEl      = document.getElementById('total');
+  const cards        = Array.from(document.querySelectorAll('.champion-card'));
+  const pills        = Array.from(document.querySelectorAll('.filter-pill'));
+  const noResults    = document.getElementById('no-results');
+
+  // Active filters by category
+  const active = { role: new Set(), link: new Set(), tag: new Set() };
+
+  totalEl.textContent = cards.length;
+
+  function activeFilterCount() {
+    return active.role.size + active.link.size + active.tag.size;
+  }
+
+  function renderChips() {
+    activeChips.innerHTML = '';
+    for (const category of ['role', 'link', 'tag']) {
+      for (const value of active[category]) {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.dataset.category = category;
+        chip.dataset.value = value;
+        chip.innerHTML = `${value} <span class="x">×</span>`;
+        chip.addEventListener('click', () => {
+          active[category].delete(value);
+          // Sync pill state
+          const pill = document.querySelector(
+            `.filter-pill[data-value="${value}"]`
+          );
+          if (pill && pill.parentElement.dataset.category === category) {
+            pill.classList.remove('active');
+          }
+          applyFilters();
+        });
+        activeChips.appendChild(chip);
+      }
+    }
+  }
+
+  function applyFilters() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const realname = card.dataset.realname.toLowerCase();
+      const role = card.dataset.role;
+      const links = card.dataset.links.split(',').map(s => s.trim());
+      const tags  = card.dataset.tags.split(',').map(s => s.trim());
+
+      let match = true;
+
+      if (search && !name.includes(search) && !realname.includes(search)) {
+        match = false;
+      }
+      if (match && active.role.size > 0 && !active.role.has(role)) {
+        match = false;
+      }
+      if (match && active.link.size > 0) {
+        for (const f of active.link) {
+          if (!links.includes(f)) { match = false; break; }
+        }
+      }
+      if (match && active.tag.size > 0) {
+        for (const f of active.tag) {
+          if (!tags.includes(f)) { match = false; break; }
+        }
+      }
+
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+
+    // Update filter count pill
+    const n = activeFilterCount();
+    if (n > 0) {
+      filterCount.style.display = 'inline-block';
+      filterCount.textContent = n;
+    } else {
+      filterCount.style.display = 'none';
+    }
+
+    renderChips();
+  }
+
+  // Filter pill clicks
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const category = pill.parentElement.dataset.category;
+      const value = pill.dataset.value;
+      if (active[category].has(value)) {
+        active[category].delete(value);
+        pill.classList.remove('active');
+      } else {
+        active[category].add(value);
+        pill.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  // Search input
+  searchInput.addEventListener('input', applyFilters);
+
+  // Filter panel toggle
+  filterToggle.addEventListener('click', () => {
+    filterPanel.classList.toggle('open');
+    filterToggle.classList.toggle('active');
+  });
+
+  // Clear all
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    for (const cat of ['role', 'link', 'tag']) active[cat].clear();
+    pills.forEach(p => p.classList.remove('active'));
+    applyFilters();
+  });
+
+  applyFilters();
+</script>
+
+</body>
+</html>
