@@ -192,6 +192,18 @@
     border: 1px solid #2c3038;
   }
 
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
   /* ====================== BEST PARTNERS ====================== */
   .partners-grid {
     display: grid;
@@ -711,13 +723,7 @@
       <p class="subtitle">Peter Parker</p>
       <span class="role-badge">Striker</span>
       <p class="description">
-        Peter Benjamin Parker is a brilliant scientist from Queens, New York, whose life was 
-        defined not by the radioactive spider bite that gave him his powers — superhuman strength, agility, wall-crawling, a precognitive 
-        Spider-Sense, and self-invented web-shooters — but by the moment of selfish inaction that followed: 
-        letting a burglar go, only for that man to murder his Uncle Ben, cementing his lifelong creed. What makes him Marvel's 
-        most enduring character is the human-scale tension at his core: perpetually broke, guilt-ridden, and failing the people he loves because 
-        being Spider-Man consumes everything else, yet choosing — through sharp deflecting humor and quiet stubbornness — to keep showing up for 
-        the ordinary people of New York anyway.
+        Spider-Man — Peter Parker to the people who know him — is Queens' favorite wallcrawler and Marvel's most enduring underdog. A radioactive spider bite gave him superhuman strength, reflexes, and a precognitive danger sense; his own engineering brilliance gave him the web-shooters. He wins fights he shouldn't through pure motion: clinging to walls, swinging between rooftops, dodging blows he saw a half-second early. Perpetually broke, perpetually outclassed on paper, and never standing still long enough to be hit twice. He cracks jokes through a bloody nose, lifts impossible weights for people who'll never thank him, and shows up — exhausted, late, alone — every single time. With great power comes great responsibility, and nobody's carried that burden longer.
       </p>
       <p class="quote">"With great power, comes great responsibility."</p>
     </div>
@@ -759,13 +765,13 @@
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <span class="pill">Marvel Universe</span>
-          <span class="pill">Hero</span>
-          <span class="pill">Human</span>
-          <span class="pill">Web Warrior</span>
-          <span class="pill">New Avengers</span>
-          <span class="pill">Comedic Genius</span>
-          <span class="pill">Heroes of New York</span>
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/web-warrior.html" class="pill">Web Warrior</a>
+          <a href="../links/new-avengers.html" class="pill">New Avengers</a>
+          <a href="../links/comedic-genius.html" class="pill">Comedic Genius</a>
+          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
         </div>
       </div>
 
@@ -792,7 +798,7 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="#miles-morales" class="partner-card">
+          <a href="miles-morales.html" class="partner-card">
             <div class="partner-image">
               <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
               <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
@@ -824,7 +830,7 @@
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Spider-Verse" allies gain +15% ATK and +10% EVA in battle.</li>
+          <li>"Web Warrior" allies gain +15% ATK and +10% EVA in battle.</li>
         </ul>
       </div>
 

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Avengers — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #4aa3ff; }
+
+  .category-badge {
+    display: inline-block;
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(74, 163, 255, 0.4);
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #6bb4ff;
+    margin-bottom: 8px;
+  }
+
+  .page-desc {
+    font-size: 15px;
+    color: #c5c8d0;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 32px 32px 60px;
+  }
+
+  /* ====================== SECTIONS ====================== */
+  section {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  /* ====================== MEMBER GRID (champions) ====================== */
+  .member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .champion-card {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .champion-card:hover {
+    transform: translateY(-3px);
+    border-color: #4aa3ff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .champion-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    color: #4f535c;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .champion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .champion-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 35%,
+      rgba(13, 14, 17, 0.6) 70%,
+      rgba(13, 14, 17, 0.98) 100%);
+  }
+
+  .role-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: #ff8585;
+    z-index: 2;
+  }
+
+  .champion-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+  }
+
+  /* ====================== EFFECT CARDS (leaders/supporters/opposers) ====================== */
+  .effect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+
+  .effect-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-left: 3px solid #4aa3ff;
+    border-radius: 10px;
+    padding: 14px 18px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .effect-card:hover { transform: translateY(-2px); background: #21232a; }
+
+  .effect-card--leader    { border-left-color: #efb73f; }
+  .effect-card--supporter { border-left-color: #3fb16c; }
+  .effect-card--opposer   { border-left-color: #d63a3a; }
+
+  .effect-portrait {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .effect-portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+  .effect-body { flex: 1; min-width: 0; }
+
+  .effect-name {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .effect-source {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .effect-text {
+    font-size: 12.5px;
+    color: #c5c8d0;
+    line-height: 1.5;
+  }
+
+  /* ====================== TEAMS PER MODE ====================== */
+  .team-mode {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    margin-bottom: 12px;
+  }
+
+  .team-mode:last-child { margin-bottom: 0; }
+
+  .team-mode-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .team-mode-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .team-mode-tag {
+    font-size: 10px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+  }
+
+  .team-roster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .team-slot {
+    background: rgba(74, 163, 255, 0.1);
+    border: 1px solid rgba(74, 163, 255, 0.35);
+    color: #6bb4ff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .team-slot.leader {
+    background: rgba(239, 183, 63, 0.1);
+    border-color: rgba(239, 183, 63, 0.45);
+    color: #ffd680;
+  }
+
+  .team-notes {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ====================== EMPTY STATE ====================== */
+  .empty {
+    text-align: center;
+    padding: 28px 20px;
+    color: #6b7280;
+    font-size: 13px;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px dashed #2c3038;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    section { padding: 18px 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="../links.html" class="back-link">← Back to Links</a>
+    <span class="category-badge">Team</span>
+    <h1 class="page-title">New Avengers</h1>
+    <p class="page-desc">A street-level reformation of the Avengers focused on grounded threats — heroes who fight the battles too small for gods and too rooted in the city for the headline team to notice. Members tend to be reactive, tactical and resilient, built around protecting civilians and dismantling local crime rather than world-ending crises.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- =============================================
+       MEMBERS — Champions who have this link
+       ============================================= -->
+  <section>
+    <div class="section-title">Members</div>
+    <p class="section-subtitle">Champions whose Links include "New Avengers".</p>
+    <div class="member-grid">
+
+      <a href="../champions/spider-man.html" class="champion-card">
+        <div class="champion-image">
+          <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+        </div>
+        <div class="champion-overlay"></div>
+        <div class="role-badge">Striker</div>
+        <div class="champion-name">Spider-Man</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       LEADERS — Champions whose Leader Ability buffs this link
+       ============================================= -->
+  <section>
+    <div class="section-title">Leaders</div>
+    <p class="section-subtitle">Champions whose Leader Ability provides benefits to New Avengers allies.</p>
+    <div class="empty">
+      No Champions yet have a Leader Ability that buffs New Avengers allies.
+    </div>
+    <!-- Example of a leader card:
+
+    <div class="effect-grid">
+      <a href="../champions/captain-america.html" class="effect-card effect-card--leader">
+        <div class="effect-portrait">CA</div>
+        <div class="effect-body">
+          <div class="effect-name">Captain America</div>
+          <div class="effect-source">Leader Ability · Stars and Stripes</div>
+          <div class="effect-text">All New Avengers allies gain +20% ATK and +15% DEF in battle.</div>
+        </div>
+      </a>
+    </div>
+
+    -->
+  </section>
+
+  <!-- =============================================
+       SUPPORTERS — Explicit buffs to this link's allies
+       (Outside of Leader Abilities)
+       ============================================= -->
+  <section>
+    <div class="section-title">Supporting Champions</div>
+    <p class="section-subtitle">Champions whose passives, ULTIMATUMs or specials explicitly buff New Avengers allies (excluding Leader Abilities).</p>
+    <div class="empty">
+      No Champions yet explicitly support New Avengers allies through non-Leader effects.
+    </div>
+    <!-- Example of a supporter card:
+
+    <div class="effect-grid">
+      <a href="../champions/iron-fist.html" class="effect-card effect-card--supporter">
+        <div class="effect-portrait">IF</div>
+        <div class="effect-body">
+          <div class="effect-name">Iron Fist</div>
+          <div class="effect-source">Passive 2 · Brother's Keeper</div>
+          <div class="effect-text">New Avengers allies gain +30% MAG and +10% EVA while Iron Fist is alive.</div>
+        </div>
+      </a>
+    </div>
+
+    -->
+  </section>
+
+  <!-- =============================================
+       OPPOSERS — Explicit anti-link effects
+       ============================================= -->
+  <section>
+    <div class="section-title">Opposing Champions</div>
+    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, New Avengers members.</p>
+    <div class="empty">
+      No Champions yet have effects that explicitly counter New Avengers.
+    </div>
+    <!-- Example of an opposer card:
+
+    <div class="effect-grid">
+      <a href="../champions/kingpin.html" class="effect-card effect-card--opposer">
+        <div class="effect-portrait">KP</div>
+        <div class="effect-body">
+          <div class="effect-name">Kingpin</div>
+          <div class="effect-source">Special 3 · Street Sweep</div>
+          <div class="effect-text">Deals 30% extra damage if the target is a New Avengers member.</div>
+        </div>
+      </a>
+    </div>
+
+    -->
+  </section>
+
+  <!-- =============================================
+       BEST TEAMS — Recommended compositions per mode
+       ============================================= -->
+  <section>
+    <div class="section-title">Best Teams Per Mode</div>
+    <p class="section-subtitle">Recommended six-Champion compositions for each game mode.</p>
+    <div class="empty">
+      Not enough New Avengers Champions have been designed yet to recommend team compositions.
+    </div>
+    <!-- Example of a team-mode block:
+
+    <div class="team-mode">
+      <div class="team-mode-header">
+        <div class="team-mode-name">Arena · Death Battle</div>
+        <div class="team-mode-tag">PvP · Standard</div>
+      </div>
+      <div class="team-roster">
+        <span class="team-slot leader">Captain America (Leader)</span>
+        <span class="team-slot">Spider-Man</span>
+        <span class="team-slot">Iron Fist</span>
+        <span class="team-slot">Luke Cage</span>
+        <span class="team-slot">Wolverine</span>
+        <span class="team-slot">Daredevil</span>
+      </div>
+      <p class="team-notes">A bruising street-level core. Captain America's leader skill keeps the team tanky, Luke Cage anchors the front, and Spider-Man/Daredevil punish positioning mistakes. Wolverine's healing factor closes long fights.</p>
+    </div>
+
+    -->
+  </section>
+
+</div>
+
+</body>
+</html>

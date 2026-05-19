@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #c084fc; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #c084fc;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== SEARCH ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #c084fc; background: #1c1d22; }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== CATEGORIES ====================== */
+  .category {
+    margin-bottom: 28px;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .category-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .category-count {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .category--morality .category-title { color: #ff7878; }
+  .category--team     .category-title { color: #5fb0ff; }
+  .category--universe .category-title { color: #c084fc; }
+  .category--species  .category-title { color: #5fd189; }
+  .category--mindset  .category-title { color: #ffc06a; }
+
+  /* ====================== LINK PILLS (Dokkan-inspired buttons) ====================== */
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+  }
+
+  .link-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.28),
+      0 2px 5px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+    transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+    min-height: 42px;
+    line-height: 1.2;
+  }
+
+  .link-pill:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.28),
+      0 6px 14px rgba(0, 0, 0, 0.55);
+  }
+
+  .link-pill:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+  }
+
+  /* Pill colors per category */
+  .link-pill--morality { background: #d63a3a; color: #fff; }
+  .link-pill--team     { background: #3690ee; color: #fff; }
+  .link-pill--universe { background: #9b59f6; color: #fff; }
+  .link-pill--species  { background: #3fb16c; color: #fff; }
+  .link-pill--mindset  { background: #efb73f; color: #2e1f08; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
+
+  /* No results state */
+  .no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .count-badge { margin-left: 0; }
+    .link-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .link-pill { padding: 10px 14px; font-size: 12px; min-height: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Links</h1>
+    <p class="page-subtitle">Personality, relationships and motivations that bind Champions into teams.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SEARCH -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search links…" autocomplete="off">
+    </div>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> links
+    </div>
+  </div>
+
+  <!-- =============================================
+       LINKS BY CATEGORY
+       Each link-pill is a clickable button to its
+       individual link page. Add more by copying any
+       pill and updating the category class, name and href.
+       ============================================= -->
+
+  <!-- MORALITY -->
+  <section class="category category--morality">
+    <div class="category-header">
+      <div class="category-title">Morality</div>
+      <div class="category-count" data-category-count>1 link</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/hero.html" class="link-pill link-pill--morality" data-name="Hero">Hero</a>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="category category--team">
+    <div class="category-header">
+      <div class="category-title">Team</div>
+      <div class="category-count" data-category-count>3 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/new-avengers.html" class="link-pill link-pill--team" data-name="New Avengers">New Avengers</a>
+      <a href="links/heroes-of-new-york.html" class="link-pill link-pill--team" data-name="Heroes of New York">Heroes of New York</a>
+      <a href="links/web-warrior.html" class="link-pill link-pill--team" data-name="Web Warrior">Web Warrior</a>
+    </div>
+  </section>
+
+  <!-- UNIVERSE -->
+  <section class="category category--universe">
+    <div class="category-header">
+      <div class="category-title">Universe</div>
+      <div class="category-count" data-category-count>1 link</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/marvel-universe.html" class="link-pill link-pill--universe" data-name="Marvel Universe">Marvel Universe</a>
+    </div>
+  </section>
+
+  <!-- SPECIES -->
+  <section class="category category--species">
+    <div class="category-header">
+      <div class="category-title">Species</div>
+      <div class="category-count" data-category-count>1 link</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/human.html" class="link-pill link-pill--species" data-name="Human">Human</a>
+    </div>
+  </section>
+
+  <!-- MINDSET -->
+  <section class="category category--mindset">
+    <div class="category-header">
+      <div class="category-title">Mindset</div>
+      <div class="category-count" data-category-count>1 link</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/comedic-genius.html" class="link-pill link-pill--mindset" data-name="Comedic Genius">Comedic Genius</a>
+    </div>
+  </section>
+
+  <!-- No results placeholder -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No links match your search</strong>
+    Try a different search term or clear the field.
+  </div>
+
+</div>
+
+<script>
+  const searchInput = document.getElementById('search');
+  const pills       = Array.from(document.querySelectorAll('.link-pill'));
+  const sections    = Array.from(document.querySelectorAll('.category'));
+  const countEl     = document.getElementById('count');
+  const totalEl     = document.getElementById('total');
+  const noResults   = document.getElementById('no-results');
+
+  totalEl.textContent = pills.length;
+
+  function applyFilter() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    pills.forEach(pill => {
+      const name = pill.dataset.name.toLowerCase();
+      const match = !search || name.includes(search);
+      pill.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    // Hide whole category sections if none of their pills are visible
+    sections.forEach(section => {
+      const sectionPills = section.querySelectorAll('.link-pill');
+      const sectionVisible = Array.from(sectionPills).filter(p => p.style.display !== 'none').length;
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      const counter = section.querySelector('[data-category-count]');
+      if (counter) counter.textContent = `${sectionVisible} link${sectionVisible === 1 ? '' : 's'}`;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+  applyFilter();
+</script>
+
+</body>
+</html>
