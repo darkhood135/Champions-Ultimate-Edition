@@ -784,7 +784,6 @@
           <span class="pill">EVA Support</span>
           <span class="pill">Endurance</span>
           <span class="pill">Anti-Air</span>
-          <span class="pill">Endurance</span>
         </div>
       </div>
 
@@ -888,9 +887,10 @@
           <span class="ability-name">Web Swing</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Obstacle · Energy: 10 · Cooldown: 1 turn · Range: 10</div>
+        <div class="ability-meta">Type: Support · Target: One Obstacle or One Panel · Energy: 10 · Cooldown: 1 turn · Range: 10</div>
         <ul>
-          <li>Relocates self 1 panel away from the obstacle's panel (closest to original position).</li>
+          <li>If the target is an obstacle, relocates self 1 panel away from the obstacle's panel (closest to original position).</li>
+          <li>If the target is a panel, relocates self 5 panels away from original position in the direction of the targeted panel.</li>
           <li>Restores 2 STA.</li>
         </ul>
       </div>
@@ -1002,7 +1002,7 @@
         <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
         <ul>
           <li>Deals 800% ATK damage to the target.</li>
-          <li>Deals an additional 100% ATK damage to the target per 10 EN remaining.</li>
+          <li>Deals an additional 50% ATK damage to the target per 10 EN remaining.</li>
           <li>Consumes all remaining EN.</li>
         </ul>
       </div>
@@ -1098,6 +1098,24 @@
     <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
 
     <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
+          <span class="date">May 19, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Spider Strength</em> — bonus damage per 10 EN remaining reduced from <strong>100% ATK → 50% ATK</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Web Swing</em> — can now target a panel in addition to an obstacle. Panel-targeting relocates Spider-Man 5 panels in the direction of the targeted panel.</span>
+          </li>
+        </ul>
+        <p class="rationale">At full EN, Spider Strength was capable of dealing close to 1,800% ATK on a single target — disproportionately powerful versus comparable ULTIMATUMs. The new scaling caps the burst around 1,300% ATK at full EN, keeping the empty-the-tank fantasy without one-shotting tanks. Web Swing was a clean mobility tool but completely dead on obstacle-free stages; the panel-direction option ensures it has utility on any battlefield.</p>
+      </div>
 
       <div class="changelog-entry release">
         <div class="entry-meta">
