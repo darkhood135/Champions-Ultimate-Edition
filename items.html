@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Champions — Champions Ultimate Edition</title>
+<title>Items — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,13 +39,13 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #ff5b5b; }
+  .back-link:hover { color: #d4843a; }
 
   .page-title {
     font-size: 36px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #ff5b5b;
+    color: #d4843a;
     margin-bottom: 6px;
   }
 
@@ -101,7 +101,7 @@
   }
 
   .search-input::placeholder { color: #6b7280; }
-  .search-input:focus { outline: none; border-color: #ff5b5b; background: #1c1d22; }
+  .search-input:focus { outline: none; border-color: #d4843a; background: #1c1d22; }
 
   .toolbar-btn {
     background: #14161a;
@@ -120,11 +120,11 @@
   }
 
   .toolbar-btn:hover { color: #f0f1f3; border-color: #3c4047; }
-  .toolbar-btn.active { color: #ff8585; border-color: #ff5b5b; background: rgba(255, 91, 91, 0.08); }
+  .toolbar-btn.active { color: #f0a85d; border-color: #d4843a; background: rgba(212, 132, 58, 0.08); }
 
   .toolbar-btn .count-pill {
-    background: #ff5b5b;
-    color: #2d0808;
+    background: #d4843a;
+    color: #1c1208;
     font-size: 11px;
     font-weight: 700;
     padding: 1px 7px;
@@ -156,9 +156,9 @@
   .active-chips:empty { margin-bottom: 0; min-height: 0; }
 
   .chip {
-    background: rgba(255, 91, 91, 0.1);
-    border: 1px solid rgba(255, 91, 91, 0.4);
-    color: #ff8585;
+    background: rgba(212, 132, 58, 0.1);
+    border: 1px solid rgba(212, 132, 58, 0.4);
+    color: #f0a85d;
     font-size: 12px;
     font-weight: 600;
     padding: 4px 10px 4px 12px;
@@ -170,7 +170,7 @@
     transition: background 0.12s ease;
   }
 
-  .chip:hover { background: rgba(255, 91, 91, 0.18); }
+  .chip:hover { background: rgba(212, 132, 58, 0.18); }
 
   .chip .x { font-size: 14px; line-height: 1; opacity: 0.7; }
 
@@ -225,21 +225,21 @@
 
   .filter-pill:hover { color: #f0f1f3; border-color: #3c4047; }
   .filter-pill.active {
-    background: rgba(255, 91, 91, 0.15);
-    border-color: #ff5b5b;
-    color: #ff8585;
+    background: rgba(212, 132, 58, 0.15);
+    border-color: #d4843a;
+    color: #f0a85d;
   }
 
-  /* ====================== CHAMPION GRID ====================== */
-  .champion-grid {
+  /* ====================== ITEM GRID ====================== */
+  .item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 14px;
   }
 
-  .champion-card {
+  .item-card {
     position: relative;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1 / 1;
     border-radius: 10px;
     background: #14161a;
     border: 1px solid #2c3038;
@@ -250,47 +250,47 @@
     display: block;
   }
 
-  .champion-card:hover {
+  .item-card:hover {
     transform: translateY(-3px);
-    border-color: #ff5b5b;
+    border-color: #d4843a;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
-  .champion-image {
+  .item-image {
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
     color: #4f535c;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     transition: transform 0.25s ease;
   }
 
-  .champion-card:hover .champion-image { transform: scale(1.04); }
+  .item-card:hover .item-image { transform: scale(1.04); }
 
-  .champion-image img {
+  .item-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .champion-overlay {
+  .item-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-      transparent 35%,
-      rgba(13, 14, 17, 0.6) 70%,
+      transparent 40%,
+      rgba(13, 14, 17, 0.6) 75%,
       rgba(13, 14, 17, 0.98) 100%);
     pointer-events: none;
   }
 
-  .role-badge {
+  .type-badge {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -305,17 +305,11 @@
     z-index: 2;
   }
 
-  .role-badge[data-role="Striker"]    { color: #ff8585; }
-  .role-badge[data-role="Blaster"]    { color: #f0894a; }
-  .role-badge[data-role="Defender"]   { color: #6bb4ff; }
-  .role-badge[data-role="Healer"]     { color: #5fd189; }
-  .role-badge[data-role="Booster"]    { color: #c084fc; }
-  .role-badge[data-role="Breaker"]    { color: #ffd680; }
-  .role-badge[data-role="Summoner"]   { color: #5fe0c8; }
-  .role-badge[data-role="Berserker"]  { color: #ff5757; }
-  .role-badge[data-role="Plunderer"]  { color: #ff7eb3; }
+  .type-badge[data-type="Throwable"]  { color: #ff8a5d; }
+  .type-badge[data-type="Consumable"] { color: #6ad896; }
+  .type-badge[data-type="Trinket"]    { color: #ffd680; }
 
-  .champion-name {
+  .item-name {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -355,7 +349,7 @@
     .toolbar { gap: 8px; }
     .toolbar .search-wrap { min-width: 100%; }
     .count-badge { margin-left: 0; }
-    .champion-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+    .item-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
   }
 </style>
 </head>
@@ -364,8 +358,8 @@
 <header class="page-header">
   <div class="header-inner">
     <a href="index.html" class="back-link">← Back to home</a>
-    <h1 class="page-title">Champions</h1>
-    <p class="page-subtitle">Every playable character in the roster.</p>
+    <h1 class="page-title">Items</h1>
+    <p class="page-subtitle">Battlefield pickups and consumables that boost your team mid-combat.</p>
   </div>
 </header>
 
@@ -375,7 +369,7 @@
   <div class="toolbar">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="search" id="search" class="search-input" placeholder="Search by name or real name…" autocomplete="off">
+      <input type="search" id="search" class="search-input" placeholder="Search items…" autocomplete="off">
     </div>
     <button class="toolbar-btn" id="filter-toggle">
       Filters
@@ -383,7 +377,7 @@
     </button>
     <button class="toolbar-btn" id="clear-filters">Clear</button>
     <div class="count-badge">
-      <span class="num" id="count">0</span> / <span id="total">0</span> champions
+      <span class="num" id="count">0</span> / <span id="total">0</span> items
     </div>
   </div>
 
@@ -393,108 +387,177 @@
   <!-- FILTER PANEL -->
   <div class="filter-panel" id="filter-panel">
     <div class="filter-group">
-      <div class="filter-label">Role</div>
-      <div class="filter-pills" data-category="role">
-        <button class="filter-pill" data-value="Striker">Striker</button>
-        <button class="filter-pill" data-value="Blaster">Blaster</button>
-        <button class="filter-pill" data-value="Defender">Defender</button>
-        <button class="filter-pill" data-value="Healer">Healer</button>
-        <button class="filter-pill" data-value="Booster">Booster</button>
-        <button class="filter-pill" data-value="Breaker">Breaker</button>
-        <button class="filter-pill" data-value="Summoner">Summoner</button>
-        <button class="filter-pill" data-value="Berserker">Berserker</button>
-        <button class="filter-pill" data-value="Plunderer">Plunderer</button>
-      </div>
-    </div>
-    <div class="filter-group">
-      <div class="filter-label">Link</div>
-      <div class="filter-pills" data-category="link">
-        <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
-        <button class="filter-pill" data-value="DC Universe">DC Universe</button>
-        <button class="filter-pill" data-value="Hero">Hero</button>
-        <button class="filter-pill" data-value="Human">Human</button>
-        <button class="filter-pill" data-value="Web Warrior">Web Warrior</button>
-        <button class="filter-pill" data-value="New Avengers">New Avengers</button>
-        <button class="filter-pill" data-value="Bat-Family">Bat-Family</button>
-        <button class="filter-pill" data-value="Justice League">Justice League</button>
-        <button class="filter-pill" data-value="Heir to the Mantle">Heir to the Mantle</button>
-        <button class="filter-pill" data-value="Comedic Genius">Comedic Genius</button>
-        <button class="filter-pill" data-value="Incredible Intelligence">Incredible Intelligence</button>
-        <button class="filter-pill" data-value="Tactical Mind">Tactical Mind</button>
-        <button class="filter-pill" data-value="Heroes of New York">Heroes of New York</button>
+      <div class="filter-label">Type</div>
+      <div class="filter-pills" data-category="type">
+        <button class="filter-pill" data-value="Throwable">Throwable</button>
+        <button class="filter-pill" data-value="Consumable">Consumable</button>
+        <button class="filter-pill" data-value="Trinket">Trinket</button>
       </div>
     </div>
     <div class="filter-group">
       <div class="filter-label">Tag</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Evasive Maneuvers">Evasive Maneuvers</button>
-        <button class="filter-pill" data-value="Obstacle Dash">Obstacle Dash</button>
-        <button class="filter-pill" data-value="Quick Counter">Quick Counter</button>
-        <button class="filter-pill" data-value="Elevation Ignorance">Elevation Ignorance</button>
-        <button class="filter-pill" data-value="Position Swap">Position Swap</button>
-        <button class="filter-pill" data-value="Position Relocation">Position Relocation</button>
-        <button class="filter-pill" data-value="Enemy Relocation">Enemy Relocation</button>
-        <button class="filter-pill" data-value="Stunning Infliction">Stunning Infliction</button>
-        <button class="filter-pill" data-value="Damaging Infliction">Damaging Infliction</button>
-        <button class="filter-pill" data-value="Anti-DEF Infliction">Anti-DEF Infliction</button>
-        <button class="filter-pill" data-value="Anti-RES Infliction">Anti-RES Infliction</button>
-        <button class="filter-pill" data-value="Anti-ACC Infliction">Anti-ACC Infliction</button>
-        <button class="filter-pill" data-value="Anti-EVA Infliction">Anti-EVA Infliction</button>
-        <button class="filter-pill" data-value="Stealthy Application">Stealthy Application</button>
-        <button class="filter-pill" data-value="Application Support">Application Support</button>
-        <button class="filter-pill" data-value="Infliction Immunity">Infliction Immunity</button>
-        <button class="filter-pill" data-value="Extension Attack">Extension Attack</button>
-        <button class="filter-pill" data-value="Item Spawning">Item Spawning</button>
-        <button class="filter-pill" data-value="Area of Effect">Area of Effect</button>
-        <button class="filter-pill" data-value="EVA Support">EVA Support</button>
-        <button class="filter-pill" data-value="Endurance">Endurance</button>
-        <button class="filter-pill" data-value="Anti-Air">Anti-Air</button>
+        <button class="filter-pill" data-value="Healing">Healing</button>
+        <button class="filter-pill" data-value="Damaging">Damaging</button>
+        <button class="filter-pill" data-value="AoE">AoE</button>
+        <button class="filter-pill" data-value="Single-Target">Single-Target</button>
+        <button class="filter-pill" data-value="Stunning">Stunning</button>
+        <button class="filter-pill" data-value="Defensive">Defensive</button>
+        <button class="filter-pill" data-value="Stat Boost">Stat Boost</button>
+        <button class="filter-pill" data-value="Resource Refill">Resource Refill</button>
+        <button class="filter-pill" data-value="Mobility">Mobility</button>
+        <button class="filter-pill" data-value="Anti-Stealth">Anti-Stealth</button>
       </div>
     </div>
   </div>
 
   <!-- =============================================
-       CHAMPION GRID
+       ITEM GRID
        Each card data-* attributes drive filtering.
-       Replace href, image, and metadata per champion.
+       Replace href, image, and metadata per item.
        ============================================= -->
-  <div class="champion-grid" id="champion-grid">
+  <div class="item-grid" id="item-grid">
 
-    <a href="champions/spider-man.html" class="champion-card"
-       data-name="Spider-Man" data-realname="Peter Parker" data-role="Striker"
-       data-links="Marvel Universe,Hero,Human,Web Warrior,New Avengers,Comedic Genius,Heroes of New York"
-       data-tags="Evasive Maneuvers,Obstacle Dash,Quick Counter,Elevation Ignorance,Position Swap,Stunning Infliction,Anti-DEF Infliction,Area of Effect,EVA Support,Endurance,Anti-Air">
-      <div class="champion-image"><img src="images/champion-images/spider-man.jpg" alt="Spider-Man"></div>
-      <div class="champion-overlay"></div>
-      <div class="role-badge" data-role="Striker">Striker</div>
-      <div class="champion-name">Spider-Man</div>
+    <a href="items/pumpkin-bomb.html" class="item-card"
+       data-name="Pumpkin Bomb" data-type="Throwable"
+       data-tags="Damaging,AoE">
+      <div class="item-image"><span>PB</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Throwable">Throwable</div>
+      <div class="item-name">Pumpkin Bomb</div>
     </a>
 
-    <a href="champions/miles-morales.html" class="champion-card"
-       data-name="Spider-Man (Miles Morales)" data-realname="Miles Morales" data-role="Breaker"
-       data-links="Marvel Universe,Hero,Human,Web Warrior,Heir to the Mantle,Comedic Genius,Heroes of New York"
-       data-tags="Evasive Maneuvers,Position Relocation,Stunning Infliction,Damaging Infliction,Stealthy Application,Extension Attack,Area of Effect,EVA Support">
-      <div class="champion-image"><img src="images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)"></div>
-      <div class="champion-overlay"></div>
-      <div class="role-badge" data-role="Breaker">Breaker</div>
-      <div class="champion-name">Spider-Man (Miles Morales)</div>
+    <a href="items/web-bomb.html" class="item-card"
+       data-name="Web Bomb" data-type="Throwable"
+       data-tags="AoE,Stunning">
+      <div class="item-image"><span>WB</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Throwable">Throwable</div>
+      <div class="item-name">Web Bomb</div>
     </a>
 
-    <a href="champions/batman.html" class="champion-card"
-       data-name="Batman" data-realname="Bruce Wayne" data-role="Breaker"
-       data-links="DC Universe,Hero,Human,Bat-Family,Justice League,Incredible Intelligence,Tactical Mind"
-       data-tags="Enemy Relocation,Stealthy Application,Position Relocation,Item Spawning,Anti-DEF Infliction,Anti-RES Infliction,Anti-ACC Infliction,Anti-EVA Infliction,Application Support,Endurance,Infliction Immunity">
-      <div class="champion-image"><img src="images/champion-images/batman.jpg" alt="Batman"></div>
-      <div class="champion-overlay"></div>
-      <div class="role-badge" data-role="Breaker">Breaker</div>
-      <div class="champion-name">Batman</div>
+    <a href="items/smoke-grenade.html" class="item-card"
+       data-name="Smoke Grenade" data-type="Throwable"
+       data-tags="Defensive,AoE">
+      <div class="item-image"><img src="images/item-images/smoke-grenade.jpg" alt="Smoke Grenade"></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Throwable">Throwable</div>
+      <div class="item-name">Smoke Grenade</div>
+    </a>
+
+    <a href="items/throwing-knife.html" class="item-card"
+       data-name="Throwing Knife" data-type="Throwable"
+       data-tags="Damaging,Single-Target">
+      <div class="item-image"><span>TK</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Throwable">Throwable</div>
+      <div class="item-name">Throwing Knife</div>
+    </a>
+
+    <a href="items/health-potion.html" class="item-card"
+       data-name="Health Potion" data-type="Consumable"
+       data-tags="Healing,Single-Target">
+      <div class="item-image"><span>HP</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Consumable">Consumable</div>
+      <div class="item-name">Health Potion</div>
+    </a>
+
+    <a href="items/energy-drink.html" class="item-card"
+       data-name="Energy Drink" data-type="Consumable"
+       data-tags="Resource Refill,Single-Target">
+      <div class="item-image"><span>ED</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Consumable">Consumable</div>
+      <div class="item-name">Energy Drink</div>
+    </a>
+
+    <a href="items/adrenaline-shot.html" class="item-card"
+       data-name="Adrenaline Shot" data-type="Consumable"
+       data-tags="Stat Boost,Mobility,Single-Target">
+      <div class="item-image"><span>AS</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Consumable">Consumable</div>
+      <div class="item-name">Adrenaline Shot</div>
+    </a>
+
+    <a href="items/senzu-bean.html" class="item-card"
+       data-name="Senzu Bean" data-type="Consumable"
+       data-tags="Healing,Resource Refill,Single-Target">
+      <div class="item-image"><span>SB</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Consumable">Consumable</div>
+      <div class="item-name">Senzu Bean</div>
+    </a>
+
+    <a href="items/cooking-stew.html" class="item-card"
+       data-name="Cooking Stew" data-type="Consumable"
+       data-tags="Healing,Stat Boost,AoE">
+      <div class="item-image"><span>CS</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Consumable">Consumable</div>
+      <div class="item-name">Cooking Stew</div>
+    </a>
+
+    <a href="items/lucky-coin.html" class="item-card"
+       data-name="Lucky Coin" data-type="Trinket"
+       data-tags="Stat Boost">
+      <div class="item-image"><span>LC</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Lucky Coin</div>
+    </a>
+
+    <a href="items/power-cell.html" class="item-card"
+       data-name="Power Cell" data-type="Trinket"
+       data-tags="Resource Refill">
+      <div class="item-image"><span>PC</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Power Cell</div>
+    </a>
+
+    <a href="items/web-cartridge.html" class="item-card"
+       data-name="Web Cartridge" data-type="Trinket"
+       data-tags="Resource Refill">
+      <div class="item-image"><span>WC</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Web Cartridge</div>
+    </a>
+
+    <a href="items/spider-tracer.html" class="item-card"
+       data-name="Spider Tracer" data-type="Trinket"
+       data-tags="Anti-Stealth,Stat Boost">
+      <div class="item-image"><span>ST</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Spider Tracer</div>
+    </a>
+
+    <a href="items/bat-gadget.html" class="item-card"
+       data-name="Bat-Gadget" data-type="Trinket"
+       data-tags="Stat Boost,Defensive">
+      <div class="item-image"><span>BG</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Bat-Gadget</div>
+    </a>
+
+    <a href="items/iron-trinket.html" class="item-card"
+       data-name="Iron Trinket" data-type="Trinket"
+       data-tags="Stat Boost,Defensive">
+      <div class="item-image"><span>IT</span></div>
+      <div class="item-overlay"></div>
+      <div class="type-badge" data-type="Trinket">Trinket</div>
+      <div class="item-name">Iron Trinket</div>
     </a>
 
   </div>
 
   <!-- No-results state (shown via JS when grid is empty) -->
   <div class="no-results" id="no-results" style="display: none;">
-    <strong>No champions match those filters</strong>
+    <strong>No items match those filters</strong>
     Try removing one of the active filters or clearing them all.
   </div>
 
@@ -509,22 +572,22 @@
   const activeChips  = document.getElementById('active-chips');
   const countEl      = document.getElementById('count');
   const totalEl      = document.getElementById('total');
-  const cards        = Array.from(document.querySelectorAll('.champion-card'));
+  const cards        = Array.from(document.querySelectorAll('.item-card'));
   const pills        = Array.from(document.querySelectorAll('.filter-pill'));
   const noResults    = document.getElementById('no-results');
 
   // Active filters by category
-  const active = { role: new Set(), link: new Set(), tag: new Set() };
+  const active = { type: new Set(), tag: new Set() };
 
   totalEl.textContent = cards.length;
 
   function activeFilterCount() {
-    return active.role.size + active.link.size + active.tag.size;
+    return active.type.size + active.tag.size;
   }
 
   function renderChips() {
     activeChips.innerHTML = '';
-    for (const category of ['role', 'link', 'tag']) {
+    for (const category of ['type', 'tag']) {
       for (const value of active[category]) {
         const chip = document.createElement('span');
         chip.className = 'chip';
@@ -533,7 +596,6 @@
         chip.innerHTML = `${value} <span class="x">×</span>`;
         chip.addEventListener('click', () => {
           active[category].delete(value);
-          // Sync pill state
           const pill = document.querySelector(
             `.filter-pill[data-value="${value}"]`
           );
@@ -553,23 +615,16 @@
 
     cards.forEach(card => {
       const name = card.dataset.name.toLowerCase();
-      const realname = card.dataset.realname.toLowerCase();
-      const role = card.dataset.role;
-      const links = card.dataset.links.split(',').map(s => s.trim());
-      const tags  = card.dataset.tags.split(',').map(s => s.trim());
+      const type = card.dataset.type;
+      const tags = card.dataset.tags.split(',').map(s => s.trim());
 
       let match = true;
 
-      if (search && !name.includes(search) && !realname.includes(search)) {
+      if (search && !name.includes(search)) {
         match = false;
       }
-      if (match && active.role.size > 0 && !active.role.has(role)) {
+      if (match && active.type.size > 0 && !active.type.has(type)) {
         match = false;
-      }
-      if (match && active.link.size > 0) {
-        for (const f of active.link) {
-          if (!links.includes(f)) { match = false; break; }
-        }
       }
       if (match && active.tag.size > 0) {
         for (const f of active.tag) {
@@ -584,7 +639,6 @@
     countEl.textContent = visible;
     noResults.style.display = visible === 0 ? 'block' : 'none';
 
-    // Update filter count pill
     const n = activeFilterCount();
     if (n > 0) {
       filterCount.style.display = 'inline-block';
@@ -596,7 +650,6 @@
     renderChips();
   }
 
-  // Filter pill clicks
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const category = pill.parentElement.dataset.category;
@@ -612,19 +665,16 @@
     });
   });
 
-  // Search input
   searchInput.addEventListener('input', applyFilters);
 
-  // Filter panel toggle
   filterToggle.addEventListener('click', () => {
     filterPanel.classList.toggle('open');
     filterToggle.classList.toggle('active');
   });
 
-  // Clear all
   clearBtn.addEventListener('click', () => {
     searchInput.value = '';
-    for (const cat of ['role', 'link', 'tag']) active[cat].clear();
+    for (const cat of ['type', 'tag']) active[cat].clear();
     pills.forEach(p => p.classList.remove('active'));
     applyFilters();
   });

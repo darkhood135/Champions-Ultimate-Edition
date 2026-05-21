@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoke Grenade — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #d4843a; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .item-portrait {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .item-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #d4843a;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .type-badge {
+    display: inline-block;
+    background: rgba(255, 138, 93, 0.12);
+    color: #ff8a5d;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 138, 93, 0.35);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  /* ====================== ABILITY CARD (the one Item Ability) ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability--item {
+    background: #c2782e;
+    color: #2a1808;
+  }
+
+  /* ====================== USERS SECTION (square icons, bottom) ====================== */
+  .users-section,
+  .battlefields-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .users-section .section-divider,
+  .battlefields-section .section-divider {
+    margin: 0 0 8px;
+  }
+
+  .section-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .user-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .user-card:hover {
+    transform: translateY(-3px);
+    border-color: #d4843a;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .user-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    color: #4f535c;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .user-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(13, 14, 17, 0.6) 70%, rgba(13, 14, 17, 0.98) 100%);
+    pointer-events: none;
+  }
+
+  .user-source {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    color: #ffb070;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .user-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+    line-height: 1.2;
+  }
+
+  /* ====================== BATTLEFIELDS SECTION ====================== */
+  .battlefields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .battlefield-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .battlefield-card:hover {
+    transform: translateY(-3px);
+    border-color: #4aa3ff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .battlefield-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c2438 0%, #141a28 100%);
+    color: #4f6480;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .battlefield-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .battlefield-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(13, 14, 17, 0.6) 70%, rgba(13, 14, 17, 0.98) 100%);
+    pointer-events: none;
+  }
+
+  .battlefield-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+    line-height: 1.2;
+  }
+
+  /* ====================== EMPTY STATE ====================== */
+  .empty {
+    text-align: center;
+    padding: 28px 20px;
+    color: #6b7280;
+    font-size: 13px;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px dashed #2c3038;
+  }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider { margin: 0 0 20px; }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #d4843a; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(212, 132, 58, 0.15); color: #f0a85d; border: 1px solid rgba(212, 132, 58, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .item-portrait {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../items.html" class="back-link">← Back to Items</a>
+
+  <!-- =============================================
+       HERO BAR — Item icon and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="item-portrait">
+      <!-- Replace this span with: <img src="path/to/icon.jpg" alt="Smoke Grenade"> -->
+      <img src="../images/item-images/smoke-grenade.jpg" alt="Smoke Grenade">
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Smoke Grenade</h1>
+      <span class="type-badge">Throwable</span>
+      <p class="description">
+        A compressed canister of dense particulate haze. When thrown, it bursts into a thick cloud that obscures sight lines and disrupts enemy aim — cheap, reliable, and the favorite tool of anyone who needs to disappear in a hurry. Especially common in stealth-leaning Champions' kits and on urban battlefields where cover is already at a premium.
+      </p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Tags | Item Ability
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Defensive</span>
+          <span class="pill">AoE</span>
+          <span class="pill">ACC Reduction</span>
+          <span class="pill">Sight Block</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Effect</h2>
+      </div>
+
+      <div class="section-divider">Item Ability</div>
+
+      <div class="ability ability--item">
+        <div class="ability-header">
+          <span class="ability-name">Deploy Smoke</span>
+          <span class="ability-tag">Throwable</span>
+        </div>
+        <div class="ability-meta">Type: Throwable · Target: One Panel + AoE (3 panels) · Range: 6</div>
+        <ul>
+          <li>Generates a smoke cloud in a 3-panel radius around the targeted panel.</li>
+          <li>All Champions inside the cloud (allies and enemies) are inflicted with "Disorient" for 2 turns.</li>
+          <li>The cloud blocks line of sight, preventing ranged abilities from passing through it for 2 turns.</li>
+          <li>Consumed on use.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <!-- =============================================
+       USERS — Champions whose kits generate this item
+       ============================================= -->
+  <section class="users-section">
+    <div class="section-divider">Users</div>
+    <p class="section-intro">Champions whose kits can generate, grant or call in this item during battle.</p>
+
+    <div class="users-grid">
+
+      <a href="../champions/batman.html" class="user-card">
+        <div class="user-image">
+          <img src="../images/champion-images/batman.jpg" alt="Batman">
+        </div>
+        <div class="user-overlay"></div>
+        <div class="user-source">Special 3</div>
+        <div class="user-name">Batman</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       BATTLEFIELDS — Stages where this item spawns
+       ============================================= -->
+  <section class="battlefields-section">
+    <div class="section-divider">Found On</div>
+    <p class="section-intro">Battlefields where this item naturally spawns during combat.</p>
+
+    <div class="empty">
+      No Battlefields have been designed yet.
+    </div>
+
+    <!-- Example battlefield card (uncomment when there's data):
+
+    <div class="battlefields-grid">
+      <a href="../battlefields/queens-rooftop.html" class="battlefield-card">
+        <div class="battlefield-image">
+          <img src="../images/battlefield-images/queens-rooftop.jpg" alt="Queens Rooftop">
+        </div>
+        <div class="battlefield-overlay"></div>
+        <div class="battlefield-name">Queens Rooftop</div>
+      </a>
+    </div>
+
+    -->
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Item
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Item's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 20, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Smoke Grenade added to the item pool.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

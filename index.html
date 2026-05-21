@@ -170,6 +170,15 @@
   .card--enemies      { color: #b91c1c; }
   .card--enemies      .card-image { background-image: url('images/enemies.jpg'); }
 
+  .card--summons      { color: #b794f4; }
+  .card--summons      .card-image { background-image: linear-gradient(135deg, #2a1a40 0%, #3d2a55 100%); }
+
+  .card--items        { color: #d4843a; }
+  .card--items        .card-image { background-image: linear-gradient(135deg, #2a1d10 0%, #3d2818 100%); }
+
+  .card--artifacts    { color: #818cf8; }
+  .card--artifacts    .card-image { background-image: linear-gradient(135deg, #1a1f3d 0%, #25295e 100%); }
+
   /* External link indicator */
   .card[target="_blank"] .card-label .title::after {
     content: ' \2197';
@@ -270,12 +279,39 @@
       </div>
     </a>
 
+    <a href="summons.html" class="card card--summons">
+      <div class="card-image"></div>
+      <div class="card-overlay"></div>
+      <div class="card-label">
+        <div class="title">Summons</div>
+        <div class="subtitle">Allies called mid-battle</div>
+      </div>
+    </a>
+
     <a href="battlefields.html" class="card card--battlefields">
       <div class="card-image"></div>
       <div class="card-overlay"></div>
       <div class="card-label">
         <div class="title">Battlefields</div>
         <div class="subtitle">Stages, obstacles &amp; elevation</div>
+      </div>
+    </a>
+
+    <a href="items.html" class="card card--items">
+      <div class="card-image"></div>
+      <div class="card-overlay"></div>
+      <div class="card-label">
+        <div class="title">Items</div>
+        <div class="subtitle">Battlefield pickups &amp; consumables</div>
+      </div>
+    </a>
+
+    <a href="artifacts.html" class="card card--artifacts">
+      <div class="card-image"></div>
+      <div class="card-overlay"></div>
+      <div class="card-label">
+        <div class="title">Artifacts</div>
+        <div class="subtitle">Equippable extra passives</div>
       </div>
     </a>
 

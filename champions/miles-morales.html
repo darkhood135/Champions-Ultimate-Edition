@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #ff5b5b; }
+  .back-link:hover { color: #c44dff; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #ff5b5b;
+    color: #c44dff;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(255, 91, 91, 0.12);
-    color: #ff8585;
+    background: rgba(196, 77, 255, 0.12);
+    color: #d899ff;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 91, 91, 0.3);
+    border: 1px solid rgba(196, 77, 255, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #ff5b5b;
+    border-left: 3px solid #c44dff;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -422,25 +422,33 @@
 
   em.kw { font-style: normal; font-weight: 700; }
 
-  /* ====================== ABILITY COLOR VARIANTS ====================== */
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Miles Morales theme — Suit / Venom Blast / Inheritance palette.
+       Black/dark indigo = the new suit, stealth, "different" identity.
+       Electric purples/magentas = venom blast, his signature crackling energy.
+       Electric blues/cyans = shock, electricity, paralysis.
+       Red = inheritance, the Spider-Man mantle he carries.
+     Same structural rules as other Champions; the palette just shifts what
+     "distinct" means for Miles specifically. */
+
   .ability--leader {
-    background: #efb73f;
-    color: #2e1f08;
+    background: #a855f7;          /* vibrant violet — asserts the "different way" */
+    color: #2d0a3c;
   }
 
   .ability--basic {
-    background: #1f201d;
-    border: 1px solid #4a3a1c;
+    background: #19121e;          /* near-black with subtle purple tint */
+    border: 1px solid #3a1c5a;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #ffc06a; }
-  .ability--basic .ability-tag { color: #c89150; }
-  .ability--basic .ability-meta { color: #c89150; }
+  .ability--basic .ability-name { color: #c084fc; }
+  .ability--basic .ability-tag  { color: #9d6bd8; }
+  .ability--basic .ability-meta { color: #9d6bd8; }
 
-  .ability--special-1 { background: #3690ee; color: #08203d; }
-  .ability--special-2 { background: #4d5edb; color: #0a124a; }
-  .ability--special-3 { background: #3fb16c; color: #0a2a18; }
-  .ability--special-4 { background: #14b8a6; color: #062a26; }
+  .ability--special-1 { background: #d946ef; color: #3a0a3e; } /* hot magenta — venom blast */
+  .ability--special-2 { background: #3b82f6; color: #08203d; } /* electric blue — shock web */
+  .ability--special-3 { background: #1e1b4b; color: #c7d2fe; } /* dark indigo — stealth */
+  .ability--special-4 { background: #0891b2; color: #03242f; } /* cyan — AoE electric */
 
   .ability--reserve {
     background: #1c1d20;
@@ -451,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special { border-left-color: #5b6bd9; }
-  .ability--reserve-passive { border-left-color: #8b3fdb; }
-  .ability--reserve-ultimatum { border-left-color: #d63a3a; }
+  .ability--reserve-special   { border-left-color: #d946ef; } /* magenta */
+  .ability--reserve-passive   { border-left-color: #6366f1; } /* indigo-violet */
+  .ability--reserve-ultimatum { border-left-color: #9d174d; } /* dark magenta */
 
   .ability--core-passive {
-    background: #5b2299;
-    color: #f0e0ff;
+    background: #4c1d95;          /* deep purple — inherent venom */
+    color: #e9d5ff;
   }
 
   .ability--passive {
-    background: #8b3fdb;
-    color: #f5ebff;
+    background: #6366f1;          /* medium indigo-violet — secondary inherent */
+    color: #0c0f3a;
   }
 
   .ability--ultimatum {
-    background: #d63a3a;
-    color: #2d0808;
+    background: #9d174d;          /* dark magenta — max venom output */
+    color: #fce7f3;
   }
 
   .ability--synergy {
-    background: #e74c87;
-    color: #2d0814;
+    background: #dc2626;          /* red — Peter inheritance, the mantle */
+    color: #2d0808;
   }
 
   .ability--artifact {
