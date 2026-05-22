@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spider-Man (Miles Morales) — Champions Ultimate Edition</title>
+<title>Superman — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #c44dff; }
+  .back-link:hover { color: #3b82f6; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #c44dff;
+    color: #3b82f6;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(196, 77, 255, 0.12);
-    color: #d899ff;
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(196, 77, 255, 0.35);
+    border: 1px solid rgba(59, 130, 246, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #c44dff;
+    border-left: 3px solid #dc2626;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #ff5b5b;
+    border-color: #3b82f6;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #ff8585;
+    color: #fbbf24;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Miles Morales theme — Suit / Venom Blast / Inheritance palette.
-       Black/dark indigo = the new suit, stealth, "different" identity.
-       Electric purples/magentas = venom blast, his signature crackling energy.
-       Electric blues/cyans = shock, electricity, paralysis.
-       Red = inheritance, the Spider-Man mantle he carries.
-     Same structural rules as other Champions; the palette just shifts what
-     "distinct" means for Miles specifically. */
+     Superman theme — Hope Blue / Cape Red / Solar Gold / Frost-Aqua palette.
+       Hope blue = the suit, the man of tomorrow, identity in service.
+       Cape red = the cloak, raw kryptonian power, kinetic damage.
+       Solar gold = the S, sunlight, his fuel and his ULT.
+       Frost-aqua = his cold side, restraint, frost-breath.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #a855f7;          /* vibrant violet — asserts the "different way" */
-    color: #2d0a3c;
+    background: #fbbf24;          /* solar gold — The Symbol of Hope */
+    color: #2d1f08;
   }
 
   .ability--basic {
-    background: #19121e;          /* near-black with subtle purple tint */
-    border: 1px solid #3a1c5a;
-    color: #f0f1f3;
+    background: #0f1730;          /* deep navy — the suit in close range */
+    border: 1px solid #1e3a8a;
+    color: #e0e7ff;
   }
-  .ability--basic .ability-name { color: #c084fc; }
-  .ability--basic .ability-tag  { color: #9d6bd8; }
-  .ability--basic .ability-meta { color: #9d6bd8; }
+  .ability--basic .ability-name { color: #fbbf24; }
+  .ability--basic .ability-tag  { color: #a5b4fc; }
+  .ability--basic .ability-meta { color: #a5b4fc; }
 
-  .ability--special-1 { background: #d946ef; color: #3a0a3e; } /* hot magenta — venom blast */
-  .ability--special-2 { background: #3b82f6; color: #08203d; } /* electric blue — shock web */
-  .ability--special-3 { background: #1e1b4b; color: #c7d2fe; } /* dark indigo — stealth */
-  .ability--special-4 { background: #0891b2; color: #03242f; } /* cyan — AoE electric */
+  .ability--special-1 { background: #dc2626; color: #fff5f5; } /* cape red — Heat Vision searing beam */
+  .ability--special-2 { background: #1e3a8a; color: #e0e7ff; } /* navy — Super Stance, the bulwark */
+  .ability--special-3 { background: #67e8f9; color: #082f49; } /* icy aqua — Frost Breath */
+  .ability--special-4 { background: #3b82f6; color: #eff6ff; } /* sky blue — Soaring Save, flight */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #d946ef; } /* magenta */
-  .ability--reserve-passive   { border-left-color: #6366f1; } /* indigo-violet */
-  .ability--reserve-ultimatum { border-left-color: #9d174d; } /* dark magenta */
+  .ability--reserve-special   { border-left-color: #dc2626; } /* cape red */
+  .ability--reserve-passive   { border-left-color: #1d4ed8; } /* hope blue */
+  .ability--reserve-ultimatum { border-left-color: #fde047; } /* solar gold */
 
   .ability--core-passive {
-    background: #4c1d95;          /* deep purple — inherent venom */
-    color: #e9d5ff;
+    background: #1d4ed8;          /* royal hope-blue — the iconic suit, the identity */
+    color: #e0e7ff;
   }
 
   .ability--passive {
-    background: #6366f1;          /* medium indigo-violet — secondary inherent */
-    color: #0c0f3a;
+    background: #991b1b;          /* deep cape red — secondary identity, force */
+    color: #fde0e0;
   }
 
   .ability--ultimatum {
-    background: #9d174d;          /* dark magenta — max venom output */
-    color: #fce7f3;
+    background: #fde047;          /* full solar gold — Solarpowered Punch */
+    color: #422006;
   }
 
   .ability--synergy {
-    background: #dc2626;          /* red — Peter inheritance, the mantle */
-    color: #2d0808;
+    background: #d4a017;          /* warm alliance gold — World's Finest, matches Batman */
+    color: #1c1208;
   }
 
   .ability--artifact {
@@ -723,17 +723,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
+      <img src="../images/champion-images/superman.jpg" alt="Superman">
     </div>
 
     <div class="identity">
-      <h1 class="name">Spider-Man (Miles Morales)</h1>
-      <p class="subtitle">Miles Morales</p>
-      <span class="role-badge">Breaker</span>
+      <h1 class="name">Superman</h1>
+      <p class="subtitle">Clark Kent</p>
+      <span class="role-badge">Defender</span>
       <p class="description">
-        Miles Morales is a Brooklyn teenager still growing into his mask. A spider bite — different lab, different formula, same result — gave him Peter's strength and reflexes, plus a few signatures of his own: a paralyzing "venom" touch and the ability to camouflage almost completely. He fights with less precision than his mentor and more disruption — electrifying enemies with shock-laced web shots, vanishing mid-fight, reappearing where no one was watching. He's still finding his rhythm, still throwing jokes through the nerves, still occasionally landing on his face. But every time the city calls, he says yes. He's not Peter. He's not Cap. He's a kid in a mask doing the best he can — and the best he can keeps getting better.
+        Born on a dying world and raised in a Kansas wheatfield, Clark Kent could have been a god — and chose to be a neighbor. He's the standard other heroes are measured against, not because he's the strongest in the room (though he usually is), but because he refuses to lose anyone while there's still time to fly. Brawls end fast when he commits. His real work is the save — the catch before the fall, the body between the blast and the bystander.
       </p>
-      <p class="quote">"I'm not an Avenger. I'm not Thor. Or Cap. Or Peter. I'm just a kid in a mask. Doing the best I can. But I'll never give up on the world. Or this city. Or anyone that needs me. I'm Miles Morales. And I'm Spider-Man."</p>
+      <p class="quote">"It's never as bad as it seems. You're much stronger than you think you are. Trust me."</p>
     </div>
   </div>
 
@@ -748,38 +748,37 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,900</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">310</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">270</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">16,800</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">350</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">230</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">220</span></div>
         <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">113</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">30%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">105</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">7%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
         <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">4%</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
       </div>
 
       <!-- Links -->
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/dc-universe.html" class="pill">DC Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
-          <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/web-warrior.html" class="pill">Web Warrior</a>
-          <a href="../links/heir-to-the-mantle.html" class="pill">Heir to the Mantle</a>
-          <a href="../links/comedic-genius.html" class="pill">Comedic Genius</a>
-          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
+          <a href="../links/kryptonian.html" class="pill">Kryptonian</a>
+          <a href="../links/justice-league.html" class="pill">Justice League</a>
+          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
         </div>
       </div>
 
@@ -787,14 +786,19 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Evasive Maneuvers</span>
-          <span class="pill">Position Relocation</span>
-          <span class="pill">Stunning Infliction</span>
+          <span class="pill">Enemy Relocation</span>
+          <span class="pill">Ally Relocation</span>
+          <span class="pill">Attack Redirection</span>
+          <span class="pill">Quick Counter</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Anti-DEF Infliction</span>
           <span class="pill">Damaging Infliction</span>
-          <span class="pill">Stealthy Application</span>
-          <span class="pill">Extension Attack</span>
-          <span class="pill">Area of Effect</span>
-          <span class="pill">EVA Support</span>
+          <span class="pill">Stunning Infliction</span>
+          <span class="pill">ATK Support</span>
+          <span class="pill">DEF Support</span>
+          <span class="pill">RES Support</span>
+          <span class="pill">Elevation Ignorance</span>
+          <span class="pill">Endurance</span>
         </div>
       </div>
 
@@ -803,15 +807,15 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="spider-man.html" class="partner-card">
+          <a href="batman.html" class="partner-card">
             <div class="partner-image">
               <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+              <img src="../images/champion-images/batman.jpg" alt="Batman">
             </div>
             <div class="partner-tooltip">
-              <strong>Spider-Man</strong>
-              <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Two Spiders</span>
+              <strong>Batman</strong>
+              <span class="real-name">Bruce Wayne</span>
+              <span class="synergy-name">World's Finest</span>
             </div>
           </a>
 
@@ -831,11 +835,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Doing Things a Different Way</span>
+          <span class="ability-name">The Symbol of Hope</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Web Warrior" allies gain +8% to infliction chances.</li>
+          <li>"Hero" allies gain +10% MAX HP.</li>
         </ul>
       </div>
 
@@ -843,13 +847,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Quick Kicks</span>
+          <span class="ability-name">Krypton Combo</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 120% ATK damage to the target.</li>
-          <li>50% chance to inflict "Shock" on the target for 3 turns.</li>
+          <li>Deals 180% ATK damage to the target.</li>
+          <li>Inflicts "Bruise" to the target for 2 turns.</li>
         </ul>
       </div>
 
@@ -858,82 +862,77 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Venom Strike</span>
+          <span class="ability-name">Heat Vision</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 7</div>
         <ul>
-          <li>Deals 300% ATK damage to the target.</li>
-          <li>Deals 60% MAG damage to the target.</li>
-          <li>35% chance to inflict "Shock" on the target for 3 turns.</li>
-          <li>20% chance to inflict "Paralyze" on the target for 1 turn.</li>
+          <li>Deals 150% MAG damage the target.</li>
+          <li>Inflicts "Burn" to the target for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Electrified Web</span>
+          <span class="ability-name">Super Stance</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 9</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Deals 50% MAG damage to the target.</li>
-          <li>Inflicts "Shock" on the target for 3 turns.</li>
-          <li>Extends into itself (up to twice) per 2 turns passed since last usage.</li>
-          <li>20% chance to inflict 10 stacks of "Web" to the target for 3 turns.</li>
-          <li>Inflicts "Paralyze" on the target for 1 turn if this ability is used as an extension ability.</li>
+          <li>+10% DEF and RES for 2 turns.</li>
+          <li>Gains "Taunt" for 2 turns.</li>
+          <li>Counters the next incoming attack with 150% ATK damage (expires after 1 turn).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Spider-Camouflage</span>
+          <span class="ability-name">Frost Breath</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 25 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 5 turns · Range: 4</div>
         <ul>
-          <li>Gains +30% EVA for 2 turns.</li>
-          <li>Gains 3 stacks of "Stealth" for 2 turns.</li>
+          <li>Inflicts "Frozen" to the target for 1 turn.</li>
+          <li>Inflicts 1 stack of "Frost" to the target for 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Venom Smash</span>
+          <span class="ability-name">Soaring Save</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Panel + AoE (4 panels) · Energy: 60 · Cooldown: 5 turns · Range: 4</div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 12</div>
         <ul>
-          <li>Deals 300% MAG damage to all enemies within 4 panels of the targeted panel.</li>
-          <li>Inflicts "Shock" to all enemies within 4 panels of the targeted panel for 3 turns.</li>
-          <li>Deals 500% MAG damage to all obstacles and summons within 4 panels of the targeted panel.</li>
+          <li>Can only be used as the first action of the turn.</li>
+          <li>Stands by for the remainder of the turn.</li>
+          <li>If an ally within 12 panels is attacked, the ally is saved from the attack and repositioned to the targeted panel. Standby ends after one save.</li>
+          <li>Self gains "Taunt" for 1 turn upon a successful rescue.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Venom Burst</span>
+          <span class="ability-name">Mighty Toss</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Deals 100% ATK damage to the target.</li>
-          <li>Deals 100% MAG damage to the target.</li>
-          <li>35% chance to inflict "Shock" to the target for 3 turns.</li>
-          <li>Pushes the target in the direction of attack by 4 panels.</li>
+          <li>Deals 300% ATK damage to the target.</li>
+          <li>Inflicts 3 stacks of "Bruise" to the target for 3 turns.</li>
+          <li>Pushes the target in the opposite direction of the attack by 6 panels.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Quick Swing</span>
+          <span class="ability-name">Solar Recharge</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 40 · Cooldown: 4 turns · Range: 20</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 0 · Cooldown: 4 turns · Range: N/A</div>
         <ul>
-          <li>Self gains +30 SPD before this turn's initiative is calculated.</li>
-          <li>Gains "Stealth" for 1 turn.</li>
-          <li>Positions self onto the targeted panel.</li>
+          <li>Restores 80 EN.</li>
+          <li>+15% DEF and RES for 2 turns.</li>
         </ul>
       </div>
 
@@ -942,57 +941,57 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Aftermath of a Special Spider Bite</span>
+          <span class="ability-name">Shining Man of Tomorrow</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>EN regen increased to 30% of MAX EN per turn.</li>
-          <li>STA regen increased to 50% of MAX STA per turn.</li>
-          <li>Gains 4% ULT each time an ability (self only) inflicts "Shock" on an enemy.</li>
+          <li>All allies gain +15% DEF and RES for 3 turns at the start of battle (once only).</li>
+          <li>+10% DEF and RES against "Villain" enemies.</li>
+          <li>Gains 2% ULT each time an attack is received (self only).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Enhanced Spider-Sense</span>
+          <span class="ability-name">Unmatched Compassion</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>15% chance to fully evade any incoming attack (rolls before EVA).</li>
-          <li>Gains the ability to see and target enemies with "Stealth" or "Invisible".</li>
+          <li>"Taunt" applied to self cannot be removed by enemy cleanse effects (expires on duration normally).</li>
+          <li>Soaring Save cooldown is reduced by 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Learning Responsibility</span>
+          <span class="ability-name">Might of the Man of Steel</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>ATK and MAG +8% for 2 turns whenever an ally lands an attack that deals more than 10% of an enemy's HP (self excluded). Up to 20% at a time.</li>
-          <li>EVA +8% for 2 turns whenever an ally evades an attack (self excluded, once per turn).</li>
+          <li>Krypton Combo deals an additional 60% ATK damage.</li>
+          <li>Mighty Toss deals an additional 100% ATK damage.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Taught Combat Techniques</span>
+          <span class="ability-name">The Power of Dreams</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Quick Kicks extends into itself.</li>
-          <li>30% chance for extension attacks to further extend into Electrified Web (up to one success per turn).</li>
+          <li>All allies restore 10 EN whenever an ally defeats an enemy.</li>
+          <li>All allies gain +10% DEF and RES for 2 turns whenever an ally defeats an enemy (self excluded).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Peter's Suit Modifications</span>
+          <span class="ability-name">The Last of Krypton</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Increases infliction chances by 5%.</li>
-          <li>+2 MAX STA.</li>
+          <li>+5% ATK to "Kryptonian" allies.</li>
+          <li>+20% DEF and RES when receiving an ULTIMATUM.</li>
         </ul>
       </div>
 
@@ -1001,25 +1000,29 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Ultimate Spider</span>
+          <span class="ability-name">Solarpowered Punch</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 800% ATK damage to the target.</li>
-          <li>Inflicts "Spider's Web" and "Paralyze" to the target for 2 turns.</li>
+          <li>Deals 500% ATK damage to the target, plus an additional 100% ATK per attack intercepted since the last use of this ULTIMATUM (up to +1500% ATK).</li>
+          <li>Inflicts 1 stack of "Deep Bruise" to the target for every 3 attacks intercepted since the last use of this ULTIMATUM (up to 3 stacks).</li>
+          <li>"Intercepted attacks" include both Taunt redirections and saves from standby.</li>
+          <li>Ignores elevation.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Surging Electrokinesis</span>
+          <span class="ability-name">Priority to Protect</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
         <ul>
-          <li>ATK and MAG +12% for 3 turns.</li>
-          <li>Increases infliction chances by 30% for 3 turns.</li>
+          <li>Can only be used as the first action of the turn.</li>
+          <li>Stands by for the remainder of the turn.</li>
+          <li>If an ally within 20 panels is attacked while below 50% HP, the ally is saved from the attack.</li>
+          <li>Standby ends after 5 saves.</li>
         </ul>
       </div>
 
@@ -1028,12 +1031,12 @@
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Two Spiders</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
+          <span class="ability-name">World's Finest</span>
+          <span class="ability-tag">Synergy · w/ Batman</span>
         </div>
         <ul>
-          <li>Both Champions gain +10% ATK and +5% EVA.</li>
-          <li>When either uses an ULTIMATUM, the other gains 20% ULT charge.</li>
+          <li>Both Champions gain +5% DEF and RES.</li>
+          <li>Both Champions gain the ability to endure a fatal blow (once per battle).</li>
         </ul>
       </div>
     </main>
@@ -1049,7 +1052,7 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/miles-morales.jpg" alt="Classic">
+          <img src="../images/champion-images/superman.jpg" alt="Classic">
         </div>
         <div class="costume-info">
           <div class="costume-name">Classic</div>
@@ -1060,23 +1063,36 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/miles-morales(modern).jpg" alt="Modern">
+          <img src="../images/champion-images/costumes/superman(new-52).jpg" alt="New 52">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Modern</div>
-          <div class="costume-effect-label">Proficiency — +5% ATK and MAG</div>
+          <div class="costume-name">New 52</div>
+          <div class="costume-effect-label">Super Armor — +5% DEF</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/miles-morales(into-the-spider-verse).jpg" alt="Into the Spider-Verse">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/superman(black-suit).jpg" alt="Black Suit">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Into the Spider-Verse</div>
-          <div class="costume-effect-label">Leap of Faith — +10% MAG and SPD, -10% ACC</div>
-          <span class="rarity rarity--mythic">Mythic</span>
+          <div class="costume-name">Black Suit</div>
+          <div class="costume-effect-label">Return of a Hero — +20% ATK and DEF for 3 turns when resurrected</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/superman(kingdom-come).jpg" alt="Kingdom Come">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Kingdom Come</div>
+          <div class="costume-effect-label">New Heroes for a New Era - +6% ATK, MAG, DEF and RES to all "Hero" allies (self excluded)</div>
+          <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
 
@@ -1096,23 +1112,41 @@
       <div class="changelog-entry">
         <div class="entry-meta">
           <span class="version">v1.0.1</span>
-          <span class="date">May 20, 2026</span>
+          <span class="date">May 22, 2026</span>
         </div>
         <ul class="changes">
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Doing Things a Different Way</em> (Leader) — Web Warrior allies' infliction chance bonus increased from <strong>+5% → +8%</strong>.</span>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>MAX HP reduced from 20,500 to 16,800.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Frost Breath cooldown increased from 4 to 5 turns; Frost reduced from 2 stacks for 2 turns to 1 stack for 1 turn.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>Quick Swing</em> — replaced the unclear "+15% SPD for this ability" with <strong>+30 SPD before this turn's initiative is calculated</strong>, applying the boost in time to reorder Miles earlier this turn. Reinforces the ability's identity as a panic-button escape tool.</span>
+            <span>Super Stance no longer restores 3 STA or 8% HP; the counter now scales off ATK instead of MAG (still 150%).</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>Learning Responsibility</em> (Passive 2) — added a stacking ceiling of <strong>+20% maximum</strong> on the ally-success ATK/MAG buff so it can't snowball uncapped in long fights.</span>
+            <span>Soaring Save wording clarified — standby now explicitly ends after one save, rather than the ambiguous "once per turn."</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Solarpowered Punch no longer scales off allies defeated. Now deals 500% ATK baseline + 100% ATK per attack intercepted since last ULTIMATUM (max +1500%). Deep Bruise scales at 1 stack per 3 intercepts (max 3 stacks). Intercepts include Taunt redirections and standby saves.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Priority to Protect now only saves allies below 50% HP and caps at 5 saves before standby ends.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Unmatched Compassion reworded: "Taunt" on self cannot be removed by enemy cleanse effects, but still expires on duration normally.</span>
           </li>
         </ul>
-        <p class="rationale">Leader buff was undertuned relative to Peter's. Quick Swing's priority concept needed wording that didn't rely on a private per-ability stat — a one-turn SPD boost applied pre-initiative respects the normal turn-order system while letting Miles bail out of bad positions. Learning Responsibility's intent was always to stack, but with a 6-character team triggering it every turn the uncapped version could climb to runaway numbers; 20% caps it at a meaningful but bounded buff.</p>
+        <p class="rationale">
+          Superman's launch kit packed a Defender's HP pool with Breaker-grade infliction power and an ULTIMATUM that rewarded losing teammates — a contradiction with his identity as the team's protector. This pass trims him to fit the role: he's still the tankiest Champion on the roster, but Frost Breath stops out-Breakering the Breakers, Super Stance becomes a focused defensive setup instead of a five-effect Swiss Army knife, Priority to Protect has clear boundaries, and Solarpowered Punch now scales off doing his job (intercepting) rather than failing at it. Soaring Save and Unmatched Compassion were reworded for clarity, not power.
+        </p>
       </div>
 
       <div class="changelog-entry release">
@@ -1123,7 +1157,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Spider-Man (Miles Morales) enters the roster.</span>
+            <span>Superman enters the roster.</span>
           </li>
         </ul>
       </div>

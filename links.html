@@ -143,11 +143,12 @@
     font-weight: 500;
   }
 
-  .category--morality .category-title { color: #ff7878; }
-  .category--team     .category-title { color: #5fb0ff; }
-  .category--universe .category-title { color: #c084fc; }
-  .category--species  .category-title { color: #5fd189; }
-  .category--mindset  .category-title { color: #ffc06a; }
+  .category--morality  .category-title { color: #ff7878; }
+  .category--team      .category-title { color: #5fb0ff; }
+  .category--universe  .category-title { color: #c084fc; }
+  .category--species   .category-title { color: #5fd189; }
+  .category--mindset   .category-title { color: #ffc06a; }
+  .category--powertier .category-title { color: #22d3ee; }
 
   /* ====================== LINK PILLS (Dokkan-inspired buttons) ====================== */
   .link-grid {
@@ -193,11 +194,12 @@
   }
 
   /* Pill colors per category */
-  .link-pill--morality { background: #d63a3a; color: #fff; }
-  .link-pill--team     { background: #3690ee; color: #fff; }
-  .link-pill--universe { background: #9b59f6; color: #fff; }
-  .link-pill--species  { background: #3fb16c; color: #fff; }
-  .link-pill--mindset  { background: #efb73f; color: #2e1f08; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
+  .link-pill--morality  { background: #d63a3a; color: #fff; }
+  .link-pill--team      { background: #3690ee; color: #fff; }
+  .link-pill--universe  { background: #9b59f6; color: #fff; }
+  .link-pill--species   { background: #3fb16c; color: #fff; }
+  .link-pill--mindset   { background: #efb73f; color: #2e1f08; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
+  .link-pill--powertier { background: #0e7490; color: #fff; }
 
   /* No results state */
   .no-results {
@@ -271,11 +273,13 @@
   <section class="category category--team">
     <div class="category-header">
       <div class="category-title">Team</div>
-      <div class="category-count" data-category-count>3 links</div>
+      <div class="category-count" data-category-count>5 links</div>
     </div>
     <div class="link-grid">
-      <a href="links/new-avengers.html" class="link-pill link-pill--team" data-name="New Avengers">New Avengers</a>
+      <a href="links/bat-family.html" class="link-pill link-pill--team" data-name="Bat-Family">Bat-Family</a>
       <a href="links/heroes-of-new-york.html" class="link-pill link-pill--team" data-name="Heroes of New York">Heroes of New York</a>
+      <a href="links/justice-league.html" class="link-pill link-pill--team" data-name="Justice League">Justice League</a>
+      <a href="links/new-avengers.html" class="link-pill link-pill--team" data-name="New Avengers">New Avengers</a>
       <a href="links/web-warrior.html" class="link-pill link-pill--team" data-name="Web Warrior">Web Warrior</a>
     </div>
   </section>
@@ -284,9 +288,10 @@
   <section class="category category--universe">
     <div class="category-header">
       <div class="category-title">Universe</div>
-      <div class="category-count" data-category-count>1 link</div>
+      <div class="category-count" data-category-count>2 links</div>
     </div>
     <div class="link-grid">
+      <a href="links/dc-universe.html" class="link-pill link-pill--universe" data-name="DC Universe">DC Universe</a>
       <a href="links/marvel-universe.html" class="link-pill link-pill--universe" data-name="Marvel Universe">Marvel Universe</a>
     </div>
   </section>
@@ -295,10 +300,11 @@
   <section class="category category--species">
     <div class="category-header">
       <div class="category-title">Species</div>
-      <div class="category-count" data-category-count>1 link</div>
+      <div class="category-count" data-category-count>2 links</div>
     </div>
     <div class="link-grid">
       <a href="links/human.html" class="link-pill link-pill--species" data-name="Human">Human</a>
+      <a href="links/kryptonian.html" class="link-pill link-pill--species" data-name="Kryptonian">Kryptonian</a>
     </div>
   </section>
 
@@ -306,11 +312,28 @@
   <section class="category category--mindset">
     <div class="category-header">
       <div class="category-title">Mindset</div>
-      <div class="category-count" data-category-count>2 links</div>
+      <div class="category-count" data-category-count>5 links</div>
     </div>
     <div class="link-grid">
       <a href="links/comedic-genius.html" class="link-pill link-pill--mindset" data-name="Comedic Genius">Comedic Genius</a>
       <a href="links/heir-to-the-mantle.html" class="link-pill link-pill--mindset" data-name="Heir to the Mantle">Heir to the Mantle</a>
+      <a href="links/incredible-intelligence.html" class="link-pill link-pill--mindset" data-name="Incredible Intelligence">Incredible Intelligence</a>
+      <a href="links/pure-heart.html" class="link-pill link-pill--mindset" data-name="Pure Heart">Pure Heart</a>
+      <a href="links/tactical-mind.html" class="link-pill link-pill--mindset" data-name="Tactical Mind">Tactical Mind</a>
+    </div>
+  </section>
+
+  <!-- POWER TIER -->
+  <section class="category category--powertier">
+    <div class="category-header">
+      <div class="category-title">Power Tier</div>
+      <div class="category-count" data-category-count>4 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/cosmic-threat.html" class="link-pill link-pill--powertier" data-name="Cosmic Threat">Cosmic Threat</a>
+      <a href="links/reality-warper.html" class="link-pill link-pill--powertier" data-name="Reality Warper">Reality Warper</a>
+      <a href="links/street-level.html" class="link-pill link-pill--powertier" data-name="Street Level">Street Level</a>
+      <a href="links/supreme-power.html" class="link-pill link-pill--powertier" data-name="Supreme Power">Supreme Power</a>
     </div>
   </section>
 

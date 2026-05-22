@@ -1082,6 +1082,12 @@
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square common"></span>Taunt</div></td>
+            <td>Redirects any enemy attacks within 6 panels to self.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label common">Common</span></td>
+          </tr>
         </tbody>
       </table>
 
@@ -1103,6 +1109,12 @@
             <td><span class="tier-label legendary">Legendary</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Frozen</div></td>
+            <td>Cannot move or act until an attack is received (causes effect to expire). If an attack is received, that attack is a guaranteed critical hit.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Terrify</div></td>
             <td>-20% DEF, RES and EVA.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1110,7 +1122,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Spider's Web</div></td>
-            <td>Cannot move or act until an attack is received.</td>
+            <td>Cannot move or act until an attack is received (causes effect to expire).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
@@ -1133,6 +1145,12 @@
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Bruise</div></td>
+            <td>-15% DEF.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Sting</div></td>
             <td>-15% RES.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1141,6 +1159,18 @@
           <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Shock</div></td>
             <td>Deals 50% MAG damage per turn (using the inflictor's stat). 10% chance per turn to be nullified and replaced with Paralyze for 1 turn.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Burn</div></td>
+            <td>Deals 80% MAG damage per turn (using the inflictor's stat). Ends if hit by Frozen but deals an additional single burst of 80% MAG.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Frost</div></td>
+            <td>Deals 80% MAG damage per turn (using the inflictor's stat). Ends if hit by Burn or Incinerate but deals an additional single burst of 50% MAG.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>
@@ -1164,6 +1194,10 @@
 
       <h3>Extension</h3>
       <p>Extensions are abilities tacked onto another ability at no extra cost. They function like a "combo" where it'll continue the first ability. These abilities are often represented by the phrase "extends into…" on a character's ability.</p>
+
+      <h3>Standby</h3>
+      <p>A <strong>standby</strong> is a <em>reactionary state</em> granted by certain abilities (typically marked with phrasing like "stands by for the remainder of the turn"). While <em>standing by</em>, the Champion takes no further actions but holds a triggered effect — usually a reactive benefit such as intercepting an incoming attack, saving an ally, or returning a counter.</p>
+      <p>Standby functions similarly to <strong>Block</strong> and <strong>Wait</strong>: the Champion <em>stands by</em> for the rest of the turn rather than continuing to act. Unlike those basic actions, the specific trigger and behavior of a standby is written into the ability that granted it, so each Champion's standby behaves differently. A standby's exit condition (one save, three counters, end of turn, etc.) is always specified in the granting ability.</p>
     </section>
 
   </main>
