@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hero — Champions Ultimate Edition</title>
+<title>Bat-Family — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,19 +39,19 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #ff7878; }
+  .back-link:hover { color: #4aa3ff; }
 
   .category-badge {
     display: inline-block;
-    background: rgba(214, 58, 58, 0.12);
-    color: #ff7878;
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 4px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(214, 58, 58, 0.4);
+    border: 1px solid rgba(74, 163, 255, 0.4);
     margin-bottom: 10px;
   }
 
@@ -59,7 +59,7 @@
     font-size: 38px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #ff7878;
+    color: #6bb4ff;
     margin-bottom: 8px;
   }
 
@@ -124,7 +124,7 @@
 
   .champion-card:hover {
     transform: translateY(-3px);
-    border-color: #d63a3a;
+    border-color: #4aa3ff;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -195,7 +195,7 @@
     text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
   }
 
-  /* ====================== EFFECT CARDS (leaders/supporters/opposers) ====================== */
+  /* ====================== EFFECT CARDS ====================== */
   .effect-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -205,7 +205,7 @@
   .effect-card {
     background: #1c1d20;
     border: 1px solid #2c3038;
-    border-left: 3px solid #d63a3a;
+    border-left: 3px solid #4aa3ff;
     border-radius: 10px;
     padding: 14px 18px 16px;
     display: flex;
@@ -304,9 +304,9 @@
   }
 
   .team-slot {
-    background: rgba(214, 58, 58, 0.1);
-    border: 1px solid rgba(214, 58, 58, 0.35);
-    color: #ff7878;
+    background: rgba(74, 163, 255, 0.1);
+    border: 1px solid rgba(74, 163, 255, 0.35);
+    color: #6bb4ff;
     font-size: 12px;
     font-weight: 600;
     padding: 4px 10px;
@@ -352,9 +352,9 @@
 <header class="page-header">
   <div class="header-inner">
     <a href="../links.html" class="back-link">← Back to Links</a>
-    <span class="category-badge">Morality</span>
-    <h1 class="page-title">Hero</h1>
-    <p class="page-desc">The most universal of moral links — Champions who use their power to protect, to serve, and to stand between the world and what would harm it. Heroes form the backbone of most team compositions and represent the broadest spectrum of personalities, powers, and origins on the roster. Leader Abilities and effects that buff Heroes tend to be powerful but broad, since the Hero link applies to such a wide swath of the playable cast.</p>
+    <span class="category-badge">Team</span>
+    <h1 class="page-title">Bat-Family</h1>
+    <p class="page-desc">Gotham's extended family of cowled vigilantes, all in some way orbiting Bruce Wayne's mission. The Bat-Family is built on shared methodology — the prep, the stealth, the gadgets, and the refusal to use lethal force — rather than blood relation. Members tend toward Breaker and Striker roles with strong infliction kits, exceptional accuracy, and synergistic stealth or counter-attack play. The link rewards careful positioning and shared traps over brute force.</p>
   </div>
 </header>
 
@@ -365,26 +365,8 @@
        ============================================= -->
   <section>
     <div class="section-title">Members</div>
-    <p class="section-subtitle">Champions whose Links include "Hero".</p>
+    <p class="section-subtitle">Champions whose Links include "Bat-Family".</p>
     <div class="member-grid">
-
-      <a href="../champions/spider-man.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge" data-role="Striker">Striker</div>
-        <div class="champion-name">Spider-Man</div>
-      </a>
-
-      <a href="../champions/miles-morales.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge" data-role="Breaker">Breaker</div>
-        <div class="champion-name">Spider-Man (Miles Morales)</div>
-      </a>
 
       <a href="../champions/batman.html" class="champion-card">
         <div class="champion-image">
@@ -393,15 +375,6 @@
         <div class="champion-overlay"></div>
         <div class="role-badge" data-role="Breaker">Breaker</div>
         <div class="champion-name">Batman</div>
-      </a>
-
-      <a href="../champions/superman.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/superman.jpg" alt="Superman">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge" data-role="Defender">Defender</div>
-        <div class="champion-name">Superman</div>
       </a>
 
       <a href="../champions/robin.html" class="champion-card">
@@ -426,21 +399,43 @@
   </section>
 
   <!-- =============================================
-       LEADERS — Champions whose Leader Ability buffs this link
+       LEADERS
        ============================================= -->
   <section>
     <div class="section-title">Leaders</div>
-    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Hero allies.</p>
+    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Bat-Family allies.</p>
     <div class="effect-grid">
 
-      <a href="../champions/superman.html" class="effect-card effect-card--leader">
+      <a href="../champions/batman.html" class="effect-card effect-card--leader">
         <div class="effect-portrait">
-          <img src="../images/champion-images/superman.jpg" alt="Superman">
+          <img src="../images/champion-images/batman.jpg" alt="Batman">
         </div>
         <div class="effect-body">
-          <div class="effect-name">Superman</div>
-          <div class="effect-source">Leader · The Symbol of Hope</div>
-          <div class="effect-text">"Hero" allies gain +10% MAX HP.</div>
+          <div class="effect-name">Batman</div>
+          <div class="effect-source">Leader · CEO of Wayne Enterprises</div>
+          <div class="effect-text">"Bat-Family" or "Tactical Mind" allies gain +12% ATK and DEF in battle.</div>
+        </div>
+      </a>
+
+      <a href="../champions/robin.html" class="effect-card effect-card--leader">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/robin.jpg" alt="Robin">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Robin</div>
+          <div class="effect-source">Leader · Heir to the Cowl</div>
+          <div class="effect-text">"Bat-Family" allies gain +8% CRIT RATE in battle.</div>
+        </div>
+      </a>
+
+      <a href="../champions/batgirl.html" class="effect-card effect-card--leader">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Batgirl</div>
+          <div class="effect-source">Leader · Loyalty to the Symbol</div>
+          <div class="effect-text">"Bat-Family" allies gain +2% passive ULT gain per turn in battle.</div>
         </div>
       </a>
 
@@ -448,22 +443,54 @@
   </section>
 
   <!-- =============================================
-       SUPPORTERS — Explicit buffs to this link's allies
-       (Outside of Leader Abilities)
+       SUPPORTERS
        ============================================= -->
   <section>
     <div class="section-title">Supporting Champions</div>
-    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Hero allies (excluding Leader Abilities).</p>
+    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Bat-Family allies (excluding Leader Abilities).</p>
     <div class="effect-grid">
 
-      <a href="../champions/superman.html" class="effect-card effect-card--supporter">
+      <a href="../champions/batman.html" class="effect-card effect-card--supporter">
         <div class="effect-portrait">
-          <img src="../images/champion-images/superman.jpg" alt="Superman">
+          <img src="../images/champion-images/batman.jpg" alt="Batman">
         </div>
         <div class="effect-body">
-          <div class="effect-name">Superman</div>
-          <div class="effect-source">Costume · Kingdom Come · "New Heroes for a New Era"</div>
-          <div class="effect-text">+6% ATK, MAG, DEF and RES to all "Hero" allies (self excluded).</div>
+          <div class="effect-name">Batman</div>
+          <div class="effect-source">Reserve Passive · Family Matters</div>
+          <div class="effect-text">+8% SPD to "Bat-Family" allies (self excluded). When self gains "Stealth", all "Bat-Family" allies also gain it for the same duration.</div>
+        </div>
+      </a>
+
+      <a href="../champions/robin.html" class="effect-card effect-card--supporter">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/robin.jpg" alt="Robin">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Robin</div>
+          <div class="effect-source">Passive · A Proper Family</div>
+          <div class="effect-text">+6% ATK to "Bat-Family" allies (self excluded). When self deals damage, all "Bat-Family" allies gain +2% SPD for 2 turns.</div>
+        </div>
+      </a>
+
+      <a href="../champions/robin.html" class="effect-card effect-card--supporter">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/robin.jpg" alt="Robin">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Robin</div>
+          <div class="effect-source">Special · Assassin Infiltration</div>
+          <div class="effect-text">Grants "Pinpoint" to all "Bat-Family" allies for 1 turn (next ability is a guaranteed critical hit).</div>
+        </div>
+      </a>
+
+      <a href="../champions/batgirl.html" class="effect-card effect-card--supporter">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Batgirl</div>
+          <div class="effect-source">Passive · Night Patrol</div>
+          <div class="effect-text">"Bat-Family" allies STA regen increased to 50% of MAX STA per turn (self excluded; self regen is 60%).</div>
         </div>
       </a>
 
@@ -471,24 +498,24 @@
   </section>
 
   <!-- =============================================
-       OPPOSERS — Explicit anti-link effects
+       OPPOSERS
        ============================================= -->
   <section>
     <div class="section-title">Opposing Champions</div>
-    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Hero members.</p>
+    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Bat-Family members.</p>
     <div class="empty">
-      No Champions yet have effects that explicitly counter Heroes.
+      No Champions yet have effects that explicitly counter the Bat-Family.
     </div>
   </section>
 
   <!-- =============================================
-       BEST TEAMS — Recommended compositions per mode
+       BEST TEAMS
        ============================================= -->
   <section>
     <div class="section-title">Best Teams Per Mode</div>
     <p class="section-subtitle">Recommended six-Champion compositions for each game mode.</p>
     <div class="empty">
-      Only five Heroes are currently designed. More members are needed before full six-Champion team compositions can be recommended.
+      Only three Bat-Family members are currently designed. More members are needed before full six-Champion team compositions can be recommended.
     </div>
   </section>
 

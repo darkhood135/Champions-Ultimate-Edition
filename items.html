@@ -308,6 +308,7 @@
   .type-badge[data-type="Throwable"]  { color: #ff8a5d; }
   .type-badge[data-type="Consumable"] { color: #6ad896; }
   .type-badge[data-type="Trinket"]    { color: #ffd680; }
+  .type-badge[data-type="Deployable"]    { color: #1c4e97; }
 
   .item-name {
     position: absolute;
@@ -392,6 +393,7 @@
         <button class="filter-pill" data-value="Throwable">Throwable</button>
         <button class="filter-pill" data-value="Consumable">Consumable</button>
         <button class="filter-pill" data-value="Trinket">Trinket</button>
+        <button class="filter-pill" data-value="Deployable">Deployable</button>
       </div>
     </div>
     <div class="filter-group">
@@ -418,67 +420,22 @@
        ============================================= -->
   <div class="item-grid" id="item-grid">
 
-    <a href="items/pumpkin-bomb.html" class="item-card"
-       data-name="Pumpkin Bomb" data-type="Throwable"
-       data-tags="Damaging,AoE">
-      <div class="item-image"><span>PB</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Throwable">Throwable</div>
-      <div class="item-name">Pumpkin Bomb</div>
-    </a>
-
-    <a href="items/web-bomb.html" class="item-card"
-       data-name="Web Bomb" data-type="Throwable"
-       data-tags="AoE,Stunning">
-      <div class="item-image"><span>WB</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Throwable">Throwable</div>
-      <div class="item-name">Web Bomb</div>
-    </a>
-
     <a href="items/smoke-grenade.html" class="item-card"
        data-name="Smoke Grenade" data-type="Throwable"
        data-tags="Defensive,AoE">
-      <div class="item-image"><img src="images/item-images/smoke-grenade.jpg" alt="Smoke Grenade"></div>
+      <div class="item-image"><img src="images/item-images/smoke-grenade.png" alt="Smoke Grenade"></div>
       <div class="item-overlay"></div>
       <div class="type-badge" data-type="Throwable">Throwable</div>
       <div class="item-name">Smoke Grenade</div>
     </a>
 
-    <a href="items/throwing-knife.html" class="item-card"
-       data-name="Throwing Knife" data-type="Throwable"
-       data-tags="Damaging,Single-Target">
-      <div class="item-image"><span>TK</span></div>
+    <a href="items/explosive-gel.html" class="item-card"
+       data-name="Explosive Gel" data-type="Deployable"
+       data-tags="Defensive,AoE,Damaging">
+      <div class="item-image"><img src="images/item-images/explosive-gel.png" alt="Explosive Gel"></div>
       <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Throwable">Throwable</div>
-      <div class="item-name">Throwing Knife</div>
-    </a>
-
-    <a href="items/health-potion.html" class="item-card"
-       data-name="Health Potion" data-type="Consumable"
-       data-tags="Healing,Single-Target">
-      <div class="item-image"><span>HP</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Consumable">Consumable</div>
-      <div class="item-name">Health Potion</div>
-    </a>
-
-    <a href="items/energy-drink.html" class="item-card"
-       data-name="Energy Drink" data-type="Consumable"
-       data-tags="Resource Refill,Single-Target">
-      <div class="item-image"><span>ED</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Consumable">Consumable</div>
-      <div class="item-name">Energy Drink</div>
-    </a>
-
-    <a href="items/adrenaline-shot.html" class="item-card"
-       data-name="Adrenaline Shot" data-type="Consumable"
-       data-tags="Stat Boost,Mobility,Single-Target">
-      <div class="item-image"><span>AS</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Consumable">Consumable</div>
-      <div class="item-name">Adrenaline Shot</div>
+      <div class="type-badge" data-type="Deployable">Deployable</div>
+      <div class="item-name">Explosive Gel</div>
     </a>
 
     <a href="items/senzu-bean.html" class="item-card"
@@ -488,69 +445,6 @@
       <div class="item-overlay"></div>
       <div class="type-badge" data-type="Consumable">Consumable</div>
       <div class="item-name">Senzu Bean</div>
-    </a>
-
-    <a href="items/cooking-stew.html" class="item-card"
-       data-name="Cooking Stew" data-type="Consumable"
-       data-tags="Healing,Stat Boost,AoE">
-      <div class="item-image"><span>CS</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Consumable">Consumable</div>
-      <div class="item-name">Cooking Stew</div>
-    </a>
-
-    <a href="items/lucky-coin.html" class="item-card"
-       data-name="Lucky Coin" data-type="Trinket"
-       data-tags="Stat Boost">
-      <div class="item-image"><span>LC</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Lucky Coin</div>
-    </a>
-
-    <a href="items/power-cell.html" class="item-card"
-       data-name="Power Cell" data-type="Trinket"
-       data-tags="Resource Refill">
-      <div class="item-image"><span>PC</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Power Cell</div>
-    </a>
-
-    <a href="items/web-cartridge.html" class="item-card"
-       data-name="Web Cartridge" data-type="Trinket"
-       data-tags="Resource Refill">
-      <div class="item-image"><span>WC</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Web Cartridge</div>
-    </a>
-
-    <a href="items/spider-tracer.html" class="item-card"
-       data-name="Spider Tracer" data-type="Trinket"
-       data-tags="Anti-Stealth,Stat Boost">
-      <div class="item-image"><span>ST</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Spider Tracer</div>
-    </a>
-
-    <a href="items/bat-gadget.html" class="item-card"
-       data-name="Bat-Gadget" data-type="Trinket"
-       data-tags="Stat Boost,Defensive">
-      <div class="item-image"><span>BG</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Bat-Gadget</div>
-    </a>
-
-    <a href="items/iron-trinket.html" class="item-card"
-       data-name="Iron Trinket" data-type="Trinket"
-       data-tags="Stat Boost,Defensive">
-      <div class="item-image"><span>IT</span></div>
-      <div class="item-overlay"></div>
-      <div class="type-badge" data-type="Trinket">Trinket</div>
-      <div class="item-name">Iron Trinket</div>
     </a>
 
   </div>

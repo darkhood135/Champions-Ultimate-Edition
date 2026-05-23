@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Batman — Champions Ultimate Edition</title>
+<title>Robin — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #fbbf24; }
+  .back-link:hover { color: #dc2626; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #fbbf24;
+    color: #dc2626;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(251, 191, 36, 0.12);
-    color: #fcd34d;
+    background: rgba(192, 132, 252, 0.12);
+    color: #d8b4fe;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(251, 191, 36, 0.35);
+    border: 1px solid rgba(192, 132, 252, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #fbbf24;
+    border-left: 3px solid #166534;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #ff5b5b;
+    border-color: #dc2626;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #ff8585;
+    color: #fbbf24;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Batman theme — Black / Bat-Yellow / Storm-Grey / Crimson palette.
-       Black/charcoal = the suit, the cowl, the night, inherent identity.
-       Bat-yellow = the symbol, utility belt, signature gear.
-       Storm-grey = urban concrete, the methodical mind, gadgetry.
-       Deep crimson = reserved for his most violent commitments (Vengeance, Takedown).
-     Each ability still gets a visually distinct treatment; the palette
-     just shifts what "distinct" means for this character. */
+     Robin theme — Crimson Red / Forest Green / Solar Gold / League-of-Assassins Shadow.
+       Crimson red = the tunic, the youth, his Bat-Family identity.
+       Forest green = the cape, pants, his classic Robin signature.
+       Solar gold = the utility belt and the inherited symbol of the cowl.
+       Shadow-teal = his League of Assassins upbringing, the killer beneath.
+     Robin shares Batman's family palette (gold leader, slate batarang, amber belt)
+     so the visual lineage reads, but his own colors take the lead. */
 
   .ability--leader {
-    background: #fbbf24;          /* bat-yellow — the signal, the symbol */
+    background: #fbbf24;          /* bat-yellow — Heir to the Cowl */
     color: #2d1f08;
   }
 
   .ability--basic {
-    background: #1a1610;          /* near-black with subtle gold tint */
-    border: 1px solid #4a3a10;
-    color: #f0f1f3;
+    background: #1f0a0a;          /* deep ox-blood — the Robin tunic in close combat */
+    border: 1px solid #4a1010;
+    color: #fde0e0;
   }
-  .ability--basic .ability-name { color: #fbbf24; }
-  .ability--basic .ability-tag  { color: #c89124; }
-  .ability--basic .ability-meta { color: #c89124; }
+  .ability--basic .ability-name { color: #ef4444; }
+  .ability--basic .ability-tag  { color: #c87878; }
+  .ability--basic .ability-meta { color: #c87878; }
 
-  .ability--special-1 { background: #4a5260; color: #f1f5f9; } /* slate — metal batarangs */
-  .ability--special-2 { background: #1f2937; color: #cbd5e1; } /* dark slate — grapple line */
-  .ability--special-3 { background: #ca8a04; color: #1c1208; } /* deep amber — utility belt */
-  .ability--special-4 { background: #991b1b; color: #fde0e0; } /* dark crimson — takedown violence */
+  .ability--special-1 { background: #4a5260; color: #f1f5f9; } /* slate — Precise Batarang (Bat-Family weapon continuity) */
+  .ability--special-2 { background: #166534; color: #ecfdf5; } /* forest green — Swift Slice, Robin's signature */
+  .ability--special-3 { background: #ca8a04; color: #1c1208; } /* deep amber — Utility Belt (Bat-Family continuity) */
+  .ability--special-4 { background: #064e3b; color: #d1fae5; } /* dark assassin teal — Assassin Infiltration, League shadow */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,27 +459,27 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #fbbf24; } /* bat-yellow */
-  .ability--reserve-passive   { border-left-color: #475569; } /* slate */
-  .ability--reserve-ultimatum { border-left-color: #7f1d1d; } /* deep crimson */
+  .ability--reserve-special   { border-left-color: #dc2626; } /* Robin red */
+  .ability--reserve-passive   { border-left-color: #166534; } /* forest green */
+  .ability--reserve-ultimatum { border-left-color: #064e3b; } /* assassin teal */
 
   .ability--core-passive {
-    background: #0f0f12;          /* blackest black — foundation, the cowl */
-    color: #d0d3da;
+    background: #2d0a0a;          /* dark blood — Child Torn Between Two Identities, visceral */
+    color: #fde0e0;
   }
 
   .ability--passive {
-    background: #475569;          /* slate — secondary, methodical */
-    color: #f1f5f9;
+    background: #b91c1c;          /* Robin red — the youth, the energy */
+    color: #fff5f5;
   }
 
   .ability--ultimatum {
-    background: #7f1d1d;          /* dark crimson — vengeance */
+    background: #7f1d1d;          /* dark crimson — Old Habits, the League's pull */
     color: #fde0e0;
   }
 
   .ability--synergy {
-    background: #d4a017;          /* warm gold — alliance, World's Finest */
+    background: #d4a017;          /* warm gold — alliance, The Dynamic Duo (matches Batman's side) */
     color: #1c1208;
   }
 
@@ -723,17 +723,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/batman.jpg" alt="Batman">
+      <img src="../images/champion-images/robin.jpg" alt="Robin">
     </div>
 
     <div class="identity">
-      <h1 class="name">Batman</h1>
-      <p class="subtitle">Bruce Wayne</p>
-      <span class="role-badge">Breaker</span>
+      <h1 class="name">Robin</h1>
+      <p class="subtitle">Damian Wayne</p>
+      <span class="role-badge">Booster</span>
       <p class="description">
-        Bruce Wayne is the costume. Batman is the man — and the man is preparation. A detective by obsession, a martial artist by drill, a billionaire by inheritance, he traded a normal life for a permanent war against the evil that took his parents. He has no powers. Every gadget on his belt, every contingency for every enemy, has been studied and refined. He fights the way he investigates: patient, methodical, three moves ahead. He waits in the dark until criminals are too afraid to look up, then ends it before they realize he was there. The cowardly and the superstitious have a name for the shape they fear — and it isn't Bruce Wayne.
+        Raised by the League of Assassins and reclaimed by his father, Damian Wayne is the Robin who was a killer first and a hero second. He's small, fast, ruthless, and chemically incapable of saying anything humble — but he's earned every ounce of arrogance through training most adult heroes would not survive. By default he plays as the Bat-Family's edge: setting up team-wide crits, sharing Might and Technique, slipping in unseen. Re-spec him toward his old habits and you get one of the deadliest Strikers on the roster instead.
       </p>
-      <p class="quote">"Ladies. Gentlemen. You have eaten well. You've eaten Gotham's wealth. Its spirit. Your feast is nearly over. From this moment on...none of you are safe."</p>
+      <p class="quote">"I am Robin. Son of Batman. And that's all you need to know!"</p>
     </div>
   </div>
 
@@ -748,25 +748,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">10,800</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">370</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">280</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,300</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">320</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">180</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">190</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">80</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">180%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">108</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">30</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">200%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">15%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">42%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">9</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
       </div>
 
       <!-- Links -->
@@ -775,12 +775,14 @@
         <div class="pill-group">
           <a href="../links/dc-universe.html" class="pill">DC Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
           <a href="../links/bat-family.html" class="pill">Bat-Family</a>
-          <a href="../links/justice-league.html" class="pill">Justice League</a>
-          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
-          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/heir-to-the-mantle.html" class="pill">Heir to the Mantle</a>
+          <a href="../links/street-level.html" class="pill">Street Level</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
           <a href="../links/parental-bond.html" class="pill">Parental Bond</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
         </div>
       </div>
 
@@ -788,17 +790,13 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Enemy Relocation</span>
+          <span class="pill">Evasive Maneuvers</span>
           <span class="pill">Stealthy Application</span>
-          <span class="pill">Position Relocation</span>
-          <span class="pill">Item Spawning</span>
-          <span class="pill">Anti-DEF Infliction</span>
-          <span class="pill">Anti-RES Infliction</span>
-          <span class="pill">Anti-ACC Infliction</span>
-          <span class="pill">Anti-EVA Infliction</span>
+          <span class="pill">Damaging Infliction</span>
           <span class="pill">Application Support</span>
-          <span class="pill">Endurance</span>
-          <span class="pill">Infliction Immunity</span>
+          <span class="pill">Item Spawning</span>
+          <span class="pill">ATK Support</span>
+          <span class="pill">MAG Support</span>
         </div>
       </div>
 
@@ -807,26 +805,14 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="superman.html" class="partner-card">
+          <a href="batman.html" class="partner-card">
             <div class="partner-image">
               <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/superman.jpg" alt="Superman">
+              <img src="../images/champion-images/batman.jpg" alt="Batman">
             </div>
             <div class="partner-tooltip">
-              <strong>Superman</strong>
-              <span class="real-name">Clark Kent</span>
-              <span class="synergy-name">World's Finest</span>
-            </div>
-          </a>
-
-          <a href="robin.html" class="partner-card">
-            <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/robin.jpg" alt="Robin">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Robin</strong>
-              <span class="real-name">Damian Wayne</span>
+              <strong>Batman</strong>
+              <span class="real-name">Bruce Wayne</span>
               <span class="synergy-name">The Dynamic Duo</span>
             </div>
           </a>
@@ -838,7 +824,7 @@
             <div class="partner-tooltip">
               <strong>Batgirl</strong>
               <span class="real-name">Cassandra Cain</span>
-              <span class="synergy-name">Light of the Bat</span>
+              <span class="synergy-name">Siblings of Shadow</span>
             </div>
           </a>
 
@@ -858,11 +844,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">CEO of Wayne Enterprises</span>
+          <span class="ability-name">Heir to the Cowl</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Bat-Family" or "Tactical Mind" allies gain +12% ATK and DEF in battle.</li>
+          <li>"Bat-Family" allies gain +8% CRIT RATE in battle.</li>
         </ul>
       </div>
 
@@ -870,13 +856,12 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Mastered Martial Arts</span>
+          <span class="ability-name">Skilled Martial Arts</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 180% ATK damage to the target.</li>
-          <li>Extends into itself if the target has "Stun" (once per turn).</li>
+          <li>Deals 160% ATK damage to the target.</li>
         </ul>
       </div>
 
@@ -885,26 +870,25 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Batarangs</span>
+          <span class="ability-name">Precise Batarang</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (3 Panels) · Energy: 20 · Cooldown: 1 turn · Range: 13</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 10</div>
         <ul>
-          <li>Deals 150% MAG damage to all enemies within 3 panels of the target (target included).</li>
-          <li>Inflicts "Sting" for 3 turns to all enemies within 3 panels of the target (target included).</li>
+          <li>Guaranteed critical hit.</li>
+          <li>Deals 150% MAG damage to the target.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Grapple Kick</span>
+          <span class="ability-name">Swift Slice</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 3 turns · Range: 9</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Deals 160% ATK damage to the target.</li>
-          <li>Pushes the target in the direction of attack by 2 panels.</li>
-          <li>Positions self onto where the target previously stood.</li>
+          <li>Deals 300% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -913,49 +897,45 @@
           <span class="ability-name">Utility Belt</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 35 · Cooldown: 5 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Gains a "Smoke Grenade" item.</li>
-          <li>Restores 3 STA.</li>
-          <li>Reduces cooldowns for Grapple Kick and Batarangs by 1 turn.</li>
+          <li>Gains an "Explosive Gel" item.</li>
+          <li>Restores 30 EN and 4 STA.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Takedown</span>
+          <span class="ability-name">Assassin Infiltration</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 60 · Cooldown: 3 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Deals 450% ATK damage to the target.</li>
-          <li>Deals an additional 250% ATK damage to the target if self has "Stealth" before the attack begins.</li>
-          <li>Inflicts 2 stacks of "Disorient" for 2 turns to the target if self has "Stealth" before the attack begins.</li>
+          <li>Gains "Stealth" and "Pinpoint" for 1 turn.</li>
+          <li>"Bat-Family" allies gain "Pinpoint" for 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Cape Stun</span>
+          <span class="ability-name">Fighting Side by Side</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 45 · Cooldown: 4 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 20 · Cooldown: 3 turns · Range: 5</div>
         <ul>
-          <li>Deals 100% ATK damage to the target.</li>
-          <li>Inflicts "Stun" to the target for 1 turn.</li>
+          <li>Target and self gains "Might" and "Technique" for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Predator</span>
+          <span class="ability-name">Throwing Dagger</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 3 turns · Range: 14</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 10 · Cooldown: None · Range: 8</div>
         <ul>
-          <li>Inflicts "Terrify" to the target for 2 turns.</li>
-          <li>Self gains +10% ATK for 2 turns.</li>
-          <li>Self gains "Stealth" for 1 turn.</li>
+          <li>Deals 40% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -964,59 +944,58 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Defender of Gotham City</span>
+          <span class="ability-name">Child Torn Between Two Identities</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>Immune to "Terrify".</li>
-          <li>+5% ATK against "Villain" enemies.</li>
-          <li>Gains a "Smoke Grenade" item at the start of battle (once only).</li>
-          <li>Gains 3% ULT each time an attack lands (self only).</li>
+          <li>+5% SPD while above 50% HP.</li>
+          <li>+5% EVA while below 50% HP.</li>
+          <li>Gains 2% ULT each time an attack lands (self only).</li>
+          <li>Gains 1% ULT each time an ally lands an attack (self excluded).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Reinforced Body Armor</span>
+          <span class="ability-name">Lurking in the Shadows</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>+15% EVA against melee attacks.</li>
-          <li>Reduces CRIT RATE for incoming ranged attacks by 10%.</li>
+          <li>Consumes STA at half the rate while having "Stealth".</li>
+          <li>+20% EVA while having "Stealth".</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Bump in The Night</span>
+          <span class="ability-name">A Proper Family</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Predator cooldown is reduced by 1 turn.</li>
-          <li>Takedown cooldown is increased by 1 turn.</li>
-          <li>ATK +7% when launching an attack if the target has "Terrify".</li>
+          <li>+6% ATK to "Bat-Family" allies (self excluded).</li>
+          <li>When self deals damage, all "Bat-Family" allies gain +2% SPD for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Vantage Point</span>
+          <span class="ability-name">Youthful and Swift Movements</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Using Grapple Kick will no longer reposition self.</li>
-          <li>Grapple Kick cooldown is reduced by 2 turns.</li>
+          <li>+10% EVA against melee attacks.</li>
+          <li>+2 MAX STA.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Family Matters</span>
+          <span class="ability-name">Upbringing of an Assassin</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+8% SPD to "Bat-Family" allies (self excluded).</li>
-          <li>When self gains "Stealth", all "Bat-Family" allies also gain it for the same duration.</li>
+          <li>+20% ATK (+15% more when below 50% HP).</li>
+          <li>No longer applies buffs to allies.</li>
         </ul>
       </div>
 
@@ -1025,26 +1004,25 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Vengeance</span>
+          <span class="ability-name">New Habits</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Range: 5 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 500% ATK damage to the target.</li>
-          <li>Deals an additional 500% ATK damage to the target if the target is below 50% HP.</li>
+          <li>Target and self gains 3 stacks of "Might" and "Technique" for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">The Batmobile</span>
+          <span class="ability-name">Old Habits</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: All Enemies in 3-Wide Line · Range: 8 panels (chosen direction) · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
         <ul>
-          <li>Charges 8 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
-          <li>Deals 300% ATK damage to all enemies caught in the line.</li>
-          <li>40% chance to inflict "Disorient" on each enemy hit for 1 turn.</li>
+          <li>Deals 800% ATK damage to the target.</li>
+          <li>Inflicts 2 stacks of "Bleed" for 2 turns to the target.</li>
+          <li>If used while in "Stealth", "Bleed" duration is doubled to 4 turns.</li>
         </ul>
       </div>
 
@@ -1053,37 +1031,25 @@
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">World's Finest</span>
-          <span class="ability-tag">Synergy · w/ Superman</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +5% DEF and RES.</li>
-          <li>Both Champions gain the ability to endure a fatal blow (once per battle).</li>
-        </ul>
-      </div>
-
-      <div class="ability ability--synergy">
-        <div class="ability-header">
           <span class="ability-name">The Dynamic Duo</span>
-          <span class="ability-tag">Synergy · w/ Robin</span>
+          <span class="ability-tag">Synergy · w/ Batman</span>
         </div>
         <ul>
           <li>+8% ATK and MAG for both Champions when they're both attacking the same enemy.</li>
-          <li>+10% ATK and MAG for one Champion if the other is defeated.</li>
+          <li>If one Champion is defeated, the surviving Champion gains +10% ATK and MAG.</li>
         </ul>
       </div>
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Light of the Bat</span>
+          <span class="ability-name">Siblings of Shadow</span>
           <span class="ability-tag">Synergy · w/ Batgirl</span>
         </div>
         <ul>
-          <li>Both Champions gain +7% MAX HP.</li>
-          <li>Batman now inflicts "Tracker" for 2 turns with his Batarangs ability.</li>
+          <li>Both Champions gain +6% ATK.</li>
+          <li>Both Champions gain +5% SPD while having "Stealth" (applies only to themselves).</li>
         </ul>
       </div>
-
     </main>
   </div>
 
@@ -1097,7 +1063,7 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/batman.jpg" alt="Modern">
+          <img src="../images/champion-images/robin.jpg" alt="Modern">
         </div>
         <div class="costume-info">
           <div class="costume-name">Modern</div>
@@ -1108,12 +1074,23 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/batman(the_animated_series).jpg" alt="The Animated Series">
+          <img src="../images/champion-images/costumes/robin(classic).jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">The Animated Series</div>
-          <div class="costume-effect-label">Legacy of the Batman — +10% MAX HP and +5% ATK</div>
-          <span class="rarity rarity--mythic">Mythic</span>
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Deadly Defiance — +10% ATK</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/robin(league_of_assassins).jpg" alt="League of Assassins">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">League of Assassins</div>
+          <div class="costume-effect-label">Strike to Kill — +8% CRIT RATE</div>
+          <span class="rarity rarity--epic">Epic</span>
         </div>
       </div>
 
@@ -1133,27 +1110,37 @@
       <div class="changelog-entry">
         <div class="entry-meta">
           <span class="version">v1.0.1</span>
-          <span class="date">May 21, 2026</span>
+          <span class="date">May 22, 2026</span>
         </div>
         <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>EVA reduced from 50% to 42%.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Default loadout reshuffled to lean Booster: Lurking in the Shadows and A Proper Family promoted to active passives; Youthful and Swift Movements and Upbringing of an Assassin moved to reserve. New Habits promoted to active ULTIMATUM; Old Habits moved to reserve.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Upbringing of an Assassin shortened from four bullets to two — same mechanical effect, far less rules text: "+20% ATK (+15% more when below 50% HP). No longer applies buffs to allies."</span>
+          </li>
           <li class="buff">
             <span class="change-tag">Buff</span>
-            <span><em>Vengeance</em> (ULTIMATUM 1) — base damage raised from <strong>400% → 500% ATK</strong>, with the conditional bonus also raised from <strong>+400% → +500% ATK</strong>. Maximum potential damage now caps at 1,000% ATK against a low-HP target.</span>
+            <span>Old Habits now doubles "Bleed" duration (2 → 4 turns) when used while in "Stealth", rewarding the kit's signature setup.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>The Dynamic Duo synergy bullet 2 reworded for clarity: "If one Champion is defeated, the surviving Champion gains +10% ATK and MAG."</span>
           </li>
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span><em>Predator</em> (Special — Reserve) — range reduced from <strong>20 → 14 panels</strong>.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>The Batmobile</em> (ULTIMATUM — Reserve) — clarified targeting: Batman charges 8 panels in any chosen direction from self, sweeping through a 3-panel-wide line and hitting all enemies caught in it.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>CEO of Wayne Enterprises</em> (Leader) — clarified wording from "and" to "<strong>or</strong>" between the two qualifying links (an ally only needs Bat-Family <em>or</em> Tactical Mind to receive the buff, not both).</span>
+            <span>League of Assassins costume effect "Strike to Kill" reduced from +10% to +8% CRIT RATE.</span>
           </li>
         </ul>
-        <p class="rationale">Vengeance was meager outside its execute condition and worth a base raise; the conditional now also scales harder to keep it competitive with other single-target ULTIMATUMs. Predator's old 20-range was the longest in the game and a bit dominating; 14 keeps the long-range stalker fantasy while tuning down extreme-distance application of Terrify. The Batmobile's "3x8" range was ambiguous; the new wording defines the cone and direction concretely. CEO's "and" → "or" prevents a common-sense misread where readers might assume an ally needs both link tags.</p>
+        <p class="rationale">
+          Robin shipped labeled Booster but defaulting to a near-Striker loadout, with one of his active passives (Upbringing of an Assassin) explicitly disabling the Booster portions of three other abilities. This pass leans into the dual-build identity by making the default actually Booster: he supports the Bat-Family by default, and re-spec'ing into Striker is a deliberate, meaningful choice. EVA and the League costume were trimmed to keep the dodge-crit ceiling from being overtuned. Old Habits gains a Stealth payoff so the Striker re-spec ULT actually rewards his signature playstyle. None of the kit's identity changed — just which side of it is on by default.
+        </p>
       </div>
 
       <div class="changelog-entry release">
@@ -1164,7 +1151,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Batman enters the roster.</span>
+            <span>Robin enters the roster.</span>
           </li>
         </ul>
       </div>

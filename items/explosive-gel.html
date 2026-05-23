@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smoke Grenade — Champions Ultimate Edition</title>
+<title>Explosive Gel — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #d4843a; }
+  .back-link:hover { color: #1c4e97; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #d4843a;
+    color: #1c4e97;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 14px;
@@ -88,8 +88,8 @@
 
   .type-badge {
     display: inline-block;
-    background: rgba(255, 138, 93, 0.12);
-    color: #ff8a5d;
+    background: #13233a;
+    color: #1c4e97;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -97,7 +97,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 138, 93, 0.35);
+    border: 1px solid #1c4e97;
     align-self: flex-start;
   }
 
@@ -245,7 +245,7 @@
   }
 
   .ability--item {
-    background: #c2782e;
+    background: #1c4e97;
     color: #2a1808;
   }
 
@@ -292,7 +292,7 @@
 
   .user-card:hover {
     transform: translateY(-3px);
-    border-color: #d4843a;
+    border-color: #1c4e97;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -330,7 +330,7 @@
     right: 8px;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
-    color: #ffb070;
+    color: #1c4e97;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -465,7 +465,7 @@
     border-left: 3px solid #2c3038;
   }
 
-  .changelog-entry.release { border-left-color: #d4843a; }
+  .changelog-entry.release { border-left-color: #1c4e97; }
 
   .entry-meta {
     display: flex;
@@ -520,7 +520,7 @@
   .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
   .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
   .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
-  .changes li.release .change-tag { background: rgba(212, 132, 58, 0.15); color: #f0a85d; border: 1px solid rgba(212, 132, 58, 0.4); }
+  .changes li.release .change-tag { background: #13233a; color: #1c4e97; border: 1px solid #1c4e97; }
 
   .rationale {
     font-size: 12.5px;
@@ -568,14 +568,14 @@
   <div class="hero-bar">
     <div class="item-portrait">
       <!-- Replace this span with: <img src="path/to/icon.jpg" alt="Smoke Grenade"> -->
-      <img src="../images/item-images/smoke-grenade.png" alt="Smoke Grenade">
+      <img src="../images/item-images/explosive-gel.png" alt="Explosive Gel">
     </div>
 
     <div class="identity">
-      <h1 class="name">Smoke Grenade</h1>
-      <span class="type-badge">Throwable</span>
+      <h1 class="name">Explosive Gel</h1>
+      <span class="type-badge">Deployable</span>
       <p class="description">
-        A compressed canister of dense particulate haze. When thrown, it bursts into a thick cloud that obscures sight lines and disrupts enemy aim — cheap, reliable, and the favorite tool of anyone who needs to disappear in a hurry. Especially common in stealth-leaning Champions' kits and on urban battlefields where cover is already at a premium.
+        The Explosive Gel is a gadget and occasional weapon. The user can spray the gel on weak structures and detonate it at will. When triggered, any enemy in the blast radius is knocked to the ground.
       </p>
     </div>
   </div>
@@ -594,8 +594,7 @@
         <div class="pill-group">
           <span class="pill">Defensive</span>
           <span class="pill">AoE</span>
-          <span class="pill">ACC Reduction</span>
-          <span class="pill">Sight Block</span>
+          <span class="pill">Damage</span>
         </div>
       </div>
     </aside>
@@ -611,15 +610,16 @@
 
       <div class="ability ability--item">
         <div class="ability-header">
-          <span class="ability-name">Deploy Smoke</span>
-          <span class="ability-tag">Throwable</span>
+          <span class="ability-name">Detonate</span>
+          <span class="ability-tag">Deployable</span>
         </div>
-        <div class="ability-meta">Type: Throwable · Target: One Panel + AoE (3 panels) · Range: 6</div>
+        <div class="ability-meta">Type: Deployable · Target: One Panel + AoE (3 panels) · Range: 2</div>
         <ul>
-          <li>Generates a smoke cloud in a 3-panel radius around the targeted panel.</li>
-          <li>All Champions inside the cloud (allies and enemies) are inflicted with "Disorient" for 2 turns.</li>
-          <li>The cloud blocks line of sight, preventing ranged abilities from passing through it for 2 turns.</li>
-          <li>Consumed on use.</li>
+          <li>When used for the first time, places explosive gel on the targeted panel.</li>
+          <li>When used again, detonates the explosive gel and damages any obstacle, ally or enemy within a 3-panel radius around the targeted panel for 500 damage.</li>
+          <li>Deals an additional 800 damage to obstacles.</li>
+          <li>Any allies or enemies damaged by the explosive gel lose 50 EN and 4 STA.</li>
+          <li>Consumed on second usage (when gel is activated).</li>
         </ul>
       </div>
     </main>
@@ -634,13 +634,13 @@
 
     <div class="users-grid">
 
-      <a href="../champions/batman.html" class="user-card">
+      <a href="../champions/robin.html" class="user-card">
         <div class="user-image">
-          <img src="../images/champion-images/batman.jpg" alt="Batman">
+          <img src="../images/champion-images/robin.jpg" alt="Robin">
         </div>
         <div class="user-overlay"></div>
         <div class="user-source">Special 3</div>
-        <div class="user-name">Batman</div>
+        <div class="user-name">Robin</div>
       </a>
 
     </div>
@@ -690,7 +690,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Smoke Grenade added to the item pool.</span>
+            <span>Explosive Gel added to the item pool.</span>
           </li>
         </ul>
       </div>
