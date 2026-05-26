@@ -945,6 +945,8 @@
         <strong>Attack Calculation Order</strong>
         <em>Baseline percentage damage → Critical roll/multiplier → Infliction roll (if relevant) → ACC + EVA rolls → Block multiplier on DEF/RES (if blocking) → Subtract defensive stat → Apply situational damage modifiers</em>
       </div>
+      <p><strong>Multi-hit abilities:</strong> When an ability deals damage in multiple separate hits (e.g., <em>"deals 200% ATK damage to the target 3 times"</em>), the defender's DEF (or RES) subtraction in step 6 is applied independently to <strong>each hit</strong>. A 200% ATK × 3-hit move against a target with DEF 140 subtracts 140 three times — once per hit — rather than once for the whole ability. Abilities that describe a single combined damage total with no "times" qualifier apply the subtraction once as normal.</p>
+
       <p>Healing works similarly but skips defenses and evasion:</p>
       <ol>
         <li>Calculate percentage healing</li>
@@ -1084,7 +1086,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Overflow</div></td>
-            <td>Increases MAX EN by 100. Any exceeding EN will remain after status effect expiration.</td>
+            <td>Increases MAX EN by 30. Any exceeding EN will remain after status effect expiration.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
@@ -1143,6 +1145,12 @@
             <td>Cannot move or act until an attack is received (causes effect to expire).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Retribution</div></td>
+            <td>Attacks performed can only target the inflictor of this status effect.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Deep Bruise</div></td>
@@ -1228,6 +1236,36 @@
       <h3>Standby</h3>
       <p>A <strong>standby</strong> is a <em>reactionary state</em> granted by certain abilities (typically marked with phrasing like "stands by for the remainder of the turn"). While <em>standing by</em>, the Champion takes no further actions but holds a triggered effect — usually a reactive benefit such as intercepting an incoming attack, saving an ally, or returning a counter.</p>
       <p>Standby functions similarly to <strong>Block</strong> and <strong>Wait</strong>: the Champion <em>stands by</em> for the rest of the turn rather than continuing to act. Unlike those basic actions, the specific trigger and behavior of a standby is written into the ability that granted it, so each Champion's standby behaves differently. A standby's exit condition (one save, three counters, end of turn, etc.) is always specified in the granting ability.</p>
+
+      <h3>Counter</h3>
+      <p>A <strong>counter</strong> is a reactive attack that fires automatically in response to the Champion receiving an attack. Counters divide into two types:</p>
+      <ul>
+        <li><strong>Standby counter</strong> — a counter-attack triggered by a Standby state declared by a specific ability. The ability that grants the Standby defines exactly when and how the counter fires; it only applies while that Standby is active. When the Standby ends (turn expiry, usage limit reached, etc.), the counter expires with it.</li>
+        <li><strong>Passive counter</strong> — a reactive counter-attack written permanently into a passive ability as an always-active or conditional response (e.g., <em>"upon receiving an attack, deal X% ATK damage back to the attacker"</em>). Unlike a Standby counter, no declared Standby state is required — the counter simply triggers whenever its stated condition is met.</li>
+      </ul>
+      <p>Some abilities nullify all counters for the duration of their active window. When a counter is nullified, neither type fires — the attack is received without a reactive response. The nullifying ability will always state this explicitly (e.g., <em>"nullifies any counters received while dashing"</em>).</p>
+
+      <h3>Acting</h3>
+      <p>A Champion is considered <strong>acting</strong> when they meet all of the following conditions:</p>
+      <ul>
+        <li>Not currently in the <strong>Block</strong> state</li>
+        <li>Not currently in the <strong>Wait</strong> state</li>
+        <li>Not currently in a <strong>Standby</strong> state</li>
+        <li>Not affected by a movement- or action-restricting infliction: <strong>Stun</strong>, <strong>Frozen</strong>, <strong>Spider's Web</strong>, or an active <strong>Paralyze</strong> proc</li>
+      </ul>
+      <p>Abilities that reference <em>"while acting"</em> condition their effect on this state. A passive or ability with an "acting" condition will not apply when the Champion is blocking, waiting, standing by, stunned, frozen, webbed, or currently unable to act due to a Paralyze proc firing that turn.</p>
+
+      <h3>Last Stand</h3>
+      <p>A <strong>Last Stand</strong> is a triggered effect that lets a Champion <em>endure</em> what would otherwise be a fatal blow, surviving the strike at 1 HP (or another value specified by the granting source). Last Stand is not a generic "survive" buff — it is gated by the exact condition written into the ability, costume, synergy, or passive that grants it.</p>
+      <p>Each Last Stand source specifies its own activation requirements and usage limit. Common patterns include "once per battle," "while above 50% HP at the start of the turn," or being keyed to a specific damage type. Unless an effect explicitly states otherwise, a Last Stand can be removed by enemy cleansing, prevented by infliction effects that suppress reactive abilities, or consumed without triggering if the activation condition isn't met when the fatal hit lands.</p>
+
+      <h3>Taunt + Retribution Interaction</h3>
+      <p>When <strong>Taunt</strong> (a positive effect on the defending Champion) and <strong>Retribution</strong> (a negative infliction on an enemy) are active simultaneously, the following priority rule applies:</p>
+      <ul>
+        <li><strong>Retribution takes precedence at any range.</strong> An enemy under Retribution must target the inflictor regardless of their position on the battlefield — Taunt's 6-panel radius restriction does not apply to that enemy.</li>
+        <li><strong>Taunt still applies normally to all other enemies.</strong> Any enemy within 6 panels who is <em>not</em> under Retribution is still redirected to the Taunt holder as usual.</li>
+      </ul>
+      <p>In short: Retribution is a range-unlimited forced target lock that overrides Taunt's proximity requirement for the specific enemy it affects. The two effects coexist without conflict — they simply address different enemies by different rules.</p>
     </section>
 
   </main>
