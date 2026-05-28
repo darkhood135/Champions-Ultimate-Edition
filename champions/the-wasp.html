@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Captain America — Champions Ultimate Edition</title>
+<title>The Wasp — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #3b82f6; }
+  .back-link:hover { color: #eab308; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #60a5fa;
+    color: #eab308;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(59, 130, 246, 0.12);
-    color: #93c5fd;
+    background: rgba(234, 179, 8, 0.12);
+    color: #fde047;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(234, 179, 8, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #3b82f6;
+    border-left: 3px solid #eab308;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #3b82f6;
+    border-color: #eab308;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #93c5fd;
+    color: #fde047;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Captain America theme — Flag Red / Patriot Blue / Star White / Gunmetal palette.
-       Blue = the suit, authority, command, the rallying force.
-       Red = the shield's stripes, urgency, impact, the flag's charge.
-       White/silver = vibranium, clean lines, strength under sustained fire.
-       Gunmetal = the soldier's discipline, the bash, brute physicality.
-     Each ability still gets a visually distinct treatment; the palette
-     just shifts what "distinct" means for this character. */
+     The Wasp theme — Wasp Gold / Onyx Black / Pym Teal palette.
+       Deep gold/amber = Pym Particle energy, her signature bio-sting.
+       Near-black with amber trace = size-changing precision, combat mode.
+       Teal/dark teal = Pym science, restoration, support output.
+       Burnt amber = ultimatum — when she goes giant, it costs something.
+     Same structural rules as other Champions; the palette just shifts what
+     "distinct" means for Janet specifically. */
 
   .ability--leader {
-    background: #2563eb;          /* patriot blue — the suit, the symbol of command */
-    color: #03112e;
+    background: #ca8a04;          /* deep gold — commands the Avengers */
+    color: #1c0f00;
   }
 
   .ability--basic {
-    background: #111827;          /* near-black with navy tint — soldier discipline */
-    border: 1px solid #1e3a5f;
+    background: #131008;          /* near-black with amber trace */
+    border: 1px solid #4a3500;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #60a5fa; }
-  .ability--basic .ability-tag  { color: #3b82f6; }
-  .ability--basic .ability-meta { color: #3b82f6; }
+  .ability--basic .ability-name { color: #fde047; }
+  .ability--basic .ability-tag  { color: #ca8a04; }
+  .ability--basic .ability-meta { color: #ca8a04; }
 
-  .ability--special-1 { background: #dc2626; color: #fee2e2; } /* flag red — the shield's stripes */
-  .ability--special-2 { background: #1d4ed8; color: #dbeafe; } /* vivid blue — Rally, the command */
-  .ability--special-3 { background: #1e3a8a; color: #bfdbfe; } /* deep navy — Charging Star, the charge */
-  .ability--special-4 { background: #374151; color: #f1f5f9; } /* gunmetal — Shield Bash, impact */
+  .ability--special-1 { background: #eab308; color: #1c0f00; } /* wasp gold — the sting */
+  .ability--special-2 { background: #0d9488; color: #011f1d; } /* teal — size shift, agility */
+  .ability--special-3 { background: #92400e; color: #fef3c7; } /* amber — Overhealth surge */
+  .ability--special-4 { background: #0f766e; color: #ccfbf1; } /* deep teal — restoration */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #2563eb; } /* patriot blue */
-  .ability--reserve-passive   { border-left-color: #94a3b8; } /* silver */
-  .ability--reserve-ultimatum { border-left-color: #991b1b; } /* deep crimson */
+  .ability--reserve-special   { border-left-color: #eab308; } /* wasp gold */
+  .ability--reserve-passive   { border-left-color: #0d9488; } /* teal */
+  .ability--reserve-ultimatum { border-left-color: #92400e; } /* burnt amber */
 
   .ability--core-passive {
-    background: #0f172a;          /* darkest navy — the foundation, the man behind the shield */
-    color: #d0d3da;
+    background: #1c1407;          /* darkest amber-black — bioenergy within */
+    color: #fef3c7;
   }
 
   .ability--passive {
-    background: #cbd5e1;          /* star white/silver — vibranium, clean and unyielding */
-    color: #1e293b;
+    background: #fef9c3;          /* pale wasp yellow — surface-level gifts */
+    color: #1c1407;
   }
 
   .ability--ultimatum {
-    background: #991b1b;          /* deep crimson — the war cry */
-    color: #fde0e0;
+    background: #78350f;          /* deep amber — giant mode, full output */
+    color: #fef3c7;
   }
 
   .ability--synergy {
-    background: #5da8d6;          /* friendly cyan — connection */
-    color: #08203d;
+    background: #dc2626;          /* red — Avengers bond */
+    color: #2d0808;
   }
 
   .ability--artifact {
@@ -723,17 +723,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+      <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
     </div>
 
     <div class="identity">
-      <h1 class="name">Captain America</h1>
-      <p class="subtitle">Steve Rogers</p>
-      <span class="role-badge">Defender</span>
+      <h1 class="name">The Wasp</h1>
+      <p class="subtitle">Janet Van Dyne</p>
+      <span class="role-badge">Healer</span>
       <p class="description">
-        Steve Rogers was chosen for the Super-Soldier program not because he was strong, but because he already was what a soldier should be — honest, stubborn, and impossible to keep down. The serum brought his body in line with his will: peak-human strength, reflexes that put trained fighters behind the reaction curve, and a recovery rate that turns punishment into arithmetic. The vibranium shield is his most versatile tool — thrown to chain through enemy formations, raised to negate incoming fire, or planted as a line he dares anyone to cross. His tactics center on his team. He reads the battlefield, sets the tempo, and makes sure every ally is resourced and in position when the real work starts. He does not outpower most of what he faces. He out-endures it — and he makes his side considerably harder to kill.
+        Janet Van Dyne named the Avengers. Most people don't remember that. She was a founding member, a team leader, and the one who held the line when everyone else had drifted — and none of that history slows her down when she fights. The Pym Particle technology is hers as much as it was ever Hank's: she shrinks into strike range faster than anything her size has a right to move, or expands into something the battlefield has to reorganize itself around. Her wasp sting is a precision bioelectric discharge, scaled from a tap that paralyzes to a pulse that empties EN reserves and puts everything in a five-panel radius on the ground. The real thing to understand about Janet is that she heals without stopping. Overhealth on one ally, a full restoration on another, her core passive banking credit every time she does it and feeding it back into Sting's damage ceiling. She keeps her team alive and dangerous at the same time. She was doing this before most of them were heroes. She knows how long a fight actually takes.
       </p>
-      <p class="quote">"I'll never stop believing that life is something most sacred, something to be sacrificed only for the greatest of causes...liberty!"</p>
+      <p class="quote">"A hundred years from now, when we're all dead and buried, there will be only two things that we're remembered for... what we did. And what we looked like. Our uniforms are as much a part of our legacy as anything we'll ever do."</p>
     </div>
   </div>
 
@@ -748,25 +748,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">14,200</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">340</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">6,200</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">230</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">310</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">300</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">70</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">106</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">9%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">119</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">12</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
       </div>
 
       <!-- Links -->
@@ -776,13 +776,9 @@
           <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/super-soldier.html" class="pill">Super Soldier</a>
           <a href="../links/avengers.html" class="pill">Avengers</a>
-          <a href="../links/new-avengers.html" class="pill">New Avengers</a>
-          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
-          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
           <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
-          <a href="../links/street-level.html" class="pill">Street Level</a>
+          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
         </div>
       </div>
 
@@ -790,19 +786,22 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Self-Reposition</span>
-          <span class="pill">Enemy Reposition</span>
           <span class="pill">Elevation Bypass</span>
-          <span class="pill">Anti-Air</span>
-          <span class="pill">Redirection</span>
-          <span class="pill">Last Stand</span>
-          <span class="pill">ACC Down</span>
+          <span class="pill">Evasion</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">STA Drain</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Overhealth</span>
           <span class="pill">ATK Up</span>
-          <span class="pill">ACC Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
           <span class="pill">ULT Generation</span>
+          <span class="pill">Area of Effect</span>
           <span class="pill">Resource Refill</span>
           <span class="pill">STA Support</span>
-          <span class="pill">Area of Effect</span>
         </div>
       </div>
 
@@ -811,25 +810,15 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="spider-man.html" class="partner-card">
+          <a href="captain-america.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
             </div>
             <div class="partner-tooltip">
-              <strong>Spider-Man</strong>
-              <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Standing Up for What's Right</span>
-            </div>
-          </a>
-
-          <a href="the-wasp.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
-            </div>
-            <div class="partner-tooltip">
-              <strong>The Wasp</strong>
-              <span class="real-name">Janet Van Dyne</span>
-              <span class="synergy-name">Soul of the Avengers</span>
+              <strong>Captain America</strong>
+              <span class="real-name">Steve Rogers</span>
+              <span class="synergy-name">Soul of The Avengers</span>
             </div>
           </a>
 
@@ -849,11 +838,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">The First Avenger</span>
+          <span class="ability-name">Veteran Avenger</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Avengers" or "New Avengers" allies gain +10% MAX HP and +5% ATK in battle.</li>
+          <li>"Avengers" allies gain +8% ATK and MAG.</li>
         </ul>
       </div>
 
@@ -861,12 +850,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Brooklyn Blows</span>
+          <span class="ability-name">Size-Changing Combat</span>
           <span class="ability-tag">Basic</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy or Obstacle · Energy: None · Cooldown: None · Range: 1</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
           <li>Deals 150% ATK damage to the target.</li>
+          <li>20% chance to inflict "Shock" on the target for 2 turns.</li>
         </ul>
       </div>
 
@@ -875,78 +865,72 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Shield Throw</span>
+          <span class="ability-name">Sting</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + Chain (up to 4) · Energy: 35 · Cooldown: 2 turns · Range: 9</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 8</div>
         <ul>
-          <li>Deals 200% ATK damage to the target.</li>
-          <li>Chains to another enemy if that enemy is within 4 panels (up to 4 times).</li>
-          <li>35% chance to inflict "Disorient" for 1 turn to any enemy damaged by this attack.</li>
-          <li>Cannot hit the same enemy twice within the same attack.</li>
+          <li>Deals 300% MAG damage to the target.</li>
+          <li>50% chance to inflict "Shock" on the target for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Rally</span>
+          <span class="ability-name">Size Shift</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Energy: 50 · Cooldown: 5 turns · Range: 6</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 4 turns · Range: N/A</div>
         <ul>
-          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+          <li>Shrinks down, increasing SPD and EVA by 20% for 2 turns.</li>
+          <li>Restores 4 STA.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Charging Star</span>
+          <span class="ability-name">Stinging Surge</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: All Enemies in 1-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 8 panels (chosen direction)</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 40 · Cooldown: 2 turns · Range: 8</div>
         <ul>
-          <li>Charges 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
-          <li>Ignores elevation and gaps.</li>
-          <li>Deals 200% ATK damage to all enemies caught in the line.</li>
-          <li>Nullifies any counters received while dashing.</li>
+          <li>Target gains 500% HEAL in Overhealth for 2 turns.</li>
+          <li>Target loses 5 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Shield Bash</span>
+          <span class="ability-name">Particle Restoration</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 50 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Deals 400% ATK damage to the target.</li>
-          <li>Inflicts "Retribution" to the target for 2 turns.</li>
-          <li>Pushes the target in the direction of attack by 2 panels.</li>
+          <li>Target restores 400% HEAL in HP.</li>
+          <li>Target restores 15 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Prepare to Engage</span>
+          <span class="ability-name">Pym Particle Distribution</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 25 · Cooldown: 3 turns · Range: 1</div>
         <ul>
-          <li>+20% DEF and RES for 2 turns.</li>
-          <li>Gains "Taunt" for 2 turns.</li>
+          <li>Target grows in size, increasing ATK, DEF and RES by 10% for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Stars and Stripes</span>
+          <span class="ability-name">Wings of a Wasp</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 3</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Deals 200% ATK damage to the target 3 times.</li>
-          <li>Can damage airborne targets.</li>
-          <li>Inflicts "Retribution" to the target for 1 turn.</li>
+          <li>Becomes airborne for 2 turns.</li>
+          <li>Gains +20% HEAL while airborne.</li>
         </ul>
       </div>
 
@@ -955,58 +939,57 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Patriotic Symbol of Freedom</span>
+          <span class="ability-name">Expert of Pym Particles and Bioenergy</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>"Hero" allies gain +5% ATK and DEF.</li>
-          <li>Blocking negates 80% of ranged attack damage.</li>
-          <li>Gains 3% ULT each time an attack is received.</li>
+          <li>EN regen increased to 30% of MAX EN per turn.</li>
+          <li>Sting deals an additional 100% MAG for each ally healed or granted overhealth since the last time it was used (up to 500%).</li>
+          <li>Gains 10 EN and 7% ULT each time an ability (self only) restores an ally's HP or grants overhealth.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Supreme Super Soldier</span>
+          <span class="ability-name">Bio-Synthetic Wings</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Ignores elevation differences when moving.</li>
-          <li>STA regen increased to 50% of MAX STA per turn.</li>
+          <li>+5% SPD and ACC while airborne.</li>
+          <li>+6% EVA while airborne.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Vibranium Shield</span>
+          <span class="ability-name">Empathetic Intellect</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction.</li>
-          <li>+5% DEF and RES.</li>
+          <li>+20% HEAL when targeting an ally below 40% HP.</li>
+          <li>Reduces cooldown of Particle Restoration by 1 turn whenever 2 allies or more are below 50% HP (once per 3 turns).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Do This All Day</span>
+          <span class="ability-name">Combat Training</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Endures a fatal blow once per battle.</li>
-          <li>Gains "Indestructible" for 1 turn upon enduring a fatal blow.</li>
+          <li>Size-Changing Combat deals an additional 120% ATK and guarantees "Shock" if damaged by a melee attack within the last turn.</li>
+          <li>Sting infliction chance is increased by 20%.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">No Soldier Left Behind</span>
+          <span class="ability-name">Surge Model II</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+10% DEF and RES while no ally is below 30% HP or defeated.</li>
-          <li>+7% DEF and RES per ally below 30% HP (includes defeated allies).</li>
-          <li>+5% ATK per ally below 30% HP (includes defeated allies).</li>
+          <li>Stinging Surge cooldown is reduced by 1 turn.</li>
+          <li>Stinging Surge applies 300% HEAL less than usual and causes an extra 5 EN loss.</li>
         </ul>
       </div>
 
@@ -1015,27 +998,27 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Assemble</span>
+          <span class="ability-name">Giant Stomp</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Melee · Target: One Panel + AoE (5 Panels) · Range: 3 · Cost: 100% ULT</div>
         <ul>
-          <li>All allies in range gain 30 EN and 4 STA.</li>
-          <li>All allies in range gain +10% EN and STA regeneration for 2 turns.</li>
-          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+          <li>Deals 100% MAG damage to all enemies and obstacles within 5 panels of the targeted panel.</li>
+          <li>Deals an additional 300% MAG damage to obstacles.</li>
+          <li>Enemies damaged by this attack lose 3 STA and 30 EN.</li>
+          <li>Interrupts any standby and nullifies "Stealth" or "Invisible" for enemies damaged by this attack.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">No Surrender</span>
+          <span class="ability-name">Avengers United</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: 7 · Cost: 100% ULT</div>
         <ul>
-          <li>Cleanses all negative effects from self.</li>
-          <li>Gains "Indestructible" for 2 turns and "Taunt" for 3 turns.</li>
-          <li>For 3 turns, each attack received is countered with 200% ATK damage dealt to the attacker.</li>
+          <li>"Hero" allies within range restore 60 EN and 8 STA.</li>
+          <li>"Avengers" allies within range restore 10% HP.</li>
         </ul>
       </div>
 
@@ -1044,20 +1027,8 @@
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Standing Up for What's Right</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
-        </div>
-        <ul>
-          <li>Spider-Man gains +7% ATK and MAG.</li>
-          <li>Captain America gains +2% REGEN and SPD.</li>
-          <li>If Spider-Man is affected by Rally or Assemble, the effects last for 1 extra turn.</li>
-        </ul>
-      </div>
-
-      <div class="ability ability--synergy">
-        <div class="ability-header">
           <span class="ability-name">Soul of the Avengers</span>
-          <span class="ability-tag">Synergy · w/ The Wasp</span>
+          <span class="ability-tag">Synergy · w/ Captain America</span>
         </div>
         <ul>
           <li>The Wasp gains +10% HEAL when targeting Captain America.</li>
@@ -1077,10 +1048,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/captain-america.jpg" alt="Classic">
+          <img src="../images/champion-images/the-wasp.jpg" alt="Modern">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
+          <div class="costume-name">Modern</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1088,45 +1059,34 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(original).jpg" alt="Original">
+          <img src="../images/champion-images/costumes/the-wasp(uncanny).jpg" alt="Uncanny">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Original</div>
-          <div class="costume-effect-label">Patriotic Punches — +5% ATK</div>
+          <div class="costume-name">Uncanny</div>
+          <div class="costume-effect-label">Enhanced Sight — +4% HEAL and MAG</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(nomad).jpg" alt="Nomad">
+          <img src="../images/champion-images/costumes/the-wasp(classic).jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Nomad</div>
-          <div class="costume-effect-label">A New Identity — +5% SPD, -7% DEF and RES</div>
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Legacy of Pym — "Ant-Man" gains +7% ATK and MAG.</div>
           <span class="rarity rarity--rare">Rare</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(ultimate).jpg" alt="Ultimate">
+          <img src="../images/champion-images/costumes/the-wasp(emh).jpg" alt="Earth's Mightiest Heroes">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Ultimate</div>
-          <div class="costume-effect-label">A for America — +12% ATK against targets below 30% HP</div>
+          <div class="costume-name">Earth's Mightiest Heroes</div>
+          <div class="costume-effect-label">Forever Fight as One — +5% ATK and MAG to "Avengers" allies</div>
           <span class="rarity rarity--epic">Epic</span>
-        </div>
-      </div>
-
-      <div class="costume-card">
-        <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(traitor).jpg" alt="Traitor">
-        </div>
-        <div class="costume-info">
-          <div class="costume-name">Traitor</div>
-          <div class="costume-effect-label">Hail Hydra — All buffs affecting "Hero" allies will instead affect "Villain" allies</div>
-          <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
 
@@ -1143,40 +1103,6 @@
 
     <div class="changelog-entries">
 
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.1.0</span>
-          <span class="date">May 26, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Shield Throw</em> — Cooldown increased from <strong>1 → 2 turns</strong>.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Prepare to Engage</em> — Removed the "30% chance to inflict Retribution on all attacks for 2 turns" line. DEF buff expanded to include RES: now grants <strong>+20% DEF and RES for 2 turns</strong>.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Stars and Stripes</em> — Per-hit damage reduced from <strong>220% → 200% ATK</strong> (600% ATK total, down from 660%).</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>No Soldier Left Behind</em> — Removed the infliction chance scaling line. Added a formation bonus: <strong>+10% DEF and RES while no ally is below 30% HP or defeated</strong>. Added <strong>+5% ATK per ally below 30% HP (includes defeated allies)</strong> alongside the existing +7% DEF and RES scaling.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>No Surrender</em> — Fully redesigned. Now a self-targeted support ULTIMATUM: <strong>cleanses all negative effects</strong>, grants <strong>Indestructible for 2 turns</strong> and <strong>Taunt for 3 turns</strong>, and counters every attack received for <strong>200% ATK damage</strong> to the attacker for 3 turns. Previous version dealt 600–1200% ATK damage to a single target.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Vibranium Shield</em> — Wording clarified. Now reads: "Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction." No mechanical change.</span>
-          </li>
-        </ul>
-        <p class="rationale">Shield Throw's 1-turn cooldown allowed near-constant AoE pressure for its energy cost on a Defender, pushing it above the roster's multi-target efficiency baseline. Prepare to Engage had excessive Retribution density when combined with Shield Bash and Stars and Stripes; trading that proc for a full DEF/RES buff preserves the ability's value as a defensive stance without the control overlap. Stars and Stripes was an outlier in damage-per-energy for the role given that each hit calculates DEF separately. No Soldier Left Behind gained a formation bonus to create an incentive for proactive ally protection alongside the existing comeback scaling. No Surrender was redesigned to offer a distinct ULTIMATUM identity — a personal last-stand button — that competes meaningfully with Assemble in solo-carry and heavy-focus scenarios rather than duplicating its team-support function.</p>
-      </div>
-
       <div class="changelog-entry release">
         <div class="entry-meta">
           <span class="version">v1.0.0</span>
@@ -1185,7 +1111,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Captain America enters the roster.</span>
+            <span>The Wasp enters the roster.</span>
           </li>
         </ul>
       </div>
