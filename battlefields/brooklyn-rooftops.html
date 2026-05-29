@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brooklyn Rooftops — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #4aa3ff; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .stage-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .stage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #4aa3ff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .universe-badge {
+    display: inline-block;
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(74, 163, 255, 0.3);
+    align-self: flex-start;
+  }
+
+  .universe-badge[data-universe="Marvel Universe"] {
+    background: rgba(255, 91, 91, 0.12);
+    color: #ff8585;
+    border-color: rgba(255, 91, 91, 0.3);
+  }
+
+  .universe-badge[data-universe="DC Universe"] {
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
+    border-color: rgba(74, 163, 255, 0.3);
+  }
+
+  .universe-badge[data-universe="Multiversal"] {
+    background: rgba(192, 132, 252, 0.12);
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.3);
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #4aa3ff;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAP SECTION ====================== */
+  .map-section {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 26px;
+    border: 1px solid #2c3038;
+    margin-bottom: 18px;
+  }
+
+  .map-section .section-divider {
+    margin: 0 0 18px;
+  }
+
+  /* Two-column layout — narrow key on left, maps on right */
+  .map-layout-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ---------- KEY / LEGEND (left column) ---------- */
+  .map-key {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 10px;
+    padding: 16px 18px 18px;
+    position: sticky;
+    top: 16px;
+  }
+
+  .map-key-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .key-group { margin-bottom: 14px; }
+  .key-group:last-child { margin-bottom: 0; }
+
+  .key-group-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #4f535c;
+    margin-bottom: 8px;
+  }
+
+  .key-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    color: #c5c8d0;
+    padding: 3px 0;
+    line-height: 1.3;
+  }
+
+  .key-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ---------- MAP FLOORS (right column) ---------- */
+  .map-floors {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .floor-block { min-width: 0; }
+
+  .floor-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px;
+    background: rgba(74, 163, 255, 0.1);
+    border: 1px solid rgba(74, 163, 255, 0.3);
+    border-radius: 6px;
+    color: #6bb4ff;
+  }
+
+  .floor-label-suffix {
+    font-size: 9.5px;
+    color: #a3a8b3;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(74, 163, 255, 0.3);
+  }
+
+  .map-grid {
+    display: grid;
+    gap: 3px;
+    background: #0a0b0e;
+    border: 1px solid #2c3038;
+    border-radius: 8px;
+    padding: 10px;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  /* Stack for Floor 2 — ghost layer of Floor 1 beneath the upper floor */
+  .floor-stack {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .floor-stack .map-grid--ghost {
+    position: absolute;
+    inset: 0;
+    opacity: 0.22;
+    filter: saturate(0.35) blur(0.25px);
+    pointer-events: none;
+    z-index: 0;
+    /* Disable hover scaling on ghost panels */
+  }
+
+  .floor-stack .map-grid--ghost .panel { pointer-events: none; }
+
+  .floor-stack .map-grid--upper {
+    position: relative;
+    z-index: 1;
+    /* Subtle drop-shadow signals "raised above" */
+    box-shadow:
+      0 -2px 0 rgba(74, 163, 255, 0.15) inset,
+      0 4px 14px rgba(0, 0, 0, 0.45);
+    background: rgba(10, 11, 14, 0.92);
+  }
+
+  /* Upper-floor solid panels get a faint top highlight, emphasizing elevation */
+  .floor-stack .map-grid--upper .panel:not(.panel--void) {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+
+  .panel {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    position: relative;
+    transition: transform 0.1s ease, outline 0.1s ease;
+  }
+
+  .panel:hover {
+    transform: scale(1.15);
+    outline: 1px solid #f0f1f3;
+    z-index: 2;
+  }
+
+  /* ========== PANEL TYPES ========== */
+  /* Structural — universal across every stage */
+  .panel--floor      { background: #2a3340; }
+  .panel--elevation-plus      { background: #e4aca2; }
+  .panel--elevation-minus      { background: #a2bce4; }
+  .panel--spawn-a    { background: #3b82f6; }
+  .panel--spawn-b    { background: #e11d48; }
+  .panel--item       { background: #facc15; }
+  .panel--void       { background: transparent; }
+  .panel--void:hover { transform: none; outline: none; }
+
+  /* Stage-specific — define one class per obstacle on this map.
+     Color the cells, the legend swatches and the obstacle cards
+     so a player can trace a single hue through all three surfaces. */
+  .panel--ladder   { background: #ea580c; }  /* vivid orange */
+  .panel--water-tower  { background: #78716c; }  /* warm stone */
+  .panel--brick-parapet    { background: #ec4899; }  /* pink (fragile glass) */
+  .panel--fire-escape  { background: #06b6d4; }  /* cyan (traversal) */
+  .panel--pigeon-coop  { background: #a855f7; }  /* purple (interactive) */
+
+  /* ========== KEY SWATCH COLORS (must match panel colors) ========== */
+  .key-swatch--floor       { background: #2a3340; }
+  .key-swatch--elevation-plus     { background: #e4aca2; }
+  .key-swatch--elevation-minus     { background: #a2bce4; }
+  .key-swatch--spawn-a     { background: #3b82f6; }
+  .key-swatch--spawn-b     { background: #e11d48; }
+  .key-swatch--item        { background: #facc15; }
+  .key-swatch--void        { background: #0a0b0e; border: 1px dashed #4f535c; }
+  .key-swatch--ladder { background: #ea580c; }
+  .key-swatch--water-tower { background: #78716c; }
+  .key-swatch--brick-parapet   { background: #ec4899; }
+  .key-swatch--fire-escape { background: #06b6d4; }
+  .key-swatch--pigeon-coop { background: #a855f7; }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel-box {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== ITEMS ON MAP ====================== */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .item-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .item-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .item-card:hover .item-image {
+    border-color: #4aa3ff;
+    transform: scale(1.06);
+  }
+
+  .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .item-card:hover .item-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .item-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .item-tooltip .item-meta {
+    color: #6bb4ff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .item-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== OBSTACLES SECTION ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .obstacle {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .obstacle-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background: #0a0b0e;
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #f0f1f3;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  .obstacle-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hue strip on the icon matches the panel/key swatch */
+  .obstacle--ac-housing  .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(234, 88, 12, 0.7); }
+  .obstacle--water-tower .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(120, 113, 108, 0.7); }
+  .obstacle--brick-parapet    .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(236, 72, 153, 0.7); }
+  .obstacle--fire-escape .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(6, 182, 212, 0.7); }
+  .obstacle--pigeon-coop .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(168, 85, 247, 0.7); }
+
+  .obstacle-body {
+    min-width: 0;
+  }
+
+  .obstacle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .obstacle-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .obstacle-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    white-space: nowrap;
+  }
+
+  .obstacle-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .obstacle ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .obstacle ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .obstacle ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== OBSTACLE COLOR VARIANTS ======================
+     One color per obstacle. The panel color, key swatch and card hue all
+     share a token so the eye can connect them at a glance. Each stage
+     defines its own obstacle classes; the Brooklyn Rooftops palette is
+     below as a worked example. */
+
+  .obstacle--ladder {
+    background: #7c2d12;             /* deep burnt orange */
+    color: #fed7aa;
+  }
+  .obstacle--ladder .obstacle-tag { color: #fdba74; }
+
+  .obstacle--water-tower {
+    background: #292524;             /* deep stone */
+    color: #f5f5f4;
+  }
+  .obstacle--water-tower .obstacle-tag { color: #d6d3d1; }
+
+  .obstacle--brick-parapet {
+    background: #831843;             /* deep berry pink */
+    color: #fce7f3;
+  }
+  .obstacle--brick-parapet.obstacle-tag { color: #f9a8d4; }
+
+  .obstacle--fire-escape {
+    background: #155e75;             /* deep cyan */
+    color: #cffafe;
+  }
+  .obstacle--fire-escape .obstacle-tag { color: #67e8f9; }
+
+  .obstacle--pigeon-coop {
+    background: #4c1d95;             /* deep violet */
+    color: #ede9fe;
+  }
+  .obstacle--pigeon-coop .obstacle-tag { color: #c4b5fd; }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #4aa3ff; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(74, 163, 255, 0.15); color: #6bb4ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .stage-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    /* Stack key above maps on narrow viewports */
+    .map-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .map-key { position: static; }
+  }
+
+  @media (max-width: 600px) {
+    .panel { width: 22px; height: 22px; }
+    .obstacle { grid-template-columns: 48px 1fr; gap: 14px; padding: 16px 18px; }
+    .obstacle-icon { width: 48px; height: 48px; font-size: 18px; }
+    .items-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../battlefields.html" class="back-link">← Back to Battlefields</a>
+
+  <!-- =============================================
+       HERO BAR — Stage icon and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="stage-image">
+      <!-- Replace this span with: <img src="path/to/stage-art.jpg" alt="Stage"> -->
+      <img src="../images/battlefields/brooklyn-rooftops.jpg" alt="Brooklyn Rooftops">
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Brooklyn Rooftops</h1>
+      <p class="subtitle">Brooklyn, New York</p>
+      <span class="universe-badge" data-universe="Marvel Universe">Marvel Universe</span>
+      <p class="description">
+        A stretch of pre-war tenement rooftops over the Brooklyn waterfront. Water towers and walls break up sightlines; the gaps between buildings demand traversal abilities or careful timing. The fight is fast and close enough to the street that civilians become a real consideration — but the rooftops themselves are abandoned, claimed only by pigeons and whoever was already running across them when the fight started.
+      </p>
+      <p class="quote">"Eight million stories on these rooftops. Tonight, ours."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAP — Two-column section: key on left, floor grids on right.
+       Each .panel is one battlefield tile, colored by class.
+       Use .panel--void for gaps or non-rectangular stage edges.
+       Floor 2 uses a "ghost" copy of Floor 1 as a dim background
+       layer so you can see where the upper floor sits in space.
+       ============================================= -->
+  <section class="map-section">
+    <div class="section-divider">Map Layout</div>
+
+    <div class="map-layout-grid">
+
+      <!-- ============== LEGEND (left column) ============== -->
+      <aside class="map-key">
+        <div class="map-key-title">Legend</div>
+
+        <div class="key-group">
+          <div class="key-group-title">Structural</div>
+          <div class="key-item"><span class="key-swatch key-swatch--floor"></span>Floor</div>
+          <div class="key-item"><span class="key-swatch key-swatch--elevation-plus"></span>+1 Elevation</div>
+          <div class="key-item"><span class="key-swatch key-swatch--elevation-minus"></span>-1 Elevation</div>
+          <div class="key-item"><span class="key-swatch key-swatch--spawn-a"></span>Spawn · Team A</div>
+          <div class="key-item"><span class="key-swatch key-swatch--spawn-b"></span>Spawn · Team B</div>
+          <div class="key-item"><span class="key-swatch key-swatch--item"></span>Item Spawn</div>
+          <div class="key-item"><span class="key-swatch key-swatch--void"></span>Void / Gap</div>
+        </div>
+
+        <div class="key-group">
+          <div class="key-group-title">Stage Features</div>
+          <div class="key-item"><span class="key-swatch key-swatch--ladder"></span>Ladder</div>
+          <div class="key-item"><span class="key-swatch key-swatch--water-tower"></span>Water Tower</div>
+          <div class="key-item"><span class="key-swatch key-swatch--brick-parapet"></span>Brick Parapet</div>
+          <div class="key-item"><span class="key-swatch key-swatch--pigeon-coop"></span>Pigeon Coop</div>
+        </div>
+      </aside>
+
+      <!-- ============== MAP FLOORS (right column) ============== -->
+      <div class="map-floors">
+
+        <!-- FLOOR 1 ------------------------------------- -->
+        <div class="floor-block">
+          <div class="floor-label">
+            <span>Floor 1 · Rooftops</span>
+          </div>
+          <div class="map-grid" style="grid-template-columns: repeat(32, 28px);">
+            <!-- Row 1 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--item"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 2 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--ladder"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--water-tower"></div>
+            <div class="panel panel--water-tower"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 3 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--water-tower"></div>
+            <div class="panel panel--water-tower"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 4 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--ladder"></div>
+            <div class="panel panel--elevation-minus"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--item"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 5 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--ladder"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 6 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-a"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--spawn-b"></div>
+            <div class="panel panel--floor"></div>
+            <!-- Row 7 -->
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--elevation-plus"></div>
+            <div class="panel panel--item"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--pigeon-coop"></div>
+            <div class="panel panel--item"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--void"></div>
+            <div class="panel panel--brick-parapet"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+            <div class="panel panel--floor"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       MAIN GRID — Layout / Mode Rotation / Tags / Items | Obstacles
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Layout -->
+      <div class="panel-box">
+        <div class="panel-title">Layout</div>
+        <div class="stat-row"><span class="label">MAP SIZE</span><span class="value">32 × 7</span></div>
+        <div class="stat-row"><span class="label">FLOORS</span><span class="value">1</span></div>
+        <div class="stat-row"><span class="label">ITEM SPAWNS</span><span class="value">4</span></div>
+        <div class="stat-row"><span class="label">OBSTACLES</span><span class="value">2</span></div>
+        <div class="stat-row"><span class="label">HAZARDS</span><span class="value">1</span></div>
+        <div class="stat-row"><span class="label">INTERACTIVES</span><span class="value">3</span></div>
+        <div class="stat-row"><span class="label">ELEVATION TIERS</span><span class="value">3</span></div>
+      </div>
+
+      <!-- Mode Rotation -->
+      <div class="panel-box">
+        <div class="panel-title">Mode Rotation</div>
+        <div class="pill-group">
+          <a href="../battlefields.html#mode-main-story" class="pill">Main Story</a>
+          <a href="../battlefields.html#mode-arena" class="pill">Arena</a>
+          <a href="../battlefields.html#mode-clash" class="pill">Clash</a>
+          <a href="../battlefields.html#mode-flashpoint" class="pill">Flashpoint</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel-box">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Verticality</span>
+          <span class="pill">Destructible Obstacles</span>
+          <span class="pill">Item Spawns</span>
+          <span class="pill">Street Level</span>
+          <span class="pill">Outdoor</span>
+        </div>
+      </div>
+
+      <!-- Items Available on Map -->
+      <div class="panel-box">
+        <div class="panel-title">Items on Map</div>
+        <div class="items-grid">
+
+          <a href="../items/medkit.html" class="item-card">
+            <div class="item-image">
+              <!-- <img src="../images/item-images/smoke-grenade.jpg" alt="Smoke Grenade"> -->
+              <img src="../images/item-images/medkit.png" alt="Medkit">
+            </div>
+            <div class="item-tooltip">
+              <strong>Medkit</strong>
+              <span class="item-meta">Spawns: 2 tiles</span>
+            </div>
+          </a>
+
+          <a href="../items/lantern.html" class="item-card">
+            <div class="item-image">
+              <!-- <img src="../images/item-images/explosive-gel.jpg" alt="Explosive Gel"> -->
+              <img src="../images/item-images/lantern.png" alt="Lantern">
+            </div>
+            <div class="item-tooltip">
+              <strong>Lantern</strong>
+              <span class="item-meta">Spawns: 1 tile</span>
+            </div>
+          </a>
+
+          <a href="../items/Firework.html" class="item-card">
+            <div class="item-image">
+              <img src="../images/item-images/firework.png" alt="Firework">
+            </div>
+            <div class="item-tooltip">
+              <strong>Firework</strong>
+              <span class="item-meta">Spawns: 1 tile</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Obstacles &amp; Terrain</h2>
+        <span class="stack-note">Each obstacle's color matches its map panel and key swatch</span>
+      </div>
+
+      <div class="section-divider">Walls</div>
+
+      <div class="obstacle obstacle--brick-parapet">
+        <div class="obstacle-icon">
+          <!-- <img src="../images/obstacle-icons/water-tower.jpg" alt="Water Tower"> -->
+          <img src="../images/obstacles/brick-parapet.jpg" alt="Brick Parapet">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Brick Parapet</span>
+            <span class="obstacle-tag">Half Obstacle</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel · Blocks: Nothing · HP: 300</div>
+          <ul>
+            <li>Cuts the accuracy of any ranged ability shot over it in half. If the attack misses the target, it'll hit the obstacle.</li>
+            <li>Champions may stand on top of this obstacle (but the effects of the obstacle won't trigger).</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- =============================================
+           HAZARD
+           ============================================= -->
+      <div class="section-divider">Hazards</div>
+
+      <div class="obstacle obstacle--water-tower">
+        <div class="obstacle-icon">
+          <!-- <img src="../images/obstacle-icons/water-tower.jpg" alt="Water Tower"> -->
+          <img src="../images/obstacles/water-tower.jpg" alt="Water Tower">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Water Tower</span>
+            <span class="obstacle-tag">Hazard · Explosive Container</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x2 panels · Blocks: Movement, Line of Sight, Projectiles · HP: 1500</div>
+          <ul>
+            <li>Cannot be moved through or attacked through by any means.</li>
+            <li>Champions with <em class="kw">Elevation Bypass</em> may path over this obstacle.</li>
+            <li>Can only be damaged by attacks that deal 800 or more damage.</li> 
+            <li>When destroyed, removes any burning inflictions on adjacent Champions.</li> 
+            <li>If any adjacent Champion in a standby when this obstacle is destroyed, their standby is cancelled.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- =============================================
+           ELEVATION
+           ============================================= -->
+      <div class="section-divider">Elevation Features</div>
+
+      <div class="obstacle obstacle--ladder">
+        <div class="obstacle-icon">
+          <!-- <img src="../images/obstacle-icons/fire-escape.jpg" alt="Fire Escape"> -->
+          <img src="../images/obstacles/ladder.jpg" alt="Ladder">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Ladder</span>
+            <span class="obstacle-tag">Traversable Elevation</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel · Connects: Two adjacent elevation levels · HP: Indestructible</div>
+          <ul>
+            <li>Each Ladder connects two specific elevation levels (shown by the panels surrounding it on the map). A Champion on a panel adjacent to a Ladder may spend 1 STA to move between those two elevation levels.</li>
+            <li>Champions with Elevation Bypass ignore the STA cost.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- =============================================
+           INTERACTIVE
+           ============================================= -->
+      <div class="section-divider">Interactive Elements</div>
+
+      <div class="obstacle obstacle--pigeon-coop">
+        <div class="obstacle-icon">
+          <!-- <img src="../images/obstacle-icons/pigeon-coop.jpg" alt="Pigeon Coop"> -->
+          <img src="../images/obstacles/pigeon-coop.jpg" alt="Pigeon Coop">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Pigeon Coop</span>
+            <span class="obstacle-tag">Interactive · One-Time Use</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x1 panels · Blocks: Movement, Line of Sight · HP: 200</div>
+          <ul>
+            <li>A Champion adjacent to this obstacle may spend 1 STA to open the coop, releasing a flock that grants "Stealth" for 1 turn to all allies within 3 panels.</li>
+            <li>One-time use per battle; the coop becomes a full obstacle after being triggered.</li>
+            <li>Destroying the coop without opening it loses the Stealth effect.</li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Battlefield
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Battlefield's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Brooklyn Rooftops enters the battlefield rotation.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>

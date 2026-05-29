@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battlefields — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #4aa3ff; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #4aa3ff;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== TOOLBAR ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #4aa3ff; background: #1c1d22; }
+
+  .toolbar-btn {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toolbar-btn:hover { color: #f0f1f3; border-color: #3c4047; }
+  .toolbar-btn.active { color: #6bb4ff; border-color: #4aa3ff; background: rgba(74, 163, 255, 0.08); }
+
+  .toolbar-btn .count-pill {
+    background: #4aa3ff;
+    color: #03112e;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== ACTIVE CHIPS ====================== */
+  .active-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 24px;
+    margin-bottom: 18px;
+  }
+
+  .active-chips:empty { margin-bottom: 0; min-height: 0; }
+
+  .chip {
+    background: rgba(74, 163, 255, 0.1);
+    border: 1px solid rgba(74, 163, 255, 0.4);
+    color: #6bb4ff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px 4px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .chip:hover { background: rgba(74, 163, 255, 0.18); }
+
+  .chip .x { font-size: 14px; line-height: 1; opacity: 0.7; }
+
+  /* ====================== FILTER PANEL ====================== */
+  .filter-panel {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease, padding 0.2s ease, margin-bottom 0.2s ease;
+    margin-bottom: 0;
+  }
+
+  .filter-panel.open {
+    max-height: 1200px;
+    padding: 18px 22px 20px;
+    margin-bottom: 22px;
+  }
+
+  .filter-group { margin-bottom: 18px; }
+  .filter-group:last-child { margin-bottom: 0; }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter-pill {
+    background: #1c1d22;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .filter-pill:hover { color: #f0f1f3; border-color: #3c4047; }
+  .filter-pill.active {
+    background: rgba(74, 163, 255, 0.15);
+    border-color: #4aa3ff;
+    color: #6bb4ff;
+  }
+
+  /* ====================== BATTLEFIELD GRID ====================== */
+  .battlefield-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .battlefield-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .battlefield-card:hover {
+    transform: translateY(-3px);
+    border-color: #4aa3ff;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .battlefield-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    color: #4f535c;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    transition: transform 0.25s ease;
+  }
+
+  .battlefield-card:hover .battlefield-image { transform: scale(1.04); }
+
+  .battlefield-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .battlefield-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 35%,
+      rgba(13, 14, 17, 0.6) 70%,
+      rgba(13, 14, 17, 0.98) 100%);
+    pointer-events: none;
+  }
+
+  .universe-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .universe-badge[data-universe="Marvel Universe"] { color: #ff8585; }
+  .universe-badge[data-universe="DC Universe"]     { color: #6bb4ff; }
+  .universe-badge[data-universe="Multiversal"]     { color: #c084fc; }
+
+  .battlefield-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 12px 14px;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+  }
+
+  .battlefield-name .name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .battlefield-name .sub {
+    font-size: 10px;
+    color: #c5c8d0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+
+  /* No results message */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 14px;
+    grid-column: 1 / -1;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .toolbar { gap: 8px; }
+    .toolbar .search-wrap { min-width: 100%; }
+    .count-badge { margin-left: 0; }
+    .battlefield-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Battlefields</h1>
+    <p class="page-subtitle">The stages where Champions fight — each with its own elevation, obstacles and game-mode rotation.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search by stage name…" autocomplete="off">
+    </div>
+    <button class="toolbar-btn" id="filter-toggle">
+      Filters
+      <span class="count-pill" id="filter-count" style="display: none;">0</span>
+    </button>
+    <button class="toolbar-btn" id="clear-filters">Clear</button>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> battlefields
+    </div>
+  </div>
+
+  <!-- ACTIVE FILTER CHIPS (auto-populated) -->
+  <div class="active-chips" id="active-chips"></div>
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel" id="filter-panel">
+    <div class="filter-group">
+      <div class="filter-label">Game Mode</div>
+      <div class="filter-pills" data-category="mode">
+        <button class="filter-pill" data-value="Main Story">Main Story</button>
+        <button class="filter-pill" data-value="Event Story">Event Story</button>
+        <button class="filter-pill" data-value="Arena">Arena</button>
+        <button class="filter-pill" data-value="Clash">Clash</button>
+        <button class="filter-pill" data-value="The Dark Dimension">The Dark Dimension</button>
+        <button class="filter-pill" data-value="Crisis on Infinite Earths">Crisis on Infinite Earths</button>
+        <button class="filter-pill" data-value="Flashpoint">Flashpoint</button>
+        <button class="filter-pill" data-value="Danger Room">Danger Room</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Universe</div>
+      <div class="filter-pills" data-category="universe">
+        <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
+        <button class="filter-pill" data-value="DC Universe">DC Universe</button>
+        <button class="filter-pill" data-value="Multiversal">Multiversal</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Hazards</div>
+      <div class="filter-pills" data-category="hazard">
+        <button class="filter-pill" data-value="Verticality">Verticality</button>
+        <button class="filter-pill" data-value="Destructible Obstacles">Destructible Obstacles</button>
+        <button class="filter-pill" data-value="Environmental Damage">Environmental Damage</button>
+        <button class="filter-pill" data-value="Item Spawns">Item Spawns</button>
+        <button class="filter-pill" data-value="Open Field">Open Field</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       BATTLEFIELD GRID
+       Each card data-* attributes drive filtering.
+       Replace href, image and metadata per stage.
+       ============================================= -->
+  <div class="battlefield-grid" id="battlefield-grid">
+
+    <a href="battlefields/brooklyn-rooftops.html" class="battlefield-card"
+       data-name="Brooklyn Rooftops" data-universe="Marvel Universe"
+       data-modes="Main Story,Arena,Clash,Flashpoint"
+       data-hazards="Verticality,Destructible Obstacles,Item Spawns">
+      <div class="battlefield-image"><img src="images/battlefields/brooklyn-rooftops.jpg" alt="Brooklyn Rooftops"></div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
+      <div class="battlefield-name">
+        <div class="name">Brooklyn Rooftops</div>
+        <div class="sub">Street-level Sprawl</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-daily-bugle.html" class="battlefield-card"
+       data-name="The Daily Bugle" data-universe="Marvel Universe"
+       data-modes="Main Story,Arena,Clash"
+       data-hazards="Destructible Obstacles,Item Spawns">
+      <div class="battlefield-image">THE DAILY BUGLE</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
+      <div class="battlefield-name">
+        <div class="name">The Daily Bugle</div>
+        <div class="sub">Cramped newsroom interior</div>
+      </div>
+    </a>
+
+    <a href="battlefields/times-square.html" class="battlefield-card"
+       data-name="Times Square" data-universe="Marvel Universe"
+       data-modes="Main Story,Event Story,Arena"
+       data-hazards="Item Spawns,Open Field">
+      <div class="battlefield-image">TIMES SQUARE</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
+      <div class="battlefield-name">
+        <div class="name">Times Square</div>
+        <div class="sub">Open plaza, civilian-dense</div>
+      </div>
+    </a>
+
+    <a href="battlefields/avengers-tower.html" class="battlefield-card"
+       data-name="Avengers Tower" data-universe="Marvel Universe"
+       data-modes="Main Story,Event Story,Arena,Clash"
+       data-hazards="Verticality,Item Spawns">
+      <div class="battlefield-image">AVENGERS TOWER</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
+      <div class="battlefield-name">
+        <div class="name">Avengers Tower</div>
+        <div class="sub">Multi-floor HQ, rooftop pad</div>
+      </div>
+    </a>
+
+    <a href="battlefields/pym-labs.html" class="battlefield-card"
+       data-name="Pym Labs" data-universe="Marvel Universe"
+       data-modes="Main Story,Event Story"
+       data-hazards="Destructible Obstacles,Environmental Damage">
+      <div class="battlefield-image">PYM LABS</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
+      <div class="battlefield-name">
+        <div class="name">Pym Labs</div>
+        <div class="sub">Volatile size-shifting research floor</div>
+      </div>
+    </a>
+
+    <a href="battlefields/gotham-streets.html" class="battlefield-card"
+       data-name="Gotham Streets" data-universe="DC Universe"
+       data-modes="Main Story,Arena,Clash,Flashpoint"
+       data-hazards="Destructible Obstacles,Item Spawns">
+      <div class="battlefield-image">GOTHAM STREETS</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">Gotham Streets</div>
+        <div class="sub">Rain-slick alleys and corners</div>
+      </div>
+    </a>
+
+    <a href="battlefields/wayne-manor.html" class="battlefield-card"
+       data-name="Wayne Manor" data-universe="DC Universe"
+       data-modes="Main Story,Event Story,Clash"
+       data-hazards="Destructible Obstacles,Item Spawns">
+      <div class="battlefield-image">WAYNE MANOR</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">Wayne Manor</div>
+        <div class="sub">Estate grounds, drawing rooms</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-batcave.html" class="battlefield-card"
+       data-name="The Batcave" data-universe="DC Universe"
+       data-modes="Main Story,Danger Room"
+       data-hazards="Verticality,Destructible Obstacles">
+      <div class="battlefield-image">THE BATCAVE</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">The Batcave</div>
+        <div class="sub">Tiered training cavern</div>
+      </div>
+    </a>
+
+    <a href="battlefields/arkham-asylum.html" class="battlefield-card"
+       data-name="Arkham Asylum" data-universe="DC Universe"
+       data-modes="Main Story,Event Story,Arena"
+       data-hazards="Environmental Damage,Item Spawns">
+      <div class="battlefield-image">ARKHAM ASYLUM</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">Arkham Asylum</div>
+        <div class="sub">Corridors, cells, broken glass</div>
+      </div>
+    </a>
+
+    <a href="battlefields/metropolis-skyline.html" class="battlefield-card"
+       data-name="Metropolis Skyline" data-universe="DC Universe"
+       data-modes="Main Story,Arena,Clash,Flashpoint"
+       data-hazards="Verticality,Open Field">
+      <div class="battlefield-image">METROPOLIS SKYLINE</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">Metropolis Skyline</div>
+        <div class="sub">Open-air rooftops, long sightlines</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-daily-planet.html" class="battlefield-card"
+       data-name="The Daily Planet" data-universe="DC Universe"
+       data-modes="Main Story,Arena"
+       data-hazards="Verticality,Destructible Obstacles">
+      <div class="battlefield-image">THE DAILY PLANET</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">The Daily Planet</div>
+        <div class="sub">Globe rooftop and newsroom floors</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-watchtower.html" class="battlefield-card"
+       data-name="The Watchtower" data-universe="DC Universe"
+       data-modes="Main Story,Event Story,Clash"
+       data-hazards="Verticality,Open Field">
+      <div class="battlefield-image">THE WATCHTOWER</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="DC Universe">DC</div>
+      <div class="battlefield-name">
+        <div class="name">The Watchtower</div>
+        <div class="sub">Orbital station, viewing decks</div>
+      </div>
+    </a>
+
+    <a href="battlefields/danger-room.html" class="battlefield-card"
+       data-name="Danger Room" data-universe="Multiversal"
+       data-modes="Danger Room"
+       data-hazards="">
+      <div class="battlefield-image">DANGER ROOM</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
+      <div class="battlefield-name">
+        <div class="name">Danger Room</div>
+        <div class="sub">Programmable holographic terrain</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-dark-dimension.html" class="battlefield-card"
+       data-name="The Dark Dimension" data-universe="Multiversal"
+       data-modes="The Dark Dimension"
+       data-hazards="Environmental Damage,Open Field">
+      <div class="battlefield-image">THE DARK DIMENSION</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
+      <div class="battlefield-name">
+        <div class="name">The Dark Dimension</div>
+        <div class="sub">Wave-survival arena, no exit</div>
+      </div>
+    </a>
+
+    <a href="battlefields/crisis-nexus.html" class="battlefield-card"
+       data-name="Crisis Nexus" data-universe="Multiversal"
+       data-modes="Crisis on Infinite Earths"
+       data-hazards="Verticality,Open Field">
+      <div class="battlefield-image">CRISIS NEXUS</div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
+      <div class="battlefield-name">
+        <div class="name">Crisis Nexus</div>
+        <div class="sub">Clan-vs-clan multiversal arena</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- No-results state (shown via JS when grid is empty) -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No battlefields match those filters</strong>
+    Try removing one of the active filters or clearing them all.
+  </div>
+
+</div>
+
+<script>
+  const searchInput  = document.getElementById('search');
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterPanel  = document.getElementById('filter-panel');
+  const clearBtn     = document.getElementById('clear-filters');
+  const filterCount  = document.getElementById('filter-count');
+  const activeChips  = document.getElementById('active-chips');
+  const countEl      = document.getElementById('count');
+  const totalEl      = document.getElementById('total');
+  const cards        = Array.from(document.querySelectorAll('.battlefield-card'));
+  const pills        = Array.from(document.querySelectorAll('.filter-pill'));
+  const noResults    = document.getElementById('no-results');
+
+  // Active filters by category
+  const active = { mode: new Set(), universe: new Set(), hazard: new Set() };
+
+  totalEl.textContent = cards.length;
+
+  function activeFilterCount() {
+    return active.mode.size + active.universe.size + active.hazard.size;
+  }
+
+  function renderChips() {
+    activeChips.innerHTML = '';
+    for (const category of ['mode', 'universe', 'hazard']) {
+      for (const value of active[category]) {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.dataset.category = category;
+        chip.dataset.value = value;
+        chip.innerHTML = `${value} <span class="x">×</span>`;
+        chip.addEventListener('click', () => {
+          active[category].delete(value);
+          // Sync pill state
+          const pill = document.querySelector(
+            `.filter-pill[data-value="${value}"]`
+          );
+          if (pill && pill.parentElement.dataset.category === category) {
+            pill.classList.remove('active');
+          }
+          applyFilters();
+        });
+        activeChips.appendChild(chip);
+      }
+    }
+  }
+
+  function applyFilters() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const universe = card.dataset.universe;
+      const modes   = (card.dataset.modes   || '').split(',').map(s => s.trim()).filter(Boolean);
+      const hazards = (card.dataset.hazards || '').split(',').map(s => s.trim()).filter(Boolean);
+
+      let match = true;
+
+      if (search && !name.includes(search)) {
+        match = false;
+      }
+      if (match && active.universe.size > 0 && !active.universe.has(universe)) {
+        match = false;
+      }
+      if (match && active.mode.size > 0) {
+        for (const f of active.mode) {
+          if (!modes.includes(f)) { match = false; break; }
+        }
+      }
+      if (match && active.hazard.size > 0) {
+        for (const f of active.hazard) {
+          if (!hazards.includes(f)) { match = false; break; }
+        }
+      }
+
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+
+    // Update filter count pill
+    const n = activeFilterCount();
+    if (n > 0) {
+      filterCount.style.display = 'inline-block';
+      filterCount.textContent = n;
+    } else {
+      filterCount.style.display = 'none';
+    }
+
+    renderChips();
+  }
+
+  // Filter pill clicks
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const category = pill.parentElement.dataset.category;
+      const value = pill.dataset.value;
+      if (active[category].has(value)) {
+        active[category].delete(value);
+        pill.classList.remove('active');
+      } else {
+        active[category].add(value);
+        pill.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  // Search input
+  searchInput.addEventListener('input', applyFilters);
+
+  // Filter panel toggle
+  filterToggle.addEventListener('click', () => {
+    filterPanel.classList.toggle('open');
+    filterToggle.classList.toggle('active');
+  });
+
+  // Clear all
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    for (const cat of ['mode', 'universe', 'hazard']) active[cat].clear();
+    pills.forEach(p => p.classList.remove('active'));
+    applyFilters();
+  });
+
+  applyFilters();
+</script>
+
+</body>
+</html>

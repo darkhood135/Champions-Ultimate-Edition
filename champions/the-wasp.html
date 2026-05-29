@@ -895,7 +895,7 @@
         <div class="ability-meta">Type: Support · Target: One Ally · Energy: 40 · Cooldown: 2 turns · Range: 8</div>
         <ul>
           <li>Target gains 500% HEAL in Overhealth for 2 turns.</li>
-          <li>Target loses 5 EN.</li>
+          <li>Target loses 5 EN and 1 STA.</li>
         </ul>
       </div>
 
@@ -944,8 +944,8 @@
         </div>
         <ul>
           <li>EN regen increased to 30% of MAX EN per turn.</li>
-          <li>Sting deals an additional 100% MAG for each ally healed or granted overhealth since the last time it was used (up to 500%).</li>
-          <li>Gains 10 EN and 7% ULT each time an ability (self only) restores an ally's HP or grants overhealth.</li>
+          <li>Sting deals an additional 70% MAG for each ally healed or granted overhealth since the last time it was used (up to 350%).</li>
+          <li>Gains 8 EN and 7% ULT each time an ability (self only) restores an ally's HP or grants overhealth.</li>
         </ul>
       </div>
 
@@ -1102,6 +1102,28 @@
     <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
 
     <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.1.0</span>
+          <span class="date">May 27, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Expert of Pym Particles and Bioenergy</em> (Core Passive) — Sting's per-heal bonus reduced from <strong>100% → 70% MAG</strong>; maximum bonus reduced from <strong>+500% → +350% MAG</strong>. Maximum Sting damage is now 650% MAG (down from 800%).</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Expert of Pym Particles and Bioenergy</em> (Core Passive) — EN refund per heal or Overhealth grant reduced from <strong>10 → 8 EN</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Stinging Surge</em> — Target now also loses <strong>1 STA</strong> in addition to the existing 5 EN penalty, spreading the cost across two resources to better reflect the "sting" of the application.</span>
+          </li>
+        </ul>
+        <p class="rationale">Sting's damage ceiling at 800% MAG placed a Healer above most Strikers' peak single-target output when fully charged, even accounting for the opportunity cost of banking heals. The reduced cap keeps the scaling mechanic intact and rewarding while landing at a more appropriate ceiling for the role. The EN refund reduction is a measured trim for consistency with the adjusted Sting economy. The Stinging Surge STA penalty better represents the bioelectric cost of the application without making it prohibitively expensive for the recipient.</p>
+      </div>
 
       <div class="changelog-entry release">
         <div class="entry-meta">

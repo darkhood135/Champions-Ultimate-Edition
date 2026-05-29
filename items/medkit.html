@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explosive Gel — Champions Ultimate Edition</title>
+<title>Medkit — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #1c4e97; }
+  .back-link:hover { color: #6ad896; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #1c4e97;
+    color: #6ad896;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 14px;
@@ -88,8 +88,8 @@
 
   .type-badge {
     display: inline-block;
-    background: #13233a;
-    color: #1c4e97;
+    background: rgba(106, 216, 150, 0.12);
+    color: #6ad896;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -97,7 +97,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid #1c4e97;
+    border: 1px solid rgba(106, 216, 150, 0.35);
     align-self: flex-start;
   }
 
@@ -245,8 +245,8 @@
   }
 
   .ability--item {
-    background: #1c4e97;
-    color: #2a1808;
+    background: #15572e;
+    color: #d1fae5;
   }
 
   /* ====================== USERS SECTION (square icons, bottom) ====================== */
@@ -292,7 +292,7 @@
 
   .user-card:hover {
     transform: translateY(-3px);
-    border-color: #1c4e97;
+    border-color: #6ad896;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -330,7 +330,7 @@
     right: 8px;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
-    color: #1c4e97;
+    color: #6ad896;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -376,7 +376,7 @@
 
   .battlefield-card:hover {
     transform: translateY(-3px);
-    border-color: #4aa3ff;
+    border-color: #28e975;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -465,7 +465,7 @@
     border-left: 3px solid #2c3038;
   }
 
-  .changelog-entry.release { border-left-color: #f0a85d; }
+  .changelog-entry.release { border-left-color: #d4843a; }
 
   .entry-meta {
     display: flex;
@@ -568,14 +568,14 @@
   <div class="hero-bar">
     <div class="item-portrait">
       <!-- Replace this span with: <img src="path/to/icon.jpg" alt="Smoke Grenade"> -->
-      <img src="../images/item-images/explosive-gel.png" alt="Explosive Gel">
+      <img src="../images/item-images/medkit.png" alt="Medkit">
     </div>
 
     <div class="identity">
-      <h1 class="name">Explosive Gel</h1>
-      <span class="type-badge">Deployable</span>
+      <h1 class="name">Medkit</h1>
+      <span class="type-badge">Consumable</span>
       <p class="description">
-        The Explosive Gel is a gadget and occasional weapon. The user can spray the gel on weak structures and detonate it at will. When triggered, any enemy in the blast radius is knocked to the ground.
+        Emergency supplies to restore health and patch wounds.
       </p>
     </div>
   </div>
@@ -592,10 +592,7 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Direct Damage</span>
-          <span class="pill">EN Drain</span>
-          <span class="pill">STA Drain</span>
-          <span class="pill">Area of Effect</span>
+          <span class="pill">Healing</span>
         </div>
       </div>
     </aside>
@@ -611,16 +608,13 @@
 
       <div class="ability ability--item">
         <div class="ability-header">
-          <span class="ability-name">Detonate</span>
-          <span class="ability-tag">Deployable</span>
+          <span class="ability-name">Patch Up</span>
+          <span class="ability-tag">Consumable</span>
         </div>
-        <div class="ability-meta">Type: Deployable · Target: One Panel + AoE (3 panels) · Range: 2</div>
+        <div class="ability-meta">Type: Consumable · Target: User · Range: N/A</div>
         <ul>
-          <li>When used for the first time, places explosive gel on the targeted panel.</li>
-          <li>When used again, detonates the explosive gel and damages any obstacle, ally or enemy within a 3-panel radius around the targeted panel for 500 damage.</li>
-          <li>Deals an additional 800 damage to obstacles.</li>
-          <li>Any allies or enemies damaged by the explosive gel lose 50 EN and 4 STA.</li>
-          <li>Consumed on second usage (when gel is activated).</li>
+          <li>Restores 1,500 of the user's HP.</li>
+          <li>Consumed on use.</li>
         </ul>
       </div>
     </main>
@@ -635,22 +629,6 @@
 
     <div class="users-grid">
 
-      <a href="../champions/robin.html" class="user-card">
-        <div class="user-image">
-          <img src="../images/champion-images/robin.jpg" alt="Robin">
-        </div>
-        <div class="user-overlay"></div>
-        <div class="user-source">Special 3</div>
-        <div class="user-name">Robin</div>
-      </a>
-      <a href="../champions/batgirl.html" class="user-card">
-        <div class="user-image">
-          <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
-        </div>
-        <div class="user-overlay"></div>
-        <div class="user-source">Special 2 - Reserve</div>
-        <div class="user-name">Batgirl</div>
-      </a>
 
     </div>
   </section>
@@ -662,23 +640,16 @@
     <div class="section-divider">Found On</div>
     <p class="section-intro">Battlefields where this item naturally spawns during combat.</p>
 
-    <div class="empty">
-      No Battlefields have been designed yet.
-    </div>
-
-    <!-- Example battlefield card (uncomment when there's data):
-
     <div class="battlefields-grid">
-      <a href="../battlefields/queens-rooftop.html" class="battlefield-card">
+      <a href="../battlefields/brooklyn-rooftops.html" class="battlefield-card">
         <div class="battlefield-image">
-          <img src="../images/battlefield-images/queens-rooftop.jpg" alt="Queens Rooftop">
+          <img src="../images/battlefields/brooklyn-rooftops.jpg" alt="Brooklyn Rooftop">
         </div>
         <div class="battlefield-overlay"></div>
-        <div class="battlefield-name">Queens Rooftop</div>
+        <div class="battlefield-name">Brooklyn Rooftop</div>
       </a>
     </div>
 
-    -->
   </section>
 
   <!-- =============================================
@@ -699,7 +670,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Explosive Gel added to the item pool.</span>
+            <span>Medkit added to the item pool.</span>
           </li>
         </ul>
       </div>
