@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spider-Man — Champions Ultimate Edition</title>
+<title>The Punisher — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #ff5b5b; }
+  .back-link:hover { color: #e8e4da; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #ff5b5b;
+    color: #e8e4da;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(255, 91, 91, 0.12);
-    color: #ff8585;
+    background: rgba(232, 228, 218, 0.1);
+    color: #e8e4da;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 91, 91, 0.3);
+    border: 1px solid rgba(232, 228, 218, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #ff5b5b;
+    border-left: 3px solid #8b0000;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #ff5b5b;
+    border-color: #e8e4da;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #ff8585;
+    color: #e8e4da;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,31 +423,31 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Spider-Man theme — classic Red / Blue / White palette.
-       Reds = identity, Spider-Sense, max-impact moves.
-       Blues = webs, mobility, agility.
-       Silver/white = inherent passive powers.
-     Each ability still gets a visually distinct treatment; the palette
-     just shifts what "distinct" means for this character. */
+     The Punisher theme — skull white / gunmetal black / blood red.
+       Bone white = the skull, the icon, the identity.
+       Black & gunmetal = military ops, weapons, discipline.
+       Blood red = the cost of the mission; the ultimatum.
+     Abilities are cold and methodical — each color signals a different
+     weapon category or tactical approach, never showy. */
 
   .ability--leader {
-    background: #dc2828;          /* bold spider-red */
-    color: #2d0808;
+    background: #7a0000;          /* commanding blood red */
+    color: #fce8e8;
   }
 
   .ability--basic {
-    background: #1a1416;          /* near-black with red tint */
-    border: 1px solid #5a1c1c;
+    background: #1a1812;          /* near-black with bone undertone */
+    border: 1px solid #3a3226;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #ff8585; }
-  .ability--basic .ability-tag  { color: #d65656; }
-  .ability--basic .ability-meta { color: #d65656; }
+  .ability--basic .ability-name { color: #e8e4da; }
+  .ability--basic .ability-tag  { color: #a09880; }
+  .ability--basic .ability-meta { color: #a09880; }
 
-  .ability--special-1 { background: #2c5fcc; color: #061a3d; } /* bright spider-blue */
-  .ability--special-2 { background: #1a3a8c; color: #d8e3ff; } /* deep navy */
-  .ability--special-3 { background: #a82d2d; color: #fde0e0; } /* Spider-Sense red */
-  .ability--special-4 { background: #4a8de0; color: #08203d; } /* sky blue, swinging */
+  .ability--special-1 { background: #3d3126; color: #f5ece0; } /* dark umber — heavy rifle */
+  .ability--special-2 { background: #28282f; color: #d8d5cc; } /* gunmetal — sustained fire */
+  .ability--special-3 { background: #5c3a1e; color: #fce8d0; } /* burnt brown — explosive */
+  .ability--special-4 { background: #1c2430; color: #c8d8e8; } /* cold navy — precision sniper */
 
   .ability--reserve {
     background: #1c1d20;
@@ -458,28 +458,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #2c5fcc; } /* blue */
-  .ability--reserve-passive   { border-left-color: #c5c8d0; } /* silver */
-  .ability--reserve-ultimatum { border-left-color: #b91c1c; } /* deep crimson */
+  .ability--reserve-special   { border-left-color: #5a5a62; } /* gunmetal */
+  .ability--reserve-passive   { border-left-color: #a09880; } /* bone muted */
+  .ability--reserve-ultimatum { border-left-color: #8b0000; } /* blood red */
 
   .ability--core-passive {
-    background: #5a6270;          /* slate — base/inherent */
-    color: #f0f1f3;
+    background: #1e1e1e;          /* near-black — base military nature */
+    color: #c8c5bc;
   }
 
   .ability--passive {
-    background: #c5c8d0;          /* light silver — secondary inherent */
-    color: #1c1d22;
+    background: #e8e4da;          /* skull bone — the icon */
+    color: #1a1a18;
   }
 
   .ability--ultimatum {
-    background: #b91c1c;          /* deep crimson — max impact */
-    color: #fde0e0;
+    background: #6b0000;          /* deep blood crimson — maximum force */
+    color: #ffe8e8;
   }
 
   .ability--synergy {
-    background: #5da8d6;          /* friendly cyan — connection */
-    color: #08203d;
+    background: #2a4055;          /* dark tactical blue — pragmatic alliance */
+    color: #b8d4e4;
   }
 
   .ability--artifact {
@@ -722,17 +722,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+      <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
     </div>
 
     <div class="identity">
-      <h1 class="name">Spider-Man</h1>
-      <p class="subtitle">Peter Parker</p>
+      <h1 class="name">The Punisher</h1>
+      <p class="subtitle">Francis Castle</p>
       <span class="role-badge">Striker</span>
       <p class="description">
-        Spider-Man — Peter Parker to the people who know him — is Queens' favorite wallcrawler and Marvel's most enduring underdog. A radioactive spider bite gave him superhuman strength, reflexes, and a precognitive danger sense; his own engineering brilliance gave him the web-shooters. He wins fights he shouldn't through pure motion: clinging to walls, swinging between rooftops, dodging blows he saw a half-second early. Perpetually broke, perpetually outclassed on paper, and never standing still long enough to be hit twice. He cracks jokes through a bloody nose, lifts impossible weights for people who'll never thank him, and shows up — exhausted, late, alone — every single time. With great power comes great responsibility, and nobody's carried that burden longer.
+        Frank Castle buried his family and declared war on crime — not metaphorically. Two tours of combat gave him the tools; Central Park took away every reason to hold back. The Punisher doesn't deter criminals or arrest them. He ends them, methodically, because someone has to, and Frank decided a long time ago that someone would be him.
       </p>
-      <p class="quote">"With great power, comes great responsibility."</p>
+      <p class="quote">"These men believe they are agents of death. The terrorists think that they bring war. But they don't know how long I've spent in the company of death and war. They don't know... death and war are my allies."</p>
     </div>
   </div>
 
@@ -747,25 +747,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,600</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">390</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">300</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,200</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">230</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">370</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">130</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">150</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">115</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">90</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">30%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">105</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">5%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
         <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">1%</span></div>
       </div>
 
       <!-- Links -->
@@ -773,12 +773,12 @@
         <div class="panel-title">Links</div>
         <div class="pill-group">
           <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
-          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/web-warrior.html" class="pill">Web Warrior</a>
-          <a href="../links/new-avengers.html" class="pill">New Avengers</a>
-          <a href="../links/comedic-genius.html" class="pill">Comedic Genius</a>
-          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/firearm-expert.html" class="pill">Firearm Expert</a>
+          <a href="../links/street-level.html" class="pill">Street Level</a>
+
         </div>
       </div>
 
@@ -786,17 +786,16 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Evasion</span>
-          <span class="pill">Obstacle Bypass</span>
-          <span class="pill">Counter</span>
-          <span class="pill">Elevation Bypass</span>
-          <span class="pill">Position Swap</span>
-          <span class="pill">Stun</span>
-          <span class="pill">DEF Down</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">CRIT Up</span>
+          <span class="pill">ULT Generation</span>
           <span class="pill">Area of Effect</span>
-          <span class="pill">EVA Up</span>
-          <span class="pill">Last Stand</span>
-          <span class="pill">Anti-Air</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Cooldown Reduction</span>
         </div>
       </div>
 
@@ -805,18 +804,6 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="miles-morales.html" class="partner-card">
-            <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Spider-Man (Miles Morales)</strong>
-              <span class="real-name">Miles Morales</span>
-              <span class="synergy-name">Two Spiders</span>
-            </div>
-          </a>
-
           <a href="captain-america.html" class="partner-card">
             <div class="partner-image">
               <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
@@ -824,17 +811,17 @@
             <div class="partner-tooltip">
               <strong>Captain America</strong>
               <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Standing Up for What's Right</span>
+              <span class="synergy-name">Unrequited Respect</span>
             </div>
           </a>
 
-          <a href="the-punisher.html" class="partner-card">
+          <a href="spider-man.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
             </div>
             <div class="partner-tooltip">
-              <strong>The Punisher</strong>
-              <span class="real-name">Francis Castle</span>
+              <strong>Spider-Man</strong>
+              <span class="real-name">Peter Parker</span>
               <span class="synergy-name">Uneasy Alliance</span>
             </div>
           </a>
@@ -855,11 +842,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Heart of the Friendly Neighborhood</span>
+          <span class="ability-name">Flag to Cleanse the Filth</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Web Warrior" allies gain +15% ATK and +10% EVA in battle.</li>
+          <li>"Anti-Hero" allies gain +18% MAG in battle.</li>
         </ul>
       </div>
 
@@ -867,13 +854,14 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Swift Combo</span>
+          <span class="ability-name">Slashing Blade</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 140% ATK damage to the target.</li>
-          <li>Restores 10 EN to self.</li>
+          <li>Deals 160% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" for 1 turn to the target.</li>
+          <li>+10% MAG for 1 turn.</li>
         </ul>
       </div>
 
@@ -882,76 +870,75 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Crawler Assault</span>
+          <span class="ability-name">Deliverance</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 2</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 7</div>
         <ul>
-          <li>Deals 200% ATK damage to the target 3 times.</li>
-          <li>30% chance to inflict "Deep Bruise" on the target for 2 turns, rolls 3 times.</li>
+          <li>Deals 600% MAG damage to the target.</li>
+          <li>Deals 80% less MAG damage for each additional panel of distance from the target past 1 (80% from the initial 600% subtracted per panel, cannot go below 120%).</li>
+          <li>20% increased CRIT RATE for this ability.</li>
+          <li>Restores 7 STA.</li>
+          <li>Restores 1 less STA for each additional panel of distance from the target past 1 (1 from the initial 7 subtracted per panel, cannot go below 1).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Web Shots</span>
+          <span class="ability-name">Adjudication</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 7</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 8</div>
         <ul>
-          <li>Deals 30% MAG damage to the target 8 times.</li>
-          <li>25% chance to inflict 10 stacks of "Web" on the target for 4 turns, rolls 8 times.</li>
+          <li>Deals 90% MAG damage to the target 7 times.</li>
+          <li>10% increased MAG for this ability.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Sense Tingle</span>
+          <span class="ability-name">Grenade Launcher</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 3 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Ranged · Target: One Panel · Energy: 60 · Cooldown: 4 turns · Range: 6</div>
         <ul>
-          <li>Gains +25% EVA for 2 turns.</li>
-          <li>Counters the next 3 incoming attacks with 100% MAG damage (expires after 1 turn).</li>
-          <li>Restores 2 STA.</li>
+          <li>Causes an explosion in a 1-panel radius around the targeted panel.</li>
+          <li>All enemies in the explosion take 600% MAG damage.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Web Swing</span>
+          <span class="ability-name">Sniper</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Obstacle or One Panel · Energy: 10 · Cooldown: 1 turn · Range: 10</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 4 turns · Range: 18</div>
         <ul>
-          <li>If the target is an obstacle, relocates self 1 panel away from the obstacle's panel (closest to original position).</li>
-          <li>If the target is a panel, relocates self 5 panels away from original position in the direction of the targeted panel.</li>
-          <li>Restores 2 STA.</li>
+          <li>Deals 800% MAG damage to the target.</li>
+          <li>+20% CRIT RATE for this ability if it is used at least 5 panels away from the target.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Web Bash</span>
+          <span class="ability-name">Pistol</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (4 panels) · Energy: 40 · Cooldown: 2 turns · Range: 6</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 8</div>
         <ul>
-          <li>Deals 260% ATK damage to the target. If the target is airborne, deals 400% ATK damage instead and nullifies their airborne status.</li>
-          <li>35% chance to inflict "Stun" to the target for 1 turn.</li>
-          <li>Deals an additional 120% ATK damage to any enemies within 4 panels.</li>
+          <li>Deals 120% MAG damage to the target 3 times.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Daring Rescue</span>
+          <span class="ability-name">Tactical Reload</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 30 · Cooldown: 3 turns · Range: 10</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 2 turns · Range: N/A</div>
         <ul>
-          <li>Swap positions with an ally. That ally gains +20% EVA for 1 turn.</li>
-          <li>Self gains +10% EVA, DEF and RES for 2 turns.</li>
+          <li>Reduces the cooldown of the ability with the greatest cooldown (on ability use) by 1 turn.</li>
+          <li>Restores 20 EN and 2 STA.</li>
         </ul>
       </div>
 
@@ -960,57 +947,59 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Spider-Sense</span>
+          <span class="ability-name">Duty to Punish</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>25% chance to fully evade any incoming attack (rolls before EVA).</li>
-          <li>Gains 3% ULT each time an attack is evaded.</li>
-          <li>Gains 4% EVA, DEF and RES for the rest of the turn each time an attack is evaded.</li>
+          <li>Restores 10 EN when landing a critical hit (once per ability per turn).</li>
+          <li>+8% MAG against "Villain" enemies.</li>
+          <li>Gains 1% ULT each time an attack lands (once per ability per turn).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Wall-Crawler</span>
+          <span class="ability-name">Executioner to Avenge The Innocent</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Ignores elevation differences when targeting or moving.</li>
-          <li>STA regen increased to 60% of MAX STA per turn.</li>
+          <li>Restores 10 EN and 3 STA upon defeating an enemy.</li>
+          <li>Restores 7% HP upon defeating an enemy if below 35% HP.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Great Responsibility</span>
+          <span class="ability-name">Knife Tactics</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>ATK and MAG +10% for 2 turns whenever an ally receives an attack that deals more than 10% of their HP (self excluded).</li>
-          <li>ATK and MAG +20% for the rest of battle when HP falls below 50%.</li>
+          <li>+30% ATK.</li>
+          <li>Slashing Blade inflicts "Bleed" for an additional 2 turns.</li>
+          <li>+10% ATK and MAG when targeting an enemy inflicted with "Bleed".</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">One Last Push</span>
+          <span class="ability-name">Quick Thinking of a Soldier</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Endures a fatal blow once per battle.</li>
-          <li>Healing received +20%.</li>
+          <li>All special abilities deal 50% extra damage against obstacles.</li>
+          <li>+50% DEF and RES against throwable items.</li>
+          <li>Restores 2 STA and 5 EN when within 2 panels of an enemy (once per turn).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Modified Fluid Canisters</span>
+          <span class="ability-name">Extended Magazines</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Increases infliction chances by 10%.</li>
-          <li>+2% SPD while above 20% STA.</li>
+          <li>Adjudication deals an additional 2 instances of damage.</li>
+          <li>Pistol deals an additional 1 instance of damage while below 50% HP.</li>
         </ul>
       </div>
 
@@ -1019,26 +1008,25 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Maximum Spider</span>
+          <span class="ability-name">Expanded Arsenal</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies AOE · Range: 6 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 300% MAG damage to all targets.</li>
-          <li>Inflicts "Spider's Web" to all targets for 2 turns.</li>
+          <li>Reduces all cooldowns by 2 turns.</li>
+          <li>+25% MAG for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Spider Strength</span>
+          <span class="ability-name">Rocket Launcher</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Ranged · Target: One Panel · Range: 10 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 800% ATK damage to the target.</li>
-          <li>Deals an additional 50% ATK damage to the target per 10 EN remaining.</li>
-          <li>Consumes all remaining EN.</li>
+          <li>Causes an explosion in a 1-panel radius around the targeted panel.</li>
+          <li>All enemies in the explosion take 1200% MAG damage.</li>
         </ul>
       </div>
 
@@ -1047,37 +1035,26 @@
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Two Spiders</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man (Miles Morales)</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +10% ATK and +5% EVA.</li>
-          <li>When either uses an ULTIMATUM, the other gains 20% ULT charge.</li>
-        </ul>
-      </div>
-
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Standing Up for What's Right</span>
+          <span class="ability-name">Unrequited Respect</span>
           <span class="ability-tag">Synergy · w/ Captain America</span>
         </div>
         <ul>
-          <li>Spider-Man gains +7% ATK and MAG.</li>
-          <li>Captain America gains +2% REGEN and SPD.</li>
-          <li>If Spider-Man is affected by Rally or Assemble, the effects last for 1 extra turn.</li>
+          <li>The Punisher gains +10% MAG for 2 turns whenever Captain America applies "Taunt" to himself.</li>
+          <li>Captain America gains "Anger" for 2 turns whenever The Punisher defeats an enemy.</li>
         </ul>
       </div>
 
       <div class="ability ability--synergy">
         <div class="ability-header">
           <span class="ability-name">Uneasy Alliance</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
+          <span class="ability-tag">Synergy · w/ Spider-Man</span>
         </div>
         <ul>
           <li>Spider-Man gains +10% EVA for 1 turn whenever The Punisher defeats an enemy on the same turn.</li>
           <li>The Punisher gains +10% MAG for 1 turn whenever Spider-Man successfully evades an attack.</li>
         </ul>
       </div>
+
     </main>
   </div>
 
@@ -1091,10 +1068,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/spider-man.jpg" alt="Classic">
+          <img src="../images/champion-images/the-punisher.jpg" alt="Modern">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
+          <div class="costume-name">Modern</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1102,44 +1079,22 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/spider-man(infiltration-suit).jpg" alt="Infiltration Suit">
+          <img src="../images/champion-images/costumes/the-punisher(classic).jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Infiltration Suit</div>
-          <div class="costume-effect-label">Shadow Step — +3% SPD and EVA</div>
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Modified Stock — +4% MAG</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/spider-man(iron-spider).jpg" alt="Iron Spider">
+          <img src="../images/champion-images/costumes/the-punisher(franken-castle).jpg" alt="Franken-Castle">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Iron Spider</div>
-          <div class="costume-effect-label">Stark's Enhancements — +5% CRIT and CRIT RATE</div>
-          <span class="rarity rarity--rare">Rare</span>
-        </div>
-      </div>
-
-      <div class="costume-card">
-        <div class="costume-image">
-          <img src="../images/champion-images/costumes/spider-man(symbiote).jpg" alt="Symbiote (Black Suit)">
-        </div>
-        <div class="costume-info">
-          <div class="costume-name">Symbiote (Black Suit)</div>
-          <div class="costume-effect-label">Alien Awareness — +5% MAG and EVA</div>
-          <span class="rarity rarity--epic">Epic</span>
-        </div>
-      </div>
-
-      <div class="costume-card">
-        <div class="costume-image">
-          <img src="../images/champion-images/costumes/spider-man(future-foundation).jpg" alt="Iron Spider">
-        </div>
-        <div class="costume-info">
-          <div class="costume-name">Future Foundation</div>
-          <div class="costume-effect-label">Fantastic Friend — +10% MAX HP and SPD while a "Fantastic Four" ally is present</div>
+          <div class="costume-name">Franken-Castle</div>
+          <div class="costume-effect-label">Undead — +4% MAX HP and +2% REGEN</div>
           <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
@@ -1159,20 +1114,36 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">May 19, 2026</span>
+          <span class="version">v1.1.0</span>
+          <span class="date">May 30, 2026</span>
         </div>
         <ul class="changes">
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Spider Strength</em> — bonus damage per 10 EN remaining reduced from <strong>100% ATK → 50% ATK</strong>.</span>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>MAX STA</em> — increased from 7 to 8.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>Web Swing</em> — can now target a panel in addition to an obstacle. Panel-targeting relocates Spider-Man 5 panels in the direction of the targeted panel.</span>
+            <span><em>Deliverance</em> — base damage increased from 500% to 600% MAG; falloff floor raised to a minimum of 120% MAG; CRIT RATE bonus increased from +10% to +20%; added STA restore on use (up to 7 STA at range 1, decreasing by 1 per additional panel of distance, minimum 1).</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Knife Tactics</em> — Slashing Blade Bleed extension increased from +1 to +2 turns; new effect: +10% ATK and MAG when targeting a Bleed-afflicted enemy.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Tactical Reload</em> — now also restores 2 STA on use.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Quick Thinking of a Soldier</em> — obstacle damage bonus increased from 30% to 50%; new effect: +50% DEF and RES against throwable items; proximity STA restore increased from 1 to 2 per trigger; proximity now also restores 5 EN per trigger.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Unrequited Respect</em> (synergy) — Anger duration granted to Captain America on enemy defeat increased from 1 to 2 turns.</span>
           </li>
         </ul>
-        <p class="rationale">At full EN, Spider Strength was capable of dealing close to 1,800% ATK on a single target — disproportionately powerful versus comparable ULTIMATUMs. The new scaling caps the burst around 1,300% ATK at full EN, keeping the empty-the-tank fantasy without one-shotting tanks. Web Swing was a clean mobility tool but completely dead on obstacle-free stages; the panel-direction option ensures it has utility on any battlefield.</p>
+        <p class="rationale">Frank's previous version suffered from extreme STA constraints and poor cohesion between his melee opener and ranged kit. Deliverance now fully supports the intended Slashing Blade combo — point-blank STA restore lets Frank charge in, knife, blast, and reposition in a single engagement. Knife Tactics' Bleed interaction makes the knife opener meaningful for his MAG output over the following turns, resolving the melee-in-a-ranged-kit tension. Quick Thinking's EN and STA components make aggressive close-range play a viable sustained strategy. The MAX STA increase and Tactical Reload's STA addition collectively improve his movement budget without compromising the long-range Sniper archetype.</p>
       </div>
 
       <div class="changelog-entry release">
@@ -1183,7 +1154,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Spider-Man enters the roster.</span>
+            <span>The Punisher enters the roster.</span>
           </li>
         </ul>
       </div>
