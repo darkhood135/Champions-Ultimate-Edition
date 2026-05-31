@@ -532,6 +532,7 @@
         <a href="#panel-occupancy" class="toc-link toc-sub-sub">Panel Occupancy</a>
         <a href="#obstacle-states" class="toc-link toc-sub-sub">Obstacle States</a>
         <a href="#range-falloff" class="toc-link toc-sub-sub">Range Falloff</a>
+        <a href="#line-abilities" class="toc-link toc-sub-sub">Line Abilities</a>
         <a href="#clash-battles" class="toc-link toc-sub">Clash Battles</a>
 
         <a href="#ability-calculations" class="toc-link">Ability Calculations</a>
@@ -1005,6 +1006,14 @@
       <p>The falloff penalty is <strong>multiplicative</strong> with other ACC modifiers. For example, a long-range ability passing through a half-obstacle (−50% ACC) and fired beyond optimal range (−6% ACC) lands at <code>0.5 × 0.94 = 0.47</code> of its base accuracy, not <code>0.5 − 0.06</code>.</p>
       <p>This creates a meaningful tradeoff for snipers and long-range Blasters: a Champion <em>can</em> fire at maximum range, but is rewarded for closing into optimal range first.</p>
 
+      <h4 id="line-abilities">Line Abilities</h4>
+      <p>Some abilities target all enemies in a <strong>3-panel-wide line</strong> extending from the user in a chosen direction. The beam begins on the panel immediately adjacent to the user and extends outward — the user's own panel is never included. All 8 compass directions are valid.</p>
+      <ul>
+        <li><strong>Cardinal directions (N, S, E, W):</strong> The 3-panel width covers the central direction and one panel to each side at every step outward. A northward beam at range 1 covers the N, NW, and NE panels adjacent to the user.</li>
+        <li><strong>Diagonal directions (NW, NE, SW, SE):</strong> The width is achieved by including both flanking cardinal panels at each step. A NW beam at range 1 covers the N, NW, and W panels adjacent to the user, with each subsequent step following the same staircase pattern.</li>
+      </ul>
+      <p>Champions caught anywhere within the swept area are affected, subject to normal line-of-sight and the standard ability calculation rules for each target.</p>
+
       <h3 id="clash-battles">Clash Battles</h3>
       <p>A recreation of the battle system used in Champions I-III.</p>
       <p>At the start of a battle, characters start with maximum EN and HP. Their ULT starts at 0%, with 0 items. Their abilities will start with a cooldown of their <strong>normal cooldown minus two turns, minimum 0</strong>. These conditions can change if indicated otherwise by their kit.</p>
@@ -1039,6 +1048,10 @@
         <li><strong>ACC and EVA rolls:</strong> Rolled <strong>once per target</strong>. Each target rolls EVA and the attacker rolls ACC separately; one target may evade while another does not.</li>
       </ul>
       <p>The result is that AoE abilities can produce different outcomes for each Champion in the area — some may be hit and inflicted, others may dodge entirely. Any ability that deviates from this (e.g., a guaranteed hit to all targets, or a single CRIT roll shared across the area) will say so explicitly.</p>
+
+      <p><strong>Mixed ATK + MAG abilities:</strong> Abilities described as <em>"Deals X% ATK and Y% MAG"</em> in a single use are treated as <strong>two independent damage instances resolved in sequence</strong>. A single ACC/EVA roll determines whether the ability lands — if it misses, both instances miss. If it lands, each instance is calculated separately against its respective defensive stat: the ATK instance subtracts the target's DEF, and the MAG instance subtracts the target's RES. Each instance rolls for CRIT independently.</p>
+
+      <p><strong>HP threshold scaling:</strong> Some abilities scale based on exact HP thresholds, typically phrased as <em>"per X% of HP lost"</em> or <em>"per each X% HP threshold crossed."</em> These trigger once each time the specified threshold is crossed during damage calculation. Continuous effects (Bleed, Regeneration, etc.) that bring HP to or through a threshold value trigger the threshold at the point it is crossed — not retroactively for HP states that occurred before that effect resolved.</p>
 
       <p>Healing works similarly but skips defenses and evasion:</p>
       <ol>
@@ -1161,7 +1174,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Bloodlust</div></td>
-            <td>Attacks inflict Bleed for 2 turns; Bleed damage lifesteals for 20% of the damage dealt.</td>
+            <td>Attacks inflict "Bleed" for 2 turns; "Bleed" damage lifesteals for 20% of the damage dealt.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
@@ -1184,6 +1197,12 @@
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Energy Barrier</div></td>
+            <td>Negates the next received attack. Expires (one stack at a time) upon negating.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Anger</div></td>
             <td>+10% ATK and MAG.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1198,6 +1217,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Technique</div></td>
             <td>+15% MAG.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Regeneration</div></td>
+            <td>Restores 4% HP per turn.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>

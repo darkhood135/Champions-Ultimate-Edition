@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Captain America — Champions Ultimate Edition</title>
+<title>Iron Man — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #3b82f6; }
+  .back-link:hover { color: #fbbf24; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #60a5fa;
+    color: #fbbf24;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(59, 130, 246, 0.12);
-    color: #93c5fd;
+    background: rgba(251, 191, 36, 0.12);
+    color: #fcd34d;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(251, 191, 36, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #3b82f6;
+    border-left: 3px solid #fbbf24;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #3b82f6;
+    border-color: #dc2626;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #93c5fd;
+    color: #fcd34d;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Captain America theme — Flag Red / Patriot Blue / Star White / Gunmetal palette.
-       Blue = the suit, authority, command, the rallying force.
-       Red = the shield's stripes, urgency, impact, the flag's charge.
-       White/silver = vibranium, clean lines, strength under sustained fire.
-       Gunmetal = the soldier's discipline, the bash, brute physicality.
+     Iron Man theme — Crimson Red / Gold / Titanium Silver palette.
+       Crimson = the suit's primary color, repulsor energy, the Iron Man identity.
+       Gold/amber = the secondary detail, the chest RT, the symbol.
+       Titanium slate = armor plating, the methodical machine underneath.
+       Deep navy = sky, flight, the vast reach of his technology.
      Each ability still gets a visually distinct treatment; the palette
      just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #2563eb;          /* patriot blue — the suit, the symbol of command */
-    color: #03112e;
+    background: #d97706;          /* deep amber — the billionaire, the symbol */
+    color: #1c0e00;
   }
 
   .ability--basic {
-    background: #111827;          /* near-black with navy tint — soldier discipline */
-    border: 1px solid #1e3a5f;
+    background: #1a1014;          /* near-black with red undertone — close-quarters suit */
+    border: 1px solid #4a1818;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #60a5fa; }
-  .ability--basic .ability-tag  { color: #3b82f6; }
-  .ability--basic .ability-meta { color: #3b82f6; }
+  .ability--basic .ability-name { color: #fbbf24; }
+  .ability--basic .ability-tag  { color: #c89124; }
+  .ability--basic .ability-meta { color: #c89124; }
 
-  .ability--special-1 { background: #dc2626; color: #fee2e2; } /* flag red — the shield's stripes */
-  .ability--special-2 { background: #1d4ed8; color: #dbeafe; } /* vivid blue — Rally, the command */
-  .ability--special-3 { background: #1e3a8a; color: #bfdbfe; } /* deep navy — Charging Star, the charge */
-  .ability--special-4 { background: #374151; color: #f1f5f9; } /* gunmetal — Shield Bash, impact */
+  .ability--special-1 { background: #b91c1c; color: #fee2e2; } /* crimson — repulsor blast */
+  .ability--special-2 { background: #1e3a5f; color: #dbeafe; } /* dark navy steel — homing missiles */
+  .ability--special-3 { background: #b45309; color: #fef3c7; } /* amber — unibeam chest RT */
+  .ability--special-4 { background: #0c2340; color: #bfdbfe; } /* deep sky-black — taking flight */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #2563eb; } /* patriot blue */
-  .ability--reserve-passive   { border-left-color: #94a3b8; } /* silver */
-  .ability--reserve-ultimatum { border-left-color: #991b1b; } /* deep crimson */
+  .ability--reserve-special   { border-left-color: #dc2626; } /* iron red */
+  .ability--reserve-passive   { border-left-color: #d97706; } /* gold */
+  .ability--reserve-ultimatum { border-left-color: #7f1d1d; } /* deep crimson */
 
   .ability--core-passive {
-    background: #0f172a;          /* darkest navy — the foundation, the man behind the shield */
-    color: #d0d3da;
+    background: #0f1014;          /* suit-black — foundation, the arc reactor */
+    color: #c8c4be;
   }
 
   .ability--passive {
-    background: #cbd5e1;          /* star white/silver — vibranium, clean and unyielding */
-    color: #1e293b;
+    background: #64748b;          /* titanium slate — armor plating */
+    color: #f0f4f8;
   }
 
   .ability--ultimatum {
-    background: #991b1b;          /* deep crimson — the war cry */
+    background: #7f1d1d;          /* deep crimson — maximum force */
     color: #fde0e0;
   }
 
   .ability--synergy {
-    background: #5da8d6;          /* friendly cyan — connection */
-    color: #08203d;
+    background: #1a2e4a;          /* dark navy — alliance, trust under fire */
+    color: #b8d4ec;
   }
 
   .ability--artifact {
@@ -723,17 +723,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+      <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
     </div>
 
     <div class="identity">
-      <h1 class="name">Captain America</h1>
-      <p class="subtitle">Steve Rogers</p>
-      <span class="role-badge">Defender</span>
+      <h1 class="name">Iron Man</h1>
+      <p class="subtitle">Anthony Stark</p>
+      <span class="role-badge">Blaster</span>
       <p class="description">
-        Steve Rogers was chosen for the Super-Soldier program not because he was strong, but because he already was what a soldier should be — honest, stubborn, and impossible to keep down. The serum brought his body in line with his will: peak-human strength, reflexes that put trained fighters behind the reaction curve, and a recovery rate that turns punishment into arithmetic. The vibranium shield is his most versatile tool — thrown to chain through enemy formations, raised to negate incoming fire, or planted as a line he dares anyone to cross. His tactics center on his team. He reads the battlefield, sets the tempo, and makes sure every ally is resourced and in position when the real work starts. He does not outpower most of what he faces. He out-endures it — and he makes his side considerably harder to kill.
+        Tony Stark built the first Iron Man suit in a cave with scraps and spite, and he never really stopped iterating. Every near-miss — every villain, every civil war, every time the suit wasn't enough — became version n+1. He's insufferably confident, occasionally wrong, and has saved the world enough times that neither quality cancels the other out.
       </p>
-      <p class="quote">"I'll never stop believing that life is something most sacred, something to be sacrificed only for the greatest of causes...liberty!"</p>
+      <p class="quote">"There's only two things I ever managed to believe in. Firstly, myself. And even then only about 50% of the time. Secondly, the future. That there would be one and we'd make it."</p>
     </div>
   </div>
 
@@ -748,25 +748,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">14,200</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">340</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,700</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">210</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">390</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">120</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">106</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">9%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">12%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">4%</span></div>
       </div>
 
       <!-- Links -->
@@ -776,13 +776,14 @@
           <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/super-soldier.html" class="pill">Super Soldier</a>
+          <a href="../links/stark-industries.html" class="pill">Stark Industries</a>
           <a href="../links/avengers.html" class="pill">Avengers</a>
           <a href="../links/new-avengers.html" class="pill">New Avengers</a>
           <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
-          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/mechanical-physiology.html" class="pill">Mechanical Physiology</a>
           <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
-          <a href="../links/street-level.html" class="pill">Street Level</a>
+          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
         </div>
       </div>
 
@@ -790,19 +791,16 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Self-Reposition</span>
-          <span class="pill">Enemy Reposition</span>
-          <span class="pill">Elevation Bypass</span>
-          <span class="pill">Anti-Air</span>
-          <span class="pill">Redirection</span>
+          <span class="pill">Evasion</span>
+          <span class="pill">Infliction Resist</span>
           <span class="pill">Last Stand</span>
-          <span class="pill">ACC Down</span>
-          <span class="pill">ATK Up</span>
-          <span class="pill">ACC Up</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">EVA Up</span>
           <span class="pill">ULT Generation</span>
-          <span class="pill">Resource Refill</span>
-          <span class="pill">STA Support</span>
           <span class="pill">Area of Effect</span>
+          <span class="pill">Extension</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Healing</span>
         </div>
       </div>
 
@@ -811,25 +809,27 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="iron-man.html" class="partner-card">
+          <a href="captain-america.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
             </div>
             <div class="partner-tooltip">
-              <strong>Iron Man</strong>
-              <span class="real-name">Anthony Stark</span>
+              <strong>Captain America</strong>
+              <span class="real-name">Steve Rogers</span>
               <span class="synergy-name">Comrades with a Complex History</span>
             </div>
           </a>
-          
+
           <a href="spider-man.html" class="partner-card">
             <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
               <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
             </div>
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Standing Up for What's Right</span>
+              <span class="synergy-name">Bright Minds for a Brighter Future</span>
             </div>
           </a>
 
@@ -840,18 +840,18 @@
             <div class="partner-tooltip">
               <strong>The Wasp</strong>
               <span class="real-name">Janet Van Dyne</span>
-              <span class="synergy-name">Soul of the Avengers</span>
+              <span class="synergy-name">Founding Members of the Mightiest Heroes</span>
             </div>
           </a>
 
-          <a href="the-punisher.html" class="partner-card">
+          <a href="batman.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+              <img src="../images/champion-images/batman.jpg" alt="Batman">
             </div>
             <div class="partner-tooltip">
-              <strong>The Punisher</strong>
-              <span class="real-name">Francis Castle</span>
-              <span class="synergy-name">Unrequited Respect</span>
+              <strong>Batman</strong>
+              <span class="real-name">Bruce Wayne</span>
+              <span class="synergy-name">Begrudging Respect</span>
             </div>
           </a>
 
@@ -871,11 +871,12 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">The First Avenger</span>
+          <span class="ability-name">Billionaire, Playboy, Philanthropist</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Avengers" or "New Avengers" allies gain +10% MAX HP and +5% ATK in battle.</li>
+          <li>"Incredible Intelligence" or "Stark Industries" allies gain +15% MAG and RES in battle.</li>
+          <li>"Stark Industries" allies gain +6% MAX HP in battle.</li>
         </ul>
       </div>
 
@@ -883,12 +884,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Brooklyn Blows</span>
+          <span class="ability-name">Melee Protocol</span>
           <span class="ability-tag">Basic</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy or Obstacle · Energy: None · Cooldown: None · Range: 1</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
           <li>Deals 150% ATK damage to the target.</li>
+          <li>Deals an additional 50% ATK damage to the target per exact 10% of HP lost (self).</li>
         </ul>
       </div>
 
@@ -897,78 +899,77 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Shield Throw</span>
+          <span class="ability-name">Repulsor Blast</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + Chain (up to 4) · Energy: 35 · Cooldown: 2 turns · Range: 9</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (1 Panel) · Energy: 20 · Cooldown: None · Range: 14</div>
         <ul>
-          <li>Deals 200% ATK damage to the target.</li>
-          <li>Chains to another enemy if that enemy is within 4 panels (up to 4 times).</li>
-          <li>35% chance to inflict "Disorient" for 1 turn to any enemy damaged by this attack.</li>
-          <li>Cannot hit the same enemy twice within the same attack.</li>
+          <li>Deals 150% MAG damage to all enemies within 1 panel of the target (target included).</li>
+          <li>Inflicts "Sting" on all enemies within 1 panel of the target (target included) for 1 turn.</li>
+          <li>Extends into itself (up to twice) per 1 turn passed since last usage.</li>
+          <li>Inflicts "Sting" for 1 extra turn (up to twice) per 1 turn passed since last usage.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Rally</span>
+          <span class="ability-name">Homing Missiles</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Energy: 50 · Cooldown: 5 turns · Range: 6</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies · Energy: 70 · Cooldown: 5 turns · Range: 12</div>
         <ul>
-          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+          <li>Deals 650% MAG damage to all enemies in range.</li>
+          <li>-60% ACC against enemies hiding behind obstacles.</li>
+          <li>Restores 10 EN per enemy damaged by this ability (up to 40).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Charging Star</span>
+          <span class="ability-name">Unibeam</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: All Enemies in 1-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 8 panels (chosen direction)</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 50 · Cooldown: 3 turns · Range: 5 panels (chosen direction)</div>
         <ul>
-          <li>Charges 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
-          <li>Ignores elevation and gaps.</li>
-          <li>Deals 200% ATK damage to all enemies caught in the line.</li>
-          <li>Nullifies any counters received while dashing.</li>
+          <li>Launches a beam 5 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+          <li>Deals 400% MAG damage to all enemies caught in the line.</li>
+          <li>Inflicts "Sting" for 2 turns to all enemies caught in the line</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Shield Bash</span>
+          <span class="ability-name">Taking Flight</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 4 turns · Range: N/A</div>
         <ul>
-          <li>Deals 400% ATK damage to the target.</li>
-          <li>Inflicts "Retribution" to the target for 2 turns.</li>
-          <li>Pushes the target in the direction of attack by 2 panels.</li>
+          <li>Becomes airborne for 3 turns.</li>
+          <li>Restores 20 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Prepare to Engage</span>
+          <span class="ability-name">Energy Slash</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 20 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>+20% DEF and RES for 2 turns.</li>
-          <li>Gains "Taunt" for 2 turns.</li>
+          <li>Deals 150% ATK and 120% MAG damage to the target.</li>
+          <li>Restores 30 EN and 3 STA if the enemy was already within 2 panels of self at the start of Iron Man's turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Stars and Stripes</span>
+          <span class="ability-name">Armor Repair</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 3</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
         <ul>
-          <li>Deals 200% ATK damage to the target 3 times.</li>
-          <li>Can damage airborne targets.</li>
-          <li>Inflicts "Retribution" to the target for 1 turn.</li>
+          <li>Gains 2 stacks of "Regeneration" for 3 turns.</li>
+          <li>Gains "Energy Barrier" for 1 turn.</li>
         </ul>
       </div>
 
@@ -977,58 +978,60 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Patriotic Symbol of Freedom</span>
+          <span class="ability-name">Genius with Few Limitations</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>"Hero" allies gain +5% ATK and DEF.</li>
-          <li>Blocking negates 80% of ranged attack damage.</li>
-          <li>Gains 3% ULT each time an attack is received.</li>
+          <li>Immune to "Shock".</li>
+          <li>Restores 2% HP when nullifying a "Shock" infliction.</li>
+          <li>STA regen increased to 60% of MAX STA per turn while airborne.</li>
+          <li>Gains 1% ULT each time an enemy is damaged (self only, excluding extensions).</li>
+          <li>Passive ULT generation is reduced to 4% per turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Supreme Super Soldier</span>
+          <span class="ability-name">Assistance from JARVIS</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Ignores elevation differences when moving.</li>
-          <li>STA regen increased to 50% of MAX STA per turn.</li>
+          <li>+20% ACC while using Homing Missiles.</li>
+          <li>+8% EVA, DEF and RES against an attack for the rest of battle after receiving that same attack for a second time.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Vibranium Shield</span>
+          <span class="ability-name">Emergency Protocol</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction.</li>
-          <li>+5% DEF and RES.</li>
+          <li>Gains 3 stacks of "Regeneration" for 2 turns upon being at or below 30% HP (once per battle).</li>
+          <li>+20% EVA while at or below 30% HP.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Do This All Day</span>
+          <span class="ability-name">Enhanced Repulsors</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Endures a fatal blow once per battle.</li>
-          <li>Gains "Indestructible" for 1 turn upon enduring a fatal blow.</li>
+          <li>Repulsor Blast infliction and extension limits are increased to 3 (from 2).</li>
+          <li>+10% MAG while performing an extension attack.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">No Soldier Left Behind</span>
+          <span class="ability-name">Armor Modifications</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+10% DEF and RES while no ally is below 30% HP or defeated.</li>
-          <li>+7% DEF and RES per ally below 30% HP (includes defeated allies).</li>
-          <li>+5% ATK per ally below 30% HP (includes defeated allies).</li>
+          <li>+20% DEF and RES.</li>
+          <li>-10% MAG and EVA.</li>
+          <li>-2% SPD.</li>
         </ul>
       </div>
 
@@ -1037,27 +1040,26 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Assemble</span>
+          <span class="ability-name">Legion of Armors</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
         <ul>
-          <li>All allies in range gain 30 EN and 4 STA.</li>
-          <li>All allies in range gain +10% EN and STA regeneration for 2 turns.</li>
-          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+          <li>Activates after 2 turns.</li>
+          <li>Suits of armor assist to have all attacks extend into themselves 1 time (lasts 1 turn, does not apply to extension attacks).</li>
+          <li>Suits of armor do not perform any extensions layered within an ability.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">No Surrender</span>
+          <span class="ability-name">Self-Destructing Suit</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Range: 7 panels · Cost: 100% ULT</div>
         <ul>
-          <li>Cleanses all negative effects from self.</li>
-          <li>Gains "Indestructible" for 2 turns and "Taunt" for 3 turns.</li>
-          <li>For 3 turns, each attack received is countered with 200% ATK damage dealt to the attacker.</li>
+          <li>Deals 1000% MAG damage to the target.</li>
+          <li>Guaranteed to land.</li>
         </ul>
       </div>
 
@@ -1067,47 +1069,47 @@
       <div class="ability ability--synergy">
         <div class="ability-header">
           <span class="ability-name">Comrades with a Complex History</span>
-          <span class="ability-tag">Synergy · w/ Iron Man</span>
+          <span class="ability-tag">Synergy · w/ Captain America</span>
         </div>
         <ul>
           <li>Iron Man can choose to target Captain America with Unibeam (range of 5 panels) to work together and change the targeting/range of the attack.</li>
           <li>When targeting Captain America, Iron Man's Unibeam instead hits all enemies in a 4 panel radius of Captain America.</li>
         </ul>
       </div>
-      
+
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Standing Up for What's Right</span>
+          <span class="ability-name">Bright Minds for a Brighter Future</span>
           <span class="ability-tag">Synergy · w/ Spider-Man</span>
         </div>
         <ul>
-          <li>Spider-Man gains +7% ATK and MAG.</li>
-          <li>Captain America gains +2% REGEN and SPD.</li>
-          <li>If Spider-Man is affected by Rally or Assemble, the effects last for 1 extra turn.</li>
+          <li>+5% MAG for both Champions.</li>
+          <li>Both Champions restore 2 STA when one defeats an enemy.</li>
         </ul>
       </div>
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Soul of the Avengers</span>
+          <span class="ability-name">Founding Members of the Mightiest Heroes</span>
           <span class="ability-tag">Synergy · w/ The Wasp</span>
         </div>
         <ul>
-          <li>The Wasp gains +10% HEAL when targeting Captain America.</li>
-          <li>The Wasp restores 3 STA and 5 EN whenever Captain America redirects an attack intended for her.</li>
+          <li>Both Champions gain +3% SPD.</li>
+          <li>The Wasp gains +6% HEAL.</li>
         </ul>
       </div>
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">Unrequited Respect</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
+          <span class="ability-name">Begrudging Respect</span>
+          <span class="ability-tag">Synergy · w/ Batman</span>
         </div>
         <ul>
-          <li>The Punisher gains +10% MAG for 2 turns whenever Captain America applies "Taunt" to himself.</li>
-          <li>Captain America gains "Anger" for 2 turns whenever The Punisher defeats an enemy.</li>
+          <li>Iron Man's Armor Repair grants him "Stealth" for 2 turns.</li>
+          <li>Batman's Grapple Kick ignores elevation when targeting and grounds airborne targets.</li>
         </ul>
       </div>
+
     </main>
   </div>
 
@@ -1121,10 +1123,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/captain-america.jpg" alt="Classic">
+          <img src="../images/champion-images/iron-man.jpg" alt="Model 70">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
+          <div class="costume-name">Modern (Model 70)</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1132,44 +1134,66 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(original).jpg" alt="Original">
+          <img src="../images/champion-images/costumes/iron-man(model-4).jpg" alt="Model 4">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Original</div>
-          <div class="costume-effect-label">Patriotic Punches — +5% ATK</div>
+          <div class="costume-name">Classic (Model 4)</div>
+          <div class="costume-effect-label">Retro Technology — +5% MAG, -3% SPD</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(nomad).jpg" alt="Nomad">
+          <img src="../images/champion-images/costumes/iron-man(model-7).jpg" alt="Model 7">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Nomad</div>
-          <div class="costume-effect-label">A New Identity — +5% SPD, -7% DEF and RES</div>
+          <div class="costume-name">Silver Centurion (Model 7)</div>
+          <div class="costume-effect-label">Need for Revenge — +2% MAG for 2 turns when receiving an attack</div>
           <span class="rarity rarity--rare">Rare</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(ultimate).jpg" alt="Ultimate">
+          <img src="../images/champion-images/costumes/iron-man(model-37).jpg" alt="Model 7">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Ultimate</div>
-          <div class="costume-effect-label">A for America — +12% ATK against targets below 30% HP</div>
+          <div class="costume-name">Bleeding Edge (Model 37)</div>
+          <div class="costume-effect-label">Implementation of Nano-Machines — +20% ATK and MAG when using Energy Slash</div>
           <span class="rarity rarity--epic">Epic</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/captain-america(traitor).jpg" alt="Traitor">
+          <img src="../images/champion-images/costumes/iron-man(model-49).jpg" alt="Model 7">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Traitor</div>
-          <div class="costume-effect-label">Hail Hydra — All buffs affecting "Hero" allies will instead affect "Villain" allies</div>
+          <div class="costume-name">Original Sin (Model 49)</div>
+          <div class="costume-effect-label">Gamma Blades — +10% ATK and MAG against Defender Champions</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/iron-man(model-50).jpg" alt="Model 7">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Superior (Model 50)</div>
+          <div class="costume-effect-label">Smart-Metal Coating — +7% DEF and RES</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/iron-man(model-1).jpg" alt="Model 1">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Original (Model 1)</div>
+          <div class="costume-effect-label">Built with Scraps — EN regen increased to 40% of MAX EN per turn, -30% DEF and RES</div>
           <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
@@ -1190,35 +1214,35 @@
       <div class="changelog-entry">
         <div class="entry-meta">
           <span class="version">v1.1.0</span>
-          <span class="date">May 26, 2026</span>
+          <span class="date">May 30, 2026</span>
         </div>
         <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Legion of Armors</em> — now activates after a 2-turn delay (was immediate); active duration reduced from 2 turns to 1 turn; added clarification that suits do not replicate extensions layered within abilities.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Homing Missiles</em> — base damage increased from 600% to 650% MAG; obstacle ACC penalty increased from −40% to −60%; EN restoration capped at 40 (was uncapped).</span>
+          </li>
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span><em>Shield Throw</em> — Cooldown increased from <strong>1 → 2 turns</strong>.</span>
+            <span><em>Genius with Few Limitations</em> — ULT generation from enemy damage no longer applies to extension attacks.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>Prepare to Engage</em> — Removed the "30% chance to inflict Retribution on all attacks for 2 turns" line. DEF buff expanded to include RES: now grants <strong>+20% DEF and RES for 2 turns</strong>.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Stars and Stripes</em> — Per-hit damage reduced from <strong>220% → 200% ATK</strong> (600% ATK total, down from 660%).</span>
+            <span><em>Unibeam</em> — range corrected from 8 to 5 panels; typo in ability text fixed.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>No Soldier Left Behind</em> — Removed the infliction chance scaling line. Added a formation bonus: <strong>+10% DEF and RES while no ally is below 30% HP or defeated</strong>. Added <strong>+5% ATK per ally below 30% HP (includes defeated allies)</strong> alongside the existing +7% DEF and RES scaling.</span>
+            <span><em>Energy Slash</em> — clarified that the EN and STA restore condition checks the enemy's proximity at the start of Iron Man's turn specifically.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>No Surrender</em> — Fully redesigned. Now a self-targeted support ULTIMATUM: <strong>cleanses all negative effects</strong>, grants <strong>Indestructible for 2 turns</strong> and <strong>Taunt for 3 turns</strong>, and counters every attack received for <strong>200% ATK damage</strong> to the attacker for 3 turns. Previous version dealt 600–1200% ATK damage to a single target.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Vibranium Shield</em> — Wording clarified. Now reads: "Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction." No mechanical change.</span>
+            <span><em>Melee Protocol</em> — clarified that the additional ATK bonus triggers at each exact 10% HP lost threshold.</span>
           </li>
         </ul>
-        <p class="rationale">Shield Throw's 1-turn cooldown allowed near-constant AoE pressure for its energy cost on a Defender, pushing it above the roster's multi-target efficiency baseline. Prepare to Engage had excessive Retribution density when combined with Shield Bash and Stars and Stripes; trading that proc for a full DEF/RES buff preserves the ability's value as a defensive stance without the control overlap. Stars and Stripes was an outlier in damage-per-energy for the role given that each hit calculates DEF separately. No Soldier Left Behind gained a formation bonus to create an incentive for proactive ally protection alongside the existing comeback scaling. No Surrender was redesigned to offer a distinct ULTIMATUM identity — a personal last-stand button — that competes meaningfully with Assemble in solo-carry and heavy-focus scenarios rather than duplicating its team-support function.</p>
+        <p class="rationale">Legion of Armors' immediate 2-turn burst window created an unavoidable damage spike with no counterplay — the 2-turn activation delay and 1-turn window allow opponents to respond through repositioning, particularly behind obstacles, which Homing Missiles' increased ACC penalty further rewards. The ULT generation nerf corrects an uncapped compounding issue where Repulsor Blast's extension chain could charge Legion of Armors twice as fast as intended. The Homing Missiles damage increase partially offsets the EN restore cap, keeping the ability's single-use value competitive while removing the EN-positive loop on large groups.</p>
       </div>
 
       <div class="changelog-entry release">
@@ -1229,7 +1253,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Captain America enters the roster.</span>
+            <span>Iron Man enters the roster.</span>
           </li>
         </ul>
       </div>
