@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifacts — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #818cf8; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #818cf8;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== TOOLBAR ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #818cf8; background: #1c1d22; }
+
+  .toolbar-btn {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toolbar-btn:hover { color: #f0f1f3; border-color: #3c4047; }
+  .toolbar-btn.active { color: #a5b4fc; border-color: #818cf8; background: rgba(129, 140, 248, 0.08); }
+
+  .toolbar-btn .count-pill {
+    background: #818cf8;
+    color: #1e1b4b;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== ACTIVE CHIPS ====================== */
+  .active-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 24px;
+    margin-bottom: 18px;
+  }
+
+  .active-chips:empty { margin-bottom: 0; min-height: 0; }
+
+  .chip {
+    background: rgba(129, 140, 248, 0.1);
+    border: 1px solid rgba(129, 140, 248, 0.4);
+    color: #a5b4fc;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px 4px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .chip:hover { background: rgba(129, 140, 248, 0.18); }
+
+  .chip .x { font-size: 14px; line-height: 1; opacity: 0.7; }
+
+  /* ====================== FILTER PANEL ====================== */
+  .filter-panel {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease, padding 0.2s ease, margin-bottom 0.2s ease;
+    margin-bottom: 0;
+  }
+
+  .filter-panel.open {
+    max-height: 1200px;
+    padding: 18px 22px 20px;
+    margin-bottom: 22px;
+  }
+
+  .filter-group { margin-bottom: 18px; }
+  .filter-group:last-child { margin-bottom: 0; }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter-pill {
+    background: #1c1d22;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .filter-pill:hover { color: #f0f1f3; border-color: #3c4047; }
+  .filter-pill.active {
+    background: rgba(129, 140, 248, 0.15);
+    border-color: #818cf8;
+    color: #a5b4fc;
+  }
+
+  /* ====================== ARTIFACT GRID ====================== */
+  .artifact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 14px;
+  }
+
+  .artifact {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-left: 4px solid #2c3038;
+    border-radius: 12px;
+    padding: 18px 22px 20px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 18px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .artifact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Rarity-driven left border + image ring */
+  .artifact--common    { border-left-color: #b8bdc8; }
+  .artifact--uncommon  { border-left-color: #5fd189; }
+  .artifact--rare      { border-left-color: #5fb0ff; }
+  .artifact--epic      { border-left-color: #b378f0; }
+  .artifact--legendary { border-left-color: #ffd680; }
+  .artifact--mythic    { border-left-color: #ff7878; }
+
+  .artifact:hover { border-color: rgba(129, 140, 248, 0.4); }
+
+  /* ====================== ARTIFACT IMAGE ====================== */
+  .artifact-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background: #0a0b0e;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #4f535c;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  .artifact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .artifact--common    .artifact-image { border-color: rgba(184, 189, 200, 0.5); }
+  .artifact--uncommon  .artifact-image { border-color: rgba(95, 209, 137, 0.6); }
+  .artifact--rare      .artifact-image { border-color: rgba(95, 176, 255, 0.6); }
+  .artifact--epic      .artifact-image { border-color: rgba(179, 120, 240, 0.6); }
+  .artifact--legendary .artifact-image { border-color: rgba(255, 214, 128, 0.6); }
+  .artifact--mythic    .artifact-image { border-color: rgba(255, 120, 120, 0.6); }
+
+  /* ====================== ARTIFACT BODY ====================== */
+  .artifact-body { min-width: 0; display: flex; flex-direction: column; }
+
+  .artifact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .artifact-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: #f0f1f3;
+    line-height: 1.2;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  .artifact-description {
+    font-size: 13px;
+    color: #c5c8d0;
+    font-style: italic;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+
+  .artifact-meta {
+    font-size: 12px;
+    color: #a3a8b3;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+    line-height: 1.5;
+  }
+
+  .artifact-meta::before {
+    content: 'EQUIP: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  .artifact-meta .equip-pill {
+    display: inline-block;
+    background: rgba(129, 140, 248, 0.12);
+    color: #a5b4fc;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    margin-right: 4px;
+  }
+
+  .artifact-effects {
+    list-style: none;
+    padding: 0;
+  }
+
+  .artifact-effects li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #d0d3da;
+    margin-bottom: 5px;
+  }
+
+  .artifact-effects li:last-child { margin-bottom: 0; }
+
+  .artifact-effects li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+    color: #818cf8;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; color: #f0f1f3; }
+
+  /* No results message */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 14px;
+    grid-column: 1 / -1;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .toolbar { gap: 8px; }
+    .toolbar .search-wrap { min-width: 100%; }
+    .count-badge { margin-left: 0; }
+    .artifact-grid { grid-template-columns: 1fr; }
+    .artifact { grid-template-columns: 64px 1fr; gap: 14px; padding: 16px 18px; }
+    .artifact-image { width: 64px; height: 64px; font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Artifacts</h1>
+    <p class="page-subtitle">Modifier passives equipped to a Champion. Conditions reference a Link or Tag — meet them to equip. One per Champion.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search by name or effect…" autocomplete="off">
+    </div>
+    <button class="toolbar-btn" id="filter-toggle">
+      Filters
+      <span class="count-pill" id="filter-count" style="display: none;">0</span>
+    </button>
+    <button class="toolbar-btn" id="clear-filters">Clear</button>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> artifacts
+    </div>
+  </div>
+
+  <!-- ACTIVE FILTER CHIPS (auto-populated) -->
+  <div class="active-chips" id="active-chips"></div>
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel" id="filter-panel">
+    <div class="filter-group">
+      <div class="filter-label">Rarity</div>
+      <div class="filter-pills" data-category="rarity">
+        <button class="filter-pill" data-value="Common">Common</button>
+        <button class="filter-pill" data-value="Uncommon">Uncommon</button>
+        <button class="filter-pill" data-value="Rare">Rare</button>
+        <button class="filter-pill" data-value="Epic">Epic</button>
+        <button class="filter-pill" data-value="Legendary">Legendary</button>
+        <button class="filter-pill" data-value="Mythic">Mythic</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Equip Condition</div>
+      <div class="filter-pills" data-category="equip">
+        <button class="filter-pill" data-value="Universal">Universal</button>
+        <button class="filter-pill" data-value="Link">Link-restricted</button>
+        <button class="filter-pill" data-value="Tag">Tag-restricted</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Source</div>
+      <div class="filter-pills" data-category="source">
+        <button class="filter-pill" data-value="Main Story">Main Story</button>
+        <button class="filter-pill" data-value="Event Story">Event Story</button>
+        <button class="filter-pill" data-value="Arena">Arena</button>
+        <button class="filter-pill" data-value="Clash">Clash</button>
+        <button class="filter-pill" data-value="The Dark Dimension">The Dark Dimension</button>
+        <button class="filter-pill" data-value="Crisis on Infinite Earths">Crisis on Infinite Earths</button>
+        <button class="filter-pill" data-value="Flashpoint">Flashpoint</button>
+        <button class="filter-pill" data-value="Danger Room">Danger Room</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       ARTIFACT GRID
+       Each .artifact card carries:
+         data-name      — for search
+         data-rarity    — Common | Uncommon | Rare | Epic | Legendary | Mythic
+         data-equip     — Universal | Link | Tag
+         data-source    — Game mode where it's earned
+       ============================================= -->
+  <div class="artifact-grid" id="artifact-grid">
+
+    <!-- ============== COMMON ============== -->
+    <div class="artifact artifact--common"
+         data-name="Reinforced Gloves" data-rarity="Common" data-equip="Universal" data-source="Main Story">
+      <div class="artifact-image"><img src="images/artifact-images/reinforced-gloves.png" alt="Reinforced Gloves"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Reinforced Gloves</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">Padded brawler's gloves stitched from durable leather and synthetic mesh. Standard issue for anyone who throws their hands for a living.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+5% ATK while using a Basic Ability.</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--common"
+         data-name="Field Glasses" data-rarity="Common" data-equip="Universal" data-source="Main Story">
+      <div class="artifact-image"><img src="images/artifact-images/field-glasses.jpg" alt="Field Glasses"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Field Glasses</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">Compact tactical optics with a stabilized reticle. Lets a Champion size up the battlefield before committing to the swing.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+5% ACC.</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============== UNCOMMON ============== -->
+    <div class="artifact artifact--uncommon"
+         data-name="Med-Pouch" data-rarity="Uncommon" data-equip="Tag" data-source="Main Story">
+      <div class="artifact-image"><img src="images/artifact-images/med-pouch.png" alt="Med-Pouch"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Med-Pouch</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">Modular field medic kit — sutures, plasma packs and a small stim-injector. Standardized so any battlefield medic can grab and go.</p>
+        <div class="artifact-meta"><span class="equip-pill">Tag</span> Champion must have the <strong>Healing</strong> tag.</div>
+        <ul class="artifact-effects">
+          <li>Healing applied to any ally restores an additional <em class="kw">+30% HEAL</em>.</li>
+          <li>Healing applied to an ally below 30% HP cleanses one <em class="kw">Common</em>-tier infliction.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Lock-Pick Set" data-rarity="Uncommon" data-equip="Link" data-source="Event Story">
+      <div class="artifact-image"><img src="images/artifact-images/lockpick.png" alt="Lock-Pick Set"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Lock-Pick Set</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">Wayne Industries prototype kit — bump key, tension bar, and a magnetic decoder. Gotham's solution to "we don't have time to wait for backup."</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Bat-Family</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">Restores 1 STA</em> upon picking up an item (from an item spawn).</li>
+          <li>Item Spawns picked up by this Champion yield <em class="kw">+1 quantity</em>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============== RARE ============== -->
+    <div class="artifact artifact--rare"
+         data-name="Spider-Tracer" data-rarity="Rare" data-equip="Link" data-source="Event Story">
+      <div class="artifact-image"><img src="images/artifact-images/spider-tracer.png" alt="Spider-Tracer"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Spider-Tracer</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">Adhesive radio bug small enough to land on a fly — Parker's own design. Once it's on you, the team knows where you are and how to hit you harder.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Web Warrior</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>The first enemy this Champion damages each turn is inflicted with <em class="kw">"Tracker"</em> for 2 turns.</li>
+          <li><em class="kw">+5% ATK and MAG</em> against enemies inflicted with "Tracker".</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Combat Harness" data-rarity="Rare" data-equip="Link" data-source="Main Story">
+      <div class="artifact-image"><img src="images/artifact-images/combat-harness.png" alt="Combat Harness"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Combat Harness</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">Reinforced webbing rig designed for serum-enhanced operators. The straps hold heavy ordnance steady; the plates carry hits that would put a regular soldier on the ground.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Super Soldier</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+5% ATK and +5% DEF.</em></li>
+          <li>Restores <em class="kw">1 STA</em> at the end of the turn (once per turn) for the first 3 turns of battle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============== EPIC ============== -->
+    <div class="artifact artifact--epic"
+         data-name="Patriotic Resolve" data-rarity="Epic" data-equip="Link" data-source="Arena">
+      <div class="artifact-image"><img src="images/artifact-images/patriotic-resolve.png" alt="Patriotic Resolve"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Patriotic Resolve</span>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+        <p class="artifact-description">An echo of the founding charter — what the team was built to be. Surfaces when an Avenger has already taken more than they should have and stands up anyway.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Avengers</strong> or <strong>New Avengers</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>The first time this Champion drops below <em class="kw">50% HP</em> in battle, gain <em class="kw">"Impenetrable"</em> for 1 turn.</li>
+          <li>Once per battle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--epic"
+         data-name="Cape Reinforcement" data-rarity="Epic" data-equip="Link" data-source="Event Story">
+      <div class="artifact-image"><img src="images/artifact-images/reinforced-cape.png" alt="Cape Reinforcement"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Cape Reinforcement</span>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+        <p class="artifact-description">Woven from indestructible Kryptonian fabric. The cape doesn't really protect the wearer — it just doesn't tear, which on Earth is a remarkable trait.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Kryptonian</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+8% MAX HP.</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============== LEGENDARY ============== -->
+    <div class="artifact artifact--legendary"
+         data-name="Star-Spangled Banner" data-rarity="Legendary" data-equip="Link" data-source="Arena">
+      <div class="artifact-image">SB</div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Star-Spangled Banner</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">A standard carried into every fight where the team has been outnumbered and held the line anyway. Holding it on the field is a promise to the people watching.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Hero</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>All <em class="kw">"Hero"</em> allies (including self) gain <em class="kw">+5% MAX HP</em> and <em class="kw">+5% ATK</em>.</li>
+          <li>If this Champion is also the team Leader, the Leader Ability's effects last for 1 extra turn when applicable.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--legendary"
+         data-name="Wisdom of Solomon" data-rarity="Legendary" data-equip="Link" data-source="Crisis on Infinite Earths">
+      <div class="artifact-image">WS</div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Wisdom of Solomon</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">A relic touched by the mythic gift that powers the Champion of Magic — clarity in the middle of chaos. The Justice League keeps it where it can do the most good.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Justice League</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>This Champion gains <em class="kw">+5% to all stats</em> per ally alive (including self).</li>
+          <li>Defeated allies cap the bonus — once one is down, no further allies count toward the stack.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============== MYTHIC ============== -->
+    <div class="artifact artifact--mythic"
+         data-name="Heart of the Multiverse" data-rarity="Mythic" data-equip="Universal" data-source="Crisis on Infinite Earths">
+      <div class="artifact-image">HM</div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Heart of the Multiverse</span>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+        <p class="artifact-description">A crystallized fragment of the source from which every Earth's heroes draw. Holding it for too long has driven lesser Champions into burnout — most teams pass it around between battles.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li>At the start of battle, all allies (including self) gain <em class="kw">+10% ULT generation</em> for 3 turns.</li>
+          <li>The first ULTIMATUM used by an ally each battle costs <em class="kw">10% less ULT</em>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="artifact artifact--mythic"
+         data-name="Last Stand Locket" data-rarity="Mythic" data-equip="Tag" data-source="The Dark Dimension">
+      <div class="artifact-image">LL</div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Last Stand Locket</span>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+        <p class="artifact-description">An heirloom forged for the kind of Champion who's already endured a fatal blow before — and intends to do it again. The metal warms when its wearer is about to need it.</p>
+        <div class="artifact-meta"><span class="equip-pill">Tag</span> Champion must have the <strong>Last Stand</strong> tag.</div>
+        <ul class="artifact-effects">
+          <li>The first time this Champion endures a fatal blow each battle, gain <em class="kw">Indestructible</em> for 1 turn and <em class="kw">Overdrive</em> for 1 turn.</li>
+          <li>Cannot stack with other Last Stand-style effects in the same activation window.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- No-results state (shown via JS when grid is empty) -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No artifacts match those filters</strong>
+    Try removing one of the active filters or clearing them all.
+  </div>
+
+</div>
+
+<script>
+  const searchInput  = document.getElementById('search');
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterPanel  = document.getElementById('filter-panel');
+  const clearBtn     = document.getElementById('clear-filters');
+  const filterCount  = document.getElementById('filter-count');
+  const activeChips  = document.getElementById('active-chips');
+  const countEl      = document.getElementById('count');
+  const totalEl      = document.getElementById('total');
+  const cards        = Array.from(document.querySelectorAll('.artifact'));
+  const pills        = Array.from(document.querySelectorAll('.filter-pill'));
+  const noResults    = document.getElementById('no-results');
+
+  // Active filters by category
+  const active = { rarity: new Set(), equip: new Set(), source: new Set() };
+
+  totalEl.textContent = cards.length;
+
+  function activeFilterCount() {
+    return active.rarity.size + active.equip.size + active.source.size;
+  }
+
+  function renderChips() {
+    activeChips.innerHTML = '';
+    for (const category of ['rarity', 'equip', 'source']) {
+      for (const value of active[category]) {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.dataset.category = category;
+        chip.dataset.value = value;
+        chip.innerHTML = `${value} <span class="x">×</span>`;
+        chip.addEventListener('click', () => {
+          active[category].delete(value);
+          // Sync pill state
+          const pill = document.querySelector(
+            `.filter-pill[data-value="${value}"]`
+          );
+          if (pill && pill.parentElement.dataset.category === category) {
+            pill.classList.remove('active');
+          }
+          applyFilters();
+        });
+        activeChips.appendChild(chip);
+      }
+    }
+  }
+
+  function applyFilters() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name   = card.dataset.name.toLowerCase();
+      const text   = card.textContent.toLowerCase();
+      const rarity = card.dataset.rarity;
+      const equip  = card.dataset.equip;
+      const source = card.dataset.source;
+
+      let match = true;
+
+      // Search matches name OR any text in the card (so effect text is searchable)
+      if (search && !name.includes(search) && !text.includes(search)) {
+        match = false;
+      }
+      if (match && active.rarity.size > 0 && !active.rarity.has(rarity)) {
+        match = false;
+      }
+      if (match && active.equip.size > 0 && !active.equip.has(equip)) {
+        match = false;
+      }
+      if (match && active.source.size > 0 && !active.source.has(source)) {
+        match = false;
+      }
+
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+
+    // Update filter count pill
+    const n = activeFilterCount();
+    if (n > 0) {
+      filterCount.style.display = 'inline-block';
+      filterCount.textContent = n;
+    } else {
+      filterCount.style.display = 'none';
+    }
+
+    renderChips();
+  }
+
+  // Filter pill clicks
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const category = pill.parentElement.dataset.category;
+      const value = pill.dataset.value;
+      if (active[category].has(value)) {
+        active[category].delete(value);
+        pill.classList.remove('active');
+      } else {
+        active[category].add(value);
+        pill.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  // Search input
+  searchInput.addEventListener('input', applyFilters);
+
+  // Filter panel toggle
+  filterToggle.addEventListener('click', () => {
+    filterPanel.classList.toggle('open');
+    filterToggle.classList.toggle('active');
+  });
+
+  // Clear all
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    for (const cat of ['rarity', 'equip', 'source']) active[cat].clear();
+    pills.forEach(p => p.classList.remove('active'));
+    applyFilters();
+  });
+
+  applyFilters();
+</script>
+
+</body>
+</html>

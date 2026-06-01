@@ -1040,6 +1040,7 @@
         <strong>Attack Calculation Order</strong>
         <em>Baseline percentage damage → Critical roll/multiplier → Infliction roll (if relevant) → ACC + EVA rolls → Block multiplier on DEF/RES (if blocking) → Subtract defensive stat → Apply situational damage modifiers</em>
       </div>
+      <p><strong>Damage over time effects</strong> (Bleed, Shock, Burn, Frost, and equivalent DoT inflictions) deal their flat damage at the start of each affected turn and <strong>do not enter the attack calculation pipeline</strong>. They skip steps 2–7 entirely — no CRIT roll, no ACC/EVA roll, no block multiplier, and no defensive stat subtraction. DoT damage applies its flat value directly to HP. Any ability that deviates from this (e.g., a DoT that does scale with DEF) will say so explicitly in its description.</p>
       <p><strong>Multi-hit abilities:</strong> When an ability deals damage in multiple separate hits (e.g., <em>"deals 200% ATK damage to the target 3 times"</em>), the defender's DEF (or RES) subtraction in step 6 is applied independently to <strong>each hit</strong>. A 200% ATK × 3-hit move against a target with DEF 140 subtracts 140 three times — once per hit — rather than once for the whole ability. Abilities that describe a single combined damage total with no "times" qualifier apply the subtraction once as normal.</p>
       <p><strong>Area-of-Effect abilities:</strong> AoE abilities affect all valid targets within the defined area. Unless the ability explicitly states otherwise, AoE only affects <strong>enemies</strong> — allied Champions within the radius are unaffected. Each target within the area is resolved as a <strong>separate instance</strong> of the attack following the standard calculation order above. Specifically:</p>
       <ul>
@@ -1052,6 +1053,7 @@
       <p><strong>Mixed ATK + MAG abilities:</strong> Abilities described as <em>"Deals X% ATK and Y% MAG"</em> in a single use are treated as <strong>two independent damage instances resolved in sequence</strong>. A single ACC/EVA roll determines whether the ability lands — if it misses, both instances miss. If it lands, each instance is calculated separately against its respective defensive stat: the ATK instance subtracts the target's DEF, and the MAG instance subtracts the target's RES. Each instance rolls for CRIT independently.</p>
 
       <p><strong>HP threshold scaling:</strong> Some abilities scale based on exact HP thresholds, typically phrased as <em>"per X% of HP lost"</em> or <em>"per each X% HP threshold crossed."</em> These trigger once each time the specified threshold is crossed during damage calculation. Continuous effects (Bleed, Regeneration, etc.) that bring HP to or through a threshold value trigger the threshold at the point it is crossed — not retroactively for HP states that occurred before that effect resolved.</p>
+      <p>When a Champion's current HP falls between two thresholds, use the <strong>floor rule</strong>: apply the highest complete threshold already passed, not the next one above. With 10% increments, a Champion at 85% HP has crossed 8 complete thresholds (the 80% mark), so the 80% threshold is active — the 90% threshold has not been reached and does not count. This interpretation applies consistently to all kit descriptions that use exact HP threshold language, regardless of which Champion uses it.</p>
 
       <p>Healing works similarly but skips defenses and evasion:</p>
       <ol>
@@ -1151,6 +1153,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square mythic"></span>Indestructible</div></td>
             <td>Cannot die.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Impenetrable</div></td>
+            <td>Cannot receive damage.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label mythic">Mythic</span></td>
           </tr>
