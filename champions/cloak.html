@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloak — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #8b5cf6; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #8b5cf6;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(192, 132, 252, 0.12);
+    color: #d8b4fe;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #6d28d9;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #8b5cf6;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #c4b5fd;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Cloak theme — Consuming Void / Darkforce Violet / Nebula Indigo.
+       Consuming void = the absolute darkness of the Darkforce dimension.
+       Darkforce violet = the energy Tyrone channels — where void meets will.
+       Nebula indigo = the starfield glimpsed inside the cloak itself.
+       Pale lavender = Dagger's light bleeding through, the anchor in the dark. */
+
+  .ability--leader {
+    background: #4c1d95;          /* void command purple — The Darkforce asserts itself */
+    color: #ede9fe;
+  }
+
+  .ability--basic {
+    background: #0f0a1f;          /* absolute dark — Dark Slash, the rawest expression of the void */
+    border: 1px solid #2e1065;
+    color: #e2d9f3;
+  }
+  .ability--basic .ability-name { color: #a78bfa; }
+  .ability--basic .ability-tag  { color: #7c5cbf; }
+  .ability--basic .ability-meta { color: #7c5cbf; }
+
+  .ability--special-1 { background: #0a1a2e; color: #bfdbfe; } /* midnight teal-navy — Cover Rescue, cold spatial protection */
+  .ability--special-2 { background: #1e0d3a; color: #ede9fe; } /* void purple — Dark Teleportation, passage through the dimension */
+  .ability--special-3 { background: #150b38; color: #e9d5ff; } /* dimension indigo — Embrace the Darkness, the void spreading out */
+  .ability--special-4 { background: #2a0a4a; color: #f3e8ff; } /* consuming dark grape — Darkforce Drain, pulling essence inward */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #7c3aed; } /* Darkforce violet */
+  .ability--reserve-passive   { border-left-color: #6d28d9; } /* deep void violet */
+  .ability--reserve-ultimatum { border-left-color: #4c1d95; } /* command purple */
+
+  .ability--core-passive {
+    background: #08051a;          /* near-absolute void — Master of the Darkforce, the constant presence */
+    color: #c4b5fd;
+  }
+
+  .ability--passive {
+    background: #2e1065;          /* starfield purple — bonds forged through the dark */
+    color: #ede9fe;
+  }
+
+  .ability--ultimatum {
+    background: #3b0764;          /* deepest consuming void — the Darkforce Dimension made manifest */
+    color: #f3e8ff;
+  }
+
+  .ability--synergy {
+    background: #faf5ff;          /* pale lavender light — Balance (Dagger's light reaching into the dark) */
+    color: #1e0d3a;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="character-image">
+      <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+      <img src="../images/champion-images/cloak.jpg" alt="Cloak">
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Cloak</h1>
+      <p class="subtitle">Tyrone Johnson</p>
+      <span class="role-badge">Breaker</span>
+      <p class="description">
+        Tyrone Johnson never intended to be a superhero. He and Tandy were teenagers on the run from bad luck and worse circumstances when a mob chemist decided they'd make good test subjects — and the Darkforce claimed Tyrone before the drug could kill him. Now he carries a literal dimension of consuming void in his chest, and the only thing that holds the hunger at bay is the light Tandy puts into him. In battle, Cloak doesn't fight fair: he swallows half the battlefield, teleports allies out of harm's way, siphons enemy buffs into his own hands, and turns the Darkforce into a domain that makes everything inside it hit harder.
+      </p>
+      <p class="quote">"We've got to make a pact Tandy...a vow if we're gonna survive this. I swear I will always be there for you, Do you hear me?"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">6,400</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">330</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">90</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">10%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">108</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">4%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/vast-darkness.html" class="pill">Vast Darkness</a>
+          <a href="../links/inseparable-pair.html" class="pill">Inseparable Pair</a>
+          <a href="../links/reality-warper.html" class="pill">Reality Warper</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Ally Reposition</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Stealth Application</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">STA Drain</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Buff Steal</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="dagger.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/dagger.jpg" alt="Dagger">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Dagger</strong>
+              <span class="real-name">Tandy Bowen</span>
+              <span class="synergy-name">Cloak and Dagger</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">The Darkforce</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Vast Darkness" allies gain +15% ATK and MAG in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Dark Slash</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: None · Cooldown: None · Range: 5</div>
+        <ul>
+          <li>Deals 120% ATK damage to the target.</li>
+          <li>Deals 50% MAG damage to the target.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Cover Rescue</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 50 · Cooldown: 4 turns · Range: 8</div>
+        <ul>
+          <li>Can only be used as the first action of the turn.</li>
+          <li>Stands by for the remainder of the turn.</li>
+          <li>If an ally within 2 panels is attacked by a ranged attack, the ally is saved from the attack and repositioned to the targeted panel.</li>
+          <li>Each enemy whose attack is intercepted is inflicted with "Darkness" for 2 turns.</li>
+          <li>Standby ends after 3 saves or after 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Terror Cape</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 4 panels (chosen direction)</div>
+        <ul>
+          <li>Launches a dark veil 4 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+          <li>Deals 200% MAG damage to all enemies caught in the line.</li>
+          <li>Inflicts "Darkness" for 2 turns to all enemies caught in the line.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Embrace the Darkness</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Allies in Range · Energy: 40 · Cooldown: 3 turns · Range: 4 panels</div>
+        <ul>
+          <li>Applies "Dark Vessel" to all allies within 4 panels for 2 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Darkforce Drain</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 4</div>
+        <ul>
+          <li>Steals 3 buffs from the target (newest first, cannot steal uncancellable effects) and applies them to self for the same duration.</li>
+          <li>Deals a baseline 100% MAG damage and an additional 70% MAG damage to the target for each buff stolen.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Dark Teleportation</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Ally and One Panel · Energy: 35 · Cooldown: 2 turns · Range: 8</div>
+        <ul>
+          <li>Can only target allies within 3 panels.</li>
+          <li>Repositions self and targeted ally to the targeted panel (self is positioned 1 panel adjacent in the direction the ability was used in).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Chaining Essence</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 5</div>
+        <ul>
+          <li>Inflicts "Constraint" for 1 turn to the target — guaranteed if the target is already inflicted with "Darkness", otherwise a 30% chance.</li>
+          <li>While constrained by this ability, any enemy that targets the constrained enemy with a Support ability has that ability interrupted and is itself inflicted with "Constraint" for 1 turn (does not propagate further).</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Master of the Darkforce</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>+8% MAG when attacking an enemy inflicted with "Darkness".</li>
+          <li>Restores 8% HP, 10 EN and 2 STA whenever an enemy inflicted with "Darkness" is defeated.</li>
+          <li>Gains 2% ULT each time an attack lands or a buff is stolen (self only).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Binding Pact</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>+7% MAG and HEAL to all allies within 2 panels of self.</li>
+          <li>Restores 10 EN whenever an ally within 2 panels is damaged.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Soulmates</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>+10% HEAL for Dagger.</li>
+          <li>+7% MAG while Dagger is present on the battlefield.</li>
+          <li>+30% MAG while Dagger is defeated.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Exhausting Presence</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Darkforce Drain no longer steals buffs. Instead, it steals up to 30 EN and 3 STA from the target.</li>
+          <li>Darkforce Drain no longer deals damage.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Creeping Death</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+15% MAG.</li>
+          <li>Gains the ability to see and target enemies with "Stealth" or "Invisible".</li>
+          <li>Gains "Stealth" for 1 turn whenever using a teleporting ability (Cover Rescue and Dark Teleportation), once per 2 turns.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Darkness Unleashed</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Enemies · Range: 7 · Cost: 100% ULT</div>
+        <ul>
+          <li>Creates a 7x7 "Darkforce Dimension" domain around self (as the center of the area) with a duration of 2 turns.</li>
+          <li>-10% EVA to all enemies within the domain.</li>
+          <li>All enemies within the domain take 15% more damage (calculated after defenses, the same way as "Darkness"). This stacks with the "Darkness" status effect.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Light in the Darkness</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: 7 · Cost: 100% ULT</div>
+        <ul>
+          <li>Creates a 7x7 "Darkforce Dimension" domain around self (as the center of the area) with a duration of 2 turns.</li>
+          <li>+30% MAG, +20% ATK and +10% EVA to all allies within the domain.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <div class="section-divider">Synergies</div>
+
+      <div class="ability ability--synergy">
+        <div class="ability-header">
+          <span class="ability-name">Balance</span>
+          <span class="ability-tag">Synergy · w/ Dagger</span>
+        </div>
+        <ul>
+          <li>If Cloak and Dagger domains clash (even if just by 1 panel), their domain merges into one (covering the area of both and merging the effects).</li>
+          <li>If either Cloak or Dagger uses ULTIMATUM, the other has their ULTIMATUM charged to 100% (once per 2 turns).</li>
+          <li>Cloak can receive buffs granted to "Radiating Light" allies (including Leader Abilities).</li>
+          <li>Dagger can receive buffs granted to "Vast Darkness" allies (including Leader Abilities).</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/cloak.jpg" alt="Modern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.1.0</span>
+          <span class="date">June 29, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Role changed from Booster to Breaker. Cloak's kit is refocused around the "Darkness" status as a disruption-and-damage engine — trading broad team buffs for enemy disruption, damage amplification and self-sustain.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>MAX HP reduced 7,200 → 6,400. RES reduced 130 → 110. EVA reduced 20% → 10%.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Master of the Darkforce (Core): no longer grants allies MAG or infliction chance, and no longer grants EVA against ranged attacks. Now grants +8% MAG when attacking a "Darkness"-inflicted enemy, and restores 8% HP, 10 EN and 2 STA whenever a "Darkness"-inflicted enemy is defeated. ULT gain on attack/steal retained.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Cover Rescue: rescued allies no longer gain EN. Cooldown increased 3 → 4 turns. Can now only be used as the first action of the turn.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span>Cover Rescue: now inflicts "Darkness" for 2 turns on each enemy whose attack is intercepted.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Terror Cape moved into the main lineup (swapped with Dark Teleportation), supporting the new Darkness engine. Target line corrected to "All Enemies in 3-Wide Line".</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Dark Teleportation moved to reserve; targeted ally no longer gains EN.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Embrace the Darkness: no longer grants allies ATK and MAG. Energy reduced 60 → 40, cooldown reduced 5 → 3 turns, range increased 3 → 4 panels. Still applies "Dark Vessel" to allies in range.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Darkforce Drain: stolen buffs are now always applied to self instead of the nearest ally. Damage unchanged.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Chaining Essence: "Constraint" now lands guaranteed only if the target is already inflicted with "Darkness" (otherwise 30% chance) and the ability no longer self-inflicts "Darkness". Allies no longer restore EN. Now interrupts and inflicts "Constraint" (1 turn) on any enemy that targets the constrained enemy with a Support ability (does not propagate).</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Binding Pact: no longer grants ATK; ally stat buff reduced 10% → 7% (now MAG and HEAL).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Soulmates: no longer grants EVA against ranged attacks while Dagger is present. Now grants +7% MAG while Dagger is present.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span>Exhausting Presence: STA steal increased 2 → 3.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Creeping Death: MAG bonus reduced 20% → 15%. "Stealth" gain from teleporting abilities now limited to once per 2 turns.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Darkness Unleashed moved to the primary ULTIMATUM slot. No longer reduces DEF or RES; instead, all enemies within the domain take 15% more damage (after defenses, stacking with "Darkness"). −10% EVA retained.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Light in the Darkness moved to the reserve ULTIMATUM slot (effect unchanged).</span>
+          </li>
+        </ul>
+        <div class="rationale">At v1.0.0 Cloak was a do-everything Booster — elite stacked team buffs, a Plunderer's buff theft and resource drain, a Breaker's debuff domain and crowd control, plus caster-tier MAG and a backline-defying HP/EVA pool. The breadth, not any single number, made him overtuned. This pass commits him to a single identity: a Breaker who spreads "Darkness," amplifies the damage his team deals through it, locks down enemy supports, and sustains himself off "Darkness" kills. Team-wide stat buffing is largely removed, survivability is pulled back to a mid-line value, and reliable "Darkness" application is built into his main lineup (Cover Rescue, Terror Cape, Embrace) so the engine stays online.</span>
+        </div>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Cloak enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>

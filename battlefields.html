@@ -307,6 +307,7 @@
 
   .universe-badge[data-universe="Marvel Universe"] { color: #ff8585; }
   .universe-badge[data-universe="DC Universe"]     { color: #6bb4ff; }
+  .universe-badge[data-universe="Dark Multiverse"]     { color: #facc15; }
   .universe-badge[data-universe="Multiversal"]     { color: #c084fc; }
 
   .battlefield-name {
@@ -415,6 +416,7 @@
       <div class="filter-pills" data-category="universe">
         <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
         <button class="filter-pill" data-value="DC Universe">DC Universe</button>
+        <button class="filter-pill" data-value="Dark Multiverse">Dark Multiverse</button>
         <button class="filter-pill" data-value="Multiversal">Multiversal</button>
       </div>
     </div>
@@ -425,7 +427,18 @@
         <button class="filter-pill" data-value="Destructible Obstacles">Destructible Obstacles</button>
         <button class="filter-pill" data-value="Environmental Damage">Environmental Damage</button>
         <button class="filter-pill" data-value="Item Spawns">Item Spawns</button>
+        <button class="filter-pill" data-value="Enemy Spawns">Enemy Spawns</button>
         <button class="filter-pill" data-value="Open Field">Open Field</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Environment</div>
+      <div class="filter-pills" data-category="environment">
+        <button class="filter-pill" data-value="Outdoor">Outdoor</button>
+        <button class="filter-pill" data-value="Indoor">Indoor</button>
+        <button class="filter-pill" data-value="Anti-Air">Anti-Air</button>
+        <button class="filter-pill" data-value="Special Tiles">Special Tiles</button>
+        <button class="filter-pill" data-value="Multi-Floor">Multi-Floor</button>
       </div>
     </div>
   </div>
@@ -440,7 +453,8 @@
     <a href="battlefields/brooklyn-rooftops.html" class="battlefield-card"
        data-name="Brooklyn Rooftops" data-universe="Marvel Universe"
        data-modes="Main Story,Arena,Clash,Flashpoint"
-       data-hazards="Verticality,Destructible Obstacles,Item Spawns">
+       data-hazards="Verticality,Destructible Obstacles,Item Spawns"
+       data-environment="Outdoor">
       <div class="battlefield-image"><img src="images/battlefields/brooklyn-rooftops.jpg" alt="Brooklyn Rooftops"></div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
@@ -453,7 +467,8 @@
     <a href="battlefields/the-daily-bugle.html" class="battlefield-card"
        data-name="The Daily Bugle" data-universe="Marvel Universe"
        data-modes="Main Story,Arena,Clash"
-       data-hazards="Destructible Obstacles,Item Spawns">
+       data-hazards="Destructible Obstacles,Item Spawns"
+       data-environment="Indoor">
       <div class="battlefield-image">THE DAILY BUGLE</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
@@ -466,7 +481,8 @@
     <a href="battlefields/times-square.html" class="battlefield-card"
        data-name="Times Square" data-universe="Marvel Universe"
        data-modes="Main Story,Event Story,Arena"
-       data-hazards="Item Spawns,Open Field">
+       data-hazards="Item Spawns,Open Field"
+       data-environment="Outdoor">
       <div class="battlefield-image">TIMES SQUARE</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
@@ -479,7 +495,8 @@
     <a href="battlefields/avengers-tower.html" class="battlefield-card"
        data-name="Avengers Tower" data-universe="Marvel Universe"
        data-modes="Main Story,Event Story,Arena,Clash"
-       data-hazards="Verticality,Item Spawns">
+       data-hazards="Verticality,Item Spawns"
+       data-environment="Indoor,Multi-Floor">
       <div class="battlefield-image">AVENGERS TOWER</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
@@ -492,7 +509,8 @@
     <a href="battlefields/pym-labs.html" class="battlefield-card"
        data-name="Pym Labs" data-universe="Marvel Universe"
        data-modes="Main Story,Event Story"
-       data-hazards="Destructible Obstacles,Environmental Damage">
+       data-hazards="Destructible Obstacles,Environmental Damage"
+       data-environment="Indoor">
       <div class="battlefield-image">PYM LABS</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Marvel Universe">Marvel</div>
@@ -505,7 +523,8 @@
     <a href="battlefields/gotham-streets.html" class="battlefield-card"
        data-name="Gotham Streets" data-universe="DC Universe"
        data-modes="Main Story,Arena,Clash,Flashpoint"
-       data-hazards="Destructible Obstacles,Item Spawns">
+       data-hazards="Destructible Obstacles,Item Spawns"
+       data-environment="Outdoor">
       <div class="battlefield-image">GOTHAM STREETS</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -518,7 +537,8 @@
     <a href="battlefields/wayne-manor.html" class="battlefield-card"
        data-name="Wayne Manor" data-universe="DC Universe"
        data-modes="Main Story,Event Story,Clash"
-       data-hazards="Destructible Obstacles,Item Spawns">
+       data-hazards="Destructible Obstacles,Item Spawns"
+       data-environment="Outdoor">
       <div class="battlefield-image">WAYNE MANOR</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -531,7 +551,8 @@
     <a href="battlefields/the-batcave.html" class="battlefield-card"
        data-name="The Batcave" data-universe="DC Universe"
        data-modes="Main Story,Danger Room"
-       data-hazards="Verticality,Destructible Obstacles">
+       data-hazards="Verticality,Destructible Obstacles"
+       data-environment="Indoor,Multi-Floor">
       <div class="battlefield-image">THE BATCAVE</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -544,7 +565,8 @@
     <a href="battlefields/arkham-asylum.html" class="battlefield-card"
        data-name="Arkham Asylum" data-universe="DC Universe"
        data-modes="Main Story,Event Story,Arena"
-       data-hazards="Environmental Damage,Item Spawns">
+       data-hazards="Environmental Damage,Item Spawns"
+       data-environment="Indoor">
       <div class="battlefield-image">ARKHAM ASYLUM</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -557,7 +579,8 @@
     <a href="battlefields/metropolis-skyline.html" class="battlefield-card"
        data-name="Metropolis Skyline" data-universe="DC Universe"
        data-modes="Main Story,Arena,Clash,Flashpoint"
-       data-hazards="Verticality,Open Field">
+       data-hazards="Verticality,Open Field"
+       data-environment="Outdoor">
       <div class="battlefield-image">METROPOLIS SKYLINE</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -570,7 +593,8 @@
     <a href="battlefields/the-daily-planet.html" class="battlefield-card"
        data-name="The Daily Planet" data-universe="DC Universe"
        data-modes="Main Story,Arena"
-       data-hazards="Verticality,Destructible Obstacles">
+       data-hazards="Verticality,Destructible Obstacles"
+       data-environment="Indoor,Multi-Floor">
       <div class="battlefield-image">THE DAILY PLANET</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -583,7 +607,8 @@
     <a href="battlefields/the-watchtower.html" class="battlefield-card"
        data-name="The Watchtower" data-universe="DC Universe"
        data-modes="Main Story,Event Story,Clash"
-       data-hazards="Verticality,Open Field">
+       data-hazards="Verticality,Open Field"
+       data-environment="Indoor">
       <div class="battlefield-image">THE WATCHTOWER</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="DC Universe">DC</div>
@@ -596,7 +621,8 @@
     <a href="battlefields/danger-room.html" class="battlefield-card"
        data-name="Danger Room" data-universe="Multiversal"
        data-modes="Danger Room"
-       data-hazards="">
+       data-hazards=""
+       data-environment="Indoor">
       <div class="battlefield-image">DANGER ROOM</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
@@ -609,7 +635,8 @@
     <a href="battlefields/the-dark-dimension.html" class="battlefield-card"
        data-name="The Dark Dimension" data-universe="Multiversal"
        data-modes="The Dark Dimension"
-       data-hazards="Environmental Damage,Open Field">
+       data-hazards="Environmental Damage,Open Field"
+       data-environment="Outdoor">
       <div class="battlefield-image">THE DARK DIMENSION</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
@@ -622,13 +649,28 @@
     <a href="battlefields/crisis-nexus.html" class="battlefield-card"
        data-name="Crisis Nexus" data-universe="Multiversal"
        data-modes="Crisis on Infinite Earths"
-       data-hazards="Verticality,Open Field">
+       data-hazards="Verticality,Open Field"
+       data-environment="Outdoor">
       <div class="battlefield-image">CRISIS NEXUS</div>
       <div class="battlefield-overlay"></div>
       <div class="universe-badge" data-universe="Multiversal">Multiversal</div>
       <div class="battlefield-name">
         <div class="name">Crisis Nexus</div>
         <div class="sub">Clan-vs-clan multiversal arena</div>
+      </div>
+    </a>
+
+    <a href="battlefields/the-backrooms.html" class="battlefield-card"
+       data-name="The Backrooms" data-universe="Dark Multiverse"
+       data-modes="Event Story,Arena"
+       data-hazards="Destructible Obstacles,Enemy Spawns"
+       data-environment="Indoor,Anti-Air,Special Tiles,Multi-Floor">
+      <div class="battlefield-image"><img src="images/battlefields/the-backrooms.jpg" alt="The Backrooms"></div>
+      <div class="battlefield-overlay"></div>
+      <div class="universe-badge" data-universe="Dark Multiverse">Dark M.</div>
+      <div class="battlefield-name">
+        <div class="name">The Backrooms</div>
+        <div class="sub">Maze of endless rooms, two floors</div>
       </div>
     </a>
 
@@ -656,17 +698,17 @@
   const noResults    = document.getElementById('no-results');
 
   // Active filters by category
-  const active = { mode: new Set(), universe: new Set(), hazard: new Set() };
+  const active = { mode: new Set(), universe: new Set(), hazard: new Set(), environment: new Set() };
 
   totalEl.textContent = cards.length;
 
   function activeFilterCount() {
-    return active.mode.size + active.universe.size + active.hazard.size;
+    return active.mode.size + active.universe.size + active.hazard.size + active.environment.size;
   }
 
   function renderChips() {
     activeChips.innerHTML = '';
-    for (const category of ['mode', 'universe', 'hazard']) {
+    for (const category of ['mode', 'universe', 'hazard', 'environment']) {
       for (const value of active[category]) {
         const chip = document.createElement('span');
         chip.className = 'chip';
@@ -695,9 +737,10 @@
 
     cards.forEach(card => {
       const name = card.dataset.name.toLowerCase();
-      const universe = card.dataset.universe;
-      const modes   = (card.dataset.modes   || '').split(',').map(s => s.trim()).filter(Boolean);
-      const hazards = (card.dataset.hazards || '').split(',').map(s => s.trim()).filter(Boolean);
+      const universe    = card.dataset.universe;
+      const modes       = (card.dataset.modes       || '').split(',').map(s => s.trim()).filter(Boolean);
+      const hazards     = (card.dataset.hazards     || '').split(',').map(s => s.trim()).filter(Boolean);
+      const environment = (card.dataset.environment || '').split(',').map(s => s.trim()).filter(Boolean);
 
       let match = true;
 
@@ -715,6 +758,11 @@
       if (match && active.hazard.size > 0) {
         for (const f of active.hazard) {
           if (!hazards.includes(f)) { match = false; break; }
+        }
+      }
+      if (match && active.environment.size > 0) {
+        for (const f of active.environment) {
+          if (!environment.includes(f)) { match = false; break; }
         }
       }
 
@@ -765,7 +813,7 @@
   // Clear all
   clearBtn.addEventListener('click', () => {
     searchInput.value = '';
-    for (const cat of ['mode', 'universe', 'hazard']) active[cat].clear();
+    for (const cat of ['mode', 'universe', 'hazard', 'environment']) active[cat].clear();
     pills.forEach(p => p.classList.remove('active'));
     applyFilters();
   });
