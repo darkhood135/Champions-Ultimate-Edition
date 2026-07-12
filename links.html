@@ -147,8 +147,10 @@
   .category--team      .category-title { color: #5fb0ff; }
   .category--universe  .category-title { color: #c084fc; }
   .category--species   .category-title { color: #5fd189; }
+  .category--physiology .category-title { color: #f9a8c4; }
   .category--mindset   .category-title { color: #ffc06a; }
   .category--powertier .category-title { color: #22d3ee; }
+  .category--force     .category-title { color: #a5b4fc; }
 
   /* ====================== LINK PILLS (Dokkan-inspired buttons) ====================== */
   .link-grid {
@@ -198,8 +200,10 @@
   .link-pill--team      { background: #3690ee; color: #fff; }
   .link-pill--universe  { background: #9b59f6; color: #fff; }
   .link-pill--species   { background: #3fb16c; color: #fff; }
+  .link-pill--physiology { background: #db4d7d; color: #fff; }
   .link-pill--mindset   { background: #efb73f; color: #2e1f08; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
   .link-pill--powertier { background: #0e7490; color: #fff; }
+  .link-pill--force     { background: #6366f1; color: #fff; }
 
   /* No results state */
   .no-results {
@@ -262,11 +266,12 @@
   <section class="category category--morality">
     <div class="category-header">
       <div class="category-title">Morality</div>
-      <div class="category-count" data-category-count>2 links</div>
+      <div class="category-count" data-category-count>3 links</div>
     </div>
     <div class="link-grid">
       <a href="links/anti-hero.html" class="link-pill link-pill--morality" data-name="Anti-Hero">Anti-Hero</a>
       <a href="links/hero.html" class="link-pill link-pill--morality" data-name="Hero">Hero</a>
+      <a href="links/villain.html" class="link-pill link-pill--morality" data-name="Villain">Villain</a>
     </div>
   </section>
 
@@ -274,7 +279,7 @@
   <section class="category category--team">
     <div class="category-header">
       <div class="category-title">Team</div>
-      <div class="category-count" data-category-count>6 links</div>
+      <div class="category-count" data-category-count>8 links</div>
     </div>
     <div class="link-grid">
       <a href="links/avengers.html" class="link-pill link-pill--team" data-name="Avengers">Avengers</a>
@@ -282,7 +287,9 @@
       <a href="links/heroes-of-new-york.html" class="link-pill link-pill--team" data-name="Heroes of New York">Heroes of New York</a>
       <a href="links/justice-league.html" class="link-pill link-pill--team" data-name="Justice League">Justice League</a>
       <a href="links/new-avengers.html" class="link-pill link-pill--team" data-name="New Avengers">New Avengers</a>
+      <a href="links/stark-industries.html" class="link-pill link-pill--team" data-name="Stark Industries">Stark Industries</a>
       <a href="links/web-warrior.html" class="link-pill link-pill--team" data-name="Web Warrior">Web Warrior</a>
+      <a href="links/x-men.html" class="link-pill link-pill--team" data-name="X-Men">X-Men</a>
     </div>
   </section>
 
@@ -302,11 +309,25 @@
   <section class="category category--species">
     <div class="category-header">
       <div class="category-title">Species</div>
-      <div class="category-count" data-category-count>2 links</div>
+      <div class="category-count" data-category-count>3 links</div>
     </div>
     <div class="link-grid">
       <a href="links/human.html" class="link-pill link-pill--species" data-name="Human">Human</a>
       <a href="links/kryptonian.html" class="link-pill link-pill--species" data-name="Kryptonian">Kryptonian</a>
+      <a href="links/mutant.html" class="link-pill link-pill--species" data-name="Mutant">Mutant</a>
+    </div>
+  </section>
+
+  <!-- PHYSIOLOGY -->
+  <section class="category category--physiology">
+    <div class="category-header">
+      <div class="category-title">Physiology</div>
+      <div class="category-count" data-category-count>3 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/mechanical-physiology.html" class="link-pill link-pill--physiology" data-name="Mechanical Physiology">Mechanical Physiology</a>
+      <a href="links/rapid-regeneration.html" class="link-pill link-pill--physiology" data-name="Rapid Regeneration">Rapid Regeneration</a>
+      <a href="links/super-soldier.html" class="link-pill link-pill--physiology" data-name="Super Soldier">Super Soldier</a>
     </div>
   </section>
 
@@ -314,12 +335,14 @@
   <section class="category category--mindset">
     <div class="category-header">
       <div class="category-title">Mindset</div>
-      <div class="category-count" data-category-count>7 links</div>
+      <div class="category-count" data-category-count>9 links</div>
     </div>
     <div class="link-grid">
       <a href="links/comedic-genius.html" class="link-pill link-pill--mindset" data-name="Comedic Genius">Comedic Genius</a>
+      <a href="links/firearm-expert.html" class="link-pill link-pill--mindset" data-name="Firearm Expert">Firearm Expert</a>
       <a href="links/heir-to-the-mantle.html" class="link-pill link-pill--mindset" data-name="Heir to the Mantle">Heir to the Mantle</a>
       <a href="links/incredible-intelligence.html" class="link-pill link-pill--mindset" data-name="Incredible Intelligence">Incredible Intelligence</a>
+      <a href="links/inseparable-pair.html" class="link-pill link-pill--mindset" data-name="Inseparable Pair">Inseparable Pair</a>
       <a href="links/parental-bond.html" class="link-pill link-pill--mindset" data-name="Parental Bond">Parental Bond</a>
       <a href="links/pure-heart.html" class="link-pill link-pill--mindset" data-name="Pure Heart">Pure Heart</a>
       <a href="links/road-to-redemption.html" class="link-pill link-pill--mindset" data-name="Road to Redemption">Road to Redemption</a>
@@ -338,6 +361,18 @@
       <a href="links/reality-warper.html" class="link-pill link-pill--powertier" data-name="Reality Warper">Reality Warper</a>
       <a href="links/street-level.html" class="link-pill link-pill--powertier" data-name="Street Level">Street Level</a>
       <a href="links/supreme-power.html" class="link-pill link-pill--powertier" data-name="Supreme Power">Supreme Power</a>
+    </div>
+  </section>
+
+  <!-- FORCE -->
+  <section class="category category--force">
+    <div class="category-header">
+      <div class="category-title">Force</div>
+      <div class="category-count" data-category-count>2 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/radiating-light.html" class="link-pill link-pill--force" data-name="Radiating Light">Radiating Light</a>
+      <a href="links/vast-darkness.html" class="link-pill link-pill--force" data-name="Vast Darkness">Vast Darkness</a>
     </div>
   </section>
 

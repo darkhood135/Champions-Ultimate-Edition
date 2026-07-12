@@ -555,6 +555,7 @@
 
         <a href="#term-definitions" class="toc-link">Term Definitions</a>
         <a href="#turns" class="toc-link toc-sub">Turns</a>
+        <a href="#cooldown-ignoring" class="toc-link toc-sub">Cooldown Ignoring</a>
         <a href="#extension" class="toc-link toc-sub">Extension</a>
         <a href="#standby" class="toc-link toc-sub">Standby</a>
         <a href="#counter" class="toc-link toc-sub">Counter</a>
@@ -704,7 +705,7 @@
       </ul>
       <p>The <strong>Use</strong> action can be activated when a Champion is adjacent to an interactable object on the battlefield — a computer terminal, a button, a lever, or similar — that carries a triggered special effect. Activating it resolves the object's effect as described by the battlefield or mission context. Not every obstacle or object is interactable; only those explicitly flagged as such will respond to this action.</p>
       <p><strong>Blocking</strong> causes the Champion to be inactive until their next turn. While blocking, the Champion's <strong>DEF and RES are multiplied by 1.5x</strong> for incoming damage. There is danger, however: some abilities can break a Champion's block for the turn (called <em>Piercing</em> abilities). Piercing abilities are automatic critical hits and ignore the block multiplier when hitting a blocking target. Blocking can only be chosen as the first ability used in the turn and will end the turn for that Champion.</p>
-      <p><strong>Waiting</strong> causes the Champion to be inactive until their next turn with the benefit that, on the next turn, the Champion gains <strong>1.5x</strong> the EN, STA and HP regeneration they would normally. The block multiplier does not apply while waiting — only while blocking. Waiting can only be chosen as the first ability used in the turn and will end the turn for that Champion.</p>
+      <p><strong>Waiting</strong> causes the Champion to be inactive until their next turn with the benefit that, on the next turn, the Champion gains <strong>1.5x</strong> the EN, STA and HP regeneration they would normally. The block multiplier does not apply while waiting — only while blocking. Waiting can only be chosen as the first ability used in the turn and will end the turn for that Champion. Some kits trigger effects when the Champion Waits — for example, Deadpool's core passive increases Trickshot's cooldown by 3 turns each time he Waits — so Waiting is a hookable action, not only a regenerate-and-skip button.</p>
       <p><strong>Moving</strong> allows the Champion to move where it wishes (assuming they have the STA) without committing to an action. Consumes 1 STA per panel in the battlefield's grid. This ability won't cause a Champion's turn to end — another ability can be used immediately after. Elevation, gap-jumping, floor traversal and void interaction all affect how movement resolves — see <em>Elevation</em>, <em>Gap Jumping</em>, <em>Floors</em>, and <em>Void and Falling</em> in the Battle System section for the full rules.</p>
       <p><strong>Ending the turn</strong> will end your Champion's actions for the turn (acting as the "finished" button).</p>
       <p>Character sheets do not list Block, Wait, Use, Move and End Turn, but all Champions can use them at any time unless specified otherwise by a passive or status effect.</p>
@@ -730,9 +731,18 @@
       <p>ULTIMATUM costs no energy and has no cooldown. Once ULTIMATUM is used, ULT is reduced to 0% (unless specified otherwise by a passive or status effect).</p>
 
       <h3 id="synergies">Synergies</h3>
-      <p><strong>Synergies</strong> act as extra special/passive abilities which are only active when specific members are present on the team. For example, a Champion with a deep friendship with another Champion could have a synergy with them that enables a new special ability or stat buff.</p>
-      <p>Synergies can exceed the ability limits (surpassing the 3 passive and 4 special roadblocks). <strong>Cross-franchise synergies are valid</strong> — the main story includes relationships that span universes and may at first seem strange.</p>
-      <p>There is no limit to the amount of synergies a Champion can have.</p>
+      <p><strong>Synergies</strong> are bond-based abilities a Champion gains only while a specific partner Champion is present on the team. Each synergy represents the relationship between two characters — a friendship, a rivalry, a shared history — and expresses that bond mechanically by granting the Champion new or overhauled abilities that exist only while the partner is fielded.</p>
+      <p>Most bonds are <em>mutual</em> — both Champions have a synergy with each other and both gain something — but this is not required. Sometimes only one side benefits, and sometimes one side benefits far more than the other. A bond that is strong enough may grant brand-new combo potential between the two kits. <strong>Cross-franchise synergies are valid</strong> — the main story includes relationships that span universes and may at first seem strange.</p>
+      <p>Because synergies are <em>team-based rather than build-based</em>, they can exceed a Champion's normal ability limits: a synergy-granted special or passive is added on top of the standard loadout (surpassing the passive and 4-special roadblocks) and does not occupy a build slot. There is no limit to the number of synergies a Champion can have.</p>
+      <p>A synergy grants one or more abilities — almost always one, occasionally two — drawn from the following types:</p>
+      <ul>
+        <li><strong>New Passive</strong> — grants the Champion a new passive, usually one or two lines in the style of a standard passive (stat buffs, conditional triggers, and similar).</li>
+        <li><strong>New Special</strong> — grants the Champion a brand-new special ability. Added beyond the normal 4-special limit; it is team-based, so it never displaces an equipped special.</li>
+        <li><strong>Upgraded Special</strong> — overrides an existing special ability with a stronger new form that otherwise functions like a normal special. The overridden special <em>must be in the active loadout</em> to be used this way; if that special is not equipped, the upgrade cannot be accessed.</li>
+        <li><strong>Upgraded ULTIMATUM</strong> — overrides an existing ULTIMATUM with a stronger new form. As with Upgraded Specials, the overridden ULTIMATUM <em>must be in the active loadout</em> to be used.</li>
+        <li><strong>Dynamic Special</strong> — a combo that requires <em>both</em> Champions to opt in, consuming resources from each on activation (one side may pay more than the other). Both must be able to act for the combo to fire; the granting kit specifies the shared targeting, range, and cost.</li>
+      </ul>
+      <p>When two different synergies would upgrade the <em>same</em> base ability into different new forms, the Champion who owns that ability may choose <strong>at will</strong> which upgrade to use each time they use the ability during the match. Neither synergy overrides the other, and both remain usable — so a team fielding two partners that each modify one ability keeps the full value of both bonds.</p>
 
       <h3 id="upgrades">Upgrades</h3>
       <p>Every Champion has an upgrade system behind all of their stats and abilities. Character sheets account for Champions at their max power (10 star, level 150, maxed out skill tree) but without the expanded skill tree (so custom stat allocations are not accounted for).</p>
@@ -1164,7 +1174,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square mythic"></span>Overdrive</div></td>
-            <td>Ignores cooldowns.</td>
+            <td>Ignores cooldowns (cooldowns still reset upon usage).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label mythic">Mythic</span></td>
           </tr>
@@ -1185,6 +1195,12 @@
             <td>Attacks inflict "Bleed" for 2 turns; "Bleed" damage lifesteals for 20% of the damage dealt.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Webification</div></td>
+            <td>Attacks inflict 5 stacks of "Web" for 4 turns.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Confidence</div></td>
@@ -1214,6 +1230,12 @@
             <td><div class="status-name"><span class="tier-square rare"></span>Energy Barrier</div></td>
             <td>Negates the next received attack. Expires (one stack at a time) upon negating.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Light</div></td>
+            <td>Receives 20% more healing.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
@@ -1291,16 +1313,16 @@
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
           <tr>
-            <td><div class="status-name"><span class="tier-square rare"></span>Retribution</div></td>
-            <td>Attacks performed can only target the inflictor of this status effect.</td>
-            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
-            <td><span class="tier-label rare">Rare</span></td>
-          </tr>
-          <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Darkness</div></td>
             <td>All attacks received deal 10% more damage (calculated after defenses). Abilities with ranges have their range decreased by 2 panels (minimum of 1 panel).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Retribution</div></td>
+            <td>Attacks performed can only target the inflictor of this status effect.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Deep Bruise</div></td>
@@ -1379,6 +1401,12 @@
       <p>Turns are acknowledged in various ways throughout the game. Many things such as cooldowns and status effects rely on turns so it's critical they're defined properly.</p>
       <p>Turns can often be thought of like "active until all actions are chosen" for that many times. For example, a Champion could apply an ATK increasing status which lasts for 1 turn to themselves. That attack would provide a buff on their next rotation before vanishing (to give the character a chance to act before expiring). A status effect of 2 turns would apply on the following rotation as well. Negative effects apply in the same way, providing a negative effect for that many actions before expiring. Actions, as described here, don't account for extension abilities (which would count as an extension of the previous and thus would maintain the status effects which the previous action held).</p>
       <p>If a status effect is damaging or disorienting (deals damage or impacts character choice), the effect of the status effect will apply at the start of a character's turn rather than waiting for the character to act first.</p>
+
+      <h3 id="cooldown-ignoring">Cooldown Ignoring</h3>
+      <p><strong>Cooldown Ignoring</strong> lets a Champion use an ability that is still on cooldown by paying a cost, rather than waiting for the cooldown to elapse. The specific cost is defined by the granting kit — for example, Deadpool pays 6% max HP per remaining cooldown turn to fire an ability early.</p>
+      <p>A <em>"cooldown turn ignored"</em> refers to each turn of remaining cooldown on the ability at the moment it is used this way. An ability with 4 turns of cooldown remaining, used via Cooldown Ignoring, counts as 4 turns ignored. Abilities may scale with the number of cooldown turns ignored (e.g., <em>"+X% per cooldown turn ignored"</em>); these bonuses count the turns ignored on that specific use.</p>
+      <p>Cooldown Ignoring can be enabled "for free" by the <strong>Overdrive</strong> status (ignores cooldowns): while a Champion has Overdrive, they ignore cooldowns without paying the kit's cost. Note that <em>"per cooldown turn ignored"</em> scaling still counts the ability's attached cooldown number under Overdrive — the scaling is unaffected by the cost being waived.</p>
+      <p>After being used via Cooldown Ignoring, the ability returns to its base cooldown as normal; the ignored (banked) cooldown is consumed by the use and does not carry over.</p>
 
       <h3 id="extension">Extension</h3>
       <p>Extensions are abilities tacked onto another ability at no extra cost. They function like a "combo" where it'll continue the first ability. These abilities are often represented by the phrase "extends into…" on a character's ability.</p>

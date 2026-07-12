@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Batman — Champions Ultimate Edition</title>
+<title>Deadpool — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #fbbf24; }
+  .back-link:hover { color: #ef4444; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #fbbf24;
+    color: #ef4444;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(251, 191, 36, 0.12);
-    color: #fcd34d;
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(251, 191, 36, 0.35);
+    border: 1px solid rgba(239, 68, 68, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #fbbf24;
+    border-left: 3px solid #dc2626;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #ff5b5b;
+    border-color: #ef4444;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #ff8585;
+    color: #fca5a5;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,22 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Batman theme — Black / Bat-Yellow / Storm-Grey / Crimson palette.
-       Black/charcoal = the suit, the cowl, the night, inherent identity.
-       Bat-yellow = the symbol, utility belt, signature gear.
-       Storm-grey = urban concrete, the methodical mind, gadgetry.
-       Deep crimson = reserved for his most violent commitments (Vengeance, Takedown).
-     Each ability still gets a visually distinct treatment; the palette
-     just shifts what "distinct" means for this character. */
+     Deadpool theme — Merc Crimson / Suit Black / Deadpool Red.
+       Reds    = identity, violence, the raw explosive power.
+       Blacks  = the suit, the danger, the calm before Trickshot.
+       No blues — Deadpool is not Spider-Man, despite what some movies imply. */
 
-  .ability--leader {
-    background: #fbbf24;          /* bat-yellow — the signal, the symbol */
-    color: #2d1f08;
-  }
+  .ability--leader    { background: #991b1b; color: #fee2e2; }      /* Follow the Leader — deep blood red */
 
-  .ability--basic {
-    background: #1a1610;          /* near-black with subtle gold tint */
-    border: 1px solid #4a3a10;
-    color: #f0f1f3;
-  }
-  .ability--basic .ability-name { color: #fbbf24; }
-  .ability--basic .ability-tag  { color: #c89124; }
-  .ability--basic .ability-meta { color: #c89124; }
+  .ability--basic     { background: #1a0808; border: 1px solid #7f1d1d; color: #fef2f2; }
+  .ability--basic .ability-name { color: #f87171; }
+  .ability--basic .ability-tag  { color: #ef4444; }
+  .ability--basic .ability-meta { color: #ef4444; }
 
-  .ability--special-1 { background: #4a5260; color: #f1f5f9; } /* slate — metal batarangs */
-  .ability--special-2 { background: #1f2937; color: #cbd5e1; } /* dark slate — grapple line */
-  .ability--special-3 { background: #ca8a04; color: #1c1208; } /* deep amber — utility belt */
-  .ability--special-4 { background: #991b1b; color: #fde0e0; } /* dark crimson — takedown violence */
+  .ability--special-1 { background: #dc2626; color: #2d0000; }      /* Bullet Barrage — bright assault red */
+  .ability--special-2 { background: #18181b; border: 1px solid #44403c; color: #e5e7eb; } /* Break the Mold — suit black */
+  .ability--special-3 { background: #3b1010; color: #fca5a5; }      /* Nap Time — dark resting crimson */
+  .ability--special-4 { background: #450a0a; color: #fecaca; }      /* Trickshot — darkest red, highest stakes */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,29 +449,14 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #fbbf24; } /* bat-yellow */
-  .ability--reserve-passive   { border-left-color: #475569; } /* slate */
-  .ability--reserve-ultimatum { border-left-color: #7f1d1d; } /* deep crimson */
+  .ability--reserve-special   { border-left-color: #ef4444; }       /* reserve special — active red */
+  .ability--reserve-passive   { border-left-color: #71717a; }       /* reserve passive — suit gray */
+  .ability--reserve-ultimatum { border-left-color: #7f1d1d; }       /* reserve ult — deep red */
 
-  .ability--core-passive {
-    background: #0f0f12;          /* blackest black — foundation, the cowl */
-    color: #d0d3da;
-  }
-
-  .ability--passive {
-    background: #475569;          /* slate — secondary, methodical */
-    color: #f1f5f9;
-  }
-
-  .ability--ultimatum {
-    background: #7f1d1d;          /* dark crimson — vengeance */
-    color: #fde0e0;
-  }
-
-  .ability--synergy {
-    background: #d4a017;          /* warm gold — alliance, World's Finest */
-    color: #1c1208;
-  }
+  .ability--core-passive { background: #27272a; color: #f4f4f5; }   /* Hey Champs! — charcoal, the core engine */
+  .ability--passive      { background: #1c1c20; color: #e4e4e7; }   /* passives — near-black */
+  .ability--ultimatum    { background: #b91c1c; color: #fff1f2; }   /* All for One — bold crimson */
+  .ability--synergy      { background: #f5f5f4; color: #1c1917; }   /* warm neutral — buddy colors */
 
   .ability--artifact {
     background: #c98226;
@@ -723,17 +698,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/batman.jpg" alt="Batman">
+      <img src="../images/champion-images/deadpool.jpg" alt="Deadpool">
     </div>
 
     <div class="identity">
-      <h1 class="name">Batman</h1>
-      <p class="subtitle">Bruce Wayne</p>
-      <span class="role-badge">Breaker</span>
+      <h1 class="name">Deadpool</h1>
+      <p class="subtitle">Wade Wilson</p>
+      <span class="role-badge">Berserker</span>
       <p class="description">
-        Bruce Wayne is the costume. Batman is the man — and the man is preparation. A detective by obsession, a martial artist by drill, a billionaire by inheritance, he traded a normal life for a permanent war against the evil that took his parents. He has no powers. Every gadget on his belt, every contingency for every enemy, has been studied and refined. He fights the way he investigates: patient, methodical, three moves ahead. He waits in the dark until criminals are too afraid to look up, then ends it before they realize he was there. The cowardly and the superstitious have a name for the shape they fear — and it isn't Bruce Wayne.
+        Wade Wilson has had a rough go of it: cancer, Weapon X, a healing factor that fixed the terminal diagnosis while leaving him looking like a topographic map of bad decisions, and an unshakeable awareness that he's a playable character. The regeneration keeps him in the fight; the chaos keeps everyone else nervous. In battle, Deadpool is a Berserker built around a dangerous transaction — his Core Passive lets him spend HP to fire abilities off cooldown, his ULTIMATUM devours every resource he has in a single catastrophic swing, and the whole engine rewards playing faster and more recklessly than the math suggests is safe. Nap Time is a full resource reset that doubles as a team-wide ATK spike. Trickshot rewards enough patience with one of the highest single-hit damage ceilings in the roster. He's not subtle. He's also aware you're reading this.
       </p>
-      <p class="quote">"Ladies. Gentlemen. You have eaten well. You've eaten Gotham's wealth. Its spirit. Your feast is nearly over. From this moment on...none of you are safe."</p>
+      <p class="quote">"Gentlemen. So nice of you to visit. Which of you scheduled the vivisection today?"</p>
     </div>
   </div>
 
@@ -748,16 +723,16 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">10,800</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">370</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">280</span></div>
-        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">190</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">80</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">180%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">108</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">4,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">350</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">130</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">200</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">60</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">30</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">96%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
         <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
       </div>
 
@@ -765,22 +740,21 @@
       <div class="panel">
         <div class="panel-title">Vitals</div>
         <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">6</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">12%</span></div>
       </div>
 
       <!-- Links -->
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <a href="../links/dc-universe.html" class="pill">DC Universe</a>
-          <a href="../links/hero.html" class="pill">Hero</a>
-          <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/bat-family.html" class="pill">Bat-Family</a>
-          <a href="../links/justice-league.html" class="pill">Justice League</a>
-          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
-          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
-          <a href="../links/parental-bond.html" class="pill">Parental Bond</a>
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
+          <a href="../links/mutant.html" class="pill">Mutant</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/rapid-regeneration.html" class="pill">Rapid Regeneration</a>
+          <a href="../links/comedic-genius.html" class="pill">Comedic Genius</a>
         </div>
       </div>
 
@@ -788,24 +762,23 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Enemy Reposition</span>
           <span class="pill">Self-Reposition</span>
-          <span class="pill">Infliction Resist</span>
-          <span class="pill">DEF Down</span>
-          <span class="pill">RES Down</span>
+          <span class="pill">Last Stand</span>
+          <span class="pill">Revival</span>
+          <span class="pill">Damage Reduction</span>
           <span class="pill">ACC Down</span>
-          <span class="pill">EVA Down</span>
-          <span class="pill">Stun</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Taunt</span>
           <span class="pill">ATK Up</span>
-          <span class="pill">SPD Up</span>
-          <span class="pill">EVA Up</span>
-          <span class="pill">Stealth Application</span>
-          <span class="pill">Area of Effect</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Multi-Hit</span>
           <span class="pill">Line Ability</span>
           <span class="pill">Extension</span>
-          <span class="pill">Item Spawn</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">HP Cost</span>
           <span class="pill">ULT Generation</span>
-          <span class="pill">Cooldown Reduction</span>
+          <span class="pill">Resource Refill</span>
         </div>
       </div>
 
@@ -814,49 +787,25 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="superman.html" class="partner-card">
+          <a href="wolverine.html" class="partner-card">
             <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/superman.jpg" alt="Superman">
+              <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
             </div>
             <div class="partner-tooltip">
-              <strong>Superman</strong>
-              <span class="real-name">Clark Kent</span>
-              <span class="synergy-name">World's Finest</span>
+              <strong>Wolverine</strong>
+              <span class="real-name">James "Logan" Howlett</span>
+              <span class="synergy-name">Regeneration Buddies</span>
             </div>
           </a>
 
-          <a href="robin.html" class="partner-card">
+          <a href="the-punisher.html" class="partner-card">
             <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/robin.jpg" alt="Robin">
+              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
             </div>
             <div class="partner-tooltip">
-              <strong>Robin</strong>
-              <span class="real-name">Damian Wayne</span>
-              <span class="synergy-name">The Dynamic Duo</span>
-            </div>
-          </a>
-
-          <a href="batgirl.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Batgirl</strong>
-              <span class="real-name">Cassandra Cain</span>
-              <span class="synergy-name">Light of the Bat</span>
-            </div>
-          </a>
-
-          <a href="iron-man.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Iron Man</strong>
-              <span class="real-name">Anthony Stark</span>
-              <span class="synergy-name">Begrudging Respect</span>
+              <strong>The Punisher</strong>
+              <span class="real-name">Francis Castle</span>
+              <span class="synergy-name">Shoot Shoot Pow Pow</span>
             </div>
           </a>
 
@@ -876,11 +825,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">CEO of Wayne Enterprises</span>
+          <span class="ability-name">Follow the Leader</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Bat-Family" or "Tactical Mind" allies gain +12% ATK and DEF in battle.</li>
+          <li>"Comedic Genius" or "Rapid Regeneration" allies gain +20% ATK and RES in battle.</li>
         </ul>
       </div>
 
@@ -888,13 +837,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Mastered Martial Arts</span>
+          <span class="ability-name">Soaring Slice</span>
           <span class="ability-tag">Basic</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 5</div>
         <ul>
-          <li>Deals 180% ATK damage to the target.</li>
-          <li>Extends into itself if the target has "Stun" (once per turn).</li>
+          <li>Deals 190% ATK damage to the target.</li>
+          <li>Positions self one panel away from the enemy (in front of enemy from where attack was launched).</li>
         </ul>
       </div>
 
@@ -903,77 +852,80 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Batarangs</span>
+          <span class="ability-name">Bullet Barrage</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (3 Panels) · Energy: 20 · Cooldown: 1 turn · Range: 13</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 6 turns · Range: 7</div>
         <ul>
-          <li>Deals 150% MAG damage to all enemies within 3 panels of the target (target included).</li>
-          <li>Inflicts "Sting" for 3 turns to all enemies within 3 panels of the target (target included).</li>
+          <li>Deals 60% ATK damage to the target 10 times.</li>
+          <li>Deals an additional 5% ATK damage per instance for each cooldown turn ignored.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Grapple Kick</span>
+          <span class="ability-name">Break the Mold</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 3 turns · Range: 9</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 60 · Cooldown: 5 turns · Range: N/A</div>
         <ul>
-          <li>Deals 160% ATK damage to the target.</li>
-          <li>Pushes the target in the direction of attack by 2 panels.</li>
-          <li>Positions self onto where the target previously stood.</li>
+          <li>Enhances Soaring Slice for 2 turns (allowing it to extend itself into any enemy (once per enemy) within 5 panels of the target, 4 times per turn).</li>
+          <li>Enhances Bullet Barrage for 2 turns (bullets pierce and can strike other enemies within the targeting line).</li>
+          <li>Increases all cooldowns by 1 turn (this ability included).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Utility Belt</span>
+          <span class="ability-name">Nap Time</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 35 · Cooldown: 5 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Gains a "Smoke Grenade" item.</li>
-          <li>Restores 3 STA.</li>
-          <li>Reduces cooldowns for Grapple Kick and Batarangs by 1 turn.</li>
+          <li>Becomes inactive for 1 turn (can only be cancelled by stunning inflictions).</li>
+          <li>Inactivity lasts an additional turn if used while ignoring the cooldown.</li>
+          <li>Increases all cooldowns by the same duration as inactivity (this ability excluded).</li>
+          <li>All allies gain +10% ATK and MAG for the same duration as inactivity.</li>
+          <li>After inactivity duration, restores 100% HP, 6 STA and 120 EN (unless cancelled).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Takedown</span>
+          <span class="ability-name">Trickshot</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 60 · Cooldown: 3 turns · Range: 1</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 9</div>
         <ul>
-          <li>Deals 450% ATK damage to the target.</li>
-          <li>Deals an additional 250% ATK damage to the target if self has "Stealth" before the attack begins.</li>
-          <li>Inflicts 2 stacks of "Disorient" for 2 turns to the target if self has "Stealth" before the attack begins.</li>
+          <li>-100% ACC for this ability.</li>
+          <li>+20% ACC for this ability per cooldown turn ignored (triggers even with "Overdrive").</li>
+          <li>Loses 50% HP upon missing (cannot kill, does not trigger endurance).</li>
+          <li>Deals 1000% ATK damage to the target.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Cape Stun</span>
+          <span class="ability-name">Sexy Stance</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 45 · Cooldown: 4 turns · Range: 1</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 8 turns · Range: 3</div>
         <ul>
-          <li>Deals 100% ATK damage to the target.</li>
-          <li>Inflicts "Stun" to the target for 1 turn.</li>
+          <li>Inflicts 2 stacks of "Disorient" to the target for 2 turns.</li>
+          <li>Inflicts an additional stack of "Disorient" if this ability's cooldown is ignored.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Predator</span>
+          <span class="ability-name">Don't Stop Me Now</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 3 turns · Range: 14</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 1 turns · Range: N/A</div>
         <ul>
-          <li>Inflicts "Terrify" to the target for 2 turns.</li>
-          <li>Self gains +10% ATK for 2 turns.</li>
-          <li>Self gains "Stealth" for 1 turn.</li>
+          <li>+20% ATK for 2 turns.</li>
+          <li>Cannot receive healing for 2 turns (includes reversed damage from Breaking Conventions).</li>
+          <li>This ATK buff cannot stack if used again within 2 turns.</li>
         </ul>
       </div>
 
@@ -982,59 +934,58 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Defender of Gotham City</span>
+          <span class="ability-name">Hey, Champs!</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>Immune to "Terrify".</li>
-          <li>+5% ATK against "Villain" enemies.</li>
-          <li>Gains a "Smoke Grenade" item at the start of battle (once only).</li>
-          <li>Gains 3% ULT each time an attack lands (self only).</li>
+          <li>Endures a fatal blow (3 times per battle).</li>
+          <li>Waiting increases the cooldown of Trickshot by 3 turns.</li>
+          <li>Able to consume 6% HP (per turn of cooldown) to use an ability on cooldown (cannot kill, does not trigger endurance, does not trigger while having "Overdrive").</li>
+          <li>Gains 2% ULT each time a cooldown turn is ignored (per turn ignored, self only).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Reinforced Body Armor</span>
+          <span class="ability-name">You Should Probably Choose This One</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>+15% EVA against melee attacks.</li>
-          <li>Reduces CRIT RATE for incoming ranged attacks by 10%.</li>
+          <li>+10% ATK.</li>
+          <li>Gains "Overdrive" and "Indestructible" for 1 turn after defeating an enemy.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Bump in The Night</span>
+          <span class="ability-name">Breaking Conventions.</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Predator cooldown is reduced by 1 turn.</li>
-          <li>Takedown cooldown is increased by 1 turn.</li>
-          <li>ATK +7% when launching an attack if the target has "Terrify".</li>
+          <li>Can be damaged by allies to restore HP (damage is converted to HP instead).</li>
+          <li>Can be healed by allies to receive damage (healing is converted to damage instead, does not apply to self-healing).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Vantage Point</span>
+          <span class="ability-name">Loudmouth Merc with an Annoying Attitude</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Using Grapple Kick will no longer reposition self.</li>
-          <li>Grapple Kick cooldown is reduced by 2 turns.</li>
+          <li>Inflicts "Retribution" for 2 turns to a target if they received more than 2,000 damage from the ability used.</li>
+          <li>-20% DEF and RES to all allies within 5 panels.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Family Matters</span>
+          <span class="ability-name">Plot Twist</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+8% SPD to "Bat-Family" allies (self excluded).</li>
-          <li>When self gains "Stealth", all "Bat-Family" allies also gain it for the same duration.</li>
+          <li>Resurrects after 5 turns (once per battle).</li>
+          <li>Gains "Indestructible" for 1 turn upon resurrection.</li>
         </ul>
       </div>
 
@@ -1043,26 +994,28 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Vengeance</span>
+          <span class="ability-name">All for One</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 2 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 500% ATK damage to the target.</li>
-          <li>Deals an additional 500% ATK damage to the target if the target is below 50% HP.</li>
+          <li>Consumes all EN and STA and reduces HP to 1%.</li>
+          <li>Deals 40% ATK damage to the target per 1 STA consumed.</li>
+          <li>Deals 4% ATK damage to the target per 1 EN consumed.</li>
+          <li>Deals 7% ATK damage to the target per 1% of maximum HP consumed.</li>
+          <li>Cannot receive healing for 1 turn (includes reversed damage from Breaking Conventions).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">The Batmobile</span>
+          <span class="ability-name">Bang Bang Bang</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: All Enemies in 3-Wide Line · Range: 8 panels (chosen direction) · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies AOE · Range: 5 · Cost: 100% ULT</div>
         <ul>
-          <li>Charges 8 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
-          <li>Deals 300% ATK damage to all enemies caught in the line.</li>
-          <li>40% chance to inflict "Disorient" on each enemy hit for 1 turn.</li>
+          <li>Deals 200% ATK damage (per 20% HP lost) to all targets.</li>
+          <li>Inflicts "Bleed" to all targets for 2 turns.</li>
         </ul>
       </div>
 
@@ -1071,48 +1024,25 @@
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">World's Finest</span>
-          <span class="ability-tag">Synergy · w/ Superman</span>
+          <span class="ability-name">Regeneration Buddies</span>
+          <span class="ability-tag">Synergy · w/ Wolverine</span>
         </div>
         <ul>
-          <li>Both Champions gain +5% DEF and RES.</li>
-          <li>Both Champions gain the ability to endure a fatal blow (once per battle).</li>
+          <li>Both Champions gain +7% ATK.</li>
+          <li>Both Champions receive 10% more healing from Support abilities.</li>
         </ul>
       </div>
 
       <div class="ability ability--synergy">
         <div class="ability-header">
-          <span class="ability-name">The Dynamic Duo</span>
-          <span class="ability-tag">Synergy · w/ Robin</span>
+          <span class="ability-name">Shoot Shoot Pow Pow</span>
+          <span class="ability-tag">Synergy · w/ The Punisher</span>
         </div>
         <ul>
-          <li>+8% ATK and MAG for both Champions when they're both attacking the same enemy.</li>
-          <li>+10% ATK and MAG for one Champion if the other is defeated.</li>
+          <li>Deadpool grants The Punisher +10% MAG for 1 turn whenever landing an attack.</li>
+          <li>The Punisher grants Deadpool +10% ATK for 1 turn whenever landing an attack.</li>
         </ul>
       </div>
-
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Light of the Bat</span>
-          <span class="ability-tag">Synergy · w/ Batgirl</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +7% MAX HP.</li>
-          <li>Batman now inflicts "Tracker" for 2 turns with his Batarangs ability.</li>
-        </ul>
-      </div>
-
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Begrudging Respect</span>
-          <span class="ability-tag">Synergy · w/ Iron Man</span>
-        </div>
-        <ul>
-          <li>Iron Man's Armor Repair grants him "Stealth" for 2 turns.</li>
-          <li>Batman's Grapple Kick ignores elevation when targeting and grounds airborne targets.</li>
-        </ul>
-      </div>
-
     </main>
   </div>
 
@@ -1126,7 +1056,7 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/batman.jpg" alt="Modern">
+          <img src="../images/champion-images/deadpool.jpg" alt="Modern">
         </div>
         <div class="costume-info">
           <div class="costume-name">Modern</div>
@@ -1137,12 +1067,12 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/batman(the_animated_series).jpg" alt="The Animated Series">
+          <img src="../images/champion-images/costumes/deadpool(damaged).jpg" alt="Damaged">
         </div>
         <div class="costume-info">
-          <div class="costume-name">The Animated Series</div>
-          <div class="costume-effect-label">Legacy of the Batman — +10% MAX HP and +5% ATK</div>
-          <span class="rarity rarity--mythic">Mythic</span>
+          <div class="costume-name">Damaged</div>
+          <div class="costume-effect-label">Ouch! — +5% REGEN</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
@@ -1161,28 +1091,24 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">May 21, 2026</span>
+          <span class="version">v1.1.0</span>
+          <span class="date">July 11, 2026</span>
         </div>
         <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Trickshot: accuracy penalty reduced −120% → −100% ACC, and accuracy gained per cooldown turn ignored increased +15% → +20%. Clarified that this accuracy scaling still functions while "Overdrive" is active (using the ability's attached cooldown number, at no HP cost). Turns Trickshot from a near-unusable cliff into an achievable high-risk burst — roughly two turns of Waiting to bank enough cooldown for a guaranteed shot.</span>
+          </li>
           <li class="buff">
             <span class="change-tag">Buff</span>
-            <span><em>Vengeance</em> (ULTIMATUM 1) — base damage raised from <strong>400% → 500% ATK</strong>, with the conditional bonus also raised from <strong>+400% → +500% ATK</strong>. Maximum potential damage now caps at 1,000% ATK against a low-HP target.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Predator</em> (Special — Reserve) — range reduced from <strong>20 → 14 panels</strong>.</span>
+            <span>Hey, Champs! (Core): "Waiting" now increases Trickshot's cooldown by 3 turns (up from 2). Terminology also corrected from "Resting" to the proper basic action, "Waiting."</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>The Batmobile</em> (ULTIMATUM — Reserve) — clarified targeting: Batman charges 8 panels in any chosen direction from self, sweeping through a 3-panel-wide line and hitting all enemies caught in it.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>CEO of Wayne Enterprises</em> (Leader) — clarified wording from "and" to "<strong>or</strong>" between the two qualifying links (an ally only needs Bat-Family <em>or</em> Tactical Mind to receive the buff, not both).</span>
+            <span>Don't Stop Me Now and All for One: their "cannot receive healing" windows now explicitly block the reversed damage-to-HP from Breaking Conventions. These self-sacrifice drawbacks can no longer be bypassed by an ally damaging Deadpool during the anti-heal window.</span>
           </li>
         </ul>
-        <p class="rationale">Vengeance was meager outside its execute condition and worth a base raise; the conditional now also scales harder to keep it competitive with other single-target ULTIMATUMs. Predator's old 20-range was the longest in the game and a bit dominating; 14 keeps the long-range stalker fantasy while tuning down extreme-distance application of Terrify. The Batmobile's "3x8" range was ambiguous; the new wording defines the cone and direction concretely. CEO's "and" → "or" prevents a common-sense misread where readers might assume an ally needs both link tags.</p>
+        <div class="rationale">These fixes make Deadpool's cooldown-ignoring engine functional and fair without touching his ceiling. Trickshot now has a real accuracy ramp instead of an impossible one, and his self-sacrifice drawbacks (the 1%-HP ULTIMATUM, the Don't Stop Me Now buff) can no longer be trivially undone by allied damage via Breaking Conventions. The "Overdrive" status was updated globally to specify that cooldowns still reset upon use — preventing multiple empowered Trickshots in a single Overdrive turn — and the cooldown-ignoring mechanic is being added to the Catechism as a defined term.</div>
       </div>
 
       <div class="changelog-entry release">
@@ -1193,7 +1119,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Batman enters the roster.</span>
+            <span>Deadpool enters the roster.</span>
           </li>
         </ul>
       </div>

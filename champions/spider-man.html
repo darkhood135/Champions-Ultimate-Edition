@@ -492,6 +492,183 @@
     color: #1d0a3b;
   }
 
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #4f8fb8; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(93, 168, 214, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #5da8d6; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7fc4ec;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #5da8d6; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #5da8d6; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(93, 168, 214, 0.1);
+    border: 1px solid rgba(93, 168, 214, 0.3);
+    color: #bfe1f2;
+  }
+  .syn-cost-chip .who { color: #7fc4ec; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5da8d6; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(93, 168, 214, 0.15); color: #8fd0ee; border: 1px solid rgba(93, 168, 214, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   /* ====================== COSTUMES SECTION ====================== */
   .costumes-section {
     margin-top: 18px;
@@ -748,7 +925,7 @@
       <div class="panel">
         <div class="panel-title">Stats</div>
         <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,600</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">390</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">340</span></div>
         <div class="stat-row"><span class="label">MAG</span><span class="value">300</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
         <div class="stat-row"><span class="label">DEF</span><span class="value">130</span></div>
@@ -757,7 +934,7 @@
         <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
         <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
         <div class="stat-row"><span class="label">SPD</span><span class="value">115</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">15%</span></div>
       </div>
 
       <!-- Vitals -->
@@ -786,17 +963,28 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Evasion</span>
-          <span class="pill">Obstacle Bypass</span>
-          <span class="pill">Counter</span>
-          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Self-Reposition</span>
           <span class="pill">Position Swap</span>
-          <span class="pill">Stun</span>
-          <span class="pill">DEF Down</span>
-          <span class="pill">Area of Effect</span>
-          <span class="pill">EVA Up</span>
-          <span class="pill">Last Stand</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Obstacle Bypass</span>
           <span class="pill">Anti-Air</span>
+          <span class="pill">Evasion</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Last Stand</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">CRIT Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">HEAL Up</span>
+          <span class="pill">Affliction Boost</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">ULT Generation</span>
         </div>
       </div>
 
@@ -813,7 +1001,7 @@
             <div class="partner-tooltip">
               <strong>Spider-Man (Miles Morales)</strong>
               <span class="real-name">Miles Morales</span>
-              <span class="synergy-name">Two Spiders</span>
+              <span class="synergy-name">Wearing the Mask</span>
             </div>
           </a>
 
@@ -1065,63 +1253,206 @@
         </ul>
       </div>
 
-      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two. All abilities and values below are placeholders for layout testing only.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Two Spiders</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man (Miles Morales)</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +10% ATK and +5% EVA.</li>
-          <li>When either uses an ULTIMATUM, the other gains 20% ULT charge.</li>
-        </ul>
-      </div>
+      <!-- 1 · WEARING THE MASK — strong bond, two grants (New Passive + Dynamic Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Wearing the Mask</span>
+              <span class="synergy-partner-tag">w/ Spider-Man (Miles Morales)</span>
+            </div>
+            <p class="synergy-desc">Two wall-crawlers who read a fight the same way — their web-lines and instincts overlap into shared momentum. A deep bond that unlocks a combo.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Standing Up for What's Right</span>
-          <span class="ability-tag">Synergy · w/ Captain America</span>
-        </div>
-        <ul>
-          <li>Spider-Man gains +7% ATK and MAG.</li>
-          <li>Captain America gains +2% REGEN and SPD.</li>
-          <li>If Spider-Man is affected by Rally or Assemble, the effects last for 1 extra turn.</li>
-        </ul>
-      </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Spiders In Sync</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Self and Spider-Man (Miles Morales) gain +10% ATK and +5% EVA.</li>
+              <li>When either self or Spider-Man (Miles Morales) uses an ULTIMATUM, the other gains 20% ULT charge.</li>
+            </ul>
+          </div>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Bright Minds for a Brighter Future</span>
-          <span class="ability-tag">Synergy · w/ Iron Man</span>
-        </div>
-        <ul>
-          <li>+5% MAG for both Champions.</li>
-          <li>Both Champions restore 2 STA when one defeats an enemy.</li>
-        </ul>
-      </div>
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Tandem Swing</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Spider-Man</span> · 30 EN · 1 STA</span>
+              <span class="syn-cost-chip"><span class="who">Spider-Man (Miles Morales)</span> · 30 EN · 1 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy + AoE (3 panels) · Cooldown: 3 turns · Range: 6</div>
+            <ul>
+              <li class="ph">Spider-Man deals 300% ATK damage to the target.</li>
+              <li class="ph">Spider-Man (Miles Morales) deals 200% MAG damage to all enemies within 3 panels of the target.</li>
+              <li class="ph">45% chance to inflict "Shock" for 2 turns to any enemy damaged by Spider-Man (Miles Morales).</li>
+            </ul>
+          </div>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Polar Opposites</span>
-          <span class="ability-tag">Synergy · w/ Wolverine</span>
         </div>
-        <ul>
-          <li>Both Champions gain +10% to all infliction chances.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Uneasy Alliance</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
+      <!-- 2 · STANDING UP FOR WHAT'S RIGHT — new passive and special -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Standing Up for What's Right</span>
+              <span class="synergy-partner-tag">w/ Captain America</span>
+            </div>
+            <p class="synergy-desc">Two heroes who lead from the front. Cap's conviction steadies Spider-Man's momentum — a classic mutual buff.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shared Conviction</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+7% ATK and MAG.</li>
+              <li>If affected by Captain America's Rally or Assemble abilities, the effects last for 1 extra turn.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Web Shield</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Sense Tingle</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 3 turns · Range: N/A</div>
+            <ul>
+              <li class="ph">Gains +25% EVA for 2 turns.</li>
+              <li class="ph">Blocking negates 40% of ranged attack damage for 2 turns.</li>
+              <li class="ph">Counters the next 3 incoming attacks with 100% ATK damage (expires after 2 turns).</li>
+              <li class="ph">Restores 2 STA.</li>
+            </ul>
+          </div>
+
         </div>
-        <ul>
-          <li>Spider-Man gains +10% EVA for 1 turn whenever The Punisher defeats an enemy on the same turn.</li>
-          <li>The Punisher gains +10% MAG for 1 turn whenever Spider-Man successfully evades an attack.</li>
-        </ul>
-      </div>
+      </details>
+
+      <!-- 3 · BRIGHT MINDS — Iron Man upgrades a Spider-Man special (Upgraded Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Bright Minds for a Brighter Future</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">Two gadgeteers retooling each other's tech mid-fight. Stark upgrades Peter's web-shooters into a stronger form.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Nano-Web Barrage</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Web Shots</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 7</div>
+            <ul>
+              <li class="ph">Deals 30% MAG damage to the target 10 times.</li>
+              <li class="ph">25% chance to inflict 10 stacks of "Web" on the target for 4 turns, rolls 10 times.</li>
+              <li class="ph">10% chance to inflict "Sting" on the target for 2 turns, rolls 10 times.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- 4 · POLAR OPPOSITES — brand new special beyond the 4-slot limit (New Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Polar Opposites</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">Opposite temperaments, complementary violence. Logan carves the opening; Peter capitalizes with a brand-new attack.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Web Slash</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
+            <ul>
+              <li class="ph">Deals 320% ATK damage to the target.</li>
+              <li class="ph">Inflicts "Bleed" to the target for 2 turns.</li>
+              <li class="ph">Applies "Webification" for 3 turns to Wolverine.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- 5 · UNEASY ALLIANCE — Punisher overrides Spider-Man's ULTIMATUM (Upgraded ULTIMATUM) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Uneasy Alliance</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">Reluctant partners with one shared target. Castle's firepower amplifies Spider-Man's finisher into something heavier.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-ultimatum">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Maximum Suppression</span>
+              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Maximum Spider</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AoE · Range: 6 · Cost: 100% ULT</div>
+            <ul>
+              <li class="ph">Deals 300% ATK damage to all targets.</li>
+              <li class="ph">Deals 100% MAG damage to all targets.</li>
+              <li class="ph">Inflicts "Spider's Web" to all targets for 2 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
     </main>
   </div>
 
