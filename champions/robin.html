@@ -494,6 +494,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #e0b83d; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(224, 184, 61, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #e0b83d; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f0cf6b;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e0b83d; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e0b83d; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(224, 184, 61, 0.1);
+    border: 1px solid rgba(224, 184, 61, 0.3);
+    color: #f0cf6b;
+  }
+  .syn-cost-chip .who { color: #f0cf6b; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -730,9 +907,9 @@
       <h1 class="name">Robin</h1>
       <p class="subtitle">Damian Wayne</p>
       <span class="role-badge">Booster</span>
-      <p class="description">
-        Raised by the League of Assassins and reclaimed by his father, Damian Wayne is the Robin who was a killer first and a hero second. He's small, fast, ruthless, and chemically incapable of saying anything humble — but he's earned every ounce of arrogance through training most adult heroes would not survive. By default he plays as the Bat-Family's edge: setting up team-wide crits, sharing Might and Technique, slipping in unseen. Re-spec him toward his old habits and you get one of the deadliest Strikers on the roster instead.
-      </p>
+      <p class="description">The son of Batman and heir to the League of Assassins, bred from infancy to be the perfect weapon, Damian Wayne fights to earn a nobler name as Robin — the Boy Wonder.</p>
+      <p class="description">Damian Wayne was engineered to be a killer before he was ever allowed to be a child. Son of Bruce Wayne and Talia al Ghul, grandson of the immortal Ra's al Ghul, he was raised in the League of Assassins as its groomed heir — schooled in a hundred ways to end a life and taught to believe the world was his by blood. When he finally came to his father, he arrived as an arrogant, lethal boy who thought the mantle of Robin was owed to him, and who took life without hesitation or regret. What makes him remarkable is everything that came after: the slow, furious struggle to become something his makers never intended. Beneath the sneer and the entitlement is a child at war with his own nature, straining against a heritage soaked in blood and reaching — clumsily, proudly, and with a buried desperation for his father's approval — toward the harder path of the hero. He is learning, one spared life at a time, the lesson his father built a war around: that the name of Robin cannot be inherited or seized, only earned.</p>
+      <p class="description">For all that he is still a boy, Damian fights with the honed lethality of a master many times his age. The League forged him into a peerless martial artist and a deadly hand with the blade, fluent in every weapon and killing art, and to that inheritance he adds the Wayne genius — a sharp tactical mind and the makings of a detective worthy of the cowl. On paper he outclasses grown men without a trace of superhuman power. But his hardest battle is never with the enemy in front of him; it is the constant, grinding effort to hold back the assassin he was raised to be, to choose restraint when instinct screams for the finishing blow. That is the true measure of Robin — not that a child can fight like an assassin, but that this one fights every day to be something better than the weapon he was born to be.</p>
       <p class="quote">"I am Robin. Son of Batman. And that's all you need to know!"</p>
     </div>
   </div>
@@ -816,7 +993,7 @@
             <div class="partner-tooltip">
               <strong>Batman</strong>
               <span class="real-name">Bruce Wayne</span>
-              <span class="synergy-name">The Dynamic Duo</span>
+              <span class="synergy-name">Blood of the Bat</span>
             </div>
           </a>
 
@@ -885,13 +1062,12 @@
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Swift Slice</span>
+          <span class="ability-name">Fighting Side by Side</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 20 · Cooldown: 3 turns · Range: 5</div>
         <ul>
-          <li>Deals 300% ATK damage to the target.</li>
-          <li>Inflicts "Bleed" for 2 turns to the target.</li>
+          <li>Target and self gains "Might" and "Technique" for 2 turns.</li>
         </ul>
       </div>
 
@@ -921,12 +1097,13 @@
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Fighting Side by Side</span>
+          <span class="ability-name">Swift Slice</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 20 · Cooldown: 3 turns · Range: 5</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Target and self gains "Might" and "Technique" for 2 turns.</li>
+          <li>Deals 300% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -1030,29 +1207,86 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">The Dynamic Duo</span>
-          <span class="ability-tag">Synergy · w/ Batman</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batman.jpg" alt="Batman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Blood of the Bat</span>
+              <span class="synergy-partner-tag">w/ Batman</span>
+            </div>
+            <p class="synergy-desc">For all his talk of birthright, the thing Damian wants most is the approval of the one man who refuses to simply hand it to him. He came to Bruce certain the mantle of Robin was his by blood, and found instead a father who would make him earn every inch of it — and though the boy bristles at the lessons and hides his need behind a sneer, there is no example he follows more closely, and no one he is more quietly desperate to prove himself worthy of.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+            <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">The Dynamic Duo</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Batman</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Robin</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Cooldown: 6 turns · Range: 5</div>
+            <ul>
+              <li>Batman and Robin each deal 450% ATK damage to the target.</li>
+              <li>Positions Batman and Robin one panel away from the target (side-by-side) in the direction of their initial position.</li>
+              <li>Batman and Robin gain +8% EVA for 1 turn.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Unrestrained Rage and Grief</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+15% ATK when Batman is defeated.</li>
+              <li>+10% DEF and RES when Batman is defeated.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>+8% ATK and MAG for both Champions when they're both attacking the same enemy.</li>
-          <li>If one Champion is defeated, the surviving Champion gains +10% ATK and MAG.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Siblings of Shadow</span>
-          <span class="ability-tag">Synergy · w/ Batgirl</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Siblings of Shadow</span>
+              <span class="synergy-partner-tag">w/ Batgirl</span>
+            </div>
+            <p class="synergy-desc">Damian and Cassandra were both born into the dark — children raised by killers to be flawless weapons, each of whom clawed their way toward the light beneath the same Bat. Where words fail between the proud boy and the silent girl, understanding never does: each looks at the other and sees a mirror, a sibling forged in the same shadow, fighting the very same war to become something more than what they were made to be.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Sweeping Through Shadow</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Assassin Infiltration</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 3 turns · Range: N/A</div>
+            <ul>
+              <li>Gains "Stealth" and "Pinpoint" for 2 turns.</li>
+              <li>"Bat-Family" allies gain "Pinpoint" for 1 turn.</li>
+              <li>Batman and Batgirl gain "Stealth" for 1 turn.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +6% ATK.</li>
-          <li>Both Champions gain +5% SPD while having "Stealth" (applies only to themselves).</li>
-        </ul>
-      </div>
+      </details>
+
     </main>
   </div>
 
@@ -1109,6 +1343,24 @@
     <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
 
     <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.2</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Synergies converted to the new bond system. The previous flat stat-card synergies were rebuilt as typed bond grants: <em>Blood of the Bat</em> (w/ Batman) now grants the Dynamic Special <em>The Dynamic Duo</em> and the New Passive <em>Unrestrained Rage and Grief</em>; <em>Siblings of Shadow</em> (w/ Batgirl) now grants the Upgraded Special <em>Sweeping Through Shadow</em>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Corrected the Best Partners tooltip for the Batman bond to read <strong>"Blood of the Bat"</strong> (previously mislabeled "The Dynamic Duo," which is the combo granted inside that bond, not the bond itself).</span>
+          </li>
+        </ul>
+        <p class="rationale">Documentation/transparency entry for the roster-wide synergy revamp. Robin's bonds were migrated from the old one-line stat cards to the new typed-grant format (New Passive / Dynamic Special / Upgraded Special) at values consistent with the new framework. The earlier v1.0.1 note describing "The Dynamic Duo" as a flat "+8% ATK/MAG" passive reflects the pre-revamp synergy and no longer matches the current bond. His base kit is unchanged.</p>
+      </div>
 
       <div class="changelog-entry">
         <div class="entry-meta">

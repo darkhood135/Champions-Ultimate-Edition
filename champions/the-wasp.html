@@ -494,6 +494,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #ef4444; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(239, 68, 68, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #ef4444; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f87171;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #ef4444; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #ef4444; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+  }
+  .syn-cost-chip .who { color: #f87171; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #ef4444; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(239, 68, 68, 0.15); color: #8fd0ee; border: 1px solid rgba(239, 68, 68, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -730,9 +907,9 @@
       <h1 class="name">The Wasp</h1>
       <p class="subtitle">Janet Van Dyne</p>
       <span class="role-badge">Healer</span>
-      <p class="description">
-        Janet Van Dyne named the Avengers. Most people don't remember that. She was a founding member, a team leader, and the one who held the line when everyone else had drifted — and none of that history slows her down when she fights. The Pym Particle technology is hers as much as it was ever Hank's: she shrinks into strike range faster than anything her size has a right to move, or expands into something the battlefield has to reorganize itself around. Her wasp sting is a precision bioelectric discharge, scaled from a tap that paralyzes to a pulse that empties EN reserves and puts everything in a five-panel radius on the ground. The real thing to understand about Janet is that she heals without stopping. Overhealth on one ally, a full restoration on another, her core passive banking credit every time she does it and feeding it back into Sting's damage ceiling. She keeps her team alive and dangerous at the same time. She was doing this before most of them were heroes. She knows how long a fight actually takes.
-      </p>
+      <p class="description">A brilliant heiress who gave Earth's Mightiest Heroes their very name, Janet van Dyne fights as the Wasp — the winged, stinging heart and soul of the Avengers.</p>
+      <p class="description">Everyone underestimated Janet van Dyne, and one by one she proved every last one of them wrong. A glamorous heiress who first took up the fight to avenge her murdered father, she was written off in her early days as the team's socialite — all wit and fashion and flightiness — a hero no one thought to take seriously. But beneath the glamour was a spine of pure steel, and across the decades she grew into something none of them saw coming: not just a founding Avenger, but one of the finest leaders the team ever had, the chairwoman who held the line and turned back the Masters of Evil when the Avengers were at their lowest. She endured a marriage that nearly broke her and walked out the other side wholly her own woman, defined by no one but herself. Through it all she has remained the emotional core of Earth's Mightiest Heroes — the warmth that binds a room of clashing egos into a family, forever reinventing herself into more than anyone expected her to be.</p>
+      <p class="description">That reinvention is built on the science that changed her life. Infused with Pym particles, Janet can shrink to the size of an insect or tower as a giant in an instant, and at her smallest a pair of translucent wings unfurls to carry her through the air with darting, impossible speed. She strikes with the "wasp's sting" — bursts of bio-electric energy fired from her hands that punch far above her size — and fights with an aerial grace that makes her a maddening, near-untouchable target. But the particles were never what made her formidable. It's that a woman the world dismissed as ornamental became its fiercest protector, and taught a team of titans that the smallest of them could be its greatest heart.</p>
       <p class="quote">"A hundred years from now, when we're all dead and buried, there will be only two things that we're remembered for... what we did. And what we looked like. Our uniforms are as much a part of our legacy as anything we'll ever do."</p>
     </div>
   </div>
@@ -833,7 +1010,7 @@
             <div class="partner-tooltip">
               <strong>Iron Man</strong>
               <span class="real-name">Anthony Stark</span>
-              <span class="synergy-name">Founding Members of the Mightiest Heroes</span>
+              <span class="synergy-name">Old Money, Old Friends</span>
             </div>
           </a>
 
@@ -1038,29 +1215,66 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Soul of the Avengers</span>
-          <span class="ability-tag">Synergy · w/ Captain America</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Soul of the Avengers</span>
+              <span class="synergy-partner-tag">w/ Captain America</span>
+            </div>
+            <p class="synergy-desc">Janet gave the Avengers their name in their very first hour, and she has been their heart in every hour since — the warmth that binds a room of clashing titans into a family. In Steve she found her perfect counterweight: the spine to her soul, the discipline to her warmth, the one teammate who has carried the team as long and as faithfully as she has, and the one whose trust in her leadership never once wavered.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Starry Surge</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Stinging Surge</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Ally · Energy: 40 · Cooldown: 2 turns · Range: 8</div>
+            <ul>
+              <li>Target gains 550% HEAL in Overhealth for 2 turns.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>The Wasp gains +10% HEAL when targeting Captain America.</li>
-          <li>The Wasp restores 3 STA and 5 EN whenever Captain America redirects an attack intended for her.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Founding Members of the Mightiest Heroes</span>
-          <span class="ability-tag">Synergy · w/ Iron Man</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Old Money, Old Friends</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">From that first gathering in Tony Stark's own mansion, Janet and Iron Man have been two of the pillars the Avengers were built upon — a pair of glamorous, quick-witted socialites who traded the ballroom for the battlefield and never lost the sparkle doing it. Beneath the easy banter runs the deep, unshakable trust of two people who were there when it all began, and have defended what they built together ever since.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Surge: STARK Model</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Overhealth provided by Stinging Surge lasts an additional turn.</li>
+              <li>Can receive buffs granted to "Stark Industries" allies (including Leader Abilities).</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +3% SPD.</li>
-          <li>The Wasp gains +6% HEAL.</li>
-        </ul>
-      </div>
+      </details>
 
     </main>
   </div>
@@ -1132,7 +1346,7 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.1.0</span>
+          <span class="version">v1.0.1</span>
           <span class="date">May 27, 2026</span>
         </div>
         <ul class="changes">

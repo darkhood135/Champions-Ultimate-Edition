@@ -494,6 +494,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #5f97c9; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(95, 151, 201, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #5f97c9; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #8fbce0;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #5f97c9; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #5f97c9; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(95, 151, 201, 0.1);
+    border: 1px solid rgba(95, 151, 201, 0.3);
+    color: #8fbce0;
+  }
+  .syn-cost-chip .who { color: #8fbce0; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5f97c9; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(95, 151, 201, 0.15); color: #8fd0ee; border: 1px solid rgba(95, 151, 201, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -730,9 +907,9 @@
       <h1 class="name">Wolverine</h1>
       <p class="subtitle">James "Logan" Howlett</p>
       <span class="role-badge">Striker</span>
-      <p class="description">
-        Logan doesn't know exactly how old he is — the timeline blurs after enough wars, enough Weapon X experiments, enough names of people he's outlived. What remains constant is the claws, the rage, and the healing. Wolverine isn't a hero who chose the fight. He's a weapon that learned, slowly and painfully, to point itself at the right targets.
-      </p>
+      <p class="description">A century-old mutant with unbreakable claws, a stolen past, and a healing factor that will not let him die, Logan fights alongside the X-Men as Wolverine — the best there is at what he does.</p>
+      <p class="description">Logan has lived long enough to bury nearly everyone he ever loved, and he keeps letting himself love people anyway. Born James Howlett more than a hundred years ago, he has worn a dozen names across a dozen wars, and much of what he remembers of it is a lie — the Weapon X program that flooded his skeleton with adamantium also carved up his mind, leaving a man who cannot fully trust his own past. What that torture left behind was an animal, and the truest thing about him is the daily, grinding war he wages to keep it caged. He is a killer who works to be something better than a killer, holding to a hard-earned code of honor and a rigid line about who deserves his claws, knowing all the while how easily the berserker beneath takes the wheel. For all his snarling and his loner's posture, he is drawn again and again into the role he'd never claim out loud — the gruff protector, the mentor who takes in frightened young mutants and teaches them to survive a world that hates them. He carries more grief and more red in his ledger than any man should, and he keeps standing between that world and the people in it who can't stand for themselves.</p>
+      <p class="description">The body that carries him through it is a weapon in every sense. A mutant healing factor knits flesh, bone, and organ back together from wounds that would kill anything else, staving off disease and poison and slowing his aging to a crawl — pairing with senses so keen he can track a man by scent across miles. His entire skeleton is laced with indestructible adamantium, and from each forearm spring three claws of the same metal, able to shear through nearly any substance in existence. Add a century of combat mastered in every corner of the world and there are few living things that can stand against him. But the claws were never the hardest part of being Wolverine. That's the man holding them back — choosing, every single day, what to be.</p>
       <p class="quote">"I'm Wolverine. I'm the best there is at what I do, but what I do best isn't very nice."</p>
     </div>
   </div>
@@ -795,7 +972,6 @@
           <span class="pill">Cleanse</span>
           <span class="pill">Last Stand</span>
           <span class="pill">Revival</span>
-          <span class="pill">Damage Reduction</span>
           <span class="pill">Damage Over Time</span>
           <span class="pill">ATK Up</span>
           <span class="pill">SPD Up</span>
@@ -820,7 +996,7 @@
             <div class="partner-tooltip">
               <strong>Captain America</strong>
               <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Soldiers Standing United</span>
+              <span class="synergy-name">The Weight of War</span>
             </div>
           </a>
 
@@ -832,7 +1008,7 @@
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Polar Opposites</span>
+              <span class="synergy-name">Claws and Conscience</span>
             </div>
           </a>
 
@@ -843,7 +1019,7 @@
             <div class="partner-tooltip">
               <strong>The Punisher</strong>
               <span class="real-name">Francis Castle</span>
-              <span class="synergy-name">Spiteful Killers</span>
+              <span class="synergy-name">Bad Blood</span>
             </div>
           </a>
 
@@ -1023,7 +1199,7 @@
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Stacks +5% ATK when landing an ability against the same target as the last ability (stacks infinitely).</li>
+          <li>Stacks +5% ATK when landing an ability against the same target as the last ability (maximum of 10 stacks, up to +50% ATK).</li>
           <li>Loses all ATK stacks after attacking a different target or using a multi-target attack.</li>
         </ul>
       </div>
@@ -1068,49 +1244,150 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Soldiers Standing United</span>
-          <span class="ability-tag">Synergy · w/ Captain America</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Weight of War</span>
+              <span class="synergy-partner-tag">w/ Captain America</span>
+            </div>
+            <p class="synergy-desc">Logan has followed a lot of men into a lot of wars, and Steve Rogers is the only one he's never once questioned. They're of the same vintage — two soldiers who were there for the worst of the last century — and that shared weight says more between them than words ever have. Logan knows full well that Cap disapproves of how he gets things done, and respects him the more for it; when Captain America gives an order, the old animal falls in without a word of argument.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shield Launch</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 20 EN</span>
+              <span class="syn-cost-chip"><span class="who">Wolverine</span> · 10 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Cooldown: 4 turns · Range: 5</div>
+            <ul>
+              <li>Only usable if Wolverine is within 1 panel of Captain America.</li>
+              <li>Captain America launches Wolverine to the targeted panel, ignoring elevation.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Captain's Orders</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Consumes no STA when moving on a panel if it is within 2 panels of Captain America.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Wolverine gains +3% SPD and +5% ATK.</li>
-          <li>Captain America gains +8% DEF and RES.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Polar Opposites</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +10% to all infliction chances.</li>
-        </ul>
-      </div>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Claws and Conscience</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">Peter Parker is everything Logan stopped being long before the kid was ever born — clean hands, an unbroken code, and a mouth that jokes its way through the pain instead of snarling at it. Logan quietly counts him among the very best of them, and long ago appointed himself the boy's protector without once admitting it aloud. They agree on almost nothing, and there are damn few people the old man would rather have at his back.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Berserker Assault</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Berserker Barrage</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 2</div>
+            <ul>
+              <li>Deals 175% ATK damage to the target 6 times.</li>
+              <li>15% chance to inflict "Bleed" to the target for 2 turns per damage instance.</li>
+              <li>30% chance to inflict "Bruise" on the target for 2 turns per damage instance.</li>
+            </ul>
+          </div>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Spiteful Killers</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
         </div>
-        <ul>
-          <li>Both Champions restore 20 EN and 10% HP when defeating an enemy (applies only to themselves).</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Regeneration Buddies</span>
-          <span class="ability-tag">Synergy · w/ Deadpool</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Bad Blood</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">Logan has no use for Frank Castle. He's spent a century learning exactly where the lines are and paying dearly for every time he crossed one, and in Frank he sees a man who erased them altogether and calls the wreckage a war. They've put each other through hell more than once, and neither is inclined to let it go; when the two wind up on the same side of a fight, it's a temporary accident, and both are counting the minutes.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Final Pierce</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Brutal Pierce</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 1</div>
+            <ul>
+              <li>Deals 450% ATK damage to the target.</li>
+              <li>Guaranteed critical hit.</li>
+              <li>70% chance to inflict "Bleed" to the target for 2 turns.</li>
+              <li>Kills the target (excluding endurance) if the target was below or at 8% HP before this ability landed.</li>
+            </ul>
+          </div>
+
         </div>
-        <ul>
-          <li>Both Champions gain +7% ATK.</li>
-          <li>Both Champions receive 10% more healing from Support abilities.</li>
-        </ul>
-      </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/deadpool.jpg" alt="Deadpool">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Regeneration Buddies</span>
+              <span class="synergy-partner-tag">w/ Deadpool</span>
+            </div>
+            <p class="synergy-desc">Wade's healing factor was built from Logan's, and Logan has been paying for it ever since. The merc treats him as a hero, a punching bag, and a captive audience all at once, and since neither of them has the decency to stay dead, their scraps simply grind on until somebody gets bored. Logan quit trying to kill him a long time ago — it never took, and the mouthy idiot has an unfortunate way of growing on a man.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Rage at an Inescapable Moron</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Can damage allies named Deadpool (cannot kill).</li>
+              <li>Damaging allies named Deadpool restores own HP by 8%.</li>
+            </ul>
+          </div>
+        </div>
+
+      </details>
+
     </main>
   </div>
 
@@ -1170,7 +1447,21 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.1.0</span>
+          <span class="version">v1.0.2</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Wild Fury</em> (Passive — Reserve) — ATK stacking is now capped at <strong>10 stacks (+50% ATK)</strong>, previously unlimited.</span>
+          </li>
+        </ul>
+        <p class="rationale">Wild Fury was the only uncapped scaling value in Wolverine's kit. Its intended limiter — losing all stacks on switching targets or using a multi-target attack — has no bite in extended single-target content, where there is never a reason to switch off the target; across a long boss encounter in Crisis on Infinite Earths or the Dark Dimension the buff could climb past +200% ATK and turn Berserker Barrage into a runaway. The 10-stack ceiling preserves the ability's identity — lock onto one enemy and escalate, reaching maximum after roughly eight to ten committed abilities — while bringing it in line with the bounded stacking buffs used elsewhere in the roster (Miles's Learning Responsibility and Robin's ally buffs). Only the focused single-target build is affected.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
           <span class="date">May 30, 2026</span>
         </div>
         <ul class="changes">
@@ -1226,4 +1517,21 @@
         <p class="rationale">Wolverine's base SPD has been redistributed into a dynamic HP-scaling mechanic, making his turn priority a live measurement of his combat state — at full health he's the fastest Champion in the roster, but sustained damage progressively costs him action priority. The ULT cap and range reductions address the previous version's excessive ULT charge rate and gap-closing reach; Logan now has to earn engagement range with STA investment before the pounce-barrage chain is accessible. Rapid Healing uses "ends turn" as its sole constraint — freely usable at any point but consuming the remainder of the turn, cleanly preserving the CC-break fantasy without additional conditions. Brutal Pierce gains a guaranteed critical hit, making it the reliable precision finisher in the Wild Fury stack build while Berserker Barrage remains the volume damage standard. Primal Rage becomes an offensive last-stand push rather than a passive 2-turn survival island, consistent with Logan's feral identity.</p>
       </div>
 
-      <div c
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Wolverine enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>

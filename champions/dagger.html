@@ -492,6 +492,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #a78bfa; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(167, 139, 250, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #a78bfa; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #c4b5fd;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #a78bfa; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #a78bfa; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    color: #c4b5fd;
+  }
+  .syn-cost-chip .who { color: #c4b5fd; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #a78bfa; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(167, 139, 250, 0.15); color: #8fd0ee; border: 1px solid rgba(167, 139, 250, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -728,9 +905,9 @@
       <h1 class="name">Dagger</h1>
       <p class="subtitle">Tandy Bowen</p>
       <span class="role-badge">Healer</span>
-      <p class="description">
-        Tandy Bowen didn't choose the Lightforce — it chose her, and it left her with an inexhaustible supply of living light she shapes into daggers, pours into wounds, and extends to everyone she trusts. The flip side of Cloak's void: where he consumes and pulls inward, she radiates outward, and without her light the hunger in his chest would swallow what's left of him. In battle she works as precision sustain — healing at any range, sweeping entire corridors with the Lightforce Veil, and layering the "Light" status on allies to amplify every heal she puts out. She doesn't finish fights. She makes sure everyone else is standing to.
-      </p>
+      <p class="description">A runaway heiress who survived an experiment that killed everyone else it touched, Tandy Bowen fights as Dagger — a wielder of living light that mends as readily as it wounds.</p>
+      <p class="description">Tandy Bowen grew up with everything money could buy and nothing a child actually needs. Raised in wealth by a mother far more interested in her own life than her daughter's, she learned early that a person can be surrounded by comfort and still be utterly alone — and when she finally ran from it, she ran straight into a city that took the last of what she had within hours. What she found there instead was a boy with nothing at all, who needed her; and for the first time in her life, Tandy mattered to someone. The men who abducted them both, and the drug they were made to survive when no one else did, only forged that into permanence. What's remarkable about her is what she chose to do with a childhood of neglect: rather than harden, she became the warmth she was never given, incapable of walking past a frightened kid who feels unwanted because she knows precisely how that feels. She is the fire in their partnership and the fiercer half of it — the one who pushes forward when Tyrone falters, and the one who steps in front of him when the world recoils from the darkness he carries.</p>
+      <p class="description">The power she was given answers to that same nature. Tandy conjures daggers of pure living light and hurls them from her hands, blades that sap the strength and will from whoever they strike — yet the very same light is a balm as much as a weapon, capable of burning poison out of the blood, soothing a troubled mind, and lifting the grip of addiction from those the world had already given up on. It is a gift with a price, all the same: the light does not stop gathering inside her, and left to build, it will consume its own bearer from within. Only the void that Cloak carries can safely take the excess. So Tandy survives by giving her light away — which may be the truest thing about her, a girl offered nothing in her whole childhood who became an endless source of the one thing she never received.</p>
       <p class="quote">"I've got plenty of light to give and you're damn lucky to have it. I hope you know that. The church might be broken, the walls could fall in any minute, but the vows Ty...The vows still stand."</p>
     </div>
   </div>
@@ -1032,20 +1209,37 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Balance</span>
-          <span class="ability-tag">Synergy · w/ Cloak</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/cloak.jpg" alt="Cloak">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Balance</span>
+              <span class="synergy-partner-tag">w/ Cloak</span>
+            </div>
+            <p class="synergy-desc">Tandy was raised amid every luxury and loved by no one, until she met a boy with nothing at all who needed her — and what the experiment made of them afterward only sealed it. The light that would burn her alive if she ever held it too long has exactly one safe place to go; the hunger that gnaws at Tyrone without end has exactly one thing that can quiet it. But she has never once thought of it as a bargain. The world flinches at the darkness he carries, and Tandy is the one who plants herself in front of him when it does — and she would sooner burn out entirely than leave him to face what lives inside him alone.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Majesty of Light and Dark</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>If own domain overlaps with Cloak's domain (even if just by 1 panel), their domains merge into one (covering the area of both and merging the effects).</li>
+              <li>Can receive buffs granted to "Vast Darkness" allies (including Leader Abilities).</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>If Cloak and Dagger domains clash (even if just by 1 panel), their domain merges into one (covering the area of both and merging the effects).</li>
-          <li>If either Cloak or Dagger uses ULTIMATUM, the other has their ULTIMATUM charged to 100% (once per 2 turns).</li>
-          <li>Cloak can receive buffs granted to "Radiating Light" allies (including Leader Abilities).</li>
-          <li>Dagger can receive buffs granted to "Vast Darkness" allies (including Leader Abilities).</li>
-        </ul>
-      </div>
+      </details>
 
     </main>
   </div>

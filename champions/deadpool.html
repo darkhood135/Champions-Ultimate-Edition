@@ -469,6 +469,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #e7e5e4; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(231, 229, 228, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #e7e5e4; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5f5f4;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e7e5e4; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e7e5e4; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(231, 229, 228, 0.1);
+    border: 1px solid rgba(231, 229, 228, 0.3);
+    color: #f5f5f4;
+  }
+  .syn-cost-chip .who { color: #f5f5f4; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e7e5e4; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(231, 229, 228, 0.15); color: #8fd0ee; border: 1px solid rgba(231, 229, 228, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -705,9 +882,9 @@
       <h1 class="name">Deadpool</h1>
       <p class="subtitle">Wade Wilson</p>
       <span class="role-badge">Berserker</span>
-      <p class="description">
-        Wade Wilson has had a rough go of it: cancer, Weapon X, a healing factor that fixed the terminal diagnosis while leaving him looking like a topographic map of bad decisions, and an unshakeable awareness that he's a playable character. The regeneration keeps him in the fight; the chaos keeps everyone else nervous. In battle, Deadpool is a Berserker built around a dangerous transaction — his Core Passive lets him spend HP to fire abilities off cooldown, his ULTIMATUM devours every resource he has in a single catastrophic swing, and the whole engine rewards playing faster and more recklessly than the math suggests is safe. Nap Time is a full resource reset that doubles as a team-wide ATK spike. Trickshot rewards enough patience with one of the highest single-hit damage ceilings in the roster. He's not subtle. He's also aware you're reading this.
-      </p>
+      <p class="description">A dying mercenary who traded his death for a healing factor that now refuses to let him have it, Wade Wilson talks, kills, and absolutely will not stay down as the Merc with a Mouth — Deadpool.</p>
+      <p class="description">Wade Wilson was a dying man who agreed to become a lab rat, and he got exactly what he asked for and nothing he wanted. The program that cured his terminal cancer did it by giving him a healing factor that fights the disease to an endless stalemate — leaving his body a ruin of scar tissue that dies and rebuilds itself forever, and his mind scrambled past any hope of repair. What's left is the loudest man in any room and, beneath the noise, easily the saddest. The jokes never stop because they can't; they're the armor between Wade and a bottomless well of self-loathing over what he looks like, what he's done for money, and how few people can stand to be near him for long. He wants to be a hero. He idolizes the real ones with an earnestness that would be touching if it weren't so uncomfortable, and he keeps hurling himself at the mark and falling just short of it — a killer trying, clumsily and sincerely, to become something better. He talks to people who aren't there, knows things no one has told him, and addresses an audience nobody else can see. And for all the laughing, the cruelest joke belongs to him: Wade Wilson longs for death more than anything, and death is the one thing his body will never allow.</p>
+      <p class="description">That same curse makes him a nightmare to fight. Wade regenerates from wounds that would erase anyone else — bullets, blades, dismemberment, all of it inconvenient rather than fatal — and shrugs off poison, disease, and any attempt to enter a mind that reshapes itself faster than a telepath can read it. He is a genuinely elite combatant beneath the clowning, a master of firearms and blades who lives with a pair of katanas on his back and a working knowledge of every weapon ever made. Worst of all for anyone across from him, he cannot be predicted, planned for, or reasoned with — he simply keeps coming, cheerfully, long after any sane opponent would have stopped. He is unkillable, and it isn't a gift. It's a sentence — and Wade serves it out loud, cracking jokes the whole way, still hoping that one of these days he'll get to be one of the good guys.</p>
       <p class="quote">"Gentlemen. So nice of you to visit. Which of you scheduled the vivisection today?"</p>
     </div>
   </div>
@@ -1020,29 +1197,68 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Regeneration Buddies</span>
-          <span class="ability-tag">Synergy · w/ Wolverine</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Regeneration Buddies</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">As far as Wade is concerned, the healing factor Weapon X built out of Logan's makes the two of them family — brothers, practically, whether the old man likes it or not. He does not. Wade has never let that slow him down: since neither of them has the decency to die, he treats their brawls as quality time and Logan's threats as terms of endearment, and he'll keep turning up no matter how many times he gets gutted for it. Beneath all the mouth is the thing Wade would never say straight — that Logan is exactly the kind of hero he has never quite managed to become, and one word of approval from him would mean more than Wade could stand to admit.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">The Inescapable Moron</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Can damage allies named Wolverine (cannot kill).</li>
+              <li>Damaging allies named Wolverine will instead heal them for the same amount.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +7% ATK.</li>
-          <li>Both Champions receive 10% more healing from Support abilities.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Shoot Shoot Pow Pow</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Shoot Shoot Pow Pow</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">Wade is convinced he and Frank Castle are two of a kind, and says so constantly, at length, over the sound of gunfire. Frank has never once agreed. To Wade it's a dream pairing — all the firepower, none of the lectures — so he chatters into a silence that never answers, entirely unbothered by a man who'd shoot him purely to make it stop. But there's a reason he keeps circling back: Wade recognizes someone who lost everything and built a war out of the wreckage, because he did the very same thing and just decided to laugh instead. Frank never laughs.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-ultimatum">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Bang Bang Bang Pow</span>
+              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Bang Bang Bang</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AoE · Range: 5 · Cost: 100% ULT</div>
+            <ul>
+              <li>Deals 200% ATK damage (per 15% HP lost) to all targets.</li>
+              <li>Inflicts 2 stacks of "Bleed" to all targets for 2 turns.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Deadpool grants The Punisher +10% MAG for 1 turn whenever landing an attack.</li>
-          <li>The Punisher grants Deadpool +10% ATK for 1 turn whenever landing an attack.</li>
-        </ul>
-      </div>
+      </details>
+
     </main>
   </div>
 

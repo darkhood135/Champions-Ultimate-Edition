@@ -494,6 +494,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #5da8d6; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(93, 168, 214, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #5da8d6; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7fc4ec;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #5da8d6; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #5da8d6; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(93, 168, 214, 0.1);
+    border: 1px solid rgba(93, 168, 214, 0.3);
+    color: #7fc4ec;
+  }
+  .syn-cost-chip .who { color: #7fc4ec; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5da8d6; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(93, 168, 214, 0.15); color: #8fd0ee; border: 1px solid rgba(93, 168, 214, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -730,9 +907,9 @@
       <h1 class="name">Captain America</h1>
       <p class="subtitle">Steve Rogers</p>
       <span class="role-badge">Defender</span>
-      <p class="description">
-        Steve Rogers was chosen for the Super-Soldier program not because he was strong, but because he already was what a soldier should be — honest, stubborn, and impossible to keep down. The serum brought his body in line with his will: peak-human strength, reflexes that put trained fighters behind the reaction curve, and a recovery rate that turns punishment into arithmetic. The vibranium shield is his most versatile tool — thrown to chain through enemy formations, raised to negate incoming fire, or planted as a line he dares anyone to cross. His tactics center on his team. He reads the battlefield, sets the tempo, and makes sure every ally is resourced and in position when the real work starts. He does not outpower most of what he faces. He out-endures it — and he makes his side considerably harder to kill.
-      </p>
+      <p class="description">A frail young man from the depths of the Great Depression transformed into a living legend by the Super-Soldier serum, Steve Rogers fights as Captain America — the Sentinel of Liberty and the unyielding conscience of a nation.</p>
+      <p class="description">Long before the serum made him strong, Steve Rogers was already the man worth saving. A sickly kid from the wrong side of Depression-era New York, turned away again and again from the army he was desperate to serve, he was chosen for Project Rebirth not for a body he didn't have but for the thing that couldn't be manufactured — a stubborn, bone-deep refusal to let the strong prey on the weak. That is the truth of Captain America: the serum didn't create a hero, it simply gave a good man the frame to match his heart. Frozen in the closing days of one war and thawed into a world that had moved on without him, he carries the weight of a man out of time and answers it with unshakable conviction, holding the country he loves not to what it is but to the promise of what it swore to be. Where others waver, he stands — the moral north the entire hero community sets its compass by — and when he's beaten down, cornered, and told to stay down, he rises with the same four words: I can do this all day.</p>
+      <p class="description">That will is carried by a body pushed to the absolute peak of human potential — strength, speed, stamina, agility, and endurance at the very ceiling of what a person can achieve — married to a lifetime of combat mastery and a tactical mind that reads a battlefield like a page. In his hands rests a concave disc of vibranium and steel, nearly indestructible and perfectly balanced, an instrument of both defense and offense that he wields as a natural extension of his will, hurling it to strike down foes and catch it clean on its return. Yet the shield was never the source of his strength, nor the serum. It's the ordinary courage of the kid from Brooklyn who never learned how to quit — the conviction that a single person standing firm for what's right can hold a line no army can break.</p>
       <p class="quote">"I'll never stop believing that life is something most sacred, something to be sacrificed only for the greatest of causes...liberty!"</p>
     </div>
   </div>
@@ -807,6 +984,7 @@
           <span class="pill">MAG Up</span>
           <span class="pill">ACC Up</span>
           <span class="pill">Multi-Hit</span>
+          <span class="pill">Chain</span>
           <span class="pill">Line Ability</span>
           <span class="pill">Extension</span>
           <span class="pill">ULT Generation</span>
@@ -827,7 +1005,7 @@
             <div class="partner-tooltip">
               <strong>Iron Man</strong>
               <span class="real-name">Anthony Stark</span>
-              <span class="synergy-name">Comrades with a Complex History</span>
+              <span class="synergy-name">Conviction and Compromise</span>
             </div>
           </a>
           
@@ -838,7 +1016,7 @@
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Standing Up for What's Right</span>
+              <span class="synergy-name">True North</span>
             </div>
           </a>
 
@@ -853,6 +1031,17 @@
             </div>
           </a>
 
+          <a href="superman.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/superman.jpg" alt="Superman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Superman</strong>
+              <span class="real-name">Clark Kent</span>
+              <span class="synergy-name">Paragons</span>
+            </div>
+          </a>
+
           <a href="wolverine.html" class="partner-card">
             <div class="partner-image">
               <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
@@ -860,7 +1049,7 @@
             <div class="partner-tooltip">
               <strong>Wolverine</strong>
               <span class="real-name">James "Logan" Howlett</span>
-              <span class="synergy-name">Soldiers Standing United</span>
+              <span class="synergy-name">The Weight of War</span>
             </div>
           </a>
 
@@ -1047,6 +1236,7 @@
         </div>
         <ul>
           <li>+10% DEF and RES while no ally is below 30% HP or defeated.</li>
+          <li>+5% DEF and RES while one ally is below 30% HP or defeated.</li>
           <li>+7% DEF and RES per ally below 30% HP (includes defeated allies).</li>
           <li>+5% ATK per ally below 30% HP (includes defeated allies).</li>
         </ul>
@@ -1082,63 +1272,205 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Comrades with a Complex History</span>
-          <span class="ability-tag">Synergy · w/ Iron Man</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Conviction and Compromise</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">Steve and Tony forged the Avengers into the world's mightiest heroes shoulder to shoulder — the soldier's conviction and the futurist's vision holding the team's two poles in balance. But the very difference that made them stronger tore them apart when the question of registration turned brothers into enemies, and though that war has been mended more than once, Cap has never quite forgotten how easily the man he trusts most becomes the man he must fight.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Unibeam Dispersal</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Iron Man</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 5 turns · Range: 4</div>
+            <ul>
+              <li>Iron Man deals 400% MAG damage to all enemies within 4 panels of Captain America.</li>
+              <li>Inflicts "Sting" for 1 turn to all enemies damaged by Iron Man.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Complex History</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK.</li>
+              <li>Deals 6% more damage to enemies that have dealt damage to Iron Man within the past 2 turns.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Iron Man can choose to target Captain America with Unibeam (range of 5 panels) to work together and change the targeting/range of the attack.</li>
-          <li>When targeting Captain America, Iron Man's Unibeam instead hits all enemies in a 4 panel radius of Captain America.</li>
-        </ul>
-      </div>
-      
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Standing Up for What's Right</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
-        </div>
-        <ul>
-          <li>Spider-Man gains +7% ATK and MAG.</li>
-          <li>Captain America gains +2% REGEN and SPD.</li>
-          <li>If Spider-Man is affected by Rally or Assemble, the effects last for 1 extra turn.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Soul of the Avengers</span>
-          <span class="ability-tag">Synergy · w/ The Wasp</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">True North</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">When the rest of the world saw only a masked menace, Cap saw something rarer — a kid fighting at street level for people who'd never know his name, living out "with great power" more purely than heroes twice his age. He vouched for Peter, brought him into the Avengers, and when war split their ranks, took quiet pride in finding the young man had crossed the line to stand at his side.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shared Conviction</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% DEF and RES.</li>
+              <li>Reduces the cooldowns of Rally and Prepare to Engage by 1 turn if an ally is below 20% HP at the start of turn (once per 4 turns).</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>The Wasp gains +10% HEAL when targeting Captain America.</li>
-          <li>The Wasp restores 3 STA and 5 EN whenever Captain America redirects an attack intended for her.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Soldiers Standing United</span>
-          <span class="ability-tag">Synergy · w/ Wolverine</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Soul of the Avengers</span>
+              <span class="synergy-partner-tag">w/ The Wasp</span>
+            </div>
+            <p class="synergy-desc">Janet van Dyne gave the Avengers their name and, through every era since, their heart — and Cap has stood beside her for all of it, the discipline to her warmth, the spine to her soul. He counts her among the precious few who've carried the team as long as he has, and there are no hands he'd sooner trust it to than hers.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Stings and Stripes</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Stars and Stripes</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 3</div>
+            <ul>
+              <li>Deals 200% ATK damage to the target 3 times.</li>
+              <li>Deals 100% MAG damage to the target 3 times.</li>
+              <li>30% chance to inflict "Shock" on the target for 2 turns.</li>
+              <li>Can damage airborne targets.</li>
+              <li>Inflicts "Retribution" to the target for 1 turn.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Wolverine gains +3% SPD and +5% ATK.</li>
-          <li>Captain America gains +8% DEF and RES.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Unrequited Respect</span>
-          <span class="ability-tag">Synergy · w/ The Punisher</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/superman.jpg" alt="Superman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Paragons</span>
+              <span class="synergy-partner-tag">w/ Superman</span>
+            </div>
+            <p class="synergy-desc">Two men of the same rare cloth — the soldier who was good long before he was ever strong, and the powerhouse who could rule the world and chooses instead to be humble and kind — Steve and Clark saw in each other the one thing that can't be taught: an incorruptible decency that leads by example rather than command. Where lesser heroes would size each other up as rivals, they found a brother and an equal, each the standard his own world measures itself against, and neither has ever once had to wonder whether the other would do the right thing.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Truth, Justice and the American Way</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+20% DEF and RES when Superman is defeated.</li>
+              <li>"Taunt" effects applied to self last 1 turn longer when Superman is below 60% HP.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>The Punisher gains +10% MAG for 2 turns whenever Captain America applies "Taunt" to himself.</li>
-          <li>Captain America gains "Anger" for 2 turns whenever The Punisher defeats an enemy.</li>
-        </ul>
-      </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Weight of War</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">Two soldiers who've seen more war than any man should, Cap and Logan understand each other in the wordless way only the battle-worn ever can. Steve has never made peace with the lengths Logan will go to — the lines he'll cross that Cap never will — but when the shooting starts, there are few he'd sooner have holding the line at his shoulder.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shield Launch</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 20 EN</span>
+              <span class="syn-cost-chip"><span class="who">Wolverine</span> · 10 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Cooldown: 4 turns · Range: 5</div>
+            <ul>
+              <li>Only usable if Wolverine is within 1 panel of Captain America.</li>
+              <li>Captain America launches Wolverine to the targeted panel, ignoring elevation.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Unrequited Respect</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">To Frank Castle, Captain America is the last untarnished ideal — the one soldier he'd never dream of raising a hand against, even as Cap once beat him bloody for the murders he'd done in a war Cap would never sanction. Steve sees only a good soldier lost: a man who kept the discipline of the uniform and abandoned its conscience, and no reverence Frank offers will ever earn Captain America's blessing.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Anger at Unacceptable Methods</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Gains "Anger" for 3 turns whenever The Punisher defeats an enemy.</li>
+              <li>Support or ULTIMATUM effects given by self to The Punisher have their duration shortened by 1 turn.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
     </main>
   </div>
 
@@ -1220,7 +1552,25 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.1.0</span>
+          <span class="version">v1.0.2</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Complex History</em> (Iron Man synergy) — reworded the conditional damage bonus. Now reads: "Deals 6% more damage to enemies that have dealt damage to Iron Man within the past 2 turns" (previously keyed off an "Anti-Air" tag, which is a tag construct rather than a battlefield state).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>No Soldier Left Behind</em> — added <strong>+5% DEF and RES while one ally is below 30% HP or defeated</strong> to smooth the scaling. Previously the first ally casualty dropped his defensive bonus from +10% to +7%; the buff now increases monotonically as the team takes losses.</span>
+          </li>
+        </ul>
+        <p class="rationale">Both are clarity/consistency fixes with no intended power swing. Complex History's condition now describes something that actually happens in a fight — an enemy attacking Iron Man — reserving tag-based logic for links, and reinforcing the bond's "Cap answers for those who strike his oldest friend" flavor. No Soldier Left Behind's new tier closes a dead zone where losing the first ally briefly made Captain America less durable than a fully healthy team; the buff now scales up smoothly with the team's peril.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
           <span class="date">May 26, 2026</span>
         </div>
         <ul class="changes">

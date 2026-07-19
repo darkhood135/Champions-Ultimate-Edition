@@ -495,6 +495,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #e0b83d; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(224, 184, 61, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #e0b83d; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f0cf6b;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e0b83d; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e0b83d; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(224, 184, 61, 0.1);
+    border: 1px solid rgba(224, 184, 61, 0.3);
+    color: #f0cf6b;
+  }
+  .syn-cost-chip .who { color: #f0cf6b; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -731,9 +908,9 @@
       <h1 class="name">Batgirl</h1>
       <p class="subtitle">Cassandra Cain</p>
       <span class="role-badge">Striker</span>
-      <p class="description">
-        Cassandra Cain is the Batgirl who was raised as a weapon and trained to read combat the way most people read words. Denied speech as a child by her father David Cain, she learned to interpret the world entirely through movement — the twitch before a swing, the breath before a strike, the intent in a stranger's stance. She joined the Bat-Family looking for atonement and stayed because she found the closest thing she'd ever had to a home. In combat she's a counter-Striker who turns every fight into a chess match she's already played: Tracking Batarangs mark her targets, What Comes Next punishes anyone reckless enough to swing first, and Image of Justice scales harder the longer her enemies make her wait.
-      </p>
+      <p class="description">Raised from birth by an assassin to be the perfect killer — and denied even language so that violence would be her only tongue — Cassandra Cain turned her back on her making to become Batgirl.</p>
+      <p class="description">Cassandra Cain was never taught to speak, because the man who made her had no use for words. The daughter of two of the deadliest assassins alive, she was raised from infancy by David Cain to be a living weapon, her mind shaped so completely around combat that she learned to read the language of the body — a flinch, a shift of weight, the intent behind a movement — as fluently as other children learn to read a page. She was eight years old the first time she killed, and in that instant she felt her victim's terror and pain written across his dying body, understood at last exactly what she had been built to do, and fled from it in horror. Everything she has become since is the long road back from that moment. Beneath the cowl is a quiet, lonely soul seeking to atone for a single life she took, learning slowly and painfully how to be a person rather than an instrument — and cherishing every life she now protects with a fierce, wordless empathy, precisely because she was raised to believe life was hers to end. In Batman and his family she found the thing she was never given: a home, and a self worth more than the weapon.</p>
+      <p class="description">For all that she carries no power, Cassandra may be the single finest hand-to-hand combatant the world has ever seen. Her gift is unique among them all — she reads an opponent's body like an open book, anticipating every strike before it lands, slipping blows and even gunfire as though the fight were already written and only she had read the ending. Trained from her first steps in every killing art, she can stand alone against a room of masters and walk out untouched. That same wiring came at a cost, leaving the world of words a far harder fight than any duel — but it is a price she pays without complaint. For the deadliest weapon ever forged laid down killing entirely, and chose instead to shield the innocent with the very skills meant to destroy them — her greatest strength not the violence she was taught, but the mercy she was not.</p>
       <p class="quote">"My name is Cassandra Cain...and I am no oracle. I do not tell the future. I know the past. I see the now. Faces. Movements. Patterns. Nerves. Intentions. Mistakes. My sight is my prophecy, and my fists are my medium. I simply read the cards laid out before me...and I play my hand. I am Batgirl. I write the fortunes of my enemies. No matter the hand I was dealt. I make my future. And I always will."</p>
     </div>
   </div>
@@ -749,11 +926,11 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,300</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,200</span></div>
         <div class="stat-row"><span class="label">ATK</span><span class="value">360</span></div>
         <div class="stat-row"><span class="label">MAG</span><span class="value">140</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">170</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">110</span></div>
         <div class="stat-row"><span class="label">RES</span><span class="value">70</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
@@ -963,6 +1140,7 @@
           <li>+10% ATK when targeting an enemy who was hit with Batclaw in the same turn.</li>
           <li>Consumes half the EN when targeting an enemy with "Tracker".</li>
           <li>+10% ATK when targeting an enemy with "Tracker".</li>
+          <li>Gains 3% ULT each time a counter lands (self only).</li>
         </ul>
       </div>
 
@@ -1042,29 +1220,71 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Light of the Bat</span>
-          <span class="ability-tag">Synergy · w/ Batman</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batman.jpg" alt="Batman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Light of the Bat</span>
+              <span class="synergy-partner-tag">w/ Batman</span>
+            </div>
+            <p class="synergy-desc">Batman found Cassandra when she had no words, no name she would claim, and nothing but the killing she'd fled — and where the world saw a weapon to be wielded, he saw a daughter to be saved. He gave her the cowl, the code, and the family she had never known, and in return she gave him a devotion too deep for speech: the father she chose, the man whose faith turned the deadliest thing David Cain ever made into a light worth following. She may never find the words to tell him what he means to her, but she says it every night in the only language she has ever truly spoken — how she fights, and who she fights for.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Perfected Combat</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Close Combat</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 1 turn · Range: 1</div>
+            <ul>
+              <li>Deals 440% ATK damage to the target.</li>
+              <li>+10% CRIT RATE for this attack.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +7% MAX HP.</li>
-          <li>Batman now inflicts "Tracker" for 2 turns with his Batarangs ability.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Siblings of Shadow</span>
-          <span class="ability-tag">Synergy · w/ Robin</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/robin.jpg" alt="Robin">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Siblings of Shadow</span>
+              <span class="synergy-partner-tag">w/ Robin</span>
+            </div>
+            <p class="synergy-desc">Cassandra understands Damian's war because it was first her own — both of them raised by killers to be flawless weapons, both dragged toward the light beneath the same Bat. His pride and her silence could hardly be less alike, yet no words are needed between them; she reads the frightened, striving boy beneath the sneer as easily as she reads any fight, and finds in him a brother born of the same shadow, clawing toward the same redemption.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Stalking Shadow</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Aerial Acrobatics</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Energy: 10 · Cooldown: 2 turns · Range: 4</div>
+            <ul>
+              <li>Relocates self 4 panels away from original position in the direction of the targeted panel.</li>
+              <li>Ignores elevation.</li>
+              <li>Gains "Stealth" for 1 turn.</li>
+              <li>+5% SPD and ATK for 1 turn.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +6% ATK.</li>
-          <li>Both Champions gain +5% SPD while having "Stealth" (applies only to themselves).</li>
-        </ul>
-      </div>
+      </details>
 
     </main>
   </div>
@@ -1111,6 +1331,25 @@
     <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
 
     <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Durability pass — MAX HP reduced <strong>9,300 → 7,200</strong>, DEF reduced <strong>170 → 110</strong>.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><em>Reading Every Move</em> (Core Passive) — added baseline ULT generation: "Gains 3% ULT each time a counter lands (self only)."</span>
+          </li>
+        </ul>
+        <p class="rationale">As a launch Champion, Batgirl carried early durability bloat — high HP and, more tellingly, a very high DEF (170) that armored a Champion whose entire identity is reading and slipping attacks, not absorbing them. Cutting HP and DEF moves her survivability onto her counter and evasion kit, where it belongs both thematically and for balance, leaving her a moderate-durability counter-duelist rather than a durable-and-damaging outlier; her magic weakness (RES 70) and active counter package are untouched. Separately, she released without any self ULT-generation condition — an oversight, since nearly every Champion has one and her ULTIMATUM is tame enough not to warrant gating it behind passive gain alone. The new counter-based ULT gain corrects this and reinforces her core loop: a landed counter now feeds defense, ULT charge, and Image of Justice's counter-scaling damage at once.</span>
+        </p>
+      </div>
 
       <div class="changelog-entry release">
         <div class="entry-meta">

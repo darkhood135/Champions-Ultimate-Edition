@@ -493,6 +493,184 @@
     color: #1d0a3b;
   }
 
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #d072ef; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(217, 70, 239, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #d072ef; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e6a9f7;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #d072ef; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #d072ef; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(217, 70, 239, 0.1);
+    border: 1px solid rgba(217, 70, 239, 0.3);
+    color: #e6a9f7;
+  }
+  .syn-cost-chip .who { color: #e6a9f7; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #d072ef; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(217, 70, 239, 0.15); color: #8fd0ee; border: 1px solid rgba(217, 70, 239, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+
   /* ====================== COSTUMES SECTION ====================== */
   .costumes-section {
     margin-top: 18px;
@@ -730,9 +908,9 @@
       <h1 class="name">Spider-Man (Miles Morales)</h1>
       <p class="subtitle">Miles Morales</p>
       <span class="role-badge">Breaker</span>
-      <p class="description">
-        Miles Morales is a Brooklyn teenager still growing into his mask. A spider bite — different lab, different formula, same result — gave him Peter's strength and reflexes, plus a few signatures of his own: a paralyzing "venom" touch and the ability to camouflage almost completely. He fights with less precision than his mentor and more disruption — electrifying enemies with shock-laced web shots, vanishing mid-fight, reappearing where no one was watching. He's still finding his rhythm, still throwing jokes through the nerves, still occasionally landing on his face. But every time the city calls, he says yes. He's not Peter. He's not Cap. He's a kid in a mask doing the best he can — and the best he can keeps getting better.
-      </p>
+      <p class="description">A Brooklyn teenager bitten by a stolen, genetically altered spider, Miles Morales took up the name of a fallen hero and made it his own as the Spider-Man of a new generation.</p>
+      <p class="description">Miles never wanted the mask — he inherited it, pulling it on in the shadow of a legend and spending every day since trying to prove he was worthy of a name that once belonged to someone else. What makes him singular isn't that he followed Peter Parker, but that he refused to simply be him: a good kid from a loving home, torn between the father who wears a badge and mistrusts men in masks, the mother who anchors him, and the uncle whose criminal life showed him exactly the person he's determined never to become. He carries the ordinary weight of a teenager — school, family, the ache of not measuring up — alongside the impossible one, and answers both with a warmth and earnestness the older heroes have long since had beaten out of them. Where his predecessor is defined by guilt, Miles is defined by heart: the constant, hopeful effort of a young man learning that living up to a legacy means becoming something new, not something borrowed.</p>
+      <p class="description">That effort is backed by a power set that echoes the original and then breaks from it. Miles has the proportionate strength, agility, wall-crawling, and danger-sense of the spider, but the stolen serum that changed him left two gifts wholly his own — a "venom blast" of bio-electric energy that can stun a foe or drop him cold with a touch, and a camouflage that bends light and sound around him until he vanishes from sight entirely. Together they make him something no Spider-Man was before: a hero who can strike from nowhere and end a fight in a heartbeat. But the powers were never what set him apart. It's that he took a borrowed name and a borrowed dream and, swing by swing, proved they were always meant to be his.</p>
       <p class="quote">"I'm not an Avenger. I'm not Thor. Or Cap. Or Peter. I'm just a kid in a mask. Doing the best I can. But I'll never give up on the world. Or this city. Or anyone that needs me. I'm Miles Morales. And I'm Spider-Man."</p>
     </div>
   </div>
@@ -748,17 +926,17 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,900</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,300</span></div>
         <div class="stat-row"><span class="label">ATK</span><span class="value">310</span></div>
         <div class="stat-row"><span class="label">MAG</span><span class="value">270</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">160</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">90</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
         <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
         <div class="stat-row"><span class="label">SPD</span><span class="value">113</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">30%</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">20%</span></div>
       </div>
 
       <!-- Vitals -->
@@ -817,7 +995,7 @@
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Two Spiders</span>
+              <span class="synergy-name">Wearing the Mask</span>
             </div>
           </a>
 
@@ -885,9 +1063,9 @@
         <ul>
           <li>Deals 50% MAG damage to the target.</li>
           <li>Inflicts "Shock" on the target for 3 turns.</li>
-          <li>Extends into itself (up to twice) per 2 turns passed since last usage.</li>
+          <li>Extends into itself once for every 2 full turns since its last use (maximum of two extensions).</li>
           <li>20% chance to inflict 10 stacks of "Web" to the target for 3 turns.</li>
-          <li>Inflicts "Paralyze" on the target for 1 turn if this ability is used as an extension ability.</li>
+          <li>Inflicts "Paralyze" on the target for 1 turn when used as an extension.</li>
         </ul>
       </div>
 
@@ -1029,19 +1207,57 @@
         </ul>
       </div>
 
-      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Two Spiders</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
+      <!-- 1 · WEARING THE MASK — strong bond, two grants (New Passive + Dynamic Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Wearing the Mask</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">Miles grew up idolizing the Amazing Spider-Man, and when he first pulled on the mask himself, he felt the full weight of the name Peter had carried for years — along with the truth Peter always believed, that it was never one man's to keep. Mentor and protégé now, Miles measures himself against the hero who came before even as he steps out of that shadow into his own, proving with every swing that the responsibility was always meant to be shared.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Spiders In Sync</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+10% ATK and +5% EVA.</li>
+              <li>When Spider-Man uses an ULTIMATUM, gain 20% ULT charge.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Tandem Swing</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Spider-Man</span> · 30 EN · 1 STA</span>
+              <span class="syn-cost-chip"><span class="who">Spider-Man (Miles Morales)</span> · 30 EN · 1 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy + AoE (3 panels) · Cooldown: 3 turns · Range: 6</div>
+            <ul>
+              <li>Spider-Man deals 300% ATK damage to the target.</li>
+              <li>Spider-Man (Miles Morales) deals 200% MAG damage to all enemies within 3 panels of the target.</li>
+              <li>45% chance to inflict "Shock" for 2 turns to any enemy damaged by Spider-Man (Miles Morales).</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Both Champions gain +10% ATK and +5% EVA.</li>
-          <li>When either uses an ULTIMATUM, the other gains 20% ULT charge.</li>
-        </ul>
-      </div>
+      </details>
     </main>
   </div>
 
@@ -1098,6 +1314,28 @@
     <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
 
     <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.2</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Durability pass — MAX HP reduced <strong>8,900 → 7,300</strong>, DEF <strong>160 → 100</strong>, RES <strong>140 → 90</strong>, EVA <strong>30% → 20%</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Electrified Web</em> — extension clause reworded for clarity: "extends into itself once for every 2 full turns since its last use (maximum of two extensions)." No functional change. The conditional Paralyze line was also tidied.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Spiders In Sync</em> (Wearing the Mask synergy) — now functions as two independent self-passives (each Spider grants their own copy) rather than mutually granting, preventing the buff from double-applying when both Spiders are on the team.</span>
+          </li>
+        </ul>
+        <p class="rationale">As one of the earliest Champions, Miles carried tank-tier durability that didn't fit his Breaker role — after Spider-Man's pass, Miles was the tankier of the two Spiders despite being the fragile-disruptor archetype. Cutting HP, both defenses and EVA turns him into a proper Breaker: his Shock/Paralyze lockdown, evasion, and stealth identity are fully intact, but he now pays for that disruption with survivability and can be answered by focusing him down. His fragility is also the natural check on his fast Shock-fueled ULT charging, so no cap was added. Wording cleanups preserve original intent.</p>
+      </div>
 
       <div class="changelog-entry">
         <div class="entry-meta">

@@ -494,6 +494,183 @@
   }
 
   /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #5b9bd5; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(91, 155, 213, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #5b9bd5; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #8fbce8;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #5b9bd5; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #5b9bd5; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(91, 155, 213, 0.1);
+    border: 1px solid rgba(91, 155, 213, 0.3);
+    color: #8fbce8;
+  }
+  .syn-cost-chip .who { color: #8fbce8; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5b9bd5; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(91, 155, 213, 0.15); color: #8fd0ee; border: 1px solid rgba(91, 155, 213, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -730,9 +907,9 @@
       <h1 class="name">Iron Man</h1>
       <p class="subtitle">Anthony Stark</p>
       <span class="role-badge">Blaster</span>
-      <p class="description">
-        Tony Stark built the first Iron Man suit in a cave with scraps and spite, and he never really stopped iterating. Every near-miss — every villain, every civil war, every time the suit wasn't enough — became version n+1. He's insufferably confident, occasionally wrong, and has saved the world enough times that neither quality cancels the other out.
-      </p>
+      <p class="description">A genius industrialist who built a suit of armor to escape captivity and never truly took it off, Tony Stark now defends the world he once armed as the invincible Iron Man.</p>
+      <p class="description">Tony Stark spent the first half of his life building the weapons that made him rich, and the whole of the second half trying to answer for them. It took a battlefield ambush, a chest full of shrapnel, and a cave to change him — held captive and ordered to build for his captors, he instead built his escape alongside a man named Yinsen, who died so that he could walk out of it. Stark came home understanding at last what his creations had been doing to people who never asked for a war, and he has been paying that debt down ever since. What defines him is the futurist's curse: a mind that sees the catastrophe coming years before anyone else does and cannot rest until it's solved — a compulsion that has saved the world more than once and, in his arrogance and need for control, nearly torn it apart just as often. He is no clean-cut hero and has never claimed to be, having wrestled publicly with his own ego, his failures, and the bottle that once brought the great Tony Stark to his knees. But he is a man who rebuilds himself as relentlessly as he rebuilds his armor, and however far he falls, he always comes back with something better than what he had before.</p>
+      <p class="description">That relentlessness is worn on the outside. The Iron Man armor is the finest technology on Earth, an ever-evolving shell that grants him flight at incredible speed, strength and durability far beyond any man's, and an arsenal built around the repulsors in his palms and the unibeam at his chest — backed by sensors, AI, and a hangar of specialized suits designed for every threat he can imagine, from the ocean floor to deep space. Behind it all is the true weapon: one of the most brilliant minds alive, coupled with the resources of an empire. Yet the armor was never what made him Iron Man. It's the man sealed inside it — flawed, driven, and stubbornly unwilling to be remembered as the merchant of death he started out as.</p>
       <p class="quote">"There's only two things I ever managed to believe in. Firstly, myself. And even then only about 50% of the time. Secondly, the future. That there would be one and we'd make it."</p>
     </div>
   </div>
@@ -793,7 +970,6 @@
         <div class="pill-group">
           <span class="pill">Airborne</span>
           <span class="pill">Infliction Resist</span>
-          <span class="pill">Damage Reduction</span>
           <span class="pill">RES Down</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
@@ -823,7 +999,7 @@
             <div class="partner-tooltip">
               <strong>Captain America</strong>
               <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Comrades with a Complex History</span>
+              <span class="synergy-name">Conviction and Compromise</span>
             </div>
           </a>
 
@@ -835,7 +1011,7 @@
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Bright Minds for a Brighter Future</span>
+              <span class="synergy-name">A Trust Rebuilt</span>
             </div>
           </a>
 
@@ -846,7 +1022,7 @@
             <div class="partner-tooltip">
               <strong>The Wasp</strong>
               <span class="real-name">Janet Van Dyne</span>
-              <span class="synergy-name">Founding Members of the Mightiest Heroes</span>
+              <span class="synergy-name">Old Money, Old Friends</span>
             </div>
           </a>
 
@@ -912,8 +1088,8 @@
         <ul>
           <li>Deals 150% MAG damage to all enemies within 1 panel of the target (target included).</li>
           <li>Inflicts "Sting" on all enemies within 1 panel of the target (target included) for 1 turn.</li>
-          <li>Extends into itself (up to twice) per 1 turn passed since last usage.</li>
-          <li>Inflicts "Sting" for 1 extra turn (up to twice) per 1 turn passed since last usage.</li>
+          <li>Extends into itself once for every 1 full turn since its last use (maximum of two extensions).</li>
+          <li>Inflicts "Sting" for 1 extra turn for every 1 full turn since its last use (maximum of two extra turns).</li>
         </ul>
       </div>
 
@@ -939,7 +1115,7 @@
         <ul>
           <li>Launches a beam 5 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
           <li>Deals 400% MAG damage to all enemies caught in the line.</li>
-          <li>Inflicts "Sting" for 2 turns to all enemies caught in the line</li>
+          <li>Inflicts "Sting" for 2 turns to all enemies caught in the line.</li>
         </ul>
       </div>
 
@@ -1070,51 +1246,147 @@
       </div>
 
       <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Comrades with a Complex History</span>
-          <span class="ability-tag">Synergy · w/ Captain America</span>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Conviction and Compromise</span>
+              <span class="synergy-partner-tag">w/ Captain America</span>
+            </div>
+            <p class="synergy-desc">Tony has never stopped measuring himself against Steve Rogers, and has never quite believed he measures up. Together they built the Avengers into something the world could rely on — the futurist's vision married to the soldier's conviction — but when Tony saw catastrophe coming and chose control over conscience, it cost him his oldest friend and very nearly his soul. He would rather be hated and right than loved and wrong, and he has never forgiven himself for how thoroughly he once proved it.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Unibeam Dispersal</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Iron Man</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 5 turns · Range: 4</div>
+            <ul>
+              <li>Iron Man deals 400% MAG damage to all enemies within 4 panels of Captain America.</li>
+              <li>Inflicts "Sting" for 1 turn to all enemies damaged by Iron Man.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Complex History</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% MAG.</li>
+              <li>Deals 6% more damage to enemies that have dealt damage to Captain America within the past 2 turns.</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Iron Man can choose to target Captain America with Unibeam (range of 5 panels) to work together and change the targeting/range of the attack.</li>
-          <li>When targeting Captain America, Iron Man's Unibeam instead hits all enemies in a 4 panel radius of Captain America.</li>
-        </ul>
-      </div>
+      </details>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Bright Minds for a Brighter Future</span>
-          <span class="ability-tag">Synergy · w/ Spider-Man</span>
-        </div>
-        <ul>
-          <li>+5% MAG for both Champions.</li>
-          <li>Both Champions restore 2 STA when one defeats an enemy.</li>
-        </ul>
-      </div>
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">A Trust Rebuilt</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">In Peter Parker, Tony found the rarest thing of all — a mind that could keep pace with his own, wrapped around a far better heart. He wanted to hand the kid every advantage he'd never had: the armor, the resources, a seat at the table. Instead he spent that trust pushing Peter into the light, a decision that cost the young man nearly everything, and he has been quietly trying to make it right ever since — mentor to the one protégé whose good opinion he genuinely cares about keeping.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Founding Members of the Mightiest Heroes</span>
-          <span class="ability-tag">Synergy · w/ The Wasp</span>
-        </div>
-        <ul>
-          <li>Both Champions gain +3% SPD.</li>
-          <li>The Wasp gains +6% HEAL.</li>
-        </ul>
-      </div>
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Homing Web Bombs</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Homing Missiles</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies · Energy: 70 · Cooldown: 5 turns · Range: 12</div>
+            <ul>
+              <li>Deals 650% MAG damage to all enemies in range.</li>
+              <li>-60% ACC against enemies hiding behind obstacles.</li>
+              <li>Restores 10 EN per enemy damaged by this ability (up to 40).</li>
+              <li>Inflicts 20 stacks of "Web" for 2 turns to all enemies damaged by this ability.</li>
+            </ul>
+          </div>
 
-      <div class="ability ability--synergy">
-        <div class="ability-header">
-          <span class="ability-name">Begrudging Respect</span>
-          <span class="ability-tag">Synergy · w/ Batman</span>
         </div>
-        <ul>
-          <li>Iron Man's Armor Repair grants him "Stealth" for 2 turns.</li>
-          <li>Batman's Grapple Kick ignores elevation when targeting and grounds airborne targets.</li>
-        </ul>
-      </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Old Money, Old Friends</span>
+              <span class="synergy-partner-tag">w/ The Wasp</span>
+            </div>
+            <p class="synergy-desc">It began in Tony's own home, where Janet van Dyne gave a mismatched handful of strangers the name that would outlive them all — and he has never forgotten it. Two glittering socialites who traded the ballroom for the battlefield, he and Jan share the effortless rapport of old money and older friendship. And when Tony fell about as far as a man can fall, hers was among the few hands that never once stopped reaching for him.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Nest Protocol</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Gains 3 stacks of "Energy Barrier" for 1 turn upon being at or below 30% HP (once per battle).</li>
+              <li>Armor Repair cooldown is reduced by 2 turns upon being at or below 20% HP (once per battle).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batman.jpg" alt="Batman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Begrudging Respect</span>
+              <span class="synergy-partner-tag">w/ Batman</span>
+            </div>
+            <p class="synergy-desc">Tony can't resist needling him — the grim one, the man who won't smile, won't delegate, and won't admit he's the wealthiest person in whatever room he's brooding in. The truth is they're the same animal: two self-made minds who built every advantage they have out of nothing but genius and a refusal to quit, each dead certain his own way is the right one. Tony would never say it aloud, but there's no one whose judgment he measures his own against more often.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Scanning Sensors</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+15% EVA against grounding attacks while airborne (attacks which would nullify the airborne status).</li>
+              <li>Gains the ability to see and target enemies with "Stealth".</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
 
     </main>
   </div>
