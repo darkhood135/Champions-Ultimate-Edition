@@ -563,6 +563,7 @@
         <a href="#last-stand" class="toc-link toc-sub">Last Stand</a>
         <a href="#taunt-retribution" class="toc-link toc-sub">Taunt + Retribution Interaction</a>
         <a href="#overhealth" class="toc-link toc-sub">Overhealth</a>
+        <a href="#persistent" class="toc-link toc-sub">Persistent</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
       </nav>
     </div>
@@ -1320,6 +1321,12 @@
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Vulnerable</div></td>
+            <td>-40% DEF and RES.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Darkness</div></td>
             <td>All attacks received deal 10% more damage (calculated after defenses). Abilities with ranges have their range decreased by 2 panels (minimum of 1 panel).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1455,6 +1462,16 @@
       <h3 id="overhealth">Overhealth</h3>
       <p><strong>Overhealth</strong> is a temporary bonus layer of hit points applied on top of a character's HP pool. It can exceed maximum HP, and is only active for a set amount of time (specified by the kit).</p>
       <p><strong>Overhealth</strong> expires either when the duration is up or when it is depleted and cannot be healed like normal HP (unless a new application of overhealth occurs).</p>
+
+      <h3 id="persistent">Persistent</h3>
+      <p><strong>Persistent</strong> is a <em>Champion amplifier</em> applied kit-by-kit — it is not a property of any status effect itself. No effect is inherently persistent. Instead, a Champion's kit may declare that certain effects become persistent for them, while that same effect on any other Champion behaves normally. The granting kit line always states which effects it covers and under what scope — for example, Superman's <em>Unmatched Compassion</em>: <em>"'Taunt' buffs applied to self are persistent."</em></p>
+      <p>While an effect is persistent, it can only leave the Champion holding it under two conditions:</p>
+      <ul>
+        <li><strong>Its duration elapses.</strong> The effect expires naturally at the end of its stated turn count, exactly as a normal status effect would.</li>
+        <li><strong>The source that applied it cleanses or nullifies it.</strong> Only the Champion who applied the effect can remove it early — nobody else, on either side, is able to.</li>
+      </ul>
+      <p>This cuts in whichever direction the effect was applied. A persistent <em>application</em> a Champion places on themselves — such as Superman's self-applied Taunt — can still be cleared by that Champion, because they are the source; enemy cleanse and nullification cannot touch it. A persistent <em>infliction</em> placed on an enemy can only be lifted by the inflictor: the afflicted Champion cannot self-cleanse it, and neither can their allies.</p>
+      <p>Persistent <em>positive</em> effects additionally cannot be stolen: a <strong>Plunderer</strong>'s buff-stealing abilities pass over them entirely, as with Black Cat's <em>Breaking Trust</em> (<em>"Cannot steal persistent buffs."</em>).</p>
 
       <h3 id="elevation-bypass">Elevation Bypass</h3>
       <p><strong>Elevation Bypass</strong> is a passive modifier (referenced on Champion sheets as the tag <em>Elevation Bypass</em>) that removes restrictions related to elevation. It appears in two forms, and a Champion's kit will specify exactly which one applies:</p>

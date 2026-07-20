@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Punisher — Champions Ultimate Edition</title>
+<title>Black Cat — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #e8e4da; }
+  .back-link:hover { color: #34c793; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #e8e4da;
+    color: #34c793;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(232, 228, 218, 0.1);
-    color: #e8e4da;
+    background: rgba(52, 199, 147, 0.12);
+    color: #6fdcb4;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(232, 228, 218, 0.3);
+    border: 1px solid rgba(52, 199, 147, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #8b0000;
+    border-left: 3px solid #34c793;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #e8e4da;
+    border-color: #34c793;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #e8e4da;
+    color: #6fdcb4;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,31 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     The Punisher theme — skull white / gunmetal black / blood red.
-       Bone white = the skull, the icon, the identity.
-       Black & gunmetal = military ops, weapons, discipline.
-       Blood red = the cost of the mission; the ultimatum.
-     Abilities are cold and methodical — each color signals a different
-     weapon category or tactical approach, never showy. */
+     Black Cat theme — Noir / Platinum / Jade palette.
+       Noir black = the catsuit, the rooftop dark, the vanishing act.
+       Platinum silver = the hair, the fur trim, the claws catching light.
+       Jade green = the bad luck field — theft, misfortune, odds turning.
+       Garnet = the Bleed, the one moment the claws actually land.
+     Jade marks anything that takes something away (buffs, items,
+     resources); platinum marks what she is; noir marks where she goes. */
 
   .ability--leader {
-    background: #7a0000;          /* commanding blood red */
-    color: #fce8e8;
+    background: #dfe1e6;          /* platinum — the Hardy name, the legacy */
+    color: #17171b;
   }
 
   .ability--basic {
-    background: #1a1812;          /* near-black with bone undertone */
-    border: 1px solid #3a3226;
+    background: #141418;          /* near-black, cool tint — the quick swipe */
+    border: 1px solid #3a3b42;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #e8e4da; }
-  .ability--basic .ability-tag  { color: #a09880; }
-  .ability--basic .ability-meta { color: #a09880; }
+  .ability--basic .ability-name { color: #d8dae0; }
+  .ability--basic .ability-tag  { color: #9ea3ad; }
+  .ability--basic .ability-meta { color: #9ea3ad; }
 
-  .ability--special-1 { background: #3d3126; color: #f5ece0; } /* dark umber — heavy rifle */
-  .ability--special-2 { background: #28282f; color: #d8d5cc; } /* gunmetal — sustained fire */
-  .ability--special-3 { background: #5c3a1e; color: #fce8d0; } /* burnt brown — explosive */
-  .ability--special-4 { background: #1c2430; color: #c8d8e8; } /* cold navy — precision sniper */
+  .ability--special-1 { background: #1f8a5f; color: #eafaf2; } /* jade — Breaking Trust, the theft */
+  .ability--special-2 { background: #0f4a33; color: #a7e8c8; } /* deep emerald — Sleight of Hand */
+  .ability--special-3 { background: #c9ccd4; color: #1a1a1f; } /* platinum steel — Claws of the Cat */
+  .ability--special-4 { background: #2a2b31; color: #e8e9ed; } /* charcoal noir — Clean Getaway */
 
   .ability--reserve {
     background: #1c1d20;
@@ -458,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #5a5a62; } /* gunmetal */
-  .ability--reserve-passive   { border-left-color: #a09880; } /* bone muted */
-  .ability--reserve-ultimatum { border-left-color: #8b0000; } /* blood red */
+  .ability--reserve-special   { border-left-color: #1f8a5f; } /* jade */
+  .ability--reserve-passive   { border-left-color: #c9ccd4; } /* platinum */
+  .ability--reserve-ultimatum { border-left-color: #6d1b32; } /* garnet */
 
   .ability--core-passive {
-    background: #1e1e1e;          /* near-black — base military nature */
-    color: #c8c5bc;
+    background: #131316;          /* deepest noir — the master thief herself */
+    color: #d8dae0;
   }
 
   .ability--passive {
-    background: #e8e4da;          /* skull bone — the icon */
-    color: #1a1a18;
+    background: #dfe1e6;          /* platinum — inherent skill, earned not given */
+    color: #1a1a1f;
   }
 
   .ability--ultimatum {
-    background: #6b0000;          /* deep blood crimson — maximum force */
-    color: #ffe8e8;
+    background: #6d1b32;          /* garnet — Feline Fury, claws and Bleed */
+    color: #ffd9e4;
   }
 
   .ability--synergy {
-    background: #2a4055;          /* dark tactical blue — pragmatic alliance */
-    color: #b8d4e4;
+    background: #dcdee4;          /* neutral platinum — connection */
+    color: #1a1a1f;
   }
 
   .ability--artifact {
@@ -492,7 +493,6 @@
     color: #1d0a3b;
   }
 
-  /* ====================== COSTUMES SECTION ====================== */
   /* ====================== SYNERGY BLOCKS (revamped) ======================
      Collapsible bond cards. The summary row shows the bond name, partner,
      and a short description; expanding reveals the abilities the bond grants.
@@ -514,7 +514,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #6b9dc4; }
+  .synergy-block[open] { border-color: #4f8fb8; }
 
   .synergy-summary {
     list-style: none;
@@ -526,7 +526,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(107, 157, 196, 0.04); }
+  .synergy-summary:hover { background: rgba(52, 199, 147, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -539,7 +539,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #6b9dc4; }
+  .synergy-block[open] .synergy-icon { border-color: #34c793; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -553,7 +553,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #9dc4e0;
+    color: #6fdcb4;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -576,7 +576,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #6b9dc4; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #34c793; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -642,7 +642,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #6b9dc4; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #34c793; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -652,24 +652,25 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(107, 157, 196, 0.1);
-    border: 1px solid rgba(107, 157, 196, 0.3);
-    color: #9dc4e0;
+    background: rgba(52, 199, 147, 0.1);
+    border: 1px solid rgba(52, 199, 147, 0.3);
+    color: #b6ecd6;
   }
-  .syn-cost-chip .who { color: #9dc4e0; font-weight: 700; }
+  .syn-cost-chip .who { color: #6fdcb4; font-weight: 700; }
 
-  /* Type accents */
-  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
-  .syn-ability--dynamic-special    { border-left-color: #6b9dc4; }
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(107, 157, 196, 0.15); color: #8fd0ee; border: 1px solid rgba(107, 157, 196, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
-  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
-  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
-  .syn-ability--new-special        { border-left-color: #2c5fcc; }
-  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+  /* Type accents — noir/platinum/jade, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #1f8a5f; } /* jade */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(31, 138, 95, 0.18); color: #6fdcb4; border: 1px solid rgba(31, 138, 95, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #34c793; } /* bright jade */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(52, 199, 147, 0.15); color: #8fe8c6; border: 1px solid rgba(52, 199, 147, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c9ccd4; } /* platinum */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(201, 204, 212, 0.13); color: #d8dae0; border: 1px solid rgba(201, 204, 212, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #a8284d; } /* garnet */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(168, 40, 77, 0.18); color: #f08fab; border: 1px solid rgba(168, 40, 77, 0.45); }
+  .syn-ability--new-special        { border-left-color: #5a5c66; } /* gunmetal */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(90, 92, 102, 0.25); color: #a9adb8; border: 1px solid rgba(90, 92, 102, 0.5); }
 
+  /* ====================== COSTUMES SECTION ====================== */
   .costumes-section {
     margin-top: 18px;
     background: #14161a;
@@ -899,17 +900,17 @@
   <div class="hero-bar">
     <div class="character-image">
       <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+      <img src="../images/champion-images/black-cat.jpg" alt="Black Cat">
     </div>
 
     <div class="identity">
-      <h1 class="name">The Punisher</h1>
-      <p class="subtitle">Francis Castle</p>
-      <span class="role-badge">Striker</span>
-      <p class="description">A decorated combat veteran whose wife and children were slaughtered before his eyes, Frank Castle wages a one-man war of retribution against the guilty as the Punisher.</p>
-      <p class="description">The man Frank Castle used to be died in a park in New York alongside his family, and what walked away has been fighting a war ever since. A devoted soldier and father, Castle came home from combat only to watch his wife and two children gunned down before him, casualties of a mob execution they were never meant to witness — and when the courts and the corrupt let the killers walk, he decided the guilty would answer to him instead. He is not a hero, and he has never once pretended to be. Where other men in masks fight to save and to protect, the Punisher fights to punish; his war is grief with a trigger, a cold and total certainty that some people forfeit the right to draw breath and that he is the one left to collect. It is a campaign without victory or end — the criminal world is bottomless — and Frank knows it, because the war was never truly about winning. It is the only thing tethering a dead man to the earth. Yet even in the depths of it he holds one absolute line: the innocent are never his to harm, and he would die before he crossed it.</p>
-      <p class="description">He does all of this without a shred of superhuman power. What Frank Castle has instead is the training of an elite soldier honed to a razor's edge and a discipline that borders on the inhuman — a master of every firearm and blade, an expert in tactics, demolitions, and the patient cruelty of guerrilla war. He plans for everything, breaks under nothing, and drives a body held together by scar tissue and sheer will through wounds that would stop any ordinary man. It is exactly that ordinariness that makes him terrifying: no serum, no birthright, just a man who turned a lifetime of soldiering and a bottomless well of grief into the single most relentless weapon a criminal will ever face. The guilty do not fear the Punisher because he is stronger than them. They fear him because he is already dead, he cannot be reasoned with, and he is coming.</p>
-      <p class="quote">"These men believe they are agents of death. The terrorists think that they bring war. But they don't know how long I've spent in the company of death and war. They don't know... death and war are my allies."</p>
+      <h1 class="name">Black Cat</h1>
+      <p class="subtitle">Felicia Hardy</p>
+      <span class="role-badge">Plunderer</span>
+      <p class="description">The daughter of a legendary cat burglar who set out to surpass him, Felicia Hardy prowls the rooftops as the Black Cat — a thief of extraordinary skill who answers to no rules but her own.</p>
+      <p class="description">Felicia Hardy didn't fall into the life; she chose it, and then she trained until she was better at it than the man who inspired her. Raised idolizing a father whose reputation as a master thief outlived his freedom, she set out to eclipse him — and after a violation in her youth left her swearing she would never again be at anyone's mercy, she built herself into someone who never would be. What drives her has never really been the money. It's the rush: the sealed vault, the impossible rooftop, the thrill of taking something everyone swore couldn't be taken. That appetite has landed her on every side of the line at one point or another — thief, rival, reluctant ally, and once or twice something considerably worse — and she is entirely unbothered by the inconsistency, because she keeps to a code of her own making rather than anyone else's. Beneath the flirtation and the swagger is real warmth and a fierce loyalty to the very few people she lets close, chief among them a certain wall-crawler she fell for in the mask long before she had any interest in the man beneath it — a tangle neither of them has ever entirely worked out.</p>
+      <p class="description">She does it all on skill she earned rather than luck she was handed. Felicia is an Olympic-caliber acrobat and a formidable martial artist, a peerless infiltrator who can defeat any lock, alarm, or security system ever devised, moving through a guarded building like she was never there at all. Retractable claws let her scale sheer walls and tear through steel, a grapple line carries her across the skyline, and enhanced reflexes and night vision make the dark her home ground. Most dangerous of all is the misfortune that trails in her wake — a field of pure bad luck she can turn on an enemy, so that weapons jam, footing gives way, and the odds quietly stop being theirs. Whether the Black Cat is a hero, a criminal, or something in between depends entirely on the night and on what's in the safe — and she wouldn't have it any other way.</p>
+      <p class="quote">"I'm not a hero. I'm a thief. Born a thief. Raised a thief. Will die a thief."</p>
     </div>
   </div>
 
@@ -924,25 +925,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,200</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">230</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">370</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">360</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">130</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">90</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">90</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">30%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">105</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">5%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">15%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">13%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
         <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">1%</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
       </div>
 
       <!-- Links -->
@@ -952,10 +953,10 @@
           <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
           <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
-          <a href="../links/firearm-expert.html" class="pill">Firearm Expert</a>
+          <a href="../links/grand-heist.html" class="pill">Grand Heist</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/heir-to-the-mantle.html" class="pill">Heir to the Mantle</a>
           <a href="../links/street-level.html" class="pill">Street Level</a>
-
         </div>
       </div>
 
@@ -963,18 +964,25 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Buff Steal</span>
+          <span class="pill">Vulnerability</span>
           <span class="pill">Damage Over Time</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">STA Drain</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
-          <span class="pill">CRIT Up</span>
-          <span class="pill">DEF Up</span>
-          <span class="pill">RES Up</span>
-          <span class="pill">Healing</span>
-          <span class="pill">Multi-Hit</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">Stealth Application</span>
+          <span class="pill">Affliction Boost</span>
           <span class="pill">Area of Effect</span>
-          <span class="pill">Resource Refill</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Item Steal</span>
           <span class="pill">ULT Generation</span>
-          <span class="pill">Cooldown Reduction</span>
+          <span class="pill">Resource Refill</span>
         </div>
       </div>
 
@@ -983,57 +991,36 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="captain-america.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Captain America</strong>
-              <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Unrequited Respect</span>
-            </div>
-          </a>
-
           <a href="spider-man.html" class="partner-card">
             <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
               <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
             </div>
             <div class="partner-tooltip">
               <strong>Spider-Man</strong>
               <span class="real-name">Peter Parker</span>
-              <span class="synergy-name">Uneasy Alliance</span>
+              <span class="synergy-name">Never Quite Caught</span>
             </div>
           </a>
 
-          <a href="wolverine.html" class="partner-card">
+          <a href="batman.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+              <img src="../images/champion-images/batman.jpg" alt="Batman">
             </div>
             <div class="partner-tooltip">
-              <strong>Wolverine</strong>
-              <span class="real-name">James "Logan" Howlett</span>
-              <span class="synergy-name">Bad Blood</span>
+              <strong>Batman</strong>
+              <span class="real-name">Bruce Wayne</span>
+              <span class="synergy-name">A Familiar Silhouette</span>
             </div>
           </a>
 
-          <a href="deadpool.html" class="partner-card">
+          <a href="the-punisher.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/deadpool.jpg" alt="Deadpool">
+              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
             </div>
             <div class="partner-tooltip">
-              <strong>Deadpool</strong>
-              <span class="real-name">Wade Wilson</span>
-              <span class="synergy-name">Shoot Shoot Pow Pow</span>
-            </div>
-          </a>
-
-          <a href="black-cat.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/black-cat.jpg" alt="Black Cat">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Black Cat</strong>
-              <span class="real-name">Felicia Hardy</span>
+              <strong>The Punisher</strong>
+              <span class="real-name">Francis Castle</span>
               <span class="synergy-name">Nothing Worth the Bullet</span>
             </div>
           </a>
@@ -1054,11 +1041,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Flag to Cleanse the Filth</span>
+          <span class="ability-name">The Hardy Legacy</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Anti-Hero" allies gain +18% MAG in battle.</li>
+          <li>"Grand Heist" allies gain +20% ATK and MAG in battle.</li>
         </ul>
       </div>
 
@@ -1066,14 +1053,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Slashing Blade</span>
+          <span class="ability-name">Quick Swipes</span>
           <span class="ability-tag">Basic</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 2</div>
         <ul>
           <li>Deals 160% ATK damage to the target.</li>
-          <li>Inflicts "Bleed" for 1 turn to the target.</li>
-          <li>+10% MAG for 1 turn.</li>
+          <li>30% chance to inflict "Bleed" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -1082,75 +1068,81 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Deliverance</span>
+          <span class="ability-name">Breaking Trust</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 7</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 30 · Cooldown: 1 turn · Range: 1</div>
         <ul>
-          <li>Deals 600% MAG damage to the target.</li>
-          <li>Deals 80% less MAG damage for each additional panel of distance from the target past 1 (80% from the initial 600% subtracted per panel, cannot go below 120%).</li>
-          <li>20% increased CRIT RATE for this ability.</li>
-          <li>Restores 7 STA.</li>
-          <li>Restores 1 less STA for each additional panel of distance from the target past 1 (1 from the initial 7 subtracted per panel, cannot go below 1).</li>
+          <li>Steals 2 buffs (one stack at a time) from the target.</li>
+          <li>Steals a random item from the target.</li>
+          <li>Prioritizes any buffs that buff ATK (strongest first).</li>
+          <li>Cannot steal persistent buffs.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Adjudication</span>
+          <span class="ability-name">Sleight of Hand</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 8</div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Deals 90% MAG damage to the target 7 times.</li>
-          <li>10% increased MAG for this ability.</li>
+          <li>Steals a buff (one stack at a time) from the target.</li>
+          <li>Steals an additional 2 buffs (one stack at a time) from the target if self has "Stealth".</li>
+          <li>Steals a random item from the target.</li>
+          <li>Steals an additional item from the target if self has "Stealth".</li>
+          <li>Prioritizes any buffs that buff ATK (strongest first).</li>
+          <li>Cannot steal persistent buffs.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Grenade Launcher</span>
+          <span class="ability-name">Claws of the Cat</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Panel · Energy: 60 · Cooldown: 4 turns · Range: 6</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 2</div>
         <ul>
-          <li>Causes an explosion in a 1-panel radius around the targeted panel.</li>
-          <li>All enemies in the explosion take 600% MAG damage.</li>
+          <li>Deals 500% ATK damage to the target.</li>
+          <li>70% chance to inflict "Bleed" for 2 turns to the target, rolls twice.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Sniper</span>
+          <span class="ability-name">Clean Getaway</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 4 turns · Range: 18</div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 30 · Cooldown: 4 turns · Range: 12</div>
         <ul>
-          <li>Deals 800% MAG damage to the target.</li>
-          <li>+20% CRIT RATE for this ability if it is used at least 5 panels away from the target.</li>
+          <li>Relocates self to the targeted panel.</li>
+          <li>Gains "Stealth" for 2 turns.</li>
+          <li>Restores 2 STA.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Pistol</span>
+          <span class="ability-name">Catcall</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 8</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 30 · Cooldown: 3 turns · Range: 3</div>
         <ul>
-          <li>Deals 120% MAG damage to the target 3 times.</li>
+          <li>Inflicts "Vulnerable" for 2 turns to the targeted ally.</li>
+          <li>Self gains 2 stacks of "Might" for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Tactical Reload</span>
+          <span class="ability-name">Whip Slash</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 2 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Ranged · Target: All Champions in 3-Wide Line · Energy: 40 · Cooldown: 3 turns · Range: 2 panels (chosen direction)</div>
         <ul>
-          <li>Reduces the cooldown of the ability with the greatest cooldown (on ability use) by 1 turn.</li>
-          <li>Restores 20 EN and 2 STA.</li>
+          <li>Slashes all allies and enemies 2 panels ahead and 3 panels wide in a chosen direction.</li>
+          <li>Deals 280% ATK damage to all allies and enemies slashed.</li>
+          <li>40% chance to steal a random buff from any slashed enemy or ally.</li>
         </ul>
       </div>
 
@@ -1159,59 +1151,59 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Duty to Punish</span>
+          <span class="ability-name">The Master Thief</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>Restores 10 EN when landing a critical hit (once per ability per turn).</li>
-          <li>+8% MAG against "Villain" enemies.</li>
-          <li>Gains 1% ULT each time an attack lands (once per ability per turn).</li>
+          <li>+2% SPD for every stolen buff currently active on self.</li>
+          <li>Ignores elevation when moving.</li>
+          <li>+25% EVA while having "Stealth".</li>
+          <li>Gains 5% ULT every time a buff is stolen (self only, once per ability).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Executioner to Avenge The Innocent</span>
+          <span class="ability-name">Silent Step</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Restores 10 EN and 3 STA upon defeating an enemy.</li>
-          <li>Restores 7% HP upon defeating an enemy if below 35% HP.</li>
+          <li>Gains "Stealth" for 2 turns whenever picking up an item (excludes stealing).</li>
+          <li>Gains "Stealth" for 1 turn whenever stealing an item.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Knife Tactics</span>
+          <span class="ability-name">Jewels and Relics</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>+30% ATK.</li>
-          <li>Slashing Blade inflicts "Bleed" for an additional 2 turns.</li>
-          <li>+10% ATK and MAG when targeting an enemy inflicted with "Bleed".</li>
+          <li>+10% to stealing chances.</li>
+          <li>When retrieving a random item from a container of any kind, rolls again for a second item.</li>
+          <li>+7% EVA.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Quick Thinking of a Soldier</span>
+          <span class="ability-name">Sharpened Claws</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>All special abilities deal 50% extra damage against obstacles.</li>
-          <li>+50% DEF and RES against throwable items.</li>
-          <li>Restores 2 STA and 5 EN when within 2 panels of an enemy (once per turn).</li>
+          <li>+8% ATK.</li>
+          <li>+10% to infliction chances (does not apply to stealing).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Extended Magazines</span>
+          <span class="ability-name">Blunt Paws</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Adjudication deals an additional 2 instances of damage.</li>
-          <li>Pistol deals an additional 1 instance of damage while below 50% HP.</li>
+          <li>No longer inflicts "Bleed" with any attacks.</li>
+          <li>Deals an additional 70% ATK damage instead of any bleed instances (maintaining the chances of the original inflictions).</li>
         </ul>
       </div>
 
@@ -1220,63 +1212,33 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Expanded Arsenal</span>
+          <span class="ability-name">Feline Fury</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 3 · Cost: 100% ULT</div>
         <ul>
-          <li>Reduces all cooldowns by 2 turns.</li>
-          <li>+25% MAG for 2 turns.</li>
+          <li>Deals 850% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" to the target for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Rocket Launcher</span>
+          <span class="ability-name">Predatory Hiss</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Panel · Range: 10 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Range: 5 · Cost: 100% ULT</div>
         <ul>
-          <li>Causes an explosion in a 1-panel radius around the targeted panel.</li>
-          <li>All enemies in the explosion take 1200% MAG damage.</li>
+          <li>Inflicts "Vulnerable" to the target for 3 turns.</li>
+          <li>Steals 50 EN and 4 STA from the target.</li>
         </ul>
       </div>
 
-      <!-- SYNERGIES -->
       <!-- SYNERGIES (revamped collapsible format) -->
       <div class="section-divider">Synergies</div>
-      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
 
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Unrequited Respect</span>
-              <span class="synergy-partner-tag">w/ Captain America</span>
-            </div>
-            <p class="synergy-desc">To Frank Castle, Captain America is the last thing left untarnished — the ideal he still believes in, even knowing he betrayed it long ago. When Cap once beat him bloody for the men he'd gunned down, Frank absorbed every blow and never raised a hand in return, because there is no one alive he reveres more, and no one whose judgment cuts deeper. He knows Cap will never sanction his war, and he wages it anyway — quietly mourning the good soldier he might have stayed.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-          <div class="syn-ability syn-ability--new-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Flash Grenade</span>
-              <span class="syn-type-badge">New Special</span>
-            </div>
-            <div class="syn-override">Added on top of 4-special limit.</div>
-            <div class="syn-ability-meta">Type: Ranged · Target: One Panel · Energy: 40 · Cooldown: 3 turns · Range: 9</div>
-            <ul>
-              <li>Causes an explosion in a 3-panel radius around the targeted panel after 1 turn.</li>
-              <li>All enemies in the explosion take 100% MAG damage and are inflicted with "Stun" for 1 turn.</li>
-            </ul>
-          </div>
-        </div>
-      </details>
-
+      <!-- 1 · NEVER QUITE CAUGHT — Spider-Man, two grants (Dynamic Special + Upgraded Special) -->
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
@@ -1284,103 +1246,109 @@
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Uneasy Alliance</span>
+              <span class="synergy-bond-name">Never Quite Caught</span>
               <span class="synergy-partner-tag">w/ Spider-Man</span>
             </div>
-            <p class="synergy-desc">Frank's road with Spider-Man began with the wall-crawler in his crosshairs, set on the boy by a lie that painted him a killer — and though he learned the truth long ago, the two have never once stood on the same ground. Frank looks at Peter and sees a good kid whose mercy will get someone killed one day; and yet, when their wars overlap, he'll fight at his side, because for all his contempt for that soft heart, Spider-Man is one of the few Frank will always count among the innocent he'd never turn his guns on.</p>
+            <p class="synergy-desc">Felicia fell for the mask long before she had any use for the man beneath it — the thrill of a partner who could match her stride for stride across a rooftop, who traded quips while the alarms screamed, who made the whole dangerous game feel like it had been built for the two of them. Learning his name spoiled that, and neither has ever fully recovered the balance since; they've been lovers, partners, rivals, and for one bitter stretch something considerably worse. Still she keeps circling back. He's the one person who ever tempted her to be better than she is, and the one she has never stopped trying to tempt in the other direction.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Clash of Motivations</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Spider-Man</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Black Cat</span> · 10 EN · 1 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Cooldown: 6 turns · Range: 3</div>
+            <ul>
+              <li>Spider-Man deals 480% ATK damage to the target.</li>
+              <li>Black Cat deals 120% ATK damage to the target.</li>
+              <li>Black Cat steals 3 random buffs (one stack at a time) and one random item from the target.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Whip of Web</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Whip Slash</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Champions in 3-Wide Line · Energy: 40 · Cooldown: 3 turns · Range: 2 panels (chosen direction)</div>
+            <ul>
+              <li>Slashes all allies and enemies 2 panels ahead and 3 panels wide in a chosen direction.</li>
+              <li>Deals 100% ATK damage to all allies and enemies slashed.</li>
+              <li>Inflicts 20 stacks of "Web" for 2 turns to all allies and enemies slashed.</li>
+              <li>40% chance to steal a random buff from any slashed enemy or ally.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- 2 · A FAMILIAR SILHOUETTE — Batman, two grants (New Passive + Upgraded Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batman.jpg" alt="Batman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">A Familiar Silhouette</span>
+              <span class="synergy-partner-tag">w/ Batman</span>
+            </div>
+            <p class="synergy-desc">Felicia took one look at the Dark Knight and saw the most interesting challenge of her career — a man with no weakness she can find, nothing she can charm, and a city positively full of things she'd like to steal. Batman, to her considerable irritation, was not remotely impressed. He has met her kind before, knows every step of this particular dance by heart, and long ago ran out of patience for cat burglars who think a smile constitutes an alibi. She'll keep at it regardless. It's the first time in years the game has been genuinely difficult, and she has no intention of walking away from that.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Innocence on the Line</span>
+              <span class="syn-ability-name">Prowling in the Dark</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>+10% MAG for 1 turn whenever a "Hero" ally receives damage.</li>
-              <li>Tactical Reload cooldown is reduced by 1 turn when 2 or more special abilities are used within the same turn (Tactical Reload excluded).</li>
+              <li>+5% ATK while having "Stealth".</li>
+              <li>Consumes half the STA while having "Stealth".</li>
+              <li>Using Catcall on Batman does not inflict "Vulnerable".</li>
             </ul>
           </div>
-        </div>
-      </details>
 
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Bad Blood</span>
-              <span class="synergy-partner-tag">w/ Wolverine</span>
-            </div>
-            <p class="synergy-desc">Frank and Logan are built for the same ugly work — the killing the bright-colored heroes won't dirty their hands with — and it has never once made them allies. Two lethal, stubborn men with nothing but contempt for each other's way of doing it, they've traded wounds as often as gunfire, and when they end up aimed at the same target it's by grim accident, not trust. Leave them in a room too long and the next bodies on the floor may well be each other's.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Final Deliverance</span>
+              <span class="syn-ability-name">Perfect Getaway</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Deliverance</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 7</div>
+            <div class="syn-override">Overrides <strong>Clean Getaway</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Energy: 30 · Cooldown: 4 turns · Range: 12</div>
             <ul>
-              <li>Deals 700% MAG damage to the target.</li>
-              <li>Deals 100% less MAG damage for each additional panel of distance from the target past 1 (100% from the initial 700% subtracted per panel, cannot go below 100%).</li>
-              <li>25% increased CRIT RATE for this ability.</li>
-              <li>Restores 7 STA.</li>
-              <li>Restores 1 less STA for each additional panel of distance from the target past 1 (1 from the initial 7 subtracted per panel, cannot go below 1).</li>
-              <li>Inflicts "Deep Wound" for 2 turns to the target if the target is within 2 panels.</li>
+              <li>Relocates self to the targeted panel.</li>
+              <li>Gains 2 stacks of "Stealth" for 2 turns.</li>
+              <li>Restores 2 STA and 10 EN.</li>
             </ul>
           </div>
+
         </div>
       </details>
 
+      <!-- 3 · NOTHING WORTH THE BULLET — The Punisher, one grant (New Passive) -->
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/deadpool.jpg" alt="Deadpool">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Shoot Shoot Pow Pow</span>
-              <span class="synergy-partner-tag">w/ Deadpool</span>
-            </div>
-            <p class="synergy-desc">Everything Frank Castle's war is not, Deadpool is — loud, laughing, treating slaughter like the punchline to a joke Frank will never find funny. He's got no patience for the merc's endless mouth and less for a man who cheapens death by grinning through it; but when the shooting starts, the two of them somehow end up back to back anyway, two of the deadliest trigger fingers alive emptying magazines in the same direction — Frank grinding his teeth the whole time.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-          <div class="syn-ability syn-ability--upgraded-ultimatum">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Endless Arsenal</span>
-              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
-            </div>
-            <div class="syn-override">Overrides <strong>Expanded Arsenal</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
-            <ul>
-              <li>Gains "Overdrive" for 1 turn.</li>
-              <li>+25% MAG for 2 turns.</li>
-              <li>Reduces all cooldowns by 2 turns after 1 turn has passed.</li>
-            </ul>
-          </div>
-        </div>
-      </details>
-
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/black-cat.jpg" alt="Black Cat">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
               <span class="synergy-bond-name">Nothing Worth the Bullet</span>
-              <span class="synergy-partner-tag">w/ Black Cat</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
             </div>
-            <p class="synergy-desc">Frank keeps a list, and Felicia Hardy has never once been on it. She's a thief, and a very good one, but in all her years at it she has never taken a life — and Frank Castle's war has never been with people who lift jewelry off men who can afford to lose it. He knows her face, her haunts, and roughly what she's worth. He simply has better uses for the ammunition. There's even something close to approval buried in it somewhere, that she built a career in that world and kept her hands clean. She knows better than to test it, and he would have no trouble at all adding a name.</p>
+            <p class="synergy-desc">Felicia is one of the very few in the criminal world who understands precisely what Frank Castle is, which is exactly why she gives him the widest berth she can manage. He knows who she is, too, and has never once come for her — because for all she has taken over the years, she has never put a body in the ground, and Frank does not waste bullets on thieves. It's an understanding rather than an alliance: she keeps her hands clean and stays well out of his way, he tolerates her existence, and both of them know exactly what happens the day she crosses that line.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
@@ -1392,14 +1360,13 @@
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>+8% DEF and RES against ranged attacks.</li>
-              <li>20% chance to counter received ranged attacks with 100% ATK damage.</li>
+              <li>+8% EVA against ranged attacks.</li>
+              <li>20% chance to counter received melee attacks with 100% ATK damage.</li>
             </ul>
           </div>
 
         </div>
       </details>
-
     </main>
   </div>
 
@@ -1413,10 +1380,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/the-punisher.jpg" alt="Modern">
+          <img src="../images/champion-images/black-cat.jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Modern</div>
+          <div class="costume-name">Classic</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1424,22 +1391,44 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/the-punisher(classic).jpg" alt="Classic">
+          <img src="../images/champion-images/costumes/black-cat(rivals).jpg" alt="Rivals">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
-          <div class="costume-effect-label">Modified Stock — +4% MAG</div>
+          <div class="costume-name">Rivals</div>
+          <div class="costume-effect-label">Crossed My Path — +3% SPD and ATK</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/the-punisher(franken-castle).jpg" alt="Franken-Castle">
+          <img src="../images/champion-images/costumes/black-cat(spider).jpg" alt="Spider">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Franken-Castle</div>
-          <div class="costume-effect-label">Undead — +4% MAX HP and +2% REGEN</div>
+          <div class="costume-name">Spider</div>
+          <div class="costume-effect-label">Masked Maniacs — +10% CRIT RATE when within 2 panels of Spider-Man</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/black-cat(luxury).jpg" alt="Luxury">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Luxury</div>
+          <div class="costume-effect-label">Riches Galore — +5% to stealing and infliction chances</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/black-cat(swimsuit).jpg" alt="Swimsuit">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Swimsuit</div>
+          <div class="costume-effect-label">Fun in the Sun — +5% EVA and +2% SPD</div>
           <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
@@ -1459,50 +1448,28 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.0.2</span>
+          <span class="version">v1.0.1</span>
           <span class="date">July 11, 2026</span>
         </div>
         <ul class="changes">
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Synergies converted to the new bond system. The previous flat stat-card synergies were rebuilt as typed bond grants: <em>Unrequited Respect</em> (w/ Captain America) now grants the New Special <em>Flash Grenade</em>; <em>Uneasy Alliance</em> (w/ Spider-Man) grants the New Passive <em>Innocence on the Line</em>; <em>Bad Blood</em> (w/ Wolverine) grants the Upgraded Special <em>Final Deliverance</em>; <em>Shoot Shoot Pow Pow</em> (w/ Deadpool) grants the Upgraded ULTIMATUM <em>Endless Arsenal</em>.</span>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>The Master Thief</em> (Core Passive) — ULT gain per stolen buff reduced <strong>6% → 5%</strong> and limited to <strong>once per ability</strong> (previously triggered on every individual buff stolen).</span>
           </li>
-        </ul>
-        <p class="rationale">Documentation/transparency entry for the roster-wide synergy revamp. Frank's bonds were migrated from the old one-line stat cards to the new typed-grant format (New Special / New Passive / Upgraded Special / Upgraded ULTIMATUM) at values consistent with the new framework. The earlier v1.0.1 note describing an "Anger to Captain America" buff on <em>Unrequited Respect</em> reflects the pre-revamp synergy and no longer matches the current bond. His base kit is unchanged.</p>
-      </div>
-
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">May 30, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>MAX STA</em> — increased from 7 to 8.</span>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>The Master Thief</em> (Core Passive) — Stealth evasion bonus reduced <strong>+35% → +25% EVA</strong>.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>MAX HP reduced <strong>8,600 → 8,000</strong>. DEF reduced <strong>113 → 110</strong>.</span>
           </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span><em>Deliverance</em> — base damage increased from 500% to 600% MAG; falloff floor raised to a minimum of 120% MAG; CRIT RATE bonus increased from +10% to +20%; added STA restore on use (up to 7 STA at range 1, decreasing by 1 per additional panel of distance, minimum 1).</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Knife Tactics</em> — Slashing Blade Bleed extension increased from +1 to +2 turns; new effect: +10% ATK and MAG when targeting a Bleed-afflicted enemy.</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Tactical Reload</em> — now also restores 2 STA on use.</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Quick Thinking of a Soldier</em> — obstacle damage bonus increased from 30% to 50%; new effect: +50% DEF and RES against throwable items; proximity STA restore increased from 1 to 2 per trigger; proximity now also restores 5 EN per trigger.</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Unrequited Respect</em> (synergy) — Anger duration granted to Captain America on enemy defeat increased from 1 to 2 turns.</span>
+            <span><em>Whip Slash</em> and <em>Whip of Web</em> — targeting line rewritten to match roster convention: "Target: All Champions in 3-Wide Line · Range: 2 panels (chosen direction)" (previously the non-standard "Range: 2x3"). No functional change.</span>
           </li>
         </ul>
-        <p class="rationale">Frank's previous version suffered from extreme STA constraints and poor cohesion between his melee opener and ranged kit. Deliverance now fully supports the intended Slashing Blade combo — point-blank STA restore lets Frank charge in, knife, blast, and reposition in a single engagement. Knife Tactics' Bleed interaction makes the knife opener meaningful for his MAG output over the following turns, resolving the melee-in-a-ranged-kit tension. Quick Thinking's EN and STA components make aggressive close-range play a viable sustained strategy. The MAX STA increase and Tactical Reload's STA addition collectively improve his movement budget without compromising the long-range Sniper archetype.</p>
+        <p class="rationale">Black Cat's theft engine was charging her ULTIMATUM far faster than intended. At 6% per individual buff stolen, a single turn of Sleight of Hand under "Stealth" (three buffs) plus Breaking Trust (two buffs) generated roughly 30% ULT, putting Feline Fury's 850% ATK payoff on a three-to-four turn cycle — several times the rate of comparable trigger-based ULT generation elsewhere in the roster. Moving to 5% once per ability keeps stealing as her charge source without letting multi-buff abilities multiply it. The durability trim addresses a Plunderer — explicitly the risky, abrasive, selfish role — sitting above every other agile street-level Champion in HP while also carrying a very large conditional dodge; at 8,000 HP with a 25% Stealth bonus she is still slippery, but her greed now carries real exposure. DEF was also rounded to match roster convention, and the Whip Slash targeting wording was standardised.</p>
       </div>
 
       <div class="changelog-entry release">
@@ -1513,7 +1480,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>The Punisher enters the roster.</span>
+            <span>Black Cat enters the roster.</span>
           </li>
         </ul>
       </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heir to the Mantle — Champions Ultimate Edition</title>
+<title>Grand Heist — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #efb73f; }
+  .back-link:hover { color: #ffc06a; }
 
   .category-badge {
     display: inline-block;
@@ -169,9 +169,18 @@
     text-transform: uppercase;
     padding: 4px 7px;
     border-radius: 4px;
-    color: #ffd680;
     z-index: 2;
   }
+
+  .role-badge[data-role="Striker"]   { color: #ff8585; }
+  .role-badge[data-role="Blaster"]   { color: #f0894a; }
+  .role-badge[data-role="Defender"]  { color: #6bb4ff; }
+  .role-badge[data-role="Healer"]    { color: #5fd189; }
+  .role-badge[data-role="Booster"]   { color: #c084fc; }
+  .role-badge[data-role="Breaker"]   { color: #ffd680; }
+  .role-badge[data-role="Summoner"]  { color: #5fe0c8; }
+  .role-badge[data-role="Berserker"] { color: #ff5757; }
+  .role-badge[data-role="Plunderer"] { color: #ff7eb3; }
 
   .champion-name {
     position: absolute;
@@ -297,7 +306,7 @@
   .team-slot {
     background: rgba(239, 183, 63, 0.1);
     border: 1px solid rgba(239, 183, 63, 0.35);
-    color: #ffd680;
+    color: #ffc06a;
     font-size: 12px;
     font-weight: 600;
     padding: 4px 10px;
@@ -305,9 +314,9 @@
   }
 
   .team-slot.leader {
-    background: rgba(255, 91, 91, 0.12);
-    border-color: rgba(255, 91, 91, 0.45);
-    color: #ff8585;
+    background: rgba(239, 183, 63, 0.1);
+    border-color: rgba(239, 183, 63, 0.45);
+    color: #ffd680;
   }
 
   .team-notes {
@@ -342,49 +351,20 @@
 
 <header class="page-header">
   <div class="header-inner">
-    <a href="../links.html" class="back-link">← Back to Links</a>
+    <a href="../links.html" class="back-link">&larr; Back to Links</a>
     <span class="category-badge">Mindset</span>
-    <h1 class="page-title">Heir to the Mantle</h1>
-    <p class="page-desc">Champions who have inherited a hero's identity from someone who came before — whether by choice, circumstance or tragedy. They carry the weight of a name that isn't quite theirs yet, fighting to live up to it while quietly forging it into something new. Heirs tend to be younger, less polished and more uncertain than the originals, but they bring fresh perspective and a refusal to be defined only by their predecessor.</p>
+    <h1 class="page-title">Grand Heist</h1>
+    <p class="page-desc">The Mindset link for Champions who take what isn&rsquo;t theirs &mdash; and make an art of it. Grand Heist covers cat burglars, master thieves, and confidence artists who approach a fight the same way they approach a vault: study it, find the one weakness worth exploiting, and be gone before anyone notices. These Champions trade brute force for timing, misdirection, and the payoff at the end of the job.</p>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- =============================================
-       MEMBERS — Champions who have this link
-       ============================================= -->
+  <!-- MEMBERS -->
   <section>
     <div class="section-title">Members</div>
-    <p class="section-subtitle">Champions whose Links include "Heir to the Mantle".</p>
+    <p class="section-subtitle">Champions whose Links include &quot;Grand Heist&quot;.</p>
     <div class="member-grid">
-
-      <a href="../champions/miles-morales.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge">Breaker</div>
-        <div class="champion-name">Spider-Man (Miles Morales)</div>
-      </a>
-
-      <a href="../champions/robin.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/robin.jpg" alt="Robin">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge">Booster</div>
-        <div class="champion-name">Robin</div>
-      </a>
-
-      <a href="../champions/batgirl.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge">Striker</div>
-        <div class="champion-name">Batgirl</div>
-      </a>
 
       <a href="../champions/black-cat.html" class="champion-card">
         <div class="champion-image">
@@ -398,47 +378,50 @@
     </div>
   </section>
 
-  <!-- =============================================
-       LEADERS — Champions whose Leader Ability buffs this link
-       ============================================= -->
+  <!-- LEADERS -->
   <section>
     <div class="section-title">Leaders</div>
-    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Heir to the Mantle allies.</p>
-    <div class="empty">
-      No Champions yet have a Leader Ability that buffs Heir to the Mantle allies.
+    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Grand Heist allies.</p>
+    <div class="effect-grid">
+
+      <a href="../champions/black-cat.html" class="effect-card effect-card--leader">
+        <div class="effect-portrait">
+          <img src="../images/champion-images/black-cat.jpg" alt="Black Cat">
+        </div>
+        <div class="effect-body">
+          <div class="effect-name">Black Cat</div>
+          <div class="effect-source">Leader &middot; The Hardy Legacy</div>
+          <div class="effect-text">&quot;Grand Heist&quot; allies gain +20% ATK and MAG in battle.</div>
+        </div>
+      </a>
+
     </div>
   </section>
 
-  <!-- =============================================
-       SUPPORTERS — Explicit buffs to this link's allies
-       ============================================= -->
+  <!-- SUPPORTERS -->
   <section>
     <div class="section-title">Supporting Champions</div>
-    <p class="section-subtitle">Champions whose passives, ULTIMATUMs or specials explicitly buff Heir to the Mantle allies (excluding Leader Abilities).</p>
+    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Grand Heist allies (excluding Leader Abilities).</p>
     <div class="empty">
-      No Champions yet explicitly support Heir to the Mantle allies through non-Leader effects.
+      No Champions yet have non-Leader effects that buff Grand Heist allies.
     </div>
   </section>
 
-  <!-- =============================================
-       OPPOSERS — Explicit anti-link effects
-       ============================================= -->
+  <!-- OPPOSERS -->
   <section>
     <div class="section-title">Opposing Champions</div>
-    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Heir to the Mantle members.</p>
+    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Grand Heist members.</p>
     <div class="empty">
-      No Champions yet have effects that explicitly counter Heir to the Mantle.
+      No Champions yet have effects that explicitly counter Grand Heist members.
     </div>
   </section>
 
-  <!-- =============================================
-       BEST TEAMS — Recommended compositions per mode
-       ============================================= -->
+  <!-- BEST TEAMS -->
   <section>
     <div class="section-title">Best Teams Per Mode</div>
     <p class="section-subtitle">Recommended six-Champion compositions for each game mode.</p>
     <div class="empty">
-      Not enough Heir to the Mantle Champions have been designed yet to recommend team compositions.
+      Only 1 Grand Heist Champion is currently designed. More members are needed before full six-Champion team compositions can be recommended.
     </div>
   </section>
 
