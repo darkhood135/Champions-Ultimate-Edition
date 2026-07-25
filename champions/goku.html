@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goku — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet { max-width: 1320px; margin: 0 auto; }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+  .back-link:hover { color: #f97316; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- TRANSFORMATION PORTRAIT (below main image) ---------- */
+  .transformation-portraits {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid #2c3038;
+  }
+
+  .transformation-portraits-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2c3038;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .transformation-portraits-title .count { color: #4f535c; font-weight: 500; letter-spacing: 1px; }
+
+  .transformation-portrait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .transformation-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #f0f1f3;
+    cursor: pointer;
+  }
+
+  .transformation-portrait-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .transformation-portrait:hover .transformation-portrait-image {
+    transform: scale(1.05);
+    border-color: #dc2626;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .transformation-portrait-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .transformation-portrait-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #f87171;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100px;
+  }
+
+  /* ---------- IDENTITY ---------- */
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #f97316;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #f97316;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid { display: grid; grid-template-columns: 340px 1fr; gap: 18px; }
+  .left-col, .right-col { display: flex; flex-direction: column; gap: 14px; }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label { color: #a3a8b3; font-weight: 500; }
+  .stat-row .value { color: #f0f1f3; font-weight: 600; }
+
+  /* ---------- STAT BOOST (transformation modifier) ---------- */
+  .stat-boost {
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 12.5px;
+    margin-left: 6px;
+    letter-spacing: 0.3px;
+  }
+  /* Optional prefix tooltip on hover — shows which form provides the boost */
+  .stat-boost[title] { cursor: help; }
+
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  a.pill:hover {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .partner-card:hover .partner-image { border-color: #f97316; transform: scale(1.06); }
+  .partner-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #fb923c;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+  .right-col-header h2 { font-size: 22px; font-weight: 700; }
+  .stack-note { font-size: 12px; color: #6b7280; font-weight: 500; }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+  .section-divider::after { content: ''; flex: 1; height: 1px; background: #2c3038; }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name { font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul { list-style: none; padding: 0; }
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .ability ul li::before { content: '•'; position: absolute; left: 4px; font-weight: 700; }
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+  .ability ul ul li {
+    font-size: 13px;
+  }
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ---------- TRANS-OVERRIDE (cousin of syn-override) ---------- */
+  .trans-override {
+    font-size: 12.5px;
+    padding: 6px 10px;
+    margin: -4px 0 12px;
+    background: rgba(0, 0, 0, 0.32);
+    border-radius: 4px;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    line-height: 1.45;
+    opacity: 0.95;
+  }
+  .trans-override strong { font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Goku theme — Kakarot Orange / Turtle-Gi Blue / Kaioken Crimson.
+       Orange = the gi, the Kamehameha stance, the constant training.
+       Blue undershirt / dark navy = the martial disciplines, the base kit's core.
+       Crimson = the Kaioken aura, transformation abilities, the body's ruin.
+       Deep amber = ULTIMATUM, the reach for the Genkidama.
+  */
+
+  .ability--leader { background: #b45309; color: #fff7ed; }
+
+  .ability--basic {
+    background: #1a1408;
+    border: 1px solid #7c2d12;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #fb923c; }
+  .ability--basic .ability-tag  { color: #f97316; }
+  .ability--basic .ability-meta { color: #f97316; }
+
+  .ability--special-1 { background: #c2410c; color: #ffedd5; } /* orange — Kamehameha */
+  .ability--special-2 { background: #1e3a8a; color: #dbeafe; } /* deep blue — Instant Transmission */
+  .ability--special-3 { background: #9a3412; color: #fed7aa; } /* burnt orange — Ki Blast Barrage */
+  .ability--special-4 { background: #7c2d12; color: #fed7aa; } /* deep amber — Meteor Combination */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #f97316; }
+  .ability--reserve-passive   { border-left-color: #60a5fa; }
+  .ability--reserve-ultimatum { border-left-color: #b45309; }
+
+  .ability--core-passive { background: #0c1728; color: #dbeafe; }
+
+  .ability--passive { background: #dbeafe; color: #1e3a8a; }
+
+  .ability--ultimatum { background: #7c2d12; color: #fed7aa; }
+
+  .ability--synergy { background: #f5f5f4; color: #1c1917; }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ---------- TRANSFORMATION ABILITY COLORS ----------
+     Kaioken variants — same slot semantics as base but shifted onto the
+     crimson palette. Each mirrors its base counterpart. */
+  .ability--ss-basic {
+    background: #1a0a0a;
+    border: 1px solid #7f1d1d;
+    color: #fee2e2;
+  }
+  .ability--ss-basic .ability-name { color: #f87171; }
+  .ability--ss-basic .ability-tag  { color: #ef4444; }
+  .ability--ss-basic .ability-meta { color: #ef4444; }
+
+  .ability--ss-special-1 { background: #b91c1c; color: #fee2e2; }
+  .ability--ss-special-2 { background: #7f1d1d; color: #fecaca; }
+  .ability--ss-special-3 { background: #991b1b; color: #fee2e2; }
+  .ability--ss-special-4 { background: #6d1414; color: #fecaca; }
+
+  .ability--ss-core-passive { background: #1a0808; color: #fecaca; }
+  .ability--ss-passive { background: #fee2e2; color: #6d1414; }
+
+  .ability--ss-ultimatum { background: #7f1d1d; color: #fecaca; }
+
+  .ability--reserve-ss-special   { border-left-color: #dc2626; }
+  .ability--reserve-ss-passive   { border-left-color: #f87171; }
+  .ability--reserve-ss-ultimatum { border-left-color: #991b1b; }
+
+  /* ====================== FORM BLOCKS (collapsible) ======================
+     Each transformation is a details/summary block containing a full
+     kit. Base Form is open by default; transformations closed. The
+     summary shows the form's name, tagline and a chevron. */
+  .form-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px;
+    line-height: 1.45;
+  }
+
+  .form-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+    margin-top: 8px;
+  }
+  .form-block[open] { border-color: #f97316; }
+  .form-block.form-block--ss[open] { border-color: #dc2626; }
+
+  .form-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .form-summary::-webkit-details-marker { display: none; }
+  .form-summary:hover { background: rgba(249, 115, 22, 0.05); }
+  .form-block--ss .form-summary:hover { background: rgba(220, 38, 38, 0.07); }
+
+  .form-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.4);
+  }
+  .form-block--ss .form-badge {
+    background: rgba(220, 38, 38, 0.15);
+    color: #f87171;
+    border-color: rgba(220, 38, 38, 0.4);
+  }
+
+  .form-summary-text { flex: 1; min-width: 0; }
+  .form-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f1f3;
+    letter-spacing: -0.2px;
+    margin-bottom: 2px;
+  }
+  .form-tagline {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    line-height: 1.4;
+  }
+
+  .form-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 14px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .form-block[open] .form-chevron { transform: rotate(180deg); color: #fb923c; }
+  .form-block--ss[open] .form-chevron { color: #f04444; }
+
+  .form-body {
+    padding: 4px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #2c3038;
+  }
+  .form-body .section-divider { margin-top: 10px; }
+
+  /* ====================== SYNERGY BLOCKS (kept from base template) ====== */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #f97316; }
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(249, 115, 22, 0.04); }
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #f97316; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-bond-name { font-size: 16px; font-weight: 700; color: #f0f1f3; letter-spacing: -0.2px; }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc { font-size: 13px; color: #a3a8b3; line-height: 1.45; margin: 0; }
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #f97316; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+  }
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .syn-override {
+    font-size: 12px;
+    color: #a3a8b3;
+    font-style: italic;
+    margin-bottom: 6px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta { font-size: 12px; font-style: italic; color: #a3a8b3; margin-bottom: 8px; }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #f97316; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #fdba74;
+  }
+  .syn-cost-chip .who { color: #fb923c; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5da8d6; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(93, 168, 214, 0.15); color: #8fd0ee; border: 1px solid rgba(93, 168, 214, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+  .changelog-section .section-divider { margin: 0 0 20px; }
+  .changelog-intro { font-size: 13px; color: #6b7280; font-style: italic; margin-bottom: 22px; }
+  .changelog-entries { display: flex; flex-direction: column; gap: 14px; }
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+  .changelog-entry.release { border-left-color: #f97316; }
+  .entry-meta { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .entry-meta .version { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .entry-meta .date { font-size: 12px; color: #6b7280; font-style: italic; }
+  .changes { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid { grid-template-columns: 1fr; }
+    .character-image { max-width: 400px; margin: 0 auto; }
+    .transformation-portraits { max-width: 400px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image, transformation
+       portrait(s), and identity block.
+       ============================================= -->
+  <div class="hero-bar">
+
+    <!-- Left column: main portrait + transformation portrait strip -->
+    <div class="character-column">
+      <div class="character-image">
+        <!-- <img src="../images/champion-images/goku.jpg" alt="Goku"> -->
+        <img src="../images/champion-images/goku.jpg" alt="Goku">
+      </div>
+
+      <div class="transformation-portraits">
+        <div class="transformation-portraits-title">
+          <span>Transformation</span>
+        </div>
+        <div class="transformation-portrait-list">
+          <a href="#form-kaioken" class="transformation-portrait" title="Jump to Kaioken form">
+            <div class="transformation-portrait-image">
+              <!-- <img src="../images/champion-images/transformations/goku(kaioken).jpg" alt="Kaioken Goku"> -->
+              <img src="../images/champion-images/transformations/goku(kaioken).jpg" alt="Kaioken Goku">
+            </div>
+            <div class="transformation-portrait-label">Kaioken</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Goku</h1>
+      <p class="subtitle">Son Goku · Kakarot</p>
+      <span class="role-badge">Berserker</span>
+      <p class="description">A Saiyan infant sent to conquer Earth, only to be raised as one of its gentlest sons, Goku stands as the planet's mightiest protector — a warrior who fights not to destroy, but to defend.</p>
+      <p class="description">Goku was bred by a warrior race to be a weapon, and became instead the kindest man on Earth by pure accident. Sent to a distant world to conquer it, he struck his head as an infant and lost every trace of the ruthless purpose written into his blood, growing up in the mountains as a cheerful, guileless boy who knew only how to be good. When his brother finally came to drag that heritage back into the light, Goku learned in a single afternoon that he was an alien, a Saiyan, and the last hope of a planet that had no idea what was coming for it — and without hesitation he chose Earth, his family, and his friends over the blood he'd just discovered. He is a fighter to his very core, alive in a way he never otherwise is when he faces an opponent who can push him to his limit, but that love of the battle is bound to something rarer: he fights only to protect, and there is no price he won't pay to do it. He gave up his own life to stop his brother, clung to an enemy so a friend could land the killing blow, and even standing over the Saiyan prince who'd butchered everyone he loved, he chose mercy. That is the paradox of him — the deadliest man on the planet, carrying its purest heart.</p>
+      <p class="description">Everything he can do, he earned through a lifetime of relentless training and one hard death. Goku is a peerless martial artist whose strength, speed, and durability tower far beyond any ordinary man's, and he bends his own life energy — his ki — to soar through the air, blur into afterimages, and unleash the wave of blue fire that is his signature Kamehameha. Slain against his brother, he trained beyond the grave under a master among the dead and returned with two techniques that changed everything: the Kaio-ken, which multiplies his every attribute in a searing red aura at the cost of tearing his own body apart, and the Spirit Bomb, a devastating sphere gathered from the borrowed energy of every living thing around him. But raw power was never the whole of his strength. It's that he rises every single time he is knocked down, reaches past his limits when the people behind him need him to, and simply refuses — cheerfully, stubbornly — to ever stop trying.</p>
+      <p class="quote">"You hate losing. You're not used to fighting someone stronger than you!"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats — inline "(+X)" modifiers show what the transformation adds.
+           Tags/Links are shared across forms so they only appear once. -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,200</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">340 <span class="stat-boost" title="Kaioken">+100</span></span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">260 <span class="stat-boost" title="Kaioken">+50</span></span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">100 <span class="stat-boost" title="Kaioken">+40</span></span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">130 <span class="stat-boost" title="Kaioken">+30</span></span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">175% </span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20% <span class="stat-boost" title="Kaioken">+10%</span></span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">114 <span class="stat-boost" title="Kaioken">+5</span></span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">8%</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120 <span class="stat-boost" title="Kaioken">+30</span></span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3% <span class="stat-boost" title="Kaioken">+2%</span></span></div>
+      </div>
+
+      <!-- Links — shared across all forms -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/dragon-ball-universe.html" class="pill">Dragon Ball Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/saiyan.html" class="pill">Saiyan</a>
+          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
+          <a href="../links/parental-bond.html" class="pill">Parental Bond</a>
+          <a href="../links/transformation-boost.html" class="pill">Transformation Boost</a>
+        </div>
+      </div>
+
+      <!-- Tags — shared across all forms -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Enemy Reposition</span>
+          <span class="pill">Airborne</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">Last Stand</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">RES Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">HP Cost</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
+          <span class="pill">Transformation</span>
+        </div>
+      </div>
+
+      <!-- Best Partners -->
+<div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="vegeta.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Vegeta</strong>
+              <span class="real-name">Prince Vegeta IV</span>
+              <span class="synergy-name">Rivalry to Last a Lifetime</span>
+            </div>
+          </a>
+
+          <a href="superman.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/superman.jpg" alt="Superman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Superman</strong>
+              <span class="real-name">Clark Kent</span>
+              <span class="synergy-name">Sons of Dying Worlds</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Each form is a collapsible block — click a summary row to expand.</span>
+      </div>
+
+      <!-- LEADER ABILITY — shared, does not transform -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Saiyan Raised on Earth</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Pure Heart" or "Human" allies gain +10% ATK and +8% MAX HP in battle.</li>
+        </ul>
+      </div>
+
+      <p class="form-note">Transformations are a full second sheet of abilities that <em>transform</em> the base kit — see the Catechism for the mechanic details. Leader Ability and Synergies are shared across forms and appear outside the form blocks.</p>
+
+      <!-- =============================================
+           BASE FORM — Kakarot (open by default)
+           ============================================= -->
+      <details class="form-block" open>
+        <summary class="form-summary">
+          <span class="form-badge">Base Form</span>
+          <div class="form-summary-text">
+            <div class="form-name">Goku</div>
+            <div class="form-tagline">The gentle Saiyan at his natural strength — Earth's mightiest protector, fighting with a full heart and nothing held back but the technique that could tear him apart.</div>
+          </div>
+          <span class="form-chevron">▾</span>
+        </summary>
+
+        <div class="form-body">
+
+          <!-- BASIC -->
+          <div class="section-divider">Basic Ability</div>
+          <div class="ability ability--basic">
+            <div class="ability-header">
+              <span class="ability-name">Basic Blows</span>
+              <span class="ability-tag">Basic</span>
+            </div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+            <ul>
+              <li>Deals 150% ATK damage to the target.</li>
+            </ul>
+          </div>
+
+          <!-- SPECIALS -->
+          <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+          <div class="ability ability--special-1">
+            <div class="ability-header">
+              <span class="ability-name">Kamehameha</span>
+              <span class="ability-tag">Special 1</span>
+            </div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 1-Wide Line · Energy: 40 · Cooldown: 3 turns · Range: 8</div>
+            <ul>
+              <li>Launches a beam 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
+              <li>Deals 250% MAG damage to all enemies caught in the line.</li>
+              <li>Deals an additional 200% MAG damage to obstacles.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-2">
+            <div class="ability-header">
+              <span class="ability-name">Unleash Kaioken</span>
+              <span class="ability-tag">Special 2</span>
+            </div>
+            <div class="ability-meta">Type: Transformation · Target: Self · Energy: 30 · Cooldown: 6 turns · Range: N/A</div>
+            <ul>
+              <li>Transforms into Kaioken Goku for 2 turns.</li>
+              <li>Restores 60 EN.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-3">
+            <div class="ability-header">
+              <span class="ability-name">Ki Blasts</span>
+              <span class="ability-tag">Special 3</span>
+            </div>
+            <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 7</div>
+            <ul>
+              <li>Deals 50% MAG damage to the target 8 times.</li>
+              <li>15% chance to inflict "Sting" on the target for 3 turns, rolls 8 times.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-4">
+            <div class="ability-header">
+              <span class="ability-name">Meteor Combination</span>
+              <span class="ability-tag">Special 4</span>
+            </div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 1</div>
+            <ul>
+              <li>Deals 100% ATK damage to the target 6 times.</li>
+              <li>Guaranteed critical hit on the 6th damage instance.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-special">
+            <div class="ability-header">
+              <span class="ability-name">Solar Flare</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 4 turns · Range: 4</div>
+            <ul>
+              <li>Inflicts "Stun" for 1 turn to the target.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-special">
+            <div class="ability-header">
+              <span class="ability-name">Side Step</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 2 turns · Range: 5</div>
+            <ul>
+              <li>Locates self 5 panels away from original position in the direction of the targeted panel.</li>
+              <li>+10% EVA for the remainder of the turn.</li>
+            </ul>
+          </div>
+
+          <!-- PASSIVES -->
+          <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+          <div class="ability ability--core-passive">
+            <div class="ability-header">
+              <span class="ability-name">Defender of Earth Against Saiyan Invaders</span>
+              <span class="ability-tag">Core Passive</span>
+            </div>
+            <ul>
+              <li>+10% ATK and MAG against "Saiyan" or "Villain" enemies.</li>
+              <li>Transforms into Kaioken Goku for 2 turns when at or below 30 EN (activates once per battle).</li>
+              <li>Gains 2% ULT each time an attack lands (self only).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--passive">
+            <div class="ability-header">
+              <span class="ability-name">Sensing Ki</span>
+              <span class="ability-tag">Passive 1</span>
+            </div>
+            <ul>
+              <li>Gains the ability to see enemy resources for 2 turns after damaging them.</li>
+              <li>+6% ATK and MAG against enemies with a lower MAX HP stat (impacted by status effects).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--passive">
+            <div class="ability-header">
+              <span class="ability-name">World Martial Artist</span>
+              <span class="ability-tag">Passive 2</span>
+            </div>
+            <ul>
+              <li>STA regen increased to 50% of MAX STA per turn.</li>
+              <li>Basic Ability can be used twice within a single turn (cooldown of 2 turns).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-passive">
+            <div class="ability-header">
+              <span class="ability-name">Anticipated Arrival</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <ul>
+              <li>Allies restore 10 EN and 1 STA upon landing an attack within 3 panels of them (self excluded).</li>
+              <li>-7% ATK and MAG to all allies when defeated (transformed passive does not stack).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-passive">
+            <div class="ability-header">
+              <span class="ability-name">Zenkai Boost</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <ul>
+              <li>+3% REGEN while below 40% HP.</li>
+              <li>+10% ATK, MAG, DEF and RES for the rest of battle upon being resurrected (once only, transformed passive does not stack).</li>
+            </ul>
+          </div>
+
+          <!-- ULTIMATUM -->
+          <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+          <div class="ability ability--ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Spirit Bomb</span>
+              <span class="ability-tag">ULTIMATUM 1</span>
+            </div>
+            <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (3 panels) · Range: 20 · Cost: 100% ULT</div>
+            <ul>
+              <li>Can only be used as the first action of the turn.</li>
+              <li>Stands by for 2 turns.</li>
+              <li>Becomes airborne for the duration of standby (cannot be grounded).</li>
+              <li>Immune to stunning inflictions for the duration of standby.</li>
+              <li>After standby ends, launches a Spirit Bomb at the target.</li>
+              <li>Cannot deal damage to "Pure Heart" enemies.</li>
+              <li>The spirit bomb deals 1200% MAG damage to the target and 500% MAG damage to any enemies within 3 panels of the target.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Channeling Energy</span>
+              <span class="ability-tag">ULTIMATUM — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+            <ul>
+              <li>+20% ATK and MAG for 3 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- =============================================
+           TRANSFORMATION — Kaioken (closed by default)
+           ============================================= -->
+      <details class="form-block form-block--ss" id="form-kaioken">
+        <summary class="form-summary">
+          <span class="form-badge">Transformation</span>
+          <div class="form-summary-text">
+            <div class="form-name">Kaioken Goku</div>
+            <div class="form-tagline">A searing crimson aura erupts as Goku multiplies every ounce of his power in an instant, trading his own body's ruin for the strength to stand against a foe he otherwise couldn't touch.</div>
+          </div>
+          <span class="form-chevron">▾</span>
+        </summary>
+
+        <div class="form-body">
+
+          <!-- SS BASIC -->
+          <div class="section-divider">Basic Ability</div>
+          <div class="ability ability--ss-basic">
+            <div class="ability-header">
+              <span class="ability-name">Blazing Blows</span>
+              <span class="ability-tag">Basic</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Basic Blows</strong> — the base ability is baseline and always active; this version replaces it while in Kaioken.</div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+            <ul>
+              <li>Deals 200% ATK damage to the target.</li>
+              <li>70% chance to inflict "Disorient" for 1 turn to the target.</li>
+              <li>Self loses 5% HP (of MAX HP, cannot kill).</li>
+            </ul>
+          </div>
+
+          <!-- SS SPECIALS -->
+          <div class="section-divider">Special Abilities</div>
+
+          <div class="ability ability--ss-special-1">
+            <div class="ability-header">
+              <span class="ability-name">Kaioken Kamehameha</span>
+              <span class="ability-tag">Special 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Kamehameha</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 50 · Cooldown: 3 turns · Range: 10</div>
+            <ul>
+              <li>Launches a beam 10 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+              <li>Deals 400% MAG damage to all enemies caught in the line.</li>
+              <li>Deals an additional 400% MAG damage to obstacles.</li>
+              <li>Pierces through 30% of enemy RES.</li>
+              <li>Self loses 7% HP (of MAX HP, cannot kill).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-2">
+            <div class="ability-header">
+              <span class="ability-name">Genkidama Charge</span>
+              <span class="ability-tag">Special 2</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Unleash Kaioken</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns</div>
+            <ul>
+              <li>Gains 35% ULT.</li>
+              <li>Restores 80 EN.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-3">
+            <div class="ability-header">
+              <span class="ability-name">Kaioken Ki Blasts</span>
+              <span class="ability-tag">Special 3</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Ki Blasts</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 8</div>
+            <ul>
+              <li>Deals 60% MAG damage to the target 8 times.</li>
+              <li>30% chance to inflict persistent "Sting" on the target for 3 turns, rolls 8 times.</li>
+              <li>Self loses 7% HP (of MAX HP, cannot kill).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-4">
+            <div class="ability-header">
+              <span class="ability-name">Quiet Wrath</span>
+              <span class="ability-tag">Special 4</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Meteor Combination</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 55 · Cooldown: 3 turns · Range: 1</div>
+            <ul>
+              <li>Deals 140% ATK damage to the target 6 times.</li>
+              <li>Guaranteed critical hit on the 6th damage instance.</li>
+              <li>Relocates the target 3 panels in the direction of self.</li>
+              <li>Inflicts "Disorient" for 2 turns to the target if this attack dealt more than 20% of their MAX HP.</li>
+              <li>Self loses 8% HP (of MAX HP, cannot kill).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-special">
+            <div class="ability-header">
+              <span class="ability-name">Supreme Solar Flare</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Solar Flare</strong>.</div>
+            <div class="ability-meta">Type: Support · Target: All Enemies in 3-Wide Line · Energy: 30 · Cooldown: 4 turns · Range: 4</div>
+            <ul>
+              <li>Hits all enemies 4 panels ahead and 3 panels wide in a chosen direction.</li>
+              <li>Inflicts "Stun" for 1 turn to all enemies hit.</li>
+              <li>Self loses 5% HP (of MAX HP, cannot kill).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-special">
+            <div class="ability-header">
+              <span class="ability-name">Quick Flight</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Side Step</strong>.</div>
+            <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 5 turns · Range: 5</div>
+            <ul>
+              <li>Locates self 5 panels away from original position in the direction of the targeted panel.</li>
+              <li>Becomes airborne for 2 turns.</li>
+              <li>+20% EVA for the remainder of the turn.</li>
+            </ul>
+          </div>
+
+          <!-- SS PASSIVES -->
+          <div class="section-divider">Passive Abilities</div>
+
+          <div class="ability ability--ss-core-passive">
+            <div class="ability-header">
+              <span class="ability-name">King Kai's Training</span>
+              <span class="ability-tag">Core Passive</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Defender of Earth Against Saiyan Invaders</strong> — the base core passive is always in effect; this version replaces it while transformed.</div>
+            <ul>
+              <li>+10% ATK and MAG against "Saiyan" or "Villain" enemies.</li>
+              <li>Transformation lasts an additional turn upon defeating an enemy.</li>
+              <li>Restores 12% HP and 30 EN upon defeating an enemy.</li>
+              <li>Gains 2% ULT each time an attack lands (self only).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Sensing a Powerful Threat</span>
+              <span class="ability-tag">Passive 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Sensing Ki</strong> — the base passive must be in the active loadout to use this form.</div>
+            <ul>
+              <li>Gains the ability to see enemy resources for 2 turns after damaging them.</li>
+              <li>+10% ATK and MAG against enemies with a higher MAX HP stat (impacted by status effects).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Overwhelming Exertion</span>
+              <span class="ability-tag">Passive 2</span>
+            </div>
+            <div class="trans-override">Transforms <strong>World Martial Artist</strong> — the base passive must be in the active loadout to use this form.</div>
+            <ul>
+              <li>STA regen increased to 60% of MAX STA per turn.</li>
+              <li>Basic Ability can be used twice within a single turn (cooldown of 2 turns).</li>
+              <li>Immune to Retribution.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Clash for Salvation</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Anticipated Arrival</strong>.</div>
+            <ul>
+              <li>Allies restore 10 EN and 1 STA upon landing Kaioken Ki Blasts or Kaioken Kamehameha (once per ability per turn, self excluded).</li>
+              <li>-7% ATK and MAG to all allies when defeated (base passive does not stack).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Brink of Death</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Zenkai Boost</strong>.</div>
+            <ul>
+              <li>+8% REGEN while below 40% HP.</li>
+              <li>Endures a fatal blow (once per battle).</li>
+              <li>+10% ATK, MAG, DEF and RES for the rest of battle upon being resurrected (once only, base passive does not stack).</li>
+            </ul>
+          </div>
+
+          <!-- SS ULTIMATUM -->
+          <div class="section-divider">ULTIMATUM</div>
+
+          <div class="ability ability--ss-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Desperate Spirit Bomb</span>
+              <span class="ability-tag">ULTIMATUM 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Spirit Bomb</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (3 panels) · Range: 20 · Cost: 100% ULT</div>
+            <ul>
+              <li>Can only be used as the first action of the turn.</li>
+              <li>Stands by for 2 turns.</li>
+              <li>Becomes airborne for the duration of standby (cannot be grounded).</li>
+              <li>Immune to stunning inflictions for the duration of standby.</li>
+              <li>After standby ends, launches a Spirit Bomb at the target.</li>
+              <li>Cannot deal damage to "Pure Heart" enemies.</li>
+              <li>The spirit bomb deals 800% MAG damage to the target and 700% MAG damage to any enemies within 3 panels of the target.</li>
+              <li>If defeated while in standby, the Spirit Bomb explodes and deals 300% MAG damage to all enemies within 3 panels of self.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Kaioken x20</span>
+              <span class="ability-tag">ULTIMATUM — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Channeling Energy</strong>.</div>
+            <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+            <ul>
+              <li>+35% ATK and MAG for 2 turns.</li>
+              <li>Every instance of HP depletion caused by self deals an additional 2% HP (of MAX HP, cannot kill) for 2 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- SYNERGIES — shared across forms, do not transform -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Synergies are shared across both forms. Passive abilities granted by synergies persist between transformations.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Rivalry to Last a Lifetime</span>
+              <span class="synergy-partner-tag">w/ Vegeta</span>
+            </div>
+            <p class="synergy-desc">Vegeta is the most dangerous thing Goku has ever faced — a Saiyan prince who slaughtered his friends without a second thought and pushed him past every limit he had, dragging out the Kaio-ken and the Spirit Bomb just to survive the day. And yet, bloodied and victorious with his enemy lying helpless before him, Goku let him live. Part of it was the goodness that never quite leaves him; part of it was the warrior in him, thrilling at the discovery of an opponent who could genuinely test his limits. Where any sane man would see a monster that needed putting down, Goku saw the fight of his life only just beginning — and a rival, however vicious, worth meeting again someday at his very best.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Beam Clash</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Goku</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Vegeta</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 8 turns · Range: 5</div>
+            <ul>
+              <li>Goku and Vegeta fire 3-panel wide beams at eachother, both dealing 200% MAG damage to any enemy caught inbetween.</li>
+              <li>Goku and Vegeta each deal 150% MAG damage to any enemy within 3 panels of where their beams collide.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Mercy in the Face of Evil</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Every instance of HP depletion caused by self deals 1% less HP (of MAX HP, cannot kill).</li>
+              <li>Restores 5 STA and 30 EN upon defeating any "Saiyan" enemy.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/superman.jpg" alt="Superman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Sons of Dying Worlds</span>
+              <span class="synergy-partner-tag">w/ Superman</span>
+            </div>
+            <p class="synergy-desc">Two sons of dying worlds, sent to Earth as infants and raised by humble hands into its gentlest guardians — Goku and Superman are very nearly the same story told twice, and each recognized it in the other at once. But where the Man of Steel carries his power like a solemn duty, Goku can't help seeing the finest sparring partner he's ever laid eyes on: the one man who might be able to cut loose against him completely and still be standing at the end. Superman has no interest in trading blows with a friend, and Goku respects that even as he never quite stops asking — because to a warrior like him, the truest compliment he knows how to pay a man is wanting, more than anything, to find out just how strong he really is.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Solar-Fueled Kamehameha</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Kamehameha</strong> — the base special must be in the active loadout to use this form. Only applies to Base Form.</div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 1-Wide Line · Energy: 40 · Cooldown: 3 turns · Range: 8</div>
+            <ul>
+              <li>Launches a beam 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
+              <li>Deals 275% MAG damage to all enemies caught in the line.</li>
+              <li>Deals an additional 300% MAG damage to obstacles.</li>
+              <li>Inflicts "Burn" for 2 turns to all enemies caught in the line.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/goku.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/goku(tattered).jpg" alt="Tattered">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Tattered</div>
+          <div class="costume-effect-label">Exhaustion — +8% DEF and RES, -7% SPD</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/goku(first-encounter).jpg" alt="First Encounter">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">First Encounter</div>
+          <div class="costume-effect-label">Unexpected Allies — +7% ATK and MAG to Piccolo</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+    <div class="changelog-entries">
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>MAX HP reduced <strong>12,000 → 9,200</strong>.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>King Kai's Training</em> (Kaioken Core Passive) — HP restored on defeating an enemy reduced <strong>20% → 12%</strong>. Transformation extension and EN restore unchanged.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Quiet Wrath</em> (Kaioken Special 4) — per-hit damage reduced <strong>170% → 140% ATK</strong> (840% total across 6 hits, down from 1020%).</span>
+          </li>
+        </ul>
+        <p class="rationale">As released, Goku carried the third-highest HP pool in the roster on a role — Berserker — defined by trading survivability for damage, and his Kaioken form's HP costs were meant to be that trade. In practice they weren't: King Kai's Training refunded 20% HP per kill on top of raised regen, so in any multi-enemy fight his health climbed while he dealt top-tier damage and held the transformation indefinitely, and the intended risk never surfaced. Lowering the base pool and, more importantly, the per-kill refund turns Kaioken into a genuine countdown — his health now trends downward while transformed, so the big pool reads as fuel for a few decisive turns rather than a wall, and his revival and endurance passives become the safety net they were designed to be rather than redundant insurance. Quiet Wrath was additionally the single largest per-ability hit in the roster; the trim keeps it a premier Berserker nuke without it exceeding every dedicated damage dealer's ceiling. His burst identity and transformation economy are otherwise intact.</p>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">TBD</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Goku enters the roster as the first Champion with a Transformation.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

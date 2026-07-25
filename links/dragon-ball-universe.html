@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Villain — Champions Ultimate Edition</title>
+<title>Dragon Ball Universe — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,19 +39,19 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #ff7878; }
+  .back-link:hover { color: #c084fc; }
 
   .category-badge {
     display: inline-block;
-    background: rgba(214, 58, 58, 0.12);
-    color: #ff7878;
+    background: rgba(155, 89, 246, 0.12);
+    color: #c084fc;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 4px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(214, 58, 58, 0.4);
+    border: 1px solid rgba(155, 89, 246, 0.4);
     margin-bottom: 10px;
   }
 
@@ -59,7 +59,7 @@
     font-size: 38px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #ff7878;
+    color: #c084fc;
     margin-bottom: 8px;
   }
 
@@ -124,7 +124,7 @@
 
   .champion-card:hover {
     transform: translateY(-3px);
-    border-color: #d63a3a;
+    border-color: #9b59f6;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -195,7 +195,7 @@
     text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
   }
 
-  /* ====================== EFFECT CARDS (leaders/supporters/opposers) ====================== */
+  /* ====================== EFFECT CARDS ====================== */
   .effect-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -205,7 +205,7 @@
   .effect-card {
     background: #1c1d20;
     border: 1px solid #2c3038;
-    border-left: 3px solid #d63a3a;
+    border-left: 3px solid #9b59f6;
     border-radius: 10px;
     padding: 14px 18px 16px;
     display: flex;
@@ -304,9 +304,9 @@
   }
 
   .team-slot {
-    background: rgba(214, 58, 58, 0.1);
-    border: 1px solid rgba(214, 58, 58, 0.35);
-    color: #ff7878;
+    background: rgba(155, 89, 246, 0.1);
+    border: 1px solid rgba(155, 89, 246, 0.35);
+    color: #c084fc;
     font-size: 12px;
     font-weight: 600;
     padding: 4px 10px;
@@ -352,9 +352,9 @@
 <header class="page-header">
   <div class="header-inner">
     <a href="../links.html" class="back-link">&larr; Back to Links</a>
-    <span class="category-badge">Morality</span>
-    <h1 class="page-title">Villain</h1>
-    <p class="page-desc">The Morality link for Champions who operate on the wrong side of the line &mdash; by choice, corruption, or unfinished redemption. Villain Champions bring a ruthlessness heroes won't match, and on this roster the link is as much a target as an identity: several Champions sharpen their kits specifically against &quot;Villain&quot; enemies.</p>
+    <span class="category-badge">Universe</span>
+    <h1 class="page-title">Dragon Ball Universe</h1>
+    <p class="page-desc">The Universe link for Champions who hail from the world of Dragon Ball &mdash; a cosmos of martial artists, gods, and warrior races where power scales without an apparent ceiling. Dragon Ball Universe Champions bring that escalating-power sensibility to the roster: they train, they transform, and they tend to end fights by simply becoming stronger than the problem in front of them.</p>
   </div>
 </header>
 
@@ -363,16 +363,16 @@
   <!-- MEMBERS -->
   <section>
     <div class="section-title">Members</div>
-    <p class="section-subtitle">Champions whose Links include &quot;Villain&quot;.</p>
+    <p class="section-subtitle">Champions whose Links include &quot;Dragon Ball Universe&quot;.</p>
     <div class="member-grid">
 
-      <a href="../champions/deadpool.html" class="champion-card">
+      <a href="../champions/goku.html" class="champion-card">
         <div class="champion-image">
-          <img src="../images/champion-images/deadpool.jpg" alt="Deadpool">
+          <img src="../images/champion-images/goku.jpg" alt="Goku">
         </div>
         <div class="champion-overlay"></div>
         <div class="role-badge" data-role="Berserker">Berserker</div>
-        <div class="champion-name">Deadpool</div>
+        <div class="champion-name">Goku</div>
       </a>
 
       <a href="../champions/vegeta.html" class="champion-card">
@@ -390,93 +390,27 @@
   <!-- LEADERS -->
   <section>
     <div class="section-title">Leaders</div>
-    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Villain allies.</p>
+    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Dragon Ball Universe allies.</p>
     <div class="empty">
-      No Champion&rsquo;s Leader Ability currently buffs Villain allies.
+      No Champion&rsquo;s Leader Ability currently buffs Dragon Ball Universe allies.
     </div>
   </section>
 
   <!-- SUPPORTERS -->
   <section>
     <div class="section-title">Supporting Champions</div>
-    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Villain allies (excluding Leader Abilities).</p>
-    <div class="effect-grid">
-
-      <a href="../champions/captain-america.html" class="effect-card effect-card--supporter">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">Captain America</div>
-          <div class="effect-source">Costume &middot; Traitor &middot; &quot;Hail Hydra&quot;</div>
-          <div class="effect-text">All buffs affecting &quot;Hero&quot; allies will instead affect &quot;Villain&quot; allies.</div>
-        </div>
-      </a>
-
+    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Dragon Ball Universe allies (excluding Leader Abilities).</p>
+    <div class="empty">
+      No Champions yet have non-Leader effects that buff Dragon Ball Universe allies.
     </div>
   </section>
 
   <!-- OPPOSERS -->
   <section>
     <div class="section-title">Opposing Champions</div>
-    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Villain members.</p>
-    <div class="effect-grid">
-
-      <a href="../champions/batgirl.html" class="effect-card effect-card--opposer">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">Batgirl</div>
-          <div class="effect-source">Thirst for Atonement &middot; Passive 1</div>
-          <div class="effect-text">+8% ATK against &quot;Villain&quot; enemies.</div>
-        </div>
-      </a>
-
-      <a href="../champions/batman.html" class="effect-card effect-card--opposer">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/batman.jpg" alt="Batman">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">Batman</div>
-          <div class="effect-source">Defender of Gotham City &middot; Core Passive</div>
-          <div class="effect-text">+5% ATK against &quot;Villain&quot; enemies.</div>
-        </div>
-      </a>
-
-      <a href="../champions/superman.html" class="effect-card effect-card--opposer">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/superman.jpg" alt="Superman">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">Superman</div>
-          <div class="effect-source">Shining Man of Tomorrow &middot; Core Passive</div>
-          <div class="effect-text">+10% DEF and RES against &quot;Villain&quot; enemies.</div>
-        </div>
-      </a>
-
-      <a href="../champions/the-punisher.html" class="effect-card effect-card--opposer">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">The Punisher</div>
-          <div class="effect-source">Duty to Punish &middot; Core Passive</div>
-          <div class="effect-text">+8% MAG against &quot;Villain&quot; enemies.</div>
-        </div>
-      </a>
-
-      <a href="../champions/goku.html" class="effect-card effect-card--opposer">
-        <div class="effect-portrait">
-          <img src="../images/champion-images/goku.jpg" alt="Goku">
-        </div>
-        <div class="effect-body">
-          <div class="effect-name">Goku</div>
-          <div class="effect-source">Defender of Earth Against Saiyan Invaders &middot; Core Passive</div>
-          <div class="effect-text">+10% ATK and MAG against "Saiyan" or "Villain" enemies.</div>
-        </div>
-      </a>
-
+    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Dragon Ball Universe members.</p>
+    <div class="empty">
+      No Champions yet have effects that explicitly counter Dragon Ball Universe members.
     </div>
   </section>
 
@@ -485,7 +419,7 @@
     <div class="section-title">Best Teams Per Mode</div>
     <p class="section-subtitle">Recommended six-Champion compositions for each game mode.</p>
     <div class="empty">
-      Only 2 Villain Champions are currently designed. More members are needed before full six-Champion team compositions can be recommended.
+      Only 2 Dragon Ball Universe Champions are currently designed. More members are needed before full six-Champion team compositions can be recommended.
     </div>
   </section>
 
