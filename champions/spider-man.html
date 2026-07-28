@@ -886,6 +886,71 @@
       margin: 0 auto;
     }
   }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Stacks under the portrait in the left hero column. Autoplay is
+     attempted on load; if the browser blocks it, playback starts on the
+     visitor's first interaction with the page (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4aa3ff;            /* Spider-Man accent */
+    color: #08203d;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #7fc4ec;                 /* Spider-Man light accent */
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 </style>
 </head>
 <body>
@@ -897,9 +962,26 @@
        HERO BAR — Character image and identity
        ============================================= -->
   <div class="hero-bar">
-    <div class="character-image">
-      <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-      <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (track name) and .theme-source (original game it's from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/spider-man.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Great Power</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: PHY LR SSJ Future Trunks Finish Skill OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/spider-man.mp3"></audio>
+      </div>
     </div>
 
     <div class="identity">
@@ -1747,5 +1829,45 @@
     </div>
   </section>
 </div>
+
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    // Keep the play/pause icon in sync with actual playback state.
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      // Let clicks on the button be handled by the toggle itself.
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    // Manual play/pause; once the user clicks it, they're in control.
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    // Try to autoplay right away; on failure, arm the first-interaction fallback.
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
 </body>
 </html>
