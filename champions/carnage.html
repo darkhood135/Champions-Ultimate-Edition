@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnage — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #dc2626; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #dc2626;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(220, 38, 38, 0.12);
+    color: #f87171;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #dc2626;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #dc2626;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #f87171;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Carnage theme — Blood Red / Void Black / Bone White / Mind-Control Magenta.
+       Blood red = the crimson symbiote, the slaughter, every Bleed he leaves.
+       Void black = the living darkness of the symbiote mass, where he melts away.
+       Bone white = the eyes, the jagged teeth, the marks in the red.
+       Mind-control magenta = Coercion and Brainwash, the mind twisted apart.
+     Red is the massacre; black is the thing underneath; white is the grin. */
+
+  .ability--leader {
+    background: #991b1b;          /* deep blood — the cult, depths of depravity */
+    color: #fee2e2;
+  }
+
+  .ability--basic {
+    background: #120708;          /* void black, red undertone — razor claws */
+    border: 1px solid #5a1515;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #f87171; }
+  .ability--basic .ability-tag  { color: #d15555; }
+  .ability--basic .ability-meta { color: #d15555; }
+
+  .ability--special-1 { background: #dc2626; color: #fff0f0; } /* vivid scarlet — Absolute Carnage */
+  .ability--special-2 { background: #9d174d; color: #ffe4ef; } /* magenta-red — Symbiotic Stab, Coercion */
+  .ability--special-3 { background: #b91c1c; color: #fee2e2; } /* crimson — Frenzied Assault */
+  .ability--special-4 { background: #7f1d1d; color: #fecaca; } /* dark maroon — Bursting Tendrils */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #dc2626; } /* scarlet */
+  .ability--reserve-passive   { border-left-color: #e8e6e0; } /* bone white */
+  .ability--reserve-ultimatum { border-left-color: #7f1010; } /* deepest blood */
+
+  .ability--core-passive {
+    background: #0d0708;          /* deepest void black — the endless appetite */
+    color: #f0c8c8;
+  }
+
+  .ability--passive {
+    background: #e8e6e0;          /* bone white — the teeth, the eyes, inherent */
+    color: #1a0e10;
+  }
+
+  .ability--ultimatum {
+    background: #a10d0d;          /* visceral blood red — Maximum Carnage */
+    color: #ffe0e0;
+  }
+
+  .ability--synergy {
+    background: #efdcdc;          /* pale bone-pink — connection */
+    color: #1a0e10;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #dc2626; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(220, 38, 38, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #dc2626; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f87171;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #dc2626; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #dc2626; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    color: #f4a8a8;
+  }
+  .syn-cost-chip .who { color: #f87171; font-weight: 700; }
+
+  /* Type accents — blood/black/bone/magenta spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #dc2626; } /* scarlet */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(220, 38, 38, 0.15); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #b91c1c; } /* crimson */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(185, 28, 28, 0.18); color: #ef6a6a; border: 1px solid rgba(185, 28, 28, 0.45); }
+  .syn-ability--new-passive        { border-left-color: #e8e6e0; } /* bone white */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(232, 230, 224, 0.13); color: #e0ded6; border: 1px solid rgba(232, 230, 224, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #7f1010; } /* deepest blood */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(127, 16, 16, 0.25); color: #e88585; border: 1px solid rgba(127, 16, 16, 0.5); }
+  .syn-ability--new-special        { border-left-color: #9d174d; } /* mind-control magenta */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(157, 23, 77, 0.22); color: #ec7bab; border: 1px solid rgba(157, 23, 77, 0.5); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dc2626;
+    color: #fff0f0;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #f4a8a8;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/carnage.jpg" alt="Carnage">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/carnage.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Fragrant Lunacy</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ Dabura Intro OST </div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/carnage.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Carnage</h1>
+      <p class="subtitle">Cletus Kasady</p>
+      <span class="role-badge">Plunderer</span>
+      <p class="description">A remorseless serial killer fused with a savage offspring of the Venom symbiote, Cletus Kasady revels in slaughter as the crimson horror called Carnage.</p>
+      <p class="description">Cletus Kasady was a monster long before anything alien ever touched him. Forged in an abusive childhood he answered with cruelty of his own, he grew into a serial killer without a shred of remorse — and worse, one who made a gospel of it, preaching that chaos is the only truth in a meaningless world and that true freedom is the will to do anything at all, up to and including murder. When the spawn of the Venom symbiote seeped into an open wound and mixed with his very blood, it did not corrupt him; it found a mind already delighting in exactly what it was, and the two fell into a union more intimate and more terrible than Venom ever knew. That is what sets Carnage apart from every symbiote before him. Venom is bound by a code and steered by a cause; Carnage answers to neither. He kills for the sheer joy of the act, negotiates nothing, wants nothing beyond the next scream — and, most horrifying of all, he is genuinely, gleefully happy being what he is. In Cletus and the symbiote there is no host straining against a passenger, only one will and one bottomless appetite, laughing together at the ruin they leave behind.</p>
+      <p class="description">The power they share outstrips their bloodline. Carnage is stronger, faster, and more durable than Venom, scaling walls and reshaping his own body at a whim — sprouting blades, axes, and whipping tendrils of living crimson from any surface of himself, hardening flesh into weapons faster than the eye can follow. He can melt into his surroundings unseen, knit himself back together from grievous wounds, and, cruelest of all, he registers as nothing at all to the spider-sense that warns of every other danger, striking without the faintest whisper of a warning. Only the ancient banes of his kind — searing fire and shattering sound — can drive the symbiote screaming from its host. He is, in every sense, a nightmare that cannot be bargained with, because to Carnage the massacre was never a means to anything. It is, and has always been, the entire point.</p>
+      <p class="quote">"I was hollowed out inside... empty... just like my other. We were both sick... because we were incomplete... but not anymore. We healed each other... made each other whole. Neither one of us can survive without the other. Forget host. Forget symbiote. There is only Carnage."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">420</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">80</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">200</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">70</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">70</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">93%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">200%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">15%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">114</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">4%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/symbiote.html" class="pill">Symbiote</a>
+          <a href="../links/servants-of-knull.html" class="pill">Servants of Knull</a>
+          <a href="../links/inseparable-pair.html" class="pill">Inseparable Pair</a>
+          <a href="../links/psychotic-tendencies.html" class="pill">Psychotic Tendencies</a>
+          <a href="../links/galactic-invasion.html" class="pill">Galactic Invasion</a>
+          <a href="../links/cosmic-threat.html" class="pill">Cosmic Threat</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Mind Control</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Affliction Boost</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="spider-man.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Spider-Man</strong>
+              <span class="real-name">Peter Parker</span>
+              <span class="synergy-name">Life or Death</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Depths of Depravity</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Psychotic Tendencies" allies gain +20% ATK and RES in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Razor Claws</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 190% ATK damage to the target.</li>
+          <li>60% chance to inflict "Bleed" for 2 turns to the target.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Absolute Carnage</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Champions in 3-Wide Line · Energy: 50 · Cooldown: 2 turns · Range: 2 panels (chosen direction)</div>
+        <ul>
+          <li>Slashes all allies and enemies 2 panels ahead and 3 panels wide in a chosen direction.</li>
+          <li>Deals 400% ATK damage to all allies and enemies slashed.</li>
+          <li>Inflicts "Bleed" for 2 turns to all allies and enemies slashed.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Symbiotic Stab</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy or Ally · Energy: 50 · Cooldown: 5 turns · Range: 1</div>
+        <ul>
+          <li>Deals 400% ATK damage to the targeted ally or enemy.</li>
+          <li>Inflicts "Coercion" to the targeted ally or enemy for 2 turns.</li>
+          <li>Self restores 600% HEAL in HP if the target is an ally.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Frenzied Assault</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Panel · Energy: 40 · Cooldown: 1 turn · Range: 5</div>
+        <ul>
+          <li>Relocates self to the targeted panel.</li>
+          <li>Ignores elevation.</li>
+          <li>Deals 250% ATK damage to any enemy or ally in the straight one-wide path of relocation.</li>
+          <li>Inflicts "Bleed" for 2 turns to any ally or enemy damaged.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Bursting Tendrils</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Champions in Range · Energy: 40 · Cooldown: 3 turns · Range: 3</div>
+        <ul>
+          <li>Deals 200% ATK damage to all allies or enemies within range of self.</li>
+          <li>Deals an additional 300% ATK damage to allies.</li>
+          <li>Restores 10% HP, 10 EN and 2 STA per ally damaged.</li>
+          <li>Restores 5 EN and 1 STA per enemy damaged.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Scent of Blood</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>Self gains "Bloodlust" for 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Surging Spikes</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 5</div>
+        <ul>
+          <li>Deals 280% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" for 2 turns to the target.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Desire for Endless Slaughter</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>+2% ATK per ally or enemy on the battlefield with "Bleed".</li>
+          <li>+10% ATK for the rest of battle upon defeating an ally (once only).</li>
+          <li>Gains 12% ULT every time an ally is damaged by self.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Bloody Murder</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>+2% ATK per ally or enemy defeated.</li>
+          <li>Razor Claws and Surging Spikes infliction chances increased by 10%.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Hatred for Heroes</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>+7% ATK against "Hero" Champions.</li>
+          <li>Immune to "Vulnerable".</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Swift Symbiote</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+3% SPD.</li>
+          <li>+10% EVA.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Cult to Follow</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Allies within 3 panels gain +6% ATK.</li>
+          <li>Allies restores 5 EN and 1 STA upon receiving damage from self.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Maximum Carnage</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy or Ally · Range: 2 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 800% ATK damage to the target.</li>
+          <li>Inflicts "Bleed" to the target for 3 turns.</li>
+          <li>Self restores 2000% HEAL in HP if the target is an ally.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Maniacal Glee</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+        <ul>
+          <li>Self gains "Bloodlust" for 3 turns.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
+
+      <!-- 1 · NEVER QUITE CAUGHT — Spider-Man, two grants (Dynamic Special + Upgraded Special) -->
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Life or Death</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">Spider-Man is Cletus Kasady's favorite toy. The wall-crawler's precious little rule — that he won't kill, not even something like Carnage — strikes Cletus as the funniest and most contemptible thing he's ever heard, a leash the hero fastened on himself that Carnage takes bottomless joy in yanking. He butchers where Spider-Man can see it, delights in a spider-sense that can't feel him coming, and dreams of the day he pushes the hero far enough to cross the single line he's built his whole miserable life around. To Carnage it was never about winning. It's about breaking the one man who won't break — and laughing the whole way down.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Kill the Spider</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK against "Web Warrior" Champions.</li>
+              <li>+5% ATK against Spider-Man.</li>
+              <li>Reduces a random cooldown by 1 turn upon launching an attack at Spider-Man.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/carnage.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/carnage(superior).jpg" alt="Superior">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Superior</div>
+          <div class="costume-effect-label">New and Better — +2% SPD and ATK</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Carnage enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>
