@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Superman — Champions Ultimate Edition</title>
+<title>Thor — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #3b82f6; }
+  .back-link:hover { color: #38bdf8; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #3b82f6;
+    color: #38bdf8;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(59, 130, 246, 0.12);
-    color: #93c5fd;
+    background: rgba(56, 189, 248, 0.12);
+    color: #7dd3fc;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(59, 130, 246, 0.35);
+    border: 1px solid rgba(56, 189, 248, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #dc2626;
+    border-left: 3px solid #38bdf8;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #3b82f6;
+    border-color: #38bdf8;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #fbbf24;
+    color: #7dd3fc;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Superman theme — Hope Blue / Cape Red / Solar Gold / Frost-Aqua palette.
-       Hope blue = the suit, the man of tomorrow, identity in service.
-       Cape red = the cloak, raw kryptonian power, kinetic damage.
-       Solar gold = the S, sunlight, his fuel and his ULT.
-       Frost-aqua = his cold side, restraint, frost-breath.
+     Thor theme — Lightning Blue / Storm Steel / Asgard Gold palette.
+       Lightning blue = the thunder, Mjolnir's bolts, the storm he commands.
+       Storm steel/silver = the armor and the hammer forged in a dying star.
+       Asgard gold = the crown, the Odinforce, worthiness earned.
+       Deep thunder navy = the sky before the strike, his inherent might.
      Each ability still gets a visually distinct treatment; the palette
      just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #fbbf24;          /* solar gold — The Symbol of Hope */
-    color: #2d1f08;
+    background: #a16207;          /* Asgard gold — the throne, the heir's command */
+    color: #fff7e0;
   }
 
   .ability--basic {
-    background: #0f1730;          /* deep navy — the suit in close range */
-    border: 1px solid #1e3a8a;
-    color: #e0e7ff;
+    background: #0d1520;          /* near-black storm navy — Hammer Swing */
+    border: 1px solid #1e3a5f;
+    color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #fbbf24; }
-  .ability--basic .ability-tag  { color: #a5b4fc; }
-  .ability--basic .ability-meta { color: #a5b4fc; }
+  .ability--basic .ability-name { color: #7dd3fc; }
+  .ability--basic .ability-tag  { color: #5aa8d6; }
+  .ability--basic .ability-meta { color: #5aa8d6; }
 
-  .ability--special-1 { background: #dc2626; color: #fff5f5; } /* cape red — Heat Vision searing beam */
-  .ability--special-2 { background: #1e3a8a; color: #e0e7ff; } /* navy — Super Stance, the bulwark */
-  .ability--special-3 { background: #67e8f9; color: #082f49; } /* icy aqua — Frost Breath */
-  .ability--special-4 { background: #3b82f6; color: #eff6ff; } /* sky blue — Soaring Save, flight */
+  .ability--special-1 { background: #0369a1; color: #e0f2fe; } /* deep sky — Flight of Mjolnir */
+  .ability--special-2 { background: #0ea5e9; color: #04283d; } /* bright electric blue — Lightning Surge (signature) */
+  .ability--special-3 { background: #475569; color: #f1f5f9; } /* storm steel — Hammer Crash, the slam */
+  .ability--special-4 { background: #ca8a04; color: #241701; } /* gold — Power of the Odinforce */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #dc2626; } /* cape red */
-  .ability--reserve-passive   { border-left-color: #1d4ed8; } /* hope blue */
-  .ability--reserve-ultimatum { border-left-color: #fde047; } /* solar gold */
+  .ability--reserve-special   { border-left-color: #38bdf8; } /* lightning blue */
+  .ability--reserve-passive   { border-left-color: #cbd5e1; } /* storm silver */
+  .ability--reserve-ultimatum { border-left-color: #a16207; } /* Asgard gold */
 
   .ability--core-passive {
-    background: #1d4ed8;          /* royal hope-blue — the iconic suit, the identity */
-    color: #e0e7ff;
+    background: #0a1626;          /* deep thunder navy — the god's inherent might */
+    color: #cfe4f5;
   }
 
   .ability--passive {
-    background: #991b1b;          /* deep cape red — secondary identity, force */
-    color: #fde0e0;
+    background: #cbd5e1;          /* storm silver — the armor, the Asgardian frame */
+    color: #1e293b;
   }
 
   .ability--ultimatum {
-    background: #fde047;          /* full solar gold — Solarpowered Punch */
-    color: #422006;
+    background: #0c4a6e;          /* deep thunder blue — Might of Mjolnir */
+    color: #d0ecff;
   }
 
   .ability--synergy {
-    background: #d4a017;          /* warm alliance gold — World's Finest, matches Batman */
-    color: #1c1208;
+    background: #dbe4ec;          /* pale steel-blue — connection */
+    color: #0c1c2a;
   }
 
   .ability--artifact {
@@ -515,7 +515,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #e0b83d; }
+  .synergy-block[open] { border-color: #38bdf8; }
 
   .synergy-summary {
     list-style: none;
@@ -527,7 +527,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(224, 184, 61, 0.04); }
+  .synergy-summary:hover { background: rgba(56, 189, 248, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -540,7 +540,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #e0b83d; }
+  .synergy-block[open] .synergy-icon { border-color: #38bdf8; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -554,7 +554,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #f0cf6b;
+    color: #7dd3fc;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -577,7 +577,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e0b83d; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #38bdf8; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -643,7 +643,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e0b83d; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #38bdf8; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -653,23 +653,23 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(224, 184, 61, 0.1);
-    border: 1px solid rgba(224, 184, 61, 0.3);
-    color: #f0cf6b;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #a8dcf5;
   }
-  .syn-cost-chip .who { color: #f0cf6b; font-weight: 700; }
+  .syn-cost-chip .who { color: #7dd3fc; font-weight: 700; }
 
-  /* Type accents */
-  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
-  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
-  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
-  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
-  .syn-ability--new-special        { border-left-color: #2c5fcc; }
-  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+  /* Type accents — lightning/steel/gold spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #0369a1; } /* deep sky */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(3, 105, 161, 0.2); color: #6cbdf0; border: 1px solid rgba(3, 105, 161, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #38bdf8; } /* lightning blue */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #cbd5e1; } /* storm silver */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(203, 213, 225, 0.13); color: #d5dde8; border: 1px solid rgba(203, 213, 225, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #a16207; } /* Asgard gold */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(161, 98, 7, 0.2); color: #e0b054; border: 1px solid rgba(161, 98, 7, 0.5); }
+  .syn-ability--new-special        { border-left-color: #475569; } /* storm steel */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(71, 85, 105, 0.3); color: #a9b6c8; border: 1px solid rgba(71, 85, 105, 0.55); }
 
   .costumes-section {
     margin-top: 18px;
@@ -913,8 +913,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e0b83d;
-    color: #0d0e11;
+    background: #38bdf8;
+    color: #04283d;
     transition: transform 0.12s ease, filter 0.12s ease;
   }
   .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
@@ -945,7 +945,7 @@
   .theme-source {
     font-size: 11.5px;
     font-style: italic;
-    color: #f0cf6b;
+    color: #a8dcf5;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
@@ -965,33 +965,33 @@
     <div class="hero-left">
       <div class="character-image">
         <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-        <img src="../images/champion-images/superman.jpg" alt="Superman">
+        <img src="../images/champion-images/thor.jpg" alt="Thor">
       </div>
 
       <!-- Champion theme music player. Drop the track at the data-theme / src path.
            Fill in .theme-track (name) and .theme-source (original game it is from). -->
-      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/superman.mp3">
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/thor.mp3">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
           <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         </button>
         <div class="theme-meta">
           <div class="theme-eyebrow">Theme</div>
-          <div class="theme-track">Hope of the Multiverse</div>
-          <div class="theme-source">Dragon Ball Z Dokkan Battle: STR LR GT Goku & SSJ4 Vegeta Finish Skill OST</div>
+          <div class="theme-track">King of Asgard</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ LR Power Awakening Piccolo Intro OST</div>
         </div>
-        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/superman.mp3"></audio>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/thor.mp3"></audio>
       </div>
     </div>
 
     <div class="identity">
-      <h1 class="name">Superman</h1>
-      <p class="subtitle">Clark Kent</p>
+      <h1 class="name">Thor</h1>
+      <p class="subtitle">Thor Odinson</p>
       <span class="role-badge">Defender</span>
-      <p class="description">The last son of a dead world, rocketed to Earth as an infant and raised in the American heartland as Clark Kent, Kal-El became Superman — the Man of Steel and the world's greatest symbol of hope.</p>
-      <p class="description">Superman could take this world in an afternoon, and the truest measure of him is that the thought never crosses his mind. The last child of Krypton was raised not in a palace but on a Kansas farm, by a couple who taught a boy of impossible power the most important thing he would ever learn — that strength is meaningless beside decency, and that the strong exist to lift up the weak. That upbringing is the whole of him: for all the talk of a Man of Steel, the man beneath the cape is Clark Kent, a farmer's son who happens to be able to move planets. His goodness is not the naivety his enemies mistake it for but a deliberate, daily choice — restraint held by the most powerful being alive, kindness offered by the one who least needs to bother with it. He carries the quiet loneliness of the last of his kind and answers it by loving his adopted world all the more fiercely, standing not as its ruler but as its example, the symbol that makes ordinary people believe they, too, can be better than they are.</p>
-      <p class="description">That example is backed by power drawn from the light of Earth's own sun. Beneath its yellow rays Kal-El soars faster than sound, shrugs off artillery like rain, and wields strength enough to hold a falling mountain or a falling airliner in the same steady hands. His eyes can loose searing heat or peer through walls and across miles; his breath can freeze a river; his senses catch a cry for help from half a city away. Only the poisoned fragments of his lost homeworld and the strange workings of magic can truly bring him low — reminders that even a god can bleed. But his power was never the reason the world looks up. It's that a being who could demand worship asks for nothing, and simply shows them, every single day, the very best of what they could be.</p>
-      <p class="quote">"It's never as bad as it seems. You're much stronger than you think you are. Trust me."</p>
+      <p class="description">The Asgardian God of Thunder and heir to the throne of Asgard, Thor Odinson wields the enchanted hammer Mjolnir in defense of the Nine Realms and the mortal world he has come to love.</p>
+      <p class="description">Thor was born a god and had to learn how to be a hero. Prince of Asgard and son of the Allfather Odin, he was in his youth as arrogant as he was mighty — until his father, despairing of that pride, stripped him of his power and cast him into a mortal life to walk the earth as one of the fragile beings he'd been so quick to look down upon. That humbling remade him. The god who returned had learned compassion, patience, and the worth of a single mortal life, and he has spent the ages since as one of Midgard's most devoted protectors — a warrior who still thrills to the glory of a good battle, but who fights now for those who cannot fight for themselves. Honor is the marrow of him: he keeps his word, meets his foes head-on, and would sooner fall than betray the code of a true warrior. And woven through all of it is the one measure that defines him above every other — worthiness. His power is not simply his to command; he must earn it, every day, remaining the kind of man fit to wield it. A prince who could rule chose instead to serve, and a god who could demand worship asks only to stand between the innocent and the storm.</p>
+      <p class="description">The power he commands is the raw fury of the heavens. As the God of Thunder, Thor summons lightning, gale, and tempest at will, and his godly strength and near-invulnerable Asgardian frame place him among the physically mightiest beings in all the realms. In his grip rests Mjolnir, a hammer forged in the heart of a dying star and bound by an enchantment so that only the worthy may lift it at all — and in worthy hands it calls down devastating bolts, looses blasts of energy, carries him through the sky like a hurled comet, and tears open the paths between worlds. Yet for all the thunder at his command, the truest source of his strength has never been the hammer. It is the worthiness that lets him raise it — the humility, honor, and love for others that a proud god learned the hard way, and has never once let go.</p>
+      <p class="quote">"All the power of the storm, from all the world, flows through my veins, and can be summoned by mine hammer at any time, wherever it is. A lightning storm in Japan? Mine. A hurricane off the coast of Barbados? Mine again. A brace of tornadoes in Kansas? Aye... mine. All that might, all that destructive force, mine to command. Channeled and guided through the mystic might of this hammer, guided right at thee!"</p>
     </div>
   </div>
 
@@ -1006,23 +1006,23 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">16,800</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">350</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">230</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">14,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">360</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">250</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">220</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">170</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
         <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
         <div class="stat-row"><span class="label">SPD</span><span class="value">105</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">7%</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">6%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
         <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
         <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
       </div>
@@ -1031,13 +1031,16 @@
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <a href="../links/dc-universe.html" class="pill">DC Universe</a>
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
-          <a href="../links/kryptonian.html" class="pill">Kryptonian</a>
-          <a href="../links/justice-league.html" class="pill">Justice League</a>
-          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/asgardian.html" class="pill">Asgardian</a>
+          <a href="../links/avengers.html" class="pill">Avengers</a>
           <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
           <a href="../links/worthy.html" class="pill">Worthy</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/control-of-nature.html" class="pill">Control of Nature</a>
+          <a href="../links/fierce-combatant.html" class="pill">Fierce Combatant</a>
+          <a href="../links/gifted-by-the-gods.html" class="pill">Gifted by the Gods</a>
         </div>
       </div>
 
@@ -1045,22 +1048,23 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
           <span class="pill">Enemy Reposition</span>
-          <span class="pill">Ally Reposition</span>
-          <span class="pill">Elevation Bypass</span>
-          <span class="pill">Counter</span>
+          <span class="pill">Airborne</span>
           <span class="pill">Taunt</span>
-          <span class="pill">Standby</span>
-          <span class="pill">DEF Down</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Infliction Resist</span>
           <span class="pill">Damage Over Time</span>
           <span class="pill">Stun</span>
+          <span class="pill">Forced Target</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">RES Down</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Chain</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
-          <span class="pill">DEF Up</span>
-          <span class="pill">RES Up</span>
-          <span class="pill">Resource Refill</span>
+          <span class="pill">Affliction Boost</span>
           <span class="pill">ULT Generation</span>
-          <span class="pill">Cooldown Reduction</span>
         </div>
       </div>
 
@@ -1069,15 +1073,25 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="batman.html" class="partner-card">
+          <a href="iron-man.html" class="partner-card">
             <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/batman.jpg" alt="Batman">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
             </div>
             <div class="partner-tooltip">
-              <strong>Batman</strong>
-              <span class="real-name">Bruce Wayne</span>
-              <span class="synergy-name">World's Finest</span>
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Thunder and Iron</span>
+            </div>
+          </a>
+          
+          <a href="captain-america.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Captain America</strong>
+              <span class="real-name">Steve Rogers</span>
+              <span class="synergy-name">Honor of the Worthy</span>
             </div>
           </a>
 
@@ -1088,33 +1102,9 @@
             <div class="partner-tooltip">
               <strong>Wonder Woman</strong>
               <span class="real-name">Diana of Themyscira</span>
-              <span class="synergy-name">Hope Made Flesh</span>
+              <span class="synergy-name">Children of the Pantheons</span>
             </div>
           </a> 
-
-          <a href="captain-america.html" class="partner-card">
-            <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Captain America</strong>
-              <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Paragons</span>
-            </div>
-          </a>
-
-          <a href="goku.html" class="partner-card">
-            <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/goku.jpg" alt="Captain America">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Goku</strong>
-              <span class="real-name">Son Goku · Kakarot</span>
-              <span class="synergy-name">Sons of Dying Worlds</span>
-            </div>
-          </a>
 
         </div>
       </div>
@@ -1132,11 +1122,12 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">The Symbol of Hope</span>
+          <span class="ability-name">Asgard's Hope</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Hero" allies gain +10% MAX HP.</li>
+          <li>"Worthy", "Control of Nature" or "Asgardian" allies gain +15% MAG and RES.</li>
+          <li>"Asgardian" allies gain +10% MAX HP.</li>
         </ul>
       </div>
 
@@ -1144,13 +1135,13 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Krypton Combo</span>
+          <span class="ability-name">Hammer Swing</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 180% ATK damage to the target.</li>
-          <li>Inflicts "Bruise" to the target for 2 turns.</li>
+          <li>Deals 170% ATK damage to the target.</li>
+          <li>70% chance to inflict "Shock" to the target for 1 turn.</li>
         </ul>
       </div>
 
@@ -1159,77 +1150,83 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Heat Vision</span>
+          <span class="ability-name">Flight of Mjolnir</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 7</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 8</div>
         <ul>
-          <li>Deals 150% MAG damage the target.</li>
-          <li>Inflicts "Burn" to the target for 2 turns.</li>
+          <li>Deals 240% ATK damage to the target.</li>
+          <li>Deals 240% MAG damage to any enemies within 1 panel of the target (target included).</li>
+          <li>50% chance to inflict "Shock" for 1 turn to any enemy damaged by this attack.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Super Stance</span>
+          <span class="ability-name">Lightning Surge</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 3 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + Chain (up to 5) · Energy: 50 · Cooldown: 3 turns · Range: 8</div>
         <ul>
-          <li>+10% DEF and RES for 2 turns.</li>
-          <li>Gains "Taunt" for 2 turns.</li>
-          <li>Counters the next incoming attack with 150% ATK damage (expires after 1 turn).</li>
+          <li>Deals 320% MAG damage to the target.</li>
+          <li>Chains to another enemy if that enemy is within 2 panels (up to 5 times).</li>
+          <li>Inflicts 2 stacks of "Shock" for 2 turns to any enemy damaged by this attack.</li>
+          <li>Inflicts "Paralyze" for 2 turns to any enemy damaged by this attack if they attacked a Booster or Healer ally within the past 2 turns.</li>
+          <li>Cannot hit the same enemy twice within the same attack.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Frost Breath</span>
+          <span class="ability-name">Hammer Crash</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 5 turns · Range: 4</div>
+        <div class="ability-meta">Type: Melee · Target: One Panel · Energy: 30 · Cooldown: 2 turns · Range: 5</div>
         <ul>
-          <li>Inflicts "Frozen" to the target for 1 turn.</li>
-          <li>Inflicts 1 stack of "Frost" to the target for 1 turn.</li>
+          <li>Deals 300% ATK damage to any enemy standing on the targeted panel.</li>
+          <li>Pushes any enemy standing on the targeted panel 1 panel away in the direction of attack.</li>
+          <li>Deals 300% MAG damage to all enemies within 2 panels of the targeted panel.</li>
+          <li>Inflicts "Retribution" to all enemies within 2 panels of the targeted panel.</li>
+          <li>Nullifies own airborne status.</li>
+          <li>Positions self onto the targeted panel.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Soaring Save</span>
+          <span class="ability-name">Power of the Odinforce</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 12</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 6 turns · Range: N/A</div>
         <ul>
-          <li>Can only be used as the first action of the turn.</li>
-          <li>Stands by for the remainder of the turn.</li>
-          <li>If an ally within 12 panels is attacked, the ally is saved from the attack and repositioned to the targeted panel. Standby ends after one save.</li>
-          <li>Self gains "Taunt" for 1 turn upon a successful rescue.</li>
+          <li>Gains 2 stacks of "Might" and "Technique" for 2 turns.</li>
+          <li>Gains "Taunt" for 1 turn.</li>
+          <li>Infliction chances are increased by 30% for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Mighty Toss</span>
+          <span class="ability-name">Take to the Skies</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 4 turns · Range: N/A</div>
         <ul>
-          <li>Deals 300% ATK damage to the target.</li>
-          <li>Inflicts 3 stacks of "Bruise" to the target for 3 turns.</li>
-          <li>Pushes the target in the opposite direction of the attack by 6 panels.</li>
+          <li>Becomes airborne for 2 turns.</li>
+          <li>Immune to airborne nullification for 1 turn (unless nullified by self).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Solar Recharge</span>
+          <span class="ability-name">Fists of Thunder</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 0 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 1</div>
         <ul>
-          <li>Restores 80 EN.</li>
-          <li>+15% DEF and RES for 2 turns.</li>
+          <li>Deals 400% ATK damage to the enemy.</li>
+          <li>Deals an additional 200% ATK damage to the enemy if they're below 20% HP (of their MAX HP).</li>
+          <li>20% chance to inflict "Paralyze" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -1238,57 +1235,59 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Shining Man of Tomorrow</span>
+          <span class="ability-name">God of Thunder</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>All allies gain +15% DEF and RES for 3 turns at the start of battle (once only).</li>
-          <li>+10% DEF and RES against "Villain" enemies.</li>
-          <li>Gains 2% ULT each time an attack is received (self only).</li>
+          <li>Reduces melee damage received by 7%.</li>
+          <li>Immune to "Shock" and "Paralyze".</li>
+          <li>Gains 1% ULT each time an attack is received.</li>
+          <li>Gains 1% ULT each time an infliction lands on an enemy (counts individual stacks, self only).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Unmatched Compassion</span>
+          <span class="ability-name">Hammer Spin</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>"Taunt" buffs applied to self are persistent.</li>
-          <li>Soaring Save cooldown is reduced by 1 turn.</li>
+          <li>Blocking negates 80% of ranged attack damage.</li>
+          <li>20% chance to reflect ranged attacks while blocking (sending 50% of the incoming damage back at the attacker).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Might of the Man of Steel</span>
+          <span class="ability-name">Protector of Midgard</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Krypton Combo deals an additional 60% ATK damage.</li>
-          <li>Mighty Toss deals an additional 100% ATK damage.</li>
+          <li>"Taunt" status effects applied to self last 1 extra turn.</li>
+          <li>Flight of Mjolnir inflicts "Retribution" for 1 turn to any enemy damaged by the ability.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">The Power of Dreams</span>
+          <span class="ability-name">God in the Skies Above</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>All allies restore 10 EN whenever an ally defeats an enemy.</li>
-          <li>All allies gain +10% DEF and RES for 2 turns whenever an ally defeats an enemy (self excluded).</li>
+          <li>While airborne, attacks have a 30% chance to inflict "Retribution" for 2 turns.</li>
+          <li>While airborne, "Shock" infliction chances are increased by 10%.</li>
+          <li>While airborne, Hammer Crash deals 10% more damage.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">The Last of Krypton</span>
+          <span class="ability-name">Brothers Despite Everything</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+5% ATK to "Kryptonian" allies.</li>
-          <li>+20% DEF and RES when receiving an ULTIMATUM.</li>
+          <li>Loki gains +8% MAG.</li>
+          <li>+8% ATK and MAG whenever an ally Summon is on the field.</li>
         </ul>
       </div>
 
@@ -1297,29 +1296,27 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Solarpowered Punch</span>
+          <span class="ability-name">Might of Mjolnir</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 4 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 500% ATK damage to the target, plus an additional 100% ATK per attack intercepted since the last use of this ULTIMATUM (up to +1500% ATK).</li>
-          <li>Inflicts 1 stack of "Deep Bruise" to the target for every 3 attacks intercepted since the last use of this ULTIMATUM (up to 3 stacks).</li>
-          <li>"Intercepted attacks" include both Taunt redirections and saves from standby.</li>
-          <li>Ignores elevation.</li>
+          <li>Deals 800% ATK damage to the target.</li>
+          <li>Deals 400% MAG damage to the target.</li>
+          <li>Inflicts "Deep Bruise" and "Sharp Sting" for 2 turns to the target.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Priority to Protect</span>
+          <span class="ability-name">Wrath of Thunder</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Cost: 100% ULT</div>
         <ul>
-          <li>Can only be used as the first action of the turn.</li>
-          <li>Stands by for the remainder of the turn.</li>
-          <li>If an ally within 20 panels is attacked while below 50% HP, the ally is saved from the attack.</li>
-          <li>Standby ends after 5 saves.</li>
+          <li>After 1 turn, creates a 5x5 "Raging Thunderstorm" domain around self (using position after 1 turn as the center of the area) with a duration of 2 turns.</li>
+          <li>Damages a random enemy in range for 800% MAG twice per turn (at the end of the battle turn) while the domain is active.</li>
+          <li>Inflicts 3 stacks of "Shock" for 3 turns to any enemy damaged by this ability.</li>
         </ul>
       </div>
 
@@ -1331,78 +1328,48 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/batman.jpg" alt="Batman">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">World's Finest</span>
-              <span class="synergy-partner-tag">w/ Batman</span>
+              <span class="synergy-bond-name">Thunder and Iron</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
             </div>
-            <p class="synergy-desc">Superman sees the good in everyone, but he holds a particular awe for the one man who does more good than almost anyone alive with no powers at all. He counts Bruce his closest friend and his conscience in equal measure — the partner who keeps him honest, sharp, and grounded — and though it aches to watch the darkness his friend insists on carrying alone, Clark trusts Batman without reservation, certain that wherever his own light can't reach, the Dark Knight is already waiting in the shadows.</p>
+            <p class="synergy-desc">Few friendships have weathered as much as Thor's with the Man of Iron. They stood together at the Avengers' founding and have fought side by side across the centuries since — the god of thunder and the mortal of science, forever needling one another over magic and machine, faith and pragmatism, yet bound by a respect that runs beneath every argument. It has not gone untested: Stark once profaned Thor's very image, building a soulless machine in his likeness that spilled a hero's blood, and the betrayal cut the thunder god to the core. That the bond survived even that is proof of how deep it runs — two shield-brothers who will quarrel until the end of days and stand together against anything that comes.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
-          <div class="syn-ability syn-ability--new-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Up in the Sky</span>
-              <span class="syn-type-badge">New Special</span>
-            </div>
-            <div class="syn-override">Added on top of 4-special limit.</div>
-            <div class="syn-ability-meta">Type: Melee · Target: All Enemies AoE · Energy: 30 · Cooldown: 4 turns · Range: 3</div>
-            <ul>
-              <li>Becomes airborne for 1 turn.</li>
-              <li>Upon exiting the airborne state (from this ability), deals 300% ATK to all enemies within 3 panels.</li>
-            </ul>
-          </div>
-        </div>
-      </details>
 
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Hope Made Flesh</span>
-              <span class="synergy-partner-tag">w/ Wonder Woman</span>
-            </div>
-            <p class="synergy-desc">Of all the heroes Clark has ever stood beside, Diana is the one he never has to carry and never has to hold back around — a true equal in power, and something more than an equal in conviction. He leads with hope because he believes in people; she leads with it because she has chosen to, again and again, with clear eyes about exactly what the world is — and Clark draws a quiet strength from that he rarely admits needing. He agonizes over the hard lines she crosses without flinching, the warrior's resolve he could never quite bring himself to match, yet there is no one whose heart he trusts more surely, nor anyone he'd sooner have beside him when hope alone isn't enough.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-          <div class="syn-ability syn-ability--dynamic-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Gods Amongst Mankind</span>
-              <span class="syn-type-badge">Dynamic Special</span>
-            </div>
-            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
-            <div class="syn-dual-cost">
-              <span class="syn-cost-chip"><span class="who">Superman</span> · 60 EN</span>
-              <span class="syn-cost-chip"><span class="who">Wonder Woman</span> · 60 EN</span>
-            </div>
-            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Cooldown: 8 turns · Range: 7</div>
-            <ul>
-              <li>Superman deals 300% MAG and 300% ATK damage to the target.</li>
-              <li>Wonder Woman deals 600% ATK damage to the target.</li>
-              <li>Pushes target in the direction of attack by 4 panels.</li>
-              <li>Ignores elevation.</li>
-            </ul>
-          </div>
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Heat of Helios</span>
+              <span class="syn-ability-name">Armored Crash</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Heat Vision</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 7</div>
+            <div class="syn-override">Overrides <strong>Hammer Crash</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Panel · Energy: 30 · Cooldown: 2 turns · Range: 5</div>
             <ul>
-              <li>Deals 250% MAG damage the target.</li>
-              <li>Inflicts "Burn" to the target for 4 turns.</li>
+              <li>Deals 350% ATK damage to any enemy standing on the targeted panel.</li>
+              <li>Pushes any enemy standing on the targeted panel 1 panel away in the direction of attack.</li>
+              <li>Deals 320% MAG damage to all enemies within 2 panels of the targeted panel.</li>
+              <li>Inflicts "Retribution" to all enemies within 2 panels of the targeted panel.</li>
+              <li>Nullifies own airborne status.</li>
+              <li>Becomes airborne for 1 turn if own airborne status was nullified.</li>
+              <li>Cannot be interrupted.</li>
+              <li>Positions self onto the targeted panel.</li>
             </ul>
           </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Healing Scars</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Take to the Skies airborne duration is increased by 1 turn.</li>
+              <li>Restores 1% HP (of MAX HP) whenever receving an attack (once per received ability).</li>
+            </ul>
+          </div>
+
         </div>
       </details>
 
@@ -1413,52 +1380,75 @@
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Paragons</span>
+              <span class="synergy-bond-name">Honor of the Worthy</span>
               <span class="synergy-partner-tag">w/ Captain America</span>
             </div>
-            <p class="synergy-desc">In Steve Rogers, Clark found the rarest thing of all: a true equal. Both were raised humble and hold to the very same unbending line between right and wrong; both lead not by command but simply by being the man everyone around them wants to become. Superman has fought beside plenty who wield great power — but in Cap he found a brother who understands, exactly as he does, that the power was never the point, and there's no shoulder he'd sooner stand at when the odds turn grim.</p>
+            <p class="synergy-desc">To Thor, no honor he can bestow runs deeper than the one Steve Rogers has already earned — for the Captain is that rarest of mortals, a man of such pure and unbending conviction that he can lift Mjolnir itself, a feat gods and kings have failed. Thor deems him worthy in every sense of the word, and leads beside him not as a god among men but as one warrior of honor beside another. When the Captain speaks, the thunder god listens, and trusts that voice as readily as he would the counsel of any son of Asgard.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Bring the Hammer Down</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Thor</span> · 50 EN + 1 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 6 turns · Range: 4</div>
+            <ul>
+              <li>Positions Thor 1 panel away from Captain America.</li>
+              <li>Thor inflicts "Stun" for 1 turn to all enemies within 1 panel of Captain America.</li>
+              <li>Thor has a 50% chance to inflict "Stun" to all enemies within 4 panels of Captain America.</li>
+              <li>All enemies within 4 panels of Captain America are launched by 2 panels (in the direction of attack).</li>
+              <li>Infliction chances on this ability are not affected by any increases.</li>
+            </ul>
+          </div>
+
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Truth, Justice and the American Way</span>
+              <span class="syn-ability-name">Respect Amongst The Few Chosen</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>Blocking negates 80% of ranged attack damage when Captain America is defeated.</li>
-              <li>"Taunt" effects applied to self last 1 turn longer when Captain America is below 60% HP.</li>
+              <li>If affected by Captain America's Support or ULTIMATUM abilities, the effects last for 1 extra turn.</li>
+              <li>+5% ATK and MAG to "Worthy" allies.</li>
             </ul>
           </div>
+
         </div>
       </details>
 
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/goku.jpg" alt="Goku">
+            <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Sons of Dying Worlds</span>
-              <span class="synergy-partner-tag">w/ Goku</span>
+              <span class="synergy-bond-name">Children of the Pantheons</span>
+              <span class="synergy-partner-tag">w/ Wonder Woman</span>
             </div>
-            <p class="synergy-desc">In Goku, Clark met the one person alive who shares his whole improbable story — another child of a lost world, sent to Earth and raised by gentle, humble hands into its fiercest protector. He feels the kinship immediately and treasures it, because there are vanishingly few who understand what it is to hold this much power and choose, every single day, to be kind with it. The one thing he can't quite return is Goku's endless itch to test that power against his own; Superman has never once seen a fight as something to look forward to, and answers every cheerful challenge with a patient smile and a firm no — though he'll admit, if only to himself, to a quiet curiosity about what that fight might actually look like.</p>
+            <p class="synergy-desc">A god of Asgard rarely meets his equal, and Thor knew Diana for one the moment their paths first crossed. Son of Odin and champion of the gods of Olympus, they are divine warriors cut from the same ancient cloth — each raised among immortals, each sworn to shield the mortals below, each holding to a code of honor no battle could ever make them break. Between them lies the easy, unspoken understanding of two who carry the blood and burden of the old gods, and there are few in any realm Thor would sooner call comrade, or trust more surely at his side when the storm breaks.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Ki-Infused Heat Vision</span>
+              <span class="syn-ability-name">Power of the Old Gods</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Heat Vision</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 7</div>
+            <div class="syn-override">Overrides <strong>Power of the Odinforce</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 5 turns · Range: N/A</div>
             <ul>
-              <li>Deals 250% MAG damage the target.</li>
-              <li>Inflicts "Burn" and "Sting" to the target for 2 turns.</li>
+              <li>Gains 2 stacks of "Might" and "Technique" for 2 turns.</li>
+              <li>Gains "Taunt" for 1 turn.</li>
+              <li>Infliction chances are increased by 50% for 2 turns.</li>
             </ul>
           </div>
         </div>
@@ -1477,7 +1467,7 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/superman.jpg" alt="Classic">
+          <img src="../images/champion-images/thor.jpg" alt="Classic">
         </div>
         <div class="costume-info">
           <div class="costume-name">Classic</div>
@@ -1488,36 +1478,56 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/superman(new-52).jpg" alt="New 52">
+          <img src="../images/champion-images/costumes/thor(oracle).jpg" alt="Oracle">
         </div>
         <div class="costume-info">
-          <div class="costume-name">New 52</div>
-          <div class="costume-effect-label">Super Armor — +5% DEF</div>
+          <div class="costume-name">Oracle</div>
+          <div class="costume-effect-label">Mortal Memories — +5% MAX HP</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/costumes/superman(black-suit).jpg" alt="Black Suit">
+          <img src="../images/champion-images/costumes/thor(king).jpg" alt="King">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Black Suit</div>
-          <div class="costume-effect-label">Return of a Hero — +20% ATK and DEF for 3 turns when resurrected</div>
+          <div class="costume-name">King</div>
+          <div class="costume-effect-label">Successor to Odin — +5% DEF and RES</div>
           <span class="rarity rarity--rare">Rare</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/costumes/superman(kingdom-come).jpg" alt="Kingdom Come">
+          <img src="../images/champion-images/costumes/thor(ultimate).jpg" alt="Ultimate">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Kingdom Come</div>
-          <div class="costume-effect-label">New Heroes for a New Era - +6% ATK, MAG, DEF and RES to all "Hero" allies (self excluded)</div>
+          <div class="costume-name">Ultimate</div>
+          <div class="costume-effect-label">Unsure Godhood — +8% ATK and MAG for the rest of battle upon going below 30% HP (of MAX HP, once only)</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/thor(war-of-the-realms).jpg" alt="War of the Realms">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">War of the Realms</div>
+          <div class="costume-effect-label">Warbound — +20% ATK and MAG while inflicted with "Duel"</div>
           <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/thor(power-cosmic).jpg" alt="Power Cosmic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Power Cosmic</div>
+          <div class="costume-effect-label">Herald of Thunder — +8% MAG, can receive buffs granted to "Heralds of Galactus" allies (including Leader Abilities)<div>
+          <span class="rarity rarity--mythic">Mythic</span>
         </div>
       </div>
 
@@ -1537,41 +1547,31 @@
       <div class="changelog-entry">
         <div class="entry-meta">
           <span class="version">v1.0.1</span>
-          <span class="date">May 22, 2026</span>
+          <span class="date">August 12, 2026</span>
         </div>
         <ul class="changes">
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span>MAX HP reduced from 20,500 to 16,800.</span>
+            <span>MAX HP reduced from 15,000 to 14,600.</span>
           </li>
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span>Frost Breath cooldown increased from 4 to 5 turns; Frost reduced from 2 stacks for 2 turns to 1 stack for 1 turn.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Super Stance no longer restores 3 STA or 8% HP; the counter now scales off ATK instead of MAG (still 150%).</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Soaring Save wording clarified — standby now explicitly ends after one save, rather than the ambiguous "once per turn."</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Solarpowered Punch no longer scales off allies defeated. Now deals 500% ATK baseline + 100% ATK per attack intercepted since last ULTIMATUM (max +1500%). Deep Bruise scales at 1 stack per 3 intercepts (max 3 stacks). Intercepts include Taunt redirections and standby saves.</span>
+            <span>MAG reduced from 300 to 250.</span>
           </li>
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span>Priority to Protect now only saves allies below 50% HP and caps at 5 saves before standby ends.</span>
+            <span>DEF reduced from 180 to 170.</span>
           </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Unmatched Compassion reworded: "Taunt" on self cannot be removed by enemy cleanse effects, but still expires on duration normally.</span>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>RES reduced from 170 to 160.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Bring the Hammer Down (Honor of the Worthy synergy): the 50% chance to Stun enemies within 4 panels no longer benefits from Thor's infliction-chance increases, and the guaranteed Stun within 1 panel is now specified as 1 turn.</span>
           </li>
         </ul>
-        <p class="rationale">
-          Superman's launch kit packed a Defender's HP pool with Breaker-grade infliction power and an ULTIMATUM that rewarded losing teammates — a contradiction with his identity as the team's protector. This pass trims him to fit the role: he's still the tankiest Champion on the roster, but Frost Breath stops out-Breakering the Breakers, Super Stance becomes a focused defensive setup instead of a five-effect Swiss Army knife, Priority to Protect has clear boundaries, and Solarpowered Punch now scales off doing his job (intercepting) rather than failing at it. Soaring Save and Unmatched Compassion were reworded for clarity, not power.
-        </p>
+        <p class="rationale">As the more offensive of his lane's two Defenders, Thor was outpacing Wonder Woman on durability, hybrid damage, and utility all at once. These stat trims — made without touching any of his abilities — bring his frame in line with hers while keeping his identity as the hybrid control-wall intact. The Bring the Hammer Down limitation stops his self-buffed infliction chances from turning the combo's wide-area Stun into near-guaranteed mass hard-CC.</p>
       </div>
 
       <div class="changelog-entry release">
@@ -1582,7 +1582,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Superman enters the roster.</span>
+            <span>Thor enters the roster.</span>
           </li>
         </ul>
       </div>
