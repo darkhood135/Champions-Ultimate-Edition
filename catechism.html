@@ -564,6 +564,7 @@
         <a href="#last-stand" class="toc-link toc-sub">Last Stand</a>
         <a href="#taunt-retribution" class="toc-link toc-sub">Taunt + Retribution Interaction</a>
         <a href="#overhealth" class="toc-link toc-sub">Overhealth</a>
+        <a href="#shared-hp" class="toc-link toc-sub">Shared HP</a>
         <a href="#persistent" class="toc-link toc-sub">Persistent</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
       </nav>
@@ -1497,6 +1498,18 @@
       <h3 id="overhealth">Overhealth</h3>
       <p><strong>Overhealth</strong> is a temporary bonus layer of hit points applied on top of a character's HP pool. It can exceed maximum HP, and is only active for a set amount of time (specified by the kit).</p>
       <p><strong>Overhealth</strong> expires either when the duration is up or when it is depleted and cannot be healed like normal HP (unless a new application of overhealth occurs).</p>
+
+      <h3 id="shared-hp">Shared HP</h3>
+      <p><strong>Shared HP</strong> is a kit-granted state in which a Champion and the summons it controls draw from a single, combined HP pool rather than each keeping its own. It is a novel form of damage allocation: while it is active there is only one health total for the whole group, and it does not matter which body an attack lands on. Loki's <em>Threads of Reincarnation</em> (<em>"HP is shared between self and summons"</em>) is the canonical example.</p>
+      <p>While HP is shared:</p>
+      <ul>
+        <li><strong>Damage draws from the one pool.</strong> Any damage dealt to the Champion or to any of its shared summons is subtracted from the single shared total. A hit on a summon costs the pool exactly what the same hit on the Champion would.</li>
+        <li><strong>Shared summons cannot be picked off by damage alone.</strong> Because a summon keeps no separate health bar, striking it only drains the common pool — it cannot be individually defeated by damage while the pool still has HP.</li>
+        <li><strong>Healing fills the shared pool.</strong> HP restored to any member is added to the one total (up to its maximum), so healing any body effectively heals the whole group.</li>
+        <li><strong>The maximum scales with the shared summons.</strong> The pool's ceiling is the Champion's MAX HP, which the granting kit raises per shared summon on the field — <em>Threads of Reincarnation</em> adds 5,000 MAX HP per summon, applied the instant it is summoned. When a shared summon leaves the field, its contribution to the maximum is removed and current HP is capped to the new, lower maximum.</li>
+        <li><strong>Percentage-of-MAX-HP effects use the shared maximum.</strong> Any "% of MAX HP" cost, heal, or damage is calculated from the combined pool's (inflated) maximum — for example, Loki's <em>God of Mischief</em> restoring 2% MAX HP references the shared total.</li>
+      </ul>
+      <p>When the shared pool is emptied to 0, every member drawing from it is defeated at once, since none of them holds any independent health. Summons removed by other means — destroyed by their own Champion, replaced when a summon cap is reached, or cleared by an effect that removes the unit itself — simply leave the shared group; their share of the maximum is subtracted, but the pool is not otherwise depleted.</p>
 
       <h3 id="persistent">Persistent</h3>
       <p><strong>Persistent</strong> is a <em>Champion amplifier</em> applied kit-by-kit — it is not a property of any status effect itself. No effect is inherently persistent. Instead, a Champion's kit may declare that certain effects become persistent for them, while that same effect on any other Champion behaves normally. The granting kit line always states which effects it covers and under what scope — for example, Superman's <em>Unmatched Compassion</em>: <em>"'Taunt' buffs applied to self are persistent."</em></p>

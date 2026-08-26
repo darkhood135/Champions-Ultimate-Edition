@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thor — Champions Ultimate Edition</title>
+<title>Loki — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #38bdf8; }
+  .back-link:hover { color: #22c55e; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #38bdf8;
+    color: #22c55e;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(56, 189, 248, 0.12);
-    color: #7dd3fc;
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #38bdf8;
+    border-left: 3px solid #22c55e;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #38bdf8;
+    border-color: #22c55e;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #7dd3fc;
+    color: #4ade80;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Thor theme — Lightning Blue / Storm Steel / Asgard Gold palette.
-       Lightning blue = the thunder, Mjolnir's bolts, the storm he commands.
-       Storm steel/silver = the armor and the hammer forged in a dying star.
-       Asgard gold = the crown, the Odinforce, worthiness earned.
-       Deep thunder navy = the sky before the strike, his inherent might.
+     Loki theme — Mischief Green / Asgard Gold / Jotun Ice palette.
+       Mischief green = the sorcery, the illusions, the clones and conjurations.
+       Asgard gold = the horned helm and the throne he will never stop coveting.
+       Jotun ice = the Frost Giant blood beneath the borrowed Asgardian skin.
+       Void green-black = the schemer in the shadows, the plan behind the plan.
      Each ability still gets a visually distinct treatment; the palette
      just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #a16207;          /* Asgard gold — the throne, the heir's command */
+    background: #a16207;          /* Asgard gold — the throne he covets */
     color: #fff7e0;
   }
 
   .ability--basic {
-    background: #0d1520;          /* near-black storm navy — Hammer Swing */
-    border: 1px solid #1e3a5f;
+    background: #0a1410;          /* void green-black — Staff Swing */
+    border: 1px solid #166534;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #7dd3fc; }
-  .ability--basic .ability-tag  { color: #5aa8d6; }
-  .ability--basic .ability-meta { color: #5aa8d6; }
+  .ability--basic .ability-name { color: #4ade80; }
+  .ability--basic .ability-tag  { color: #22c55e; }
+  .ability--basic .ability-meta { color: #22c55e; }
 
-  .ability--special-1 { background: #0369a1; color: #e0f2fe; } /* deep sky — Flight of Mjolnir */
-  .ability--special-2 { background: #0ea5e9; color: #04283d; } /* bright electric blue — Lightning Surge (signature) */
-  .ability--special-3 { background: #475569; color: #f1f5f9; } /* storm steel — Hammer Crash, the slam */
-  .ability--special-4 { background: #ca8a04; color: #241701; } /* gold — Power of the Odinforce */
+  .ability--special-1 { background: #16a34a; color: #dcfce7; } /* bright emerald — Doppelganger (signature) */
+  .ability--special-2 { background: #047857; color: #d1fae5; } /* deep emerald — Mystical Missile */
+  .ability--special-3 { background: #0e7490; color: #cffafe; } /* Jotun ice — Jotun Mist, the Frost */
+  .ability--special-4 { background: #ca8a04; color: #241701; } /* gold — Devious Exchange, the trick */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #38bdf8; } /* lightning blue */
-  .ability--reserve-passive   { border-left-color: #cbd5e1; } /* storm silver */
-  .ability--reserve-ultimatum { border-left-color: #a16207; } /* Asgard gold */
+  .ability--reserve-special   { border-left-color: #22c55e; } /* mischief green */
+  .ability--reserve-passive   { border-left-color: #eab308; } /* Asgard gold */
+  .ability--reserve-ultimatum { border-left-color: #166534; } /* deep emerald */
 
   .ability--core-passive {
-    background: #0a1626;          /* deep thunder navy — the god's inherent might */
-    color: #cfe4f5;
+    background: #08130d;          /* deepest void green — the God of Mischief */
+    color: #bbf7d0;
   }
 
   .ability--passive {
-    background: #cbd5e1;          /* storm silver — the armor, the Asgardian frame */
-    color: #1e293b;
+    background: #efe4bf;          /* pale Asgard gold — the horned helm */
+    color: #2a2410;
   }
 
   .ability--ultimatum {
-    background: #0c4a6e;          /* deep thunder blue — Might of Mjolnir */
-    color: #d0ecff;
+    background: #14532d;          /* deepest emerald — Stolen Power */
+    color: #dcfce7;
   }
 
   .ability--synergy {
-    background: #dbe4ec;          /* pale steel-blue — connection */
-    color: #0c1c2a;
+    background: #d8f0dd;          /* pale mischief green — connection */
+    color: #0c1c14;
   }
 
   .ability--artifact {
@@ -515,7 +515,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #38bdf8; }
+  .synergy-block[open] { border-color: #22c55e; }
 
   .synergy-summary {
     list-style: none;
@@ -527,7 +527,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(56, 189, 248, 0.04); }
+  .synergy-summary:hover { background: rgba(34, 197, 94, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -540,7 +540,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #38bdf8; }
+  .synergy-block[open] .synergy-icon { border-color: #22c55e; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -554,7 +554,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #7dd3fc;
+    color: #4ade80;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -577,7 +577,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #38bdf8; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #22c55e; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -643,7 +643,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #38bdf8; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #22c55e; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -653,23 +653,23 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    color: #a8dcf5;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #a8e6bf;
   }
-  .syn-cost-chip .who { color: #7dd3fc; font-weight: 700; }
+  .syn-cost-chip .who { color: #4ade80; font-weight: 700; }
 
-  /* Type accents — lightning/steel/gold spread, kept distinct from one another */
-  .syn-ability--upgraded-special   { border-left-color: #0369a1; } /* deep sky */
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(3, 105, 161, 0.2); color: #6cbdf0; border: 1px solid rgba(3, 105, 161, 0.45); }
-  .syn-ability--dynamic-special    { border-left-color: #38bdf8; } /* lightning blue */
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #cbd5e1; } /* storm silver */
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(203, 213, 225, 0.13); color: #d5dde8; border: 1px solid rgba(203, 213, 225, 0.35); }
+  /* Type accents — mischief green / gold / Jotun ice spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #047857; } /* deep emerald */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(4, 120, 87, 0.2); color: #5ed6a4; border: 1px solid rgba(4, 120, 87, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #22c55e; } /* mischief green */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #efe4bf; } /* pale gold */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(239, 228, 191, 0.13); color: #e6dcbe; border: 1px solid rgba(239, 228, 191, 0.35); }
   .syn-ability--upgraded-ultimatum { border-left-color: #a16207; } /* Asgard gold */
   .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(161, 98, 7, 0.2); color: #e0b054; border: 1px solid rgba(161, 98, 7, 0.5); }
-  .syn-ability--new-special        { border-left-color: #475569; } /* storm steel */
-  .syn-ability--new-special        .syn-type-badge { background: rgba(71, 85, 105, 0.3); color: #a9b6c8; border: 1px solid rgba(71, 85, 105, 0.55); }
+  .syn-ability--new-special        { border-left-color: #0e7490; } /* Jotun ice */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(14, 116, 144, 0.28); color: #67c9e0; border: 1px solid rgba(14, 116, 144, 0.5); }
 
   .costumes-section {
     margin-top: 18px;
@@ -913,8 +913,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #38bdf8;
-    color: #04283d;
+    background: #22c55e;
+    color: #04240f;
     transition: transform 0.12s ease, filter 0.12s ease;
   }
   .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
@@ -945,7 +945,7 @@
   .theme-source {
     font-size: 11.5px;
     font-style: italic;
-    color: #a8dcf5;
+    color: #a8e6bf;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
@@ -965,33 +965,33 @@
     <div class="hero-left">
       <div class="character-image">
         <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-        <img src="../images/champion-images/thor.jpg" alt="Thor">
+        <img src="../images/champion-images/loki.jpg" alt="Loki">
       </div>
 
       <!-- Champion theme music player. Drop the track at the data-theme / src path.
            Fill in .theme-track (name) and .theme-source (original game it is from). -->
-      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/thor.mp3">
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/loki.mp3">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
           <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         </button>
         <div class="theme-meta">
           <div class="theme-eyebrow">Theme</div>
-          <div class="theme-track">King of Asgard</div>
-          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ LR Power Awakening Piccolo Intro OST</div>
+          <div class="theme-track">Fountain of Lies</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: LR STR Rose Goku Black + Zamasu Active Skill OST</div>
         </div>
-        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/thor.mp3"></audio>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/loki.mp3"></audio>
       </div>
     </div>
 
     <div class="identity">
-      <h1 class="name">Thor</h1>
-      <p class="subtitle">Thor Odinson</p>
-      <span class="role-badge">Defender</span>
-      <p class="description">The Asgardian God of Thunder and heir to the throne of Asgard, Thor Odinson wields the enchanted hammer Mjolnir in defense of the Nine Realms and the mortal world he has come to love.</p>
-      <p class="description">Thor was born a god and had to learn how to be a hero. Prince of Asgard and son of the Allfather Odin, he was in his youth as arrogant as he was mighty — until his father, despairing of that pride, stripped him of his power and cast him into a mortal life to walk the earth as one of the fragile beings he'd been so quick to look down upon. That humbling remade him. The god who returned had learned compassion, patience, and the worth of a single mortal life, and he has spent the ages since as one of Midgard's most devoted protectors — a warrior who still thrills to the glory of a good battle, but who fights now for those who cannot fight for themselves. Honor is the marrow of him: he keeps his word, meets his foes head-on, and would sooner fall than betray the code of a true warrior. And woven through all of it is the one measure that defines him above every other — worthiness. His power is not simply his to command; he must earn it, every day, remaining the kind of man fit to wield it. A prince who could rule chose instead to serve, and a god who could demand worship asks only to stand between the innocent and the storm.</p>
-      <p class="description">The power he commands is the raw fury of the heavens. As the God of Thunder, Thor summons lightning, gale, and tempest at will, and his godly strength and near-invulnerable Asgardian frame place him among the physically mightiest beings in all the realms. In his grip rests Mjolnir, a hammer forged in the heart of a dying star and bound by an enchantment so that only the worthy may lift it at all — and in worthy hands it calls down devastating bolts, looses blasts of energy, carries him through the sky like a hurled comet, and tears open the paths between worlds. Yet for all the thunder at his command, the truest source of his strength has never been the hammer. It is the worthiness that lets him raise it — the humility, honor, and love for others that a proud god learned the hard way, and has never once let go.</p>
-      <p class="quote">"All the power of the storm, from all the world, flows through my veins, and can be summoned by mine hammer at any time, wherever it is. A lightning storm in Japan? Mine. A hurricane off the coast of Barbados? Mine again. A brace of tornadoes in Kansas? Aye... mine. All that might, all that destructive force, mine to command. Channeled and guided through the mystic might of this hammer, guided right at thee!"</p>
+      <h1 class="name">Loki</h1>
+      <p class="subtitle">Loki Laufeyson</p>
+      <span class="role-badge">Summoner</span>
+      <p class="description">The adopted son of Odin and eternal trickster of Asgard, Loki Laufeyson schemes without end for the throne, the vengeance, and the recognition he believes the God of Mischief is owed.</p>
+      <p class="description">Loki was born unwanted and has spent an immortal lifetime making the world pay for it. A runt of the Frost Giants, cast aside to die and taken up by Odin as a spoil of war, he was raised in the golden halls of Asgard as a brother to Thor — and never for a single day allowed to forget that he did not belong there. A giant among gods, a schemer among warriors, a shadow beside a favored son whose every triumph deepened his own sense of exile, he learned early that he would never win the throne or his father's love by strength or valor, and so he chose the only weapons left to him: cunning, deception, and a silver tongue that has toppled kingdoms. That is the heart of him — not malice for its own sake, but a bottomless, aching need to be seen, twisted into endless mischief and grand betrayal. His hatred for Thor is real, and so, maddeningly, is his love; he can neither defeat his brother nor abandon him, forever circling the one bond he cannot cut. He is a villain who was, in some cruel measure, made into one — and who has embraced the role with a flourish, because if the world insists on casting him as the trickster, he will be the finest trickster it has ever feared.</p>
+      <p class="description">His power lies not in his fists but in his mind and his magic. Among the mightiest sorcerers in all the Nine Realms, Loki bends reality through illusion and enchantment — conjuring phantoms indistinguishable from truth, slipping between places in an instant, and reshaping his very form to wear any face, any voice, any guise he pleases. Beneath the sorcery runs the resilience and long life of his Asgardian upbringing, but it has always been the least of his weapons. His true art is manipulation: the whisper that turns ally against ally, the plan folded inside a plan inside a lie, the scheme already three moves ahead by the time anyone realizes a game is being played at all. The most dangerous thing about Loki is never the spell you can see — it is that you can never be certain which of his words is the truth, and by the time you are, the trap has already closed around you.</p>
+      <p class="quote">"Everything is part of my plan."</p>
     </div>
   </div>
 
@@ -1006,17 +1006,17 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">14,600</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">360</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">250</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">380</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">170</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">160</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">60</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
         <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
         <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">105</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">6%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">116</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
       </div>
 
       <!-- Vitals -->
@@ -1024,7 +1024,7 @@
         <div class="panel-title">Vitals</div>
         <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
         <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
       </div>
 
       <!-- Links -->
@@ -1032,15 +1032,15 @@
         <div class="panel-title">Links</div>
         <div class="pill-group">
           <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
-          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
           <a href="../links/asgardian.html" class="pill">Asgardian</a>
-          <a href="../links/avengers.html" class="pill">Avengers</a>
           <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
           <a href="../links/worthy.html" class="pill">Worthy</a>
-          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
-          <a href="../links/control-of-nature.html" class="pill">Control of Nature</a>
-          <a href="../links/fierce-combatant.html" class="pill">Fierce Combatant</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/reality-warper.html" class="pill">Reality Warper</a>
           <a href="../links/gifted-by-the-gods.html" class="pill">Gifted by the Gods</a>
+          <a href="../links/rampant-deception.html" class="pill">Rampant Deception</a>
         </div>
       </div>
 
@@ -1048,23 +1048,23 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Self-Reposition</span>
-          <span class="pill">Enemy Reposition</span>
-          <span class="pill">Airborne</span>
-          <span class="pill">Taunt</span>
-          <span class="pill">Damage Reduction</span>
+          <span class="pill">Position Swap</span>
           <span class="pill">Infliction Resist</span>
-          <span class="pill">Damage Over Time</span>
-          <span class="pill">Stun</span>
-          <span class="pill">Forced Target</span>
-          <span class="pill">DEF Down</span>
           <span class="pill">RES Down</span>
-          <span class="pill">Area of Effect</span>
-          <span class="pill">Chain</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Mind Control</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
           <span class="pill">Affliction Boost</span>
+          <span class="pill">Stealth Application</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Summon</span>
+          <span class="pill">Copy</span>
           <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Cooldown Reduction</span>
         </div>
       </div>
 
@@ -1072,37 +1072,15 @@
       <div class="panel">
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
-
-          <a href="loki.html" class="partner-card">
+          
+          <a href="thor.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/loki.jpg" alt="Loki">
+              <img src="../images/champion-images/thor.jpg" alt="Thor">
             </div>
             <div class="partner-tooltip">
-              <strong>Loki</strong>
-              <span class="real-name">Loki Laufeyson</span>
+              <strong>Thor</strong>
+              <span class="real-name">Thor Odinson</span>
               <span class="synergy-name">Love and Loathing</span>
-            </div>
-          </a>
-          
-          <a href="iron-man.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Iron Man</strong>
-              <span class="real-name">Anthony Stark</span>
-              <span class="synergy-name">Thunder and Iron</span>
-            </div>
-          </a>
-          
-          <a href="captain-america.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Captain America</strong>
-              <span class="real-name">Steve Rogers</span>
-              <span class="synergy-name">Honor of the Worthy</span>
             </div>
           </a>
 
@@ -1113,9 +1091,20 @@
             <div class="partner-tooltip">
               <strong>Wonder Woman</strong>
               <span class="real-name">Diana of Themyscira</span>
-              <span class="synergy-name">Children of the Pantheons</span>
+              <span class="synergy-name">The Liar and the Lasso</span>
             </div>
           </a> 
+
+          <a href="iron-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Father of the Avengers</span>
+            </div>
+          </a>
 
         </div>
       </div>
@@ -1133,12 +1122,12 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Asgard's Hope</span>
+          <span class="ability-name">Asgard's Dread</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Worthy", "Control of Nature" or "Asgardian" allies gain +15% MAG and RES.</li>
-          <li>"Asgardian" allies gain +10% MAX HP.</li>
+          <li>"Reality Warper", "Gifted by the Gods" or "Road to Redemption" allies gain +15% MAG and RES.</li>
+          <li>"Rampant Deception" allies gain +10% MAX HP.</li>
         </ul>
       </div>
 
@@ -1146,13 +1135,14 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Hammer Swing</span>
+          <span class="ability-name">Staff Swing</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 170% ATK damage to the target.</li>
-          <li>70% chance to inflict "Shock" to the target for 1 turn.</li>
+          <li>Deals 120% ATK damage to the target.</li>
+          <li>30% chance to inflict "Sting" to the target for 4 turns.</li>
+          <li>Loki allies (clones included) restore 10 EN.</li>
         </ul>
       </div>
 
@@ -1161,83 +1151,76 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Flight of Mjolnir</span>
+          <span class="ability-name">Doppelganger</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 8</div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 50 · Cooldown: 3 turns · Range: 6</div>
         <ul>
-          <li>Deals 240% ATK damage to the target.</li>
-          <li>Deals 240% MAG damage to any enemies within 1 panel of the target (target included).</li>
-          <li>50% chance to inflict "Shock" for 1 turn to any enemy damaged by this attack.</li>
+          <li>Summons a Loki Clone onto the targeted panel.</li>
+          <li>50% chance to discretely swap positions and resources (EN and STA) with the summoned clone.</li>
+          <li>Replaces an existing Loki Clone if 3 were already present on the battlefield (defeats the oldest, new spawns in normally).</li>
+          <li>Increases the cooldown of Gone Without a Trace by 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Lightning Surge</span>
+          <span class="ability-name">Mystical Missile</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy + Chain (up to 5) · Energy: 50 · Cooldown: 3 turns · Range: 8</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (1 Panel) · Energy: 30 · Cooldown: 1 turn · Range: 8</div>
         <ul>
-          <li>Deals 320% MAG damage to the target.</li>
-          <li>Chains to another enemy if that enemy is within 2 panels (up to 5 times).</li>
-          <li>Inflicts 2 stacks of "Shock" for 2 turns to any enemy damaged by this attack.</li>
-          <li>Inflicts "Paralyze" for 2 turns to any enemy damaged by this attack if they attacked a Booster or Healer ally within the past 2 turns.</li>
-          <li>Cannot hit the same enemy twice within the same attack.</li>
+          <li>Deals 320% MAG damage to all enemies within 1 panel of the target (target included).</li>
+          <li>30% chance to inflict "Sting" on all enemies within 1 panel of the target (target included) for 4 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Hammer Crash</span>
+          <span class="ability-name">Jotun Mist</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Panel · Energy: 30 · Cooldown: 2 turns · Range: 5</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
         <ul>
-          <li>Deals 300% ATK damage to any enemy standing on the targeted panel.</li>
-          <li>Pushes any enemy standing on the targeted panel 1 panel away in the direction of attack.</li>
-          <li>Deals 300% MAG damage to all enemies within 2 panels of the targeted panel.</li>
-          <li>Inflicts "Retribution" to all enemies within 2 panels of the targeted panel.</li>
-          <li>Nullifies own airborne status.</li>
-          <li>Positions self onto the targeted panel.</li>
+          <li>Deals 300% MAG damage to any enemy 2 panels around self and all summons (must be summoned by self).</li>
+          <li>50% chance to inflict 3 stacks of "Frost" for 2 turns to any enemies damaged (rolls once per stack).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Power of the Odinforce</span>
+          <span class="ability-name">Devious Exchange</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 6 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: One Summon (summoned by self) · Energy: 10 · Cooldown: 3 turns · Range: 14</div>
         <ul>
-          <li>Gains 2 stacks of "Might" and "Technique" for 2 turns.</li>
-          <li>Gains "Taunt" for 1 turn.</li>
-          <li>Infliction chances are increased by 30% for 2 turns.</li>
+          <li>Discretely swaps positions and resources (EN and STA) with the summoned clone.</li>
         </ul>
       </div>
 
-      <div class="ability ability--reserve ability--reserve-special">
+      <div class="ability ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Take to the Skies</span>
+          <span class="ability-name">Disorienting Illusions</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Becomes airborne for 2 turns.</li>
-          <li>Immune to airborne nullification for 1 turn (unless nullified by self).</li>
+          <li>Attacks, for 2 turns, gain a 50% chance to inflict "Disorient" for 2 turns.</li>
+          <li>Attacks, for 2 turns, gain a 20% chance to inflict "Coercion" for 4 turns.</li>
         </ul>
       </div>
 
-      <div class="ability ability--reserve ability--reserve-special">
+      <div class="ability ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Fists of Thunder</span>
+          <span class="ability-name">Gone Without a Trace</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 5 turns · Range: N/A</div>
         <ul>
-          <li>Deals 400% ATK damage to the enemy.</li>
-          <li>Deals an additional 200% ATK damage to the enemy if they're below 20% HP (of their MAX HP).</li>
-          <li>20% chance to inflict "Paralyze" for 2 turns to the target.</li>
+          <li>Destroys all summoned Loki Clones.</li>
+          <li>For each Loki clone destroyed, +20% MAG for 2 turns.</li>
+          <li>Gains "Invisible" for 2 turns.</li>
+          <li>The "Invisible" status effect is persistent if at least two clones were destroyed.</li>
         </ul>
       </div>
 
@@ -1246,61 +1229,60 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">God of Thunder</span>
+          <span class="ability-name">God of Mischief</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>Reduces melee damage received by 7%.</li>
-          <li>Immune to "Shock" and "Paralyze".</li>
-          <li>Gains 1% ULT each time an attack is received.</li>
-          <li>Gains 1% ULT each time an infliction lands on an enemy (counts individual stacks, self only).</li>
+          <li>Restores 2% MAX HP whenever a clone receives damage (once per ability).</li>
+          <li>50% chance for inflictions received to have their duration decreased by 1 turn.</li>
+          <li>Receives 50% less damage from status effects.</li>
+          <li>Gains 2% ULT each time self or a summon deals damage (once per ability, must be summoned by self).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Hammer Spin</span>
+          <span class="ability-name">Attacks from Unexpected Angles</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Blocking negates 80% of ranged attack damage.</li>
-          <li>20% chance to reflect ranged attacks while blocking (sending 50% of the incoming damage back at the attacker).</li>
+          <li>Infliction chances are increased by 8% for each Loki Clone on the battlefield (self only, must be summoned by self).</li>
+          <li>Upon landing Mystical Missile (self or clones), 20% chance for Loki allies (clones included) to restore 10 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Protector of Midgard</span>
+          <span class="ability-name">Perfect Mimicry</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>"Taunt" status effects applied to self last 1 extra turn.</li>
-          <li>Flight of Mjolnir inflicts "Retribution" for 1 turn to any enemy damaged by the ability.</li>
+          <li>Upon using ULTIMATUM, Loki Clones transform into Champion Mimics of the same Champion for 1 turn (maintaining current resources and HP).</li>
+          <li>+20% ATK and MAG when transformed.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">God in the Skies Above</span>
+          <span class="ability-name">Uncertain Allegiance</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>While airborne, attacks have a 30% chance to inflict "Retribution" for 2 turns.</li>
-          <li>While airborne, "Shock" infliction chances are increased by 10%.</li>
-          <li>While airborne, Hammer Crash deals 10% more damage.</li>
+          <li>Gains the ability to damage allies.</li>
+          <li>Damaging an ally with a special ability decreases the cooldowns of Doppelganger and Devious exchange by 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">The Rage of Battle</span>
+          <span class="ability-name">Threads of Reincarnation</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Hammer Swing deals an additional 60% ATK damage when used on the same target 2 turns in a row.</li>
-          <li>Hammer Swing deals an additional 120% ATK damage when used on the same target 3 turns in a row (stacks with the two turn bonus).</li>
-          <li>Hammer Swing deals an additional 200% ATK damage when used on the same target 4 turns in a row (stacks with the other bonuses).</li>
-          <li>Bonuses are lost if any other enemy is attacked during the streak.</li>
+          <li>HP is shared between self and summons.</li>
+          <li>MAX HP is increased by 5,000 per summon on the battefield (must be summoned by self, instantly increases upon summoning).</li>
+          <li>Restores 3,000 HP upon summoning a Loki Clone.</li>
+          <li>Summon damage is decreased by 30%.</li>
         </ul>
       </div>
 
@@ -1309,27 +1291,27 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Might of Mjolnir</span>
+          <span class="ability-name">Stolen Power</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 4 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: One Ally or Enemy · Range: 6 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 800% ATK damage to the target.</li>
-          <li>Deals 400% MAG damage to the target.</li>
-          <li>Inflicts "Deep Bruise" and "Sharp Sting" for 2 turns to the target.</li>
+          <li>Transforms into the target's Champion for 3 turns.</li>
+          <li>Transformation begins at a start-of-battle state.</li>
+          <li>Passive ULT charge is increased to 38% per turn while transformed.</li>
+          <li>Upon exiting the transformation, MAX HP percentage and resources are retained.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Wrath of Thunder</span>
+          <span class="ability-name">Endless Trickery</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
         <ul>
-          <li>After 1 turn, creates a 5x5 "Raging Thunderstorm" domain around self (using position after 1 turn as the center of the area) with a duration of 2 turns.</li>
-          <li>Damages a random enemy in range for 800% MAG twice per turn (at the end of the battle turn) while the domain is active.</li>
-          <li>Inflicts 3 stacks of "Shock" for 3 turns to any enemy damaged by this ability.</li>
+          <li>Devious Exchange has no cooldown for 3 turns.</li>
+          <li>+20% MAG to self and summons for 3 turns.</li>
         </ul>
       </div>
 
@@ -1338,17 +1320,18 @@
       <div class="section-divider">Synergies</div>
       <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
 
+      
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/loki.jpg" alt="Loki">
+            <img src="../images/champion-images/thor.jpg" alt="Thor">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
               <span class="synergy-bond-name">Love and Loathing</span>
-              <span class="synergy-partner-tag">w/ Loki</span>
+              <span class="synergy-partner-tag">w/ Thor</span>
             </div>
-            <p class="synergy-desc">Thor has never stopped loving his brother, and has never stopped being wounded by him. Raised side by side as sons of Odin, they were inseparable once, and some part of the thunder god refuses to believe that boy is gone no matter how many times Loki proves otherwise. He meets each betrayal with a heavy heart rather than a hateful one — grieved, furious, and yet forever leaving the door open for the brother he still prays will one day walk back through it. Thor will fight Loki whenever he must and forgive him far more often than he should, because to give up on him entirely is the one thing a brother's heart simply will not allow.</p>
+            <p class="synergy-desc">For all his scheming, everything Loki does traces back to Thor. He covets the throne his brother was promised, resents the golden favor Thor was given and he never was, and has plotted the thunder god's ruin more times than either could count — and yet, in the wreckage of every scheme, he can never quite bring himself to see it through. He tells himself he hates Thor, and part of him truly does; but the brother he grew up beside is the only soul who ever treated him as kin, and Loki has never learned how to stop needing that. Love and loathing, braided together too tightly to ever pull apart — the one knot the God of Lies has never managed to talk his way out of.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
@@ -1379,106 +1362,8 @@
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>Loki gains +8% MAG.</li>
-              <li>+8% ATK and MAG whenever an ally Summon is on the field.</li>
-            </ul>
-          </div>
-
-        </div>
-      </details>
-
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Thunder and Iron</span>
-              <span class="synergy-partner-tag">w/ Iron Man</span>
-            </div>
-            <p class="synergy-desc">Few friendships have weathered as much as Thor's with the Man of Iron. They stood together at the Avengers' founding and have fought side by side across the centuries since — the god of thunder and the mortal of science, forever needling one another over magic and machine, faith and pragmatism, yet bound by a respect that runs beneath every argument. It has not gone untested: Stark once profaned Thor's very image, building a soulless machine in his likeness that spilled a hero's blood, and the betrayal cut the thunder god to the core. That the bond survived even that is proof of how deep it runs — two shield-brothers who will quarrel until the end of days and stand together against anything that comes.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-
-          <div class="syn-ability syn-ability--upgraded-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Armored Crash</span>
-              <span class="syn-type-badge">Upgraded Special</span>
-            </div>
-            <div class="syn-override">Overrides <strong>Hammer Crash</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Melee · Target: One Panel · Energy: 30 · Cooldown: 2 turns · Range: 5</div>
-            <ul>
-              <li>Deals 350% ATK damage to any enemy standing on the targeted panel.</li>
-              <li>Pushes any enemy standing on the targeted panel 1 panel away in the direction of attack.</li>
-              <li>Deals 320% MAG damage to all enemies within 2 panels of the targeted panel.</li>
-              <li>Inflicts "Retribution" to all enemies within 2 panels of the targeted panel.</li>
-              <li>Nullifies own airborne status.</li>
-              <li>Becomes airborne for 1 turn if own airborne status was nullified.</li>
-              <li>Cannot be interrupted.</li>
-              <li>Positions self onto the targeted panel.</li>
-            </ul>
-          </div>
-          <div class="syn-ability syn-ability--new-passive">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Healing Scars</span>
-              <span class="syn-type-badge">New Passive</span>
-            </div>
-            <ul>
-              <li>Take to the Skies airborne duration is increased by 1 turn.</li>
-              <li>Restores 1% HP (of MAX HP) whenever receving an attack (once per received ability).</li>
-            </ul>
-          </div>
-
-        </div>
-      </details>
-
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">Honor of the Worthy</span>
-              <span class="synergy-partner-tag">w/ Captain America</span>
-            </div>
-            <p class="synergy-desc">To Thor, no honor he can bestow runs deeper than the one Steve Rogers has already earned — for the Captain is that rarest of mortals, a man of such pure and unbending conviction that he can lift Mjolnir itself, a feat gods and kings have failed. Thor deems him worthy in every sense of the word, and leads beside him not as a god among men but as one warrior of honor beside another. When the Captain speaks, the thunder god listens, and trusts that voice as readily as he would the counsel of any son of Asgard.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-
-          <div class="syn-ability syn-ability--upgraded-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Bring the Hammer Down</span>
-              <span class="syn-type-badge">Dynamic Special</span>
-            </div>
-            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
-            <div class="syn-dual-cost">
-              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
-              <span class="syn-cost-chip"><span class="who">Thor</span> · 50 EN + 1 STA</span>
-            </div>
-            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 6 turns · Range: 4</div>
-            <ul>
-              <li>Positions Thor 1 panel away from Captain America.</li>
-              <li>Thor inflicts "Stun" for 1 turn to all enemies within 1 panel of Captain America.</li>
-              <li>Thor has a 50% chance to inflict "Stun" to all enemies within 4 panels of Captain America.</li>
-              <li>All enemies within 4 panels of Captain America are launched by 2 panels (in the direction of attack).</li>
-              <li>Infliction chances on this ability are not affected by any increases.</li>
-            </ul>
-          </div>
-
-          <div class="syn-ability syn-ability--new-passive">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Respect Amongst The Few Chosen</span>
-              <span class="syn-type-badge">New Passive</span>
-            </div>
-            <ul>
-              <li>If affected by Captain America's Support or ULTIMATUM abilities, the effects last for 1 extra turn.</li>
-              <li>+5% ATK and MAG to "Worthy" allies.</li>
+              <li>Thor gains +8% MAG.</li>
+              <li>+8% ATK and MAG whenever an enemy on the field has "Retribution".</li>
             </ul>
           </div>
 
@@ -1492,27 +1377,70 @@
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Children of the Pantheons</span>
+              <span class="synergy-bond-name">The Liar and the Lasso</span>
               <span class="synergy-partner-tag">w/ Wonder Woman</span>
             </div>
-            <p class="synergy-desc">A god of Asgard rarely meets his equal, and Thor knew Diana for one the moment their paths first crossed. Son of Odin and champion of the gods of Olympus, they are divine warriors cut from the same ancient cloth — each raised among immortals, each sworn to shield the mortals below, each holding to a code of honor no battle could ever make them break. Between them lies the easy, unspoken understanding of two who carry the blood and burden of the old gods, and there are few in any realm Thor would sooner call comrade, or trust more surely at his side when the storm breaks.</p>
+            <p class="synergy-desc">Loki has unwound kings and gods alike with nothing but a well-placed word — and in Diana of Themyscira he has met the one opponent his gift slides right off of. She is truth made flesh, armed with a lasso that drags honesty from any throat it binds: everything the God of Lies has spent an eternity making himself the opposite of. He finds her maddening and fascinating in equal measure, a mind he cannot cloud and a will he cannot bend, forcing him to be genuinely clever rather than merely deceitful. To Loki there is no sport in fooling the foolish — Diana is the rare mark worth the effort, precisely because he knows she will see straight through him.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Power of the Old Gods</span>
+              <span class="syn-ability-name">Frosty Winds of Boreas</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Power of the Odinforce</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 5 turns · Range: N/A</div>
+            <div class="syn-override">Overrides <strong>Jotun Mist</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 3</div>
             <ul>
-              <li>Gains 2 stacks of "Might" and "Technique" for 2 turns.</li>
-              <li>Gains "Taunt" for 1 turn.</li>
-              <li>Infliction chances are increased by 50% for 2 turns.</li>
+              <li>Deals 300% MAG damage to any enemy 3 panels around self and all summons (must be summoned by self).</li>
+              <li>60% chance to inflict 3 stacks of "Frost" for 3 turns to any enemies damaged (rolls once per stack).</li>
             </ul>
           </div>
+        </div>
+      </details>
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Father of the Avengers</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">It is the single greatest irony of Loki's long life, and Stark will never let him forget it: the mightiest heroes of Midgard first banded together for the sole purpose of thwarting one of his schemes. He meddled with Thor, and in doing so authored the very team that has foiled him at every turn since — a legacy he never wanted and can never disown. Tony wears that history like a smirk, needling the trickster about the family he accidentally founded, and it galls Loki all the more because he cannot argue the point. Of all who oppose him, the armored futurist is the one who reminds him, gratingly, that his cleverest gambit was also his most catastrophic mistake.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Childish Outburst</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 10 turns · Range: N/A</div>
+            <ul>
+              <li>Gains "Anger" for 2 turns.</li>
+              <li>Restores 10 EN.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Lingering Spite</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Childish Outburst cooldown is reduced by 1 turn whenever Iron Man uses an ability within 3 panels of self.</li>
+              <li>Dealing damage to a "Stark Industries" or "Avengers" Champion (enemy or ally) restores 1 STA and 5 EN.</li>
+              <li>+5% MAG against "Avengers" enemies.</li>
+            </ul>
+          </div>
+
         </div>
       </details>
 
@@ -1529,10 +1457,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/thor.jpg" alt="Classic">
+          <img src="../images/champion-images/loki.jpg" alt="loki">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
+          <div class="costume-name">Modern</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1540,55 +1468,33 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/thor(oracle).jpg" alt="Oracle">
+          <img src="../images/champion-images/costumes/loki(classic).jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Oracle</div>
-          <div class="costume-effect-label">Mortal Memories — +5% MAX HP</div>
-          <span class="rarity rarity--uncommon">Uncommon</span>
-        </div>
-      </div>
-
-      <div class="costume-card">
-        <div class="costume-image">
-          <img src="../images/champion-images/costumes/thor(king).jpg" alt="King">
-        </div>
-        <div class="costume-info">
-          <div class="costume-name">King</div>
-          <div class="costume-effect-label">Successor to Odin — +5% DEF and RES</div>
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Evil of a Past Life — +5% CRIT RATE</div>
           <span class="rarity rarity--rare">Rare</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/thor(ultimate).jpg" alt="Ultimate">
+          <img src="../images/champion-images/costumes/loki(president).jpg" alt="President">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Ultimate</div>
-          <div class="costume-effect-label">Unsure Godhood — +8% ATK and MAG for the rest of battle upon going below 30% HP (of MAX HP, once only)</div>
+          <div class="costume-name">President</div>
+          <div class="costume-effect-label">Clean Ballot — +5% to infliction chances (for self and summons)</div>
           <span class="rarity rarity--epic">Epic</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/thor(war-of-the-realms).jpg" alt="War of the Realms">
+          <img src="../images/champion-images/costumes/loki(lady-loki).jpg" alt="Lady Loki">
         </div>
         <div class="costume-info">
-          <div class="costume-name">War of the Realms</div>
-          <div class="costume-effect-label">Warbound — +20% ATK and MAG while inflicted with "Duel"</div>
-          <span class="rarity rarity--legendary">Legendary</span>
-        </div>
-      </div>
-
-      <div class="costume-card">
-        <div class="costume-image">
-          <img src="../images/champion-images/costumes/thor(power-cosmic).jpg" alt="Power Cosmic">
-        </div>
-        <div class="costume-info">
-          <div class="costume-name">Power Cosmic</div>
-          <div class="costume-effect-label">Herald of Thunder — +8% MAG, can receive buffs granted to "Heralds of Galactus" allies (including Leader Abilities)<div>
+          <div class="costume-name">Lady Loki</div>
+          <div class="costume-effect-label">Everchanging Form — +7% MAG while at least one summon is active (must be summoned by self)<div>
           <span class="rarity rarity--mythic">Mythic</span>
         </div>
       </div>
@@ -1606,54 +1512,6 @@
 
     <div class="changelog-entries">
 
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.2</span>
-          <span class="date">August 26, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Reserve passive <em>Brothers Despite Everything</em> removed from Thor's kit and relocated into the <em>Love and Loathing</em> bond (with Loki) as a synergy New Passive, where its Loki-facing buff belongs.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>New reserve passive <em>The Rage of Battle</em> added in its place — Hammer Swing gains escalating bonus damage against a single sustained target (+60% / +120% / +200% ATK at 2 / 3 / 4 consecutive turns, cumulative), forfeited if any other enemy is attacked during the streak.</span>
-          </li>
-        </ul>
-        <p class="rationale">The Brothers Despite Everything buff only ever made sense alongside Loki, so it now lives in their bond and activates only when the two are fielded together, rather than sitting inert in Thor's solo kit. The freed reserve slot gains a self-contained identity: The Rage of Battle rewards Thor for committing to one target, giving his loadout a focus-fire dueling option that complements — rather than duplicates — his existing AoE and control tools.</p>
-      </div>
-
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">August 12, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>MAX HP reduced from 15,000 to 14,600.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>MAG reduced from 300 to 250.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>DEF reduced from 180 to 170.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>RES reduced from 170 to 160.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>Bring the Hammer Down (Honor of the Worthy synergy): the 50% chance to Stun enemies within 4 panels no longer benefits from Thor's infliction-chance increases, and the guaranteed Stun within 1 panel is now specified as 1 turn.</span>
-          </li>
-        </ul>
-        <p class="rationale">As the more offensive of his lane's two Defenders, Thor was outpacing Wonder Woman on durability, hybrid damage, and utility all at once. These stat trims — made without touching any of his abilities — bring his frame in line with hers while keeping his identity as the hybrid control-wall intact. The Bring the Hammer Down limitation stops his self-buffed infliction chances from turning the combo's wide-area Stun into near-guaranteed mass hard-CC.</p>
-      </div>
-
       <div class="changelog-entry release">
         <div class="entry-meta">
           <span class="version">v1.0.0</span>
@@ -1662,7 +1520,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Thor enters the roster.</span>
+            <span>Loki enters the roster.</span>
           </li>
         </ul>
       </div>

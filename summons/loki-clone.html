@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Champion Mimic — Champions Ultimate Edition</title>
+<title>Loki Clone — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #b794f4; }
+  .back-link:hover { color: #22c55e; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #b794f4;
+    color: #22c55e;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(192, 132, 252, 0.12);
-    color: #c084fc;
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(192, 132, 252, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.3);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #b794f4;
+    border-left: 3px solid #22c55e;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -192,8 +192,8 @@
   }
 
   a.pill:hover {
-    background: rgba(183, 148, 244, 0.1);
-    border-color: #b794f4;
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
     color: #f0f1f3;
   }
 
@@ -232,7 +232,7 @@
   }
 
   .summoner-card:hover .summoner-portrait {
-    border-color: #b794f4;
+    border-color: #22c55e;
     transform: scale(1.03);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
   }
@@ -262,7 +262,7 @@
 
   .summoner-role-line {
     font-size: 11px;
-    color: #d8b4fe;
+    color: #86efac;
     text-align: center;
     letter-spacing: 1.4px;
     text-transform: uppercase;
@@ -371,38 +371,38 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Champion Mimic theme — Mirror Silver / Prismatic Violet / Bloom Teal palette.
-       Deep violet = the prismatic Multiversal signature.
-       Teal = mimicry, the echo the Mimic wears from an ally.
-       Emerald = assist, the shield it lends back.
-       Pale lavender = surface aura, the visible bleed of the borrowed form.
-       Magenta = ULTIMATUM — total copy, whole-body. */
+     Loki theme — Mischief Green / Asgard Gold / Jotun Ice palette.
+       Mischief green = the sorcery, the illusions, the conjured double.
+       Asgard gold = the horned helm of the god who cast this phantom.
+       Jotun ice = the Frost Giant blood beneath the trickster's guise.
+       Void green-black = the schemer in the shadows, the plan behind the plan.
+     Matches Loki's own sheet — the clone wears its maker's colors. */
 
   .ability--basic {
-    background: #0f0a1c;          /* near-black with violet tint */
-    border: 1px solid #3d2a5c;
-    color: #ede9fe;
+    background: #0a1410;          /* void green-black — Staff Swing */
+    border: 1px solid #166534;
+    color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #c4b5fd; }
-  .ability--basic .ability-tag  { color: #8b5cf6; }
-  .ability--basic .ability-meta { color: #8b5cf6; }
+  .ability--basic .ability-name { color: #4ade80; }
+  .ability--basic .ability-tag  { color: #22c55e; }
+  .ability--basic .ability-meta { color: #22c55e; }
 
-  .ability--special-1 { background: #155e75; color: #cffafe; } /* teal — Mimicry, the borrow */
-  .ability--special-2 { background: #064e3b; color: #d1fae5; } /* emerald — Aegis Duplicate, the shield */
+  .ability--special-1 { background: #16a34a; color: #dcfce7; } /* bright emerald — conjuration */
+  .ability--special-2 { background: #047857; color: #d1fae5; } /* deep emerald — Mystical Missile */
 
   .ability--core-passive {
-    background: #1e1533;          /* darkest violet — the persistent form */
-    color: #ede9fe;
+    background: #08130d;          /* deepest void green — the trickery */
+    color: #bbf7d0;
   }
 
   .ability--passive {
-    background: #ddd6fe;          /* pale lavender — surface bleed */
-    color: #2e1065;
+    background: #efe4bf;          /* pale Asgard gold — the god's mark */
+    color: #2a2410;
   }
 
   .ability--ultimatum {
-    background: #86198f;          /* deep magenta — Total Mimicry */
-    color: #fce7f3;
+    background: #14532d;          /* deepest emerald */
+    color: #dcfce7;
   }
 
   /* ====================== CHANGELOG ====================== */
@@ -438,7 +438,7 @@
     border-left: 3px solid #2c3038;
   }
 
-  .changelog-entry.release { border-left-color: #b794f4; }
+  .changelog-entry.release { border-left-color: #22c55e; }
 
   .entry-meta {
     display: flex;
@@ -493,7 +493,7 @@
   .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
   .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
   .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
-  .changes li.release .change-tag { background: rgba(183, 148, 244, 0.15); color: #b794f4; border: 1px solid rgba(183, 148, 244, 0.4); }
+  .changes li.release .change-tag { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
 
   .rationale {
     font-size: 12.5px;
@@ -540,18 +540,18 @@
        ============================================= -->
   <div class="hero-bar">
     <div class="character-image">
-      <!-- <img src="../images/summon-images/champion-mimic.jpg" alt="Champion Mimic"> -->
-      <img src="../images/summon-images/champion-mimic.jpg" alt="Champion Mimic">
+      <!-- <img src="../images/summon-images/loki-clones.jpg" alt="Loki Clone"> -->
+      <img src="../images/summon-images/loki-clones.jpg" alt="Loki Clone">
     </div>
 
     <div class="identity">
-      <h1 class="name">Champion Mimic</h1>
-      <p class="subtitle">Prismatic Echo</p>
-      <span class="role-badge">Adaptive</span>
+      <h1 class="name">Loki Clone</h1>
+      <p class="subtitle">Trickery of Loki Laufeyson</p>
+      <span class="role-badge">Blaster</span>
       <p class="description">
-        When the Summoner fixes on a combatant and reaches, the walls between worlds thin, and something steps through wearing a face already present on the battlefield. The Champion Mimic is no illusion and no puppet, but a living echo — the very same person, plucked out of a reality that turned out differently, carrying the scars of a life this world never lived. Called to an ally's side, it fights as a second self, doubling a hero's strength with someone who learned all the same lessons by other roads. Called against a foe, it is something far crueler: a mirror given hands, forcing an enemy to trade blows with living proof of who they might have been had they only chosen otherwise. And when the fighting is done and the Mimic dissolves back toward whatever world it was torn from, there is always a moment — brief, and seldom spoken of afterward — where it turns and looks at the Summoner as though it recognizes something no one else in any reality can see.
+        At a whispered word and a flick of green light, a second Loki steps out of the empty air — the same sly smile, the same cutting voice, the same easy contempt, wearing the God of Mischief's face down to the last detail. It is a lie given just enough substance to matter: a conjured double that moves and strikes and taunts exactly as its maker would, sowing the one weapon Loki prizes above all others — doubt. Which of the two is the true god and which the phantom? By the time an enemy commits to an answer, the trap has usually already sprung, for the clone's purpose was never simply to fight but to make every choice on the battlefield a guess. And when at last it is struck down or its work is done, the duplicate does not fall so much as unravel, dissolving into a ribbon of smoke and the faint, fading sound of laughter — leaving its foes to wonder, uneasily, whether they ever managed to lay a hand on the real Loki at all.
       </p>
-      <p class="quote">"..."</p>
+      <p class="quote">"I am everywhere!"</p>
     </div>
   </div>
 
@@ -566,32 +566,32 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">3,000</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">HEAL</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">?</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">380</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">60</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">116</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">0%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">?</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">?</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">6</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
       </div>
 
       <!-- Links -->
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <a href="../summons.html" class="pill">Multiversal</a>
+          <a href="../summons.html" class="pill">Marvel Universe</a>
           <a href="../summons.html" class="pill">Persistent</a>
         </div>
       </div>
@@ -600,21 +600,28 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Mimic</span>
+          <span class="pill">Mobile</span>
+          <span class="pill">Stat Down</span>
+          <span class="pill">Buffs Allies</span>
+          <span class="pill">Physical</span>
+          <span class="pill">Magical</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Death Explosion</span>
+          <span class="pill">Decoy</span>
         </div>
       </div>
 
       <!-- Spawned By — big round portrait linking to the summoning Champion -->
       <div class="panel">
         <div class="panel-title">Spawned By</div>
-        <a href="../champions/the-summoner.html" class="summoner-card">
+        <a href="../champions/loki.html" class="summoner-card">
           <div class="summoner-portrait">
             <!-- <img src="../images/champion-images/the-summoner.jpg" alt="The Summoner"> -->
-            <img src="../images/champion-images/the-summoner.jpg" alt="The Summoner">
+            <img src="../images/champion-images/loki.jpg" alt="Loki">
           </div>
-          <div class="summoner-name">The Summoner</div>
-          <p class="summoner-realname">Unknown</p>
-          <div class="summoner-role-line">Summoner &middot; Multiversal</div>
+          <div class="summoner-name">Loki</div>
+          <p class="summoner-realname">Loki Laufeyson</p>
+          <div class="summoner-role-line">Summoner &middot; Marvel Universe</div>
         </a>
       </div>
 
@@ -628,33 +635,60 @@
         <span class="stack-note">Fixed kit &mdash; summons don't swap abilities</span>
       </div>
 
+      <div class="section-divider">Basic Ability (Unique)</div>
+        <div class="ability ability--basic">
+          <div class="ability-header">
+            <span class="ability-name">Staff Swing</span>
+            <span class="ability-tag">Basic</span>
+          </div>
+          <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+          <ul>
+            <li>Deals 120% ATK damage to the target.</li>
+            <li>30% chance to inflict "Sting" to the target for 4 turns.</li>
+            <li>Loki allies (clones included) restore 10 EN.</li>
+          </ul>
+        </div>
+
+      <div class="section-divider">Special Abilities</div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Mystical Missile</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (1 Panel) · Energy: 30 · Cooldown: 1 turn · Range: 8</div>
+        <ul>
+          <li>Deals 320% MAG damage to all enemies within 1 panel of the target (target included).</li>
+          <li>30% chance to inflict "Sting" on all enemies within 1 panel of the target (target included) for 4 turns.</li>
+        </ul>
+      </div>
+
       <!-- PASSIVE ABILITIES -->
       <div class="section-divider">Passive Abilities</div>
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Adaptive Form</span>
+          <span class="ability-name">Cruel Trick</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Channels the multiversal energy of The Summoner to transform into the selected enemy or ally Champion (chosen by The Summoner).</li>
-          <li>Transforming into a Champion utilizes their start-of-battle state (cooldowns, status effects, etc.).</li>
-          <li>The transformation matches the exact loadout of the copied Champion, including their ULTIMATUM — which begins at 0% ULT and charges through that Champion's own generation conditions.</li>
-          <li>The transformation does not gain buffs of any kind due to links.</li>
-          <li>The transformation matches all stats and vitals as the copied Champion but retains a MAX HP of 3,000.</li>
-          <li>Persists until defeated (no duration limit).</li>
+          <li>Deals an additional 50% MAG damage when using Mystical Missile if Loki attacked that target within the past 2 turns.</li>
+          <li>Explodes (dealing 250% MAG damage to all enemies within 2 panels) when defeated (includes being destroyed by Loki).</li>
+          <li>Infliction chances are increased by 20%.</li>
+          <li>Upon swapping positions with Loki, completely hides current HP for Loki (clones included) allies for 1 turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Limits of Mimicry</span>
+          <span class="ability-name">Fading Mirage</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
           <li>Cannot receive healing from any source, including its own abilities.</li>
-          <li>Cannot receive buffs from allies (self excluded).</li>
-          <li>Defeated instantly if The Summoner is defeated.</li>
+          <li>Cannot receive buffs from allies.</li>
+          <li>Defeated instantly if Loki is defeated (does not trigger explosion).</li>
+          <li>Persists until defeated (no duration limit).</li>
         </ul>
       </div>
 
@@ -670,28 +704,6 @@
 
     <div class="changelog-entries">
 
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">July 11, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Role changed from <strong>Booster</strong> to <strong>Adaptive</strong> — a new Summon-only role for constructs with no fixed combat identity. Added to the Summons role filter.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Adaptive Form</em> — clarified that the transformation inherits the copied Champion's <strong>ULTIMATUM</strong>, beginning at 0% ULT and charging through that Champion's own generation conditions. "Matches all stats" corrected to "all stats <strong>and vitals</strong>." Added: persists until defeated (no duration limit).</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Limits of Mimicry</em> — healing restriction clarified to "cannot receive healing <strong>from any source, including its own abilities</strong>."</span>
-          </li>
-        </ul>
-        <p class="rationale">Clarification pass with no intended power change. The Champion Mimic released with several load-bearing rules undefined, and each one materially changes how the summon plays. ULTIMATUM inheritance is the largest: copying a Champion's full loadout implies access to their ultimate, and stating the 0% starting charge makes clear it is a rare payoff rather than an immediate one. The stats/vitals wording mattered because the Catechism treats Vitals (MAX EN, MAX STA, REGEN) as separate from Stats, and the Mimic needs energy to use a copied kit at all. The healing clarification is the most consequential in practice — many potential copy targets carry self-healing in their own kits, and the previous wording left it ambiguous whether those bypassed the restriction; they do not, keeping the flat 3,000 HP pool a genuine burst-down window. The role change replaces a template leftover that described nothing in the summon's kit.</p>
-      </div>
-
       <div class="changelog-entry release">
         <div class="entry-meta">
           <span class="version">v1.0.0</span>
@@ -700,7 +712,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Champion Mimic enters the roster as a Summon.</span>
+            <span>Loki Clone enters the roster as a Summon.</span>
           </li>
         </ul>
       </div>
