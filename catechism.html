@@ -566,6 +566,7 @@
         <a href="#overhealth" class="toc-link toc-sub">Overhealth</a>
         <a href="#shared-hp" class="toc-link toc-sub">Shared HP</a>
         <a href="#persistent" class="toc-link toc-sub">Persistent</a>
+        <a href="#active-and-inert" class="toc-link toc-sub">Active and Inert</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
       </nav>
     </div>
@@ -1271,6 +1272,12 @@
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Focus</div></td>
+            <td>+20% ACC.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Regeneration</div></td>
             <td>Restores 4% HP per turn.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1520,6 +1527,17 @@
       </ul>
       <p>This cuts in whichever direction the effect was applied. A persistent <em>application</em> a Champion places on themselves — such as Superman's self-applied Taunt — can still be cleared by that Champion, because they are the source; enemy cleanse and nullification cannot touch it. A persistent <em>infliction</em> placed on an enemy can only be lifted by the inflictor: the afflicted Champion cannot self-cleanse it, and neither can their allies.</p>
       <p>Persistent <em>positive</em> effects additionally cannot be stolen: a <strong>Plunderer</strong>'s buff-stealing abilities pass over them entirely, as with Black Cat's <em>Breaking Trust</em> (<em>"Cannot steal persistent buffs."</em>).</p>
+
+      <h3 id="active-and-inert">Active and Inert</h3>
+      <p>Every status effect is in one of two states: <strong>active</strong> or <strong>inert</strong>. <strong>Active</strong> is the normal, default form — the effect is working and its turn timer counts down each turn as usual. Unless a kit says otherwise, every status effect is <em>active</em> the instant it is inflicted or applied; "active" is simply what a status effect is by default.</p>
+      <p>An <strong>inert</strong> status effect is <em>frozen</em>. It stays attached to the character but does nothing — none of its effect applies — and while it is inert its turn timer does not tick down. It is a dormant effect held in reserve rather than a working one. An inert effect can still be <strong>cleansed</strong> or nullified like any other status.</p>
+      <p>While an effect is inert its normal turn timer is paused. An inert effect may separately be given its own duration for how long it stays inert; that duration counts down each turn while the effect is inert, and when it runs out the effect <strong>automatically becomes active</strong>. If no such duration is specified, the effect simply remains inert until something else makes it active. Either way, only once it becomes <em>active</em> does its normal turn timer begin counting down and its effect start applying.</p>
+      <p>Kits that trade in this distinction state which state they produce or change. Cyborg is the reference example:</p>
+      <ul>
+        <li><em>Splicing Saw</em> — <em>"Buffs stolen are inert."</em> The buffs he steals are held on him frozen, granting nothing until they are made active.</li>
+        <li><em>Molecular Breakdown</em> — <em>"Distributes active duplicates of any inert status effects applied to self to all allies within 3 panels... Nullifies any inert status effects applied to self."</em> He copies his inert effects out to allies as working (active) versions, then clears the frozen originals from himself.</li>
+        <li><em>System Update</em> — <em>"All inert status effects on self become active."</em> Every frozen effect he holds switches on at once, beginning to work and to count down.</li>
+      </ul>
 
       <h3 id="elevation-bypass">Elevation Bypass</h3>
       <p><strong>Elevation Bypass</strong> is a passive modifier (referenced on Champion sheets as the tag <em>Elevation Bypass</em>) that removes restrictions related to elevation. It appears in two forms, and a Champion's kit will specify exactly which one applies:</p>

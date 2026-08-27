@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robin — Champions Ultimate Edition</title>
+<title>Cyborg — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #dc2626; }
+  .back-link:hover { color: #22d3ee; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #dc2626;
+    color: #22d3ee;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(192, 132, 252, 0.12);
-    color: #d8b4fe;
+    background: rgba(34, 211, 238, 0.12);
+    color: #67e8f9;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(192, 132, 252, 0.35);
+    border: 1px solid rgba(34, 211, 238, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #166534;
+    border-left: 3px solid #22d3ee;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #dc2626;
+    border-color: #22d3ee;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #fbbf24;
+    color: #67e8f9;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Robin theme — Crimson Red / Forest Green / Solar Gold / League-of-Assassins Shadow.
-       Crimson red = the tunic, the youth, his Bat-Family identity.
-       Forest green = the cape, pants, his classic Robin signature.
-       Solar gold = the utility belt and the inherited symbol of the cowl.
-       Shadow-teal = his League of Assassins upbringing, the killer beneath.
-     Robin shares Batman's family palette (gold leader, slate batarang, amber belt)
-     so the visual lineage reads, but his own colors take the lead. */
+     Cyborg theme — Tech Cyan / Chrome Steel / Red-Eye Crimson palette.
+       Tech cyan = the sonic cannon's blast, the glow of his circuitry and interface.
+       Chrome steel = the cybernetic frame, the machine half of him.
+       Red-eye crimson = the single glowing optic, the warning light, the saw.
+       Gunmetal void = the man behind the machine, the systems at his core.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #fbbf24;          /* bat-yellow — Heir to the Cowl */
-    color: #2d1f08;
+    background: #0e7490;          /* deep tech cyan — the bridge between man and machine */
+    color: #e0f7fb;
   }
 
   .ability--basic {
-    background: #1f0a0a;          /* deep ox-blood — the Robin tunic in close combat */
-    border: 1px solid #4a1010;
-    color: #fde0e0;
+    background: #0f1620;          /* near-black gunmetal — Metallic Blows */
+    border: 1px solid #334155;
+    color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #ef4444; }
-  .ability--basic .ability-tag  { color: #c87878; }
-  .ability--basic .ability-meta { color: #c87878; }
+  .ability--basic .ability-name { color: #67e8f9; }
+  .ability--basic .ability-tag  { color: #22d3ee; }
+  .ability--basic .ability-meta { color: #22d3ee; }
 
-  .ability--special-1 { background: #4a5260; color: #f1f5f9; } /* slate — Precise Batarang (Bat-Family weapon continuity) */
-  .ability--special-2 { background: #166534; color: #ecfdf5; } /* forest green — Swift Slice, Robin's signature */
-  .ability--special-3 { background: #ca8a04; color: #1c1208; } /* deep amber — Utility Belt (Bat-Family continuity) */
-  .ability--special-4 { background: #064e3b; color: #d1fae5; } /* dark assassin teal — Assassin Infiltration, League shadow */
+  .ability--special-1 { background: #06b6d4; color: #04242b; } /* bright tech cyan — Plasma Cannon (signature) */
+  .ability--special-2 { background: #0369a1; color: #e0f2fe; } /* deep blue — Awareness Enhancement, sensors */
+  .ability--special-3 { background: #b91c1c; color: #fee2e2; } /* red — Splicing Saw, the blade and the eye */
+  .ability--special-4 { background: #475569; color: #f1f5f9; } /* chrome steel — Molecular Breakdown */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #dc2626; } /* Robin red */
-  .ability--reserve-passive   { border-left-color: #166534; } /* forest green */
-  .ability--reserve-ultimatum { border-left-color: #064e3b; } /* assassin teal */
+  .ability--reserve-special   { border-left-color: #22d3ee; } /* tech cyan */
+  .ability--reserve-passive   { border-left-color: #cbd5e1; } /* chrome silver */
+  .ability--reserve-ultimatum { border-left-color: #ef4444; } /* red-eye crimson */
 
   .ability--core-passive {
-    background: #2d0a0a;          /* dark blood — Child Torn Between Two Identities, visceral */
-    color: #fde0e0;
+    background: #0d1117;          /* gunmetal void — Man and Machine, the core systems */
+    color: #c8d3e0;
   }
 
   .ability--passive {
-    background: #b91c1c;          /* Robin red — the youth, the energy */
-    color: #fff5f5;
+    background: #cbd5e1;          /* chrome silver — the machine frame, inherent */
+    color: #1e293b;
   }
 
   .ability--ultimatum {
-    background: #7f1d1d;          /* dark crimson — Old Habits, the League's pull */
-    color: #fde0e0;
+    background: #991b1b;          /* deep crimson — Boom Tube, the energy surge */
+    color: #fee2e2;
   }
 
   .ability--synergy {
-    background: #d4a017;          /* warm gold — alliance, The Dynamic Duo (matches Batman's side) */
-    color: #1c1208;
+    background: #dbe7ec;          /* pale steel-cyan — connection */
+    color: #0c1c22;
   }
 
   .ability--artifact {
@@ -515,7 +515,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #e0b83d; }
+  .synergy-block[open] { border-color: #22d3ee; }
 
   .synergy-summary {
     list-style: none;
@@ -527,7 +527,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(224, 184, 61, 0.04); }
+  .synergy-summary:hover { background: rgba(34, 211, 238, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -540,7 +540,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #e0b83d; }
+  .synergy-block[open] .synergy-icon { border-color: #22d3ee; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -554,7 +554,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #f0cf6b;
+    color: #67e8f9;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -577,7 +577,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e0b83d; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #22d3ee; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -643,7 +643,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e0b83d; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #22d3ee; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -653,23 +653,23 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(224, 184, 61, 0.1);
-    border: 1px solid rgba(224, 184, 61, 0.3);
-    color: #f0cf6b;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    color: #a5eaf5;
   }
-  .syn-cost-chip .who { color: #f0cf6b; font-weight: 700; }
+  .syn-cost-chip .who { color: #67e8f9; font-weight: 700; }
 
-  /* Type accents */
-  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
-  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
-  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
-  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
-  .syn-ability--new-special        { border-left-color: #2c5fcc; }
-  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+  /* Type accents — tech cyan / blue / steel / red spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #0369a1; } /* deep blue */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(3, 105, 161, 0.2); color: #6cbdf0; border: 1px solid rgba(3, 105, 161, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #22d3ee; } /* tech cyan */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(34, 211, 238, 0.15); color: #67e8f9; border: 1px solid rgba(34, 211, 238, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #cbd5e1; } /* chrome silver */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(203, 213, 225, 0.13); color: #d5dde8; border: 1px solid rgba(203, 213, 225, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ef4444; } /* red-eye crimson */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(239, 68, 68, 0.15); color: #f28b8b; border: 1px solid rgba(239, 68, 68, 0.4); }
+  .syn-ability--new-special        { border-left-color: #475569; } /* chrome steel */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(71, 85, 105, 0.3); color: #a9b6c8; border: 1px solid rgba(71, 85, 105, 0.55); }
 
   .costumes-section {
     margin-top: 18px;
@@ -913,8 +913,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e0b83d;
-    color: #0d0e11;
+    background: #22d3ee;
+    color: #04242b;
     transition: transform 0.12s ease, filter 0.12s ease;
   }
   .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
@@ -945,7 +945,7 @@
   .theme-source {
     font-size: 11.5px;
     font-style: italic;
-    color: #f0cf6b;
+    color: #a5eaf5;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
@@ -965,33 +965,33 @@
     <div class="hero-left">
       <div class="character-image">
         <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-        <img src="../images/champion-images/robin.jpg" alt="Robin">
+        <img src="../images/champion-images/cyborg.jpg" alt="Cyborg">
       </div>
 
       <!-- Champion theme music player. Drop the track at the data-theme / src path.
            Fill in .theme-track (name) and .theme-source (original game it is from). -->
-      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/robin.mp3">
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/cyborg.mp3">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
           <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         </button>
         <div class="theme-meta">
           <div class="theme-eyebrow">Theme</div>
-          <div class="theme-track">Bird's Birthright</div>
-          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ SSJ - SSJ2 Vegeta Active Skill OST</div>
+          <div class="theme-track">Metal of Man</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: AGL LR Dr. Wheelo Active Skill OST</div>
         </div>
-        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/robin.mp3"></audio>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/cyborg.mp3"></audio>
       </div>
     </div>
 
     <div class="identity">
-      <h1 class="name">Robin</h1>
-      <p class="subtitle">Damian Wayne</p>
+      <h1 class="name">Cyborg</h1>
+      <p class="subtitle">Victor Stone</p>
       <span class="role-badge">Booster</span>
-      <p class="description">The son of Batman and heir to the League of Assassins, bred from infancy to be the perfect weapon, Damian Wayne fights to earn a nobler name as Robin — the Boy Wonder.</p>
-      <p class="description">Damian Wayne was engineered to be a killer before he was ever allowed to be a child. Son of Bruce Wayne and Talia al Ghul, grandson of the immortal Ra's al Ghul, he was raised in the League of Assassins as its groomed heir — schooled in a hundred ways to end a life and taught to believe the world was his by blood. When he finally came to his father, he arrived as an arrogant, lethal boy who thought the mantle of Robin was owed to him, and who took life without hesitation or regret. What makes him remarkable is everything that came after: the slow, furious struggle to become something his makers never intended. Beneath the sneer and the entitlement is a child at war with his own nature, straining against a heritage soaked in blood and reaching — clumsily, proudly, and with a buried desperation for his father's approval — toward the harder path of the hero. He is learning, one spared life at a time, the lesson his father built a war around: that the name of Robin cannot be inherited or seized, only earned.</p>
-      <p class="description">For all that he is still a boy, Damian fights with the honed lethality of a master many times his age. The League forged him into a peerless martial artist and a deadly hand with the blade, fluent in every weapon and killing art, and to that inheritance he adds the Wayne genius — a sharp tactical mind and the makings of a detective worthy of the cowl. On paper he outclasses grown men without a trace of superhuman power. But his hardest battle is never with the enemy in front of him; it is the constant, grinding effort to hold back the assassin he was raised to be, to choose restraint when instinct screams for the finishing blow. That is the true measure of Robin — not that a child can fight like an assassin, but that this one fights every day to be something better than the weapon he was born to be.</p>
-      <p class="quote">"I am Robin. Son of Batman. And that's all you need to know!"</p>
+      <p class="description">A gifted young athlete remade into a fusion of man and machine after a catastrophe that nearly killed him, Victor Stone fights as Cyborg — a hero who found his humanity inside the very technology that stole it away.</p>
+      <p class="description">Victor Stone had his whole life ahead of him before it was torn apart in an instant. A brilliant, gifted young athlete with a future bright enough to blind, he was caught in the ruin of one of his scientist parents' experiments — an accident that killed his mother and left his own body broken past any hope of ordinary healing. To keep his son alive, Silas Stone rebuilt him in metal and circuitry, and Victor awoke to find himself something that had never existed before: half a man, half a machine, and certain he no longer belonged fully to either world. That is the war at the center of him — not against any villain, but against the question that stares back from every reflective surface: is he still human, or only a very convincing machine? He grieves the body that was taken, wrestles with a father who saved his life and remade it without asking, and carries the quiet ache of a young man who feels like a stranger in his own skin. And yet, out of all that loss, he built something no one handed him: a purpose, a place among heroes, and the hard-won certainty that the heart beating beneath the steel is as human as it ever was — often the steadiest and most human presence on any team lucky enough to have him.</p>
+      <p class="description">The machine he became is a marvel and an arsenal both. Cyborg's cybernetic frame grants him strength and durability far beyond flesh, and his body reshapes itself at will into whatever the moment demands — armor, tools, and above all the sonic cannon that erupts from his arm in a devastating white blast. But his most extraordinary gift is unseen: Victor is a technopath, able to interface with, command, and outthink virtually any machine or network in existence, plugging his mind straight into the digital world to hack, override, and see through every system around him. Sensors read what no human eye could catch, and his own frame repairs and upgrades itself over time. For all of it, though, the technology was never what made him a hero. It's the stubborn, unbroken humanity that refused to let the machine win — the man who lost nearly everything and chose, again and again, to remain exactly that: a man.</p>
+      <p class="quote">"You think you're timeless? Enduring? So is friendship. Loyalty."</p>
     </div>
   </div>
 
@@ -1006,25 +1006,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,300</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">320</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">180</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">230</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">280</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">30</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">110</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">200%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">15%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">42%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">12%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">107</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">9</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">7</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">5%</span></div>
       </div>
 
       <!-- Links -->
@@ -1033,14 +1033,12 @@
         <div class="pill-group">
           <a href="../links/dc-universe.html" class="pill">DC Universe</a>
           <a href="../links/hero.html" class="pill">Hero</a>
-          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/justice-league.html" class="pill">Justice League</a>
           <a href="../links/titans.html" class="pill">Titans</a>
-          <a href="../links/bat-family.html" class="pill">Bat-Family</a>
-          <a href="../links/heir-to-the-mantle.html" class="pill">Heir to the Mantle</a>
-          <a href="../links/street-level.html" class="pill">Street Level</a>
-          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
-          <a href="../links/parental-bond.html" class="pill">Parental Bond</a>
+          <a href="../links/mechanical-physiology.html" class="pill">Mechanical Physiology</a>
+          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
+          <a href="../links/adaptive-measures.html" class="pill">Adaptive Measures</a>
           <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
         </div>
       </div>
@@ -1049,16 +1047,25 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Damage Over Time</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Anti-Air</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">Cleanse</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Buff Steal</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
-          <span class="pill">CRIT Up</span>
-          <span class="pill">SPD Up</span>
-          <span class="pill">EVA Up</span>
-          <span class="pill">Stealth Application</span>
-          <span class="pill">Item Spawn</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">ACC Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Summon</span>
+          <span class="pill">Inert</span>
           <span class="pill">ULT Generation</span>
           <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
         </div>
       </div>
 
@@ -1067,26 +1074,26 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="batman.html" class="partner-card">
+          <a href="iron-man.html" class="partner-card">
             <div class="partner-image">
               <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/batman.jpg" alt="Batman">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
             </div>
             <div class="partner-tooltip">
-              <strong>Batman</strong>
-              <span class="real-name">Bruce Wayne</span>
-              <span class="synergy-name">Blood of the Bat</span>
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Suit and Skin</span>
             </div>
           </a>
 
-          <a href="batgirl.html" class="partner-card">
+          <a href="superman.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+              <img src="../images/champion-images/superman.jpg" alt="Superman">
             </div>
             <div class="partner-tooltip">
-              <strong>Batgirl</strong>
-              <span class="real-name">Cassandra Cain</span>
-              <span class="synergy-name">Siblings of Shadow</span>
+              <strong>Superman</strong>
+              <span class="real-name">Clark Kent</span>
+              <span class="synergy-name">Still Human</span>
             </div>
           </a>
 
@@ -1106,11 +1113,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Heir to the Cowl</span>
+          <span class="ability-name">The Bridge Between</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Bat-Family" allies gain +8% CRIT RATE in battle.</li>
+          <li>"Mechanical Physiology" allies gain +20% ATK and MAG in battle.</li>
         </ul>
       </div>
 
@@ -1118,12 +1125,14 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Skilled Martial Arts</span>
+          <span class="ability-name">Metallic Blows</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
           <li>Deals 160% ATK damage to the target.</li>
+          <li>Gains "Might" for 1 turn.</li>
+          <li>Buffs gained are inert.</li>
         </ul>
       </div>
 
@@ -1132,72 +1141,78 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Precise Batarang</span>
+          <span class="ability-name">Plasma Cannon</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 1 turn · Range: 10</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 1-Wide Line · Energy: 50 · Cooldown: 4 turns · Range: 8 panels (chosen direction)</div>
         <ul>
-          <li>Guaranteed critical hit.</li>
-          <li>Deals 150% MAG damage to the target.</li>
+          <li>Launches a beam 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
+          <li>Deals 350% MAG damage to all enemies caught in the line.</li>
+          <li>60% chance to gain 1 stack of "Technique" for 1 turn for every enemy damaged by this attack.</li>
+          <li>Buffs gained are inert.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Fighting Side by Side</span>
+          <span class="ability-name">Awareness Enhancement</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 20 · Cooldown: 3 turns · Range: 5</div>
+        <div class="ability-meta">Type: Ranged · Target: One Ally · Energy: 20 · Cooldown: 2 turns · Range: 5</div>
         <ul>
-          <li>Target and self gains "Might" and "Technique" for 2 turns.</li>
+          <li>Target gains "Focus" for 3 turns.</li>
+          <li>Target restores 20 EN and 2 STA.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Utility Belt</span>
+          <span class="ability-name">Splicing Saw</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 3 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 2</div>
         <ul>
-          <li>Gains an "Explosive Gel" item.</li>
-          <li>Restores 30 EN and 4 STA.</li>
+          <li>Deals 300% ATK damage to the target.</li>
+          <li>Steals 3 random buffs (1 stack at a time) from the target and applies them to self.</li>
+          <li>Buffs stolen are inert.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Assassin Infiltration</span>
+          <span class="ability-name">Molecular Breakdown</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: All Allies in Range · Energy: 30 · Cooldown: 4 turns · Range: 3</div>
         <ul>
-          <li>Gains "Stealth" and "Pinpoint" for 1 turn.</li>
-          <li>"Bat-Family" allies gain "Pinpoint" for 1 turn.</li>
+          <li>Distributes active duplicates of any inert status effects applied to self to all allies within 3 panels (self excluded).</li>
+          <li>The active duplicates retain the same duration as the inert effects they are copied from.</li>
+          <li>Nullifies any inert status effects applied to self.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Swift Slice</span>
+          <span class="ability-name">System Update</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 2 turns · Range: N/A</div>
         <ul>
-          <li>Deals 300% ATK damage to the target.</li>
-          <li>Inflicts "Bleed" for 2 turns to the target.</li>
+          <li>Cleanses all negative status effects applied to self.</li>
+          <li>All inert status effects on self become active.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Throwing Dagger</span>
+          <span class="ability-name">Sonic Disruptor</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 10 · Cooldown: None · Range: 8</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 10</div>
         <ul>
-          <li>Deals 40% ATK damage to the target.</li>
-          <li>Inflicts "Bleed" for 2 turns to the target.</li>
+          <li>Deals 100% MAG damage to the target.</li>
+          <li>30% chance to ground airborne enemies.</li>
+          <li>Inflicts "Disorient" for 2 turns to the target.</li>
         </ul>
       </div>
 
@@ -1206,58 +1221,60 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Child Torn Between Two Identities</span>
+          <span class="ability-name">Man and Machine</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>+5% SPD while above 50% HP.</li>
-          <li>+5% EVA while below 50% HP.</li>
-          <li>Gains 2% ULT each time an attack lands (self only).</li>
-          <li>Gains 1% ULT each time an ally lands an attack (self excluded).</li>
+          <li>Immune to Shock.</li>
+          <li>+5% DEF and RES per inert buff (stack) on self.</li>
+          <li>Landing an attack has a 20% chance to apply "Energy Barrier" to self.</li>
+          <li>Gains 2% ULT when an inert buff is provided to an ally (by self only, at most once per ally per turn).</li>
+          <li>Gains 1% ULT each time an inert buff is gained (self only).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Lurking in the Shadows</span>
+          <span class="ability-name">Adaptive Intelligence</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Consumes STA at half the rate while having "Stealth".</li>
-          <li>+20% EVA while having "Stealth".</li>
+          <li>Becomes immune to any inflictions (negative status effects) dealt to self that have been active for 2 or more turns.</li>
+          <li>Using Awareness Enhancement on an ally, while immune to status effects, allows that ally to also become immune for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">A Proper Family</span>
+          <span class="ability-name">System Repair</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>+6% ATK to "Bat-Family" allies (self excluded).</li>
-          <li>When self deals damage, all "Bat-Family" allies gain +2% SPD for 2 turns.</li>
+          <li>Inert inflictions (negative status effects) on self immediately become active after 1 turn of being inert.</li>
+          <li>+6% REGEN while below 40% HP.</li>
+          <li>Restores 15% HP upon going below 40% HP (once per battle).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Youthful and Swift Movements</span>
+          <span class="ability-name">Metallic Exterior</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+10% EVA against melee attacks.</li>
-          <li>+2 MAX STA.</li>
+          <li>Blocking reduces melee damage received by 30%.</li>
+          <li>When self gains an inert buff, all "Mechanical Physiology" allies gain +2% DEF and RES for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Upbringing of an Assassin</span>
+          <span class="ability-name">Irreproducible Outcome</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>+20% ATK (+15% more when below 50% HP).</li>
-          <li>No longer applies buffs to allies.</li>
+          <li>Buffs applied to allies last 1 extra turn.</li>
+          <li>Inert status effects applied to self have a 50% chance to become active per turn passed.</li>
         </ul>
       </div>
 
@@ -1266,25 +1283,27 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">New Habits</span>
+          <span class="ability-name">Boom Tube</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Ally · Range: 5 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: Four Panels (2x2) · Range: ∞ · Cost: 100% ULT</div>
         <ul>
-          <li>Target and self gains 3 stacks of "Might" and "Technique" for 2 turns.</li>
+          <li>Summons a 2x2 Boom Tube directly in front of self (left side directly in front).</li>
+          <li>Summons a paired 2x2 Boom Tube onto the targeted panels.</li>
+          <li>Can target panels on different floors of the map.</li>
+          <li>Ignores elevation.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Old Habits</span>
+          <span class="ability-name">Firewall</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: ∞ · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 800% ATK damage to the target.</li>
-          <li>Inflicts 2 stacks of "Bleed" for 2 turns to the target.</li>
-          <li>If used while in "Stealth", "Bleed" duration is doubled to 4 turns.</li>
+          <li>Applies "Energy Barrier" to all allies.</li>
+          <li>+25% DEF and RES to all allies for 2 turns.</li>
         </ul>
       </div>
 
@@ -1296,43 +1315,41 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/batman.jpg" alt="Batman">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Blood of the Bat</span>
-              <span class="synergy-partner-tag">w/ Batman</span>
+              <span class="synergy-bond-name">Suit and Skin</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
             </div>
-            <p class="synergy-desc">For all his talk of birthright, the thing Damian wants most is the approval of the one man who refuses to simply hand it to him. He came to Bruce certain the mantle of Robin was his by blood, and found instead a father who would make him earn every inch of it — and though the boy bristles at the lessons and hides his need behind a sneer, there is no example he follows more closely, and no one he is more quietly desperate to prove himself worthy of.</p>
+            <p class="synergy-desc">Victor and Tony speak the same language — the only two who truly know what it is to live married to a machine, trading talk of systems and upgrades no one else in the room could begin to follow. But there's a gulf between them Victor can never quite talk his way across: at the end of the day, Tony Stark takes his armor off. He steps out of the suit and walks away a whole man, free to be human whenever he pleases — a luxury Victor will never know, because his machine isn't something he wears. It's what he is. He respects Tony, learns from him, and counts him a rare kindred mind — and still, some quiet part of him aches at the reminder that one of them got to keep the choice.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
             <div class="syn-ability syn-ability--dynamic-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">The Dynamic Duo</span>
+              <span class="syn-ability-name">Super Plasma Unibeam</span>
               <span class="syn-type-badge">Dynamic Special</span>
             </div>
             <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
             <div class="syn-dual-cost">
-              <span class="syn-cost-chip"><span class="who">Batman</span> · 50 EN</span>
-              <span class="syn-cost-chip"><span class="who">Robin</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Iron Man</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Cyborg</span> · 50 EN</span>
             </div>
-            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Cooldown: 6 turns · Range: 5</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Cooldown: 5 turns · Range: 7</div>
             <ul>
-              <li>Batman and Robin each deal 450% ATK damage to the target.</li>
-              <li>Positions Batman and Robin one panel away from the target (side-by-side) in the direction of their initial position.</li>
-              <li>Batman and Robin gain +8% EVA for 1 turn.</li>
+              <li>Iron Man and Cyborg each deal 450% MAG damage to the target.</li>
+              <li>Iron Man deals an additional 250% MAG damage to the target.</li>
             </ul>
           </div>
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Unrestrained Rage and Grief</span>
+              <span class="syn-ability-name">Impressive Tech</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>+15% ATK when Batman is defeated.</li>
-              <li>+10% DEF and RES when Batman is defeated.</li>
+              <li>Can receive buffs granted to "Stark Industries" allies (including Leader Abilities).</li>
             </ul>
           </div>
         </div>
@@ -1341,29 +1358,29 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+            <img src="../images/champion-images/superman.jpg" alt="Superman">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Siblings of Shadow</span>
-              <span class="synergy-partner-tag">w/ Batgirl</span>
+              <span class="synergy-bond-name">Still Human</span>
+              <span class="synergy-partner-tag">w/ Superman</span>
             </div>
-            <p class="synergy-desc">Damian and Cassandra were both born into the dark — children raised by killers to be flawless weapons, each of whom clawed their way toward the light beneath the same Bat. Where words fail between the proud boy and the silent girl, understanding never does: each looks at the other and sees a mirror, a sibling forged in the same shadow, fighting the very same war to become something more than what they were made to be.</p>
+            <p class="synergy-desc">Of everyone Victor has stood beside, Superman is the one who steadied him when the doubt was loudest. The question that haunts him — whether a man rebuilt in metal is still truly a man — sounds different coming from someone who was never human to begin with and became the most humane soul on Earth regardless. Clark never lectures him about it; he simply treats Victor as exactly what he is, a person, and lets that speak for itself. To a young man who has felt like a freak, a machine, and a stranger in his own body all at once, the quiet, unwavering certainty of the Man of Steel is worth more than any reassurance could ever be.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Sweeping Through Shadow</span>
+              <span class="syn-ability-name">Hopeful Analysis</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Assassin Infiltration</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 3 turns · Range: N/A</div>
+            <div class="syn-override">Overrides <strong>Molecular Breakdown</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: All Allies in Range · Energy: 30 · Cooldown: 4 turns · Range: 4</div>
             <ul>
-              <li>Gains "Stealth" and "Pinpoint" for 2 turns.</li>
-              <li>"Bat-Family" allies gain "Pinpoint" for 1 turn.</li>
-              <li>Batman and Batgirl gain "Stealth" for 1 turn.</li>
+              <li>Distributes active duplicates of any inert status effects applied to self to all allies within 4 panels (self excluded).</li>
+              <li>The active duplicates retain the same duration as the inert effects they are copied from.</li>
+              <li>Nullifies 6 stacks of inert status effects applied to self.</li>
             </ul>
           </div>
         </div>
@@ -1382,7 +1399,7 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/robin.jpg" alt="Modern">
+          <img src="../images/champion-images/cyborg.jpg" alt="Modern">
         </div>
         <div class="costume-info">
           <div class="costume-name">Modern</div>
@@ -1393,23 +1410,34 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/robin(classic).jpg" alt="Classic">
+          <img src="../images/champion-images/costumes/cyborg(classic).jpg" alt="Classic">
         </div>
         <div class="costume-info">
           <div class="costume-name">Classic</div>
-          <div class="costume-effect-label">Deadly Defiance — +10% ATK</div>
+          <div class="costume-effect-label">Youthful Days — +2% SPD</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/robin(league_of_assassins).jpg" alt="League of Assassins">
+          <img src="../images/champion-images/costumes/cyborg(retro).jpg" alt="Retro">
         </div>
         <div class="costume-info">
-          <div class="costume-name">League of Assassins</div>
-          <div class="costume-effect-label">Strike to Kill — +8% CRIT RATE</div>
-          <span class="rarity rarity--epic">Epic</span>
+          <div class="costume-name">Retro</div>
+          <div class="costume-effect-label">Golden Age — +5% DEF and RES</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/cyborg(teen-titans).jpg" alt="Teen Titans">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Teen Titans</div>
+          <div class="costume-effect-label">Booyah! — +7% MAX HP</div>
+          <span class="rarity rarity--mythic">Mythic</span>
         </div>
       </div>
 
@@ -1428,56 +1456,28 @@
 
       <div class="changelog-entry">
         <div class="entry-meta">
-          <span class="version">v1.0.2</span>
-          <span class="date">July 11, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Synergies converted to the new bond system. The previous flat stat-card synergies were rebuilt as typed bond grants: <em>Blood of the Bat</em> (w/ Batman) now grants the Dynamic Special <em>The Dynamic Duo</em> and the New Passive <em>Unrestrained Rage and Grief</em>; <em>Siblings of Shadow</em> (w/ Batgirl) now grants the Upgraded Special <em>Sweeping Through Shadow</em>.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Corrected the Best Partners tooltip for the Batman bond to read <strong>"Blood of the Bat"</strong> (previously mislabeled "The Dynamic Duo," which is the combo granted inside that bond, not the bond itself).</span>
-          </li>
-        </ul>
-        <p class="rationale">Documentation/transparency entry for the roster-wide synergy revamp. Robin's bonds were migrated from the old one-line stat cards to the new typed-grant format (New Passive / Dynamic Special / Upgraded Special) at values consistent with the new framework. The earlier v1.0.1 note describing "The Dynamic Duo" as a flat "+8% ATK/MAG" passive reflects the pre-revamp synergy and no longer matches the current bond. His base kit is unchanged.</p>
-      </div>
-
-      <div class="changelog-entry">
-        <div class="entry-meta">
           <span class="version">v1.0.1</span>
-          <span class="date">May 22, 2026</span>
+          <span class="date">August 26, 2026</span>
         </div>
         <ul class="changes">
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>EVA reduced from 50% to 42%.</span>
-          </li>
           <li class="rework">
             <span class="change-tag">Rework</span>
-            <span>Default loadout reshuffled to lean Booster: Lurking in the Shadows and A Proper Family promoted to active passives; Youthful and Swift Movements and Upbringing of an Assassin moved to reserve. New Habits promoted to active ULTIMATUM; Old Habits moved to reserve.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>Upbringing of an Assassin shortened from four bullets to two — same mechanical effect, far less rules text: "+20% ATK (+15% more when below 50% HP). No longer applies buffs to allies."</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span>Old Habits now doubles "Bleed" duration (2 → 4 turns) when used while in "Stealth", rewarding the kit's signature setup.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span>The Dynamic Duo synergy bullet 2 reworded for clarity: "If one Champion is defeated, the surviving Champion gains +10% ATK and MAG."</span>
+            <span><em>Molecular Breakdown</em> — clarified that the distributed active duplicates retain the same duration as the inert effects they are copied from.</span>
           </li>
           <li class="nerf">
             <span class="change-tag">Nerf</span>
-            <span>League of Assassins costume effect "Strike to Kill" reduced from +10% to +8% CRIT RATE.</span>
+            <span><em>Man and Machine</em> — ULT gained from providing inert buffs to allies now procs at most once per ally per turn (previously ambiguous; a single distribution to a clustered team no longer multiplies ULT by the number of individual buffs handed out).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Man and Machine</em> — the +5% DEF and RES scaling line reworded to "per inert buff," confirming it counts inert buffs only and not inert inflictions.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Hopeful Analysis</em> (Still Human — Superman synergy) — now nullifies 6 stacks of inert effects on self, up from 3, raising the cost of retaining charge while distributing.</span>
           </li>
         </ul>
-        <p class="rationale">
-          Robin shipped labeled Booster but defaulting to a near-Striker loadout, with one of his active passives (Upbringing of an Assassin) explicitly disabling the Booster portions of three other abilities. This pass leans into the dual-build identity by making the default actually Booster: he supports the Bat-Family by default, and re-spec'ing into Striker is a deliberate, meaningful choice. EVA and the League costume were trimmed to keep the dodge-crit ceiling from being overtuned. Old Habits gains a Stealth payoff so the Striker re-spec ULT actually rewards his signature playstyle. None of the kit's identity changed — just which side of it is on by default.
-        </p>
+        <p class="rationale">A clarity-and-tuning pass on the inert engine. Making the duplicate duration explicit removes the biggest ambiguity in how his team buffs read. Capping the "buff provided to an ally" ULT gain at once per ally per turn stops a single Molecular Breakdown from snowballing his ULT charge off buff count, while leaving the distribution itself untouched. Hopeful Analysis was erasing his central hold-vs-dump tradeoff by letting him keep nearly all his charge while still buffing the team; nullifying 6 stacks instead of 3 means it now relaxes that tension rather than deleting it. The DEF/RES wording fix simply confirms the intended scaling source.</p>
       </div>
 
       <div class="changelog-entry release">
@@ -1488,7 +1488,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Robin enters the roster.</span>
+            <span>Cyborg enters the roster.</span>
           </li>
         </ul>
       </div>
