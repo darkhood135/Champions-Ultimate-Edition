@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frieza Force Soldier — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #a855f7; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #a855f7;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #a855f7;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label { color: #a3a8b3; font-weight: 500; }
+  .stat-row .value { color: #f0f1f3; font-weight: 600; }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: #a855f7;
+    color: #f0f1f3;
+  }
+
+  /* ====================== SPAWNED BY ====================== */
+  .summoner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #f0f1f3;
+    padding: 6px 0 2px;
+    transition: transform 0.15s ease;
+  }
+
+  .summoner-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .summoner-portrait {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 3px solid #2c3038;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    margin-bottom: 16px;
+    color: #6b7280;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+  .summoner-card:hover .summoner-portrait {
+    border-color: #a855f7;
+    transform: scale(1.03);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  }
+
+  .summoner-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .summoner-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #f0f1f3;
+    text-align: center;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+
+  .summoner-realname {
+    font-size: 13px;
+    color: #a3a8b3;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .summoner-role-line {
+    font-size: 11px;
+    color: #c084fc;
+    text-align: center;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 8px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Frieza theme — Imperial Purple / White Carapace / Fuchsia Ki palette.
+       Purple = the emperor's bio-armor, the regal cruelty, the machine of empire.
+       White carapace = the sleek pristine shell of his true shape.
+       Fuchsia/magenta ki = the surgical power of the Frieza Force.
+     Matches Frieza's own sheet — the summon wears its master's colors. */
+
+  .ability--basic {
+    background: #140a1e;          /* near-black purple */
+    border: 1px solid #4c1d75;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #c084fc; }
+  .ability--basic .ability-tag  { color: #a855f7; }
+  .ability--basic .ability-meta { color: #a855f7; }
+
+  .ability--special-1 { background: #a21caf; color: #fae8ff; } /* fuchsia */
+  .ability--special-2 { background: #7e22ce; color: #f3e8ff; } /* royal purple */
+
+  .ability--core-passive {
+    background: #120820;          /* deep purple-black */
+    color: #e9d5ff;
+  }
+
+  .ability--passive {
+    background: #e5e7eb;          /* white carapace */
+    color: #241428;
+  }
+
+  .ability--ultimatum {
+    background: #86198f;          /* deep magenta */
+    color: #fce7f3;
+  }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #a855f7; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../summons.html" class="back-link">← Back to Summons</a>
+
+  <!-- =============================================
+       HERO BAR — Summon image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="character-image">
+      <!-- <img src="../images/summon-images/loki-clones.jpg" alt="Loki Clone"> -->
+      <img src="../images/summon-images/frieza-force-soldier.jpg" alt="Frieza Force Soldier">
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Frieza Force Soldier</h1>
+      <p class="subtitle">Loyal Follower of Frieza</p>
+      <span class="role-badge">Blaster</span>
+      <p class="description">
+        At a summons, one of the countless soldiers of the Frieza Force drops onto the battlefield — armored, scouter gleaming, and utterly expendable. Drawn from a hundred conquered worlds and welded into a single vast machine of empire, these troopers fight not out of loyalty but out of terror, for the only thing more dangerous than the enemy in front of them is the master who sent them. Individually they pose little threat to a true warrior; their blasts and blades were forged for purging the defenseless, not dueling the mighty. But they never arrive alone, and they never stop coming — because in Frieza's empire a soldier is not a person but a resource, endlessly replaceable, spent as freely as ammunition by a ruler who reckons their lives as worth precisely nothing.
+      </p>
+      <p class="quote">"Lord Frieza!"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags / Spawned By | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">1,800</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">50</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">20</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">85%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">110%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">5%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">119</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">0%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">12</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">0%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../summons.html" class="pill">Dragon Ball Universe</a>
+          <a href="../summons.html" class="pill">Persistent</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Mobile</span>
+          <span class="pill">Taunt</span>
+          <span class="pill">Stat Down</span>
+          <span class="pill">Self Buff</span>
+          <span class="pill">Buffs Allies</span>
+          <span class="pill">Physical</span>
+          <span class="pill">Magical</span>
+        </div>
+      </div>
+
+      <!-- Spawned By — big round portrait linking to the summoning Champion -->
+      <div class="panel">
+        <div class="panel-title">Spawned By</div>
+        <a href="../champions/frieza.html" class="summoner-card">
+          <div class="summoner-portrait">
+            <!-- <img src="../images/champion-images/the-summoner.jpg" alt="The Summoner"> -->
+            <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+          </div>
+          <div class="summoner-name">Frieza</div>
+          <p class="summoner-realname">Emperor Frieza</p>
+          <div class="summoner-role-line">Summoner &middot; Dragon Ball Universe</div>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Fixed kit &mdash; summons don't swap abilities</span>
+      </div>
+
+      <div class="section-divider">Basic Ability (Unique)</div>
+        <div class="ability ability--basic">
+          <div class="ability-header">
+            <span class="ability-name">Clumsy Swings</span>
+            <span class="ability-tag">Basic</span>
+          </div>
+          <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+          <ul>
+            <li>Deals 70% ATK damage to the target.</li>
+            <li>Frieza restores 10 EN.</li>
+          </ul>
+        </div>
+
+      <div class="section-divider">Special Abilities</div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Energy Blast</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 100 · Cooldown: 1 turn · Range: 6</div>
+        <ul>
+          <li>Deals 120% MAG damage to the target.</li>
+          <li>Inflicts 2 stacks of "Sting" for 4 turns to the target.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Blind Loyalty</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Gains "Taunt" for 1 turn upon being summoned.</li>
+          <li>Extends any buffs on self by 1 turn upon surviving a received attack.</li>
+          <li>+5% ATK and MAG to "Frieza Force" allies while alive.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Crushing Reality</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Upon death, Frieza gains "Focus" for 2 turns.</li>
+          <li>Cannot receive healing from any source, including its own abilities.</li>
+          <li>Cannot receive buffs from allies (self excluded).</li>
+          <li>Persists until defeated (no duration limit).</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       CHANGELOG
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Summon's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">TBD</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Frieza Force Soldier enters the roster as a Summon.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>
