@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vegeta — Champions Ultimate Edition</title>
+<title>Krillin — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #9333ea; }
+  .back-link:hover { color: #f97316; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #9333ea;
+    color: #f97316;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(147, 51, 234, 0.12);
-    color: #c084fc;
+    background: rgba(249, 115, 22, 0.12);
+    color: #fb923c;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(147, 51, 234, 0.35);
+    border: 1px solid rgba(249, 115, 22, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #9333ea;
+    border-left: 3px solid #f97316;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -199,8 +199,8 @@
   }
 
   a.pill:hover {
-    background: rgba(74, 163, 255, 0.1);
-    border-color: #4aa3ff;
+    background: rgba(249, 115, 22, 0.1);
+    border-color: #f97316;
     color: #f0f1f3;
   }
 
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #9333ea;
+    border-color: #f97316;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #c084fc;
+    color: #f97316;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Vegeta theme — Saiyan Royalty: Galick Violet / Royal Armor Blue / Gold Trim / White Plating.
-       Galick violet = the signature beam, royal blood, the Prince's pride.
-       Royal blue = the Saiyan battle-armor bodysuit, ki, flight.
-       Gold = the armor's trim and shoulder guards, the crown of a conqueror.
-       White/tan = the chest plate, cold discipline under the arrogance.
+     Krillin theme — Turtle-Gi Orange / Navy Undershirt / Solar Gold palette.
+       Burnt orange = the Turtle School gi, his signature look and identity.
+       Navy blue = the undershirt, the calm and the preparation.
+       Solar gold = ki energy — the Destructo Disc's edge and the Solar Flare's glare.
+       Senzu green = reserved for the Senzu Bean, his lifeline to the fight.
      Each ability still gets a visually distinct treatment; the palette
      just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #6d28d9;          /* royal purple — the Prince, command over his race */
-    color: #f3ecff;
+    background: #e8590c;          /* gi orange — the signature buff */
+    color: #2a1206;
   }
 
   .ability--basic {
-    background: #160f1e;          /* near-black with violet undertone — the fists */
-    border: 1px solid #4c1d75;
+    background: #1a1109;          /* near-black with a warm orange tint */
+    border: 1px solid #5a3410;
     color: #f0f1f3;
   }
-  .ability--basic .ability-name { color: #c084fc; }
-  .ability--basic .ability-tag  { color: #a855f7; }
-  .ability--basic .ability-meta { color: #a855f7; }
+  .ability--basic .ability-name { color: #fb923c; }
+  .ability--basic .ability-tag  { color: #c2691f; }
+  .ability--basic .ability-meta { color: #c2691f; }
 
-  .ability--special-1 { background: #7c3aed; color: #f3ecff; } /* violet — Ki Blast Barrage */
-  .ability--special-2 { background: #3730a3; color: #e0e7ff; } /* deep indigo — Saiyan Rage */
-  .ability--special-3 { background: #9333ea; color: #f7ecff; } /* bright royal purple — Galick Gun (signature) */
-  .ability--special-4 { background: #1d4ed8; color: #dbeafe; } /* royal blue — Effortless Ascent, flight */
+  .ability--special-1 { background: #9a3412; color: #ffe4d6; } /* deep orange — Destructo Disc's cutting edge */
+  .ability--special-2 { background: #eab308; color: #1c1500; } /* solar gold — Solar Flare's glare */
+  .ability--special-3 { background: #1e40af; color: #dbeafe; } /* navy — a measured breather */
+  .ability--special-4 { background: #4d7c0f; color: #ecfccb; } /* senzu green — the healing bean */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #9333ea; } /* violet */
-  .ability--reserve-passive   { border-left-color: #e4e1d4; } /* armor white */
-  .ability--reserve-ultimatum { border-left-color: #5b21b6; } /* deep royal purple */
+  .ability--reserve-special   { border-left-color: #e8590c; } /* gi orange */
+  .ability--reserve-passive   { border-left-color: #1e40af; } /* navy */
+  .ability--reserve-ultimatum { border-left-color: #a16207; } /* deep gold */
 
   .ability--core-passive {
-    background: #120e22;          /* deepest indigo-black — the elite's foundation */
-    color: #ddd6f0;
+    background: #0f0b06;          /* blackest warm — foundation, the training */
+    color: #f0d6b8;
   }
 
   .ability--passive {
-    background: #e4e1d4;          /* white/tan armor plating — the chest guard */
-    color: #241b30;
+    background: #92400e;          /* amber-brown — secondary, disciplined */
+    color: #fde8cf;
   }
 
   .ability--ultimatum {
-    background: #5b21b6;          /* deep royal purple — Great Ape, maximum force */
-    color: #f3ecff;
+    background: #a16207;          /* deep solar gold — Supreme Solar Flare */
+    color: #fff7e0;
   }
 
   .ability--synergy {
-    background: #ded9ec;          /* neutral lavender-white — connection */
-    color: #241b30;
+    background: #d4a017;          /* warm gold — alliance, World's Finest */
+    color: #1c1208;
   }
 
   .ability--artifact {
@@ -515,7 +515,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #9333ea; }
+  .synergy-block[open] { border-color: #f97316; }
 
   .synergy-summary {
     list-style: none;
@@ -527,7 +527,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(147, 51, 234, 0.04); }
+  .synergy-summary:hover { background: rgba(249, 115, 22, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -540,7 +540,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #9333ea; }
+  .synergy-block[open] .synergy-icon { border-color: #f97316; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -554,7 +554,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #c084fc;
+    color: #fb923c;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -577,7 +577,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #9333ea; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #f97316; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -643,7 +643,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #9333ea; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #f97316; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -653,23 +653,23 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(147, 51, 234, 0.1);
-    border: 1px solid rgba(147, 51, 234, 0.3);
-    color: #cbb0f0;
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #fb923c;
   }
-  .syn-cost-chip .who { color: #c084fc; font-weight: 700; }
+  .syn-cost-chip .who { color: #fb923c; font-weight: 700; }
 
-  /* Type accents — Saiyan-royalty spread, kept distinct from one another */
-  .syn-ability--upgraded-special   { border-left-color: #1d4ed8; } /* royal blue */
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(29, 78, 216, 0.18); color: #7da2f0; border: 1px solid rgba(29, 78, 216, 0.45); }
-  .syn-ability--dynamic-special    { border-left-color: #9333ea; } /* Galick violet */
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #e4e1d4; } /* armor white */
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(228, 225, 212, 0.13); color: #ddd8c8; border: 1px solid rgba(228, 225, 212, 0.35); }
-  .syn-ability--upgraded-ultimatum { border-left-color: #eab308; } /* gold trim */
-  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(234, 179, 8, 0.15); color: #f5cd4a; border: 1px solid rgba(234, 179, 8, 0.4); }
-  .syn-ability--new-special        { border-left-color: #5b21b6; } /* deep royal purple */
-  .syn-ability--new-special        .syn-type-badge { background: rgba(91, 33, 182, 0.22); color: #b18ee6; border: 1px solid rgba(91, 33, 182, 0.5); }
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
 
   .costumes-section {
     margin-top: 18px;
@@ -913,7 +913,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #7c5cf0;
+    background: #f97316;
     color: #0d0e11;
     transition: transform 0.12s ease, filter 0.12s ease;
   }
@@ -945,7 +945,7 @@
   .theme-source {
     font-size: 11.5px;
     font-style: italic;
-    color: #c084fc;
+    color: #fb923c;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
@@ -965,33 +965,33 @@
     <div class="hero-left">
       <div class="character-image">
         <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-        <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
+        <img src="../images/champion-images/krillin.jpg" alt="Krillin">
       </div>
 
       <!-- Champion theme music player. Drop the track at the data-theme / src path.
            Fill in .theme-track (name) and .theme-source (original game it is from). -->
-      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/vegeta.mp3">
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/krillin.mp3">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
           <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         </button>
         <div class="theme-meta">
           <div class="theme-eyebrow">Theme</div>
-          <div class="theme-track">Dust Beneath You</div>
-          <div class="theme-source">Dragon Ball Z Dokkan Battle: AGL Vegeta + Nappa Reversible Exchange OST</div>
+          <div class="theme-track">Discs of Destruction</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: AGL LR Krillin & Gohan OST</div>
         </div>
-        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/vegeta.mp3"></audio>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/krillin.mp3"></audio>
       </div>
     </div>
 
     <div class="identity">
-      <h1 class="name">Vegeta</h1>
-      <p class="subtitle">Prince Vegeta IV</p>
-      <span class="role-badge">Blaster</span>
-      <p class="description">The last prince of a merciless warrior race, Vegeta descends upon Earth as its would-be conqueror — a Saiyan of monstrous power who kneels to no one and believes, to his core, that the strong were born to rule the weak.</p>
-      <p class="description">Vegeta is what Goku might have become had he never lost the cruelty bred into his blood. Prince of the Saiyans, raised in a culture that measured worth in conquest and body counts, he carries his royal lineage like a birthright to the entire universe — and his pride is not one trait among many but the whole of him, the engine behind every act of savagery he commits without a flicker of remorse. He came to Earth chasing the Dragon Balls and the immortality that would make his dominion eternal, and he treats every life beneath his own as an obstacle or an amusement, cutting down even his fellow Saiyan the instant the man ceased to be useful to him. Mercy, to Vegeta, is a disease that infects the weak. Yet for all his monstrousness, what truly defines his time on Earth is the wound he never saw coming: humbled for the first time in his life by a low-born Saiyan he'd dismissed as trash and a rabble of lesser creatures, bloodied and forced to flee, his body will heal long before his pride does. He does not retreat broken. He retreats insulted — and swearing, with everything he has, that it will never happen twice.</p>
-      <p class="description">The power backing that arrogance is, at this moment, greater than anything Earth's defenders have ever faced. Vegeta's strength, speed, and ferocity tower over every warrior sent against him, his mastery of ki loosing devastating blasts like the violet torrent of his Galick Gun — a beam that can answer even Goku's Kamehameha head-on. And when brute force isn't enough, he unveils the Saiyan race's most terrible weapon: hurling a sphere of light into the sky as a false moon, he swells into a Great Ape, a towering monster with his every ounce of power multiplied tenfold, laying waste to everything beneath him. He is defeated on Earth, but only barely, and only together — and as his pod streaks back into the stars, the most dangerous truth about the Saiyan Prince is that this humiliation is not the end of him. It is the beginning of an obsession that will make him stronger than anyone yet dares imagine.</p>
-      <p class="quote">"We're going to wait for him to show his cowardly face...then we'll make him watch while we kill his son and all of his friends."</p>
+      <h1 class="name">Krillin</h1>
+      <p class="subtitle">Krillin</p>
+      <span class="role-badge">Breaker</span>
+      <p class="description">Goku's oldest and dearest friend, and the strongest ordinary human ever to walk the Earth, Krillin has spent a lifetime throwing himself into battles far beyond him — and never once backing down.</p>
+      <p class="description">Krillin's whole life is a testament to the courage it takes to be outmatched and fight anyway. He began as a scheming little monk who came to train under Master Roshi alongside a strange boy named Goku, and what started as rivalry became the truest friendship either would ever know — the anchor around which his entire life would turn. As the world grew stranger and its threats grew into Saiyans, Namekians, androids, and gods, Krillin remained what he had always been: a human being, the very finest one the martial arts ever produced, and hopelessly outclassed by nearly everything he faced. That is exactly what makes him heroic. He has never had the power of his god-touched friends, and he has known it every time he stepped forward regardless — into fights he could not win, against monsters who could end him with a thought, because the people he loved needed someone to stand there. He has paid the ultimate price for that loyalty more than once, dying so that others might live and being called back by the Dragon Balls to do it all again. And in the end he did the wisest thing any of them ever managed: he set the fighting down, married a woman who was once his enemy, raised a daughter, and built a happy, ordinary life — finding the peace that all the warrior-gods around him chase and so rarely catch.</p>
+      <p class="description">For all that he stands in the shadow of titans, Krillin is a warrior of genuine mastery. A disciple of the Turtle School, he commands strength, speed, and skill far beyond any ordinary person, and wields his ki with a precision the brawlers around him never bother to learn — loosing the Kamehameha, blinding foes with the Solar Flare, and above all spinning the Destructo Disc, a razor-thin blade of pure energy sharp enough to cut clean through enemies many times his better. Where raw power fails him, wit and technique carry him, turning cleverness into a weapon that has threatened beings who should have been leagues beyond his reach. But his power level was never the measure of Krillin. It was his heart — the ordinary man who kept standing shoulder to shoulder with legends, refused to run when running would have been only sensible, and earned, through sheer courage and loyalty, a place among the mightiest heroes the world has ever known.</p>
+      <p class="quote">"Even if I'm totally outclassed, I can't just sit here and do nothing!"</p>
     </div>
   </div>
 
@@ -1006,25 +1006,25 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,800</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">280</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">370</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">4,800</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">290</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">340</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">130</span></div>
-        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">108</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">15%</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">70</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">200%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">35%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">115</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">40%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
         <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">4%</span></div>
       </div>
 
       <!-- Links -->
@@ -1032,13 +1032,11 @@
         <div class="panel-title">Links</div>
         <div class="pill-group">
           <a href="../links/dragon-ball-universe.html" class="pill">Dragon Ball Universe</a>
-          <a href="../links/villain.html" class="pill">Villain</a>
-          <a href="../links/saiyan.html" class="pill">Saiyan</a>
-          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
-                    <a href="../links/frieza-force.html" class="pill">Frieza Force</a>
-          <a href="../links/galactic-invasion.html" class="pill">Galactic Invasion</a>
-          <a href="../links/elite-class.html" class="pill">Elite Class</a>
-          <a href="../links/echo-of-the-past.html" class="pill">Echo of the Past</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/z-fighters.html" class="pill">Z Fighters</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/law-enforcement.html" class="pill">Law Enforcement</a>
         </div>
       </div>
 
@@ -1046,18 +1044,20 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Airborne</span>
-          <span class="pill">Enemy Reposition</span>
-          <span class="pill">Last Stand</span>
-          <span class="pill">RES Down</span>
-          <span class="pill">Line Ability</span>
-          <span class="pill">Area of Effect</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Stun</span>
           <span class="pill">ATK Up</span>
           <span class="pill">MAG Up</span>
-          <span class="pill">Healing</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Affliction Boost</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Item Spawn</span>
           <span class="pill">ULT Generation</span>
           <span class="pill">Resource Refill</span>
-          <span class="pill">STA Support</span>
+          <span class="pill">Cooldown Reduction</span>
         </div>
       </div>
 
@@ -1065,6 +1065,18 @@
       <div class="panel">
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
+
+          <a href="goku(super-saiyan).html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Goku (Super Saiyan)</strong>
+              <span class="real-name">Son Goku · Kakarot</span>
+              <span class="synergy-name">Catalyst of Awakening</span>
+            </div>
+          </a>
 
           <a href="goku.html" class="partner-card">
             <div class="partner-image">
@@ -1074,29 +1086,17 @@
             <div class="partner-tooltip">
               <strong>Goku</strong>
               <span class="real-name">Son Goku · Kakarot</span>
-              <span class="synergy-name">Rivalry to Last a Lifetime</span>
+              <span class="synergy-name">Best Buddies of the Turtle School</span>
             </div>
           </a>
 
-          <a href="frieza.html" class="partner-card">
+          <a href="vegeta.html" class="partner-card">
             <div class="partner-image">
-              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+              <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
             </div>
             <div class="partner-tooltip">
-              <strong>Frieza</strong>
-              <span class="real-name">Emperor Frieza</span>
-              <span class="synergy-name">The Tyrant's Leash</span>
-            </div>
-          </a>
-
-          <a href="krillin.html" class="partner-card">
-            <div class="partner-image">
-              <img src="../images/champion-images/krillin.jpg" alt="Krillin">
-            </div>
-            <div class="partner-tooltip">
-              <strong>Krillin</strong>
-              <span class="real-name">Krillin</span>
+              <strong>Vegeta</strong>
+              <span class="real-name">Prince Vegeta IV</span>
               <span class="synergy-name">Mercy for Another</span>
             </div>
           </a>
@@ -1117,12 +1117,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">Prince of the Saiyan Race</span>
+          <span class="ability-name">Breaking Past the Limits</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Galactic Invasion" or "Saiyan" allies gain +12% ATK and MAG in battle.</li>
-          <li>"Saiyan" allies gain +8% DEF in battle.</li>
+          <li>"Human" allies gain +12% ATK and MAG in battle.</li>
         </ul>
       </div>
 
@@ -1130,12 +1129,12 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Saiyan Fists</span>
+          <span class="ability-name">Rapid Attack</span>
           <span class="ability-tag">Basic</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: None · Cooldown: None · Range: 10</div>
         <ul>
-          <li>Deals 170% ATK damage to the target.</li>
+          <li>Deals 150% ATK damage to the target.</li>
         </ul>
       </div>
 
@@ -1144,74 +1143,75 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Ki Blast Barrage</span>
+          <span class="ability-name">Destructo Disc</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies in 6-Wide Line · Energy: 60 · Cooldown: 1 turn · Range: 4</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 60 · Cooldown: 3 turns · Range: 15</div>
         <ul>
-          <li>Blasts all enemies 4 panels ahead and 6 panels wide in a chosen direction.</li>
-          <li>Range is increased by 2 panels in both directions while airborne.</li>
-          <li>Deals 350% MAG damage to all enemies blasted.</li>
-          <li>Inflicts "Sting" for 2 turns to all enemies blasted.</li>
+          <li>Launches a disc 15 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+          <li>Deals 380% MAG damage to all enemies caught in the line.</li>
+          <li>Deals an additional 500% MAG damage to obstacles.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Saiyan Rage</span>
+          <span class="ability-name">Solar Flare</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self + AoE (1 panel) · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 50 · Cooldown: 4 turns · Range: 3</div>
         <ul>
-          <li>Gains "Anger" and "Overflow" for 2 turns.</li>
-          <li>Pushes all enemies 1 panel away if they're within 2 panels of self.</li>
+          <li>Hits all enemies 3 panels ahead and 3 panels wide in a chosen direction.</li>
+          <li>Inflicts "Blindness" for 2 turns to all enemies in range.</li>
+          <li>Deals 50% MAG damage to all enemies in range.</li>
+          <li>30% chance to inflict "Stun" for 1 turn to any enemy damaged by this attack.</li>
+          <li>+30% to infliction chances for this attack if the enemy in question is above 50% HP.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Galick Gun</span>
+          <span class="ability-name">Fearful Warm-Up</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 50 · Cooldown: 4 turns · Range: 8 panels (chosen direction)</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Launches a beam 8 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
-          <li>Deals 450% MAG damage to all enemies caught in the line.</li>
-          <li>Deals an additional 150% MAG damage to all enemies caught in the line while airborne.</li>
+          <li>Restores 80 EN.</li>
+          <li>+15% EVA for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Effortless Ascent</span>
+          <span class="ability-name">Senzu Bean</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 4 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Support · Target: One Ally · Energy: 10 · Cooldown: 9 turns · Range: 5</div>
         <ul>
-          <li>Becomes airborne for 2 turns.</li>
+          <li>Grants a Senzu Bean item to the targeted ally.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Final Bullet Attack</span>
+          <span class="ability-name">Double Tsuihikidan</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 3 turns · Range: 8</div>
         <ul>
-          <li>Deals 350% ATK damage to the target.</li>
-          <li>Deals 150% MAG damage to the target.</li>
+          <li>Deals 600% MAG damage to the target after 1 turn passes.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Hyper Explosive Wave</span>
+          <span class="ability-name">Aerial Kamehameha</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: AoE (4 panels) · Energy: 70 · Cooldown: 6 turns · Range: 4</div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 8</div>
         <ul>
-          <li>Deals 500% MAG damage to all enemies within 4 panels.</li>
+          <li>Deals 400% MAG damage to the target.</li>
+          <li>Deals 200% MAG damage to any other enemies within 1 panel of the target if the attack lands.</li>
         </ul>
       </div>
 
@@ -1220,58 +1220,58 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Dominance of an Elite Warrior</span>
+          <span class="ability-name">Teachings of the Turtle School</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>+10% ATK and MAG against "Hero" or "Pure Heart" enemies.</li>
-          <li>Restores 50 EN and 3 STA upon defeating an enemy.</li>
-          <li>+10% MAG for 2 turns upon defeating an enemy.</li>
-          <li>Gains 1% ULT each time an enemy is damaged (self only).</li>
+          <li>+10% MAG and +5% EVA when Goku is an ally.</li>
+          <li>Dealing damage has a 30% chance to reduce the cooldown of Solar Flare by 1 turn (once per ability).</li>
+          <li>Gains a "Senzu Bean" item at the start of battle (once only).</li>
+          <li>Gains 2% ULT each time an attack lands (self only, once per ability).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Looking Down Upon Inferiors</span>
+          <span class="ability-name">Fighting Despite Hesitations</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>+10% MAG while airborne.</li>
-          <li>+5% ATK and MAG against enemies with less than 50% HP (of their MAX HP) remaining.</li>
+          <li>+10% ATK and MAG.</li>
+          <li>+5% to infliction chances for 1 turn when an enemy is within 5 panels at the start of the turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Aggressive Aura</span>
+          <span class="ability-name">Strike at the Opening</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Saiyan Rage pulls enemies in instead of pushing them away.</li>
-          <li>Saiyan Rage range is increased by 2 panels (affecting enemies up to 4 panels away).</li>
+          <li>Solar Flare cooldown is reduced by 1 turn whenever an ally (self excluded) deals damage to an enemy with "Blindness" (once per turn).</li>
+          <li>Solar Flare is made available immediately whenever an ally uses an ULTIMATUM.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Unexpected Survival</span>
+          <span class="ability-name">Trusted Friend</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Endures a fatal blow (once per battle).</li>
-          <li>Restores 10% HP and 30 EN upon enduring a fatal blow (once per battle).</li>
+          <li>All allies gain "Anger" for 2 turns upon defeat (once only).</li>
+          <li>+10% MAG when attacking an enemy an ally damaged within the past turn.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Scanning Power Levels</span>
+          <span class="ability-name">Prepared for the Worst</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Gains the ability to see all enemy resources for 1 turn after using a Support ability.</li>
-          <li>+6% ATK and MAG against enemies with a lower MAG stat (impacted by status effects).</li>
+          <li>Senzu Bean cooldown is reduced by 2 turns.</li>
+          <li>+4% EVA per defeated ally (excludes summons, must remain defeated).</li>
         </ul>
       </div>
 
@@ -1280,26 +1280,25 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Great Ape Slam</span>
+          <span class="ability-name">Supreme Solar Flare</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Panel · Range: 5 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 5-Wide Line · Range: 4 · Cost: 100% ULT</div>
         <ul>
-          <li>Deals 1000% ATK damage to all enemies within 4 panels of the targeted panel.</li>
+          <li>Hits all enemies 4 panels ahead and 5 panels wide in a chosen direction.</li>
+          <li>Inflicts "Stun" and "Blindness" for 2 turns to all enemies in range.</li>
+          <li>Deals 150% MAG damage to all enemies in range.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Merciless Execution</span>
+          <span class="ability-name">Stash of Senzus</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy or Ally · Range: 1 · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
         <ul>
-          <li>Grabs the enemy and hurls them into the air, causing them to land 1 panel away from self in a random direction.</li>
-          <li>Deals 900% MAG damage to the target.</li>
-          <li>Guaranteed critical hit.</li>
-          <li>If the target was an ally, self gains +30% ATK and MAG for 4 turns.</li>
+          <li>Grants a Senzu Bean item to 2 random allies in range (cannot be the same ally twice, cannot be self).</li>
         </ul>
       </div>
 
@@ -1311,58 +1310,14 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/goku.jpg" alt="Goku">
+            <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Rivalry to Last a Lifetime</span>
-              <span class="synergy-partner-tag">w/ Goku</span>
+              <span class="synergy-bond-name">Catalyst of Awakening</span>
+              <span class="synergy-partner-tag">w/ Goku (Super Saiyan)</span>
             </div>
-            <p class="synergy-desc">To Vegeta, there is no insult in all the universe like Kakarot. A low-class Saiyan, born beneath him by every measure a prince is raised to respect, somehow clawed his way high enough to humble the royal bloodline itself — and that wound festers in Vegeta's pride like nothing ever has. He does not thank Goku for sparing his life; he despises him for it, for the pity buried in the mercy. From the moment his pod tears away from Earth, every waking hour bends toward a single purpose: to grow strong enough to wipe out that humiliation, and prove at last that the Prince of all Saiyans kneels to no one — least of all to Kakarot.</p>
-          </div>
-          <span class="synergy-chevron">▾</span>
-        </summary>
-        <div class="synergy-body">
-          <div class="syn-ability syn-ability--dynamic-special">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Beam Clash</span>
-              <span class="syn-type-badge">Dynamic Special</span>
-            </div>
-            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
-            <div class="syn-dual-cost">
-              <span class="syn-cost-chip"><span class="who">Goku</span> · 50 EN</span>
-              <span class="syn-cost-chip"><span class="who">Vegeta</span> · 50 EN</span>
-            </div>
-            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 8 turns · Range: 5</div>
-            <ul>
-              <li>Goku and Vegeta fire 3-panel wide beams at each other, both dealing 200% MAG damage to any enemy caught in between.</li>
-              <li>Goku and Vegeta each deal 150% MAG damage to any enemy within 3 panels of where their beams collide.</li>
-            </ul>
-          </div>
-          <div class="syn-ability syn-ability--new-passive">
-            <div class="syn-ability-header">
-              <span class="syn-ability-name">Seething Hatred</span>
-              <span class="syn-type-badge">New Passive</span>
-            </div>
-            <ul>
-              <li>"Anger" status effects applied to self last for 1 additional turn.</li>
-              <li>Restores 10% HP upon defeating any "Pure Heart" enemy.</li>
-            </ul>
-          </div>
-        </div>
-      </details>
-
-      <details class="synergy-block">
-        <summary class="synergy-summary">
-          <div class="synergy-icon">
-            <img src="../images/champion-images/frieza.jpg" alt="Frieza">
-          </div>
-          <div class="synergy-summary-text">
-            <div class="synergy-title-row">
-              <span class="synergy-bond-name">The Tyrant's Leash</span>
-              <span class="synergy-partner-tag">w/ Frieza</span>
-            </div>
-            <p class="synergy-desc">Every cruelty in Vegeta traces back to the creature who owns him. Frieza slaughtered his people, shattered his world, and forged the proud prince into a weapon for the empire that orphaned him — and Vegeta serves, because he has learned in blood what becomes of those who don't. Behind the sneer and the obedience burns a hatred without a bottom, and a single secret dream: to grow strong enough, one day, to look the tyrant in the eye and take back everything stolen from him. For now he swallows it, and smiles, and obeys — biding his time beneath a master he fears more than death and despises more than anything in all creation.</p>
+            <p class="synergy-desc">Krillin never wielded a fraction of Goku's power, and yet on Namek he changed the course of the universe all the same — not through any blow he struck, but through the life he lost. When Frieza murdered him before Goku's eyes, the grief and rage of it shattered something in his oldest friend and lit the golden fire of the first Super Saiyan in a thousand years. It is a bitter sort of legacy, that his death should be the spark for a legend. But it speaks to what Krillin always was to Goku: that of everyone in all the universe, it was the loss of him that drove the gentlest heart alive past its breaking point — because there was no one Goku loved, or would avenge, more fiercely.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
@@ -1370,26 +1325,25 @@
           
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Rage of a Lone Survivor</span>
+              <span class="syn-ability-name">Fearless Warm-Up</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Saiyan Rage</strong> — the base special must be in the active loadout to use.</div>
-            <div class="ability-meta">Type: Support · Target: Self + AoE (1 panel) · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
+            <div class="syn-override">Overrides <strong>Fearful Warm-Up</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 20 · Cooldown: 3 turns · Range: N/A</div>
             <ul>
-              <li>Gains "Anger" and "Overflow" for 2 turns.</li>
-              <li>Pushes all enemies 1 panel away if they're within 2 panels of self.</li>
-              <li>Restores 12% HP and 30 EN.</li>
+              <li>Restores 120 EN and 3 STA.</li>
+              <li>+15% EVA for 2 turns.</li>
             </ul>
           </div>
 
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Hidden Fear of a Ruthless Conqueror</span>
+              <span class="syn-ability-name">Amazement at the Incarnate Super Saiyan</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>Deals 95% less damage to allies named Frieza.</li>
-              <li>Receives 50% more damage from allies named Frieza.</li>
+              <li>+3% MAG per "Saiyan" or "Z Fighters" ally on the battlefield.</li>
+              <li>+5% EVA for 1 turn whenever Goku damages an enemy (once per turn).</li>
             </ul>
           </div>
 
@@ -1399,31 +1353,66 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/krillin.jpg" alt="Krillin">
+            <img src="../images/champion-images/goku.jpg" alt="Goku">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Mercy for Another</span>
-              <span class="synergy-partner-tag">w/ Krillin</span>
+              <span class="synergy-bond-name">Best Buddies of the Turtle School</span>
+              <span class="synergy-partner-tag">w/ Goku</span>
             </div>
-            <p class="synergy-desc">Vegeta owes his life to a weak little human, and he has never known quite what to do with that. Beaten and broken on Earth, at the mercy of a warrior he would have crushed without a second thought, he was spared — not killed but pitied, and left to crawl away by the very people he had wronged. To a prince who measures all things by strength, being handed his life by a lesser man is a humiliation that gnaws at him to this day. And yet, buried far beneath the pride, that mercy lodged somewhere he could not pry it loose — a small, inconvenient seed of proof that there might be another way to be, planted by the last person Vegeta would ever have expected to teach him anything.</p>
+            <p class="synergy-desc">Everything Krillin became began the day a strange, impossibly strong boy turned up to train under Master Roshi beside him. What started as rivalry between two young students grew into the deepest friendship of his life — decades of tournaments, adventures, and battles fought back to back. Goku is the reason Krillin kept getting stronger, the reason he keeps throwing himself into fights he has no business surviving, and the mark he's always cheerfully measured himself against. Through every death and every impossible stand, that bond has never once wavered: brothers in all but blood, forged in the same dojo and tempered by a lifetime side by side.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
 
-          <div class="syn-ability syn-ability--new-passive">
+          <div class="syn-ability syn-ability--dynamic-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Gradual Growth</span>
-              <span class="syn-type-badge">New Passive</span>
+              <span class="syn-ability-name">Turtle School Kamehameha</span>
+              <span class="syn-type-badge">Dynamic Special</span>
             </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Goku</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Krillin</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Cooldown: 6 turns · Range: 10</div>
             <ul>
-              <li>+7% ATK and MAG to "Z Fighter" allies after 8 turns have passed from start of battle.</li>
-              <li>+5% ATK and MAG against "Psychotic Tendencies" or "Galactic Invasion" enemies.</li>
+              <li>Goku repositions himself adjacent to Krillin.</li>
+              <li>Goku and Krillin launch a beam 10 panels in any chosen direction from Krillin, sweeping through a 3-panel-wide line.</li>
+              <li>Goku and Krillin each deal 300% MAG damage to all enemies caught in the line.</li>
             </ul>
           </div>
 
         </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Mercy for Another</span>
+              <span class="synergy-partner-tag">w/ Vegeta</span>
+            </div>
+            <p class="synergy-desc">Krillin held the blade that could have ended Vegeta. Bloodied and beaten, the Saiyan prince lay helpless after the battle for Earth, and every reason in the world said to finish him — the monster had slaughtered their friends without a flicker of remorse. But Goku asked him to stay his hand, and Krillin, against his own better judgment, chose mercy and let the prince crawl away to live. He has never been entirely sure he did the right thing, and Vegeta has given him cause to doubt it many times since. Yet some quiet part of Krillin holds to it still — that sparing a life, even one like that, was worth the risk of whatever it might someday become.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Undeserved Mercy</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+7% MAG when targeting an enemy below 50% HP.</li>
+              <li>Inflicts "Stun" for 2 turns on an enemy if dealing damage to them caused them to go below 30% HP (of their MAX HP, once per enemy).</li>
+            </ul>
+            </div>
+          </div>
       </details>
 
     </main>
@@ -1439,10 +1428,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/vegeta.jpg" alt="Classic">
+          <img src="../images/champion-images/krillin.jpg" alt="Modern">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
+          <div class="costume-name">Modern</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1450,23 +1439,49 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/vegeta(tattered).jpg" alt="Tattered">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/krillin(tattered).jpg" alt="Tattered">
         </div>
         <div class="costume-info">
           <div class="costume-name">Tattered</div>
-          <div class="costume-effect-label">Overwhelmed by Lessers — +6% MAG, -8% DEF and RES</div>
+          <div class="costume-effect-label">No Backing Down Now — +5% ATK and MAG while below 70% HP</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/vegeta(retro).jpg" alt="Retro">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/krillin(police).jpg" alt="Police">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Retro</div>
-          <div class="costume-effect-label">Memories of Youth — +2% REGEN and SPD</div>
+          <div class="costume-name">Police</div>
+          <div class="costume-effect-label">Calling for Backup — +5% ATK and MAG to "Law Enforcement" allies (self excluded)</div>
           <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/krillin(saiyan-armor).jpg" alt="Saiyan Armor">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Saiyan Armor</div>
+          <div class="costume-effect-label">Flexible Gear — +3% SPD and DEF</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/krillin(classic).jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">The Old Days — +2% EVA, can receive buffs granted to "Echo of the Past" allies (including Leader Abilities)</div>
+          <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
 
@@ -1483,32 +1498,6 @@
 
     <div class="changelog-entries">
 
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">July 11, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Ki Blast Barrage</em> — cooldown added: <strong>None → 1 turn</strong> (an unintended leftover from Iron Man's Repulsor Blast; the ability was always intended to carry a cooldown). Damage, width and Sting unchanged.</span>
-          </li>
-          <li class="buff">
-            <span class="change-tag">Buff</span>
-            <span><em>Great Ape Slam</em> (ULTIMATUM 1) — damage increased <strong>700% → 1000% ATK</strong> and area of effect increased <strong>3 → 4 panels</strong>.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span>MAX HP reduced <strong>8,200 → 7,800</strong>.</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Beam Clash</em> (Goku synergy) — corrected wording typos ("eachother" → "each other," "inbetween" → "in between"). No functional change.</span>
-          </li>
-        </ul>
-        <p class="rationale">Ki Blast Barrage shipped with no cooldown — a copy-paste holdover from Iron Man's Repulsor Blast — which, combined with its very large footprint and Vegeta's kill-fueled energy economy, let it be chain-cast far beyond intent. Its intended 1-turn cooldown restores that pacing while keeping the wide-line identity intact. Great Ape Slam was the opposite problem: as an ATK-scaling ULTIMATUM on a MAG-focused Champion it landed below his own specials and well below his reserve ULT, making it a trap pick; the higher multiplier and radius make the primary ULTIMATUM a genuine payoff again. The small HP trim nudges him toward the frailer end the Blaster role implies while keeping him just above Iron Man in the two-Blaster ordering. His airborne damage engine, snowball economy, and the Goku synergy are otherwise untouched.</p>
-      </div>
-
       <div class="changelog-entry release">
         <div class="entry-meta">
           <span class="version">v1.0.0</span>
@@ -1517,7 +1506,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Vegeta enters the roster.</span>
+            <span>Krillin enters the roster.</span>
           </li>
         </ul>
       </div>

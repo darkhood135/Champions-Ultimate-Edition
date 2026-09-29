@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dragon Ball Universe — Champions Ultimate Edition</title>
+<title>Z Fighters — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,19 +39,19 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #c084fc; }
+  .back-link:hover { color: #4aa3ff; }
 
   .category-badge {
     display: inline-block;
-    background: rgba(155, 89, 246, 0.12);
-    color: #c084fc;
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 4px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(155, 89, 246, 0.4);
+    border: 1px solid rgba(74, 163, 255, 0.4);
     margin-bottom: 10px;
   }
 
@@ -59,7 +59,7 @@
     font-size: 38px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #c084fc;
+    color: #6bb4ff;
     margin-bottom: 8px;
   }
 
@@ -124,7 +124,7 @@
 
   .champion-card:hover {
     transform: translateY(-3px);
-    border-color: #9b59f6;
+    border-color: #4aa3ff;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
   }
 
@@ -195,7 +195,7 @@
     text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
   }
 
-  /* ====================== EFFECT CARDS ====================== */
+  /* ====================== EFFECT CARDS (leaders/supporters/opposers) ====================== */
   .effect-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -205,7 +205,7 @@
   .effect-card {
     background: #1c1d20;
     border: 1px solid #2c3038;
-    border-left: 3px solid #9b59f6;
+    border-left: 3px solid #4aa3ff;
     border-radius: 10px;
     padding: 14px 18px 16px;
     display: flex;
@@ -304,9 +304,9 @@
   }
 
   .team-slot {
-    background: rgba(155, 89, 246, 0.1);
-    border: 1px solid rgba(155, 89, 246, 0.35);
-    color: #c084fc;
+    background: rgba(74, 163, 255, 0.1);
+    border: 1px solid rgba(74, 163, 255, 0.35);
+    color: #6bb4ff;
     font-size: 12px;
     font-weight: 600;
     padding: 4px 10px;
@@ -352,9 +352,9 @@
 <header class="page-header">
   <div class="header-inner">
     <a href="../links.html" class="back-link">&larr; Back to Links</a>
-    <span class="category-badge">Universe</span>
-    <h1 class="page-title">Dragon Ball Universe</h1>
-    <p class="page-desc">The Universe link for Champions who hail from the world of Dragon Ball &mdash; a cosmos of martial artists, gods, and warrior races where power scales without an apparent ceiling. Dragon Ball Universe Champions bring that escalating-power sensibility to the roster: they train, they transform, and they tend to end fights by simply becoming stronger than the problem in front of them.</p>
+    <span class="category-badge">Team</span>
+    <h1 class="page-title">Z Fighters</h1>
+    <p class="page-desc">The Team link for Earth&rsquo;s frontline defenders &mdash; the loose band of martial artists and warriors who answer every time the planet (or the universe) is on the line. Z Fighters Champions train relentlessly, push past their limits, and show up together against threats far beyond any one of them. What they lack in numbers they make up for in heart, escalation, and a refusal to stay down.</p>
   </div>
 </header>
 
@@ -363,7 +363,7 @@
   <!-- MEMBERS -->
   <section>
     <div class="section-title">Members</div>
-    <p class="section-subtitle">Champions whose Links include &quot;Dragon Ball Universe&quot;.</p>
+    <p class="section-subtitle">Champions whose Links include &quot;Z Fighters&quot;.</p>
     <div class="member-grid">
 
       <a href="../champions/goku.html" class="champion-card">
@@ -375,15 +375,6 @@
         <div class="champion-name">Goku</div>
       </a>
 
-      <a href="../champions/vegeta.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/vegeta.jpg" alt="Vegeta">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge" data-role="Blaster">Blaster</div>
-        <div class="champion-name">Vegeta</div>
-      </a>
-
       <a href="../champions/goku(super-saiyan).html" class="champion-card">
         <div class="champion-image">
           <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)">
@@ -391,15 +382,6 @@
         <div class="champion-overlay"></div>
         <div class="role-badge" data-role="Defender">Defender</div>
         <div class="champion-name">Goku (Super Saiyan)</div>
-      </a>
-
-      <a href="../champions/frieza.html" class="champion-card">
-        <div class="champion-image">
-          <img src="../images/champion-images/frieza.jpg" alt="Frieza">
-        </div>
-        <div class="champion-overlay"></div>
-        <div class="role-badge" data-role="Summoner">Summoner</div>
-        <div class="champion-name">Frieza</div>
       </a>
 
       <a href="../champions/krillin.html" class="champion-card">
@@ -417,27 +399,27 @@
   <!-- LEADERS -->
   <section>
     <div class="section-title">Leaders</div>
-    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Dragon Ball Universe allies.</p>
+    <p class="section-subtitle">Champions whose Leader Ability provides benefits to Z Fighters allies.</p>
     <div class="empty">
-      No Champion&rsquo;s Leader Ability currently buffs Dragon Ball Universe allies.
+      No Champion&rsquo;s Leader Ability currently buffs Z Fighters allies.
     </div>
   </section>
 
   <!-- SUPPORTERS -->
   <section>
     <div class="section-title">Supporting Champions</div>
-    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Dragon Ball Universe allies (excluding Leader Abilities).</p>
+    <p class="section-subtitle">Champions whose passives, ULTIMATUMs, specials or costume effects explicitly buff Z Fighters allies (excluding Leader Abilities).</p>
     <div class="empty">
-      No Champions yet have non-Leader effects that buff Dragon Ball Universe allies.
+      No Champions yet have non-Leader effects that buff Z Fighters allies.
     </div>
   </section>
 
   <!-- OPPOSERS -->
   <section>
     <div class="section-title">Opposing Champions</div>
-    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Dragon Ball Universe members.</p>
+    <p class="section-subtitle">Champions whose abilities explicitly deal extra damage to, or apply harsher effects against, Z Fighters members.</p>
     <div class="empty">
-      No Champions yet have effects that explicitly counter Dragon Ball Universe members.
+      No Champions yet have effects that explicitly counter Z Fighters members.
     </div>
   </section>
 
@@ -446,7 +428,7 @@
     <div class="section-title">Best Teams Per Mode</div>
     <p class="section-subtitle">Recommended six-Champion compositions for each game mode.</p>
     <div class="empty">
-      Only 5 Dragon Ball Universe Champions are currently designed. More members are needed before full six-Champion team compositions can be recommended.
+      Only 3 Z Fighters Champions are currently designed. More members are needed before full six-Champion team compositions can be recommended.
     </div>
   </section>
 
