@@ -561,8 +561,11 @@
         <a href="#extension" class="toc-link toc-sub">Extension</a>
         <a href="#standby" class="toc-link toc-sub">Standby</a>
         <a href="#counter" class="toc-link toc-sub">Counter</a>
+        <a href="#interrupt" class="toc-link toc-sub">Interrupt</a>
+        <a href="#cover" class="toc-link toc-sub">Cover</a>
         <a href="#precise" class="toc-link toc-sub">Precise</a>
         <a href="#piercing" class="toc-link toc-sub">Piercing</a>
+        <a href="#domain" class="toc-link toc-sub">Domain</a>
         <a href="#acting" class="toc-link toc-sub">Acting</a>
         <a href="#last-stand" class="toc-link toc-sub">Last Stand</a>
         <a href="#taunt-retribution" class="toc-link toc-sub">Taunt + Retribution Interaction</a>
@@ -1499,11 +1502,41 @@
       </ul>
       <p>Some abilities nullify all counters for the duration of their active window. When a counter is nullified, neither type fires — the attack is received without a reactive response. The nullifying ability will always state this explicitly (e.g., <em>"nullifies any counters received while dashing"</em>).</p>
 
+      <h3 id="interrupt">Interrupt</h3>
+      <p>An <strong>Interrupt</strong> cancels an enemy's action so that it never resolves — the ability is stopped before it deals any of its effects. This is prevention, not mitigation: the attack is not dodged, blocked, or reduced, it simply does not happen. The resolution is as follows:</p>
+      <ul>
+        <li><strong>Cost and cooldown are still paid.</strong> The interrupted ability counts as used — it consumes its EN and STA and goes on cooldown exactly as if it had fired. Interrupt wastes the action; it does not refund the resources or the cooldown.</li>
+        <li><strong>No re-attempt that turn.</strong> Because the action was spent, the interrupted Champion cannot immediately re-use that ability or reclaim the turn's action. The opportunity is gone until the ability comes off cooldown again.</li>
+        <li><strong>The whole ability is cancelled.</strong> If the interrupted ability would have struck multiple targets, an area, or a <a href="#domain">domain</a>, none of them are affected — the ability is stopped at its source before any part of it resolves. Interrupt is all-or-nothing, never partial.</li>
+        <li><strong>Committed-but-unresolved abilities can be interrupted.</strong> An ability that has been declared but has not yet resolved — a delayed or charged hit waiting on a later turn, or the held trigger of a <a href="#standby">Standby</a> — can be interrupted, which removes that pending effect entirely (and ends the associated Standby). An ability that has <em>already fully resolved</em> cannot be interrupted, as there is nothing left to stop.</li>
+      </ul>
+      <p>Curly's <em>Emergency Prevention</em> (ULTIMATUM) is the reference implementation: while standing by, it prevents a special ability or ULTIMATUM aimed at a nearby ally — the attack is interrupted before it lands — and punishes the attacker. Interrupt is tracked as a <a href="#links-and-tags">mechanic tag</a> (Mitigation); The Wasp and Cloak also carry it.</p>
+
+      <h3 id="cover">Cover</h3>
+      <p><strong>Cover</strong> is a protection mechanic in which a Champion takes damage in an ally's place. When the covered ally would be hit, the damage is <em>redirected to the covering Champion</em>, who receives it instead; the ally is spared because the harm itself has been moved onto the protector. The coverer's own defenses, evasion rolls, and damage-reduction then apply to the redirected damage as normal (so a cover can still be dodged or softened by the one taking the hit).</p>
+      <p>Cover is specifically a redirection of <em>damage</em>, which is what separates it from the mechanics it sits near:</p>
+      <ul>
+        <li><strong>vs. <a href="#taunt-retribution">Taunt</a>:</strong> Taunt redirects enemy <em>targeting</em> — taunted enemies are compelled to attack the taunter — but any hit that still reaches an ally lands on that ally in full. Cover acts <em>after</em> targeting, moving the damage itself off the ally and onto the coverer.</li>
+        <li><strong>vs. Forced Target (Retribution / Duel):</strong> Forced Target locks <em>which enemy an attacker is allowed to target</em>, constraining the attacker's choices. It does not relocate incoming damage onto a protector the way Cover does.</li>
+        <li><strong>vs. <a href="#standby">Standby</a>-based saves</strong> (e.g. Superman's <em>Soaring Save</em>): those interpose through a reactive Standby state that intercepts an attack under the terms of the granting ability. Cover is the underlying "take the hit for them" effect itself, and may be granted passively or conditionally — with or without a Standby.</li>
+      </ul>
+      <p>A cover may be <strong>total</strong> (all of an incoming hit is redirected) or <strong>partial</strong> (only a stated portion). Curly's <em>Anything, Anything</em> is the reference total cover — he redirects <em>all</em> of a fatal blow aimed at a nearby ally onto himself, still rolling his own evasion. The Hover Pod's <em>Protective Shell</em> (see <a href="#mounting">Mounting</a>) is a partial cover: 70% of the damage directed at its rider is redirected to the pod, the rider keeping the remaining 30%. Cover is tracked as a <a href="#links-and-tags">mechanic tag</a> (Mitigation).</p>
+
       <h3 id="precise">Precise</h3>
       <p>A <strong>Precise</strong> ability is a specialized anti-block attack. When it strikes a target that is currently blocking, it breaks that target's block for the turn, ignores the block's 1.5× DEF/RES multiplier, and lands as an automatic critical hit. Against a target that is not blocking, a Precise ability resolves as a normal attack — it does not gain a guaranteed critical hit. See <a href="#basic-abilities">Basic Abilities → Blocking</a> for the full rule. <em>Not to be confused with <a href="#piercing">Piercing</a>, which is about passing through obstacles and enemies, not about blocks.</em></p>
 
       <h3 id="piercing">Piercing</h3>
       <p>A <strong>Piercing</strong> ability passes through obstacles and enemies alike, potentially striking multiple targets in a line — see <a href="#movement">Movement and the Battlefield</a> (obstacle and range rules) for the full rule. <em>Not to be confused with <a href="#precise">Precise</a>, which is about breaking a target's block, not about passing through things.</em></p>
+
+      <h3 id="domain">Domain</h3>
+      <p>A <strong>domain</strong> is a persistent area — for example 5×5 or 10×10 panels — centered on a unit or a panel, which applies ongoing effects to every unit inside it for a set duration. A domain is not a single burst; it is a zone of lasting influence that sits on the battlefield until it expires.</p>
+      <ul>
+        <li><strong>Anchor (fixed vs. tracking).</strong> A domain is <em>fixed</em> to the panels it covers at the moment of creation and does not move, <em>unless</em> the granting ability states that it is anchored to a unit — in which case it recenters on that unit whenever the unit moves. Each domain ability specifies which it is.</li>
+        <li><strong>Entering and leaving.</strong> Membership is positional: a unit is subject to a domain only while it occupies the domain's panels. A unit that moves into a domain mid-duration begins receiving its effects from the next tick; a unit that leaves stops being affected the moment it is outside. Continuous modifiers (e.g. a damage-amp or damage-reduction aura) simply switch off on exit; discrete effects already applied while inside (an inflicted <a href="#active-and-inert">status</a> or a stack of damage-over-time already placed) persist and run out on their own duration.</li>
+        <li><strong>When effects tick.</strong> Ongoing stat or damage modifiers apply continuously, affecting any action resolved while the unit stands inside the domain. Recurring effects — damage over time, periodic healing — tick at the <em>end of each turn</em>, hitting whichever units are inside the domain at that moment. The domain's own duration also counts down at end of turn, and it disappears once its stated number of turns has elapsed.</li>
+        <li><strong>Overlap.</strong> By default domains stack: a unit standing in two domains at once is subject to both, and identical effects from separate domains apply additively unless the effect is itself flagged as non-stacking. An individual ability may instead define its own overlap behavior — for instance, Cloak's <em>Darkforce Dimension</em> and Dagger's <em>Lightforce Dimension</em> <strong>merge</strong> into a single combined domain (covering both areas and pooling both sets of effects) whenever they overlap by even one panel.</li>
+      </ul>
+      <p>The two reference examples are Thor and Curly. Thor's <em>Wrath of Thunder</em> creates the 5×5 <em>Raging Thunderstorm</em>, a damage-over-time domain that strikes enemies caught within it at the end of each turn. Curly's <em>Blazing Omen</em> (ULTIMATUM — Reserve) creates the 10×10 <em>WARNING</em> domain, a damage-amplification zone that makes allies inside take 15% less damage and enemies inside take 15% more for its duration. Cloak (<em>Darkforce Dimension</em>) and Dagger (<em>Lightforce Dimension</em>) also field domains, and theirs demonstrate the ability-defined merge interaction noted above. <em>Domain is a mechanic, not a tag — it has no filter pill of its own.</em></p>
 
       <h3 id="acting">Acting</h3>
       <p>A Champion is considered <strong>acting</strong> when they meet all of the following conditions:</p>

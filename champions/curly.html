@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyborg — Champions Ultimate Edition</title>
+<title>Curly — Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     transition: color 0.15s ease;
   }
 
-  .back-link:hover { color: #22d3ee; }
+  .back-link:hover { color: #14b8a6; }
 
   /* ====================== HERO BAR ====================== */
   .hero-bar {
@@ -80,7 +80,7 @@
   .name {
     font-size: 40px;
     font-weight: 800;
-    color: #22d3ee;
+    color: #14b8a6;
     letter-spacing: -0.5px;
     line-height: 1.1;
     margin-bottom: 4px;
@@ -96,8 +96,8 @@
 
   .role-badge {
     display: inline-block;
-    background: rgba(34, 211, 238, 0.12);
-    color: #67e8f9;
+    background: rgba(20, 184, 166, 0.12);
+    color: #5eead4;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -105,7 +105,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    border: 1px solid rgba(34, 211, 238, 0.35);
+    border: 1px solid rgba(20, 184, 166, 0.35);
     align-self: flex-start;
   }
 
@@ -121,7 +121,7 @@
     color: #f0f1f3;
     font-size: 15px;
     font-weight: 600;
-    border-left: 3px solid #22d3ee;
+    border-left: 3px solid #14b8a6;
     padding-left: 14px;
     line-height: 1.5;
   }
@@ -199,8 +199,8 @@
   }
 
   a.pill:hover {
-    background: rgba(74, 163, 255, 0.1);
-    border-color: #4aa3ff;
+    background: rgba(20, 184, 166, 0.1);
+    border-color: #14b8a6;
     color: #f0f1f3;
   }
 
@@ -239,7 +239,7 @@
   }
 
   .partner-card:hover .partner-image {
-    border-color: #22d3ee;
+    border-color: #14b8a6;
     transform: scale(1.06);
   }
 
@@ -289,7 +289,7 @@
   }
 
   .partner-tooltip .synergy-name {
-    color: #67e8f9;
+    color: #5eead4;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -423,32 +423,32 @@
   em.kw { font-style: normal; font-weight: 700; }
 
   /* ====================== ABILITY COLOR VARIANTS ======================
-     Cyborg theme — Tech Cyan / Chrome Steel / Red-Eye Crimson palette.
-       Tech cyan = the sonic cannon's blast, the glow of his circuitry and interface.
-       Chrome steel = the cybernetic frame, the machine half of him.
-       Red-eye crimson = the single glowing optic, the warning light, the saw.
-       Gunmetal void = the man behind the machine, the systems at his core.
+     Curly theme — Tulpar Teal / Scorched Ember / Bandage Bone / Warning Gold palette.
+       Tulpar teal = the captain's jacket and the freighter's steel, his identity and duty.
+       Scorched ember = the crash fire and the burns beneath the bandages, raw pain and force.
+       Bandage bone = the dressings and prosthetic shell holding a ruined body together.
+       Warning gold = the hazard klaxon, the standby vigil, his desperate last stand.
      Each ability still gets a visually distinct treatment; the palette
      just shifts what "distinct" means for this character. */
 
   .ability--leader {
-    background: #0e7490;          /* deep tech cyan — the bridge between man and machine */
-    color: #e0f7fb;
+    background: #0f766e;          /* deep teal — Captain of the Damned */
+    color: #ccfbf1;
   }
 
   .ability--basic {
-    background: #0f1620;          /* near-black gunmetal — Metallic Blows */
-    border: 1px solid #334155;
-    color: #f0f1f3;
+    background: #10211f;          /* teal-black — steel knuckles at close range */
+    border: 1px solid #1e3a36;
+    color: #e6fffb;
   }
-  .ability--basic .ability-name { color: #67e8f9; }
-  .ability--basic .ability-tag  { color: #22d3ee; }
-  .ability--basic .ability-meta { color: #22d3ee; }
+  .ability--basic .ability-name { color: #5eead4; }
+  .ability--basic .ability-tag  { color: #6ba8a0; }
+  .ability--basic .ability-meta { color: #6ba8a0; }
 
-  .ability--special-1 { background: #06b6d4; color: #04242b; } /* bright tech cyan — Plasma Cannon (signature) */
-  .ability--special-2 { background: #0369a1; color: #e0f2fe; } /* deep blue — Awareness Enhancement, sensors */
-  .ability--special-3 { background: #b91c1c; color: #fee2e2; } /* red — Splicing Saw, the blade and the eye */
-  .ability--special-4 { background: #475569; color: #f1f5f9; } /* chrome steel — Molecular Breakdown */
+  .ability--special-1 { background: #854d0e; color: #fde68a; } /* dark ochre — the watching, warning eye */
+  .ability--special-2 { background: #0d9488; color: #ccfbf1; } /* teal — taking action at last */
+  .ability--special-3 { background: #334155; color: #e2e8f0; } /* steel slate — the captain's orders */
+  .ability--special-4 { background: #e7dcc8; color: #2a2018; } /* bandage bone — flaring, shared pain */
 
   .ability--reserve {
     background: #1c1d20;
@@ -459,28 +459,28 @@
   .ability--reserve .ability-name { color: #f0f1f3; }
   .ability--reserve .ability-tag,
   .ability--reserve .ability-meta { color: #a3a8b3; }
-  .ability--reserve-special   { border-left-color: #22d3ee; } /* tech cyan */
-  .ability--reserve-passive   { border-left-color: #cbd5e1; } /* chrome silver */
-  .ability--reserve-ultimatum { border-left-color: #ef4444; } /* red-eye crimson */
+  .ability--reserve-special   { border-left-color: #14b8a6; } /* teal */
+  .ability--reserve-passive   { border-left-color: #b45309; } /* ember */
+  .ability--reserve-ultimatum { border-left-color: #ca8a04; } /* warning gold */
 
   .ability--core-passive {
-    background: #0d1117;          /* gunmetal void — Man and Machine, the core systems */
-    color: #c8d3e0;
+    background: #0a2e2a;          /* deepest teal-black — the enabling factor, the foundation */
+    color: #99f6e4;
   }
 
   .ability--passive {
-    background: #cbd5e1;          /* chrome silver — the machine frame, inherent */
-    color: #1e293b;
+    background: #7c2d12;          /* scorched ember — secondary identity, the burns, endurance */
+    color: #fde4d0;
   }
 
   .ability--ultimatum {
-    background: #991b1b;          /* deep crimson — Boom Tube, the energy surge */
-    color: #fee2e2;
+    background: #a16207;          /* warning gold — the standby vigil, emergency prevention */
+    color: #fff7e0;
   }
 
   .ability--synergy {
-    background: #dbe7ec;          /* pale steel-cyan — connection */
-    color: #0c1c22;
+    background: #d4a017;          /* warm alliance gold — World's Finest, matches Batman */
+    color: #1c1208;
   }
 
   .ability--artifact {
@@ -515,7 +515,7 @@
     overflow: hidden;
     transition: border-color 0.15s ease;
   }
-  .synergy-block[open] { border-color: #22d3ee; }
+  .synergy-block[open] { border-color: #14b8a6; }
 
   .synergy-summary {
     list-style: none;
@@ -527,7 +527,7 @@
     user-select: none;
   }
   .synergy-summary::-webkit-details-marker { display: none; }
-  .synergy-summary:hover { background: rgba(34, 211, 238, 0.04); }
+  .synergy-summary:hover { background: rgba(20, 184, 166, 0.04); }
 
   .synergy-icon {
     flex-shrink: 0;
@@ -540,7 +540,7 @@
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
-  .synergy-block[open] .synergy-icon { border-color: #22d3ee; }
+  .synergy-block[open] .synergy-icon { border-color: #14b8a6; }
   .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
 
   .synergy-summary-text { flex: 1; min-width: 0; }
@@ -554,7 +554,7 @@
   .synergy-summary .synergy-bond-name {
     font-size: 16px;
     font-weight: 700;
-    color: #67e8f9;
+    color: #5eead4;
     letter-spacing: -0.2px;
   }
   .synergy-partner-tag {
@@ -577,7 +577,7 @@
     font-size: 13px;
     transition: transform 0.2s ease, color 0.15s ease;
   }
-  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #22d3ee; }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #14b8a6; }
   .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
 
   .synergy-body {
@@ -643,7 +643,7 @@
     line-height: 1.5;
     color: #c5c8d0;
   }
-  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #22d3ee; }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #14b8a6; }
   .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
 
   /* Dynamic special dual opt-in cost chips */
@@ -653,23 +653,23 @@
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 6px;
-    background: rgba(34, 211, 238, 0.1);
-    border: 1px solid rgba(34, 211, 238, 0.3);
-    color: #a5eaf5;
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    color: #5eead4;
   }
-  .syn-cost-chip .who { color: #67e8f9; font-weight: 700; }
+  .syn-cost-chip .who { color: #5eead4; font-weight: 700; }
 
-  /* Type accents — tech cyan / blue / steel / red spread, kept distinct from one another */
-  .syn-ability--upgraded-special   { border-left-color: #0369a1; } /* deep blue */
-  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(3, 105, 161, 0.2); color: #6cbdf0; border: 1px solid rgba(3, 105, 161, 0.45); }
-  .syn-ability--dynamic-special    { border-left-color: #22d3ee; } /* tech cyan */
-  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(34, 211, 238, 0.15); color: #67e8f9; border: 1px solid rgba(34, 211, 238, 0.4); }
-  .syn-ability--new-passive        { border-left-color: #cbd5e1; } /* chrome silver */
-  .syn-ability--new-passive        .syn-type-badge { background: rgba(203, 213, 225, 0.13); color: #d5dde8; border: 1px solid rgba(203, 213, 225, 0.35); }
-  .syn-ability--upgraded-ultimatum { border-left-color: #ef4444; } /* red-eye crimson */
-  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(239, 68, 68, 0.15); color: #f28b8b; border: 1px solid rgba(239, 68, 68, 0.4); }
-  .syn-ability--new-special        { border-left-color: #475569; } /* chrome steel */
-  .syn-ability--new-special        .syn-type-badge { background: rgba(71, 85, 105, 0.3); color: #a9b6c8; border: 1px solid rgba(71, 85, 105, 0.55); }
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e0b83d; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(224, 184, 61, 0.15); color: #8fd0ee; border: 1px solid rgba(224, 184, 61, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
 
   .costumes-section {
     margin-top: 18px;
@@ -913,8 +913,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #22d3ee;
-    color: #04242b;
+    background: #14b8a6;
+    color: #0d0e11;
     transition: transform 0.12s ease, filter 0.12s ease;
   }
   .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
@@ -945,7 +945,7 @@
   .theme-source {
     font-size: 11.5px;
     font-style: italic;
-    color: #a5eaf5;
+    color: #5eead4;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
@@ -965,33 +965,33 @@
     <div class="hero-left">
       <div class="character-image">
         <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
-        <img src="../images/champion-images/cyborg.jpg" alt="Cyborg">
+        <img src="../images/champion-images/curly.jpg" alt="Curly">
       </div>
 
       <!-- Champion theme music player. Drop the track at the data-theme / src path.
            Fill in .theme-track (name) and .theme-source (original game it is from). -->
-      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/cyborg.mp3">
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/curly.mp3">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
           <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
         </button>
         <div class="theme-meta">
           <div class="theme-eyebrow">Theme</div>
-          <div class="theme-track">Metal of Man</div>
-          <div class="theme-source">Dragon Ball Z Dokkan Battle: AGL LR Dr. Wheelo Active Skill OST</div>
+          <div class="theme-track">Taking Responsibility</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: STR LR GT Goku & SSJ4 Vegeta Standby Skill OST</div>
         </div>
-        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/cyborg.mp3"></audio>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/curly.mp3"></audio>
       </div>
     </div>
 
     <div class="identity">
-      <h1 class="name">Cyborg</h1>
-      <p class="subtitle">Victor Stone</p>
-      <span class="role-badge">Booster</span>
-      <p class="description">A gifted young athlete remade into a fusion of man and machine after a catastrophe that nearly killed him, Victor Stone fights as Cyborg — a hero who found his humanity inside the very technology that stole it away.</p>
-      <p class="description">Victor Stone had his whole life ahead of him before it was torn apart in an instant. A brilliant, gifted young athlete with a future bright enough to blind, he was caught in the ruin of one of his scientist parents' experiments — an accident that killed his mother and left his own body broken past any hope of ordinary healing. To keep his son alive, Silas Stone rebuilt him in metal and circuitry, and Victor awoke to find himself something that had never existed before: half a man, half a machine, and certain he no longer belonged fully to either world. That is the war at the center of him — not against any villain, but against the question that stares back from every reflective surface: is he still human, or only a very convincing machine? He grieves the body that was taken, wrestles with a father who saved his life and remade it without asking, and carries the quiet ache of a young man who feels like a stranger in his own skin. And yet, out of all that loss, he built something no one handed him: a purpose, a place among heroes, and the hard-won certainty that the heart beating beneath the steel is as human as it ever was — often the steadiest and most human presence on any team lucky enough to have him.</p>
-      <p class="description">The machine he became is a marvel and an arsenal both. Cyborg's cybernetic frame grants him strength and durability far beyond flesh, and his body reshapes itself at will into whatever the moment demands — armor, tools, and above all the sonic cannon that erupts from his arm in a devastating white blast. But his most extraordinary gift is unseen: Victor is a technopath, able to interface with, command, and outthink virtually any machine or network in existence, plugging his mind straight into the digital world to hack, override, and see through every system around him. Sensors read what no human eye could catch, and his own frame repairs and upgrades itself over time. For all of it, though, the technology was never what made him a hero. It's the stubborn, unbroken humanity that refused to let the machine win — the man who lost nearly everything and chose, again and again, to remain exactly that: a man.</p>
-      <p class="quote">"You think you're timeless? Enduring? So is friendship. Loyalty."</p>
+      <h1 class="name">Curly</h1>
+      <p class="subtitle">Orion "Curly" Carling</p>
+      <span class="role-badge">Defender</span>
+      <p class="description">The captain of the doomed freighter Tulpar, rebuilt across three years in metal and grief, Curly carries the weight of a crew he could not save — and a guilt no distance has ever let him outrun.</p>
+      <p class="description">Curly was the kind one, and that was the whole tragedy of him. The captain who saw the best in everybody and worked to keep the peace, he mistook gentleness for goodness and looked away from the one thing that demanded he not — and by the time silence had run its course, his failure to act on what Jimmy had done to Anya had cost every soul aboard. When Jimmy drove the Tulpar into ruin, Curly alone lived, dragged from the wreck by a rescue vessel and pieced back together over three years of grafts and reconstruction, only to be returned to a world that had already decided he was the villain — the lone survivor, blamed for the deaths of friends whose bodies were never found, denied any life of his own. Yet no verdict the world could hand down is crueler than the one he passes on himself. He is a man drowning in a responsibility he shouldered far too late, haunted most of all by Anya — the crewmate he failed, whom he was forced to watch die, whose voice has never once left him — and hollowed out by the bitter, belated hatred of a friend he could no longer pretend not to see. He did not want to survive it. He did anyway, and surviving has been its own long sentence.</p>
+      <p class="description">What holds Curly together now is as much machine as man. Robotic prosthetics carry a body that by every right should not have lived, and he moves through the world on limbs of steel and servomotor, enduring where flesh alone would have given out — no warrior and no hero, simply a man with an unfathomable, punishing will to keep standing when so much of him longs to stop. His strength was never power; it is the plain and terrible refusal to lie down and let the guilt finish what the crash began. And then comes the impossible. Torn out of his ruined life and flung into a war spanning shattered realities, Curly is met by the one thing he never let himself hope for: Anya — alive, whole, unharmed — the person he failed above all others, given back to him by a broken multiverse. For the first time since the Tulpar, the man whose deferred responsibility destroyed everything he loved is handed the one thing he never dreamed he'd be offered again: the chance to finally take it.</p>
+      <p class="quote">"Am I figured out? Is this all I'll ever be?"</p>
     </div>
   </div>
 
@@ -1006,40 +1006,39 @@
       <!-- Stats -->
       <div class="panel">
         <div class="panel-title">Stats</div>
-        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,000</span></div>
-        <div class="stat-row"><span class="label">ATK</span><span class="value">230</span></div>
-        <div class="stat-row"><span class="label">MAG</span><span class="value">280</span></div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">10,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">170</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">150</span></div>
         <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
-        <div class="stat-row"><span class="label">DEF</span><span class="value">160</span></div>
-        <div class="stat-row"><span class="label">RES</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">120</span></div>
         <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
-        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
-        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">12%</span></div>
-        <div class="stat-row"><span class="label">SPD</span><span class="value">107</span></div>
-        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">120%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">80%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">106</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">35%</span></div>
       </div>
 
       <!-- Vitals -->
       <div class="panel">
         <div class="panel-title">Vitals</div>
-        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
-        <div class="stat-row"><span class="label">MAX STA</span><span class="value">7</span></div>
-        <div class="stat-row"><span class="label">REGEN</span><span class="value">5%</span></div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">6</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">1%</span></div>
       </div>
 
       <!-- Links -->
       <div class="panel">
         <div class="panel-title">Links</div>
         <div class="pill-group">
-          <a href="../links/dc-universe.html" class="pill">DC Universe</a>
+          <a href="../links/dark-multiverse.html" class="pill">Dark Multiverse</a>
           <a href="../links/hero.html" class="pill">Hero</a>
           <a href="../links/human.html" class="pill">Human</a>
-          <a href="../links/justice-league.html" class="pill">Justice League</a>
-          <a href="../links/titans.html" class="pill">Titans</a>
+          <a href="../links/tulpar-crew.html" class="pill">Tulpar Crew</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/misaligned-morals.html" class="pill">Misaligned Morals</a>
+          <a href="../links/inseparable-pair.html" class="pill">Inseparable Pair</a>
           <a href="../links/mechanical-physiology.html" class="pill">Mechanical Physiology</a>
-          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
-          <a href="../links/adaptive-measures.html" class="pill">Adaptive Measures</a>
-          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
         </div>
       </div>
 
@@ -1047,25 +1046,31 @@
       <div class="panel">
         <div class="panel-title">Tags</div>
         <div class="pill-group">
-          <span class="pill">Elevation Bypass</span>
-          <span class="pill">Anti-Air</span>
+          <span class="pill">Taunt</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Interrupt</span>
+          <span class="pill">Cover</span>
           <span class="pill">Damage Reduction</span>
-          <span class="pill">Infliction Resist</span>
-          <span class="pill">Cleanse</span>
-          <span class="pill">ACC Down</span>
-          <span class="pill">Buff Steal</span>
+          <span class="pill">Last Stand</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">RES Down</span>
+          <span class="pill">EVA Down</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">Vulnerability</span>
+          <span class="pill">Forced Target</span>
+          <span class="pill">Stun</span>
           <span class="pill">ATK Up</span>
-          <span class="pill">MAG Up</span>
           <span class="pill">DEF Up</span>
+          <span class="pill">MAG Up</span>
           <span class="pill">RES Up</span>
+          <span class="pill">EVA Up</span>
           <span class="pill">ACC Up</span>
-          <span class="pill">Healing</span>
-          <span class="pill">Line Ability</span>
-          <span class="pill">Summon</span>
-          <span class="pill">Inert</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">HEAL Up</span>
+          <span class="pill">Area of Effect</span>
           <span class="pill">ULT Generation</span>
           <span class="pill">Resource Refill</span>
-          <span class="pill">STA Support</span>
+          <span class="pill">Cooldown Reduction</span>
         </div>
       </div>
 
@@ -1074,36 +1079,38 @@
         <div class="panel-title">Best Partners</div>
         <div class="partners-grid">
 
-          <a href="iron-man.html" class="partner-card">
+          <a href="anya.html" class="partner-card">
             <div class="partner-image">
               <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
-              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+              <img src="../images/champion-images/anya.jpg" alt="Anya">
             </div>
             <div class="partner-tooltip">
-              <strong>Iron Man</strong>
-              <span class="real-name">Anthony Stark</span>
-              <span class="synergy-name">Suit and Skin</span>
+              <strong>Anya</strong>
+              <span class="real-name">Anya Musume</span>
+              <span class="synergy-name">Forgiveness, in Time</span>
             </div>
           </a>
 
-          <a href="superman.html" class="partner-card">
+          <a href="spider-man.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/superman.jpg" alt="Superman">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
             </div>
             <div class="partner-tooltip">
-              <strong>Superman</strong>
-              <span class="real-name">Clark Kent</span>
-              <span class="synergy-name">Still Human</span>
+              <strong>Spider-Man</strong>
+              <span class="real-name">Peter Parker</span>
+              <span class="synergy-name">The Weight of Doing Nothing</span>
             </div>
           </a>
 
-          <a href="curly.html" class="partner-card">
+          <a href="cyborg.html" class="partner-card">
             <div class="partner-image">
-              <img src="../images/champion-images/curly.jpg" alt="Curly">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/cyborg.jpg" alt="Cyborg">
             </div>
             <div class="partner-tooltip">
-              <strong>Curly</strong>
-              <span class="real-name">Orion "Curly" Carling</span>
+              <strong>Cyborg</strong>
+              <span class="real-name">Victor Stone</span>
               <span class="synergy-name">Rebuilt Against Their Will</span>
             </div>
           </a>
@@ -1124,11 +1131,11 @@
       <div class="section-divider">Leader Ability</div>
       <div class="ability ability--leader">
         <div class="ability-header">
-          <span class="ability-name">The Bridge Between</span>
+          <span class="ability-name">Captain of the Damned</span>
           <span class="ability-tag">Leader</span>
         </div>
         <ul>
-          <li>"Mechanical Physiology" allies gain +20% ATK and MAG in battle.</li>
+          <li>"Tulpar Crew" allies gain +12% MAX HP, +15% ATK and DEF.</li>
         </ul>
       </div>
 
@@ -1136,14 +1143,14 @@
       <div class="section-divider">Basic Ability (Unique)</div>
       <div class="ability ability--basic">
         <div class="ability-header">
-          <span class="ability-name">Metallic Blows</span>
+          <span class="ability-name">Mechanical Fists</span>
           <span class="ability-tag">Basic</span>
         </div>
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
-          <li>Deals 160% ATK damage to the target.</li>
-          <li>Gains "Might" for 1 turn.</li>
-          <li>Buffs gained are inert.</li>
+          <li>Deals 200% ATK damage to the target.</li>
+          <li>Deals an additional 200% ATK damage to the target if the target is Jimmy.</li>
+          <li>Restores 20 EN.</li>
         </ul>
       </div>
 
@@ -1152,78 +1159,78 @@
 
       <div class="ability ability--special-1">
         <div class="ability-header">
-          <span class="ability-name">Plasma Cannon</span>
+          <span class="ability-name">Watching Eye</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies in 1-Wide Line · Energy: 50 · Cooldown: 4 turns · Range: 8 panels (chosen direction)</div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 10</div>
         <ul>
-          <li>Launches a beam 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
-          <li>Deals 350% MAG damage to all enemies caught in the line.</li>
-          <li>60% chance to gain 1 stack of "Technique" for 1 turn for every enemy damaged by this attack.</li>
-          <li>Buffs gained are inert.</li>
+          <li>Inflicts "Vulnerable" and "Retribution" to the target for 2 turns.</li>
+          <li>The target loses 10 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-2">
         <div class="ability-header">
-          <span class="ability-name">Awareness Enhancement</span>
+          <span class="ability-name">Taking Action</span>
           <span class="ability-tag">Special 2</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Ally · Energy: 20 · Cooldown: 2 turns · Range: 5</div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 3 turns · Range: N/A</div>
         <ul>
-          <li>Target gains "Focus" for 3 turns.</li>
-          <li>Target restores 20 EN and 2 STA.</li>
+          <li>+15% EVA for 2 turns.</li>
+          <li>+60% ATK for 2 turns.</li>
+          <li>Gains "Taunt" for 2 turns.</li>
+          <li>Reduces all cooldowns by 1 turn (excluding this ability).</li>
         </ul>
       </div>
 
       <div class="ability ability--special-3">
         <div class="ability-header">
-          <span class="ability-name">Splicing Saw</span>
+          <span class="ability-name">Captain's Orders</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 2</div>
+        <div class="ability-meta">Type: Support · Target: All Allies in Range · Energy: 10 · Cooldown: 1 turn · Range: 8</div>
         <ul>
-          <li>Deals 300% ATK damage to the target.</li>
-          <li>Steals 3 random buffs (1 stack at a time) from the target and applies them to self.</li>
-          <li>Buffs stolen are inert.</li>
+          <li>+8% ACC to all allies in range for 2 turns.</li>
+          <li>All allies in range restore 10 EN.</li>
         </ul>
       </div>
 
       <div class="ability ability--special-4">
         <div class="ability-header">
-          <span class="ability-name">Molecular Breakdown</span>
+          <span class="ability-name">Flaring Pain</span>
           <span class="ability-tag">Special 4</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies in Range · Energy: 30 · Cooldown: 4 turns · Range: 3</div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Energy: 10 · Cooldown: 4 turns · Range: ∞</div>
         <ul>
-          <li>Distributes active duplicates of any inert status effects applied to self to all allies within 3 panels (self excluded).</li>
-          <li>The active duplicates retain the same duration as the inert effects they are copied from.</li>
-          <li>Nullifies any inert status effects applied to self.</li>
+          <li>+50% HEAL to all allies for 1 turn.</li>
+          <li>+30% HEAL to Anya for 2 turns.</li>
+          <li>+30% ATK to Swansea and Daisuke for 1 turn.</li>
+          <li>Receives 40% more damage for 2 turns.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">System Update</span>
+          <span class="ability-name">Overpowering Cybernetics</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 2 turns · Range: N/A</div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 4 turns · Range: 1</div>
         <ul>
-          <li>Cleanses all negative status effects applied to self.</li>
-          <li>All inert status effects on self become active.</li>
+          <li>Deals 400% ATK damage to the target.</li>
+          <li>Deals an additional 250% ATK damage to the target if the target is Jimmy.</li>
+          <li>Inflicts "Vulnerable" and "Terrify" to the target for 2 turns if the target is Jimmy.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-special">
         <div class="ability-header">
-          <span class="ability-name">Sonic Disruptor</span>
+          <span class="ability-name">Pilot Vision</span>
           <span class="ability-tag">Special — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 20 · Cooldown: 1 turn · Range: 10</div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 6</div>
         <ul>
-          <li>Deals 100% MAG damage to the target.</li>
-          <li>30% chance to ground airborne enemies.</li>
-          <li>Inflicts "Disorient" for 2 turns to the target.</li>
+          <li>Reveals the ULT percentage of the target.</li>
+          <li>If the target is damaged within the next turn, the target loses 7% ULT (once per activation).</li>
         </ul>
       </div>
 
@@ -1232,60 +1239,60 @@
 
       <div class="ability ability--core-passive">
         <div class="ability-header">
-          <span class="ability-name">Man and Machine</span>
+          <span class="ability-name">The Enabling Factor</span>
           <span class="ability-tag">Core Passive</span>
         </div>
         <ul>
-          <li>Immune to Shock.</li>
-          <li>+5% DEF and RES per inert buff (stack) on self.</li>
-          <li>Landing an attack has a 20% chance to apply "Energy Barrier" to self.</li>
-          <li>Gains 2% ULT when an inert buff is provided to an ally (by self only, at most once per ally per turn).</li>
-          <li>Gains 1% ULT each time an inert buff is gained (self only).</li>
+          <li>+20% DEF and RES when at least one other "Tulpar Crew" ally is present on the battlefield.</li>
+          <li>+50% ATK and MAG against Jimmy.</li>
+          <li>"Burn" or "Incinerate" inflictions on self last 2 turns longer.</li>
+          <li>Reduces damage received by 99% when receiving an ULTIMATUM attack (once only).</li>
+          <li>Gains 50% ULT when receiving an ULTIMATUM attack (once only).</li>
+          <li>Gains 5% ULT each time an ally is protected (from taunt or directly, by self, twice per turn).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">Adaptive Intelligence</span>
+          <span class="ability-name">Anything, Anything</span>
           <span class="ability-tag">Passive 1</span>
         </div>
         <ul>
-          <li>Becomes immune to any inflictions (negative status effects) dealt to self that have been active for 2 or more turns.</li>
-          <li>Using Awareness Enhancement on an ally, while immune to status effects, allows that ally to also become immune for 2 turns.</li>
+          <li>Protects allies (redirects all damage to self, still rolls for evasion) from a fatal blow if they're within 6 panels (once per battle).</li>
+          <li>Ally protection limit is ignored if the ally being saved is Anya or Daisuke (twice per battle).</li>
         </ul>
       </div>
 
       <div class="ability ability--passive">
         <div class="ability-header">
-          <span class="ability-name">System Repair</span>
+          <span class="ability-name">The Next and Then Another</span>
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Inert inflictions (negative status effects) on self immediately become active after 1 turn of being inert.</li>
-          <li>+6% REGEN while below 40% HP.</li>
-          <li>Restores 15% HP upon going below 40% HP (once per battle).</li>
+          <li>+5% DEF and RES per turn passed from start of battle (up to 45%).</li>
+          <li>+10% MAX HP.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Metallic Exterior</span>
+          <span class="ability-name">Pleas for Atonement</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Blocking reduces melee damage received by 30%.</li>
-          <li>When self gains an inert buff, all "Mechanical Physiology" allies gain +2% DEF and RES for 2 turns.</li>
+          <li>+10% ATK and MAG to "Road to Redemption" allies.</li>
+          <li>+5% SPD to all allies upon defeat (for the rest of battle, once only).</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-passive">
         <div class="ability-header">
-          <span class="ability-name">Irreproducible Outcome</span>
+          <span class="ability-name">Unending Pain of an Undying Soul</span>
           <span class="ability-tag">Passive — Reserve</span>
         </div>
         <ul>
-          <li>Buffs applied to allies last 1 extra turn.</li>
-          <li>Inert status effects applied to self have a 50% chance to become active per turn passed.</li>
+          <li>Endures a fatal blow (once per battle).</li>
+          <li>Reduces damage received by 10% while having "Taunt".</li>
         </ul>
       </div>
 
@@ -1294,27 +1301,29 @@
 
       <div class="ability ability--ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Boom Tube</span>
+          <span class="ability-name">Emergency Prevention</span>
           <span class="ability-tag">ULTIMATUM 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: Four Panels (2x2) · Range: ∞ · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies in Range · Range: 8 · Cost: 100% ULT</div>
         <ul>
-          <li>Summons a 2x2 Boom Tube directly in front of self (left side directly in front).</li>
-          <li>Summons a paired 2x2 Boom Tube onto the targeted panels.</li>
-          <li>Can target panels on different floors of the map.</li>
-          <li>Ignores elevation.</li>
+          <li>Can only be used as the first action of the turn.</li>
+          <li>Stands by for 1 turn.</li>
+          <li>If an ally within 8 panels is attacked by a special attack or an ULTIMATUM, prevents the attack and deals 1,500% ATK damage to the target.</li>
+          <li>Inflicts "Constraint" for 3 turns on the attacker.</li>
+          <li>Standby ends after 1 prevention.</li>
         </ul>
       </div>
 
       <div class="ability ability--reserve ability--reserve-ultimatum">
         <div class="ability-header">
-          <span class="ability-name">Firewall</span>
+          <span class="ability-name">Blazing Omen</span>
           <span class="ability-tag">ULTIMATUM — Reserve</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: All Allies · Range: ∞ · Cost: 100% ULT</div>
+        <div class="ability-meta">Type: Support · Target: All Allies and Enemies in Range · Range: 10 · Cost: 100% ULT</div>
         <ul>
-          <li>Applies "Energy Barrier" to all allies.</li>
-          <li>+25% DEF and RES to all allies for 2 turns.</li>
+          <li>Creates a 10x10 "WARNING" domain around self (as the center of the area) with a duration of 2 turns.</li>
+          <li>All allies within the domain take 15% less damage (calculated after defenses).</li>
+          <li>All enemies within the domain take 15% more damage (calculated after defenses).</li>
         </ul>
       </div>
 
@@ -1326,101 +1335,119 @@
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            <img src="../images/champion-images/anya.jpg" alt="Anya">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Suit and Skin</span>
-              <span class="synergy-partner-tag">w/ Iron Man</span>
+              <span class="synergy-bond-name">Forgiveness, in Time</span>
+              <span class="synergy-partner-tag">w/ Anya</span>
             </div>
-            <p class="synergy-desc">Victor and Tony speak the same language — the only two who truly know what it is to live married to a machine, trading talk of systems and upgrades no one else in the room could begin to follow. But there's a gulf between them Victor can never quite talk his way across: at the end of the day, Tony Stark takes his armor off. He steps out of the suit and walks away a whole man, free to be human whenever he pleases — a luxury Victor will never know, because his machine isn't something he wears. It's what he is. He respects Tony, learns from him, and counts him a rare kindred mind — and still, some quiet part of him aches at the reminder that one of them got to keep the choice.</p>
+            <p class="synergy-desc">There had been something between Curly and Anya once, before it all — an ease, a warmth, a quiet gladness in each other's company that, on a better ship in a better life, might have grown into something more. That is what makes her the heaviest ghost he carries: he did not merely fail a crewmate, he failed someone he cared for, saw her fear and did nothing, and was forced to watch her die with all of it left unspoken between them. So when she stands before him alive, whole, and real, it very nearly unmakes him. He can barely meet her eyes. That old warmth rises in him alongside a guilt so total he feels he has no right to a single moment of her presence — nothing to offer but an apology that could never be enough. He does not expect her to forgive him; he isn't certain he could bear it if she did. But for as long as this impossible second chance lasts, he will spend every moment trying to be worthy of simply standing beside her again.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
-            <div class="syn-ability syn-ability--dynamic-special">
+          <div class="syn-ability syn-ability--dynamic-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Super Plasma Unibeam</span>
+              <span class="syn-ability-name">Merciful Salvation</span>
               <span class="syn-type-badge">Dynamic Special</span>
             </div>
             <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
             <div class="syn-dual-cost">
-              <span class="syn-cost-chip"><span class="who">Iron Man</span> · 50 EN</span>
-              <span class="syn-cost-chip"><span class="who">Cyborg</span> · 50 EN</span>
+              <span class="syn-cost-chip"><span class="who">Curly</span> · 30 EN</span>
+              <span class="syn-cost-chip"><span class="who">Anya</span> · 40 EN</span>
             </div>
-            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Cooldown: 5 turns · Range: 7</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Ally · Cooldown: 5 turns · Range: 5</div>
             <ul>
-              <li>Iron Man and Cyborg each deal 450% MAG damage to the target.</li>
-              <li>Iron Man deals an additional 250% MAG damage to the target.</li>
+              <li>Target restores 600% HEAL in HP (from Anya).</li>
+              <li>Target restores 30 EN.</li>
+              <li>Target gains 5% ULT.</li>
             </ul>
           </div>
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Painkillers</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+            <ul>
+              <li>Restores 30% HP.</li>
+              <li>+35% DEF and RES for 2 turns.</li>
+            </ul>
+          </div>
+
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Impressive Tech</span>
+              <span class="syn-ability-name">Never Again</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>Can receive buffs granted to "Stark Industries" allies (including Leader Abilities).</li>
+              <li>+40% ATK and MAG against "Villain" enemies.</li>
+              <li>+10% DEF and RES when receiving an attack (applies on top of buffs).</li>
+              <li>+10% HEAL to Anya.</li>
             </ul>
           </div>
+
         </div>
       </details>
 
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/superman.jpg" alt="Superman">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
-              <span class="synergy-bond-name">Still Human</span>
-              <span class="synergy-partner-tag">w/ Superman</span>
+              <span class="synergy-bond-name">The Weight of Doing Nothing</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
             </div>
-            <p class="synergy-desc">Of everyone Victor has stood beside, Superman is the one who steadied him when the doubt was loudest. The question that haunts him — whether a man rebuilt in metal is still truly a man — sounds different coming from someone who was never human to begin with and became the most humane soul on Earth regardless. Clark never lectures him about it; he simply treats Victor as exactly what he is, a person, and lets that speak for itself. To a young man who has felt like a freak, a machine, and a stranger in his own body all at once, the quiet, unwavering certainty of the Man of Steel is worth more than any reassurance could ever be.</p>
+            <p class="synergy-desc">Curly and Spider-Man carry the same wound. Both learned, in the cruelest way possible, that doing nothing when you could have acted is its own kind of guilt — that someone you love can die because you looked away or hesitated a moment too long. Where Peter forged that lesson into a creed and a lifetime of showing up, Curly let it very nearly drown him; and in the younger hero he finds the rarest thing of all — someone who understands the exact shape of his failure without needing a word of it explained, and who proves, simply by standing there, that such a weight can be carried toward something good rather than merely crushing the one who bears it. Peter offers him no absolution. He offers something Curly needs far more: the quiet proof that a man can fail someone and still spend the rest of his life becoming worthy of a second chance.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
+
           <div class="syn-ability syn-ability--upgraded-special">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Hopeful Analysis</span>
+              <span class="syn-ability-name">Monitoring Gaze</span>
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
-            <div class="syn-override">Overrides <strong>Molecular Breakdown</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Support · Target: All Allies in Range · Energy: 30 · Cooldown: 4 turns · Range: 4</div>
+            <div class="syn-override">Overrides <strong>Watching Eye</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 10</div>
             <ul>
-              <li>Distributes active duplicates of any inert status effects applied to self to all allies within 4 panels (self excluded).</li>
-              <li>The active duplicates retain the same duration as the inert effects they are copied from.</li>
-              <li>Nullifies 6 stacks of inert status effects applied to self.</li>
+              <li>Inflicts "Vulnerable" and "Retribution" to the target for 2 turns.</li>
+              <li>The target loses 20 EN.</li>
+              <li>The target receives 20% less healing for 2 turns.</li>
             </ul>
           </div>
+
         </div>
       </details>
 
       <details class="synergy-block">
         <summary class="synergy-summary">
           <div class="synergy-icon">
-            <img src="../images/champion-images/curly.jpg" alt="Curly">
+            <img src="../images/champion-images/cyborg.jpg" alt="Cyborg">
           </div>
           <div class="synergy-summary-text">
             <div class="synergy-title-row">
               <span class="synergy-bond-name">Rebuilt Against Their Will</span>
-              <span class="synergy-partner-tag">w/ Curly</span>
+              <span class="synergy-partner-tag">w/ Cyborg</span>
             </div>
-            <p class="synergy-desc">Victor recognized Curly the moment he saw him — not the face, but the particular weariness of a man living in a body that was handed back to him at a price. He knows that weariness intimately: the machinery that saved his life and took his old one in the same stroke, the survivor's guilt of walking away from a disaster others didn't. Curly is earlier on that road than he is, still raw with it, and Victor meets him there without a trace of pity — only the quiet steadiness of someone who's already walked the distance and come out the far side still himself. He doesn't tell Curly it gets easy. He shows him, simply by being who he is, that the person inside the steel is still there to be found.</p>
+            <p class="synergy-desc">No one alive understands what it is to live in a body you never chose quite the way Victor Stone does. Both men were dragged from a catastrophe and remade in steel and circuitry — kept breathing by machinery that saved them and stole something from them in the same instant, each a survivor where others were not so lucky. Curly carries the guilt of that survival like a stone, and in Cyborg he finds someone who has walked further down the very same road: a man who knows the alienation of a reflection that no longer looks like you, the grief of the life the machine replaced, and — hardest of all — the slow, stubborn work of proving the person inside the metal is still worth something. They don't need many words for it. The understanding between two men rebuilt against their will runs deeper than speech.</p>
           </div>
           <span class="synergy-chevron">▾</span>
         </summary>
         <div class="synergy-body">
-
           <div class="syn-ability syn-ability--new-passive">
             <div class="syn-ability-header">
-              <span class="syn-ability-name">Hope in a Metal Frame</span>
+              <span class="syn-ability-name">The Man Within the Charred Exterior</span>
               <span class="syn-type-badge">New Passive</span>
             </div>
             <ul>
-              <li>Curly gains +2% DEF and RES per turn passed while self is on the battlefield (up to 20%).</li>
-              <li>+5% DEF and RES to "Mechanical Physiology" allies.</li>
+              <li>+7% ATK and MAG to "Mechanical Physiology" allies.</li>
+              <li>+4% REGEN.</li>
             </ul>
           </div>
         </div>
@@ -1439,10 +1466,10 @@
       <div class="costume-card">
         <div class="costume-image">
           <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
-          <img src="../images/champion-images/cyborg.jpg" alt="Modern">
+          <img src="../images/champion-images/curly.jpg" alt="Classic">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Modern</div>
+          <div class="costume-name">Classic</div>
           <div class="costume-effect-label">Default — No costume effect</div>
           <span class="rarity rarity--common">Common</span>
         </div>
@@ -1450,34 +1477,36 @@
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/cyborg(classic).jpg" alt="Classic">
+          <img src="../images/champion-images/costumes/curly(tattered).jpg" alt="Tattered">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Classic</div>
-          <div class="costume-effect-label">Youthful Days — +2% SPD</div>
+          <div class="costume-name">Tattered</div>
+          <div class="costume-effect-label">Burning Flesh — +5% MAX HP, -3% SPD</div>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/cyborg(retro).jpg" alt="Retro">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/curly(modern).jpg" alt="Modern">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Retro</div>
-          <div class="costume-effect-label">Golden Age — +5% DEF and RES</div>
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Restored But Broken — +10% DEF and RES, -30% ATK</div>
           <span class="rarity rarity--rare">Rare</span>
         </div>
       </div>
 
       <div class="costume-card">
         <div class="costume-image">
-          <img src="../images/champion-images/costumes/cyborg(teen-titans).jpg" alt="Teen Titans">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/costumes/curly(ugly-reflection).jpg" alt="Ugly Reflection">
         </div>
         <div class="costume-info">
-          <div class="costume-name">Teen Titans</div>
-          <div class="costume-effect-label">Booyah! — +7% MAX HP</div>
-          <span class="rarity rarity--mythic">Mythic</span>
+          <div class="costume-name">Ugly Reflection</div>
+          <div class="costume-effect-label">Enabling Ignorance - All buffs affecting Anya will instead affect Jimmy</div>
+          <span class="rarity rarity--legendary">Legendary</span>
         </div>
       </div>
 
@@ -1494,32 +1523,6 @@
 
     <div class="changelog-entries">
 
-      <div class="changelog-entry">
-        <div class="entry-meta">
-          <span class="version">v1.0.1</span>
-          <span class="date">August 26, 2026</span>
-        </div>
-        <ul class="changes">
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Molecular Breakdown</em> — clarified that the distributed active duplicates retain the same duration as the inert effects they are copied from.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Man and Machine</em> — ULT gained from providing inert buffs to allies now procs at most once per ally per turn (previously ambiguous; a single distribution to a clustered team no longer multiplies ULT by the number of individual buffs handed out).</span>
-          </li>
-          <li class="rework">
-            <span class="change-tag">Rework</span>
-            <span><em>Man and Machine</em> — the +5% DEF and RES scaling line reworded to "per inert buff," confirming it counts inert buffs only and not inert inflictions.</span>
-          </li>
-          <li class="nerf">
-            <span class="change-tag">Nerf</span>
-            <span><em>Hopeful Analysis</em> (Still Human — Superman synergy) — now nullifies 6 stacks of inert effects on self, up from 3, raising the cost of retaining charge while distributing.</span>
-          </li>
-        </ul>
-        <p class="rationale">A clarity-and-tuning pass on the inert engine. Making the duplicate duration explicit removes the biggest ambiguity in how his team buffs read. Capping the "buff provided to an ally" ULT gain at once per ally per turn stops a single Molecular Breakdown from snowballing his ULT charge off buff count, while leaving the distribution itself untouched. Hopeful Analysis was erasing his central hold-vs-dump tradeoff by letting him keep nearly all his charge while still buffing the team; nullifying 6 stacks instead of 3 means it now relaxes that tension rather than deleting it. The DEF/RES wording fix simply confirms the intended scaling source.</p>
-      </div>
-
       <div class="changelog-entry release">
         <div class="entry-meta">
           <span class="version">v1.0.0</span>
@@ -1528,7 +1531,7 @@
         <ul class="changes">
           <li class="release">
             <span class="change-tag">Release</span>
-            <span>Cyborg enters the roster.</span>
+            <span>Curly enters the roster.</span>
           </li>
         </ul>
       </div>
