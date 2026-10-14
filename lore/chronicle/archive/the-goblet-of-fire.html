@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Goblet of Fire — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Goblet of Fire</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-goblet-of-fire.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year Four</span>
+      </div>
+      <h1>The Goblet of Fire</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">The summer before Harry Potter&rsquo;s fourth year ended on an image that would hang over everything after it. He had gone with the Weasleys to the Quidditch World Cup &mdash; a night of color and noise and ordinary wonder, the magical world at play &mdash; and woke in the dark to screams, as masked wizards set the campground alight and tossed Muggle families through the air for sport. Above the chaos a green skull unspooled across the sky, a serpent for its tongue: the Dark Mark, the old banner of Voldemort&rsquo;s followers, not seen in thirteen years. The revelers who had worshipped him once had crept back out in their masks to remember what fear felt like. Among the figures who melted away before the Ministry could name them was Lucius Malfoy, who by morning would again be a respectable man who had simply been a bystander.</p>
+
+    <p>The Ministry, humiliated and frightened, needed someone small to blame, and found one: a trembling house-elf named Winky, discovered beneath the Mark with a wand in her hand, dismissed in disgrace by the master she adored though she had done nothing. It was a little injustice, lost in a large night, and it would not have mattered to most of the people who saw it. It mattered to Hermione Granger, who filed it away with a cold anger that had nowhere yet to go.</p>
+
+    <p>Hogwarts opened that year to spectacle. The ancient Triwizard Tournament had been revived &mdash; a contest between three great schools of magic, and two of them, Beauxbatons and Durmstrang, arrived in state to compete. A single champion would be chosen from each school by an impartial judge, the Goblet of Fire, and only students of age could put their names in; the headmaster drew a line of protective magic around the cup to see to it. On the appointed night the Goblet named its three champions and then, impossibly, choked out a fourth name on a fourth scrap of parchment. Harry&rsquo;s.</p>
+
+    <p>He had not entered. No one who looked at his face believed he had, and no one in authority cared, because the thing that made the Goblet a fair judge also made it a trap: a name accepted by it is a binding magical contract, older and deafer than any argument, and it does not ask whether the one it has chosen is willing, or old enough, or the victim of someone else&rsquo;s scheme. Harry was bound to compete against grown champions in a tournament that had killed people in its long history, and there was no hand, not even Dumbledore&rsquo;s, that could lift the contract off him. The one person he most wanted at his side chose that moment to leave it. Ron, eaten through with the old ache of standing forever in the shadow of a famous friend, decided Harry had found a way to steal the glory and told himself the lie because the truth &mdash; that it had simply happened <em>to</em> him, again &mdash; was harder to live beside. For weeks the two did not speak.</p>
+
+    <p>The school took its cue from the Slytherins, who turned the whole affair into a joke at Harry&rsquo;s expense. Badges bloomed across the robes of half the castle &mdash; POTTER STINKS &mdash; and the girl behind them needed a quick, clever hand to make so many, and so turned, for the first time, to a Slytherin she had never once bothered to notice: <a class="mem-link" href="../../memories/someone-useful.html" data-mem="Dracaena Malfoy Memory: Someone Useful" tabindex="0" role="link">Dracaena Malfoy wanted something done, and Ada Khumalo could do it, and that was the whole of why she spoke to her &mdash; a girl she had shared a house with for years and never seen</a>. It should have ended there, a use and nothing more. It did not. Ada was unbothered, unimpressed, and quietly kind in a way that didn&rsquo;t ask to be noticed, and she saw through Dracaena&rsquo;s performance faster than anyone ever had. The badges, at least, did not go unanswered: <a class="mem-link" href="../../memories/potter-rules.html" data-mem="Hermione Granger Memory: Potter Rules" tabindex="0" role="link">when the POTTER STINKS charm flickered to its second message, one of Harry&rsquo;s own friends had already quietly made the reply &mdash; POTTER RULES &mdash; and pinned it on in the middle of the Slytherins&rsquo; crowing</a>. The mockery, this year, ran two ways.</p>
+
+    <p>The first task cut the laughter short. The champions were set to get past nesting dragons, and Harry &mdash; flying, the one thing that had never failed him &mdash; came through it alive and near the top of the judges&rsquo; marks. Watching him face a dragon stripped the grievance out of Ron all at once; no one would choose this, and the danger was real, and a brother was a brother. The two mended the rift as clumsily and completely as boys do, and were themselves again well before the winter.</p>
+
+    <p>Something else had taken root in Hermione by then, and it was not going to be laughed off. Hunting for Winky one afternoon, she found the Hogwarts kitchens &mdash; and found them run, every meal of every day, by a hundred or more house-elves who were paid nothing, owned in all but name, and taught to love the arrangement. The school she had given her whole heart to ran on bondage, and had her whole life, and no one had ever thought it worth a word. She did not accept it. She founded a movement for it &mdash; the Elf Liberation Alliance &mdash; and where the old Hermione might have been met with eye-rolling, this time Harry and Ron heard her out and stood with her without a joke between them. They would learn, in time, that Dumbledore himself had long argued against the practice and been overruled by habit and the Ministry both: one more thing the people in charge had decided was simpler left alone.</p>
+
+    <p>Midwinter brought the Yule Ball, and with it the private drama that would reshape Harry&rsquo;s next three years. He had spent weeks working up the nerve to ask Chao Zheng, an older Ravenclaw he could barely speak around &mdash; and she turned him down, kindly and finally, already promised to another. He was standing in the wreck of that small humiliation when Dracaena found him. <a class="mem-link" href="../../memories/relentless-torment.html" data-mem="Harry Potter Memory: Relentless Torment" tabindex="0" role="link">She came at him sideways, the way she came at everything, wrapping the thing she wanted to say in a sneer &mdash; that she pitied him, that she supposed she&rsquo;d let him take <em>her</em> if he was so desperate &mdash; and Harry, who had never once heard her offer anything that wasn&rsquo;t a blade, heard only the blade, and told her to leave him alone, and left</a>. He did not see that he had thrown her own courage back in her face. <a class="mem-link" href="../../memories/masked-intentions.html" data-mem="Dracaena Malfoy Memory: Masked Intentions" tabindex="0" role="link">She had meant it. She had wanted to go with him, and had reached for him the only clumsy, armored way she knew, and been refused &mdash; and she walked away with her chin up and her eyes streaming</a>.</p>
+
+    <p>She had reached for him at all only because someone had pushed her to it. <a class="mem-link" href="../../memories/wall-of-glass.html" data-mem="Dracaena Malfoy Memory: Wall of Glass" tabindex="0" role="link">Ada had watched her friend circle Potter&rsquo;s name for weeks, and said the thing aloud that Dracaena would not &mdash; that she had a crush, a real one, on the Potter boy &mdash; and weathered the furious denial that followed, and told her gently to just <em>ask him</em></a>. By then the two of them were something Dracaena had never had: real. It had cost her a bad moment to get there. <a class="mem-link" href="../../memories/blood-purity.html" data-mem="Dracaena Malfoy Memory: Blood Purity" tabindex="0" role="link">She had worked out, somewhere along the way, that Ada was a half-blood, and had not known what to do with it &mdash; had said something small and ugly out of pure reflex &mdash; and Ada had simply shrugged it off, finding the whole idea that it should matter faintly ridiculous, until Dracaena heard herself and was ashamed, and apologized, and Ada nodded like she&rsquo;d always known the cruelty wasn&rsquo;t really hers</a>. Dracaena made her swear to keep the friendship secret. Her father could never know she had chosen, of all people, a girl like Ada.</p>
+
+    <p>That night neither of them slept. <a class="mem-link" href="../../memories/uneasy-slumber.html" data-mem="Harry Potter Memory: Uneasy Slumber" tabindex="0" role="link">Harry lay awake turning the scene over, and the more he turned it the less it looked like an attack &mdash; she had seemed, impossibly, <em>hurt</em> &mdash; and a suspicion crept in that Hermione might be right about her, and with it something warmer he couldn&rsquo;t name and a resolve that he&rsquo;d find a way to make it up to her</a>. Across the castle, in the green dark of the dungeons, <a class="mem-link" href="../../memories/just-another-malfoy.html" data-mem="Dracaena Malfoy Memory: Just Another Malfoy" tabindex="0" role="link">Dracaena wept alone &mdash; not at Harry, in the end, but at herself: at the armored, hateful girl she showed the world every day, at how badly she wanted to be someone kinder and how surely her father and her name and her whole life forbade it</a>. It was the truest she ever let herself be before the war took everything from her: a girl who hated who she had been taught to be.</p>
+
+    <p>The making-up, when it came, wore a disguise too. <a class="mem-link" href="../../memories/seeing-the-signs.html" data-mem="Hermione Granger Memory: Seeing The Signs" tabindex="0" role="link">Hermione &mdash; sharper than either boy, and watching Dracaena&rsquo;s behavior with a scientist&rsquo;s eye &mdash; announced that Malfoy plainly had feelings for Harry, and that an invitation to the ball might be the surest way to learn what Lucius was planning</a>. It was Ron and Hermione&rsquo;s idea, the mission, and Harry seized it with a speed that should have told him something. The truth was that he already wanted to go to her and apologize, and the mission handed him a reason he could say out loud &mdash; to his friends, and to himself &mdash; that wasn&rsquo;t <em>I think I may have been wrong about her, and I can&rsquo;t stop thinking about it</em>. Confronted with the plan in front of the two of them, he could no more deny it than name it.</p>
+
+    <p>So he went to her. <a class="mem-link" href="../../memories/layered-request.html" data-mem="Harry Potter Memory: Layered Request" tabindex="0" role="link">He found her apart from the others at a quiet, ordinary hour &mdash; the way she had once found him on a train, a lifetime ago &mdash; and lost his nerve twice before he got it out: would she be his partner for the ball. Her mask came up first, all reflex and scorn, and then, for a moment she clearly hadn&rsquo;t planned, it came down, and she said yes</a>. They told no one. She would be the champion&rsquo;s partner on his arm, and the castle would find out when it found out.</p>
+
+    <p>It found out all at once. When the champions opened the ball with the first dance and Harry Potter walked into the light with Dracaena Malfoy on his arm, the hall went silent &mdash; Slytherin and Gryffindor alike, Ron and Hermione among the stunned, the plan forgotten in the shock of the thing itself. <a class="mem-link" href="../../memories/for-one-song.html" data-mem="Dracaena Malfoy Memory: For One Song" tabindex="0" role="link">And then they danced, and for the length of one song every wall she had ever built came down</a>, <a class="mem-link" href="../../memories/the-beauty-beneath.html" data-mem="Harry Potter Memory: The Beauty Beneath" tabindex="0" role="link">and Harry saw her &mdash; all of her, the girl under the performance &mdash; for the first time, and understood in a rush that the cruelty had always been the costume and this was the person</a>. Whatever the mission had been, it was not the mission anymore, and he knew it even if he wouldn&rsquo;t say it. (Elsewhere in the hall, Ron spent the evening discovering, too late and too sourly, that he had feelings about Hermione arriving on the arm of the Durmstrang champion &mdash; a smaller storm, running its own course.)</p>
+
+    <p>For a few weeks they were, quietly, something. It was the warmest stretch the two of them would ever have, and it ended on the thing that had wronged her once already. <a class="mem-link" href="../../memories/sole-desire.html" data-mem="Dracaena Malfoy Memory: Sole Desire" tabindex="0" role="link">She caught him slipping out of his father&rsquo;s invisibility cloak one evening, bending the rules as he always did &mdash; this time to visit a mirror he&rsquo;d found in a room that gives you what you need, a mirror that shows the heart&rsquo;s deepest wish; he was there to see his dead parents, and when she looked into it herself, half-laughing, she saw no family and no crowd and no crown, only herself and Harry, and no one else at all &mdash; and she took the cloak when she left, a small theft, a joke between them</a>. She did not know yet what the cloak would show her.</p>
+
+    <p>Between those private hours ran the tournament&rsquo;s second task, in the black water of the lake, where each champion had to recover a person taken from them and held below; Harry, too decent to leave anyone behind, surfaced last and half-drowned with more hostages than were his to save, and the judges marked him high for the heart of it if not the speed.</p>
+
+    <p>Then the cloak kept its promise of ruin. <a class="mem-link" href="../../memories/too-good-to-last.html" data-mem="Dracaena Malfoy Memory: Too Good to Last" tabindex="0" role="link">Wearing it, unseen, Dracaena overheard Ron and Hermione speaking of the plan as a plan &mdash; the Yule Ball, the invitation, the idea of using her to get at her father &mdash; and every warm thing of the past weeks turned to ash in her mouth; she had to press her hand over her own crying to keep from being found, and she fled with the certainty that she had been played from the first dance</a>. She could not know the mission had stopped being the mission long before; she knew only the words, and the words were real, and they married exactly the thing she had always feared &mdash; that no one like Harry Potter would ever truly want a Malfoy. She went cold, and kept her distance, and waited for the year to prove her right.</p>
+
+    <p>The year obliged, in the cruelest way it had. The third task sent the champions into a hedged maze, and at its heart the tournament&rsquo;s trophy had been turned, by a traitor in the castle, into a portal. It seized Harry and a fellow champion, the good and gentle Cedric Diggory, and dropped them in a graveyard far away, into the middle of a ritual. <a class="mem-link" href="../../memories/living-death.html" data-mem="Harry Potter Memory: Living Death" tabindex="0" role="link">Cedric was murdered on a word, for being in the way, and Harry was bound and bled for a potion &mdash; and out of a cauldron rose Lord Voldemort, remade and more terrible than the stories: not the half-living wraith of the whispers but a thing of appalling power, the dark around him bending to his will like water finding a drain, the air itself heavy with him, as though the world had agreed to obey. Harry stood a child before a god, and lived only because when their wands met they refused each other &mdash; two cores from the same source locking in a bright cage of light that gave him the half-second to seize Cedric&rsquo;s body and run</a>. His father&rsquo;s old friends among the masked &mdash; Lucius Malfoy foremost &mdash; had answered the Mark&rsquo;s call and knelt in that circle, their thirteen years of respectability shrugged off in an instant. Harry came back to the castle with a dead boy in his arms and the Dark Lord at his back, and the war that the adults had buried stood up again.</p>
+
+    <p>The traitor was unmasked soon after: the year&rsquo;s defense teacher had never been himself at all, but a devoted servant of Voldemort wearing the real man&rsquo;s face, kept up a whole grueling year on a potion that had to be fed hour by hour and finally failed him. Questioned under a draught that strips the truth out of a man whether he wills it or not, he confessed to everything &mdash; the Goblet, the maze, the long deception.</p>
+
+    <p>For Dracaena the return of the Dark Lord was not news from far away. It was her father, kneeling in that circle; it was her house and her name and her whole future called back to the side of the thing in the graveyard. The hurt of the cloak and the terror of the war arrived together, and she came to Harry carrying both. <a class="mem-link" href="../../memories/deserved-retribution.html" data-mem="Harry Potter Memory: Deserved Retribution" tabindex="0" role="link">She struck him across the face &mdash; and it was two blows at once, <em>how dare you use me</em> and <em>stay away from me, from all of this, before it kills you</em> &mdash; and the worst of her fury was turned inward, because she knew her family and knew who he was and could not, however much she wanted to, truly fault him for trying to stop her father</a>. <a class="mem-link" href="../../memories/the-line-unceasing.html" data-mem="Dracaena Malfoy Memory: The Line Unceasing" tabindex="0" role="link">She gave him her warning and she walked away, and the few warm weeks closed behind her like water. They were on opposite sides of a war now, and both of them knew it</a>.</p>
+
+    <p>The Ministry chose that moment to prove, one more time, what it was for. Faced with Harry&rsquo;s account and Dumbledore&rsquo;s, with a dead champion and a living witness, the Minister for Magic decided that believing Voldemort had returned would cost him too much &mdash; his comfort, his office, the fiction that he had kept the country safe &mdash; and so he simply refused to believe it, and set the whole weight of his government to calling Harry a liar and Dumbledore a fool. The war had begun, and the people charged with fighting it had elected, out of cowardice dressed as prudence, to pretend it had not.</p>
+
+    <p>Harry went home that summer changed in a way the earlier years had only rehearsed. He had watched a friend die for nothing, seen the enemy whole and heard the adults in power deny it to his face, and lost &mdash; to a war and a name and her own fear &mdash; the first person outside his small circle he had let all the way in. He understood now that the danger was not coming; it had arrived, that being right would not make anyone believe him, and that the lines of the coming fight ran straight through the people he had only just begun to love.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/someone-useful.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Someone Useful</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/potter-rules.html">
+      <img class="mem-portrait" src="../../../images/champion-images/hermione-granger.jpg" alt="Hermione Granger">
+      <span><span class="t">Potter Rules</span> <span class="s"><b>Hermione Granger</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/relentless-torment.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">Relentless Torment</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/masked-intentions.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Masked Intentions</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/wall-of-glass.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Wall of Glass</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/blood-purity.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Blood Purity</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/uneasy-slumber.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">Uneasy Slumber</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/just-another-malfoy.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Just Another Malfoy</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/seeing-the-signs.html">
+      <img class="mem-portrait" src="../../../images/champion-images/hermione-granger.jpg" alt="Hermione Granger">
+      <span><span class="t">Seeing The Signs</span> <span class="s"><b>Hermione Granger</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/layered-request.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">Layered Request</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/for-one-song.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">For One Song</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/the-beauty-beneath.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">The Beauty Beneath</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/sole-desire.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Sole Desire</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/too-good-to-last.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">Too Good to Last</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/living-death.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">Living Death</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/deserved-retribution.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span><span class="t">Deserved Retribution</span> <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+    <a class="mem-row" href="../../memories/the-line-unceasing.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span><span class="t">The Line Unceasing</span> <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span></span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

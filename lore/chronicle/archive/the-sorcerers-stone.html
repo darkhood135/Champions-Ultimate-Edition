@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sorcerer's Stone — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Sorcerer&rsquo;s Stone</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-sorcerers-stone.jpg');"
+         onerror=""></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year One</span>
+      </div>
+      <h1>The Sorcerer&rsquo;s Stone</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">Before he was a wizard, Harry Potter was a secret the world had agreed to keep from him. Orphaned as an infant when the dark wizard who had terrorized magical Britain murdered his parents and then, inexplicably, broke himself against the baby he had meant to kill next, Harry was left on a doorstep and handed to an aunt and uncle who wanted nothing to do with magic and less to do with him. For ten years he slept in a cupboard, wore his cousin&rsquo;s castoffs, and was assured that the strange things that happened around him were figments best left unmentioned. He grew up certain he was ordinary, unwanted, and alone.</p>
+
+    <p>That certainty cracked the summer he turned eleven, when letters addressed to him in emerald ink began arriving by the hundred, and his uncle&rsquo;s furious efforts to burn, hide, and outrun them only summoned more. On a storm-battered night at the edge of the sea, the sender came in person &mdash; Rubeus Hagrid, a mountain of a man with a tender heart &mdash; and told Harry the truth his family had spent a decade smothering: that he was a wizard, that his parents had been killed rather than lost to any accident, and that a school called Hogwarts had been expecting him since the day he was born.</p>
+
+    <p>Hagrid led him into the hidden heart of the wizarding world &mdash; a crooked alley behind a grimy London pub, where owls were sold like kittens and gold lay in vaults a mile beneath the street &mdash; and there Harry gathered the pieces of a life he&rsquo;d never known was his: spellbooks, a cauldron, and a wand that seemed to choose him as surely as he chose it. It was while he was being measured for school robes that he first brushed against the thing the wizarding world preferred not to say aloud. <a class="mem-link" href="../../memories/uncomfortable-resemblance.html" data-mem="Harry Potter Memory: Uncomfortable Resemblance" tabindex="0" role="link">A girl his own age, pale and poised and born to an old pure-blood family, stood on the next stool and talked &mdash; about brooms, about houses, about which sorts of people were worth knowing &mdash; in the easy, rehearsed way of a child reciting her parents&rsquo; opinions as though they were simply the weather</a>. They parted without ever trading names. Harry knew only that she reminded him, unpleasantly, of his cousin.</p>
+
+    <p>A month later, helped onto a hidden platform by a warm, chaotic family of redheads, Harry boarded the Hogwarts Express and fell into the first real friendship of his life &mdash; with Ron Weasley, the youngest of those brothers, who had freckles, a hand-me-down everything, and no notion that the famous Harry Potter would ever choose to sit with him. Their compartment didn&rsquo;t stay quiet for long. The girl from the robe shop found it &mdash; Dracaena Malfoy, she offered, with the pride of a name she expected to mean something &mdash; flanked by two heavy, silent boys whose casual nastiness she echoed more than she led. She came with something half warning and half invitation: that some wizarding families were worth more than others, and that she could teach him to tell which. Then she put out her hand. <a class="mem-link" href="../../memories/drawing-the-line.html" data-mem="Harry Potter Memory: Drawing the Line" tabindex="0" role="link">Harry, who had already decided he liked Ron and disliked the company she kept, refused it</a> &mdash; <a class="mem-link" href="../../memories/an-unexpected-rejection.html" data-mem="Dracaena Malfoy Memory: An Unexpected Rejection" tabindex="0" role="link">and watched her pride crack into something sharper and more wounded before she turned on her heel and was gone.</a></p>
+
+    <p>At the castle, a battered, talking hat sorted each new student into one of four houses, reading something in them they couldn&rsquo;t always read in themselves. It placed Harry in Gryffindor, house of the brave, beside Ron and a sharp, exacting girl named Hermione Granger whose friendship the two boys would earn the hard way. It placed Dracaena, exactly as her family had always assumed, in Slytherin.</p>
+
+    <p>The months that followed taught Harry how little he knew and how fiercely he loved learning it. He discovered that he had an enemy in Severus Snape, the cold master of Potions, who seemed to loathe him on sight; that he had a gift for flying that outstripped students years his senior; and that the two facts could collide in spectacular fashion. During the first-years&rsquo; flying lesson, <a class="mem-link" href="../../memories/first-flight.html" data-mem="Harry Potter Memory: First Flight" tabindex="0" role="link">Dracaena &mdash; needling him for his attention every bit as much as for sport &mdash; snatched a classmate&rsquo;s keepsake and dared him up into the air after it</a>. Harry, who had never sat a broom in his life, flew as though he&rsquo;d been born to it and caught the thing in a plunging dive that left her gaping for half a second before she smothered the look under a sneer and slunk off. A teacher saw the catch, and Harry &mdash; improbably &mdash; was made the youngest house Seeker in a century. Not to be outdone, Dracaena baited him that very evening into a midnight duel she never had any intention of attending.</p>
+
+    <p>That broken promise led somewhere no one intended. Creeping back through the dark, Harry, Ron, and Hermione &mdash; bound together for good after surviving a loose mountain troll &mdash; blundered into a forbidden corridor and found it guarded by an enormous three-headed dog, standing watch atop a trapdoor. Slowly, across a long and strange term, the three worked out what the dog was set to guard: the Sorcerer&rsquo;s Stone, a fabled creation of the alchemist Nicolas Flamel that turned metal to gold and brewed a draught of immortality &mdash; and they grew certain that someone inside the castle meant to steal it.</p>
+
+    <p>The year wound on through wonders and warnings alike &mdash; a Christmas that brought Harry an unsigned gift, his dead father&rsquo;s invisibility cloak, so flawless and ageless that it seemed less a garment than something out of old legend, and the long secret nights it bought him before a mirror that showed him the family he had never gotten to know; a smuggled dragon; a mounting, misplaced conviction that Snape was the thief, and that he meant to deliver the Stone, and eternal life, to the wizard who had murdered Harry&rsquo;s parents and never entirely finished dying. The suspicion sharpened one night in the Forbidden Forest, where Harry and Dracaena were sent, among others, to help Hagrid track whatever had been slaughtering unicorns. Deep among the trees they found it: a hooded shape crouched over a dead unicorn, drinking its silver blood. <a class="mem-link" href="../../memories/detention.html" data-mem="Harry Potter Memory: Detention" tabindex="0" role="link">Terror seized them both &mdash; but where Harry&rsquo;s fear turned him, uselessly and on pure instinct, to put himself between the thing and the girl beside him, Dracaena&rsquo;s sent her bolting into the dark, and left him behind</a>. Hagrid's crossbow drove the creature off before it reached him, and a centaur who had found the fleeing Dracaena named the thing for them all: the ruined remnant of Voldemort, surviving on the cursed blood of the unicorns while he waited for the Stone to make him whole again.</p>
+
+    <p>Convinced the theft was at hand and unable to make a single adult believe them, the three went down through the trapdoor themselves. Below it waited a gauntlet of the teachers&rsquo; own devising &mdash; a strangling plant, a storm of winged keys, a chessboard where Ron let himself be struck down so the others could pass, a riddle of potions that only Hermione could untangle. Fearsome as each trial was, every one proved just surmountable enough for three determined first-years &mdash; almost as though someone had built them to be run by exactly the sort of children who would refuse to stay out of it. The trials thinned the three to one, and Harry walked on alone.</p>
+
+    <p>What waited at the end was not Snape at all, but timid Professor Quirrell &mdash; and riding the back of his skull, hidden beneath his turban, the barely-living face of Voldemort himself. The Stone had been concealed inside a mirror that would surrender it only to someone who wished to find it but never to use it, and so it slipped into the pocket of Harry, who wanted only to keep it from them, and never into the grasp of Voldemort, whose hunger betrayed him. At Harry&rsquo;s very touch Quirrell&rsquo;s skin blistered and burned &mdash; a protection, he would later learn, left in him by a mother who had died to save his life &mdash; and he held on until the dark thing tore free of its crumbling host and the black closed over him.</p>
+
+    <p>He woke days later in the hospital wing, alive, with Dumbledore at his bedside to tell him gently how much he had done and how much he had still to understand. The Stone was destroyed, its makers at peace with the long ending of their lives. Gryffindor took the house cup. And Harry went back to his aunt and uncle&rsquo;s for the summer changed in the one way that mattered most &mdash; he had somewhere to return <em>from</em> now, and people who would be waiting when he came back. The boy who had spent a lifetime believing he was no one had learned, at last, that he was someone. And, far more important to him, that he was not alone.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/uncomfortable-resemblance.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Uncomfortable Resemblance</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/drawing-the-line.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Drawing the Line</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/an-unexpected-rejection.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">An Unexpected Rejection</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/first-flight.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">First Flight</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/detention.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Detention</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

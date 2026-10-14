@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Deathly Hallows — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Deathly Hallows</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-deathly-hallows.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year Seven</span>
+      </div>
+      <h1>The Deathly Hallows</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">By the start of Harry&rsquo;s seventh year there was no school to go back to, and no safety anywhere. Dumbledore was dead, the Ministry had fallen to Voldemort&rsquo;s people from the inside, and the Dark Lord ruled magical Britain in all but name &mdash; the old fear made law, Muggle-born witches and wizards hunted and tried as thieves of magic they had been born to. Harry, Ron, and Hermione did not return to Hogwarts. They vanished instead into a long, cold hunt, charged by a dead man with finding and destroying the hidden pieces of Voldemort&rsquo;s soul, with almost nothing to go on and nowhere that was safe to stand.</p>
+
+    <p>It was a grinding, lonely stretch, and it nearly broke the three of them. They recovered one of the soul-anchors &mdash; a locket that poisoned the mind of whoever carried it &mdash; and could not at first destroy it; the weight of it drove Ron to leave, and his return, and the destroying of the thing, cost him more than he ever said. Along the way an old legend surfaced to tangle with their quest: the tale of three brothers and the three Deathly Hallows, the Cloak that hides its wearer from death, the Stone that calls back the dead, and the Wand that cannot be beaten. Harry already carried the Cloak &mdash; had carried it, unknowing, since his first year. And Voldemort, they learned, had gone hunting the Wand, certain that the deathless weapon of the stories would make him what he already believed himself to be; he had broken open Dumbledore&rsquo;s tomb and lifted the Elder Wand from the dead man&rsquo;s hands.</p>
+
+    <p>The hunt turned worse before it turned at all. At Godric&rsquo;s Hollow, where his parents had died, Harry was nearly killed and his own wand broken. And not long after, the three of them were caught and dragged to the one house none of them wanted to enter.</p>
+
+    <p>At Malfoy Manor the war and the love story collided. Hermione was held down and tortured on the drawing-room floor by Bellatrix Lestrange for what she might know, while the others were locked below &mdash; and <a class="mem-link" href="../../memories/undeserved.html" data-mem="Dracaena Malfoy Memory: Undeserved" tabindex="0" role="link">Dracaena was made to watch, sick and silent, in the house she had grown up in &mdash; in anguish for Hermione of all people, a girl she had wronged for years and knew now to be worth ten of her; so that when they held the swollen, disguised boy up to her and demanded she name him as Harry Potter, a word that would have ended everything, she looked at him and said she could not be sure</a>. It was not a grand defiance. By then it was almost expected of her, this quiet failure to damn him; she had been failing to damn him for years. It bought the time that mattered. They were broken out by the bravest creature in the house &mdash; <a class="mem-link" href="../../memories/gift-of-life.html" data-mem="Harry Potter Memory: Gift of Life" tabindex="0" role="link">Dobby, the free elf, who had loved Harry since his second year, who came for them when no one else could and was struck down in the escaping and died in Harry&rsquo;s arms, free</a> &mdash; and mourned as no house-elf in that world had ever been mourned. His name would outlast him: the movement that one day fought for his kind would be called, quietly, for his dream.</p>
+
+    <p>To reach another of the soul-anchors they turned to a goblin, Griphook, and the bargain they struck to break into the vaults of Gringotts came apart on a thing the wizarding world had never troubled to understand. <a class="mem-link" href="../../memories/sins-of-our-fathers.html" data-mem="Hermione Granger Memory: Sins of Our Fathers" tabindex="0" role="link">Griphook took back, at the first chance, the goblin-wrought sword the wizards had always treated as theirs &mdash; and it was no betrayal, only a goblin reclaiming his people&rsquo;s work from the latest in a long line of wixen who had assumed it belonged to them</a>. The heroes got their prize and their escape, on the back of a half-blind dragon, with a lesson most of their kind never learned about whose hands had really built the world they lived in.</p>
+
+    <p>And then, at last, back to Hogwarts, where the end of everything had decided to happen. The castle rose against the occupation, and for one strange, blazing night the oldest divisions in the school simply fell away: Slytherin and Gryffindor, enemies by a thousand years of habit, stood together on the walls &mdash; not all of them, but more than anyone would have believed &mdash; and fought side by side to keep the invaders out. It was not a tidy battle of neat duels watched from the edges. It was chaos, everyone in it, the whole school bleeding and holding.</p>
+
+    <p>In the Room of Requirement the war came for Dracaena&rsquo;s past directly. She went there &mdash; for the thing hidden in it, and for the two who had once been her shadows &mdash; and found Crabbe and Goyle waiting, and a reckoning long overdue between them. For it had been the two of them, she had learned, who engineered Ada&rsquo;s death the year before: who had seethed since the day the Malfoy girl let the whole school see a half-blood for her truest friend, and who had made sure, when the Death Eaters came through the door, that Ada did not walk back out. This was no fight among allies. It was Dracaena against the murderers of the one person she had loved without conditions, and the hatred in the room was real and earned. She beat Goyle back and would not kill him &mdash; she had learned on a Tower what she could and could not make herself do &mdash; but Crabbe had already reached for a fire too large for him to hold, a cursed blaze that ate everything it touched, and in the roar and panic of it the two of them were swallowed by the thing Crabbe had meant to win with. For half a second, in the heart of the fire, Dracaena caught sight of an old mirror among the hidden wreckage and saw in it what she had seen once before &mdash; herself and Harry, and nothing else in all the world &mdash; before the flames took it. Then <a class="mem-link" href="../../memories/hollow-friendships.html" data-mem="Dracaena Malfoy Memory: Hollow Friendships" tabindex="0" role="link">Harry had her by the arm and was hauling her up out of the fire, and the two of them came through it together, scorched and alive, closer in that moment than they had been since the war began</a>.</p>
+
+    <p>The fire had done one good thing: it destroyed another of Voldemort&rsquo;s soul-anchors, a lost diadem that had been hidden there for fifty years. Only two remained now &mdash; a snake, and a secret neither side yet fully understood.</p>
+
+    <p>The battle swallowed the castle. Dracaena, disoriented by how fast it had all broken open, slipped away from the fighting rather than into it; she would not raise her wand against classmates, and she was not ready to let the world see which side she had chosen, and more than either of those she needed, desperately, to find her mother and father in the ruin before the night took them too. Her search carried her, in the end, exactly where it had to.</p>
+
+    <p>Elsewhere Voldemort made the worst mistake of a life built on them. Convinced that the Elder Wand would not fully answer to him until he had killed the man he thought had mastered it, he murdered Snape &mdash; and in dying Snape gave Harry the truth he had carried alone for sixteen years: that he had loved Harry&rsquo;s mother to the last, that he had worked against Voldemort from inside all along, and that Dumbledore had known from the beginning that Harry carried a splinter of Voldemort&rsquo;s soul and would have to let it die. The old man had planned his own death and raised the boy toward a sacrifice, and had kept it secret to the end &mdash; a kindness and a cruelty that could no longer be told apart. Harry understood, finally, what was being asked of him, and he did not run from it. <a class="mem-link" href="../../memories/final-goodbye.html" data-mem="Harry Potter Memory: Final Goodbye" tabindex="0" role="link">On the way he found Ron and Hermione one last time and said a goodbye he could not let them hear as a goodbye, holding the truth of where he was going behind his teeth, because they would never have let him walk to it</a>.</p>
+
+    <p>He walked into the forest to die. Not as a Horcrux doomed to it, but as a boy choosing it &mdash; offering himself up to stop the slaughter, the way his mother had once stepped in front of a curse for him. He raised the Stone and the shades of the dead who had loved him walked beside him for the last stretch, close and insubstantial, there and not there, the way the dead always are to the living. And Voldemort, with the stolen Elder Wand, struck him down. The curse burned the fragment of soul out of Harry and could not touch the rest, because a death accepted in love is the one thing Voldemort had never once in his existence understood, and it shielded Harry exactly as it had in a nursery sixteen years before. Sent to check the body, Narcissa Malfoy knelt over him, felt his heart still beating, and lied to the Dark Lord&rsquo;s face that the Potter boy was dead &mdash; not for any cause, but because the lie was the fastest way back into that castle to find her daughter. Harry let himself be carried back limp and seeming-dead, and waited.</p>
+
+    <p>Voldemort brought the body home to break them with it. <a class="mem-link" href="../../memories/the-corpse-of-the-boy-who-lived.html" data-mem="Dracaena Malfoy Memory: The Corpse of the Boy Who Lived" tabindex="0" role="link">He stood before the castle with Harry Potter dead at his feet and let his power roll out across the defenders &mdash; and here the full horror of what he had become showed itself, the dark of him pressing down into the very souls of the people fighting, until the strongest of them could not stand, could not lift a wand, could barely breathe</a>. <a class="mem-link" href="../../memories/victory-of-the-dark-lord.html" data-mem="Ron Weasley Memory: Victory of the Dark Lord" tabindex="0" role="link">It was not a victory. It was a drowning. And it looked, for a long moment, like the end of the world</a>.</p>
+
+    <p>Into that silence Voldemort called Dracaena forward. He thanked her, almost tenderly, for her devotion; invited the Malfoy girl to take her place among the victors while her terrified parents watched. She came forward. She stopped. And then, with nothing left to lose and a dead boy on the stones in front of her, she turned her wand on the Dark Lord and fired. He swatted the spell aside without effort and asked, amused, what she imagined she was doing &mdash; and she told him: that he had taken Ada, and taken Harry, and taken the whole of her life, and that she would rather die on her feet than kneel to him for one more hour. He moved to oblige her. And as the killing light gathered, <a class="mem-link" href="../../memories/happiest-with-you.html" data-mem="Dracaena Malfoy Memory: Happiest With You" tabindex="0" role="link">Dracaena thought of Ada, and of Harry, and of every small good thing the war had tried to burn out of her &mdash; and cast, for the first time in her life, a Patronus: a great silver peacock that broke from her wand and drove the dark back, pushing Voldemort&rsquo;s weight off the fallen defenders so that all across the grounds the dying found they could breathe again, and stand again, and fight</a>.</p>
+
+    <p>The battle came roaring back to life, and in it the snake died &mdash; struck down by Neville Longbottom with a sword out of an old hat, the last of Voldemort&rsquo;s anchors severed at last. The change in him was visible: the god-like radiance guttered and dimmed, and what stood in the courtyard now was only a man, powerful and monstrous and mortal, who could at last be killed.</p>
+
+    <p>He did not know it yet, and Dracaena paid for the time the others needed to learn it. She stood against him and she was hopelessly outmatched &mdash; a frightened, half-trained girl against the most dangerous wizard alive &mdash; but she held him, a few seconds, a few more, while elsewhere the Death Eaters were broken one by one, and he opened her arm from shoulder to wrist with a slash of his wand, the same arm a borrowed curse had once laid open in a washroom, and she went down onto her knees in her own blood and could not rise. Voldemort, contemptuous, would not even finish her himself. He called for Bellatrix to do it, to make a public lesson of the traitor-child. <a class="mem-link" href="../../memories/my-father.html" data-mem="Dracaena Malfoy Memory: My Father" tabindex="0" role="link">And Lucius Malfoy &mdash; who had knelt to this creature for twenty years, who had been cruel to all the world and gentle only to his daughter &mdash; threw himself into the path of his own side&rsquo;s curse and died to keep it from reaching her; and Bellatrix did not live out the minute, for Molly Weasley cut her down where she stood, a mother&rsquo;s fury spent in the end on defending somebody else&rsquo;s frightened child in the one moment that child had chosen to change</a>.</p>
+
+    <p>And then Harry stood up.</p>
+
+    <p><a class="mem-link" href="../../memories/alive.html" data-mem="Harry Potter Memory: Alive" tabindex="0" role="link">He came back into the courtyard alive and the whole war seemed to turn over at the sight of him. The last Death Eaters threw everything they had at him out of terror and spite, and their curses guttered and died before they reached him, because the same love that had carried him out of death now burned off him like light &mdash; a plainer, older, deeper magic than Voldemort had ever troubled to learn, and proof, if anyone needed it, of how much of the world&rsquo;s power the Dark Lord had never even glimpsed</a>. Harry put the Death Eaters down himself, and then the courtyard emptied of everyone still standing but the two of them, the way it was always going to.</p>
+
+    <p>They faced each other alone in the wreckage. Harry did not raise his wand at first. He told Voldemort what he truly was now &mdash; not a god, not the deathless horror of the stories, but a man, and a lessened one, who had carved his own soul into pieces chasing a power he had never understood and would die for all of it like anyone else. Then Voldemort raised the Elder Wand and loosed the Killing Curse; Harry answered with the only spell that had ever really been his, a disarming charm, no more &mdash; and the two jets of light met and locked and the ground shook under the force of them. Harry felt himself giving. And then he felt a hand close over his hand and his wand, and Dracaena was beside him, up off her knees one last time, taking half the weight of it onto herself &mdash; and the Elder Wand, screaming in Voldemort&rsquo;s grip, knew them both. It had chosen them, quietly, long ago, for what they were under everything they had done, and it would not kill its own. It turned on the hand that held it, and flung Voldemort&rsquo;s own curse back down the beam, and Lord Voldemort died the way any man dies, the last of his stolen godhood stripped away in an instant, and fell, and did not move again. The whole of what remained of two armies stood and watched it happen and could not, for a moment, believe it.</p>
+
+    <p>Dracaena had nothing left. She swayed and went down and did not wake, and Harry caught her before she hit the stone and picked her up, and carried her through a courtyard of people only beginning to understand that it was over. They came to him weeping and laughing and reaching for him, for all three of them, as the word spread that the Dark Lord was dead &mdash; and Harry held them off long enough to get to the one person who could keep the girl in his arms from slipping away, and did not put her down until the healer had.</p>
+
+    <p><a class="mem-link" href="../../memories/hope-prevails.html" data-mem="Ron Weasley Memory: Hope Prevails" tabindex="0" role="link">For Ron it was grief and deliverance in one breath &mdash; the Weasleys gathered in the Great Hall around their own dead, Fred among the fallen, holding one another, alive and together and free, the whole cost and the whole mercy of it landing at once</a>.</p>
+
+    <p>He left the others to their celebrating. <a class="mem-link" href="../../memories/my-priority.html" data-mem="Harry Potter Memory: My Priority" tabindex="0" role="link">He carried her up to the hospital wing himself, found her a bed when she was out of danger but not yet awake, and sat down beside it, and stayed; and he was still there when she opened her eyes</a>. <a class="mem-link" href="../../memories/love-unmasked.html" data-mem="Harry Potter Memory: Love Unmasked" tabindex="0" role="link">What they said to each other then took a long time and is mostly theirs, and in the middle of it Ron and Hermione came in, awkward and laden with small gifts, and said their own long-overdue things &mdash; Hermione&rsquo;s quiet and reserved and genuine, Ron&rsquo;s the hardest of all to get out, each of them reckoning in their own way with a girl they had hated for six years and were only now beginning to see;</a> <a class="mem-link" href="../../memories/love-wears-a-scar.html" data-mem="Dracaena Malfoy Memory: Love Wears a Scar" tabindex="0" role="link">and when the three of them rose to go down to the celebration she told Harry to go with them, that she would be all right and needed, first, to mourn &mdash; and he nodded, and bent and kissed her once on the forehead, and left her stunned and breathless as he went</a>.</p>
+
+    <p>The grief came after the relief, as it always does. Dracaena mourned her father, who had died for her in the only unguarded act of his life; she mourned Ada, who had died for nothing but the crime of being loved by the wrong girl; she mourned all the others the war had taken. And slowly, in the weeks that followed, something she had never once had settled over her: an ordinary peace, a true circle of friends &mdash; <a class="mem-link" href="../../memories/never-too-late.html" data-mem="Harry Potter Memory: Never Too Late" tabindex="0" role="link">long quiet afternoons of studying with Harry and Ron and Hermione as though they had always been hers</a>. She was brought to trial, as the law required, for the things she had been made to do &mdash; and this time the law did what it had failed to do for Sirius Black a generation before: it heard her. <a class="mem-link" href="../../memories/testimony-of-truth.html" data-mem="Hermione Granger Memory: Testimony of Truth" tabindex="0" role="link">Harry and Ron and Hermione and Neville and a dozen others stood and told the truth, that she had acted under a sentence of death laid on her family,</a> <a class="mem-link" href="../../memories/testimony-of-strength.html" data-mem="Ron Weasley Memory: Testimony of Strength" tabindex="0" role="link">and that her turning against Voldemort had bought the living the time they needed</a>, and she was cleared. Justice, done properly, for once.</p>
+
+    <p>In the days before it, <a class="mem-link" href="../../memories/the-villain-ignored.html" data-mem="Harry Potter Memory: The Villain Ignored" tabindex="0" role="link">something had hardened in Harry: a conviction that the Ministry had been let off far too lightly, that winning the war had quietly pardoned the very people whose cowardice and cruelty had made it possible, and that no one would say so aloud unless he did</a>. So when the school held a ceremony for the ones who had ended the war and asked him to speak, he used it. <a class="mem-link" href="../../memories/declaration-of-war.html" data-mem="Harry Potter Memory: Declaration of War" tabindex="0" role="link">He honored Dracaena first, in front of everyone &mdash; not pretending away what she had done, but telling them plainly who she had chosen to become when it counted, and what it had cost her; he spoke for Slytherin, for the whole maligned house, and for his hope that the walls between them might stay down now that they had seen what came of pulling together; and then he said the thing no one expected the Boy Who Lived to say in public, turning on the Ministry of Magic itself &mdash; naming its cowardice and its cruelties, naming Dobby and the bondage of the elves and the dream of their freedom, and telling the room that winning the war was not the same as fixing what had let it happen</a>. It made some people in good robes very angry. He finished with a toast, and the hall rose to it &mdash; all but a handful by the doors.</p>
+
+    <p>And on the final day, with the castle emptying around them, <a class="mem-link" href="../../memories/hold-me-close.html" data-mem="Dracaena Malfoy Memory: Hold Me Close" tabindex="0" role="link">Harry Potter and Dracaena Malfoy stood alone together and kissed, at last, with no curse and no war and no one left to perform for</a> &mdash; <a class="mem-link" href="../../memories/never-depart.html" data-mem="Harry Potter Memory: Never Depart" tabindex="0" role="link">and decided, both of them, that they would not go back to the lives they had been handed, but would find somewhere new, and go there together</a>. <a class="mem-link" href="../../memories/my-mother.html" data-mem="Dracaena Malfoy Memory: My Mother" tabindex="0" role="link">A letter reached Dracaena that morning in a hand she knew: her mother, alive, in hiding, free in her own way at last, with nothing in it about any of it &mdash; only love</a>.</p>
+
+    <p><a class="mem-link" href="../../memories/in-your-honor.html" data-mem="Dracaena Malfoy Memory: In Your Honor" tabindex="0" role="link">Before she left, Dracaena went alone to Ada&rsquo;s grave and said at last the things she had never been let to say while her friend lived &mdash; that she was sorry; that she would be better for having been loved by her; and that she would not let the world that had killed her go on unchanged, for Ada had hated the chaining of the elves as plainly as she had hated every cruelty, and someone had to carry that forward now</a>.</p>
+
+    <p>There was a reckoning still waiting, with a Ministry that had answered for nothing; and far beyond that, a darkness gathering that none of them could yet imagine. But for one bright afternoon the war was over, the dead were counted and honored, and a boy and a girl who should by every rule have destroyed each other walked out the gates into a world they finally got to choose.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/undeserved.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Undeserved</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/gift-of-life.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Gift of Life</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/sins-of-our-fathers.html">
+      <img class="mem-portrait" src="../../../images/champion-images/hermione-granger.jpg" alt="Hermione Granger">
+      <span>
+        <span class="t">Sins of Our Fathers</span>
+        <span class="s"><b>Hermione Granger</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/hollow-friendships.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Hollow Friendships</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/final-goodbye.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Final Goodbye</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/the-corpse-of-the-boy-who-lived.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">The Corpse of the Boy Who Lived</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/victory-of-the-dark-lord.html">
+      <img class="mem-portrait" src="../../../images/champion-images/ron-weasley.jpg" alt="Ron Weasley">
+      <span>
+        <span class="t">Victory of the Dark Lord</span>
+        <span class="s"><b>Ron Weasley</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/happiest-with-you.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Happiest With You</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/my-father.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">My Father</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/alive.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Alive</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/hope-prevails.html">
+      <img class="mem-portrait" src="../../../images/champion-images/ron-weasley.jpg" alt="Ron Weasley">
+      <span>
+        <span class="t">Hope Prevails</span>
+        <span class="s"><b>Ron Weasley</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/my-priority.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">My Priority</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/love-unmasked.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Love Unmasked</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/love-wears-a-scar.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Love Wears a Scar</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/never-too-late.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Never Too Late</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/testimony-of-truth.html">
+      <img class="mem-portrait" src="../../../images/champion-images/hermione-granger.jpg" alt="Hermione Granger">
+      <span>
+        <span class="t">Testimony of Truth</span>
+        <span class="s"><b>Hermione Granger</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/testimony-of-strength.html">
+      <img class="mem-portrait" src="../../../images/champion-images/ron-weasley.jpg" alt="Ron Weasley">
+      <span>
+        <span class="t">Testimony of Strength</span>
+        <span class="s"><b>Ron Weasley</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/the-villain-ignored.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">The Villain Ignored</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/declaration-of-war.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Declaration of War</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/hold-me-close.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Hold Me Close</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/never-depart.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Never Depart</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/my-mother.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">My Mother</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/in-your-honor.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">In Your Honor</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

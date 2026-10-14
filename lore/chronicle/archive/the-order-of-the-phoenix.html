@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Order of the Phoenix — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Order of the Phoenix</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-order-of-the-phoenix.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year Five</span>
+      </div>
+      <h1>The Order of the Phoenix</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">Harry Potter spent the summer after the graveyard in a silence that nearly broke him. He had come back from watching a boy murdered and a Dark Lord reborn, and for his trouble he was shut up in his aunt and uncle&rsquo;s house, cut off from his friends by letters that said nothing, and left to wonder whether the people who claimed to be protecting him had simply decided he was a problem best kept quiet. The world beyond Privet Drive had chosen, almost to a person, not to believe what he had seen &mdash; because the Minister for Magic had decided that believing it would cost him too much, and had turned the whole machinery of his government to the easier work of calling Harry a liar and Dumbledore a senile schemer with designs on his office.</p>
+
+    <p>The silence ended in terror. Two Dementors came gliding down a Muggle alley after Harry and his cousin, and Harry drove them off the only way he knew &mdash; the guardian-charm he had learned at thirteen &mdash; and so saved both their lives and handed the Ministry its excuse. He had performed magic, underage, in front of a Muggle; they moved to expel him and snap his wand. The charge collapsed on the truth of how the Trace actually works: it registers that spellwork happened near an underage wizard and roughly where, but it cannot say whose hand held the wand, and it certainly cannot explain two Dementors wandering a Surrey suburb where no Dementor had any business being. Dragged before the full court in a hearing rigged to ruin him, Harry was cleared only because Dumbledore appeared to make the rigging too obvious to survive daylight. It was an acquittal that felt like a warning: the people in charge were no longer merely failing to help him. They had decided he was the enemy.</p>
+
+    <p>He was collected and brought at last to the Order of the Phoenix &mdash; the secret society Dumbledore had raised once before against Voldemort and had now raised again &mdash; housed in the grim, shuttered London home of Sirius Black&rsquo;s dead family. For Harry it should have been a sanctuary; his godfather was there, and friends, and the first adults willing to tell him the truth. But the house was a cage for Sirius, who was a wanted man and could not leave it, and who paced the rooms of the childhood he had hated with a bitterness that spilled, too often, onto the ancient house-elf who had stayed behind. Kreacher was wretched, half-mad with loneliness and loyal to a family of fanatics, and Sirius despised him for it and let him know it. The old pure-blood world had made them both &mdash; the elf into a servant who loved his chains, Sirius into a man who had fled that world and still, without seeing it, carried its casual contempt for the creature beneath him. The one thing explained the other. It never excused it, and the house would pay for the cruelty before the year was out.</p>
+
+    <p>At school the Ministry&rsquo;s war on the truth put on a pink cardigan. Dolores Umbridge arrived as the Ministry&rsquo;s handpicked teacher and, by degrees, its handpicked ruler of the castle &mdash; installed over Dumbledore, stripping the school of everything that might teach a child to defend themselves, and punishing dissent with a quill that wrote the writer&rsquo;s lines into the back of their own hand in their own blood. A government was torturing children in a classroom and calling it discipline, and most of the adults who could have stopped it looked away. Harry, who refused to say he had lied about Voldemort, bled for the refusal week after week and told no one, because telling would have handed her the satisfaction.</p>
+
+    <p>Harry saw her for the first time that year across the Great Hall on the night they returned, and the sight stopped him where he stood. <a class="mem-link" href="../../memories/something-deeper.html" data-mem="Harry Potter Memory: Something Deeper" tabindex="0" role="link">For a single moment her eyes found his and held &mdash; and then she looked away, scornful, the shutter coming down &mdash; and in that moment, and the long turning-over it set off in him, Harry measured how completely the thing between them had changed: she was not the sneering rival of the early years anymore but someone he could see all the way through, frightened and furious and breakable, standing on the far side of a war that had already chosen their sides for them</a>. He would spend the year wanting to reach her against all sense, and knowing he could not &mdash; that a thing you wish you could mend is not a thing you are allowed to.</p>
+
+    <p>She gave the war its due the way she gave everything its due &mdash; by doing what was expected of her and hating herself for it. Resigned, after the graveyard, to being what her family wanted, she took the badge of Umbridge&rsquo;s student enforcers, the Inquisitorial Squad, and wore it. <a class="mem-link" href="../../memories/do-something.html" data-mem="Dracaena Malfoy Memory: Do Something" tabindex="0" role="link">It was Ada who would not let it pass &mdash; Ada, who had never once raised her voice at her, furious for the first time that Dracaena had pinned on the badge of a tormenting little cult and called it belonging; the argument that followed was brutal, and the truth buried in it, the truth Dracaena had worked so hard not to hear, lodged in her and would not come loose</a>. She stayed in the Squad regardless. She drifted from Ada, back into the easy, empty company of Crabbe and Goyle, because that was safer than being known &mdash; and because the thing she could never say to Ada, the thing that made all of it unbearable, was that she had not so much chosen the Squad as been caught between her father and the thing in the graveyard, with no road out that she could find.</p>
+
+    <p>The loneliest she had ever been was the night Harry finally said the thing he&rsquo;d been swallowing. <a class="mem-link" href="../../memories/to-speak-the-unspoken.html" data-mem="Harry Potter Memory: To Speak the Unspoken" tabindex="0" role="link">They clashed &mdash; a corridor, a few words that caught and went up &mdash; and it became something neither of them had ever allowed: the venom they didn&rsquo;t mean, and beneath it the truths they had never once spoken aloud. Harry was brutally, unsparingly honest, and it pierced her precisely because she could not deny a word of it</a>; <a class="mem-link" href="../../memories/to-hear-the-unheard.html" data-mem="Dracaena Malfoy Memory: To Hear the Unheard" tabindex="0" role="link">and Dracaena, stripped of every defense, was left in pieces, certain now that she had nothing and no one &mdash; not Potter, not Ada, only two companions who weren&rsquo;t friends and a future with the Dark Lord&rsquo;s name already on it</a>. Harry walked away feeling he had won nothing at all. He had told the truth and watched it break her, and hated how little difference it made to which walls they stood on.</p>
+
+    <p>And yet the truth she couldn&rsquo;t shake did its slow work in her. When Umbridge&rsquo;s cruelty mounted at last past what even her fear could stomach, Dracaena broke her own silence. <a class="mem-link" href="../../memories/resistance-beneath.html" data-mem="Dracaena Malfoy Memory: Resistance Beneath" tabindex="0" role="link">She defied the woman openly &mdash; in front of the Squad, in front of the school &mdash; and very nearly paid for it, the full weight of the Ministry&rsquo;s pet tyrant turning on her: the first time in her life she had stood in the open against power and let it see her face</a>. It was the bravest thing she had ever done, and it cost her, and it was also the thing that carried her back. <a class="mem-link" href="../../memories/a-real-friend.html" data-mem="Dracaena Malfoy Memory: A Real Friend" tabindex="0" role="link">She went to Ada and made it right, and this time she did not hide it &mdash; she let the whole house see that the Malfoy girl&rsquo;s truest friend was a half-blood she refused to be ashamed of any longer, which lit a slow, ugly fury in Crabbe and Goyle, who had always assumed her theirs</a>. She could defy a tyrant in a cardigan now, and claim the friend she wanted in the open. She still could not defy the one in the graveyard &mdash; but she was becoming, piece by piece, someone who might one day try.</p>
+
+    <p>Denied any real defense by the Ministry, Harry&rsquo;s friends pushed him into teaching it himself, in secret &mdash; Dumbledore&rsquo;s Army, a roomful of students learning to fight because no adult would teach them to. It was the best thing in a bad year. It also drew Chao Zheng back into Harry&rsquo;s orbit &mdash; the infatuation of the year before long since faded to something distant and friendly. It ended in betrayal &mdash; the Army exposed, Dumbledore forced to flee the school to spare Harry the blame &mdash; but the betrayal was not what it looked like. Chao had not sold them. The truth had been dragged out of her under a potion that leaves no room to lie and no room to consent, poured down the throat of a frightened girl by people who called it due process. She was innocent, and the real crime was the one committed on her. Another evil, filed under procedure.</p>
+
+    <p>The year curdled toward its trap. Dumbledore kept his distance from Harry all through it &mdash; a coldness Harry read as rejection and that was, in truth, a mistake dressed as strategy, the headmaster trying to protect a boy from a connection to Voldemort&rsquo;s mind by withholding the very knowledge that might have let the boy guard it. The Occlumency lessons meant to close that connection, handed to a teacher who loathed Harry, only pried it wider. And through the open door Voldemort sent a lie: a vision of Sirius being tortured in the Department of Mysteries, where Harry&rsquo;s own prophecy lay waiting to be lifted off a shelf by the one it named.</p>
+
+    <p>Harry reached, too late and too desperately, for the one thing that might have spared him &mdash; but the gift that could have told him Sirius was safe at home sat wrapped and forgotten in the bottom of his trunk, a two-way mirror his godfather had pressed on him that he had never once thought to open. So he went to the Ministry instead, into the trap, with his friends beside him. The battle in the Department of Mysteries shattered the hall of Time-Turners into ruin &mdash; every one of them, the whole Ministry&rsquo;s hoard, unmade in a storm of breaking glass and spinning sand, as if the devices themselves refused to outlast the night. And it took Sirius. <a class="mem-link" href="../../memories/through-the-veil.html" data-mem="Harry Potter Memory: Through the Veil" tabindex="0" role="link">Struck by his own cousin&rsquo;s curse, the godfather Harry had had for two years and loved for a lifetime fell through a veil between living and dead, and did not come back, because nothing brings back the dead &mdash; not grief, not a Time-Turner, not all the magic in the world</a>. He was simply, finally, gone.</p>
+
+    <p>What came through the door behind the grief was the enemy entire. Voldemort himself arrived in the Ministry&rsquo;s own atrium, and Dumbledore met him, and for a few impossible minutes the whole lie the Ministry had built collapsed in the light of what the two of them could do &mdash; the Dark Lord reshaping fire and stone and the very air to his will, a power that bent the room around him like weather, terrible in a way the old stories had never quite dared say. He broke off and fled only when there was nothing left to gain, but he had been seen &mdash; by the Minister, by his people &mdash; standing in the heart of their government, alive. The denial was over. Fudge admitted, because he could no longer do anything else, that Voldemort had returned, and the war the Ministry had spent a year pretending away began in earnest, a year late and with its credibility in ashes.</p>
+
+    <p>In the wreckage <a class="mem-link" href="../../memories/destined-to-die.html" data-mem="Harry Potter Memory: Destined to Die" tabindex="0" role="link">Dumbledore finally told Harry the truth he had been spared and hadn&rsquo;t wanted: the prophecy that bound him and Voldemort together so that neither could truly live while the other survived &mdash; that it would come down, in the end, to the two of them</a>. And the old man owned his failure plainly, that he had loved Harry too much to burden him and in the loving had left him unguarded, a mistake that had helped cost Sirius his life. It was the first time Harry saw the mentor he trusted admit he had been wrong, and it did not make the grief smaller, but it made it honest.</p>
+
+    <p>There was one small mercy left, and it came from the most broken corner of the year. Sirius&rsquo;s death left his house, his name, and his servant to Harry &mdash; and Kreacher, who had helped lure Sirius to his death out of a lifetime&rsquo;s warped loyalty, was now Harry&rsquo;s to command. <a class="mem-link" href="../../memories/freedom-without-clause.html" data-mem="Harry Potter Memory: Freedom Without Clause" tabindex="0" role="link">Harry, hollow with grief and with every reason to hate the creature, did the thing Sirius never managed: he set the old elf free</a>. It was a small act and a costly one and it changed little that summer, but it was the shape of the person Harry was choosing to be while the adults around him chose otherwise &mdash; and, though no one in that house could have known it, the first stone of something that would not come due for years.</p>
+
+    <p>Harry went back to his aunt and uncle&rsquo;s with a dead godfather, a prophecy that named him the hinge of the war, and the cold comfort of finally being believed. He had lost the last person who felt like family, watched a government persecute the truth and torture children to protect a lie, and understood at last that the fight ahead would be his to carry whether the world helped him or not. And somewhere behind all of it, quieter and never resolved, was a girl on the wrong wall he could not stop wishing he could reach.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/something-deeper.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Something Deeper</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/do-something.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Do Something</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/to-speak-the-unspoken.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">To Speak the Unspoken</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/to-hear-the-unheard.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">To Hear the Unheard</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/resistance-beneath.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Resistance Beneath</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/a-real-friend.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">A Real Friend</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/through-the-veil.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Through the Veil</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/destined-to-die.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Destined to Die</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/freedom-without-clause.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Freedom Without Clause</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

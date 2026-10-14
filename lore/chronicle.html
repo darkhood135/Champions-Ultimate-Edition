@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Chronicle — Lore — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --panel-2:#191b20; --border:#2c3038;
+    --text:#f0f1f3; --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:960px; margin:0 auto; }
+
+  /* ---------- breadcrumb ---------- */
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 8px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- header ---------- */
+  .eyebrow { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:var(--lore); margin-bottom:12px; }
+  h1 { font-family:'Spectral',Georgia,serif; font-size:48px; font-weight:600; line-height:1;
+    margin-bottom:14px; }
+  .lead { font-size:15px; color:var(--muted); line-height:1.65; max-width:700px; margin-bottom:34px; }
+
+  /* ---------- era accordion (level 1) — themed by --ea ---------- */
+  .eras { display:grid; gap:14px; }
+  details { border:1px solid var(--border); border-radius:14px; background:var(--panel); overflow:hidden; }
+  summary { list-style:none; cursor:pointer; user-select:none; }
+  summary::-webkit-details-marker { display:none; }
+
+  .era { --ea:var(--lore); }
+  .era > summary {
+    display:flex; align-items:center; gap:16px;
+    padding:20px 22px; border-left:4px solid var(--ea);
+    transition:background .15s ease;
+  }
+  .era > summary:hover { background:var(--panel-2); }
+  .era-roman { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--ea); min-width:48px; }
+  .era-name { font-family:'Spectral',Georgia,serif; font-size:23px; font-weight:600; flex:1; color:var(--text); }
+  .era-tag { font-size:12px; color:var(--dim); font-style:italic; margin-right:8px; }
+  .chev { font-size:15px; transition:transform .25s ease; }
+  details[open] > summary .chev { transform:rotate(180deg); }
+  .era > summary .chev { color:var(--ea); }
+
+  .era-body { padding:6px 18px 20px 22px; }
+  .era-intro { font-size:13px; color:var(--muted); line-height:1.6; margin:8px 2px 16px; }
+
+  /* ---------- universe accordion (level 2) — themed by --fa, art fades right ---------- */
+  .uni { --fa:var(--lore); --fg:rgba(239,183,63,0.28); margin-bottom:11px; border-color:#30343c; }
+  .uni:last-child { margin-bottom:0; }
+  .uni > summary {
+    position:relative; overflow:hidden;
+    display:flex; align-items:center; gap:14px; padding:15px 18px;
+    border-left:3px solid var(--fa);
+  }
+  /* right-fading art layer — drop images/lore/banners/<slug>.jpg to fill the right side */
+  .uni-art {
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(90deg, var(--panel-2) 20%, rgba(25,27,32,0.62) 52%, rgba(25,27,32,0) 100%),
+      radial-gradient(130% 170% at 100% 50%, var(--fg) 0%, transparent 60%),
+      var(--art, none);
+    background-size: cover, cover, cover;
+    background-position: center, right center, right center;
+    background-repeat: no-repeat;
+    opacity:0.92; transition:opacity .2s ease;
+  }
+  .uni:hover .uni-art { opacity:1; }
+  .uni > summary > .logo-slot,
+  .uni > summary > .logo-note,
+  .uni > summary > .chev { position:relative; z-index:1; }
+
+  .logo-slot { flex:1; display:flex; align-items:center; }
+  .logo-img { max-height:30px; width:auto; display:block; }
+  .logo-text { font-family:'Spectral',Georgia,serif; font-size:18px; font-weight:600;
+    letter-spacing:0.5px; color:var(--fa); text-shadow:0 1px 6px rgba(0,0,0,0.7); }
+  .logo-note { font-size:9px; letter-spacing:1.3px; text-transform:uppercase; color:var(--dim);
+    opacity:0.55; margin-left:10px; align-self:center; text-shadow:0 1px 4px rgba(0,0,0,0.8); }
+  .uni > summary .chev { color:var(--fa); }
+
+  .uni-body { padding:6px 16px 15px; }
+  .uni-intro { font-size:12.5px; color:var(--muted); line-height:1.55; margin:8px 4px 12px; font-style:italic; }
+
+  /* ---------- arc rows (level 3, links) — inherit --fa ---------- */
+  .arc { display:flex; align-items:center; gap:14px; padding:12px 14px; border-radius:10px;
+    text-decoration:none; color:var(--text); border:1px solid transparent;
+    transition:background .15s ease, border-color .15s ease; }
+  .arc:hover { background:color-mix(in srgb, var(--fa) 14%, transparent);
+    border-color:color-mix(in srgb, var(--fa) 45%, transparent); }
+  .arc-thumb { width:46px; height:46px; border-radius:8px; flex-shrink:0;
+    background:linear-gradient(145deg,#2a2a2e 0%,#17181c 100%); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Spectral',serif; color:var(--fa); font-size:20px; }
+  .arc-meta { flex:1; }
+  .arc-title { font-size:15px; font-weight:600; color:var(--fa); }
+  .arc-sub { font-size:11.5px; color:var(--dim); margin-top:2px; }
+  .arc-go { color:var(--dim); font-size:16px; }
+  .arc:hover .arc-go { color:var(--fa); }
+
+  /* pending / empty rows */
+  .pending { display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:10px;
+    border:1px dashed #30343c; color:var(--dim); font-size:12.5px; font-style:italic; }
+  .pending .dot { color:#4f535c; }
+  .act-row { margin-bottom:9px; } .act-row:last-child { margin-bottom:0; }
+  .act-label { font-weight:700; font-style:normal; color:var(--muted); letter-spacing:0.5px; margin-right:4px; }
+
+  footer { text-align:center; margin-top:56px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:38px; } .era-name{ font-size:20px; } .era-tag{ display:none; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span><a href="../lore.html">Lore</a><span class="sep">/</span><span class="here">The Chronicle</span>
+  </div>
+
+  <div class="eyebrow">The Lore Archive</div>
+  <h1>The Chronicle</h1>
+  <p class="lead">The plot told as prose, unfolding across three eras. Open an era, then a universe, to find its arcs &mdash; and follow the inline threads into Memories, the fully-written scenes beneath the story.</p>
+
+  <div class="eras">
+
+    <!-- ============ ERA I — THE ARCHIVE ============ -->
+    <details class="era" open style="--ea:#efb73f;">
+      <summary>
+        <span class="era-roman">Era I</span>
+        <span class="era-name">The Archive</span>
+        <span class="era-tag">before the worlds touched</span>
+        <span class="chev">&#9660;</span>
+      </summary>
+      <div class="era-body">
+        <p class="era-intro">The ideal-canon backstories of these character versions, reshaped for this continuity. Organized by universe, then by the arc or work it belongs to.</p>
+
+        <!-- 1. Marvel -->
+        <details class="uni" style="--fa:#e23636; --fg:rgba(226,54,54,0.30); --art:url('../images/lore/banners/marvel.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/marvel.png" alt="Marvel"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Marvel</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The event arcs of Earth&rsquo;s mightiest &mdash; the stories that forged them.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 2. DC -->
+        <details class="uni" style="--fa:#2f9be0; --fg:rgba(47,155,224,0.30); --art:url('../images/lore/banners/dc.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/dc.png" alt="DC"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">DC</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The sagas of the Justice League and the worlds they guard.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 3. Dragon Ball -->
+        <details class="uni" style="--fa:#f7941d; --fg:rgba(247,148,29,0.30); --art:url('../images/lore/banners/dragon-ball.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/dragon-ball.png" alt="Dragon Ball"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Dragon Ball</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The Z Fighters and the threats that pushed them past their limits.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 4. Wizarding World (live arc) -->
+        <details class="uni" open style="--fa:#d8a93a; --fg:rgba(216,169,58,0.30); --art:url('../images/lore/banners/wizarding-world.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">The Wizarding World</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The seven-year arc of the castle &mdash; retold around the characters who carry it in this roster.</p>
+            <a class="arc" href="chronicle/archive/the-sorcerers-stone.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-sorcerers-stone-icon.jpg" alt="The Sorcerer's Stone">
+              <span class="arc-meta">
+                <span class="arc-title">The Sorcerer&rsquo;s Stone</span>
+                <span class="arc-sub">Year One &middot; 5 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-chamber-of-secrets.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-chamber-of-secrets-icon.jpg" alt="The Chamber of Secrets">
+              <span class="arc-meta">
+                <span class="arc-title">The Chamber of Secrets</span>
+                <span class="arc-sub">Year Two &middot; 7 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-prisoner-of-azkaban.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-prisoner-of-azkaban-icon.jpg" alt="The Prisoner of Azkaban">
+              <span class="arc-meta">
+                <span class="arc-title">The Prisoner of Azkaban</span>
+                <span class="arc-sub">Year Three &middot; 5 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-goblet-of-fire.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-goblet-of-fire-icon.jpg" alt="The Goblet of Fire">
+              <span class="arc-meta">
+                <span class="arc-title">The Goblet of Fire</span>
+                <span class="arc-sub">Year Four &middot; 17 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-order-of-the-phoenix.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-order-of-the-phoenix-icon.jpg" alt="The Order of the Phoenix">
+              <span class="arc-meta">
+                <span class="arc-title">The Order of the Phoenix</span>
+                <span class="arc-sub">Year Five &middot; 9 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-half-blood-prince.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-half-blood-prince-icon.jpg" alt="The Half-Blood Prince">
+              <span class="arc-meta">
+                <span class="arc-title">The Half-Blood Prince</span>
+                <span class="arc-sub">Year Six &middot; 13 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <a class="arc" href="chronicle/archive/the-deathly-hallows.html">
+              <img class="arc-thumb" src="../images/lore/icons/the-deathly-hallows-icon.jpg" alt="The Deathly Hallows">
+              <span class="arc-meta">
+                <span class="arc-title">The Deathly Hallows</span>
+                <span class="arc-sub">Year Seven &middot; 23 Memories</span>
+              </span>
+              <span class="arc-go">&rarr;</span>
+            </a>
+            <div class="pending"><span class="dot">&#9671;</span> The seven-book arc is complete &mdash; new chapters continue on.</div>
+          </div>
+        </details>
+
+        <!-- 5. The Legend of Zelda -->
+        <details class="uni" style="--fa:#3fae5a; --fg:rgba(63,174,90,0.30); --art:url('../images/lore/banners/the-legend-of-zelda.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/the-legend-of-zelda.png" alt="The Legend of Zelda"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">The Legend of Zelda</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The recurring cycle of courage, wisdom, and power across Hyrule.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 6. Sonic The Hedgehog -->
+        <details class="uni" style="--fa:#3b63e0; --fg:rgba(59,99,224,0.30); --art:url('../images/lore/banners/sonic-the-hedgehog.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/sonic-the-hedgehog.png" alt="Sonic The Hedgehog"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Sonic The Hedgehog</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">High-speed clashes against the doctor&rsquo;s ever-turning machine.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 7. Resident Evil -->
+        <details class="uni" style="--fa:#8bc53f; --fg:rgba(139,197,63,0.30); --art:url('../images/lore/banners/resident-evil.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/resident-evil.png" alt="Resident Evil"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Resident Evil</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">Outbreaks, conspiracies, and survival against the engineered dead.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 8. Halo -->
+        <details class="uni" style="--fa:#33b7c9; --fg:rgba(51,183,201,0.30); --art:url('../images/lore/banners/halo.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/halo.png" alt="Halo"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Halo</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">Humanity&rsquo;s last stand across the ring-worlds and the stars beyond.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+        <!-- 9. Mouthwashing -->
+        <details class="uni" style="--fa:#c75d82; --fg:rgba(199,93,130,0.30); --art:url('../images/lore/banners/mouthwashing.jpg');">
+          <summary>
+            <span class="uni-art"></span>
+            <span class="logo-slot">
+              <img class="logo-img" src="../images/lore/logos/mouthwashing.png" alt="Mouthwashing"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="logo-text" style="display:none;">Mouthwashing</span>
+            </span>
+            <span class="logo-note">logo slot</span>
+            <span class="chev">&#9660;</span>
+          </summary>
+          <div class="uni-body">
+            <p class="uni-intro">The slow wreck of a freight hauler and the crew aboard it.</p>
+            <div class="pending"><span class="dot">&#9671;</span> Arcs are being written.</div>
+          </div>
+        </details>
+
+      </div>
+    </details>
+
+    <!-- ============ ERA II — THE CATACLYSM ============ -->
+    <details class="era" style="--ea:#e0583a;">
+      <summary>
+        <span class="era-roman">Era II</span>
+        <span class="era-name">The Cataclysm</span>
+        <span class="era-tag">the worlds collide</span>
+        <span class="chev">&#9660;</span>
+      </summary>
+      <div class="era-body">
+        <p class="era-intro">The main plot &mdash; realities bleeding together and the multiverse coming apart. Told in three Acts.</p>
+        <div class="pending act-row"><span class="act-label">Act I</span> &mdash; being written.</div>
+        <div class="pending act-row"><span class="act-label">Act II</span> &mdash; being written.</div>
+        <div class="pending act-row"><span class="act-label">Act III</span> &mdash; being written.</div>
+      </div>
+    </details>
+
+    <!-- ============ ERA III — THE UNION ============ -->
+    <details class="era" style="--ea:#3fb0a0;">
+      <summary>
+        <span class="era-roman">Era III</span>
+        <span class="era-name">The Union</span>
+        <span class="era-tag">one world, after</span>
+        <span class="chev">&#9660;</span>
+      </summary>
+      <div class="era-body">
+        <p class="era-intro">The aftermath &mdash; the worlds resolved into one. Told in further Acts. The standing <em>rules</em> of the merged reality live in the Codex under Systems &amp; Concepts; the <em>events</em> live here.</p>
+        <div class="pending act-row"><span class="act-label">Act IV</span> &mdash; being written.</div>
+        <div class="pending act-row"><span class="act-label">Act V</span> &mdash; being written.</div>
+      </div>
+    </details>
+
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle</footer>
+
+</div>
+</body>
+</html>

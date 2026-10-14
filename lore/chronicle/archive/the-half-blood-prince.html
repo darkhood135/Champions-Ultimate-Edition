@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Half-Blood Prince — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Half-Blood Prince</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-half-blood-prince.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year Six</span>
+      </div>
+      <h1>The Half-Blood Prince</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">The war the Ministry had denied for a year was a war in the open now, and the world had changed its weather to match. People vanished; the Dark Mark hung over houses; the safe old castle felt, for the first time, like a place with a front line running through it. Dumbledore came for Harry himself that summer, and spent the months that followed doing something no adult had done before &mdash; taking him into his confidence, walking him back through the memories of the boy Tom Riddle had been, teaching him how the enemy had made himself. For Voldemort had not simply cheated death; he had torn his own soul into pieces and hidden them, so that while even one remained, he could not die. It was a monstrous act of arrogance, a man so certain of his own cunning that he never imagined the pieces could be found &mdash; and finding and destroying them, Dumbledore told Harry, would be the work that won or lost the war. The crucial piece of understanding lay locked in the memory of a teacher, Horace Slughorn, too ashamed of what he had once told the boy Riddle to give it up; Harry drew it out of him in the end only with a mouthful of liquid luck &mdash; the kind of fortune that always comes borrowed against a later cost.</p>
+
+    <p>There was another family paying for the Ministry&rsquo;s long denial, though Harry did not yet understand how. Lucius Malfoy had been among the masked who were caught at last in the Department of Mysteries, and he had gone to Azkaban for it, and the Dark Lord did not forgive failure. The punishment he laid on the Malfoys was not death. It was their daughter. <a class="mem-link" href="../../memories/the-dark-lords-order.html" data-mem="Dracaena Malfoy Memory: The Dark Lord&rsquo;s Order" tabindex="0" role="link">Brought before the Dark Lord himself &mdash; a presence vast and god-like in that room, the air bending around him &mdash; Dracaena bowed, and was made to take up the task no sixteen-year-old could be meant to survive: to smuggle the Death Eaters into Hogwarts through a broken Vanishing Cabinet she would mend in secret, and to murder Dumbledore herself, her parents&rsquo; lives and her own hung on the doing of it</a>. Both of them loved her; that was the cruelty of it. Lucius and Narcissa Malfoy were poison to the whole world and tender only toward their daughter, and Voldemort had found the one lever that would move a girl who would never have killed for a cause: he had made it the price of the two people she could not bear to lose.</p>
+
+    <p>She carried that sentence onto the train, and for once she did not sneer. <a class="mem-link" href="../../memories/your-heart.html" data-mem="Dracaena Malfoy Memory: Your Heart" tabindex="0" role="link">She found Harry alone and said, at length and quietly, everything she had never let herself say &mdash; a warning wrapped around a confession, that he should keep away from her and from all of it, that there were things coming she could not stop and could not explain, that whatever might have been between them belonged to a future neither of them would be allowed to have; then she froze him where he sat and left him there</a>. <a class="mem-link" href="../../memories/your-soul.html" data-mem="Harry Potter Memory: Your Soul" tabindex="0" role="link">The stillness she left behind was worse than any curse she had ever thrown</a>.</p>
+
+    <p>Harry spent the whole year certain she was up to something terrible, and he was right, and it did him no good at all. Everyone he told had the same gentle, maddening answer ready: that he was obsessed with Dracaena Malfoy because of what had happened between them at the Yule Ball two years before, that his suspicion was a lovesick boy inventing reasons to watch a girl he couldn&rsquo;t stop watching. There was enough truth in it to make it unanswerable. He <em>couldn&rsquo;t</em> stop watching her &mdash; and he was also simply correct &mdash; and no one would separate the two things, least of all Harry himself. He tracked her on his father&rsquo;s old map and lost her again and again to a room the map could not show and a door that was not always there, and the losing only sharpened the certainty and the ache together.</p>
+
+    <p>The one person who might have reached her was the one she would not endanger. Her friendship with Ada Khumalo had come into the open the year before, and Ada loved her plainly and asked nothing of her &mdash; and <a class="mem-link" href="../../memories/distant-again.html" data-mem="Dracaena Malfoy Memory: Distant Again" tabindex="0" role="link">watched, that year, as Dracaena came apart at the seams, grey and sleepless and flinching at shadows &mdash; and tried, gently and stubbornly, to reach whatever was wrong, never understanding why her friend would not let her in, because Dracaena would sooner have died than told her</a>. To tell Ada was to put Ada in the path of it. So she lied, and pushed her away in small ways, and carried the whole weight alone, and Ada kept on loving her anyway, which was the hardest part.</p>
+
+    <p>The attempts, when she nerved herself to them, were as desperate and as botched as a frightened girl&rsquo;s would be. A cursed necklace meant for Dumbledore struck a student who had no part in any of it and nearly killed her. <a class="mem-link" href="../../memories/nearly-lost.html" data-mem="Harry Potter Memory: Nearly Lost" tabindex="0" role="link">A bottle of poisoned mead meant for the headmaster was poured, by chance, for Ron Weasley, who came within a breath of dying on the floor of a teacher&rsquo;s office while his friends watched</a>. Dracaena was no assassin. She was a child being made to play one, failing at it, and maiming bystanders in the failing, and hating herself more with each one. The terror in her was not of being caught. It was of what she was becoming, and of what would happen to her mother and father if she stopped. <a class="mem-link" href="../../memories/with-love.html" data-mem="Dracaena Malfoy Memory: With Love" tabindex="0" role="link">And in the thick of it a letter reached her from her mother &mdash; not one word of the task in it, nothing of the Dark Lord or the mission, only love: the plain, fierce, private tenderness of a woman who was poison to all the world and gentle to her daughter alone, the single warmth Dracaena had to hold against everything she was being made to do</a>.</p>
+
+    <p>Harry, meanwhile, had fallen into a dangerous intimacy of his own &mdash; with a book. <a class="mem-link" href="../../memories/tactical-risks.html" data-mem="Harry Potter Memory: Tactical Risks" tabindex="0" role="link">An old potions text scrawled over in the hand of someone who called himself the Half-Blood Prince made him, overnight, the best brewer in his year and fed him clever, nameless spells; he told himself he kept it because its secrets might give him some edge against Voldemort when the time came, and so he used them without once asking what they did</a>. One of them was named Sectumsempra, and he met it the worst possible way.</p>
+
+    <p>He cornered her at last in a washroom, both of them already frayed past bearing &mdash; she weeping, cracked wide open, and when she spun on him she began a curse. Harry threw the first spell his panicking mind reached for, the Prince&rsquo;s word, not knowing it opened a body like a blade. It tore her nearly to pieces. And in the half-second after, every scrap of the suspicion that had driven him all year burned away and left only horror. <a class="mem-link" href="../../memories/endless-apologies.html" data-mem="Harry Potter Memory: Endless Apologies" tabindex="0" role="link">He went down onto the wet floor and gathered her up and held her as the blood came, saying every apology he had in him, over and over, useless and frantic</a> &mdash; <a class="mem-link" href="../../memories/faint-apology.html" data-mem="Dracaena Malfoy Memory: Faint Apology" tabindex="0" role="link">and she, impossibly, was apologizing too, the two of them wrecked and sorry and finally, catastrophically, honest</a>. It was the most desperate Harry Potter would ever be. When Snape burst in and found them like that, something in the sight stopped even him &mdash; a boy destroyed by what he&rsquo;d done to a dying girl, grief so total it reached the buried place in Snape that had once loved a woman and lost her the same way &mdash; and he knelt and sang the wounds closed and saved her life. <a class="mem-link" href="../../memories/turning-the-page.html" data-mem="Harry Potter Memory: Turning the Page" tabindex="0" role="link">Harry went to the hospital wing after, when she was out of danger, and stood over the bed he had nearly made her deathbed; and understanding that whatever she was and whichever side she stood on, he had almost killed her with a spell he&rsquo;d been too careless to question, he took the Half-Blood Prince&rsquo;s book and burned it himself, every clever poisoned page</a>. The suspicion was over. What replaced it was worse to carry, because it had nowhere to go.</p>
+
+    <p>The war would not wait for either of them to recover. Dumbledore, sure he had located one of the hidden soul-pieces, took Harry with him to a cave at the edge of the sea and drank, to reach it, a potion built to break a person &mdash; and came back barely alive, with a locket that proved, when they opened it later, a fake: already stolen and swapped by someone who had signed only the initials R.A.B., and whose quiet rebellion traced back through an old pure-blood family and the house-elf who had loved its lost son. They returned to a castle with the Dark Mark burning over it. The Cabinet was mended. <a class="mem-link" href="../../memories/open-the-gates.html" data-mem="Dracaena Malfoy Memory: Open the Gates" tabindex="0" role="link">Dracaena had let them in</a>.</p>
+
+    <p>The night came apart in fire and screaming. Death Eaters poured through the broken Cabinet into the school, and in the fighting that spilled through the corridors, Ada Khumalo was killed &mdash; cut down by one of the men Dracaena&rsquo;s own hands had let inside, the one person she had tried hardest to keep clear of it dead by the exact door she had opened. Dracaena saw it happen. And then <a class="mem-link" href="../../memories/your-fault.html" data-mem="Dracaena Malfoy Memory: Your Fault" tabindex="0" role="link">she was made to walk out through the ruin beside the one who had done it, and say nothing, and keep walking, her friend&rsquo;s killer at her shoulder and her friend&rsquo;s blood on the stones behind her &mdash; and never, ever, had she told Ada the truth; something in her finished dying on those stairs</a>.</p>
+
+    <p>So that when she reached the top of the Tower and found Dumbledore there, wandless and failing and waiting for her, she could not do it. She raised her wand and the old man spoke to her gently, and she stood there with the whole weight of everything she had done pressing down &mdash; the necklace, the mead, the open door, the girl on the stones &mdash; and found she could not add one more sin to the pile, could not kill a defenseless man to save even the parents she loved. She did not disarm him. She simply let her own wand fall from her hand, defeated, emptied out, a girl with nothing left to give the people who had made her do this. And into that collapse came Snape, bound by a vow Narcissa had made out of a mother&rsquo;s love &mdash; to finish the task if her daughter could not &mdash; and he did the thing Dracaena could not, and Dumbledore fell from the Tower, dead.</p>
+
+    <p>Harry had watched the end of it frozen and hidden, unable to move or speak. When the spell broke and the Death Eaters fled, <a class="mem-link" href="../../memories/unbroken.html" data-mem="Harry Potter Memory: Unbroken" tabindex="0" role="link">he went after them, and for one moment he and Dracaena were close enough to touch, and he reached for her &mdash; a hand out, an offer, <em>come with me, don&rsquo;t go</em> in the gesture he couldn&rsquo;t put into words; she looked at it, and at him, and her face, not her mouth, gave the answer: a grief so deep it had no bottom, and a refusal, because there was nowhere for her to go and nothing left of her to save and a mother and father whose lives still hung on her staying; she turned and went with the others into the dark</a>.</p>
+
+    <p>It should have broken him. Instead, standing over Dumbledore&rsquo;s body with the war&rsquo;s whole weight settling onto his shoulders, it set something in him like stone. She could be saved. They all could &mdash; Dracaena, and the castle, and the world the Ministry had failed and the Dark Lord meant to swallow. He would find the pieces of Voldemort&rsquo;s soul and destroy them and end him, whatever it cost, and he would pull her off the wall she was trapped on if she would let him &mdash; and stop her, if it came to that, if she would not. He loved her; he would not say it; and he meant to win anyway. Dumbledore was dead, and Snape was gone, and the school would not reopen as it had been, and Harry Potter left it that summer no longer a student but a hunter, with a girl&rsquo;s refusing face fixed in him beside the old man&rsquo;s falling one, and a resolve that the next time they met it would be on the far side of a war he intended to win.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/the-dark-lords-order.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">The Dark Lord&rsquo;s Order</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/your-heart.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Your Heart</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/your-soul.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Your Soul</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/distant-again.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Distant Again</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/nearly-lost.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Nearly Lost</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/with-love.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">With Love</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/tactical-risks.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Tactical Risks</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/endless-apologies.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Endless Apologies</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/faint-apology.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Faint Apology</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/turning-the-page.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Turning the Page</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/open-the-gates.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Open the Gates</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/your-fault.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Your Fault</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/unbroken.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">Unbroken</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

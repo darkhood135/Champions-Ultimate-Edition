@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prisoner of Azkaban — The Chronicle — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3;
+    --muted:#c5c8d0; --dim:#6b7280;
+    --lore:#efb73f; --lore-bright:#f6cf6a; --lore-deep:rgba(239,183,63,0.14);
+    --mem:#7cc0ff;              /* Memory inline-link accent */
+    --mem-deep:rgba(124,192,255,0.16);
+  }
+  body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
+  .container { max-width:820px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--lore-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+
+  /* ---------- banner ---------- */
+  .banner {
+    position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:240px; margin-bottom:22px; display:flex; align-items:flex-end;
+  }
+  .banner-fallback {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 100% at 15% 0%, rgba(239,183,63,0.22) 0%, transparent 55%),
+      linear-gradient(160deg,#241f12 0%,#121318 100%);
+  }
+  .banner-img { position:absolute; inset:0; background-size:cover; background-position:center; z-index:0; }
+  .banner-overlay { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.2) 0%, rgba(13,14,17,0.55) 60%, rgba(13,14,17,0.96) 100%); }
+  .banner-label { position:absolute; top:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .banner-content { position:relative; z-index:2; padding:26px 30px; width:100%; }
+
+  /* franchise logo slot in-page */
+  .arc-logo { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .arc-logo img { max-height:24px; width:auto; }
+  .arc-logo .fallback { display:none; font-family:'Spectral',serif; font-size:13px; font-weight:600;
+    letter-spacing:1px; color:var(--lore); text-transform:uppercase; }
+  .era-pill { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lore); background:var(--lore-deep); border:1px solid rgba(239,183,63,0.35);
+    padding:3px 10px; border-radius:999px; }
+
+  h1 { font-family:'Spectral',Georgia,serif; font-size:44px; font-weight:600; line-height:1.05;
+    text-shadow:0 2px 14px rgba(0,0,0,0.8); }
+
+  /* ---------- spine prose ---------- */
+  .spine { margin-top:8px; }
+  .spine .kicker { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--dim); margin-bottom:18px; }
+  .spine p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.72;
+    color:#dfe2e8; margin-bottom:20px; }
+  .spine p.first::first-letter {
+    font-size:52px; font-weight:600; float:left; line-height:0.82; padding:6px 10px 0 0; color:var(--lore);
+  }
+
+  /* ---------- inline MEMORY link + tooltip (reusable) ---------- */
+  .mem-link {
+    position:relative; color:var(--mem); text-decoration:none; font-weight:600;
+    background:var(--mem-deep); border-bottom:1px solid rgba(124,192,255,0.5);
+    padding:0 3px; border-radius:3px; cursor:pointer; outline:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .mem-link:hover, .mem-link:focus-visible, .mem-link.is-open { background:rgba(124,192,255,0.28); color:#a9d6ff; }
+  .mem-link::after {
+    content:"\25C8  " attr(data-mem);
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    white-space:nowrap; font-family:'Inter',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:#eaf4ff; background:#1a2634; border:1px solid rgba(124,192,255,0.5);
+    padding:7px 12px; border-radius:8px; box-shadow:0 8px 22px rgba(0,0,0,0.6);
+    opacity:0; pointer-events:none; transition:opacity .15s ease, transform .15s ease; z-index:20;
+  }
+  .mem-link::before {
+    content:""; position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%) translateY(4px);
+    border:6px solid transparent; border-top-color:#1a2634; opacity:0; transition:opacity .15s ease, transform .15s ease; z-index:21;
+  }
+  .mem-link:hover::after, .mem-link:focus-visible::after, .mem-link.is-open::after,
+  .mem-link:hover::before, .mem-link:focus-visible::before, .mem-link.is-open::before {
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- memories-in-arc footer ---------- */
+  .mem-index { margin-top:40px; padding:20px 22px; border-radius:14px;
+    background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); }
+  .mem-index h3 { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--mem); margin-bottom:14px; }
+  .mem-row { display:flex; align-items:center; gap:13px; padding:10px 12px; border-radius:10px;
+    text-decoration:none; color:var(--text); transition:background .15s ease; }
+  .mem-row:hover { background:rgba(124,192,255,0.12); }
+  .mem-portrait { width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:2px solid var(--mem); flex-shrink:0; }
+  .mem-row .t { font-size:14.5px; font-weight:600; }
+  .mem-row .s { font-size:11.5px; color:var(--dim); margin-top:1px; }
+  .mem-row .s b { color:var(--mem); font-weight:600; }
+
+  .placeholder-note { margin-top:34px; padding:14px 18px; border-radius:12px;
+    background:var(--lore-deep); border:1px solid rgba(239,183,63,0.3);
+    font-family:'Inter',sans-serif; font-size:12.5px; color:var(--muted); line-height:1.55; }
+  .placeholder-note strong { color:var(--lore-bright); font-weight:600; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border);
+    color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:640px){ h1{ font-size:34px; } .spine p{ font-size:16px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="crumbs">
+    <a href="../../../index.html">Home</a><span class="sep">/</span><a href="../../../lore.html">Lore</a><span class="sep">/</span><a href="../../chronicle.html">The Chronicle</a><span class="sep">/</span>The Archive<span class="sep">/</span>The Wizarding World<span class="sep">/</span><span class="here">The Prisoner of Azkaban</span>
+  </div>
+
+  <!-- ---------- banner ---------- -->
+  <div class="banner">
+    <div class="banner-fallback"></div>
+    <div class="banner-img" style="background-image:url('../../../images/lore/banners/the-prisoner-of-azkaban.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <div class="arc-logo">
+        <img src="../../../images/lore/logos/wizarding-world.png" alt="The Wizarding World"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="fallback">The Wizarding World</span>
+        <span class="era-pill">Archive &middot; Year Three</span>
+      </div>
+      <h1>The Prisoner of Azkaban</h1>
+    </div>
+  </div>
+
+  <!-- ---------- spine prose ---------- -->
+  <div class="spine">
+
+    <p class="first">Harry Potter spent the summer before his third year the way he spent all his summers &mdash; counting the days until he could leave. But the house on Privet Drive had grown tense in a new way that year, because the wizarding world beyond it had a fresh fear running through it, and even the Muggle news seemed to carry the edge of it without knowing why. A man had done the impossible and escaped from Azkaban, the fortress-prison of the magical world, and the whispered word was that he was coming for Harry.</p>
+
+    <p>The break came early and badly. Pushed past his patience by a visiting aunt whose cruelty ran to his dead parents, Harry lost his grip on his temper and his magic at once, and the woman swelled like a balloon and drifted off across the garden. He fled into the night certain he had ruined himself &mdash; only to find, when the Ministry caught up with him, not an expulsion but a nervous, almost grovelling leniency. The magic that marks an underage wizard registers <em>that</em> spells were cast and roughly <em>where</em>, but never <em>who</em> holds the wand; and with a murderer loose and the public frightened, the Minister himself was far more interested in knowing Harry was alive and off the streets than in punishing a boy for a bout of accidental magic. That the same Ministry had threatened him with expulsion the year before, for magic he hadn&rsquo;t even performed, was a contradiction nobody in authority seemed eager to examine. It would not be the last time that year the Ministry&rsquo;s convenience wore the mask of its judgment.</p>
+
+    <p>Harry saw out the rest of the summer at the inn where wizards gathered in secret, free and almost happy, and there caught the shape of the thing the adults kept trying not to say in front of him: that the escaped man, Sirius Black, had been a servant of the dark wizard who killed Harry&rsquo;s parents, that he was believed to have sold them to their deaths, and that he had broken out of an inescapable prison with, it seemed, a single purpose &mdash; to finish what his master had started. What none of them told Harry, because the story had hardened into fact long before anyone thought to question it, was that Black had been thrown into Azkaban in the chaos of the war without ever being given a trial. A frightened government, desperate to show it was winning, had buried a man on the strength of what everybody already believed. The injustice of it sat quietly under the whole year, waiting.</p>
+
+    <p>The journey back to school carried the new dread aboard with it. The train was stopped and boarded by one of the Dementors &mdash; the hooded, soul-chilling creatures that guarded Azkaban, and that the Ministry had now stationed around Hogwarts itself to hunt Black, over the strong and overruled objection of the headmaster, who wanted them nowhere near children. Where a Dementor passes, warmth and hope drain out of the air, and the worst memory a person carries rises up to drown everything else. The creature affected Harry worse than anyone: he collapsed, hearing, somewhere far away, a woman screaming. A tired, shabby new teacher named Remus Lupin drove the thing off and, kindly, gave Harry chocolate and said nothing about the fainting. It was the first of several times that year the world would turn out to be gentler, and truer, than its reputation.</p>
+
+    <p>Lupin proved the best teacher Harry had ever had, and in time something more &mdash; a last living link to his father&rsquo;s generation. In class he taught the students to face a shapeshifting creature that becomes each person&rsquo;s worst fear; privately, when Harry asked, he began to teach him the one defense that works against a Dementor, a difficult charm that calls up a guardian made of pure happiness. Harry&rsquo;s reason for needing it was not pride but grief: the memory the Dementors dredged up in him was the sound of his own mother dying to save him, and he would rather relive it a hundred times in practice than be felled by it when it mattered.</p>
+
+    <p>Not every shadow that year was supernatural. A new round of classes brought Divination, and a teacher forever predicting Harry&rsquo;s death, and &mdash; far happier &mdash; Hagrid&rsquo;s first day as a teacher in his own right, promoted to care for the castle&rsquo;s magical creatures. He opened, nervous and proud, with a Hippogriff: a proud, eagle-headed beast that demanded courtesy and returned it, and that took to Harry at once. The lesson should have been Hagrid&rsquo;s triumph. Instead it became the first turn of a wheel that would nearly cost an innocent creature its life &mdash; because <a class="mem-link" href="../../memories/wounded-animal.html" data-mem="Dracaena Malfoy Memory: Wounded Animal" tabindex="0" role="link">Dracaena Malfoy, careless and showing off, insulted the Hippogriff to its face, and it opened her arm for the discourtesy</a>. The wound was real but shallow. What made it dangerous was everything that came after.</p>
+
+    <p>Her reaction was pure theatre &mdash; the wailing, the swooning, the demand to be carried &mdash; and to anyone watching it looked like a spoiled girl milking a scratch to ruin a man she disliked. Harry, who had by now spent two years learning to read her, saw it a little differently: she was genuinely dramatic, genuinely frightened of her own blood, and had not for a moment meant for the animal to be harmed, let alone destroyed. The malice came later, and it did not come from her. It came from her father. Lucius Malfoy took his daughter&rsquo;s injury, and the reputation of a man he already despised, and went to work through the Ministry&rsquo;s creature-disposal office, and before long a date was set for the Hippogriff to be put to death. Dracaena spent the weeks that followed visibly wretched about it &mdash; because she knew, better than anyone, that the beast had done nothing a beast shouldn&rsquo;t, and that the whole machinery grinding toward its execution had been set in motion by her and seized upon by her father. It was the first time Harry watched her be ashamed of something her family&rsquo;s name was doing in her name.</p>
+
+    <p>Meanwhile the castle lived under siege from a danger it couldn&rsquo;t see. Sirius Black got <em>inside</em> &mdash; twice: once slashing his way through the portrait that guarded the Gryffindor common room, once standing over the beds of the sleeping boys before he fled. The school tightened like a fist. And through it all Harry kept being told, by everyone who thought they were protecting him, that the safest thing was to stay inside the walls and let the adults handle it.</p>
+
+    <p>He didn&rsquo;t, of course. His father&rsquo;s old friends had left him two inheritances that year. One was the invisibility cloak he already owned. The other arrived courtesy of the Weasley twins: an old piece of enchanted parchment, the Marauder&rsquo;s Map, that showed the castle&rsquo;s secret passages and the moving dot of every person within its walls. The map surfaced only what mattered to the one who held it, never every name at once. A boy using it to slip down to the village saw the corridors he needed and the teachers he had to dodge; no one who pored over it ever had cause to notice the name of a man long believed dead, asleep in a dormitory night after night, year upon year. And so the traitor passed unseen in plain sight &mdash; hidden not by any flaw in the parchment, but by the plain fact that no one had ever thought to look for him.</p>
+
+    <p>The question Harry was asking was how to get to the village of Hogsmeade, which he&rsquo;d been forbidden to visit. Through the map and the cloak he managed it &mdash; and it was there, invisible and emboldened and briefly no better than the people he looked down on, that Harry did the one thing that year he would be ashamed of. Catching sight of Dracaena tormenting Ron in the lane, he lost his own sense of fairness for a moment and flung a fistful of cold mud at her out of nowhere. <a class="mem-link" href="../../memories/a-moment-of-clarity.html" data-mem="Harry Potter Memory: A Moment of Clarity" tabindex="0" role="link">It was petty, it was anonymous, and it worked &mdash; she fled the lane humiliated and in tears, with no idea who or what had done it &mdash; and Harry&rsquo;s satisfaction curdled into shame almost before she was out of sight</a>. What he did next was the part that mattered, and the part that made him different from the version of himself he&rsquo;d just been: he went after her, alone, dropped the cloak, and apologized &mdash; a real apology, graceless and sincere, the first genuinely honest moment the two of them had ever shared. Neither of them quite knew what to do with it. But it stayed with both of them.</p>
+
+    <p>Winter deepened the dangers and the ordinary dramas alike. An unsigned, extravagant broomstick arrived for Harry at Christmas; Hermione, fearing it was a gift from Black meant to kill him, reported it to be stripped and checked, and the fight that started over the broom widened into a bitter cold war between her and Ron over her cat&rsquo;s apparent hunting of his ailing pet rat. The friendship Harry depended on most frayed from both ends while he stood uselessly in the middle. And Buckbeak&rsquo;s appeal &mdash; Hagrid&rsquo;s desperate, clumsy defense of the Hippogriff &mdash; was lost before it began, the hearing stacked by the quiet pressure of Lucius Malfoy&rsquo;s money and name. A second date was set. This time it would hold.</p>
+
+    <p>It was in the thick of that grief, down at Hagrid&rsquo;s hut and up in the grounds, that the rivalry between Harry and Dracaena took its sharpest turn. Cornered by the trio over the lost appeal, smug on the surface the way her father had taught her to be when she was frightened underneath, Dracaena pushed Hermione one word too far &mdash; and Hermione, months of fury behind the blow, drew back and struck her across the face. <a class="mem-link" href="../../memories/a-step-too-far.html" data-mem="Harry Potter Memory: A Step Too Far" tabindex="0" role="link">Dracaena reeled, and Ron howled with laughter, and Hermione stood there shaking with the thrill of it &mdash; and Harry didn&rsquo;t laugh</a>. He couldn&rsquo;t. He had seen her at the mud, and after the mud; he had watched her be sick about the very creature she was pretending not to care about; and he found, to his own confusion, that he had no appetite for watching her get hit. <a class="mem-link" href="../../memories/muted-betrayal.html" data-mem="Hermione Granger Memory: Muted Betrayal" tabindex="0" role="link">When Ron kept the joke running at her expense and caught the look on Harry&rsquo;s face, both his friends turned on him in plain astonishment &mdash; <em>since when do you care what happens to Malfoy?</em> &mdash; and the three of them had, for the first time, a real argument that wasn&rsquo;t about Black or the cat or the broom, but about her.</a> Harry couldn&rsquo;t fully explain it even to himself. He only knew that cruelty aimed at someone already brought low was still cruelty, and that it didn&rsquo;t sit any cleaner on his friends than it did on hers. It was not affection &mdash; not yet, not that he&rsquo;d have admitted. It was the stubborn, inconvenient fairness that made him who he was, pointed for once at the person it was least convenient to point it at. The three split apart for a day or two, stiff and sore about it. <a class="mem-link" href="../../memories/chosen-for-a-reason.html" data-mem="Ron Weasley Memory: Chosen for a Reason" tabindex="0" role="link">It was Ron who closed the distance first, finding Harry alone in the common room one evening; and in the talking-out that followed, something shifted in him &mdash; he saw that what had stopped Harry laughing was not softness but heart, the kind he and Hermione might do well to learn from</a>. The rift closed over. But it had opened, and it would not fully close again.</p>
+
+    <p>The old antagonism had not vanished. Earlier that season Dracaena and her two shadows had tried to sabotage a Quidditch match by draping themselves in black robes to mimic the Dementors and spook Harry off his broom mid-game &mdash; a nasty, childish stunt that Harry answered by blasting them flat with the very charm he had been practising, and that earned the three of them a humiliating dressing-down from Professor McGonagall. She was still, that year, perfectly capable of being a petty rival. What had changed lay in Harry: he had begun, quietly, to tell the difference between her pettiness and real malice &mdash; and to notice how rarely, when it truly counted, she chose the malice.</p>
+
+    <p>The year&rsquo;s true reckoning came on the evening of Buckbeak&rsquo;s execution. The trio slipped down to sit with Hagrid in his grief, and in the hut Ron&rsquo;s long-sick rat suddenly went wild in his pocket &mdash; and then everything long buried broke loose at once. A great black dog seized Ron and dragged him, and his rat, through the roots of the Whomping Willow into a derelict house the villagers called haunted. Harry and Hermione followed, and in that ruined room every reputation the year had rested on turned inside out. The dog was Sirius Black, and Black was an Animagus, and Black was innocent. The man the whole world believed had betrayed the Potters had done no such thing &mdash; he had been their fiercest friend. The true betrayer was the rat: Peter Pettigrew, a fourth friend of Harry&rsquo;s father long thought dead a hero, who had been the family&rsquo;s secret-keeper, had sold them to their killer to save his own skin, and had faked his own murder and framed Sirius for it before vanishing, for twelve years, in the shape of a Weasley boy&rsquo;s pet. Lupin, arriving, completed the picture &mdash; werewolf, Marauder, the last of the four friends who had made the map as schoolboys &mdash; and vouched for every word.</p>
+
+    <p>Everything the long year had circled stood together in that one ruined room. A man judged a monster for a reputation that was a lie. A teacher feared for a condition he could not help and had spent his life managing with more decency than the people who feared him. A traitor who had walked free for over a decade on the strength of being trusted &mdash; as safe inside his good name as Sirius had been doomed inside his bad one. Each had been measured not by what he had done but by what the world had decided to believe about him, and in that room not one of those judgments had been just.</p>
+
+    <p>It nearly came apart at the last. The moon rose before Pettigrew could be marched up to the castle and made to confess; Lupin, un-medicated that night, transformed into the wolf; in the chaos the rat slipped free and was gone, and with him the only proof of Sirius&rsquo;s innocence. Worse, the Dementors closed in on the lake, drawn to the broken, defenseless men, and began to carry out the sentence the Ministry had hungered for all year &mdash; the Kiss, which does not kill the body but devours the soul. Harry, failing, saw across the water a great silver stag drive the creatures back and save them all, and believed for one impossible moment that his dead father had come. Sirius was taken anyway, hauled back to the castle to be given to the Dementors by morning. There had been a truth, and it had been spoken, and it hadn&rsquo;t been enough. The system that had failed Sirius once was about to do it again, and faster.</p>
+
+    <p>What saved him was the one instrument in the whole story that cannot be used for a selfish or a wicked end. Hermione had spent the year quietly carrying a Time-Turner, lent to her under the strictest Ministry control for an innocent and almost comically small purpose &mdash; to sit two lessons at once. The device is no ordinary clock. It has a will of its own and a conscience behind it: it turns only for a pure intention, only to undo an injustice caught in the act, and it answers the question of <em>who</em> is asking as much as <em>what</em> they ask. It reaches a few hours at most, acts on one living thing at a time, must be close enough to touch what it means to save, and &mdash; this above all &mdash; it cannot bring back the dead. Once a soul is lost, it stays lost, to the Time-Turner as to everything else. It turned for Harry and Hermione that night for the only reason it turns at all: they meant to save a creature condemned for being what it was, and a man condemned for a crime he had not committed. Nothing selfish, nothing that cheated death &mdash; only two injustices, reached back for and set right. They freed Buckbeak from under the executioner&rsquo;s axe, and they freed Sirius from the tower window, and Harry understood, watching the silver stag leap from his own wand this time, that the father he&rsquo;d thought he&rsquo;d seen had been himself all along. Sirius flew to freedom on the Hippogriff&rsquo;s back, a fugitive still, cleared to no one who mattered, with the one witness who could save him loose in the world.</p>
+
+    <p>The year closed bitterly. Harry had, for a few hours in a haunted house, held a whole future in his hands: a godfather, innocent and free; a home that was not the Dursleys&rsquo;; the family he had been promised for one evening and then had had taken from him again. He lost it to a rat and a Ministry too frightened and too proud to question a story it had told itself for twelve years. Lupin resigned before term was out &mdash; not for any failure of his, but because parents would not abide a werewolf teaching their children once the truth was out, prejudice doing its ordinary, respectable work right on schedule. Pettigrew was gone, almost certainly to find and revive his old master. And nobody, anywhere in the Ministry, answered for any of it. Harry went back to Privet Drive that summer with a godfather somewhere out in the world who loved him, a letter that proved it, and the first clear sight of how badly the adults in charge of his world could fail the people it was their whole job to protect. He was beginning to understand that being the good ones didn&rsquo;t make you safe, and that the people wearing the badges weren&rsquo;t always the good ones at all.</p>
+  </div>
+
+  <!-- ---------- memories anchored in this arc ---------- -->
+  <div class="mem-index">
+    <h3>Memories in this arc</h3>
+    <a class="mem-row" href="../../memories/wounded-animal.html">
+      <img class="mem-portrait" src="../../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+      <span>
+        <span class="t">Wounded Animal</span>
+        <span class="s"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/a-moment-of-clarity.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">A Moment of Clarity</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/a-step-too-far.html">
+      <img class="mem-portrait" src="../../../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+      <span>
+        <span class="t">A Step Too Far</span>
+        <span class="s"><b>Harry Potter</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/muted-betrayal.html">
+      <img class="mem-portrait" src="../../../images/champion-images/hermione-granger.jpg" alt="Hermione Granger">
+      <span>
+        <span class="t">Muted Betrayal</span>
+        <span class="s"><b>Hermione Granger</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+    <a class="mem-row" href="../../memories/chosen-for-a-reason.html">
+      <img class="mem-portrait" src="../../../images/champion-images/ron-weasley.jpg" alt="Ron Weasley">
+      <span>
+        <span class="t">Chosen for a Reason</span>
+        <span class="s"><b>Ron Weasley</b> Memory &middot; The Wizarding World</span>
+      </span>
+    </a>
+  </div>
+
+  <footer>Champions Ultimate Edition &middot; The Chronicle &middot; The Archive</footer>
+
+</div>
+
+<script>
+  /* Inline Memory link: hover shows the tooltip on pointer devices; on touch,
+     the first tap reveals the tooltip, a second tap follows the link. */
+  (function () {
+    var lastTouch = false;
+    document.addEventListener('pointerdown', function (e) {
+      lastTouch = (e.pointerType === 'touch');
+    }, true);
+    var links = document.querySelectorAll('.mem-link');
+    links.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (lastTouch && !el.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+          el.classList.add('is-open');
+        }
+      });
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.mem-link')) {
+        document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+      }
+    });
+  })();
+</script>
+</body>
+</html>
