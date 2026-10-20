@@ -558,21 +558,28 @@
         <a href="#term-definitions" class="toc-link">Term Definitions</a>
         <a href="#turns" class="toc-link toc-sub">Turns</a>
         <a href="#cooldown-ignoring" class="toc-link toc-sub">Cooldown Ignoring</a>
+        <a href="#cooldown-increase" class="toc-link toc-sub">Cooldown Increase</a>
         <a href="#extension" class="toc-link toc-sub">Extension</a>
         <a href="#standby" class="toc-link toc-sub">Standby</a>
         <a href="#counter" class="toc-link toc-sub">Counter</a>
         <a href="#interrupt" class="toc-link toc-sub">Interrupt</a>
+        <a href="#ability-nullifying" class="toc-link toc-sub">Ability Nullifying</a>
         <a href="#cover" class="toc-link toc-sub">Cover</a>
         <a href="#precise" class="toc-link toc-sub">Precise</a>
         <a href="#piercing" class="toc-link toc-sub">Piercing</a>
         <a href="#domain" class="toc-link toc-sub">Domain</a>
         <a href="#acting" class="toc-link toc-sub">Acting</a>
         <a href="#last-stand" class="toc-link toc-sub">Last Stand</a>
+        <a href="#revival" class="toc-link toc-sub">Revival</a>
         <a href="#taunt-retribution" class="toc-link toc-sub">Taunt + Retribution Interaction</a>
+        <a href="#stealth-vs-untargeted" class="toc-link toc-sub">Invisible/Stealth vs. Untargeted Abilities</a>
         <a href="#overhealth" class="toc-link toc-sub">Overhealth</a>
         <a href="#shared-hp" class="toc-link toc-sub">Shared HP</a>
+        <a href="#resource-visibility" class="toc-link toc-sub">Resource Visibility</a>
         <a href="#persistent" class="toc-link toc-sub">Persistent</a>
+        <a href="#disabling" class="toc-link toc-sub">Disabling</a>
         <a href="#active-and-inert" class="toc-link toc-sub">Active and Inert</a>
+        <a href="#debuff-stacking" class="toc-link toc-sub">Debuff Stacking &amp; Stat Floor</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
       </nav>
     </div>
@@ -1264,6 +1271,12 @@
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Shield Charm</div></td>
+            <td>Negates the next received attack. Expires (one stack at a time) upon negating.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Light</div></td>
             <td>Receives 20% more healing.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1398,6 +1411,12 @@
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Impediment Jinx</div></td>
+            <td>The next ability used is nullified (still consumes resources). Expires upon activation (one stack at a time).</td>
+            <td class="stack-cell"><span class="stack-badge no">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Blindness</div></td>
             <td>-30% ACC. Abilities with ranges have their range decreased by 4 panels (minimum of 1 panel).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1505,6 +1524,10 @@
       <p>Cooldown Ignoring can be enabled "for free" by the <strong>Overdrive</strong> status (ignores cooldowns): while a Champion has Overdrive, they ignore cooldowns without paying the kit's cost. Note that <em>"per cooldown turn ignored"</em> scaling still counts the ability's attached cooldown number under Overdrive — the scaling is unaffected by the cost being waived.</p>
       <p>After being used via Cooldown Ignoring, the ability returns to its base cooldown as normal; the ignored (banked) cooldown is consumed by the use and does not carry over.</p>
 
+      <h3 id="cooldown-increase">Cooldown Increase</h3>
+      <p>A <strong>Cooldown Increase</strong> effect (<em>"all cooldowns increased by N"</em>) adds N turns to <em>every</em> cooldown ability the target has — not only the ones already cooling down. Abilities that are currently on cooldown have N turns added to their remaining count. Abilities that are ready to use are <strong>put on cooldown for N turns</strong>, so they cannot be used until those turns pass.</p>
+      <p>Basic abilities have no cooldown (see <a href="#basic-abilities">Basic Abilities</a>), so they are unaffected and stay available. Harry Potter's <em>Expelliarmus</em> is the reference example: <em>"The target has all cooldowns increased by 1 turn."</em> Cooldown Increase is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
+
       <h3 id="extension">Extension</h3>
       <p>Extensions are abilities tacked onto another ability at no extra cost. They function like a "combo" where it'll continue the first ability. These abilities are often represented by the phrase "extends into…" on a character's ability.</p>
 
@@ -1528,7 +1551,18 @@
         <li><strong>The whole ability is cancelled.</strong> If the interrupted ability would have struck multiple targets, an area, or a <a href="#domain">domain</a>, none of them are affected — the ability is stopped at its source before any part of it resolves. Interrupt is all-or-nothing, never partial.</li>
         <li><strong>Committed-but-unresolved abilities can be interrupted.</strong> An ability that has been declared but has not yet resolved — a delayed or charged hit waiting on a later turn, or the held trigger of a <a href="#standby">Standby</a> — can be interrupted, which removes that pending effect entirely (and ends the associated Standby). An ability that has <em>already fully resolved</em> cannot be interrupted, as there is nothing left to stop.</li>
       </ul>
-      <p>Curly's <em>Emergency Prevention</em> (ULTIMATUM) is the reference implementation: while standing by, it prevents a special ability or ULTIMATUM aimed at a nearby ally — the attack is interrupted before it lands — and punishes the attacker. Interrupt is tracked as a <a href="#links-and-tags">mechanic tag</a> (Mitigation); The Wasp and Cloak also carry it.</p>
+      <p>Curly's <em>Emergency Prevention</em> (ULTIMATUM) is the reference implementation: while standing by, it prevents a special ability or ULTIMATUM aimed at a nearby ally — the attack is interrupted before it lands — and punishes the attacker. Interrupt is tracked as a <a href="#links-and-tags">mechanic tag</a> (Mitigation); The Wasp and Cloak also carry it. <em>Not to be confused with <a href="#ability-nullifying">Ability Nullifying</a>, a status that waits on the target and cancels its next action.</em></p>
+
+      <h3 id="ability-nullifying">Ability Nullifying</h3>
+      <p><strong>Ability Nullifying</strong> is a status that waits on its target and cancels the <em>next ability</em> that unit uses. "Impediment Jinx" is currently the only source: <em>"The next ability used is nullified (still consumes resources)."</em> It resolves as follows:</p>
+      <ul>
+        <li><strong>Which actions count.</strong> The nullification applies to whatever ability the unit uses next: special abilities, ULTIMATUM, the unique Basic ability, <strong>Block</strong>, <strong>Wait</strong> and <strong>Item</strong>. It does not skip over "cheap" actions to wait for a bigger one. A nullified Item is still consumed but has no effect. <strong>Move</strong>, <strong>Use</strong> and <strong>End Turn</strong> do not count: they resolve normally and spend no stack.</li>
+        <li><strong>One stack per nullification.</strong> Each nullified ability spends one stack. A unit carrying two stacks has its next two abilities nullified.</li>
+        <li><strong>Cost and cooldown are still paid.</strong> The nullified ability consumes its resources and goes on cooldown exactly as if it had resolved.</li>
+        <li><strong>A nullified Block or Wait still ends the turn.</strong> The unit gets no block multiplier or boosted regeneration, but it has still committed to the action and takes no further actions that turn.</li>
+      </ul>
+      <p><strong>Spending a stack on purpose is intended counterplay.</strong> The unique Basic ability costs no EN and has no cooldown, so a unit can use it first to burn a stack before committing a valuable ability. This is the designed answer to Ability Nullifying, not an exploit.</p>
+      <p><em>Not to be confused with <a href="#interrupt">Interrupt</a>:</em> Interrupt is reactive. The interrupter cancels an action as it is being used. Ability Nullifying is a status already sitting on the target, waiting for that unit's next action. In both cases the cancelled ability's cost and cooldown are still paid.</p>
 
       <h3 id="cover">Cover</h3>
       <p><strong>Cover</strong> is a protection mechanic in which a Champion takes damage in an ally's place. When the covered ally would be hit, the damage is <em>redirected to the covering Champion</em>, who receives it instead; the ally is spared because the harm itself has been moved onto the protector. The coverer's own defenses, evasion rolls, and damage-reduction then apply to the redirected damage as normal (so a cover can still be dodged or softened by the one taking the hit).</p>
@@ -1570,6 +1604,18 @@
       <p>A <strong>Last Stand</strong> is a triggered effect that lets a Champion <em>endure</em> what would otherwise be a fatal blow, surviving the strike at 1 HP (or another value specified by the granting source). Last Stand is not a generic "survive" buff — it is gated by the exact condition written into the ability, costume, synergy, or passive that grants it.</p>
       <p>Each Last Stand source specifies its own activation requirements and usage limit. Common patterns include "once per battle," "while above 50% HP at the start of the turn," or being keyed to a specific damage type. Unless an effect explicitly states otherwise, a Last Stand can be removed by enemy cleansing, prevented by infliction effects that suppress reactive abilities, or consumed without triggering if the activation condition isn't met when the fatal hit lands.</p>
 
+      <h3 id="revival">Revival</h3>
+      <p><strong>Revival</strong> brings a defeated Champion back into the battle. Kits write it as <em>"Resurrects self with X% HP after N turns"</em>, usually limited to once per battle. Unlike a <a href="#last-stand">Last Stand</a>, which stops a fatal blow from killing the Champion, Revival happens <em>after</em> the Champion has been defeated. Between defeat and return, the Champion is defeated in every sense: it is off the battlefield, takes no turns and cannot be targeted.</p>
+      <ul>
+        <li><strong>Timing.</strong> The Champion returns once the stated number of <em>complete</em> turns have passed since its defeat. The partial turn in which it fell does not count. Kits that say <em>"after N turns"</em> mean N complete turns.</li>
+        <li><strong>HP.</strong> It returns at the stated percentage of its MAX HP.</li>
+        <li><strong>Return panel.</strong> It returns on the panel where it was defeated. If that panel is occupied or can't be stood on, it returns on the nearest free panel that can be.</li>
+        <li><strong>Enemies cannot prevent it</strong> unless an ability explicitly states that it prevents revival.</li>
+        <li><strong>"On defeat" triggers fire on the original defeat.</strong> Effects keyed to the Champion being defeated (its own, its allies' or its enemies') resolve when it falls and are not undone when it returns. The return is not a second defeat and does not fire them again.</li>
+        <li><strong>Summons don't come back with it.</strong> Summons that end when their summoner is defeated (e.g. "Patronus (Potter)") are gone for good. Reviving the summoner does not restore them.</li>
+      </ul>
+      <p>The reference examples are Wolverine's <em>Weapon X</em> (<em>"Resurrects self with 30% HP after 2 turns (once per battle)"</em>) and Harry Potter's <em>The Boy Who Lived</em> (<em>"Resurrects self with 80% HP after 3 complete turns pass since death (once per battle)"</em>). Revival is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
+
       <h3 id="taunt-retribution">Taunt + Retribution Interaction</h3>
       <p>When <strong>Taunt</strong> (a positive effect on the defending Champion) and <strong>Retribution</strong> (a negative infliction on an enemy) are active simultaneously, the following priority rule applies:</p>
       <ul>
@@ -1577,6 +1623,15 @@
         <li><strong>Taunt still applies normally to all other enemies.</strong> Any enemy within 6 panels who is <em>not</em> under Retribution is still redirected to the Taunt holder as usual.</li>
       </ul>
       <p>In short: Retribution is a range-unlimited forced target lock that overrides Taunt's proximity requirement for the specific enemy it affects. The two effects coexist without conflict — they simply address different enemies by different rules.</p>
+
+      <h3 id="stealth-vs-untargeted">Invisible/Stealth vs. Untargeted Abilities</h3>
+      <p><strong>Invisible</strong> and <strong>Stealth</strong> stop a unit from being <em>targeted</em> by enemies. They do not take the unit off the battlefield. Abilities that don't select a unit as their target still hit an invisible or stealthed unit standing on a panel they cover:</p>
+      <ul>
+        <li><strong>Panel-targeted abilities</strong> (including thrown items) aimed at the unit's panel or covering it.</li>
+        <li><strong><a href="#line-abilities">Line abilities</a></strong> whose swept area includes the unit's panel.</li>
+        <li><strong>Area abilities</strong>, including <a href="#domain">domains</a>, that cover the unit's panel.</li>
+      </ul>
+      <p>Affected units are resolved with the standard ability calculation rules, including EVA rolls. What Invisible and Stealth prevent is being <em>chosen</em> as the target of a single-target or unit-targeted ability. Invisible also hides the unit from view, so an enemy aiming a panel, line or area ability at it is aiming without seeing it. To switch either status off entirely, see "Tracker" and <a href="#disabling">Disabling</a>.</p>
 
       <h3 id="overhealth">Overhealth</h3>
       <p><strong>Overhealth</strong> is a temporary bonus layer of hit points applied on top of a character's HP pool. It can exceed maximum HP, and is only active for a set amount of time (specified by the kit).</p>
@@ -1594,6 +1649,16 @@
       </ul>
       <p>When the shared pool is emptied to 0, every member drawing from it is defeated at once, since none of them holds any independent health. Summons removed by other means — destroyed by their own Champion, replaced when a summon cap is reached, or cleared by an effect that removes the unit itself — simply leave the shared group; their share of the maximum is subtracted, but the pool is not otherwise depleted.</p>
 
+      <h3 id="resource-visibility">Resource Visibility</h3>
+      <p>Enemy resources (<strong>EN</strong>, <strong>STA</strong> and <strong>ULT</strong>) are <strong>hidden by default</strong>. You can't see how much energy, stamina or ULT charge an opposing Champion has unless an effect reveals it.</p>
+      <p><strong>Resource Reveal</strong> effects show those resources for the duration they state. Some reveal everything; others reveal only part of it:</p>
+      <ul>
+        <li>Harry Potter's <em>Lumos</em> — <em>"Reveals the resources of all enemies in range for 2 turns."</em></li>
+        <li>Batgirl's <em>Reading Every Move</em> — <em>"Gains the ability to see enemy resources for 2 turns after damaging them."</em></li>
+        <li>Curly's <em>Pilot Vision</em> — <em>"Reveals the ULT percentage of the target for 1 turn."</em> (ULT only)</li>
+      </ul>
+      <p>Revealing is information only. It doesn't change the target's resources. Resource Reveal is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
+
       <h3 id="persistent">Persistent</h3>
       <p><strong>Persistent</strong> is a <em>Champion amplifier</em> applied kit-by-kit — it is not a property of any status effect itself. No effect is inherently persistent. Instead, a Champion's kit may declare that certain effects become persistent for them, while that same effect on any other Champion behaves normally. The granting kit line always states which effects it covers and under what scope — for example, Superman's <em>Unmatched Compassion</em>: <em>"'Taunt' buffs applied to self are persistent."</em></p>
       <p>While an effect is persistent, it can only leave the Champion holding it under two conditions:</p>
@@ -1603,6 +1668,10 @@
       </ul>
       <p>This cuts in whichever direction the effect was applied. A persistent <em>application</em> a Champion places on themselves — such as Superman's self-applied Taunt — can still be cleared by that Champion, because they are the source; enemy cleanse and nullification cannot touch it. A persistent <em>infliction</em> placed on an enemy can only be lifted by the inflictor: the afflicted Champion cannot self-cleanse it, and neither can their allies.</p>
       <p>Persistent <em>positive</em> effects additionally cannot be stolen: a <strong>Plunderer</strong>'s buff-stealing abilities pass over them entirely, as with Black Cat's <em>Breaking Trust</em> (<em>"Cannot steal persistent buffs."</em>).</p>
+
+      <h3 id="disabling">Disabling</h3>
+      <p><strong>Disabling</strong> a status effect switches its effect off <em>while the status stays present</em> on the unit. Disabling is not removal: unlike a cleanse or nullification, the disabled status is still there, it simply does nothing for as long as it is disabled. If the disabling effect ends while the status is still on the unit, the status works again. The disabled status keeps counting down its own duration as normal.</p>
+      <p><strong>Disabling takes priority over <a href="#persistent">Persistent</a>.</strong> Persistent only protects an effect from being <em>removed</em> by anyone other than its source; it does not protect it from being disabled. The reference case is "Tracker" (<em>"Disables 'Stealth' and 'Invisible'"</em>): a persistent "Invisible" stays on the unit, but while "Tracker" is in place the unit can be targeted normally.</p>
 
       <h3 id="active-and-inert">Active and Inert</h3>
       <p>Every status effect is in one of two states: <strong>active</strong> or <strong>inert</strong>. <strong>Active</strong> is the normal, default form — the effect is working and its turn timer counts down each turn as usual. Unless a kit says otherwise, every status effect is <em>active</em> the instant it is inflicted or applied; "active" is simply what a status effect is by default.</p>
@@ -1614,6 +1683,11 @@
         <li><em>Molecular Breakdown</em> — <em>"Distributes active duplicates of any inert status effects applied to self to all allies within 3 panels... Nullifies any inert status effects applied to self."</em> He copies his inert effects out to allies as working (active) versions, then clears the frozen originals from himself.</li>
         <li><em>System Update</em> — <em>"All inert status effects on self become active."</em> Every frozen effect he holds switches on at once, beginning to work and to count down.</li>
       </ul>
+
+      <h3 id="debuff-stacking">Debuff Stacking &amp; Stat Floor</h3>
+      <p><strong>All debuffs stack.</strong> Separate debuffs apply together, and so do <em>identical</em> effects that come from different sources. If two different Patronus summons each project <em>"-30% ATK and MAG to all enemies within 5 panels"</em>, an enemy standing in both auras takes both reductions: -60% ATK and MAG. Stat-lowering effects combine with every other in-game multiplier as described in <a href="#stat-calculations">Stat Calculations</a>. The <em>Stackable?</em> column in the Status Effects tables still decides what happens when the same named status is re-applied to a unit.</p>
+      <p><strong>Stat floor.</strong> No stat-lowering debuff, or combination of them, can reduce a stat below <strong>5% of its normal value</strong>. A Champion with 500 ATK can never be debuffed below 25 ATK, however many reductions are stacked on them.</p>
+      <p>The floor only limits <em>stat reductions</em>. It does not apply to effects that outright prohibit damage or actions. A Patronus stopping "Vast Darkness" units within 3 panels from dealing damage works in full, and so does "Stun" preventing a unit from acting.</p>
 
       <h3 id="elevation-bypass">Elevation Bypass</h3>
       <p><strong>Elevation Bypass</strong> is a passive modifier (referenced on Champion sheets as the tag <em>Elevation Bypass</em>) that removes restrictions related to elevation. It appears in two forms, and a Champion's kit will specify exactly which one applies:</p>
