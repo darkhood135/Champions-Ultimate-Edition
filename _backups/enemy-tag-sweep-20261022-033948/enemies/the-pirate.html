@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pirate — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #facc15; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #facc15;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(255, 91, 91, 0.12);
+    color: #ff8585;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 91, 91, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #facc15;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label { color: #a3a8b3; font-weight: 500; }
+  .stat-row .value { color: #f0f1f3; font-weight: 600; }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(250, 204, 21, 0.1);
+    border-color: #facc15;
+    color: #f0f1f3;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     The Pirate theme — Backrooms Yellow / Sallow Amber / Void Violet palette.
+       Sickly yellow = his signature fluorescent halo, the Plunder glow.
+       Amber/rust = the greedy hands, what he wants from you.
+       Deep violet = the spaces between rooms, Phantom Step's wake.
+       Burnt orange = the Howl, the moment he reaches into the carpet. */
+
+  .ability--basic {
+    background: #1a1408;          /* near-black with amber tint */
+    border: 1px solid #4a3500;
+    color: #fef3c7;
+  }
+  .ability--basic .ability-name { color: #facc15; }
+  .ability--basic .ability-tag  { color: #ca8a04; }
+  .ability--basic .ability-meta { color: #ca8a04; }
+
+  .ability--special-1 { background: #4c1d95; color: #ede9fe; } /* deep violet — Phantom Step, the wake */
+  .ability--special-2 { background: #b45309; color: #fef3c7; } /* amber — Plunder, the grab */
+
+  .ability--core-passive {
+    background: #1c1407;          /* darkest amber-black — the constant hunger */
+    color: #fef3c7;
+  }
+
+  .ability--passive {
+    background: #fef9c3;          /* pale wasp yellow — surface aura */
+    color: #1c1407;
+  }
+
+  .ability--ultimatum {
+    background: #7c2d12;          /* deep burnt orange — the Howl */
+    color: #fef3c7;
+  }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #facc15; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== SPAWNS · MAPS ====================== */
+  .map-spawns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    padding-top: 4px;
+  }
+
+  .map-spawn-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    display: block;
+  }
+
+  .map-spawn-card:hover {
+    transform: translateY(-2px);
+    border-color: #facc15;
+  }
+
+  .map-spawn-image {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .map-spawn-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .map-spawn-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 40%,
+      rgba(13, 14, 17, 0.6) 72%,
+      rgba(13, 14, 17, 0.96) 100%);
+    pointer-events: none;
+  }
+
+  .map-spawn-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 8px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+    line-height: 1.2;
+  }
+
+  /* ====================== SPAWNS · MODES / MISSIONS ====================== */
+  .mission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 4px;
+  }
+
+  .mission {
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .mission-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f0f1f3;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  .mission-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mission-body { min-width: 0; }
+
+  .mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .mission-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+  }
+
+  .mission-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+
+  .mission-meta {
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  .mission-meta a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  .mission-meta a:hover {
+    text-decoration-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .stars {
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .stars .filled { color: #facc15; }
+  .stars .empty  { color: rgba(255, 255, 255, 0.22); }
+
+  /* Mode color variants — one tile per Catechism game mode */
+  .mission--main-story      { background: #1e3a8a; color: #dbeafe; }
+  .mission--main-story      .mission-tag { color: #93c5fd; }
+
+  .mission--event-story     { background: #4c1d95; color: #ede9fe; }
+  .mission--event-story     .mission-tag { color: #c4b5fd; }
+
+  .mission--arena           { background: #7f1d1d; color: #fee2e2; }
+  .mission--arena           .mission-tag { color: #fca5a5; }
+
+  .mission--clash           { background: #7c2d12; color: #fed7aa; }
+  .mission--clash           .mission-tag { color: #fdba74; }
+
+  .mission--dark-dimension  { background: #1f2937; color: #d1d5db; }
+  .mission--dark-dimension  .mission-tag { color: #9ca3af; }
+
+  .mission--crisis          { background: #713f12; color: #fef3c7; }
+  .mission--crisis          .mission-tag { color: #fde047; }
+
+  .mission--flashpoint      { background: #075985; color: #cffafe; }
+  .mission--flashpoint      .mission-tag { color: #7dd3fc; }
+
+  .mission--danger-room     { background: #155e75; color: #cffafe; }
+  .mission--danger-room     .mission-tag { color: #67e8f9; }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../enemies.html" class="back-link">← Back to Enemies</a>
+
+  <!-- =============================================
+       HERO BAR — Enemy image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="character-image">
+      <!-- <img src="../images/enemy-images/the-pirate.jpg" alt="The Pirate"> -->
+      <span><img src="../images/enemy-images/the-pirate.jpg" alt="The Pirate"></span>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">The Pirate</h1>
+      <p class="subtitle">Still Life Entity</p>
+      <span class="role-badge">Striker</span>
+      <p class="description">
+        The Pirate is a Still Life — a flawed dimensional copy of Clark, a furniture store owner whose mascot costume the Backrooms decided to replicate in eight feet of distorted, barely-proportioned flesh. Peg leg made of chair wood. Arms that don't fit the body. Face permanently set to a frown. He bleeds when hurt, which shouldn't be possible for something like him — it hasn't stopped him. He hunts by proximity, moving toward the nearest warm body with the unhurried certainty of something that doesn't need to hurry, and he is considerably stronger than he has any right to be.
+      </p>
+      <p class="quote">"She says we don't have to change!"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">50,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">800</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">77%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">200%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">100%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">95</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">0%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">4</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">0%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../enemies.html" class="pill">Dark Multiverse</a>
+          <a href="../enemies.html" class="pill">Neutral Hostile</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Highly Mobile</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Terrify</span>
+          <span class="pill">Physical</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Map Manipulation</span>
+          <span class="pill">Self Buff</span>
+        </div>
+      </div>
+
+      <!-- Spawns · Maps — every Battlefield this enemy can appear on -->
+      <div class="panel">
+        <div class="panel-title">Spawns · Maps</div>
+        <div class="map-spawns-grid">
+
+          <a href="../battlefields/the-backrooms.html" class="map-spawn-card">
+            <div class="map-spawn-image">
+              <!-- <img src="../images/battlefields/the-backrooms.jpg" alt="The Backrooms"> -->
+              <span><img src="../images/battlefields/the-backrooms.jpg" alt="The Backrooms"></span>
+            </div>
+            <div class="map-spawn-overlay"></div>
+            <div class="map-spawn-name">The Backrooms</div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Spawns · Modes / Missions — each entry colored by game mode -->
+      <div class="panel">
+        <div class="panel-title">Spawns · Modes / Missions</div>
+        <div class="mission-list">
+
+          <div class="mission mission--event-story">
+            <div class="mission-icon">
+              <!-- <img src="../images/mission-icons/pattern-of-the-halls.jpg" alt="The Pattern of the Halls"> -->
+              ES
+            </div>
+            <div class="mission-body">
+              <div class="mission-header">
+                <span class="mission-name">Bleeding Walls</span>
+                <span class="mission-tag">Event Story</span>
+              </div>
+              <div class="mission-meta">
+                <a href="../battlefields/the-backrooms.html">The Backrooms</a> &middot; Lvl 50 &middot;
+                <span class="stars"><span class="filled">&#9733;&#9733;&#9733;</span><span class="empty">&#9734;&#9734;</span></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Fixed kit — enemies don't swap abilities</span>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Inhuman Groans</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: None · Cooldown: None · Range: N/A</div>
+        <ul>
+          <li>Reduces cooldowns of Bite and Drag by 1 turn.</li>
+          <li>Inflicts "Terrify" to all Champions within 10 panels of this enemy.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Bite</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Champion · Energy: 80 · Cooldown: 1 turn · Range: 1</div>
+        <ul>
+          <li>Deals 700% ATK damage to the target.</li>
+          <li>Inflicts 4 stacks of "Bleed" for 3 turns to the target.</li>
+          <li>Inflicts "Stun" for 1 turn to the target.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Drag</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Champion · Energy: 40 · Cooldown: 2 turns · Range: 1</div>
+        <ul>
+          <li>Can only be performed on an enemy with "Bleed".</li>
+          <li>Deals 300% ATK damage to the target.</li>
+          <li>Drags the target in the direction of the nearest Champion (pathfinding) by 1-4 panels (chosen randomly with 50% chance per each panel increase).</li>
+          <li>Repositions The Pirate to one panel ahead of where he dragged the enemy at the cost of no STA.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Relentless Pursuit</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Immune to all stunning inflictions.</li>
+          <li>STA regen increased to 100% of MAX STA per turn.</li>
+          <li>EN regen increased to 100% of MAX EN per turn.</li>
+          <li>MAX STA is increased by 1 for every turn The Pirate is present on the battlefield (up to a MAX STA of 20).</li>
+          <li>Passive ULT gain is reduced to none.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Still Life</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Always targets the nearest Champion (with the exception of Champions with "Stealth" or "Invisible").</li>
+          <li>Restores 30% HP when successfully landing Bite on an enemy.</li>
+          <li>Gains 50% ULT each time an attack lands.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Toss</span>
+          <span class="ability-tag">ULTIMATUM</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Champion · Range: 1 panels · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 500% ATK damage to the target.</li>
+          <li>Tosses the target 5 panels in a random cardinal direction (equal chances).</li>
+          <li>Deals an additional 500% ATK damage to the target if they're tossed into a wall.</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Enemy
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Enemy's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">June 3, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>The Pirate enters the roster as an enemy.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+</body>
+</html>

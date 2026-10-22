@@ -4,7 +4,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **Stat line order:** `HP / ATK / MAG / HEAL / DEF / RES / ACC / CRIT%·CR% / SPD / EVA` (EN·STA·REGEN appended where notable). Transforming champions show base; transform deltas noted in parentheses.
 
-**Last updated:** 2026-10-19 (through Dracaena Malfoy + Harry Potter). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-10-21 (through Lord Voldemort v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -26,6 +26,8 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 ### Berserker
 - **Deadpool** — 4,600 / 350 / 130 / 200 / 60 / 30 / 96% / 150%·20% / 110 / 35% — REGEN 12%, cooldown-ignore/HP-cost
 - **Goku** (base ↔ Kaioken) — 9,200 / 340 / 260 / 0 / 100 / 130 / 97% / 175%·20% / 114 / 8% — first transformer
+- **Lord Voldemort** — 5,000 / 190 / 260 / 0 / 100 / 130 / 95% / 150%·20% / 110 / 20%, EN 150·STA 4, REGEN 5% — Horcrux-anchored HP-cost caster; real stats come from Thirst for Power (+70 ATK/MAG, permanent uptime → 260/330); cannot die while any Horcrux exists (3t Imbuement; Nagini summon carries one 10t); 20% REGEN/35% EVA while no enemy holds a Horcrux
+> Band: 4.6k–9.2k HP; HP-for-power trade (Deadpool endures/regen, Goku Kaioken HP costs, Voldemort HP costs offset by Horcrux immortality).
 
 ## DEFENSIVE
 
@@ -76,4 +78,5 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Breaker:** 4.8k–7.5k, mostly caster/control; low DEF common.
 - **Summoner:** 5.8k–9k; the summon carries much of the value.
 - **Plunderer:** fragile, high ATK/CRIT, anti-ally or steal mechanics.
+- **Berserker:** 4.6k–9.2k HP; spends HP/safety for damage; each has a survival valve (endure, transform, Horcrux).
 - **Highest ATK:** Carnage 420, Wolverine 410. **Highest MAG:** Harry 400 / Iron Man 390 / Loki 380 / Punisher·Vegeta·Dracaena 370. **Highest CRIT mult:** Carnage/Krillin/Robin 200%. **Highest EVA:** Anya 45%, Robin 42%, Krillin 40%.

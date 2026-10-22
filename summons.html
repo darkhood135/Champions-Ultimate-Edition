@@ -411,7 +411,7 @@
 
   <!-- FILTER PANEL -->
   <div class="filter-panel" id="filter-panel">
-    <!-- Role — same 9-role set as Champions/Enemies -->
+    <!-- Role — the Champion role set, plus the summon-only "Adaptive" role -->
     <div class="filter-group">
       <div class="filter-label">Role</div>
       <div class="filter-pills" data-category="role">
@@ -428,65 +428,82 @@
       </div>
     </div>
 
-    <!-- Link — universe + duration. Duration replaces the morality axis Enemies use. -->
+    <!-- Link — summon Links stay deliberately simple: the universe they come from,
+         plus how long they stay. Both groups filter on data-links. -->
     <div class="filter-group">
-      <div class="filter-label">Link</div>
+      <div class="filter-label">Universe</div>
       <div class="filter-pills" data-category="link">
         <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
         <button class="filter-pill" data-value="DC Universe">DC Universe</button>
         <button class="filter-pill" data-value="Dragon Ball Universe">Dragon Ball Universe</button>
         <button class="filter-pill" data-value="Wizarding World Universe">Wizarding World Universe</button>
         <button class="filter-pill" data-value="Multiversal">Multiversal</button>
-        <button class="filter-pill" data-value="Dark Multiverse">Dark Multiverse</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-label">Duration</div>
+      <div class="filter-pills" data-category="link">
         <button class="filter-pill" data-value="Persistent">Persistent</button>
         <button class="filter-pill" data-value="Temporary">Temporary</button>
       </div>
     </div>
 
-    <!-- Movement — same broad mobility tiers -->
+    <!-- Tags — a streamlined subset of the Champion taxonomy. Shared names mean the
+         same thing they do on Champions (ATK Down, Cover, Copy, Resource Refill…);
+         Stationary/Mobile, Mount, Decoy, Physical/Magical and Death Explosion are
+         summon-only. Every pill here is used by at least one summon. -->
+
+    <!-- Movement — Mobility tier, mounts, and battlefield repositioning -->
     <div class="filter-group">
       <div class="filter-label">Movement</div>
       <div class="filter-pills" data-category="tag">
         <button class="filter-pill" data-value="Stationary">Stationary</button>
         <button class="filter-pill" data-value="Mobile">Mobile</button>
-        <button class="filter-pill" data-value="Highly Mobile">Highly Mobile</button>
-        <button class="filter-pill" data-value="Teleporter">Teleporter</button>
+        <button class="filter-pill" data-value="Mount">Mount</button>
+        <button class="filter-pill" data-value="Ally Reposition">Ally Reposition</button>
+        <button class="filter-pill" data-value="Enemy Reposition">Enemy Reposition</button>
+        <button class="filter-pill" data-value="Airborne">Airborne</button>
       </div>
     </div>
 
-    <!-- Mitigation — what defensive tools the summon brings -->
+    <!-- Mitigation — What defensive tools the summon brings -->
     <div class="filter-group">
       <div class="filter-label">Mitigation</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Evasion">Evasion</button>
-        <button class="filter-pill" data-value="Counter">Counter</button>
         <button class="filter-pill" data-value="Taunt">Taunt</button>
         <button class="filter-pill" data-value="Damage Reduction">Damage Reduction</button>
-        <button class="filter-pill" data-value="Last Stand">Last Stand</button>
+        <button class="filter-pill" data-value="Cover">Cover</button>
       </div>
     </div>
 
-    <!-- Affliction — what the summon applies to enemies -->
+    <!-- Affliction — What the summon applies to enemies -->
     <div class="filter-group">
       <div class="filter-label">Affliction</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Stun">Stun</button>
+        <button class="filter-pill" data-value="ATK Down">ATK Down</button>
+        <button class="filter-pill" data-value="DEF Down">DEF Down</button>
+        <button class="filter-pill" data-value="MAG Down">MAG Down</button>
+        <button class="filter-pill" data-value="RES Down">RES Down</button>
+        <button class="filter-pill" data-value="ACC Down">ACC Down</button>
         <button class="filter-pill" data-value="Damage Over Time">Damage Over Time</button>
-        <button class="filter-pill" data-value="Stat Down">Stat Down</button>
-        <button class="filter-pill" data-value="Drain">Drain</button>
       </div>
     </div>
 
-    <!-- Empowerment — buffs applied to allies or self -->
+    <!-- Empowerment — Positive effects on self, allies, or the summoner -->
     <div class="filter-group">
       <div class="filter-label">Empowerment</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Self Buff">Self Buff</button>
-        <button class="filter-pill" data-value="Buffs Allies">Buffs Allies</button>
+        <button class="filter-pill" data-value="ATK Up">ATK Up</button>
+        <button class="filter-pill" data-value="MAG Up">MAG Up</button>
+        <button class="filter-pill" data-value="EVA Up">EVA Up</button>
+        <button class="filter-pill" data-value="ACC Up">ACC Up</button>
+        <button class="filter-pill" data-value="HEAL Up">HEAL Up</button>
+        <button class="filter-pill" data-value="Affliction Boost">Affliction Boost</button>
       </div>
     </div>
 
-    <!-- Offense — the shape of their damage -->
+    <!-- Offense — The shape of their damage -->
     <div class="filter-group">
       <div class="filter-label">Offense</div>
       <div class="filter-pills" data-category="tag">
@@ -497,15 +514,15 @@
       </div>
     </div>
 
-    <!-- Utility — non-damage tools -->
+    <!-- Utility — Non-damage tools -->
     <div class="filter-group">
       <div class="filter-label">Utility</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Healing">Healing</button>
-        <button class="filter-pill" data-value="Resource Drain">Resource Drain</button>
-        <button class="filter-pill" data-value="Map Manipulation">Map Manipulation</button>
-        <button class="filter-pill" data-value="Mimic">Mimic</button>
+        <button class="filter-pill" data-value="Copy">Copy</button>
         <button class="filter-pill" data-value="Decoy">Decoy</button>
+        <button class="filter-pill" data-value="Resource Refill">Resource Refill</button>
+        <button class="filter-pill" data-value="STA Support">STA Support</button>
+        <button class="filter-pill" data-value="Cooldown Reduction">Cooldown Reduction</button>
       </div>
     </div>
   </div>
@@ -514,16 +531,16 @@
        SUMMON GRID
        Each card's data-* attributes drive filtering.
        data-source = the Champion who calls this summon.
-       data-tags starts empty for unimplemented summons —
-       fill in Movement/Mitigation/Affliction/etc. once
-       the summon's kit is designed.
+       data-tags must match the summon sheet's Tags panel
+       exactly; data-tags starts empty for unimplemented
+       summons until the kit is designed.
        ============================================= -->
   <div class="summon-grid" id="summon-grid">
 
     <a href="summons/champion-mimic.html" class="summon-card"
        data-name="Champion Mimic" data-source="The Summoner" data-role="Adaptive"
        data-links="Multiversal,Persistent"
-       data-tags="Mimic">
+       data-tags="Mobile,Copy">
       <div class="summon-image"><img src="images/summon-images/champion-mimic.jpg" alt="Champion Mimic"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Adaptive">Adaptive</div>
@@ -534,7 +551,7 @@
     <a href="summons/loki-clone.html" class="summon-card"
        data-name="Loki Clone" data-source="Loki" data-role="Blaster"
        data-links="Marvel Universe,Persistent"
-       data-tags="Mobile,Stat Down,Buffs Allies,Physical,Magical,Area of Effect,Death Explosion,Decoy">
+       data-tags="Mobile,RES Down,Affliction Boost,Physical,Magical,Area of Effect,Death Explosion,Decoy,Resource Refill">
       <div class="summon-image"><img src="images/summon-images/loki-clones.jpg" alt="Loki Clone"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Blaster">Blaster</div>
@@ -545,7 +562,7 @@
     <a href="summons/boom-tube.html" class="summon-card"
        data-name="Boom Tube" data-source="Cyborg" data-role="Booster"
        data-links="DC Universe,Temporary"
-       data-tags="Stationary,Damage Reduction,Map Manipulation">
+       data-tags="Stationary,Ally Reposition,Enemy Reposition,Damage Reduction">
       <div class="summon-image"><img src="images/summon-images/boom-tube.jpg" alt="Boom Tube"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Booster">Booster</div>
@@ -556,7 +573,7 @@
     <a href="summons/hover-pod.html" class="summon-card"
        data-name="Hover Pod" data-source="Frieza" data-role="Booster"
        data-links="Dragon Ball Universe,Temporary"
-       data-tags="Mobile,Damage Reduction">
+       data-tags="Mobile,Mount,Airborne,Cover">
       <div class="summon-image"><img src="images/summon-images/hover-pod.jpg" alt="Hover Pod"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Booster">Booster</div>
@@ -567,7 +584,7 @@
     <a href="summons/frieza-force-soldier.html" class="summon-card"
        data-name="Frieza Force Soldier" data-source="Frieza" data-role="Blaster"
        data-links="Dragon Ball Universe,Persistent"
-       data-tags="Mobile,Taunt,Stat Down,Self Buff,Buffs Allies,Physical,Magical">
+       data-tags="Mobile,Taunt,RES Down,ATK Up,MAG Up,ACC Up,Physical,Magical,Resource Refill">
       <div class="summon-image"><img src="images/summon-images/frieza-force-soldier.jpg" alt="Frieza Force Soldier"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Blaster">Blaster</div>
@@ -578,7 +595,7 @@
     <a href="summons/patronus(potter).html" class="summon-card"
        data-name="Patronus (Potter)" data-source="Harry Potter" data-role="Booster"
        data-links="Wizarding World Universe,Temporary"
-       data-tags="Mobile,Stat Down,Buffs Allies">
+       data-tags="Mobile,Damage Reduction,ATK Down,MAG Down,RES Down,ATK Up,MAG Up,Resource Refill,STA Support">
       <div class="summon-image"><img src="images/summon-images/potter-patronus.jpg" alt="Patronus (Potter)"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Booster">Booster</div>
@@ -589,12 +606,23 @@
     <a href="summons/patronus(malfoy).html" class="summon-card"
        data-name="Patronus (Malfoy)" data-source="Dracaena Malfoy" data-role="Booster"
        data-links="Wizarding World Universe,Temporary"
-       data-tags="Mobile,Stat Down,Buffs Allies">
+       data-tags="Mobile,Airborne,Damage Reduction,ATK Down,MAG Down,ACC Down,HEAL Up,Cooldown Reduction">
       <div class="summon-image"><img src="images/summon-images/malfoy-patronus.jpg" alt="Patronus (Malfoy)"></div>
       <div class="summon-overlay"></div>
       <div class="role-badge" data-role="Booster">Booster</div>
       <div class="summon-source">Dracaena Malfoy</div>
       <div class="summon-name">Patronus (Malfoy)</div>
+    </a>
+
+    <a href="summons/nagini.html" class="summon-card"
+       data-name="Nagini" data-source="Lord Voldemort" data-role="Striker"
+       data-links="Wizarding World Universe,Persistent"
+       data-tags="Mobile,Enemy Reposition,DEF Down,RES Down,Damage Over Time,EVA Up,Physical">
+      <div class="summon-image"><img src="images/summon-images/nagini.jpg" alt="Nagini"></div>
+      <div class="summon-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="summon-source">Lord Voldemort</div>
+      <div class="summon-name">Nagini</div>
     </a>
 
   </div>

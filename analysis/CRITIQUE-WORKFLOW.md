@@ -20,14 +20,23 @@ Do NOT: re-read full sheets for CSS, re-read the Catechism end to end, or contin
 > New Meta Analysis session for **Champions Ultimate Edition**. Don't load old chat history.
 > Read `analysis/roster-index.md` and use the meta methodology + design principles in project memory. Run the six-pillar comparative ranking across the current roster. Only pull a specific champion's kit entry from `analysis/roster-kits.md` (or grep its sheet's kit region) if a pillar needs ability-level detail. Flag outliers against the role bands.
 
+## Critique checklist (lessons from past passes)
+- **Leader Abilities are not tagged** (Harry precedent). A tag sourced only from the Leader is a bug.
+- **Card vs sheet sync:** check the `champions.html` card's `data-name`, `data-realname`, `data-links` and `data-tags` against the sheet. New champions have shipped with empty attributes.
+- **Undefined terms:** grep the Catechism for every keyword the kit uses ("endurance", domain names, "guaranteed to land", etc.).
+- **Copy-paste drift from template sheets:** "Only applies to Base Form" on non-transformers, `.ability-meta` vs `.syn-ability-meta` in synergy cards, doubled punctuation.
+- **Uptime math:** for any duration/cooldown pair, compute uptime including every cooldown-reduction source. Check counterplay: can the enemy actually remove it?
+- **Cross-kit counters:** search other kits for effects that target the champion's links (e.g. the Patronuses vs "Vast Darkness").
+- **Dead text:** effects that reference a trigger nothing in the roster can produce (e.g. "upon being resurrected" with no revive source).
+
 ## Maintenance (keeps it dynamic)
 - **Every time a champion is added or re-tuned:** update their one line in `roster-index.md` (and their kit entry in `roster-kits.md` once that exists) in the same pass as the sheet edit. One line in = index never drifts.
 - **New status/mechanic:** add a one-liner to `catechism-digest.md`.
 - The index/digest are *derived from* the sheets — the HTML remains the source of record; these are the fast read layer.
+- **There is no generator script** (no `build-digest.py` exists as of 2026-10-21). All four files are hand-maintained: after finalizing a champion, edit their index line + kits entry, and add any new statuses to the Catechism digest.
 
-## Still to build (quick follow-ups, not required to start)
-- `analysis/catechism-digest.md` — all statuses (`Name — effect — tier`) + mechanic one-liners (inert, precise, piercing, mounting, domain, standby, last stand). One grep of the Catechism status tables builds it.
-- `analysis/roster-kits.md` — condensed per-champion kits (abilities as `Name (Type·EN·CD·Range): effects`), links, synergies, transform forms. Seed with recent champions; backfill others on-demand the first time each is needed as a comparison peer.
+## Status
+Both fast-read layers exist: `catechism-digest.md` and `roster-kits.md` (full coverage of all 32 champions as of 2026-10-21). Keep them current by hand.
 
 ## Why this is cheap
 A full sheet is ~1,500 lines (~950 CSS). The index is ~one read for the whole roster; a kit-region read is ~250 lines. A cold critique chat ≈ index + one kit + a status grep. A meta pass ≈ index only. No chat history, no boilerplate, no whole-Catechism reads.

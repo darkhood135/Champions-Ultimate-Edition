@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #ff5b5b; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ff5b5b;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== TOOLBAR ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #ff5b5b; background: #1c1d22; }
+
+  .toolbar-btn {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toolbar-btn:hover { color: #f0f1f3; border-color: #3c4047; }
+  .toolbar-btn.active { color: #ff8585; border-color: #ff5b5b; background: rgba(255, 91, 91, 0.08); }
+
+  .toolbar-btn .count-pill {
+    background: #ff5b5b;
+    color: #2d0808;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== ACTIVE CHIPS ====================== */
+  .active-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 24px;
+    margin-bottom: 18px;
+  }
+
+  .active-chips:empty { margin-bottom: 0; min-height: 0; }
+
+  .chip {
+    background: rgba(255, 91, 91, 0.1);
+    border: 1px solid rgba(255, 91, 91, 0.4);
+    color: #ff8585;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px 4px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .chip:hover { background: rgba(255, 91, 91, 0.18); }
+
+  .chip .x { font-size: 14px; line-height: 1; opacity: 0.7; }
+
+  /* ====================== FILTER PANEL ====================== */
+  .filter-panel {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease, padding 0.2s ease, margin-bottom 0.2s ease;
+    margin-bottom: 0;
+  }
+
+  .filter-panel.open {
+    max-height: 1200px;
+    padding: 18px 22px 20px;
+    margin-bottom: 22px;
+  }
+
+  .filter-group { margin-bottom: 18px; }
+  .filter-group:last-child { margin-bottom: 0; }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter-pill {
+    background: #1c1d22;
+    border: 1px solid #2c3038;
+    color: #c5c8d0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .filter-pill:hover { color: #f0f1f3; border-color: #3c4047; }
+  .filter-pill.active {
+    background: rgba(255, 91, 91, 0.15);
+    border-color: #ff5b5b;
+    color: #ff8585;
+  }
+
+  /* ====================== CHAMPION GRID ====================== */
+  .champion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .champion-card {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+    text-decoration: none;
+    color: #f0f1f3;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+  }
+
+  .champion-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff5b5b;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .champion-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1c1d22 0%, #14161a 100%);
+    color: #4f535c;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    transition: transform 0.25s ease;
+  }
+
+  .champion-card:hover .champion-image { transform: scale(1.04); }
+
+  .champion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .champion-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 35%,
+      rgba(13, 14, 17, 0.6) 70%,
+      rgba(13, 14, 17, 0.98) 100%);
+    pointer-events: none;
+  }
+
+  .role-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .role-badge[data-role="Striker"]    { color: #ff8585; }
+  .role-badge[data-role="Blaster"]    { color: #f0894a; }
+  .role-badge[data-role="Defender"]   { color: #6bb4ff; }
+  .role-badge[data-role="Healer"]     { color: #5fd189; }
+  .role-badge[data-role="Booster"]    { color: #c084fc; }
+  .role-badge[data-role="Breaker"]    { color: #ffd680; }
+  .role-badge[data-role="Summoner"]   { color: #5fe0c8; }
+  .role-badge[data-role="Berserker"]  { color: #ff5757; }
+  .role-badge[data-role="Plunderer"]  { color: #ff7eb3; }
+
+  .champion-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+  }
+
+  /* No results message */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+    font-size: 14px;
+    grid-column: 1 / -1;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .toolbar { gap: 8px; }
+    .toolbar .search-wrap { min-width: 100%; }
+    .count-badge { margin-left: 0; }
+    .champion-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Champions</h1>
+    <p class="page-subtitle">Every playable character in the roster.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search by name or real name…" autocomplete="off">
+    </div>
+    <button class="toolbar-btn" id="filter-toggle">
+      Filters
+      <span class="count-pill" id="filter-count" style="display: none;">0</span>
+    </button>
+    <button class="toolbar-btn" id="clear-filters">Clear</button>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> champions
+    </div>
+  </div>
+
+  <!-- ACTIVE FILTER CHIPS (auto-populated) -->
+  <div class="active-chips" id="active-chips"></div>
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel" id="filter-panel">
+    <div class="filter-group">
+      <div class="filter-label">Role</div>
+      <div class="filter-pills" data-category="role">
+        <button class="filter-pill" data-value="Striker">Striker</button>
+        <button class="filter-pill" data-value="Blaster">Blaster</button>
+        <button class="filter-pill" data-value="Defender">Defender</button>
+        <button class="filter-pill" data-value="Healer">Healer</button>
+        <button class="filter-pill" data-value="Booster">Booster</button>
+        <button class="filter-pill" data-value="Breaker">Breaker</button>
+        <button class="filter-pill" data-value="Summoner">Summoner</button>
+        <button class="filter-pill" data-value="Berserker">Berserker</button>
+        <button class="filter-pill" data-value="Plunderer">Plunderer</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Link</div>
+      <div class="filter-pills" data-category="link">
+        <button class="filter-pill" data-value="Anti-Hero">Anti-Hero</button>
+        <button class="filter-pill" data-value="Hero">Hero</button>
+        <button class="filter-pill" data-value="Villain">Villain</button>
+        <button class="filter-pill" data-value="Anchors of Hope">Anchors of Hope</button>
+        <button class="filter-pill" data-value="Anchors of Ruin">Anchors of Ruin</button>
+        <button class="filter-pill" data-value="Misaligned Morals">Misaligned Morals</button>
+        <button class="filter-pill" data-value="Avengers">Avengers</button>
+        <button class="filter-pill" data-value="Bat-Family">Bat-Family</button>
+        <button class="filter-pill" data-value="Galactic Invasion">Galactic Invasion</button>
+        <button class="filter-pill" data-value="Frieza Force">Frieza Force</button>
+        <button class="filter-pill" data-value="Tulpar Crew">Tulpar Crew</button>
+        <button class="filter-pill" data-value="Heroes of New York">Heroes of New York</button>
+        <button class="filter-pill" data-value="Justice League">Justice League</button>
+        <button class="filter-pill" data-value="Titans">Titans</button>
+        <button class="filter-pill" data-value="Lantern Corps">Lantern Corps</button>
+        <button class="filter-pill" data-value="Law Enforcement">Law Enforcement</button>
+        <button class="filter-pill" data-value="New Avengers">New Avengers</button>
+        <button class="filter-pill" data-value="Stark Industries">Stark Industries</button>
+        <button class="filter-pill" data-value="Web Warrior">Web Warrior</button>
+        <button class="filter-pill" data-value="X-Men">X-Men</button>
+        <button class="filter-pill" data-value="Z Fighters">Z Fighters</button>
+        <button class="filter-pill" data-value="Slytherin">Slytherin</button>
+        <button class="filter-pill" data-value="Hogwarts Attendee">Hogwarts Attendee</button>
+        <button class="filter-pill" data-value="Gryffindor">Gryffindor</button>
+        <button class="filter-pill" data-value="DC Universe">DC Universe</button>
+        <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
+        <button class="filter-pill" data-value="Dragon Ball Universe">Dragon Ball Universe</button>
+        <button class="filter-pill" data-value="Echo of the Past">Echo of the Past</button>
+        <button class="filter-pill" data-value="Multiversal">Multiversal</button>
+        <button class="filter-pill" data-value="Dark Multiverse">Dark Multiverse</button>
+        <button class="filter-pill" data-value="Wizarding World Universe">Wizarding World Universe</button>
+        <button class="filter-pill" data-value="Human">Human</button>
+        <button class="filter-pill" data-value="Kryptonian">Kryptonian</button>
+        <button class="filter-pill" data-value="Mutant">Mutant</button>
+        <button class="filter-pill" data-value="Saiyan">Saiyan</button>
+        <button class="filter-pill" data-value="Amazon">Amazon</button>
+        <button class="filter-pill" data-value="Symbiote">Symbiote</button>
+        <button class="filter-pill" data-value="Asgardian">Asgardian</button>
+        <button class="filter-pill" data-value="Unknown Species">Unknown Species</button>
+        <button class="filter-pill" data-value="Mechanical Physiology">Mechanical Physiology</button>
+        <button class="filter-pill" data-value="Rapid Regeneration">Rapid Regeneration</button>
+        <button class="filter-pill" data-value="Super Soldier">Super Soldier</button>
+        <button class="filter-pill" data-value="Transformation Boost">Transformation Boost</button>
+        <button class="filter-pill" data-value="Comedic Genius">Comedic Genius</button>
+        <button class="filter-pill" data-value="Elite Class">Elite Class</button>
+        <button class="filter-pill" data-value="Firearm Expert">Firearm Expert</button>
+        <button class="filter-pill" data-value="Grand Heist">Grand Heist</button>
+        <button class="filter-pill" data-value="Heir to the Mantle">Heir to the Mantle</button>
+        <button class="filter-pill" data-value="Incredible Intelligence">Incredible Intelligence</button>
+        <button class="filter-pill" data-value="Adaptive Measures">Adaptive Measures</button>
+        <button class="filter-pill" data-value="Inseparable Pair">Inseparable Pair</button>
+        <button class="filter-pill" data-value="Parental Bond">Parental Bond</button>
+        <button class="filter-pill" data-value="Prideful Personalities">Prideful Personalities</button>
+        <button class="filter-pill" data-value="Pure Heart">Pure Heart</button>
+        <button class="filter-pill" data-value="Road to Redemption">Road to Redemption</button>
+        <button class="filter-pill" data-value="Tactical Mind">Tactical Mind</button>
+        <button class="filter-pill" data-value="Masters of Magic">Masters of Magic</button>
+        <button class="filter-pill" data-value="Figures of Prophecy">Figures of Prophecy</button>
+        <button class="filter-pill" data-value="Cosmic Threat">Cosmic Threat</button>
+        <button class="filter-pill" data-value="Reality Warper">Reality Warper</button>
+        <button class="filter-pill" data-value="Street Level">Street Level</button>
+        <button class="filter-pill" data-value="Supreme Power">Supreme Power</button>
+        <button class="filter-pill" data-value="Radiating Light">Radiating Light</button>
+        <button class="filter-pill" data-value="Vast Darkness">Vast Darkness</button>
+        <button class="filter-pill" data-value="Gifted by the Gods">Gifted by the Gods</button>
+        <button class="filter-pill" data-value="Fierce Combatant">Fierce Combatant</button>
+        <button class="filter-pill" data-value="Servants of Knull">Servants of Knull</button>
+        <button class="filter-pill" data-value="Psychotic Tendencies">Psychotic Tendencies</button>
+        <button class="filter-pill" data-value="Worthy">Worthy</button>
+        <button class="filter-pill" data-value="Control of Nature">Control of Nature</button>
+        <button class="filter-pill" data-value="Rampant Deception">Rampant Deception</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Movement</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="Self-Reposition">Self-Reposition</button>
+        <button class="filter-pill" data-value="Ally Reposition">Ally Reposition</button>
+        <button class="filter-pill" data-value="Enemy Reposition">Enemy Reposition</button>
+        <button class="filter-pill" data-value="Position Swap">Position Swap</button>
+        <button class="filter-pill" data-value="Elevation Bypass">Elevation Bypass</button>
+        <button class="filter-pill" data-value="Obstacle Bypass">Obstacle Bypass</button>
+        <button class="filter-pill" data-value="Anti-Air">Anti-Air</button>
+        <button class="filter-pill" data-value="Airborne">Airborne</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Mitigation</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="Evasion">Evasion</button>
+        <button class="filter-pill" data-value="Counter">Counter</button>
+        <button class="filter-pill" data-value="Taunt">Taunt</button>
+        <button class="filter-pill" data-value="Standby">Standby</button>
+        <button class="filter-pill" data-value="Interrupt">Interrupt</button>
+        <button class="filter-pill" data-value="Infliction Resist">Infliction Resist</button>
+        <button class="filter-pill" data-value="Cleanse">Cleanse</button>
+        <button class="filter-pill" data-value="Damage Reduction">Damage Reduction</button>
+        <button class="filter-pill" data-value="Cover">Cover</button>
+        <button class="filter-pill" data-value="Last Stand">Last Stand</button>
+        <button class="filter-pill" data-value="Revival">Revival</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Affliction</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="ATK Down">ATK Down</button>
+        <button class="filter-pill" data-value="DEF Down">DEF Down</button>
+        <button class="filter-pill" data-value="MAG Down">MAG Down</button>
+        <button class="filter-pill" data-value="RES Down">RES Down</button>
+        <button class="filter-pill" data-value="SPD Down">SPD Down</button>
+        <button class="filter-pill" data-value="ACC Down">ACC Down</button>
+        <button class="filter-pill" data-value="EVA Down">EVA Down</button>
+        <button class="filter-pill" data-value="Stun">Stun</button>
+        <button class="filter-pill" data-value="Vulnerability">Vulnerability</button>
+        <button class="filter-pill" data-value="Damage Over Time">Damage Over Time</button>
+        <button class="filter-pill" data-value="EN Drain">EN Drain</button>
+        <button class="filter-pill" data-value="STA Drain">STA Drain</button>
+        <button class="filter-pill" data-value="Cooldown Increase">Cooldown Increase</button>
+        <button class="filter-pill" data-value="Buff Steal">Buff Steal</button>
+        <button class="filter-pill" data-value="Buff Removal">Buff Removal</button>
+        <button class="filter-pill" data-value="Forced Target">Forced Target</button>
+        <button class="filter-pill" data-value="Mind Control">Mind Control</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Empowerment</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="ATK Up">ATK Up</button>
+        <button class="filter-pill" data-value="DEF Up">DEF Up</button>
+        <button class="filter-pill" data-value="MAG Up">MAG Up</button>
+        <button class="filter-pill" data-value="RES Up">RES Up</button>
+        <button class="filter-pill" data-value="SPD Up">SPD Up</button>
+        <button class="filter-pill" data-value="EVA Up">EVA Up</button>
+        <button class="filter-pill" data-value="ACC Up">ACC Up</button>
+        <button class="filter-pill" data-value="CRIT Up">CRIT Up</button>
+        <button class="filter-pill" data-value="HEAL Up">HEAL Up</button>
+        <button class="filter-pill" data-value="Healing">Healing</button>
+        <button class="filter-pill" data-value="Overhealth">Overhealth</button>
+        <button class="filter-pill" data-value="Stealth Application">Stealth Application</button>
+        <button class="filter-pill" data-value="Affliction Boost">Affliction Boost</button>
+        <button class="filter-pill" data-value="Transformation">Transformation</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Offense</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="Area of Effect">Area of Effect</button>
+        <button class="filter-pill" data-value="Line Ability">Line Ability</button>
+        <button class="filter-pill" data-value="Multi-Hit">Multi-Hit</button>
+        <button class="filter-pill" data-value="Chain">Chain</button>
+        <button class="filter-pill" data-value="Piercing">Piercing</button>
+        <button class="filter-pill" data-value="Precise">Precise</button>
+        <button class="filter-pill" data-value="Extension">Extension</button>
+        <button class="filter-pill" data-value="Instant Defeat">Instant Defeat</button>
+        <button class="filter-pill" data-value="HP Cost">HP Cost</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Utility</div>
+      <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="Item Spawn">Item Spawn</button>
+        <button class="filter-pill" data-value="Item Steal">Item Steal</button>
+        <button class="filter-pill" data-value="Summon">Summon</button>
+        <button class="filter-pill" data-value="Copy">Copy</button>
+        <button class="filter-pill" data-value="Inert">Inert</button>
+        <button class="filter-pill" data-value="ULT Generation">ULT Generation</button>
+        <button class="filter-pill" data-value="Resource Refill">Resource Refill</button>
+        <button class="filter-pill" data-value="Resource Reveal">Resource Reveal</button>
+        <button class="filter-pill" data-value="STA Support">STA Support</button>
+        <button class="filter-pill" data-value="Cooldown Reduction">Cooldown Reduction</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       CHAMPION GRID
+       Each card data-* attributes drive filtering.
+       Replace href, image, and metadata per champion.
+       ============================================= -->
+  <div class="champion-grid" id="champion-grid">
+
+    <!-- ===== STORY LEADS ===== -->
+
+    <a href="champions/the-summoner.html" class="champion-card"
+       data-name="The Summoner" data-realname="Unknown" data-role="Summoner"
+       data-links="Multiversal,Hero,Unknown Species,Tactical Mind,Radiating Light,Vast Darkness,Reality Warper,Cosmic Threat,Gifted by the Gods"
+       data-tags="Self-Reposition,Damage Reduction,Vulnerability,ATK Up,MAG Up,DEF Up,RES Up,HEAL Up,Healing,Area of Effect,Chain,Summon,ULT Generation,Resource Refill">
+      <div class="champion-image"><img src="images/champion-images/the-summoner.jpg" alt="The Summoner"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">The Summoner</div>
+    </a>
+
+    <!-- ===== MARVEL UNIVERSE ===== -->
+
+    <a href="champions/spider-man.html" class="champion-card"
+       data-name="Spider-Man" data-realname="Peter Parker" data-role="Striker"
+       data-links="Marvel Universe,Hero,Anchors of Hope,Human,Web Warrior,New Avengers,Comedic Genius,Heroes of New York"
+       data-tags="Self-Reposition,Position Swap,Elevation Bypass,Obstacle Bypass,Anti-Air,Evasion,Counter,Last Stand,DEF Down,Stun,ATK Up,MAG Up,DEF Up,RES Up,EVA Up,CRIT Up,SPD Up,HEAL Up,Affliction Boost,Multi-Hit,Area of Effect,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/spider-man.jpg" alt="Spider-Man"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Spider-Man</div>
+    </a>
+
+    <a href="champions/miles-morales.html" class="champion-card"
+       data-name="Spider-Man (Miles Morales)" data-realname="Miles Morales" data-role="Breaker"
+       data-links="Marvel Universe,Hero,Human,Web Warrior,Heir to the Mantle,Comedic Genius,Heroes of New York"
+       data-tags="Self-Reposition,Enemy Reposition,Evasion,Damage Over Time,Stun,ATK Up,MAG Up,SPD Up,EVA Up,Stealth Application,Affliction Boost,Area of Effect,Extension,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/miles-morales.jpg" alt="Spider-Man (Miles Morales)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Spider-Man (Miles Morales)</div>
+    </a>
+
+    <a href="champions/captain-america.html" class="champion-card"
+       data-name="Captain America" data-realname="Steve Rogers" data-role="Defender"
+       data-links="Marvel Universe,Hero,Anchors of Hope,Human,Super Soldier,Avengers,New Avengers,Heroes of New York,Pure Heart,Tactical Mind,Street Level,Worthy"
+       data-tags="Self-Reposition,Enemy Reposition,Elevation Bypass,Obstacle Bypass,Anti-Air,Taunt,Counter,Cleanse,Damage Reduction,Last Stand,ACC Down,Forced Target,ATK Up,DEF Up,RES Up,MAG Up,ACC Up,Multi-Hit,Chain,Line Ability,Extension,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/captain-america.jpg" alt="Captain America"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Captain America</div>
+    </a>
+
+    <a href="champions/the-wasp.html" class="champion-card"
+       data-name="The Wasp" data-realname="Janet Van Dyne" data-role="Healer"
+       data-links="Marvel Universe,Hero,Human,Avengers,Heroes of New York,Tactical Mind,Elite Class"
+       data-tags="Airborne,Interrupt,Damage Over Time,EN Drain,STA Drain,ATK Up,DEF Up,RES Up,SPD Up,EVA Up,ACC Up,HEAL Up,Healing,Overhealth,Affliction Boost,Area of Effect,Resource Refill,STA Support,ULT Generation,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/the-wasp.jpg" alt="The Wasp"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">The Wasp</div>
+    </a>
+
+    <a href="champions/the-punisher.html" class="champion-card"
+       data-name="The Punisher" data-realname="Francis Castle" data-role="Striker"
+       data-links="Marvel Universe,Anti-Hero,Human,Tactical Mind,Firearm Expert,Street Level"
+       data-tags="Damage Over Time,ATK Up,MAG Up,CRIT Up,DEF Up,RES Up,Healing,Multi-Hit,Area of Effect,Resource Refill,ULT Generation,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/the-punisher.jpg" alt="The Punisher"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">The Punisher</div>
+    </a>
+
+    <a href="champions/iron-man.html" class="champion-card"
+       data-name="Iron Man" data-realname="Anthony Stark" data-role="Blaster"
+       data-links="Marvel Universe,Hero,Human,Stark Industries,Avengers,New Avengers,Heroes of New York,Mechanical Physiology,Tactical Mind,Incredible Intelligence,Road to Redemption,Elite Class"
+       data-tags="Airborne,Infliction Resist,RES Down,ATK Up,MAG Up,DEF Up,RES Up,ACC Up,EVA Up,Healing,Area of Effect,Line Ability,Extension,Resource Refill,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/iron-man.jpg" alt="Iron Man"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Iron Man</div>
+    </a>
+
+    <a href="champions/wolverine.html" class="champion-card"
+       data-name="Wolverine" data-realname="James Howlett" data-role="Striker"
+       data-links="Marvel Universe,Hero,Anti-Hero,Mutant,X-Men,New Avengers,Tactical Mind,Road to Redemption,Rapid Regeneration"
+       data-tags="Self-Reposition,Elevation Bypass,Anti-Air,Cleanse,Last Stand,Revival,Damage Over Time,ATK Up,SPD Up,HEAL Up,Healing,Multi-Hit,Line Ability,Resource Refill,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/wolverine.jpg" alt="Wolverine"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Wolverine</div>
+    </a>
+
+    <a href="champions/cloak.html" class="champion-card"
+       data-name="Cloak" data-realname="Tyrone Johnson" data-role="Breaker"
+       data-links="Marvel Universe,Hero,Human,Vast Darkness,Inseparable Pair,Reality Warper,Tactical Mind"
+       data-tags="Self-Reposition,Ally Reposition,Standby,Interrupt,Stun,Vulnerability,EVA Down,EN Drain,STA Drain,Buff Steal,ATK Up,MAG Up,HEAL Up,EVA Up,Stealth Application,Area of Effect,Line Ability,Resource Refill,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/cloak.jpg" alt="Cloak"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Cloak</div>
+    </a>
+
+    <a href="champions/dagger.html" class="champion-card"
+       data-name="Dagger" data-realname="Tandy Bowen" data-role="Healer"
+       data-links="Marvel Universe,Hero,Human,Radiating Light,Inseparable Pair,Tactical Mind"
+       data-tags="Evasion,Standby,Interrupt,Infliction Resist,Damage Reduction,ATK Down,MAG Down,ATK Up,DEF Up,RES Up,MAG Up,HEAL Up,EVA Up,Healing,Area of Effect,Line Ability,Resource Refill,STA Support,ULT Generation,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/dagger.jpg" alt="Dagger"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Dagger</div>
+    </a>
+
+    <a href="champions/deadpool.html" class="champion-card"
+       data-name="Deadpool" data-realname="Wade Wilson" data-role="Berserker"
+       data-links="Marvel Universe,Anti-Hero,Villain,Mutant,Road to Redemption,Rapid Regeneration,Comedic Genius"
+       data-tags="Self-Reposition,Last Stand,Revival,Damage Reduction,ACC Down,Damage Over Time,Forced Target,Taunt,ATK Up,MAG Up,Healing,Multi-Hit,Line Ability,Extension,Area of Effect,HP Cost,ULT Generation,Resource Refill">
+      <div class="champion-image"><img src="images/champion-images/deadpool.jpg" alt="Deadpool"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Deadpool</div>
+    </a>
+
+    <a href="champions/black-cat.html" class="champion-card"
+       data-name="Black Cat" data-realname="Felicia Hardy" data-role="Plunderer"
+       data-links="Marvel Universe,Anti-Hero,Human,Grand Heist,Road to Redemption,Heir to the Mantle,Street Level"
+       data-tags="Self-Reposition,Elevation Bypass,Counter,Buff Steal,Vulnerability,Damage Over Time,EN Drain,STA Drain,ATK Up,MAG Up,EVA Up,SPD Up,Stealth Application,Affliction Boost,Area of Effect,Line Ability,Item Steal,ULT Generation,Resource Refill">
+      <div class="champion-image"><img src="images/champion-images/black-cat.jpg" alt="Black Cat"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Black Cat</div>
+    </a>
+
+    <a href="champions/carnage.html" class="champion-card"
+       data-name="Carnage" data-realname="Cletus Kasady" data-role="Plunderer"
+       data-links="Marvel Universe,Villain,Human,Symbiote,Servants of Knull,Inseparable Pair,Psychotic Tendencies,Galactic Invasion,Cosmic Threat"
+       data-tags="Self-Reposition,Elevation Bypass,Infliction Resist,Damage Over Time,Mind Control,Area of Effect,Line Ability,ATK Up,SPD Up,EVA Up,Healing,Affliction Boost,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/carnage.jpg" alt="Carnage"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Carnage</div>
+    </a>
+
+    <a href="champions/thor.html" class="champion-card"
+       data-name="Thor" data-realname="Thor Odinson" data-role="Defender"
+       data-links="Marvel Universe,Hero,Asgardian,Avengers,Supreme Power,Worthy,Tactical Mind,Control of Nature,Fierce Combatant,Gifted by the Gods"
+       data-tags="Self-Reposition,Enemy Reposition,Airborne,Taunt,Damage Reduction,Infliction Resist,Damage Over Time,Stun,Forced Target,DEF Down,RES Down,Area of Effect,Chain,ATK Up,MAG Up,Affliction Boost,ULT Generation">
+      <div class="champion-image"><img src="images/champion-images/thor.jpg" alt="Thor"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Thor</div>
+    </a>
+
+    <a href="champions/loki.html" class="champion-card"
+       data-name="Loki" data-realname="Loki Laufeyson" data-role="Summoner"
+       data-links="Marvel Universe,Anti-Hero,Villain,Asgardian,Supreme Power,Worthy,Road to Redemption,Reality Warper,Gifted by the Gods,Rampant Deception,Prideful Personalities"
+       data-tags="Position Swap,Infliction Resist,RES Down,ACC Down,Damage Over Time,Mind Control,ATK Up,MAG Up,Affliction Boost,Stealth Application,Healing,Area of Effect,Summon,Copy,ULT Generation,Resource Refill,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/loki.jpg" alt="Loki"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Loki</div>
+    </a>
+
+    <!-- Marvel — pages/filters not built yet -->
+    <a href="champions/the-hulk.html" class="champion-card"
+       data-name="The Hulk" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-hulk.jpg" alt="The Hulk"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">The Hulk</div>
+    </a>
+
+    <a href="champions/black-panther.html" class="champion-card"
+       data-name="Black Panther" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/black-panther.jpg" alt="Black Panther"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Black Panther</div>
+    </a>
+
+    <a href="champions/winter-soldier.html" class="champion-card"
+       data-name="Winter Soldier" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/winter-soldier.jpg" alt="Winter Soldier"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Winter Soldier</div>
+    </a>
+
+    <a href="champions/venom.html" class="champion-card"
+       data-name="Venom" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/venom.jpg" alt="Venom"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Venom</div>
+    </a>
+
+    <a href="champions/iron-fist.html" class="champion-card"
+       data-name="Iron Fist" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/iron-fist.jpg" alt="Iron Fist"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Iron Fist</div>
+    </a>
+
+    <a href="champions/black-widow.html" class="champion-card"
+       data-name="Black Widow" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/black-widow.jpg" alt="Black Widow"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Black Widow</div>
+    </a>
+
+    <a href="champions/storm.html" class="champion-card"
+       data-name="Storm" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/storm.jpg" alt="Storm"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Storm</div>
+    </a>
+
+    <a href="champions/luna-snow.html" class="champion-card"
+       data-name="Luna Snow" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/luna-snow.jpg" alt="Luna Snow"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Luna Snow</div>
+    </a>
+
+    <a href="champions/star-lord.html" class="champion-card"
+       data-name="Star-Lord" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/star-lord.jpg" alt="Star-Lord"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Star-Lord</div>
+    </a>
+
+    <a href="champions/groot.html" class="champion-card"
+       data-name="Groot" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/groot.jpg" alt="Groot"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Groot</div>
+    </a>
+
+    <a href="champions/rocket-raccoon.html" class="champion-card"
+       data-name="Rocket Raccoon" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/rocket-raccoon.jpg" alt="Rocket Raccoon"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Rocket Raccoon</div>
+    </a>
+
+    <a href="champions/drax.html" class="champion-card"
+       data-name="Drax" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/drax.jpg" alt="Drax"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Drax</div>
+    </a>
+
+    <a href="champions/gamora.html" class="champion-card"
+       data-name="Gamora" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/gamora.jpg" alt="Gamora"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Gamora</div>
+    </a>
+
+    <a href="champions/mantis.html" class="champion-card"
+       data-name="Mantis" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/mantis.jpg" alt="Mantis"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Mantis</div>
+    </a>
+
+    <a href="champions/white-fox.html" class="champion-card"
+       data-name="White Fox" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/white-fox.jpg" alt="White Fox"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">White Fox</div>
+    </a>
+
+    <a href="champions/mister-fantastic.html" class="champion-card"
+       data-name="Mister Fantastic" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/mister-fantastic.jpg" alt="Mister Fantastic"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Mister Fantastic</div>
+    </a>
+
+    <a href="champions/invisible-woman.html" class="champion-card"
+       data-name="Invisible Woman" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/invisible-woman.jpg" alt="Invisible Woman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Invisible Woman</div>
+    </a>
+
+    <a href="champions/human-torch.html" class="champion-card"
+       data-name="Human Torch" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/human-torch.jpg" alt="Human Torch"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Human Torch</div>
+    </a>
+
+    <a href="champions/the-thing.html" class="champion-card"
+       data-name="The Thing" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-thing.jpg" alt="The Thing"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">The Thing</div>
+    </a>
+
+    <a href="champions/doctor-strange.html" class="champion-card"
+       data-name="Doctor Strange" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/doctor-strange.jpg" alt="Doctor Strange"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Doctor Strange</div>
+    </a>
+
+    <a href="champions/cyclops.html" class="champion-card"
+       data-name="Cyclops" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/cyclops.jpg" alt="Cyclops"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Cyclops</div>
+    </a>
+
+    <a href="champions/emma-frost.html" class="champion-card"
+       data-name="Emma Frost" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/emma-frost.jpg" alt="Emma Frost"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Emma Frost</div>
+    </a>
+
+    <a href="champions/colossus.html" class="champion-card"
+       data-name="Colossus" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/colossus.jpg" alt="Colossus"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Colossus</div>
+    </a>
+
+    <a href="champions/nightcrawler.html" class="champion-card"
+       data-name="Nightcrawler" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/nightcrawler.jpg" alt="Nightcrawler"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Nightcrawler</div>
+    </a>
+
+    <a href="champions/gambit.html" class="champion-card"
+       data-name="Gambit" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/gambit.jpg" alt="Gambit"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Gambit</div>
+    </a>
+
+    <a href="champions/rogue.html" class="champion-card"
+       data-name="Rogue" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/rogue.jpg" alt="Rogue"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Rogue</div>
+    </a>
+
+    <a href="champions/daredevil.html" class="champion-card"
+       data-name="Daredevil" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/daredevil.jpg" alt="Daredevil"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Daredevil</div>
+    </a>
+
+    <!-- ===== DC UNIVERSE ===== -->
+
+    <a href="champions/batman.html" class="champion-card"
+       data-name="Batman" data-realname="Bruce Wayne" data-role="Breaker"
+       data-links="DC Universe,Hero,Anchors of Hope,Human,Bat-Family,Justice League,Incredible Intelligence,Tactical Mind,Parental Bond,Elite Class"
+       data-tags="Enemy Reposition,Self-Reposition,Infliction Resist,DEF Down,RES Down,ACC Down,EVA Down,Stun,ATK Up,SPD Up,EVA Up,Stealth Application,Area of Effect,Line Ability,Extension,Item Spawn,ULT Generation,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/batman.jpg" alt="Batman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Batman</div>
+    </a>
+
+    <a href="champions/superman.html" class="champion-card"
+       data-name="Superman" data-realname="Clark Kent" data-role="Defender"
+       data-links="DC Universe,Hero,Anchors of Hope,Kryptonian,Justice League,Pure Heart,Supreme Power,Worthy"
+       data-tags="Enemy Reposition,Ally Reposition,Elevation Bypass,Counter,Taunt,Standby,DEF Down,Damage Over Time,Stun,ATK Up,MAG Up,DEF Up,RES Up,Resource Refill,ULT Generation,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/superman.jpg" alt="Superman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Superman</div>
+    </a>
+
+    <a href="champions/robin.html" class="champion-card"
+       data-name="Robin" data-realname="Damian Wayne" data-role="Booster"
+       data-links="DC Universe,Hero,Anti-Hero,Human,Titans,Bat-Family,Heir to the Mantle,Street Level,Road to Redemption,Parental Bond,Tactical Mind"
+       data-tags="Damage Over Time,ATK Up,MAG Up,CRIT Up,SPD Up,EVA Up,Stealth Application,Item Spawn,ULT Generation,Resource Refill">
+      <div class="champion-image"><img src="images/champion-images/robin.jpg" alt="Robin"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Robin</div>
+    </a>
+
+    <a href="champions/batgirl.html" class="champion-card"
+       data-name="Batgirl" data-realname="Cassandra Cain" data-role="Striker"
+       data-links="DC Universe,Hero,Human,Bat-Family,Heir to the Mantle,Street Level,Tactical Mind,Parental Bond,Road to Redemption"
+       data-tags="Self-Reposition,Enemy Reposition,Elevation Bypass,Counter,Infliction Resist,ATK Up,DEF Up,RES Up,EVA Up,CRIT Up,Area of Effect,Extension,Item Spawn,ULT Generation,STA Support">
+      <div class="champion-image"><img src="images/champion-images/batgirl.jpg" alt="Batgirl"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Batgirl</div>
+    </a>
+
+    <a href="champions/wonder-woman.html" class="champion-card"
+       data-name="Wonder Woman" data-realname="Diana of Themyscira" data-role="Defender"
+       data-links="DC Universe,Hero,Amazon,Justice League,Tactical Mind,Supreme Power,Gifted by the Gods,Fierce Combatant"
+       data-tags="Self-Reposition,Anti-Air,Counter,Damage Reduction,Last Stand,DEF Down,Vulnerability,Damage Over Time,Forced Target,Buff Removal,Chain,Extension,ATK Up,DEF Up,RES Up,MAG Up,Healing,ULT Generation,Resource Refill,Resource Reveal,STA Support">
+      <div class="champion-image"><img src="images/champion-images/wonder-woman.jpg" alt="Wonder Woman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Wonder Woman</div>
+    </a>
+
+    <a href="champions/cyborg.html" class="champion-card"
+       data-name="Cyborg" data-realname="Victor Stone" data-role="Booster"
+       data-links="DC Universe,Hero,Human,Justice League,Titans,Mechanical Physiology,Incredible Intelligence,Adaptive Measures,Tactical Mind"
+       data-tags="Elevation Bypass,Anti-Air,Damage Reduction,Infliction Resist,Cleanse,ACC Down,Buff Steal,ATK Up,MAG Up,DEF Up,RES Up,ACC Up,Healing,Line Ability,Summon,Inert,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/cyborg.jpg" alt="Cyborg"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Cyborg</div>
+    </a>
+
+    <a href="champions/green-lantern.html" class="champion-card"
+       data-name="Green Lantern" data-realname="Hal Jordan" data-role="Blaster"
+       data-links="DC Universe,Hero,Human,Lantern Corps,Justice League,Heir to the Mantle,Tactical Mind,Prideful Personalities"
+       data-tags="Enemy Reposition,Airborne,Damage Reduction,EN Drain,Line Ability,Area of Effect,HP Cost,ATK Up,MAG Up,DEF Up,RES Up,EVA Up,ACC Up,ULT Generation,Resource Refill,STA Support,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/green-lantern.jpg" alt="Green Lantern"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Green Lantern</div>
+    </a>
+
+    <!-- DC — pages/filters not built yet -->
+    <a href="champions/the-flash.html" class="champion-card"
+       data-name="The Flash" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-flash.jpg" alt="The Flash"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">The Flash</div>
+    </a>
+
+    <a href="champions/aquaman.html" class="champion-card"
+       data-name="Aquaman" data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/aquaman.jpg" alt="Aquaman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Aquaman</div>
+    </a>
+
+    <a href="champions/martian-manhunter.html" class="champion-card"
+       data-name="Martian Manhunter" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/martian-manhunter.jpg" alt="Martian Manhunter"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Martian Manhunter</div>
+    </a>
+
+    <a href="champions/zatanna.html" class="champion-card"
+       data-name="Zatanna" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/zatanna.jpg" alt="Zatanna"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Zatanna</div>
+    </a>
+
+    <a href="champions/black-canary.html" class="champion-card"
+       data-name="Black Canary" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/black-canary.jpg" alt="Black Canary"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Black Canary</div>
+    </a>
+
+    <a href="champions/green-arrow.html" class="champion-card"
+       data-name="Green Arrow" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/green-arrow.jpg" alt="Green Arrow"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Green Arrow</div>
+    </a>
+
+    <a href="champions/catwoman.html" class="champion-card"
+       data-name="Catwoman" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/catwoman.jpg" alt="Catwoman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Catwoman</div>
+    </a>
+
+    <a href="champions/supergirl.html" class="champion-card"
+       data-name="Supergirl" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/supergirl.jpg" alt="Supergirl"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Supergirl</div>
+    </a>
+
+    <a href="champions/krypto.html" class="champion-card"
+       data-name="Krypto" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/krypto.jpg" alt="Krypto"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Krypto</div>
+    </a>
+
+    <a href="champions/the-joker.html" class="champion-card"
+       data-name="The Joker" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-joker.jpg" alt="The Joker"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">The Joker</div>
+    </a>
+
+    <a href="champions/harley-quinn.html" class="champion-card"
+       data-name="Harley Quinn" data-realname="" data-role="Berserker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/harley-quinn.jpg" alt="Harley Quinn"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Harley Quinn</div>
+    </a>
+
+    <a href="champions/shazam.html" class="champion-card"
+       data-name="Shazam" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/shazam.jpg" alt="Shazam"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Shazam</div>
+    </a>
+
+    <a href="champions/mister-terrific.html" class="champion-card"
+       data-name="Mister Terrific" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/mister-terrific.jpg" alt="Mister Terrific"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Mister Terrific</div>
+    </a>
+
+    <a href="champions/plastic-man.html" class="champion-card"
+       data-name="Plastic Man" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/plastic-man.jpg" alt="Plastic Man"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Plastic Man</div>
+    </a>
+
+    <!-- ===== DRAGON BALL UNIVERSE ===== -->
+
+    <a href="champions/goku.html" class="champion-card"
+       data-name="Goku" data-realname="Son Goku / Kakarot" data-role="Berserker"
+       data-links="Dragon Ball Universe,Hero,Anchors of Hope,Saiyan,Z Fighters,Pure Heart,Supreme Power,Parental Bond,Transformation Boost,Fierce Combatant,Echo of the Past"
+       data-tags="Self-Reposition,Enemy Reposition,Airborne,Standby,Infliction Resist,Last Stand,ACC Down,RES Down,Stun,Area of Effect,Line Ability,Multi-Hit,HP Cost,ATK Up,MAG Up,DEF Up,RES Up,EVA Up,Healing,ULT Generation,Resource Refill,STA Support,Transformation">
+      <div class="champion-image"><img src="images/champion-images/goku.jpg" alt="Goku"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Goku</div>
+    </a>
+
+    <a href="champions/goku(super-saiyan).html" class="champion-card"
+       data-name="Goku (Super Saiyan)" data-realname="" data-role="Defender"
+       data-links="Dragon Ball Universe,Hero,Anchors of Hope,Saiyan,Z Fighters,Pure Heart,Supreme Power,Parental Bond,Transformation Boost,Fierce Combatant,Echo of the Past" data-tags="Self-Reposition,Elevation Bypass,Airborne,Taunt,Standby,Counter,Damage Reduction,Infliction Resist,DEF Down,ATK Down,MAG Down,Stun,Line Ability,Multi-Hit,Piercing,Extension,ATK Up,MAG Up,DEF Up,RES Up,SPD Up,EVA Up,Healing,ULT Generation,STA Support">
+      <div class="champion-image"><img src="images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Goku (Super Saiyan)</div>
+    </a>
+
+    <a href="champions/vegeta.html" class="champion-card"
+       data-name="Vegeta" data-realname="Prince Vegeta IV" data-role="Blaster"
+       data-links="Dragon Ball Universe,Villain,Saiyan,Supreme Power,Galactic Invasion,Elite Class,Echo of the Past,Frieza Force,Prideful Personalities"
+       data-tags="Airborne,Enemy Reposition,Last Stand,RES Down,Line Ability,Area of Effect,ATK Up,MAG Up,Healing,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/vegeta.jpg" alt="Vegeta"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Vegeta</div>
+    </a>
+
+    <a href="champions/frieza.html" class="champion-card"
+       data-name="Frieza" data-realname="Emperor Frieza" data-role="Summoner"
+       data-links="Dragon Ball Universe,Villain,Anchors of Ruin,Unknown Species,Frieza Force,Galactic Invasion,Elite Class,Psychotic Tendencies,Rampant Deception,Supreme Power,Cosmic Threat,Transformation Boost,Echo of the Past"
+       data-tags="Airborne,Evasion,Damage Reduction,Last Stand,RES Down,DEF Down,EVA Down,Stun,Piercing,Precise,Multi-Hit,Area of Effect,ATK Up,MAG Up,DEF Up,RES Up,ACC Up,EVA Up,Healing,Summon,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/frieza.jpg" alt="Frieza"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Frieza</div>
+    </a>
+
+    <!-- Dragon Ball — pages/filters not built yet -->
+    <a href="champions/krillin.html" class="champion-card"
+       data-name="Krillin" data-realname="" data-role="Breaker"
+       data-links="Dragon Ball Universe,Hero,Human,Z Fighters,Tactical Mind,Law Enforcement" data-tags="ACC Down,Stun,ATK Up,MAG Up,DEF Up,SPD Up,EVA Up,Affliction Boost,Area of Effect,Line Ability,Item Spawn,ULT Generation,Resource Refill,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/krillin.jpg" alt="Krillin"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Krillin</div>
+    </a>
+
+    <a href="champions/dende.html" class="champion-card"
+       data-name="Dende" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/dende.jpg" alt="Dende"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Dende</div>
+    </a>
+
+    <a href="champions/piccolo.html" class="champion-card"
+       data-name="Piccolo" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/piccolo.jpg" alt="Piccolo"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Piccolo</div>
+    </a>
+
+    <a href="champions/bulma.html" class="champion-card"
+       data-name="Bulma" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/bulma.jpg" alt="Bulma"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Bulma</div>
+    </a>
+
+    <a href="champions/chi-chi.html" class="champion-card"
+       data-name="Chi-Chi" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/chi-chi.jpg" alt="Chi-Chi"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Chi-Chi</div>
+    </a>
+
+    <a href="champions/raditz.html" class="champion-card"
+       data-name="Raditz" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/raditz.jpg" alt="Raditz"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Raditz</div>
+    </a>
+
+    <a href="champions/nappa.html" class="champion-card"
+       data-name="Nappa" data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/nappa.jpg" alt="Nappa"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Nappa</div>
+    </a>
+
+    <a href="champions/tien.html" class="champion-card"
+       data-name="Tien" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/tien.jpg" alt="Tien"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Tien</div>
+    </a>
+
+    <a href="champions/yamcha.html" class="champion-card"
+       data-name="Yamcha" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/yamcha.jpg" alt="Yamcha"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Yamcha</div>
+    </a>
+
+    <a href="champions/chiaotzu.html" class="champion-card"
+       data-name="Chiaotzu" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/chiaotzu.jpg" alt="Chiaotzu"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Chiaotzu</div>
+    </a>
+
+    <a href="champions/captain-ginyu.html" class="champion-card"
+       data-name="Captain Ginyu" data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/captain-ginyu.jpg" alt="Captain Ginyu"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Captain Ginyu</div>
+    </a>
+
+    <a href="champions/future-trunks.html" class="champion-card"
+       data-name="Future Trunks" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/future-trunks.jpg" alt="Future Trunks"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Future Trunks</div>
+    </a>
+
+    <a href="champions/android-17.html" class="champion-card"
+       data-name="Android 17" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/android-17.jpg" alt="Android 17"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Android 17</div>
+    </a>
+
+    <a href="champions/android-18.html" class="champion-card"
+       data-name="Android 18" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/android-18.jpg" alt="Android 18"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Android 18</div>
+    </a>
+
+    <a href="champions/android-16.html" class="champion-card"
+       data-name="Android 16" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/android-16.jpg" alt="Android 16"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Android 16</div>
+    </a>
+
+    <a href="champions/android-20.html" class="champion-card"
+       data-name="Android 20" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/android-20.jpg" alt="Android 20"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Android 20</div>
+    </a>
+
+    <a href="champions/android-19.html" class="champion-card"
+       data-name="Android 19" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/android-19.jpg" alt="Android 19"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Android 19</div>
+    </a>
+
+    <a href="champions/vegeta(super-saiyan).html" class="champion-card"
+       data-name="Vegeta (Super Saiyan)" data-realname="" data-role="Berserker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/vegeta(super-saiyan).jpg" alt="Vegeta (Super Saiyan)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Vegeta (Super Saiyan)</div>
+    </a>
+
+    <a href="champions/gohan(super-saiyan-youth).html" class="champion-card"
+       data-name="Gohan (Super Saiyan, Youth)" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/gohan(super-saiyan-youth).jpg" alt="Gohan (Super Saiyan, Youth)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Gohan (Super Saiyan, Youth)</div>
+    </a>
+
+    <a href="champions/perfect-cell.html" class="champion-card"
+       data-name="Perfect Cell" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/perfect-cell.jpg" alt="Perfect Cell"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Perfect Cell</div>
+    </a>
+
+    <a href="champions/cell-jr.html" class="champion-card"
+       data-name="Cell Jr." data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/cell-jr.jpg" alt="Cell Jr."></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Cell Jr.</div>
+    </a>
+
+    <a href="champions/gohan(ultimate).html" class="champion-card"
+       data-name="Gohan (Ultimate)" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/gohan(ultimate).jpg" alt="Gohan (Ultimate)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Gohan (Ultimate)</div>
+    </a>
+
+    <a href="champions/trunks(super-saiyan).html" class="champion-card"
+       data-name="Trunks (Super Saiyan)" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/trunks(super-saiyan).jpg" alt="Trunks (Super Saiyan)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Trunks (Super Saiyan)</div>
+    </a>
+
+    <a href="champions/goten(super-saiyan).html" class="champion-card"
+       data-name="Goten (Super Saiyan)" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/goten(super-saiyan).jpg" alt="Goten (Super Saiyan)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Goten (Super Saiyan)</div>
+    </a>
+
+    <a href="champions/goku(super-saiyan-2).html" class="champion-card"
+       data-name="Goku (Super Saiyan 2)" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/goku(super-saiyan-2).jpg" alt="Goku (Super Saiyan 2)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Goku (Super Saiyan 2)</div>
+    </a>
+
+    <a href="champions/goku(super-saiyan-3).html" class="champion-card"
+       data-name="Goku (Super Saiyan 3)" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/goku(super-saiyan-3).jpg" alt="Goku (Super Saiyan 3)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Goku (Super Saiyan 3)</div>
+    </a>
+
+    <a href="champions/vegeta(super-saiyan-2).html" class="champion-card"
+       data-name="Vegeta (Super Saiyan 2)" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/vegeta(super-saiyan-2).jpg" alt="Vegeta (Super Saiyan 2)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Vegeta (Super Saiyan 2)</div>
+    </a>
+
+    <a href="champions/babidi.html" class="champion-card"
+       data-name="Babidi" data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/babidi.jpg" alt="Babidi"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Babidi</div>
+    </a>
+
+    <a href="champions/majin-buu(good).html" class="champion-card"
+       data-name="Majin Buu (Good)" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/majin-buu(good).jpg" alt="Majin Buu (Good)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Majin Buu (Good)</div>
+    </a>
+
+    <a href="champions/majin-buu(evil).html" class="champion-card"
+       data-name="Majin Buu (Evil)" data-realname="" data-role="Berserker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/majin-buu(evil).jpg" alt="Majin Buu (Evil)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Majin Buu (Evil)</div>
+    </a>
+
+    <a href="champions/majin-buu(super).html" class="champion-card"
+       data-name="Majin Buu (Super)" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/majin-buu(super).jpg" alt="Majin Buu (Super)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Majin Buu (Super)</div>
+    </a>
+
+    <a href="champions/majin-buu(kid).html" class="champion-card"
+       data-name="Majin Buu (Kid)" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/majin-buu(kid).jpg" alt="Majin Buu (Kid)"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Majin Buu (Kid)</div>
+    </a>
+
+    <a href="champions/hercule.html" class="champion-card"
+       data-name="Hercule" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/hercule.jpg" alt="Hercule"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Hercule</div>
+    </a>
+
+    <!-- ===== SONIC THE HEDGEHOG — pages/filters not built yet ===== -->
+    <a href="champions/sonic.html" class="champion-card"
+       data-name="Sonic" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/sonic.jpg" alt="Sonic"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Sonic</div>
+    </a>
+
+    <a href="champions/tails.html" class="champion-card"
+       data-name="Tails" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/tails.jpg" alt="Tails"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Tails</div>
+    </a>
+
+    <a href="champions/knuckles.html" class="champion-card"
+       data-name="Knuckles" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/knuckles.jpg" alt="Knuckles"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Knuckles</div>
+    </a>
+
+    <a href="champions/shadow.html" class="champion-card"
+       data-name="Shadow" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/shadow.jpg" alt="Shadow"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Shadow</div>
+    </a>
+
+    <a href="champions/amy.html" class="champion-card"
+       data-name="Amy" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/amy.jpg" alt="Amy"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Amy</div>
+    </a>
+
+    <a href="champions/doctor-eggman.html" class="champion-card"
+       data-name="Doctor Eggman" data-realname="" data-role="Summoner"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/doctor-eggman.jpg" alt="Doctor Eggman"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Summoner">Summoner</div>
+      <div class="champion-name">Doctor Eggman</div>
+    </a>
+
+    <!-- ===== THE LEGEND OF ZELDA — pages/filters not built yet ===== -->
+    <a href="champions/link.html" class="champion-card"
+       data-name="Link" data-realname="" data-role="Striker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/link.jpg" alt="Link"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Link</div>
+    </a>
+
+    <a href="champions/zelda.html" class="champion-card"
+       data-name="Zelda" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/zelda.jpg" alt="Zelda"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Zelda</div>
+    </a>
+
+    <a href="champions/ganondorf.html" class="champion-card"
+       data-name="Ganondorf" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/ganondorf.jpg" alt="Ganondorf"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Ganondorf</div>
+    </a>
+
+    <a href="champions/impa.html" class="champion-card"
+       data-name="Impa" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/impa.jpg" alt="Impa"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Impa</div>
+    </a>
+
+    <a href="champions/midna.html" class="champion-card"
+       data-name="Midna" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/midna.jpg" alt="Midna"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Midna</div>
+    </a>
+
+    <!-- ===== RESIDENT EVIL — pages/filters not built yet ===== -->
+    <a href="champions/leon-kennedy.html" class="champion-card"
+       data-name="Leon Kennedy" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/leon-kennedy.jpg" alt="Leon Kennedy"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Leon Kennedy</div>
+    </a>
+
+    <a href="champions/claire-redfield.html" class="champion-card"
+       data-name="Claire Redfield" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/claire-redfield.jpg" alt="Claire Redfield"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Claire Redfield</div>
+    </a>
+
+    <a href="champions/chris-redfield.html" class="champion-card"
+       data-name="Chris Redfield" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/chris-redfield.jpg" alt="Chris Redfield"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Chris Redfield</div>
+    </a>
+
+    <a href="champions/jill-valentine.html" class="champion-card"
+       data-name="Jill Valentine" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/jill-valentine.jpg" alt="Jill Valentine"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Jill Valentine</div>
+    </a>
+
+    <a href="champions/ada-wong.html" class="champion-card"
+       data-name="Ada Wong" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/ada-wong.jpg" alt="Ada Wong"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Ada Wong</div>
+    </a>
+
+    <a href="champions/ethan-winters.html" class="champion-card"
+       data-name="Ethan Winters" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/ethan-winters.jpg" alt="Ethan Winters"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Ethan Winters</div>
+    </a>
+
+    <a href="champions/albert-wesker.html" class="champion-card"
+       data-name="Albert Wesker" data-realname="" data-role="Berserker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/albert-wesker.jpg" alt="Albert Wesker"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Albert Wesker</div>
+    </a>
+
+    <a href="champions/the-nemesis.html" class="champion-card"
+       data-name="The Nemesis" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-nemesis.jpg" alt="The Nemesis"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">The Nemesis</div>
+    </a>
+
+    <a href="champions/the-tyrant.html" class="champion-card"
+       data-name="The Tyrant" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/the-tyrant.jpg" alt="The Tyrant"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">The Tyrant</div>
+    </a>
+
+    <a href="champions/jack-baker.html" class="champion-card"
+       data-name="Jack Baker" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/jack-baker.jpg" alt="Jack Baker"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Jack Baker</div>
+    </a>
+
+    <a href="champions/grace-ashcroft.html" class="champion-card"
+       data-name="Grace Ashcroft" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/grace-ashcroft.jpg" alt="Grace Ashcroft"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Grace Ashcroft</div>
+    </a>
+
+    <!-- ===== MOUTHWASHING — pages/filters not built yet ===== -->
+    <a href="champions/curly.html" class="champion-card"
+       data-name="Curly" data-realname="Orion &quot;Curly&quot; Carling" data-role="Defender"
+       data-links="Dark Multiverse,Hero,Human,Tulpar Crew,Road to Redemption,Misaligned Morals,Inseparable Pair,Mechanical Physiology" data-tags="Taunt,Standby,Interrupt,Cover,Damage Reduction,Last Stand,DEF Down,RES Down,EVA Down,EN Drain,Vulnerability,Forced Target,Stun,ATK Up,DEF Up,MAG Up,RES Up,EVA Up,ACC Up,SPD Up,HEAL Up,Area of Effect,ULT Generation,Resource Refill,Resource Reveal,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/curly.jpg" alt="Curly"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Curly</div>
+    </a>
+
+    <a href="champions/anya.html" class="champion-card"
+       data-name="Anya" data-realname="Anya Musume" data-role="Healer"
+       data-links="Dark Multiverse,Hero,Human,Tulpar Crew,Pure Heart,Tactical Mind,Echo of the Past,Inseparable Pair" data-tags="Taunt,Cleanse,Infliction Resist,Damage Reduction,EN Drain,ATK Up,DEF Up,MAG Up,RES Up,EVA Up,ACC Up,Healing,HEAL Up,ULT Generation,Resource Refill,STA Support">
+      <div class="champion-image"><img src="images/champion-images/anya.jpg" alt="Anya"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Anya</div>
+    </a>
+
+    <a href="champions/daisuke.html" class="champion-card"
+       data-name="Daisuke" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/daisuke.jpg" alt="Daisuke"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Daisuke</div>
+    </a>
+
+    <a href="champions/swansea.html" class="champion-card"
+       data-name="Swansea" data-realname="" data-role="Berserker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/swansea.jpg" alt="Swansea"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Swansea</div>
+    </a>
+
+    <a href="champions/jimmy.html" class="champion-card"
+       data-name="Jimmy" data-realname="" data-role="Plunderer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/jimmy.jpg" alt="Jimmy"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Plunderer">Plunderer</div>
+      <div class="champion-name">Jimmy</div>
+    </a>
+
+    <a href="champions/polle.html" class="champion-card"
+       data-name="Polle" data-realname="" data-role="Breaker"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/polle.jpg" alt="Polle"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Polle</div>
+    </a>
+
+    <!-- ===== HARRY POTTER — pages/filters not built yet ===== -->
+
+    <a href="champions/harry-potter.html" class="champion-card"
+       data-name="Harry Potter" data-realname="Harry James Potter" data-role="Striker"
+       data-links="Wizarding World Universe,Hero,Anchors of Hope,Human,Hogwarts Attendee,Gryffindor,Masters of Magic,Parental Bond,Pure Heart,Figures of Prophecy,Tactical Mind" data-tags="Airborne,Counter,Interrupt,Damage Reduction,Revival,Stun,EN Drain,STA Drain,Cooldown Increase,ATK Up,MAG Up,SPD Up,EVA Up,ACC Up,HEAL Up,Healing,Stealth Application,Summon,ULT Generation,Resource Refill,Resource Reveal">
+      <div class="champion-image"><img src="images/champion-images/harry-potter.jpg" alt="Harry"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="champion-name">Harry Potter</div>
+    </a>
+
+    <a href="champions/ron-weasley.html" class="champion-card"
+       data-name="Ron Weasley" data-realname="" data-role="Booster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/ron-weasley.jpg" alt="Ron"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Booster">Booster</div>
+      <div class="champion-name">Ron Weasley</div>
+    </a>
+
+    <a href="champions/hermione-granger.html" class="champion-card"
+       data-name="Hermione Granger" data-realname="" data-role="Blaster"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/hermione-granger.jpg" alt="Hermione"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Blaster">Blaster</div>
+      <div class="champion-name">Hermione Granger</div>
+    </a>
+
+    <a href="champions/dracaena-malfoy.html" class="champion-card"
+       data-name="Dracaena Malfoy" data-realname="Dracaena Lucius Malfoy" data-role="Breaker"
+       data-links="Wizarding World Universe,Hero,Human,Hogwarts Attendee,Slytherin,Prideful Personalities,Masters of Magic,Road to Redemption,Parental Bond,Elite Class,Tactical Mind"
+       data-tags="Infliction Resist,Last Stand,RES Down,Stun,Mind Control,Damage Over Time,Vulnerability,ATK Up,MAG Up,DEF Up,RES Up,EVA Up,SPD Up,HEAL Up,Healing,Affliction Boost,Summon,ULT Generation,Resource Refill,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Breaker">Breaker</div>
+      <div class="champion-name">Dracaena Malfoy</div>
+    </a>
+
+    <a href="champions/hagrid.html" class="champion-card"
+       data-name="Hagrid" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/hagrid.jpg" alt="Hagrid"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Hagrid</div>
+    </a>
+
+    <a href="champions/dumbledore.html" class="champion-card"
+       data-name="Dumbledore" data-realname="" data-role="Healer"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/dumbledore.jpg" alt="Dumbledore"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Healer">Healer</div>
+      <div class="champion-name">Dumbledore</div>
+    </a>
+
+    <a href="champions/lord-voldemort.html" class="champion-card"
+       data-name="Lord Voldemort" data-realname="Tom Marvolo Riddle" data-role="Berserker"
+       data-links="Wizarding World Universe,Villain,Anchors of Ruin,Human,Hogwarts Attendee,Slytherin,Masters of Magic,Prideful Personalities,Vast Darkness,Figures of Prophecy" data-tags="Self-Reposition,Damage Reduction,Revival,DEF Down,RES Down,SPD Down,Stun,Damage Over Time,EN Drain,STA Drain,ATK Up,MAG Up,SPD Up,EVA Up,Healing,Area of Effect,Instant Defeat,HP Cost,Summon,ULT Generation,Resource Refill,Cooldown Reduction">
+      <div class="champion-image"><img src="images/champion-images/lord-voldemort.jpg" alt="Voldemort"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Berserker">Berserker</div>
+      <div class="champion-name">Lord Voldemort</div>
+    </a>
+
+    <!-- ===== HALO — pages/filters not built yet ===== -->
+    <a href="champions/master-chief.html" class="champion-card"
+       data-name="Master Chief" data-realname="" data-role="Defender"
+       data-links="" data-tags="">
+      <div class="champion-image"><img src="images/champion-images/master-chief.jpg" alt="Master Chief"></div>
+      <div class="champion-overlay"></div>
+      <div class="role-badge" data-role="Defender">Defender</div>
+      <div class="champion-name">Master Chief</div>
+    </a>
+
+  </div>
+
+  <!-- No-results state (shown via JS when grid is empty) -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No champions match those filters</strong>
+    Try removing one of the active filters or clearing them all.
+  </div>
+
+</div>
+
+<script>
+  const searchInput  = document.getElementById('search');
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterPanel  = document.getElementById('filter-panel');
+  const clearBtn     = document.getElementById('clear-filters');
+  const filterCount  = document.getElementById('filter-count');
+  const activeChips  = document.getElementById('active-chips');
+  const countEl      = document.getElementById('count');
+  const totalEl      = document.getElementById('total');
+  const cards        = Array.from(document.querySelectorAll('.champion-card'));
+  const pills        = Array.from(document.querySelectorAll('.filter-pill'));
+  const noResults    = document.getElementById('no-results');
+
+  // Active filters by category
+  const active = { role: new Set(), link: new Set(), tag: new Set() };
+
+  totalEl.textContent = cards.length;
+
+  function activeFilterCount() {
+    return active.role.size + active.link.size + active.tag.size;
+  }
+
+  function renderChips() {
+    activeChips.innerHTML = '';
+    for (const category of ['role', 'link', 'tag']) {
+      for (const value of active[category]) {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.dataset.category = category;
+        chip.dataset.value = value;
+        chip.innerHTML = `${value} <span class="x">×</span>`;
+        chip.addEventListener('click', () => {
+          active[category].delete(value);
+          // Sync pill state
+          const pill = document.querySelector(
+            `.filter-pill[data-value="${value}"]`
+          );
+          if (pill && pill.parentElement.dataset.category === category) {
+            pill.classList.remove('active');
+          }
+          applyFilters();
+        });
+        activeChips.appendChild(chip);
+      }
+    }
+  }
+
+  function applyFilters() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const realname = card.dataset.realname.toLowerCase();
+      const role = card.dataset.role;
+      const links = card.dataset.links.split(',').map(s => s.trim());
+      const tags  = card.dataset.tags.split(',').map(s => s.trim());
+
+      let match = true;
+
+      if (search && !name.includes(search) && !realname.includes(search)) {
+        match = false;
+      }
+      if (match && active.role.size > 0 && !active.role.has(role)) {
+        match = false;
+      }
+      if (match && active.link.size > 0) {
+        for (const f of active.link) {
+          if (!links.includes(f)) { match = false; break; }
+        }
+      }
+      if (match && active.tag.size > 0) {
+        for (const f of active.tag) {
+          if (!tags.includes(f)) { match = false; break; }
+        }
+      }
+
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+
+    // Update filter count pill
+    const n = activeFilterCount();
+    if (n > 0) {
+      filterCount.style.display = 'inline-block';
+      filterCount.textContent = n;
+    } else {
+      filterCount.style.display = 'none';
+    }
+
+    renderChips();
+  }
+
+  // Filter pill clicks
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const category = pill.parentElement.dataset.category;
+      const value = pill.dataset.value;
+      if (active[category].has(value)) {
+        active[category].delete(value);
+        pill.classList.remove('active');
+      } else {
+        active[category].add(value);
+        pill.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  // Search input
+  searchInput.addEventListener('input', applyFilters);
+
+  // Filter panel toggle
+  filterToggle.addEventListener('click', () => {
+    filterPanel.classList.toggle('open');
+    filterToggle.classList.toggle('active');
+  });
+
+  // Clear all
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    for (const cat of ['role', 'link', 'tag']) active[cat].clear();
+    pills.forEach(p => p.classList.remove('active'));
+    applyFilters();
+  });
+
+  applyFilters();
+</script>
+
+</body>
+</html>

@@ -567,9 +567,11 @@
         <a href="#cover" class="toc-link toc-sub">Cover</a>
         <a href="#precise" class="toc-link toc-sub">Precise</a>
         <a href="#piercing" class="toc-link toc-sub">Piercing</a>
+        <a href="#guaranteed-to-land" class="toc-link toc-sub">Guaranteed to Land</a>
         <a href="#domain" class="toc-link toc-sub">Domain</a>
         <a href="#acting" class="toc-link toc-sub">Acting</a>
-        <a href="#last-stand" class="toc-link toc-sub">Last Stand</a>
+        <a href="#endurance" class="toc-link toc-sub">Endurance</a>
+        <a href="#instant-defeat" class="toc-link toc-sub">Instant Defeat</a>
         <a href="#revival" class="toc-link toc-sub">Revival</a>
         <a href="#taunt-retribution" class="toc-link toc-sub">Taunt + Retribution Interaction</a>
         <a href="#stealth-vs-untargeted" class="toc-link toc-sub">Invisible/Stealth vs. Untargeted Abilities</a>
@@ -667,7 +669,7 @@
       <ul>
         <li><strong>MAX EN</strong>: Maximum energy. Can be exceeded with specific status effects.</li>
         <li><strong>MAX STA</strong>: Maximum stamina (the "furthest movement possible"). Can be exceeded with specific status effects.</li>
-        <li><strong>REGEN</strong>: The percentage of HP restored once a turn begins. Varies significantly between Champions — a Wolverine regenerates significantly more than a Bullseye.</li>
+        <li><strong>REGEN</strong>: The percentage of HP restored once a turn begins. Varies significantly between Champions — a Wolverine regenerates significantly more than a Bullseye. REGEN counts as <strong>healing received</strong>, so healing modifiers apply to it: "receives X% less healing" reduces it, "Deep Wound" stops it entirely, and "Light" increases it.</li>
       </ul>
       <p>Every Champion also has default regeneration rates that apply at the start of their turn:</p>
       <ul>
@@ -680,7 +682,7 @@
       <h3 id="resources">Resources</h3>
       <p>Resources are similar to stats but change dynamically throughout the fight. Stats only change when modified by an effect; resources are constantly in flux. Every Champion has the following resources:</p>
       <ul>
-        <li><strong>HP</strong>: Hit points. The health of the Champion. When reduced to zero, the Champion is defeated and removed from battle (with exceptions of endurance or resurrection).</li>
+        <li><strong>HP</strong>: Hit points. The health of the Champion. When reduced to zero, the Champion is defeated and removed from battle (unless <a href="#endurance">endurance</a> saves it, or it later returns through <a href="#revival">revival</a>).</li>
         <li><strong>EN</strong>: Energy. Consumed for special abilities.</li>
         <li><strong>STA</strong>: Stamina. Consumed for mobility.</li>
         <li><strong>ULT</strong>: Ultimate charge. Acts as a percentile. When at 100%, <strong>ULTIMATUM</strong> (the ultimate ability) can be utilized. Charges in various ways depending on the Champion.</li>
@@ -749,7 +751,7 @@
 
       <h3 id="synergies">Synergies</h3>
       <p><strong>Synergies</strong> are bond-based abilities a Champion gains only while a specific partner Champion is present on the team. Each synergy represents the relationship between two characters — a friendship, a rivalry, a shared history — and expresses that bond mechanically by granting the Champion new or overhauled abilities that exist only while the partner is fielded.</p>
-      <p>Most bonds are <em>mutual</em> — both Champions have a synergy with each other and both gain something — but this is not required. Sometimes only one side benefits, and sometimes one side benefits far more than the other. A bond that is strong enough may grant brand-new combo potential between the two kits. <strong>Cross-franchise synergies are valid</strong> — the main story includes relationships that span universes and may at first seem strange.</p>
+      <p>Every bond is <em>mutual</em>: both Champions must carry the synergy on their own sheet, under the same bond name, and both gain something from it. A synergy written on only one side is unfinished, not a one-sided bond. The two halves need not be equal — one side may benefit far more than the other. A bond that is strong enough may grant brand-new combo potential between the two kits. <strong>Cross-franchise synergies are valid</strong> — the main story includes relationships that span universes and may at first seem strange.</p>
       <p>Because synergies are <em>team-based rather than build-based</em>, they can exceed a Champion's normal ability limits: a synergy-granted special or passive is added on top of the standard loadout (surpassing the passive and 4-special roadblocks) and does not occupy a build slot. There is no limit to the number of synergies a Champion can have.</p>
       <p>A synergy grants one or more abilities — almost always one, occasionally two — drawn from the following types:</p>
       <ul>
@@ -1096,7 +1098,7 @@
         <li><strong>Infliction roll:</strong> Rolled <strong>once per target</strong>. Each target has an independent chance to receive any status effect.</li>
         <li><strong>ACC and EVA rolls:</strong> Rolled <strong>once per target</strong>. Each target rolls EVA and the attacker rolls ACC separately; one target may evade while another does not.</li>
       </ul>
-      <p>The result is that AoE abilities can produce different outcomes for each Champion in the area — some may be hit and inflicted, others may dodge entirely. Any ability that deviates from this (e.g., a guaranteed hit to all targets, or a single CRIT roll shared across the area) will say so explicitly.</p>
+      <p>The result is that AoE abilities can produce different outcomes for each Champion in the area — some may be hit and inflicted, others may dodge entirely. Any ability that deviates from this (e.g., a <a href="#guaranteed-to-land">guaranteed hit</a> to all targets, or a single CRIT roll shared across the area) will say so explicitly.</p>
 
       <p><strong>Mixed ATK + MAG abilities:</strong> Abilities described as <em>"Deals X% ATK and Y% MAG"</em> in a single use are treated as <strong>two independent damage instances resolved in sequence</strong>. A single ACC/EVA roll determines whether the ability lands — if it misses, both instances miss. If it lands, each instance is calculated separately against its respective defensive stat: the ATK instance subtracts the target's DEF, and the MAG instance subtracts the target's RES. Each instance rolls for CRIT independently.</p>
 
@@ -1115,7 +1117,7 @@
         <strong>Healing Calculation Order</strong>
         <em>Baseline percentage healing → Critical roll/multiplier → Application roll (if relevant) → ACC roll → Apply target's healing modifier</em>
       </div>
-      <p>Some exceptions could always apply (such as attacks ignoring defense altogether, guaranteed hits, guaranteed inflictions, immunity nullification, etc.). Any such exceptions will be made clear within an ability's description.</p>
+      <p>Some exceptions could always apply (such as attacks ignoring defense altogether, <a href="#guaranteed-to-land">guaranteed hits</a>, guaranteed inflictions, immunity nullification, etc.). Any such exceptions will be made clear within an ability's description.</p>
     </section>
 
     <section id="stat-calculations">
@@ -1134,6 +1136,7 @@
         <li>712 × 125% = 890</li>
       </ul>
       <p>Stats round down to whole numbers in-game.</p>
+      <p><strong>Stat boosts are additive unless otherwise specified.</strong> In-game percentage boosts are added together before being applied, as in the example above (the passive's +20% and the status effect's +5% apply as a single ×125%). A boost to a value that is already a percentage adds to it directly: +15% REGEN on a Champion with 5% REGEN gives 20% REGEN.</p>
     </section>
 
     <section id="content-types">
@@ -1339,6 +1342,12 @@
             <td><span class="tier-label mythic">Mythic</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square mythic"></span>Deathbound</div></td>
+            <td>Cannot be resurrected. Remains even on defeated targets. Duration turns are dependent on the start of each battle turn. If an attempt of resurrection is made, it is cancelled while still consuming the resources.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label mythic">Mythic</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square mythic"></span>Imperius Curse</div></td>
             <td>Becomes a member of the inflictor's team for the duration active (allowing complete control of resources, abilities, etc.).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1347,6 +1356,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square legendary"></span>Stun</div></td>
             <td>Cannot move or act.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Horcrux</div></td>
+            <td>The inflictor of this status effect cannot be defeated by any means while it is active — including <a href="#instant-defeat">instant defeat</a> and HP costs — but still takes damage normally. It ends when its carrier is defeated. Each unit can carry only one, but several carriers (Champions or summons, such as Nagini) can exist at once. As a negative status it is removed by any cleanse, including one from the carrier's own allies ("Dark Seal" absorbs a cleanse first).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label legendary">Legendary</span></td>
           </tr>
@@ -1384,6 +1399,12 @@
             <td><div class="status-name"><span class="tier-square epic"></span>Terrify</div></td>
             <td>-20% DEF, RES and EVA.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Dark Seal</div></td>
+            <td>Does nothing unless negative status effects are cleansed (in which case this status effect expires while preserving the others, one stack at a time).</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
           <tr>
@@ -1580,15 +1601,21 @@
       <h3 id="piercing">Piercing</h3>
       <p>A <strong>Piercing</strong> ability passes through obstacles and enemies alike, potentially striking multiple targets in a line — see <a href="#movement">Movement and the Battlefield</a> (obstacle and range rules) for the full rule. <em>Not to be confused with <a href="#precise">Precise</a>, which is about breaking a target's block, not about passing through things.</em></p>
 
+      <h3 id="guaranteed-to-land">Guaranteed to Land</h3>
+      <p>An ability that is <strong>guaranteed to land</strong> cannot miss and cannot be evaded: it ignores ACC and EVA and any evasion effects. It is also not stopped by effects that negate an attack — "Energy Barrier", "Shield Charm" and block negation (e.g. <em>"Blocking negates 80% of ranged attack damage"</em>) do not stop it.</p>
+      <p>The one exception is an effect that explicitly says it can evade guaranteed hits, which still works — for example Frieza's <em>Hurt for the First Time</em> (<em>"20% chance to evade attacks guaranteed to land while below 50% HP"</em>). Lord Voldemort's <em>Avada Kedavra</em> is the reference guaranteed-to-land ability.</p>
+      <p><em>Not to be confused with a guaranteed critical hit</em> ("Pinpoint", or a <a href="#precise">Precise</a> ability breaking a block), which decides whether a hit crits, not whether it lands. An ability can have either property without the other.</p>
+
       <h3 id="domain">Domain</h3>
-      <p>A <strong>domain</strong> is a persistent area — for example 5×5 or 10×10 panels — centered on a unit or a panel, which applies ongoing effects to every unit inside it for a set duration. A domain is not a single burst; it is a zone of lasting influence that sits on the battlefield until it expires.</p>
+      <p>A <strong>domain</strong> is an N×N area — for example 5×5 or 10×10 panels — centered on a unit or a panel, which applies ongoing effects to every unit inside it for a set duration. A domain is not a single burst; it is a zone of lasting influence that sits on the battlefield until it expires.</p>
       <ul>
-        <li><strong>Anchor (fixed vs. tracking).</strong> A domain is <em>fixed</em> to the panels it covers at the moment of creation and does not move, <em>unless</em> the granting ability states that it is anchored to a unit — in which case it recenters on that unit whenever the unit moves. Each domain ability specifies which it is.</li>
+        <li><strong>Anchor (fixed or moving).</strong> Every domain ability must state whether the domain is <em>fixed</em> — it stays on the panels it covered when it was created — or <em>moves with its source</em>, recentering on that unit whenever it moves. Lord Voldemort's <em>Dark Influence</em> moves with him. Thor's <em>Raging Thunderstorm</em> is fixed, centered on the panel Thor occupies when it forms one turn after casting. Curly's <em>WARNING</em> is fixed, centered on the panel Curly occupies when he casts it.</li>
         <li><strong>Entering and leaving.</strong> Membership is positional: a unit is subject to a domain only while it occupies the domain's panels. A unit that moves into a domain mid-duration begins receiving its effects from the next tick; a unit that leaves stops being affected the moment it is outside. Continuous modifiers (e.g. a damage-amp or damage-reduction aura) simply switch off on exit; discrete effects already applied while inside (an inflicted <a href="#active-and-inert">status</a> or a stack of damage-over-time already placed) persist and run out on their own duration.</li>
         <li><strong>When effects tick.</strong> Ongoing stat or damage modifiers apply continuously, affecting any action resolved while the unit stands inside the domain. Recurring effects — damage over time, periodic healing — tick at the <em>end of each turn</em>, hitting whichever units are inside the domain at that moment. The domain's own duration also counts down at end of turn, and it disappears once its stated number of turns has elapsed.</li>
         <li><strong>Overlap.</strong> By default domains stack: a unit standing in two domains at once is subject to both, and identical effects from separate domains apply additively unless the effect is itself flagged as non-stacking. An individual ability may instead define its own overlap behavior — for instance, Cloak's <em>Darkforce Dimension</em> and Dagger's <em>Lightforce Dimension</em> <strong>merge</strong> into a single combined domain (covering both areas and pooling both sets of effects) whenever they overlap by even one panel.</li>
+        <li><strong>Invisible and Stealth do not protect.</strong> A domain affects every unit on its panels, including invisible and stealthed units (see <a href="#stealth-vs-untargeted">Invisible/Stealth vs. Untargeted Abilities</a>).</li>
       </ul>
-      <p>The two reference examples are Thor and Curly. Thor's <em>Wrath of Thunder</em> creates the 5×5 <em>Raging Thunderstorm</em>, a damage-over-time domain that strikes enemies caught within it at the end of each turn. Curly's <em>Blazing Omen</em> (ULTIMATUM — Reserve) creates the 10×10 <em>WARNING</em> domain, a damage-amplification zone that makes allies inside take 15% less damage and enemies inside take 15% more for its duration. Cloak (<em>Darkforce Dimension</em>) and Dagger (<em>Lightforce Dimension</em>) also field domains, and theirs demonstrate the ability-defined merge interaction noted above. <em>Domain is a mechanic, not a tag — it has no filter pill of its own.</em></p>
+      <p>The two reference examples are Thor and Curly. Thor's <em>Wrath of Thunder</em> creates the 5×5 <em>Raging Thunderstorm</em>, a damage-over-time domain that strikes enemies caught within it at the end of each turn. Curly's <em>Blazing Omen</em> (ULTIMATUM — Reserve) creates the 10×10 <em>WARNING</em> domain, a damage-amplification zone that makes allies inside take 15% less damage and enemies inside take 15% more for its duration. Lord Voldemort fields a moving domain (<em>Dark Influence</em>, from Enveloped in Darkness), and Cloak (<em>Darkforce Dimension</em>) and Dagger (<em>Lightforce Dimension</em>) also field domains, and theirs demonstrate the ability-defined merge interaction noted above. <em>Domain is a mechanic, not a tag — it has no filter pill of its own.</em></p>
 
       <h3 id="acting">Acting</h3>
       <p>A Champion is considered <strong>acting</strong> when they meet all of the following conditions:</p>
@@ -1600,12 +1627,24 @@
       </ul>
       <p>Abilities that reference <em>"while acting"</em> condition their effect on this state. A passive or ability with an "acting" condition will not apply when the Champion is blocking, waiting, standing by, stunned, frozen, webbed, or currently unable to act due to a Paralyze proc firing that turn.</p>
 
-      <h3 id="last-stand">Last Stand</h3>
-      <p>A <strong>Last Stand</strong> is a triggered effect that lets a Champion <em>endure</em> what would otherwise be a fatal blow, surviving the strike at 1 HP (or another value specified by the granting source). Last Stand is not a generic "survive" buff — it is gated by the exact condition written into the ability, costume, synergy, or passive that grants it.</p>
-      <p>Each Last Stand source specifies its own activation requirements and usage limit. Common patterns include "once per battle," "while above 50% HP at the start of the turn," or being keyed to a specific damage type. Unless an effect explicitly states otherwise, a Last Stand can be removed by enemy cleansing, prevented by infliction effects that suppress reactive abilities, or consumed without triggering if the activation condition isn't met when the fatal hit lands.</p>
+      <h3 id="endurance">Endurance</h3>
+      <p><strong>Endurance</strong> is a triggered effect that lets a unit <em>endure</em> what would otherwise be a fatal blow, surviving the strike at 1 HP (or another value specified by the granting source). It is not a generic "survive" buff and not a roster-wide rule: only units whose ability, passive, costume or synergy grants endurance have it, and each source is gated by the exact condition written into it.</p>
+      <p>Each endurance source specifies its own activation requirements and usage limit. Common patterns include "once per battle," "while above 50% HP at the start of the turn," or being keyed to a specific damage type. Unless an effect explicitly states otherwise, endurance can be removed by enemy cleansing, prevented by infliction effects that suppress reactive abilities, or consumed without triggering if the activation condition isn't met when the fatal hit lands.</p>
+      <p>An ability that says <em>"Ignores endurance"</em> bypasses it: no endurance effect triggers against that hit, and the blow is fatal as normal.</p>
+      <p>Endurance is not the same as "Indestructible" or "Horcrux", which stop a unit from dying at all for a duration (or while the status lasts), nor as <a href="#revival">Revival</a>, which brings a unit back after it has been defeated.</p>
+
+      <h3 id="instant-defeat">Instant Defeat</h3>
+      <p>An ability that <em>"defeats the target"</em> defeats it outright, regardless of how much HP it has left. The rules:</p>
+      <ul>
+        <li><strong>It fails against a target that cannot be damaged or cannot die.</strong> Anything that cannot be damaged cannot be defeated, so a unit with "Impenetrable" is unaffected. So is a unit with "Indestructible", and the inflictor of an active "Horcrux".</li>
+        <li><strong>Endurance still triggers</strong> unless the ability also says <em>"Ignores endurance"</em> (see <a href="#endurance">Endurance</a>).</li>
+        <li><strong>Revival still works.</strong> A target defeated this way returns through its <a href="#revival">revival</a> effect as normal, unless it has "Deathbound".</li>
+        <li><strong>On-defeat triggers fire normally.</strong> In every other respect it is an ordinary defeat.</li>
+      </ul>
+      <p>The reference is Lord Voldemort's <em>Avada Kedavra</em> (<em>"Defeats the target. … Ignores endurance. Guaranteed to land."</em>). Its extra clause, under which a target carrying "Horcrux" survives at 1 HP and loses the status, is that ability's own rule rather than part of the general term.</p>
 
       <h3 id="revival">Revival</h3>
-      <p><strong>Revival</strong> brings a defeated Champion back into the battle. Kits write it as <em>"Resurrects self with X% HP after N turns"</em>, usually limited to once per battle. Unlike a <a href="#last-stand">Last Stand</a>, which stops a fatal blow from killing the Champion, Revival happens <em>after</em> the Champion has been defeated. Between defeat and return, the Champion is defeated in every sense: it is off the battlefield, takes no turns and cannot be targeted.</p>
+      <p><strong>Revival</strong> brings a defeated Champion back into the battle. Kits write it as <em>"Resurrects self with X% HP after N turns"</em>, usually limited to once per battle. Unlike <a href="#endurance">endurance</a>, which stops a fatal blow from killing the Champion, Revival happens <em>after</em> the Champion has been defeated. Between defeat and return, the Champion is defeated in every sense: it is off the battlefield, takes no turns and cannot be targeted.</p>
       <ul>
         <li><strong>Timing.</strong> The Champion returns once the stated number of <em>complete</em> turns have passed since its defeat. The partial turn in which it fell does not count. Kits that say <em>"after N turns"</em> mean N complete turns.</li>
         <li><strong>HP.</strong> It returns at the stated percentage of its MAX HP.</li>

@@ -74,7 +74,7 @@ Any structural change ripples through the surfaces it touches. Adding a new Cham
 ## Notable systems
 
 ### The Catechism
-A single canonical rulebook file (`catechism.html`) defines every term the sheets reference: the six status-effect tiers (Common → Mythic), the eight canonical Content Types (Main Story, Event Story, Arena, Clash, Dark Dimension, Crisis on Infinite Earths, Flashpoint, Danger Room), Modifiers (Costume Effects, Artifacts), Team Building rules, and precise semantics for named mechanics (*Last Stand*, *Indestructible*, *Overhealth*, etc.). Sheets link to Catechism sections directly so terms are never redefined per page.
+A single canonical rulebook file (`catechism.html`) defines every term the sheets reference: the six status-effect tiers (Common → Mythic), the eight canonical Content Types (Main Story, Event Story, Arena, Clash, Dark Dimension, Crisis on Infinite Earths, Flashpoint, Danger Room), Modifiers (Costume Effects, Artifacts), Team Building rules, and precise semantics for named mechanics (*Endurance*, *Indestructible*, *Overhealth*, etc.). Sheets link to Catechism sections directly so terms are never redefined per page.
 
 ### Tag taxonomy
 Every Champion's Tags panel and every filter pill is drawn from a fixed six-category mechanic taxonomy: **Movement · Mitigation · Affliction · Empowerment · Offense · Utility**. Enemies and Summons inherit the same categories with streamlined pill sets appropriate to their side of the fight. The taxonomy is enforced through disciplined authoring — a new tag isn't added lightly.

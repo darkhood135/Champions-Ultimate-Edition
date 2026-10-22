@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lord Voldemort — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #22c55e; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #22c55e;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.12);
+    color: #86efac;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #22c55e;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #22c55e;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #86efac;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Lord Voldemort theme — Killing Curse Green / Serpent-Eye Crimson / Bone-Ash Pale palette.
+       Killing Curse green = the Unforgivables, the one curse no shield can stop — his signature (ULTIMATUM, Crucio, accents).
+       Serpent green = Slytherin's heir, the Dark Mark in the sky, and Nagini coiled at his side (Leader, Synergy).
+       Serpent-eye crimson / dried blood / Fiendfyre ember = the red eyes, the blood he spends tearing his soul apart, and the cursed flame.
+       Bone-ash pale = the body reborn from bone, flesh and blood; the conjured silver shield (Passives).
+       Robe-black = the Dark Lord himself, the darkness everything else stands on (Basic, Core Passive). */
+  .ability--leader    { background: #14532d; color: #dcfce7; }      /* He-Who-Must-Not-Be-Named — Dark Mark green */
+  .ability--basic     { background: #0b140e; border: 1px solid #1f4a2e; color: #f0f1f3; } /* Serpent's Lash — robe-black, curse-tinged */
+  .ability--basic .ability-name { color: #86efac; }
+  .ability--basic .ability-tag  { color: #5c9a72; }
+  .ability--basic .ability-meta { color: #5c9a72; }
+
+  .ability--special-1 { background: #6b1a1d; color: #fee2e2; }      /* Horcrux Imbuement — dried-blood maroon, the soul torn by murder */
+  .ability--special-2 { background: #c2410c; color: #ffedd5; }      /* Fiendfyre — cursed-flame ember */
+  .ability--special-3 { background: #b91c1c; color: #fee2e2; }      /* Thirst for Power — serpent-eye crimson */
+  .ability--special-4 { background: #15803d; color: #dcfce7; }      /* Crucio — Unforgivable green */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #22c55e; }       /* Legilimency / Dissolve — Killing Curse green */
+  .ability--reserve-passive   { border-left-color: #a8a497; }       /* Fall of Hogwarts / Defeated Again — bone ash */
+  .ability--reserve-ultimatum { border-left-color: #dc2626; }       /* Enveloped in Darkness — red eyes in the dark */
+
+  .ability--core-passive { background: #1a0d0f; color: #fecaca; }   /* The Dark Lord — robe-black with a red-eyed glint */
+  .ability--passive      { background: #d6d3c7; color: #1f1d17; }   /* To Live Forever / Silver Shield Conjuration — bone-ash pale */
+  .ability--ultimatum    { background: #22c55e; color: #052e16; }   /* Avada Kedavra — Killing Curse green */
+  .ability--synergy      { background: #0f6e56; color: #d1fae5; }   /* Nagini scale green — the one companion he kept close */
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #22c55e; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(34, 197, 94, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #22c55e; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #86efac;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #22c55e; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #22c55e; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #86efac;
+  }
+  .syn-cost-chip .who { color: #86efac; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e7e5e4; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(231, 229, 228, 0.15); color: #8fd0ee; border: 1px solid rgba(231, 229, 228, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #22c55e;
+    color: #0d0e11;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #86efac;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/lord-voldemort.jpg" alt="Lord Voldemort">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/lord-voldemort.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Life Eternal</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: PHY God of Destruction Toppo Active Skill OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/lord-voldemort.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Lord Voldemort</h1>
+      <p class="subtitle">Tom Marvolo Riddle</p>
+      <span class="role-badge">Berserker</span>
+      <p class="description">Born Tom Marvolo Riddle, the loveless orphan who would stop at nothing to escape death rose to become Lord Voldemort — the Dark Lord, the most dangerous wizard of any age, whose very name a generation was too afraid to speak.</p>
+      <p class="description">Everything Lord Voldemort became grew out of a single terror: that he might one day die like anyone else. Conceived under a love potion and born in a Muggle orphanage to a mother who would not live even for his sake, he grew into a boy who already took what he wanted, hoarding small trophies stolen from the children he frightened, certain from the start that he was more than the people around him. Hogwarts gave him a world worthy of that certainty. He charmed his teachers, gathered followers rather than friends, opened the Chamber of Secrets as Slytherin’s heir, and murdered the Muggle father who had abandoned him, casting off the name they shared and rearranging the letters of himself into the title he would make the world fear. Then he did what no wizard had ever dared: he tore his soul apart and hid the pieces, so that while even one remained, he could not die. It was the purest expression of who he was — a genius whose arrogance outran even his brilliance, so sure of his own cunning that he never imagined anyone could find what he had hidden, and so sure of his own right that he believed the Elder Wand itself belonged to him by birthright. He feared death, despised the Muggle blood in his own veins, and held love in contempt as the weakness of lesser minds. On one night in Godric’s Hollow, a mother’s love for her son turned his own curse back on him and left him less than a ghost for thirteen years. He never forgave the world for it, and he never once understood what had beaten him.</p>
+      <p class="description">When he rose again from a cauldron in a graveyard, it was as something far more terrible than any legend had dared describe. The reborn Dark Lord moves with a speed and strength no wizard should possess, and his power is less a skill than a force of nature. Fire, stone, and the very air reshape themselves to his will, and the dark that pours off him presses down into the souls of those around him until the bravest cannot stand, cannot lift a wand, can barely breathe. The anchored pieces of his soul wrap him in a black radiance that turns aside blade, bullet, and lesser curse alike, and he can dissolve into living smoke and reform wherever he wishes, so that ordinary force finds nothing to strike. He flies unaided, speaks the tongue of serpents, and tears through minds as easily as he plants lies inside them. He wields the Killing Curse, the one spell no shield can stop, as carelessly as a man brushing dust from his sleeve, with the great serpent Nagini, the last anchor of his soul, forever coiled at his side. Yet for every power he tore out of the world, Voldemort never troubled to learn the oldest magic of all. He dismissed love as weakness to the very end, and love was the one thing he could never touch, never break, and never survive.</p>
+      <p class="quote">"There is no good and evil, there is only power, and those too weak to seek it."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">260</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">130</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">95%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">110</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">20%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">150</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">4</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">5%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/wizarding-world-universe.html" class="pill">Wizarding World Universe</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
+          <a href="../links/anchors-of-ruin.html" class="pill">Anchors of Ruin</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/hogwarts-attendee.html" class="pill">Hogwarts Attendee</a>
+          <a href="../links/slytherin.html" class="pill">Slytherin</a>
+          <a href="../links/masters-of-magic.html" class="pill">Masters of Magic</a>
+          <a href="../links/prideful-personalities.html" class="pill">Prideful Personalities</a>
+          <a href="../links/vast-darkness.html" class="pill">Vast Darkness</a>
+          <a href="../links/figures-of-prophecy.html" class="pill">Figures of Prophecy</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Revival</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">RES Down</span>
+          <span class="pill">SPD Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">STA Drain</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Instant Defeat</span>
+          <span class="pill">HP Cost</span>
+          <span class="pill">Summon</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Cooldown Reduction</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="harry-potter.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/harry-potter.jpg" alt="Harry">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Harry Potter</strong>
+              <span class="real-name">Harry James Potter</span>
+              <span class="synergy-name">Neither Can Live</span>
+            </div>
+          </a>
+
+          <a href="frieza.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Frieza</strong>
+              <span class="real-name">Emperor Frieza</span>
+              <span class="synergy-name">The Prophecy They Made</span>
+            </div>
+          </a>
+
+          <a href="dracaena-malfoy.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Dracaena Malfoy</strong>
+              <span class="real-name">Dracaena Lucius Malfoy</span>
+              <span class="synergy-name">The Shadow She Defied</span>
+            </div>
+          </a>
+
+          <a href="ganondorf.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/ganondorf.jpg" alt="Ganondorf">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Ganondorf</strong>
+              <span class="real-name">Ganondorf "Ganon" Dragmire</span>
+              <span class="synergy-name">Villains of Prophecy</span>
+            </div>
+          </a>
+
+          <a href="dumbledore.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/dumbledore.jpg" alt="Dumbledore">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Dumbledore</strong>
+              <span class="real-name">Albus Percival Wulfric Brian Dumbledore</span>
+              <span class="synergy-name">The One He Feared</span>
+            </div>
+          </a>
+
+          <a href="albert-wesker.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/albert-wesker.jpg" alt="Albert Wesker">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Albert Wesker</strong>
+              <span class="real-name">Albert Wesker</span>
+              <span class="synergy-name">Superior Blood</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">He-Who-Must-Not-Be-Named</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Vast Darkness" or "Anchors of Ruin" allies gain +18% MAG and RES in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Serpent&rsquo;s Lash</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 3</div>
+        <ul>
+          <li>Deals 150% ATK damage to the target.</li>
+          <li>Deals an additional 150% ATK damage to the target if at least one enemy or ally has "Horcrux".</li>
+          <li>30% chance for this attack to use the MAG stat instead of ATK if at least one enemy or ally has "Horcrux".</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Horcrux Imbuement</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 70 · Cooldown: 7 turns · Range: 2</div>
+        <ul>
+          <li>Inflicts "Horcrux" and "Dark Seal" to the target for 3 turns.</li>
+          <li>Self loses 50% HP (of MAX HP, cannot kill self).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Fiendfyre</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Units and Obstacles in Range · Energy: 50 · Cooldown: 3 turns · Range: 4</div>
+        <ul>
+          <li>Deals 350% MAG damage to all enemies, allies and obstacles within 4 panels of self (self excluded).</li>
+          <li>Deals an additional 250% MAG damage to all units and obstacles hit if at least one enemy or ally has "Horcrux".</li>
+          <li>70% chance to inflict "Burn" for 2 turns to all units hit if at least one enemy or ally has "Horcrux".</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Thirst for Power</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
+        <ul>
+          <li>ATK and MAG stats are increased by 70 for 3 turns.</li>
+          <li>Loses 35% HP (of MAX HP, cannot kill self).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Crucio</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 7</div>
+        <ul>
+          <li>Deals 250% MAG damage to the target.</li>
+          <li>Deals an additional 250% MAG damage to the target if at least one enemy or ally has "Horcrux".</li>
+          <li>Inflicts "Cruciatus Curse" for 1 turn to the target if at least one enemy or ally has "Horcrux".</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Legilimency</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 10 · Cooldown: 3 turns · Range: 3</div>
+        <ul>
+          <li>Steals up to 50 EN and 3 STA from the target (limited to what the target currently has).</li>
+          <li>Self loses 1% HP (of MAX HP, cannot kill self) per 5 EN stolen and per 1 STA stolen.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Dissolve</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 10 · Cooldown: 2 turns · Range: 12</div>
+        <ul>
+          <li>Relocates to the targeted panel.</li>
+          <li>+10% EVA for 1 turn.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">The Dark Lord</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>+20% MAG against Harry Potter.</li>
+          <li>+10% MAG while at least one enemy or ally has "Horcrux".</li>
+          <li>Summons Nagini on an adjacent panel the first time self uses Wait (once per battle).</li>
+          <li>Receives 30% less healing.</li>
+          <li>Passive ULT gain is reduced to 3% per turn.</li>
+          <li>Gains 2% ULT each time one of own abilities lands (once per ability use).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">To Live Forever</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>At the start of each turn, reduces the cooldown of Horcrux Imbuement by 1 turn if no enemies have "Horcrux".</li>
+          <li>+15% REGEN and +15% EVA while no enemies have "Horcrux".</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Silver Shield Conjuration</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>While blocking, each received attack has a 50% chance to have all of its damage negated.</li>
+          <li>Each attack negated this way reduces the cooldowns of Horcrux Imbuement and Fiendfyre by 1 turn (up to 2 times per turn).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Fall of Hogwarts</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Gains 2% ULT each time one of own abilities lands on an enemy (once per enemy per turn, in addition to The Dark Lord).</li>
+          <li>The "Dark Influence" domain from Enveloped in Darkness extends 2 additional panels in each direction (9x9).</li>
+          <li>Avada Kedavra no longer defeats the target and instead deals 900% MAG damage to it (a target with "Horcrux" cannot be reduced below 1 HP by it and loses the status instead).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Defeated Again</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+5% ATK and MAG while below 30% HP.</li>
+          <li>Upon defeat, all "Villain" allies gain +12% ATK and MAG for 2 turns.</li>
+          <li>Resurrects with 20% HP after 5 turns (once per battle).</li>
+          <li>Upon being resurrected, all abilities are immediately made available (excluding ULTIMATUM).</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Avada Kedavra</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Range: 7 · Cost: 100% ULT</div>
+        <ul>
+          <li>Defeats the target.</li>
+          <li>If the target has "Horcrux", the target survives at 1 HP and the status effect is removed.</li>
+          <li>Ignores endurance.</li>
+          <li>Guaranteed to land.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Enveloped in Darkness</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Enemies in Domain · Range: Self (5x5 Domain) · Cost: 100% ULT</div>
+        <ul>
+          <li>If at least one enemy or ally has "Horcrux", creates a 5x5 "Dark Influence" domain centered on self for 2 turns (the domain moves with self).</li>
+          <li>-15% SPD, DEF and RES to all enemies within the domain.</li>
+          <li>All enemies within the domain lose 50 EN and 5 STA per turn.</li>
+          <li>The domain ends early as soon as no enemy or ally has "Horcrux".</li>
+          <li>If no enemy or ally has "Horcrux" when this ability is used, a random enemy Champion is inflicted with "Horcrux" for 3 turns instead (no domain is created).</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/harry-potter.jpg" alt="Harry Potter">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Neither Can Live</span>
+              <span class="synergy-partner-tag">w/ Harry Potter</span>
+            </div>
+            <p class="synergy-desc">Of all the infants in Britain, Voldemort chose this one. Acting on half a prophecy, he marked the Potter boy as his equal with his own hand, and the curse meant to end that child rebounded off a mother’s love and left the Dark Lord less than a ghost. Every humiliation since traces back to that night. A boy who should have been nothing slipped through his fingers in a hidden chamber, in a graveyard and in the Ministry’s own atrium. Their wands refused to fight each other, and the bond between their minds, which Voldemort turned into a weapon, turned against him every time. The resemblance galls him most: two orphans, two Parselmouths, two boys who found their first true home at Hogwarts. It means the only thing that ever divided them is the one thing he has always dismissed as weakness. To the very end he believed Harry Potter lived on luck and a dead woman’s borrowed protection. He died believing it, his own curse hurled back at him by a wand he was certain was his by right. That wand had quietly chosen the boy instead, and the traitor girl at his side.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-ultimatum">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">A Pathetic Death</span>
+              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Avada Kedavra</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Range: 7 · Cost: 100% ULT</div>
+            <ul>
+              <li>Inflicts "Deathbound" for 4 turns to the target.</li>
+              <li>Defeats the target.</li>
+              <li>If the target has "Horcrux", the target survives at 1 HP and the status effect is removed.</li>
+              <li>Ignores endurance.</li>
+              <li>Guaranteed to land.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Hidden Horcrux</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Ally · Energy: 60 · Cooldown: 10 turns · Range: 2</div>
+            <ul>
+                <li>Inflicts "Horcrux" to the targeted ally for 3 turns.</li>
+                <li>Self loses 40% HP (of MAX HP, cannot kill self).</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Prophecy They Made</span>
+              <span class="synergy-partner-tag">w/ Frieza</span>
+            </div>
+            <p class="synergy-desc">Voldemort has met few beings he could not look down on, and the galactic emperor is one of the rare ones he must look at as an equal. Frieza rules by terror on a scale the Dark Lord has only dreamed of, and beneath it all he wants exactly what Voldemort wants: never to die. Voldemort finds the emperor’s hunt for immortality faintly contemptible, a conqueror reduced to begging a dragon for the eternity Voldemort tore out of his own soul with his own hands. Frieza, for his part, sees the wizard as a talented warlord of one small, backward world, frightening in his way and nothing more. Neither notices how plainly the other mirrors him. Each heard a prophecy of his downfall, and each, in terror of it, struck first: one at an infant in a cradle, the other at an entire race. In striking, each forged the very enemy he feared. They are two masters of fear who never learned the lesson their own lives keep teaching, and each would sooner die than see himself in the other.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Lust for Power</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Thirst for Power</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
+            <ul>
+              <li>ATK and MAG stats are increased by 90 for 3 turns.</li>
+              <li>Loses 35% HP (of MAX HP, cannot kill self).</li>
+            </ul>
+          </div>
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Conqueror Seeking Immortality</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+4% MAG per enemy or ally on the battlefield with "Horcrux".</li>
+              <li>+5% ATK and MAG to "Anchors of Ruin" allies.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Shadow She Defied</span>
+              <span class="synergy-partner-tag">w/ Dracaena Malfoy</span>
+            </div>
+            <p class="synergy-desc">To the Dark Lord, the Malfoy girl was never more than a convenient instrument — a tool to punish her father's failures, cheap and expendable, kept obedient by the simple leverage of everyone she loved. He never thought of her as a person, let alone a threat; her terror amused him, and her compliance he took entirely for granted. That a frightened child he'd long since broken might find the will to raise her wand against him was, to Voldemort, not even a possibility worth guarding against — which is precisely how it helped to undo him. He never grasped, to the very end, that the ones he deemed too small to matter were exactly the ones who would bring him down.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Merciless Crucio</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Crucio</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 7</div>
+            <ul>
+              <li>Deals 250% MAG damage to the target.</li>
+              <li>Deals an additional 250% MAG damage to the target if at least one enemy or ally has "Horcrux".</li>
+              <li>Inflicts "Cruciatus Curse" to the target for 1 turn, or for 2 turns if at least one enemy or ally has "Horcrux".</li>
+            </ul>
+          </div>
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Hatred for Love</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% MAG against "Hero" enemies.</li>
+              <li>+10% ATK and MAG to "Slytherin" allies (self excluded).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/lord-voldemort.jpg" alt="Modern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/lord-voldemort(classic).jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Serpent Gaze — +2% SPD</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/lord-voldemort(cinematic).jpg" alt="Cinematic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Cinematic</div>
+          <div class="costume-effect-label">From This Day Forth — +5% MAX HP</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/lord-voldemort(tom-riddle).jpg" alt="Tom Riddle">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Tom Riddle</div>
+          <div class="costume-effect-label">Shocking Anagram — +2% ATK and MAG</div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.1.0</span>
+          <span class="date">October 21, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Nagini joins the kit — <strong>The Dark Lord</strong> now summons Nagini on an adjacent panel the first time he uses Wait (once per battle). Nagini enters carrying &ldquo;Horcrux&rdquo; for 10 turns.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Horcrux uptime reduced — <strong>Horcrux Imbuement</strong> now inflicts &ldquo;Horcrux&rdquo; and &ldquo;Dark Seal&rdquo; for <strong>5 → 3</strong> turns; <strong>Enveloped in Darkness</strong>'s fallback &ldquo;Horcrux&rdquo; lasts <strong>5 → 3</strong> turns.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Stat redistribution — ATK <strong>150 → 190</strong>, MAG <strong>200 → 260</strong>; <strong>Thirst for Power</strong> bonus <strong>+120 → +70</strong> ATK/MAG (<strong>Lust for Power</strong> <strong>+140 → +90</strong>).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Crucio</strong> — damage <strong>300% + 400% → 250% + 250%</strong> MAG; Horcrux rider changed from &ldquo;Vulnerable&rdquo; 2 turns to &ldquo;Cruciatus Curse&rdquo; 1 turn. <strong>Merciless Crucio</strong> now inflicts &ldquo;Cruciatus Curse&rdquo; 1 turn without a Horcrux, 2 turns with one.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Fiendfyre</strong> is now uncontrollable — it also hits allies within range (self excluded).</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><strong>Silver Shield Conjuration</strong> — cooldown reduction now only triggers on attacks the shield fully negates, up to 2 times per turn.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>The Dark Lord</strong> — ULT gain per ability landed <strong>1% → 2%</strong>.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Avada Kedavra</strong> and <strong>A Pathetic Death</strong> are now guaranteed to land.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Defeated Again</strong> — now resurrects with 20% HP after 5 turns (once per battle).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Basic renamed <strong>Dark Slash → Serpent&rsquo;s Lash</strong>. Wording clarified on To Live Forever, Legilimency, Fall of Hogwarts and Enveloped in Darkness (5x5 domain targeting fixed; the domain moves with Voldemort).</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Lord Voldemort enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

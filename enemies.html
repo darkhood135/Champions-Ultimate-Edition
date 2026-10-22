@@ -331,6 +331,23 @@
     line-height: 1.2;
   }
 
+  /* Alias attribution — small caption above the name (mirrors Summons' summoner line) */
+  .enemy-source {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    font-size: 9.5px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #f87171;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+  }
+
   /* No results message */
   .no-results {
     text-align: center;
@@ -409,79 +426,79 @@
       </div>
     </div>
 
-    <!-- Link — collapsed to universe + morality. Specific Champion links don't apply to enemies. -->
+    <!-- Link — enemy Links stay deliberately simple: the universe they come from,
+         plus their disposition. Both groups filter on data-links. -->
     <div class="filter-group">
-      <div class="filter-label">Link</div>
+      <div class="filter-label">Universe</div>
       <div class="filter-pills" data-category="link">
-        <button class="filter-pill" data-value="Marvel Universe">Marvel Universe</button>
-        <button class="filter-pill" data-value="DC Universe">DC Universe</button>
-        <button class="filter-pill" data-value="Multiversal">Multiversal</button>
         <button class="filter-pill" data-value="Dark Multiverse">Dark Multiverse</button>
-        <button class="filter-pill" data-value="Villain">Villain</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-label">Disposition</div>
+      <div class="filter-pills" data-category="link">
         <button class="filter-pill" data-value="Neutral Hostile">Neutral Hostile</button>
       </div>
     </div>
 
-    <!-- Movement — collapsed to broad mobility tiers. Useful for "can I kite this?" -->
+    <!-- Tags — shares the Summons vocabulary: a streamlined subset of the Champion
+         taxonomy (shared names mean the same thing as on Champions), plus mobility
+         tiers (Stationary / Mobile / Highly Mobile) and Physical/Magical damage type.
+         Only tags at least one enemy uses get a pill; add pills as new enemies need them. -->
+
+    <!-- Movement — Mobility tier and battlefield repositioning -->
     <div class="filter-group">
       <div class="filter-label">Movement</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Stationary">Stationary</button>
-        <button class="filter-pill" data-value="Mobile">Mobile</button>
         <button class="filter-pill" data-value="Highly Mobile">Highly Mobile</button>
-        <button class="filter-pill" data-value="Teleporter">Teleporter</button>
+        <button class="filter-pill" data-value="Self-Reposition">Self-Reposition</button>
+        <button class="filter-pill" data-value="Enemy Reposition">Enemy Reposition</button>
       </div>
     </div>
 
-    <!-- Mitigation — what defenses they have. "What do I need to bring to push through?" -->
+    <!-- Mitigation — What defenses they have — "what do I need to push through?" -->
     <div class="filter-group">
       <div class="filter-label">Mitigation</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Evasion">Evasion</button>
-        <button class="filter-pill" data-value="Counter">Counter</button>
-        <button class="filter-pill" data-value="Damage Reduction">Damage Reduction</button>
-        <button class="filter-pill" data-value="Last Stand">Last Stand</button>
+        <button class="filter-pill" data-value="Infliction Resist">Infliction Resist</button>
       </div>
     </div>
 
-    <!-- Affliction — what they apply to YOU. "What do I cleanse / resist?" -->
+    <!-- Affliction — What they apply to YOU — "what do I cleanse / resist?" -->
     <div class="filter-group">
       <div class="filter-label">Affliction</div>
       <div class="filter-pills" data-category="tag">
+        <button class="filter-pill" data-value="DEF Down">DEF Down</button>
+        <button class="filter-pill" data-value="RES Down">RES Down</button>
+        <button class="filter-pill" data-value="EVA Down">EVA Down</button>
         <button class="filter-pill" data-value="Stun">Stun</button>
         <button class="filter-pill" data-value="Damage Over Time">Damage Over Time</button>
-        <button class="filter-pill" data-value="Terrify">Terrify</button>
-        <button class="filter-pill" data-value="Stat Down">Stat Down</button>
-        <button class="filter-pill" data-value="Drain">Drain</button>
       </div>
     </div>
 
-    <!-- Empowerment — buffs they apply to themselves or allies/minions -->
+    <!-- Empowerment — Positive effects on themselves or their allies/minions -->
     <div class="filter-group">
       <div class="filter-label">Empowerment</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Self Buff">Self Buff</button>
-        <button class="filter-pill" data-value="Buffs Allies">Buffs Allies</button>
+        <button class="filter-pill" data-value="Healing">Healing</button>
       </div>
     </div>
 
-    <!-- Offense — the shape of their damage -->
+    <!-- Offense — The shape of their damage -->
     <div class="filter-group">
       <div class="filter-label">Offense</div>
       <div class="filter-pills" data-category="tag">
         <button class="filter-pill" data-value="Physical">Physical</button>
-        <button class="filter-pill" data-value="Magical">Magical</button>
-        <button class="filter-pill" data-value="Area of Effect">Area of Effect</button>
       </div>
     </div>
 
-    <!-- Utility — non-damage tools that complicate the fight -->
+    <!-- Utility — Non-damage tools that complicate the fight -->
     <div class="filter-group">
       <div class="filter-label">Utility</div>
       <div class="filter-pills" data-category="tag">
-        <button class="filter-pill" data-value="Healing">Healing</button>
-        <button class="filter-pill" data-value="Resource Drain">Resource Drain</button>
-        <button class="filter-pill" data-value="Map Manipulation">Map Manipulation</button>
+        <button class="filter-pill" data-value="Cooldown Reduction">Cooldown Reduction</button>
+        <button class="filter-pill" data-value="ULT Generation">ULT Generation</button>
       </div>
     </div>
   </div>
@@ -489,116 +506,19 @@
   <!-- =============================================
        ENEMY GRID
        Each card's data-* attributes drive filtering.
+       data-tags must match the enemy sheet's Tags panel exactly;
+       data-alias is the sheet's subtitle and shows as the caption.
        ============================================= -->
   <div class="enemy-grid" id="enemy-grid">
 
-    <a href="enemies/green-goblin.html" class="enemy-card"
-       data-name="Green Goblin" data-alias="Norman Osborn" data-role="Striker"
-       data-links="Marvel Universe,Villain"
-       data-tags="Highly Mobile,Damage Over Time,Area of Effect,Physical,Self Buff">
-      <div class="enemy-image"><span>GG</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Striker">Striker</div>
-      <div class="enemy-name">Green Goblin</div>
-    </a>
-
-    <a href="enemies/doctor-octopus.html" class="enemy-card"
-       data-name="Doctor Octopus" data-alias="Otto Octavius" data-role="Defender"
-       data-links="Marvel Universe,Villain"
-       data-tags="Mobile,Counter,Damage Reduction,Physical,Resource Drain">
-      <div class="enemy-image"><span>DO</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Defender">Defender</div>
-      <div class="enemy-name">Doctor Octopus</div>
-    </a>
-
-    <a href="enemies/kingpin.html" class="enemy-card"
-       data-name="Kingpin" data-alias="Wilson Fisk" data-role="Breaker"
-       data-links="Marvel Universe,Villain"
-       data-tags="Stationary,Damage Reduction,Physical,Resource Drain,Buffs Allies">
-      <div class="enemy-image"><span>KP</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Breaker">Breaker</div>
-      <div class="enemy-name">Kingpin</div>
-    </a>
-
-    <a href="enemies/carnage.html" class="enemy-card"
-       data-name="Carnage" data-alias="Cletus Kasady" data-role="Berserker"
-       data-links="Marvel Universe,Villain"
-       data-tags="Highly Mobile,Damage Over Time,Physical,Last Stand,Self Buff">
-      <div class="enemy-image"><span>CN</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Berserker">Berserker</div>
-      <div class="enemy-name">Carnage</div>
-    </a>
-
-    <a href="enemies/venom.html" class="enemy-card"
-       data-name="Venom" data-alias="Eddie Brock" data-role="Striker"
-       data-links="Marvel Universe,Villain"
-       data-tags="Mobile,Physical,Healing,Self Buff,Damage Over Time">
-      <div class="enemy-image"><span>VN</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Striker">Striker</div>
-      <div class="enemy-name">Venom</div>
-    </a>
-
-    <a href="enemies/joker.html" class="enemy-card"
-       data-name="The Joker" data-alias="Unknown" data-role="Booster"
-       data-links="DC Universe,Villain"
-       data-tags="Mobile,Stun,Stat Down,Buffs Allies,Map Manipulation">
-      <div class="enemy-image"><span>JK</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Booster">Booster</div>
-      <div class="enemy-name">The Joker</div>
-    </a>
-
-    <a href="enemies/harley-quinn.html" class="enemy-card"
-       data-name="Harley Quinn" data-alias="Harleen Quinzel" data-role="Striker"
-       data-links="DC Universe,Villain"
-       data-tags="Highly Mobile,Stun,Physical,Self Buff">
-      <div class="enemy-image"><span>HQ</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Striker">Striker</div>
-      <div class="enemy-name">Harley Quinn</div>
-    </a>
-
-    <a href="enemies/scarecrow.html" class="enemy-card"
-       data-name="Scarecrow" data-alias="Jonathan Crane" data-role="Blaster"
-       data-links="DC Universe,Villain"
-       data-tags="Stationary,Damage Over Time,Stat Down,Area of Effect,Magical,Map Manipulation">
-      <div class="enemy-image"><span>SC</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Blaster">Blaster</div>
-      <div class="enemy-name">Scarecrow</div>
-    </a>
-
-    <a href="enemies/two-face.html" class="enemy-card"
-       data-name="Two-Face" data-alias="Harvey Dent" data-role="Breaker"
-       data-links="DC Universe,Villain"
-       data-tags="Mobile,Counter,Physical,Stat Down">
-      <div class="enemy-image"><span>TF</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Breaker">Breaker</div>
-      <div class="enemy-name">Two-Face</div>
-    </a>
-
-    <a href="enemies/doomsday.html" class="enemy-card"
-       data-name="Doomsday" data-alias="Doomsday" data-role="Berserker"
-       data-links="DC Universe,Villain"
-       data-tags="Highly Mobile,Damage Reduction,Last Stand,Physical,Area of Effect,Self Buff">
-      <div class="enemy-image"><span>DD</span></div>
-      <div class="enemy-overlay"></div>
-      <div class="role-badge" data-role="Berserker">Berserker</div>
-      <div class="enemy-name">Doomsday</div>
-    </a>
-
     <a href="enemies/the-pirate.html" class="enemy-card"
-       data-name="The Pirate" data-alias="Unknown" data-role="Striker"
+       data-name="The Pirate" data-alias="Still Life Entity" data-role="Striker"
        data-links="Dark Multiverse,Neutral Hostile"
-       data-tags="Highly Mobile,Stun,Damage Over Time,Terrify,Physical,Healing,Map Manipulation,Self Buff">
-      <div class="enemy-image"><span><img src="images/enemy-images/the-pirate(alternate-art).jpg" alt="The Pirate"></span></div>
+       data-tags="Highly Mobile,Self-Reposition,Enemy Reposition,Infliction Resist,DEF Down,RES Down,EVA Down,Stun,Damage Over Time,Healing,Physical,Cooldown Reduction,ULT Generation">
+      <div class="enemy-image"><img src="images/enemy-images/the-pirate(alternate-art).jpg" alt="The Pirate"></div>
       <div class="enemy-overlay"></div>
       <div class="role-badge" data-role="Striker">Striker</div>
+      <div class="enemy-source">Still Life Entity</div>
       <div class="enemy-name">The Pirate</div>
     </a>
 

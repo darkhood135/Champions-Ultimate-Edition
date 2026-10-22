@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loki — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #22c55e; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #22c55e;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #22c55e;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #22c55e;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #4ade80;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Loki theme — Mischief Green / Asgard Gold / Jotun Ice palette.
+       Mischief green = the sorcery, the illusions, the clones and conjurations.
+       Asgard gold = the horned helm and the throne he will never stop coveting.
+       Jotun ice = the Frost Giant blood beneath the borrowed Asgardian skin.
+       Void green-black = the schemer in the shadows, the plan behind the plan.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
+
+  .ability--leader {
+    background: #a16207;          /* Asgard gold — the throne he covets */
+    color: #fff7e0;
+  }
+
+  .ability--basic {
+    background: #0a1410;          /* void green-black — Staff Swing */
+    border: 1px solid #166534;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #4ade80; }
+  .ability--basic .ability-tag  { color: #22c55e; }
+  .ability--basic .ability-meta { color: #22c55e; }
+
+  .ability--special-1 { background: #16a34a; color: #dcfce7; } /* bright emerald — Doppelganger (signature) */
+  .ability--special-2 { background: #047857; color: #d1fae5; } /* deep emerald — Mystical Missile */
+  .ability--special-3 { background: #0e7490; color: #cffafe; } /* Jotun ice — Jotun Mist, the Frost */
+  .ability--special-4 { background: #ca8a04; color: #241701; } /* gold — Devious Exchange, the trick */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #22c55e; } /* mischief green */
+  .ability--reserve-passive   { border-left-color: #eab308; } /* Asgard gold */
+  .ability--reserve-ultimatum { border-left-color: #166534; } /* deep emerald */
+
+  .ability--core-passive {
+    background: #08130d;          /* deepest void green — the God of Mischief */
+    color: #bbf7d0;
+  }
+
+  .ability--passive {
+    background: #efe4bf;          /* pale Asgard gold — the horned helm */
+    color: #2a2410;
+  }
+
+  .ability--ultimatum {
+    background: #14532d;          /* deepest emerald — Stolen Power */
+    color: #dcfce7;
+  }
+
+  .ability--synergy {
+    background: #d8f0dd;          /* pale mischief green — connection */
+    color: #0c1c14;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #22c55e; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(34, 197, 94, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #22c55e; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4ade80;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #22c55e; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #22c55e; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #a8e6bf;
+  }
+  .syn-cost-chip .who { color: #4ade80; font-weight: 700; }
+
+  /* Type accents — mischief green / gold / Jotun ice spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #047857; } /* deep emerald */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(4, 120, 87, 0.2); color: #5ed6a4; border: 1px solid rgba(4, 120, 87, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #22c55e; } /* mischief green */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #efe4bf; } /* pale gold */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(239, 228, 191, 0.13); color: #e6dcbe; border: 1px solid rgba(239, 228, 191, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #a16207; } /* Asgard gold */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(161, 98, 7, 0.2); color: #e0b054; border: 1px solid rgba(161, 98, 7, 0.5); }
+  .syn-ability--new-special        { border-left-color: #0e7490; } /* Jotun ice */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(14, 116, 144, 0.28); color: #67c9e0; border: 1px solid rgba(14, 116, 144, 0.5); }
+
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #22c55e;
+    color: #04240f;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #a8e6bf;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/loki.jpg" alt="Loki">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/loki.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Fountain of Lies</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: LR STR Rose Goku Black + Zamasu Active Skill OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/loki.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Loki</h1>
+      <p class="subtitle">Loki Laufeyson</p>
+      <span class="role-badge">Summoner</span>
+      <p class="description">The adopted son of Odin and eternal trickster of Asgard, Loki Laufeyson schemes without end for the throne, the vengeance, and the recognition he believes the God of Mischief is owed.</p>
+      <p class="description">Loki was born unwanted and has spent an immortal lifetime making the world pay for it. A runt of the Frost Giants, cast aside to die and taken up by Odin as a spoil of war, he was raised in the golden halls of Asgard as a brother to Thor — and never for a single day allowed to forget that he did not belong there. A giant among gods, a schemer among warriors, a shadow beside a favored son whose every triumph deepened his own sense of exile, he learned early that he would never win the throne or his father's love by strength or valor, and so he chose the only weapons left to him: cunning, deception, and a silver tongue that has toppled kingdoms. That is the heart of him — not malice for its own sake, but a bottomless, aching need to be seen, twisted into endless mischief and grand betrayal. His hatred for Thor is real, and so, maddeningly, is his love; he can neither defeat his brother nor abandon him, forever circling the one bond he cannot cut. He is a villain who was, in some cruel measure, made into one — and who has embraced the role with a flourish, because if the world insists on casting him as the trickster, he will be the finest trickster it has ever feared.</p>
+      <p class="description">His power lies not in his fists but in his mind and his magic. Among the mightiest sorcerers in all the Nine Realms, Loki bends reality through illusion and enchantment — conjuring phantoms indistinguishable from truth, slipping between places in an instant, and reshaping his very form to wear any face, any voice, any guise he pleases. Beneath the sorcery runs the resilience and long life of his Asgardian upbringing, but it has always been the least of his weapons. His true art is manipulation: the whisper that turns ally against ally, the plan folded inside a plan inside a lie, the scheme already three moves ahead by the time anyone realizes a game is being played at all. The most dangerous thing about Loki is never the spell you can see — it is that you can never be certain which of his words is the truth, and by the time you are, the trap has already closed around you.</p>
+      <p class="quote">"Everything is part of my plan."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">7,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">380</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">60</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">97%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">116</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">10%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">3%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/anti-hero.html" class="pill">Anti-Hero</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
+          <a href="../links/asgardian.html" class="pill">Asgardian</a>
+          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
+          <a href="../links/worthy.html" class="pill">Worthy</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/reality-warper.html" class="pill">Reality Warper</a>
+          <a href="../links/gifted-by-the-gods.html" class="pill">Gifted by the Gods</a>
+          <a href="../links/rampant-deception.html" class="pill">Rampant Deception</a>
+          <a href="../links/prideful-personalities.html" class="pill">Prideful Personalities</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Position Swap</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">RES Down</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Mind Control</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">Affliction Boost</span>
+          <span class="pill">Stealth Application</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Summon</span>
+          <span class="pill">Copy</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Cooldown Reduction</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+          
+          <a href="thor.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/thor.jpg" alt="Thor">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Thor</strong>
+              <span class="real-name">Thor Odinson</span>
+              <span class="synergy-name">Love and Loathing</span>
+            </div>
+          </a>
+
+          <a href="wonder-woman.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Wonder Woman</strong>
+              <span class="real-name">Diana of Themyscira</span>
+              <span class="synergy-name">The Liar and the Lasso</span>
+            </div>
+          </a> 
+
+          <a href="iron-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Father of the Avengers</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Asgard's Dread</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Reality Warper", "Gifted by the Gods" or "Road to Redemption" allies gain +15% MAG and RES.</li>
+          <li>"Rampant Deception" allies gain +10% MAX HP.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Staff Swing</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 120% ATK damage to the target.</li>
+          <li>30% chance to inflict "Sting" to the target for 4 turns.</li>
+          <li>Loki allies (clones included) restore 10 EN.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Doppelganger</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 50 · Cooldown: 3 turns · Range: 6</div>
+        <ul>
+          <li>Summons a Loki Clone onto the targeted panel.</li>
+          <li>50% chance to discretely swap positions and resources (EN and STA) with the summoned clone.</li>
+          <li>Replaces an existing Loki Clone if 3 were already present on the battlefield (defeats the oldest, new spawns in normally).</li>
+          <li>Increases the cooldown of Gone Without a Trace by 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Mystical Missile</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + AoE (1 Panel) · Energy: 30 · Cooldown: 1 turn · Range: 8</div>
+        <ul>
+          <li>Deals 320% MAG damage to all enemies within 1 panel of the target (target included).</li>
+          <li>30% chance to inflict "Sting" on all enemies within 1 panel of the target (target included) for 4 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Jotun Mist</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
+        <ul>
+          <li>Deals 300% MAG damage to any enemy 2 panels around self and all summons (must be summoned by self).</li>
+          <li>50% chance to inflict 3 stacks of "Frost" for 2 turns to any enemies damaged (rolls once per stack).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Devious Exchange</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Summon (summoned by self) · Energy: 10 · Cooldown: 3 turns · Range: 14</div>
+        <ul>
+          <li>Discretely swaps positions and resources (EN and STA) with the summoned clone.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Disorienting Illusions</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 3 turns · Range: N/A</div>
+        <ul>
+          <li>Attacks, for 2 turns, gain a 50% chance to inflict "Disorient" for 2 turns.</li>
+          <li>Attacks, for 2 turns, gain a 20% chance to inflict "Coercion" for 4 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Gone Without a Trace</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 40 · Cooldown: 5 turns · Range: N/A</div>
+        <ul>
+          <li>Destroys all summoned Loki Clones.</li>
+          <li>For each Loki clone destroyed, +20% MAG for 2 turns.</li>
+          <li>Gains "Invisible" for 2 turns.</li>
+          <li>The "Invisible" status effect is persistent if at least two clones were destroyed.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">God of Mischief</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>Restores 2% MAX HP whenever a clone receives damage (once per ability).</li>
+          <li>50% chance for inflictions received to have their duration decreased by 1 turn.</li>
+          <li>Receives 50% less damage from status effects.</li>
+          <li>Gains 2% ULT each time self or a summon deals damage (once per ability, must be summoned by self).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Attacks from Unexpected Angles</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Infliction chances are increased by 8% for each Loki Clone on the battlefield (self only, must be summoned by self).</li>
+          <li>Upon landing Mystical Missile (self or clones), 20% chance for Loki allies (clones included) to restore 10 EN.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Perfect Mimicry</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Upon using ULTIMATUM, Loki Clones transform into Champion Mimics of the same Champion for 1 turn (maintaining current resources and HP).</li>
+          <li>+20% ATK and MAG when transformed.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Uncertain Allegiance</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Gains the ability to damage allies.</li>
+          <li>Damaging an ally with a special ability decreases the cooldowns of Doppelganger and Devious exchange by 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Threads of Reincarnation</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>HP is shared between self and summons.</li>
+          <li>MAX HP is increased by 5,000 per summon on the battefield (must be summoned by self, instantly increases upon summoning).</li>
+          <li>Restores 3,000 HP upon summoning a Loki Clone.</li>
+          <li>Summon damage is decreased by 30%.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Stolen Power</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Ally or Enemy · Range: 6 · Cost: 100% ULT</div>
+        <ul>
+          <li>Transforms into the target's Champion for 3 turns.</li>
+          <li>Transformation begins at a start-of-battle state.</li>
+          <li>Passive ULT charge is increased to 38% per turn while transformed.</li>
+          <li>Upon exiting the transformation, MAX HP percentage and resources are retained.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Endless Trickery</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+        <ul>
+          <li>Devious Exchange has no cooldown for 3 turns.</li>
+          <li>+20% MAG to self and summons for 3 turns.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
+
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/thor.jpg" alt="Thor">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Love and Loathing</span>
+              <span class="synergy-partner-tag">w/ Thor</span>
+            </div>
+            <p class="synergy-desc">For all his scheming, everything Loki does traces back to Thor. He covets the throne his brother was promised, resents the golden favor Thor was given and he never was, and has plotted the thunder god's ruin more times than either could count — and yet, in the wreckage of every scheme, he can never quite bring himself to see it through. He tells himself he hates Thor, and part of him truly does; but the brother he grew up beside is the only soul who ever treated him as kin, and Loki has never learned how to stop needing that. Love and loathing, braided together too tightly to ever pull apart — the one knot the God of Lies has never managed to talk his way out of.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Future of Asgard</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Thor</span> · 60 EN + 1 STA</span>
+              <span class="syn-cost-chip"><span class="who">Loki</span> · 20 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Cooldown: 6 turns · Range: 4</div>
+            <ul>
+              <li>Thor deals 400% MAG and 300% ATK damage to the target.</li>
+              <li>Loki deals 150% MAG damage to the target.</li>
+              <li>Loki gains "Stealth" for 1 turn and restores 8 STA.</li>
+              <li>Pushes target towards Thor by 4 panels (cannot go past him).</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Brothers Despite Everything</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Thor gains +8% MAG.</li>
+              <li>+8% ATK and MAG whenever an enemy on the field has "Retribution".</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Liar and the Lasso</span>
+              <span class="synergy-partner-tag">w/ Wonder Woman</span>
+            </div>
+            <p class="synergy-desc">Loki has unwound kings and gods alike with nothing but a well-placed word — and in Diana of Themyscira he has met the one opponent his gift slides right off of. She is truth made flesh, armed with a lasso that drags honesty from any throat it binds: everything the God of Lies has spent an eternity making himself the opposite of. He finds her maddening and fascinating in equal measure, a mind he cannot cloud and a will he cannot bend, forcing him to be genuinely clever rather than merely deceitful. To Loki there is no sport in fooling the foolish — Diana is the rare mark worth the effort, precisely because he knows she will see straight through him.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Frosty Winds of Boreas</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Jotun Mist</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 3</div>
+            <ul>
+              <li>Deals 300% MAG damage to any enemy 3 panels around self and all summons (must be summoned by self).</li>
+              <li>60% chance to inflict 3 stacks of "Frost" for 3 turns to any enemies damaged (rolls once per stack).</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Father of the Avengers</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">It is the single greatest irony of Loki's long life, and Stark will never let him forget it: the mightiest heroes of Midgard first banded together for the sole purpose of thwarting one of his schemes. He meddled with Thor, and in doing so authored the very team that has foiled him at every turn since — a legacy he never wanted and can never disown. Tony wears that history like a smirk, needling the trickster about the family he accidentally founded, and it galls Loki all the more because he cannot argue the point. Of all who oppose him, the armored futurist is the one who reminds him, gratingly, that his cleverest gambit was also his most catastrophic mistake.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Childish Outburst</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 10 turns · Range: N/A</div>
+            <ul>
+              <li>Gains "Anger" for 2 turns.</li>
+              <li>Restores 10 EN.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Lingering Spite</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Childish Outburst cooldown is reduced by 1 turn whenever Iron Man uses an ability within 3 panels of self.</li>
+              <li>Dealing damage to a "Stark Industries" or "Avengers" Champion (enemy or ally) restores 1 STA and 5 EN.</li>
+              <li>+5% MAG against "Avengers" enemies.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/loki.jpg" alt="loki">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/loki(classic).jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Evil of a Past Life — +5% CRIT RATE</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/loki(president).jpg" alt="President">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">President</div>
+          <div class="costume-effect-label">Clean Ballot — +5% to infliction chances (for self and summons)</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/loki(lady-loki).jpg" alt="Lady Loki">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Lady Loki</div>
+          <div class="costume-effect-label">Everchanging Form — +7% MAG while at least one summon is active (must be summoned by self)<div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Loki enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

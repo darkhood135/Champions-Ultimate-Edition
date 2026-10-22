@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    min-height: 100vh;
+  }
+
+  /* ====================== HEADER ====================== */
+  .page-header {
+    border-bottom: 1px solid #2c3038;
+    background: #0a0b0e;
+    padding: 28px 32px 32px;
+  }
+
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #c084fc; }
+
+  .page-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #c084fc;
+    margin-bottom: 6px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-style: italic;
+  }
+
+  /* ====================== CONTAINER ====================== */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 28px 32px 60px;
+  }
+
+  /* ====================== SEARCH ====================== */
+  .toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 480px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 999px;
+    padding: 10px 14px 10px 38px;
+    color: #f0f1f3;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .search-input::placeholder { color: #6b7280; }
+  .search-input:focus { outline: none; border-color: #c084fc; background: #1c1d22; }
+
+  .count-badge {
+    margin-left: auto;
+    color: #a3a8b3;
+    font-size: 13px;
+    font-weight: 500;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    padding: 9px 16px;
+    border-radius: 999px;
+  }
+
+  .count-badge .num { color: #f0f1f3; font-weight: 700; }
+
+  /* ====================== CATEGORIES ====================== */
+  .category {
+    margin-bottom: 28px;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .category-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .category-count {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .category--morality  .category-title { color: #ff7878; }
+  .category--team      .category-title { color: #5fb0ff; }
+  .category--universe  .category-title { color: #c084fc; }
+  .category--species   .category-title { color: #5fd189; }
+  .category--physiology .category-title { color: #f9a8c4; }
+  .category--mindset   .category-title { color: #ffc06a; }
+  .category--powertier .category-title { color: #22d3ee; }
+  .category--force     .category-title { color: #a5b4fc; }
+
+  /* ====================== LINK PILLS (Dokkan-inspired buttons) ====================== */
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+  }
+
+  .link-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.28),
+      0 2px 5px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+    transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+    min-height: 42px;
+    line-height: 1.2;
+  }
+
+  .link-pill:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.28),
+      0 6px 14px rgba(0, 0, 0, 0.55);
+  }
+
+  .link-pill:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+  }
+
+  /* Pill colors per category */
+  .link-pill--morality  { background: #d63a3a; color: #fff; }
+  .link-pill--team      { background: #3690ee; color: #fff; }
+  .link-pill--universe  { background: #9b59f6; color: #fff; }
+  .link-pill--species   { background: #3fb16c; color: #fff; }
+  .link-pill--physiology { background: #db4d7d; color: #fff; }
+  .link-pill--mindset   { background: #efb73f; color: #2e1f08; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
+  .link-pill--powertier { background: #0e7490; color: #fff; }
+  .link-pill--force     { background: #6366f1; color: #fff; }
+
+  /* No results state */
+  .no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .no-results strong {
+    display: block;
+    color: #a3a8b3;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 600px) {
+    .page-header { padding: 22px 18px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 22px 18px 40px; }
+    .count-badge { margin-left: 0; }
+    .link-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .link-pill { padding: 10px 14px; font-size: 12px; min-height: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1 class="page-title">Links</h1>
+    <p class="page-subtitle">Personality, relationships and motivations that bind Champions into teams.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SEARCH -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search" class="search-input" placeholder="Search links…" autocomplete="off">
+    </div>
+    <div class="count-badge">
+      <span class="num" id="count">0</span> / <span id="total">0</span> links
+    </div>
+  </div>
+
+  <!-- =============================================
+       LINKS BY CATEGORY
+       Each link-pill is a clickable button to its
+       individual link page. Add more by copying any
+       pill and updating the category class, name and href.
+       ============================================= -->
+
+  <!-- MORALITY -->
+  <section class="category category--morality">
+    <div class="category-header">
+      <div class="category-title">Morality</div>
+      <div class="category-count" data-category-count>5 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/anchors-of-hope.html" class="link-pill link-pill--morality" data-name="Anchors of Hope">Anchors of Hope</a>
+      <a href="links/anchors-of-ruin.html" class="link-pill link-pill--morality" data-name="Anchors of Ruin">Anchors of Ruin</a>
+      <a href="links/anti-hero.html" class="link-pill link-pill--morality" data-name="Anti-Hero">Anti-Hero</a>
+      <a href="links/hero.html" class="link-pill link-pill--morality" data-name="Hero">Hero</a>
+      <a href="links/villain.html" class="link-pill link-pill--morality" data-name="Villain">Villain</a>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="category category--team">
+    <div class="category-header">
+      <div class="category-title">Team</div>
+      <div class="category-count" data-category-count>20 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/avengers.html" class="link-pill link-pill--team" data-name="Avengers">Avengers</a>
+      <a href="links/bat-family.html" class="link-pill link-pill--team" data-name="Bat-Family">Bat-Family</a>
+      <a href="links/frieza-force.html" class="link-pill link-pill--team" data-name="Frieza Force">Frieza Force</a>
+      <a href="links/galactic-invasion.html" class="link-pill link-pill--team" data-name="Galactic Invasion">Galactic Invasion</a>
+      <a href="links/gryffindor.html" class="link-pill link-pill--team" data-name="Gryffindor">Gryffindor</a>
+      <a href="links/heralds-of-galactus.html" class="link-pill link-pill--team" data-name="Heralds of Galactus">Heralds of Galactus</a>
+      <a href="links/heroes-of-new-york.html" class="link-pill link-pill--team" data-name="Heroes of New York">Heroes of New York</a>
+      <a href="links/hogwarts-attendee.html" class="link-pill link-pill--team" data-name="Hogwarts Attendee">Hogwarts Attendee</a>
+      <a href="links/justice-league.html" class="link-pill link-pill--team" data-name="Justice League">Justice League</a>
+      <a href="links/lantern-corps.html" class="link-pill link-pill--team" data-name="Lantern Corps">Lantern Corps</a>
+      <a href="links/law-enforcement.html" class="link-pill link-pill--team" data-name="Law Enforcement">Law Enforcement</a>
+      <a href="links/new-avengers.html" class="link-pill link-pill--team" data-name="New Avengers">New Avengers</a>
+      <a href="links/servants-of-knull.html" class="link-pill link-pill--team" data-name="Servants of Knull">Servants of Knull</a>
+      <a href="links/slytherin.html" class="link-pill link-pill--team" data-name="Slytherin">Slytherin</a>
+      <a href="links/stark-industries.html" class="link-pill link-pill--team" data-name="Stark Industries">Stark Industries</a>
+      <a href="links/titans.html" class="link-pill link-pill--team" data-name="Titans">Titans</a>
+      <a href="links/tulpar-crew.html" class="link-pill link-pill--team" data-name="Tulpar Crew">Tulpar Crew</a>
+      <a href="links/web-warrior.html" class="link-pill link-pill--team" data-name="Web Warrior">Web Warrior</a>
+      <a href="links/x-men.html" class="link-pill link-pill--team" data-name="X-Men">X-Men</a>
+      <a href="links/z-fighters.html" class="link-pill link-pill--team" data-name="Z Fighters">Z Fighters</a>
+    </div>
+  </section>
+
+  <!-- UNIVERSE -->
+  <section class="category category--universe">
+    <div class="category-header">
+      <div class="category-title">Universe</div>
+      <div class="category-count" data-category-count>7 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/dark-multiverse.html" class="link-pill link-pill--universe" data-name="Dark Multiverse">Dark Multiverse</a>
+      <a href="links/dc-universe.html" class="link-pill link-pill--universe" data-name="DC Universe">DC Universe</a>
+      <a href="links/dragon-ball-universe.html" class="link-pill link-pill--universe" data-name="Dragon Ball Universe">Dragon Ball Universe</a>
+      <a href="links/echo-of-the-past.html" class="link-pill link-pill--universe" data-name="Echo of the Past">Echo of the Past</a>
+      <a href="links/marvel-universe.html" class="link-pill link-pill--universe" data-name="Marvel Universe">Marvel Universe</a>
+      <a href="links/multiversal.html" class="link-pill link-pill--universe" data-name="Multiversal">Multiversal</a>
+      <a href="links/wizarding-world-universe.html" class="link-pill link-pill--universe" data-name="Wizarding World Universe">Wizarding World Universe</a>
+    </div>
+  </section>
+
+  <!-- SPECIES -->
+  <section class="category category--species">
+    <div class="category-header">
+      <div class="category-title">Species</div>
+      <div class="category-count" data-category-count>8 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/amazon.html" class="link-pill link-pill--species" data-name="Amazon">Amazon</a>
+      <a href="links/asgardian.html" class="link-pill link-pill--species" data-name="Asgardian">Asgardian</a>
+      <a href="links/human.html" class="link-pill link-pill--species" data-name="Human">Human</a>
+      <a href="links/kryptonian.html" class="link-pill link-pill--species" data-name="Kryptonian">Kryptonian</a>
+      <a href="links/saiyan.html" class="link-pill link-pill--species" data-name="Saiyan">Saiyan</a>
+      <a href="links/symbiote.html" class="link-pill link-pill--species" data-name="Symbiote">Symbiote</a>
+      <a href="links/mutant.html" class="link-pill link-pill--species" data-name="Mutant">Mutant</a>
+      <a href="links/unknown-species.html" class="link-pill link-pill--species" data-name="Unknown Species">Unknown Species</a>
+    </div>
+  </section>
+
+  <!-- PHYSIOLOGY -->
+  <section class="category category--physiology">
+    <div class="category-header">
+      <div class="category-title">Physiology</div>
+      <div class="category-count" data-category-count>4 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/mechanical-physiology.html" class="link-pill link-pill--physiology" data-name="Mechanical Physiology">Mechanical Physiology</a>
+      <a href="links/rapid-regeneration.html" class="link-pill link-pill--physiology" data-name="Rapid Regeneration">Rapid Regeneration</a>
+      <a href="links/transformation-boost.html" class="link-pill link-pill--physiology" data-name="Transformation Boost">Transformation Boost</a>
+      <a href="links/super-soldier.html" class="link-pill link-pill--physiology" data-name="Super Soldier">Super Soldier</a>
+    </div>
+  </section>
+
+  <!-- MINDSET -->
+  <section class="category category--mindset">
+    <div class="category-header">
+      <div class="category-title">Mindset</div>
+      <div class="category-count" data-category-count>20 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/adaptive-measures.html" class="link-pill link-pill--mindset" data-name="Adaptive Measures">Adaptive Measures</a>
+      <a href="links/comedic-genius.html" class="link-pill link-pill--mindset" data-name="Comedic Genius">Comedic Genius</a>
+      <a href="links/elite-class.html" class="link-pill link-pill--mindset" data-name="Elite Class">Elite Class</a>
+      <a href="links/fierce-combatant.html" class="link-pill link-pill--mindset" data-name="Fierce Combatant">Fierce Combatant</a>
+      <a href="links/figures-of-prophecy.html" class="link-pill link-pill--mindset" data-name="Figures of Prophecy">Figures of Prophecy</a>
+      <a href="links/firearm-expert.html" class="link-pill link-pill--mindset" data-name="Firearm Expert">Firearm Expert</a>
+      <a href="links/grand-heist.html" class="link-pill link-pill--mindset" data-name="Grand Heist">Grand Heist</a>
+      <a href="links/heir-to-the-mantle.html" class="link-pill link-pill--mindset" data-name="Heir to the Mantle">Heir to the Mantle</a>
+      <a href="links/incredible-intelligence.html" class="link-pill link-pill--mindset" data-name="Incredible Intelligence">Incredible Intelligence</a>
+      <a href="links/inseparable-pair.html" class="link-pill link-pill--mindset" data-name="Inseparable Pair">Inseparable Pair</a>
+      <a href="links/masters-of-magic.html" class="link-pill link-pill--mindset" data-name="Masters of Magic">Masters of Magic</a>
+      <a href="links/misaligned-morals.html" class="link-pill link-pill--mindset" data-name="Misaligned Morals">Misaligned Morals</a>
+      <a href="links/parental-bond.html" class="link-pill link-pill--mindset" data-name="Parental Bond">Parental Bond</a>
+      <a href="links/prideful-personalities.html" class="link-pill link-pill--mindset" data-name="Prideful Personalities">Prideful Personalities</a>
+      <a href="links/psychotic-tendencies.html" class="link-pill link-pill--mindset" data-name="Psychotic Tendencies">Psychotic Tendencies</a>
+      <a href="links/pure-heart.html" class="link-pill link-pill--mindset" data-name="Pure Heart">Pure Heart</a>
+      <a href="links/rampant-deception.html" class="link-pill link-pill--mindset" data-name="Rampant Deception">Rampant Deception</a>
+      <a href="links/road-to-redemption.html" class="link-pill link-pill--mindset" data-name="Road to Redemption">Road to Redemption</a>
+      <a href="links/tactical-mind.html" class="link-pill link-pill--mindset" data-name="Tactical Mind">Tactical Mind</a>
+      <a href="links/worthy.html" class="link-pill link-pill--mindset" data-name="Worthy">Worthy</a>
+    </div>
+  </section>
+
+  <!-- POWER TIER -->
+  <section class="category category--powertier">
+    <div class="category-header">
+      <div class="category-title">Power Tier</div>
+      <div class="category-count" data-category-count>4 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/cosmic-threat.html" class="link-pill link-pill--powertier" data-name="Cosmic Threat">Cosmic Threat</a>
+      <a href="links/reality-warper.html" class="link-pill link-pill--powertier" data-name="Reality Warper">Reality Warper</a>
+      <a href="links/street-level.html" class="link-pill link-pill--powertier" data-name="Street Level">Street Level</a>
+      <a href="links/supreme-power.html" class="link-pill link-pill--powertier" data-name="Supreme Power">Supreme Power</a>
+    </div>
+  </section>
+
+  <!-- FORCE -->
+  <section class="category category--force">
+    <div class="category-header">
+      <div class="category-title">Force</div>
+      <div class="category-count" data-category-count>4 links</div>
+    </div>
+    <div class="link-grid">
+      <a href="links/control-of-nature.html" class="link-pill link-pill--force" data-name="Control of Nature">Control of Nature</a>
+      <a href="links/gifted-by-the-gods.html" class="link-pill link-pill--force" data-name="Gifted by the Gods">Gifted by the Gods</a>
+      <a href="links/radiating-light.html" class="link-pill link-pill--force" data-name="Radiating Light">Radiating Light</a>
+      <a href="links/vast-darkness.html" class="link-pill link-pill--force" data-name="Vast Darkness">Vast Darkness</a>
+    </div>
+  </section>
+
+  <!-- No results placeholder -->
+  <div class="no-results" id="no-results" style="display: none;">
+    <strong>No links match your search</strong>
+    Try a different search term or clear the field.
+  </div>
+
+</div>
+
+<script>
+  const searchInput = document.getElementById('search');
+  const pills       = Array.from(document.querySelectorAll('.link-pill'));
+  const sections    = Array.from(document.querySelectorAll('.category'));
+  const countEl     = document.getElementById('count');
+  const totalEl     = document.getElementById('total');
+  const noResults   = document.getElementById('no-results');
+
+  totalEl.textContent = pills.length;
+
+  function applyFilter() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    pills.forEach(pill => {
+      const name = pill.dataset.name.toLowerCase();
+      const match = !search || name.includes(search);
+      pill.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    // Hide whole category sections if none of their pills are visible
+    sections.forEach(section => {
+      const sectionPills = section.querySelectorAll('.link-pill');
+      const sectionVisible = Array.from(sectionPills).filter(p => p.style.display !== 'none').length;
+      section.style.display = sectionVisible > 0 ? '' : 'none';
+      const counter = section.querySelector('[data-category-count]');
+      if (counter) counter.textContent = `${sectionVisible} link${sectionVisible === 1 ? '' : 's'}`;
+    });
+
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+  applyFilter();
+</script>
+
+</body>
+</html>

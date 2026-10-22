@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goku (Super Saiyan) — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet { max-width: 1320px; margin: 0 auto; }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+  .back-link:hover { color: #facc15; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- TRANSFORMATION PORTRAIT (below main image) ---------- */
+  .transformation-portraits {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid #2c3038;
+  }
+
+  .transformation-portraits-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2c3038;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .transformation-portraits-title .count { color: #4f535c; font-weight: 500; letter-spacing: 1px; }
+
+  .transformation-portrait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .transformation-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #f0f1f3;
+    cursor: pointer;
+  }
+
+  .transformation-portrait-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .transformation-portrait:hover .transformation-portrait-image {
+    transform: scale(1.05);
+    border-color: #ea580c;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .transformation-portrait-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .transformation-portrait-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #fb923c;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100px;
+  }
+
+  /* ---------- IDENTITY ---------- */
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #facc15;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(250, 204, 21, 0.12);
+    color: #fde047;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #facc15;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid { display: grid; grid-template-columns: 340px 1fr; gap: 18px; }
+  .left-col, .right-col { display: flex; flex-direction: column; gap: 14px; }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label { color: #a3a8b3; font-weight: 500; }
+  .stat-row .value { color: #f0f1f3; font-weight: 600; }
+
+  /* ---------- STAT BOOST (transformation modifier) ---------- */
+  .stat-boost {
+    color: #f97316;
+    font-weight: 700;
+    font-size: 12.5px;
+    margin-left: 6px;
+    letter-spacing: 0.3px;
+  }
+  /* Optional prefix tooltip on hover — shows which form provides the boost */
+  .stat-boost[title] { cursor: help; }
+
+  .pill-group { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .partner-card:hover .partner-image { border-color: #facc15; transform: scale(1.06); }
+  .partner-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #fde047;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+  .right-col-header h2 { font-size: 22px; font-weight: 700; }
+  .stack-note { font-size: 12px; color: #6b7280; font-weight: 500; }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+  .section-divider::after { content: ''; flex: 1; height: 1px; background: #2c3038; }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name { font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul { list-style: none; padding: 0; }
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .ability ul li::before { content: '•'; position: absolute; left: 4px; font-weight: 700; }
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+  .ability ul ul li {
+    font-size: 13px;
+  }
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ---------- TRANS-OVERRIDE (cousin of syn-override) ---------- */
+  .trans-override {
+    font-size: 12.5px;
+    padding: 6px 10px;
+    margin: -4px 0 12px;
+    background: rgba(0, 0, 0, 0.32);
+    border-radius: 4px;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    line-height: 1.45;
+    opacity: 0.95;
+  }
+  .trans-override strong { font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Goku (Super Saiyan) theme — Super Saiyan Gold / Teal Fire / Gi Orange, with
+     an Enraged rage-ember palette for the transformation.
+       Gold = the ascended aura, the golden hair, the legend made manifest.
+       Teal = the piercing Super Saiyan eyes, the cold fire of the ki surge.
+       Amber/orange = the turtle gi, the fists, the Kamehameha stance.
+       Enraged ember = grief and rage pushed past the breaking point.
+  */
+
+  .ability--leader { background: #a16207; color: #fff7e0; }
+
+  .ability--basic {
+    background: #1a1408;
+    border: 1px solid #7c5e12;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #fde047; }
+  .ability--basic .ability-tag  { color: #eab308; }
+  .ability--basic .ability-meta { color: #eab308; }
+
+  .ability--special-1 { background: #eab308; color: #241a02; } /* bright gold — Super Kamehameha */
+  .ability--special-2 { background: #ca8a04; color: #241a02; } /* amber-gold — Super Meteor Smash */
+  .ability--special-3 { background: #0d9488; color: #ccfbf1; } /* teal — Surging Ki, the eyes */
+  .ability--special-4 { background: #854d0e; color: #fef3c7; } /* deep gold — Cruelty Prevention */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #facc15; } /* gold */
+  .ability--reserve-passive   { border-left-color: #fde047; } /* light gold */
+  .ability--reserve-ultimatum { border-left-color: #b45309; } /* deep amber */
+
+  .ability--core-passive { background: #161003; color: #fef3c7; }
+
+  .ability--passive { background: #fef3c7; color: #3d2c05; }
+
+  .ability--ultimatum { background: #713f12; color: #fef3c7; }
+
+  .ability--synergy { background: #f5ecd0; color: #241a02; }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ---------- TRANSFORMATION ABILITY COLORS ----------
+     Enraged Super Saiyan variants — same slot semantics as base but shifted
+     onto a searing rage-ember palette. Each mirrors its base counterpart. */
+  .ability--ss-basic {
+    background: #1a0f05;
+    border: 1px solid #9a3412;
+    color: #ffedd5;
+  }
+  .ability--ss-basic .ability-name { color: #fdba74; }
+  .ability--ss-basic .ability-tag  { color: #f97316; }
+  .ability--ss-basic .ability-meta { color: #f97316; }
+
+  .ability--ss-special-1 { background: #ea580c; color: #fff7ed; }
+  .ability--ss-special-2 { background: #c2410c; color: #ffedd5; }
+  .ability--ss-special-3 { background: #9a3412; color: #fed7aa; }
+  .ability--ss-special-4 { background: #7c2d12; color: #fed7aa; }
+
+  .ability--ss-core-passive { background: #1a0a04; color: #fed7aa; }
+  .ability--ss-passive { background: #fed7aa; color: #7c2d12; }
+
+  .ability--ss-ultimatum { background: #b91c1c; color: #fee2e2; }
+
+  .ability--reserve-ss-special   { border-left-color: #f97316; }
+  .ability--reserve-ss-passive   { border-left-color: #fed7aa; }
+  .ability--reserve-ss-ultimatum { border-left-color: #b91c1c; }
+
+  /* ====================== FORM BLOCKS (collapsible) ======================
+     Each transformation is a details/summary block containing a full
+     kit. Base Form is open by default; transformations closed. The
+     summary shows the form's name, tagline and a chevron. */
+  .form-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px;
+    line-height: 1.45;
+  }
+
+  .form-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+    margin-top: 8px;
+  }
+  .form-block[open] { border-color: #eab308; }
+  .form-block.form-block--ss[open] { border-color: #ea580c; }
+
+  .form-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .form-summary::-webkit-details-marker { display: none; }
+  .form-summary:hover { background: rgba(234, 179, 8, 0.06); }
+  .form-block--ss .form-summary:hover { background: rgba(234, 88, 12, 0.07); }
+
+  .form-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(234, 179, 8, 0.15);
+    color: #fde047;
+    border: 1px solid rgba(234, 179, 8, 0.4);
+  }
+  .form-block--ss .form-badge {
+    background: rgba(234, 88, 12, 0.15);
+    color: #fb923c;
+    border-color: rgba(234, 88, 12, 0.4);
+  }
+
+  .form-summary-text { flex: 1; min-width: 0; }
+  .form-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f1f3;
+    letter-spacing: -0.2px;
+    margin-bottom: 2px;
+  }
+  .form-tagline {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    line-height: 1.4;
+  }
+
+  .form-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 14px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .form-block[open] .form-chevron { transform: rotate(180deg); color: #eab308; }
+  .form-block--ss[open] .form-chevron { color: #f97316; }
+
+  .form-body {
+    padding: 4px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #2c3038;
+  }
+  .form-body .section-divider { margin-top: 10px; }
+
+  /* ====================== SYNERGY BLOCKS (kept from base template) ====== */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #facc15; }
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(250, 204, 21, 0.04); }
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #facc15; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-bond-name { font-size: 16px; font-weight: 700; color: #f0f1f3; letter-spacing: -0.2px; }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc { font-size: 13px; color: #a3a8b3; line-height: 1.45; margin: 0; }
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #facc15; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+  }
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .syn-override {
+    font-size: 12px;
+    color: #a3a8b3;
+    font-style: italic;
+    margin-bottom: 6px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta { font-size: 12px; font-style: italic; color: #a3a8b3; margin-bottom: 8px; }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #facc15; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    color: #fde68a;
+  }
+  .syn-cost-chip .who { color: #fde047; font-weight: 700; }
+
+  /* Type accents — Super Saiyan gold / teal / amber / rage-orange spread */
+  .syn-ability--upgraded-special   { border-left-color: #eab308; } /* gold */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(234, 179, 8, 0.15); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #0d9488; } /* teal */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(13, 148, 136, 0.2); color: #5fd4c8; border: 1px solid rgba(13, 148, 136, 0.45); }
+  .syn-ability--new-passive        { border-left-color: #fde047; } /* light gold */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(253, 224, 71, 0.13); color: #fde68a; border: 1px solid rgba(253, 224, 71, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ea580c; } /* rage orange */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(234, 88, 12, 0.18); color: #fb923c; border: 1px solid rgba(234, 88, 12, 0.45); }
+  .syn-ability--new-special        { border-left-color: #b45309; } /* deep amber */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(180, 83, 9, 0.22); color: #e0a24e; border: 1px solid rgba(180, 83, 9, 0.5); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+  .changelog-section .section-divider { margin: 0 0 20px; }
+  .changelog-intro { font-size: 13px; color: #6b7280; font-style: italic; margin-bottom: 22px; }
+  .changelog-entries { display: flex; flex-direction: column; gap: 14px; }
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+  .entry-meta { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .entry-meta .version { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .entry-meta .date { font-size: 12px; color: #6b7280; font-style: italic; }
+  .changes { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid { grid-template-columns: 1fr; }
+    .character-image { max-width: 400px; margin: 0 auto; }
+    .transformation-portraits { max-width: 400px; margin: 0 auto; }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #facc15;
+    color: #241a02;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #fde68a;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image, transformation
+       portrait(s), and identity block.
+       ============================================= -->
+  <div class="hero-bar">
+
+    <!-- Left column: main portrait + transformation portrait strip -->
+    <div class="character-column">
+      <div class="character-image">
+        <!-- <img src="../images/champion-images/goku.jpg" alt="Goku"> -->
+        <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)">
+      </div>
+
+      <div class="transformation-portraits">
+        <div class="transformation-portraits-title">
+          <span>Transformation</span>
+        </div>
+        <div class="transformation-portrait-list">
+          <a href="#form-rage" class="transformation-portrait" title="Jump to Rage form">
+            <div class="transformation-portrait-image">
+              <!-- <img src="../images/champion-images/transformations/goku(super-saiyan,rage).jpg" alt="Goku (Enraged Super Saiyan)"> -->
+              <img src="../images/champion-images/transformations/goku(super-saiyan,rage).jpg" alt="Goku (Enraged Super Saiyan)">
+            </div>
+            <div class="transformation-portrait-label">Enraged</div>
+          </a>
+        </div>
+      </div>
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/goku(super-saiyan).mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">The Incarnate Legend</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ LR Super Saiyan Goku Transformation OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/goku(super-saiyan).mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Goku (Super Saiyan)</h1>
+      <p class="subtitle">Son Goku · Kakarot</p>
+      <span class="role-badge">Defender</span>
+      <p class="description">Pushed past the edge of grief and rage by the murder of his closest friend, Goku ignites into the first Super Saiyan in a thousand years — a golden-haired warrior of legend risen to stand against the tyrant Frieza.</p>
+      <p class="description">By the time he reached the dying world of Namek, Goku had already grown far beyond the warrior who once barely survived a Saiyan prince — but nothing had prepared him for Frieza. The galactic tyrant who annihilated the entire Saiyan race pushed him past every limit he had, through the Kaio-ken and a Spirit Bomb drawn from a whole world's life, and still it was not enough. Then, with Vegeta already dead at Frieza's hand and his final plea ringing in Goku's ears, the monster murdered Krillin before his eyes — and something in the gentlest heart in the universe simply broke. What rose in its place was the stuff of legend: the Super Saiyan, a transformation no living Saiyan had achieved in a thousand years, awakened not through ambition or lust for power as Vegeta had chased it, but through pure, righteous fury and the unbearable weight of loss. That is what makes this Goku so remarkable, and so terrifying to his enemies. Even wearing the power of a legend, wreathed in golden fire, he never stops being himself — the rage sharpens him but does not consume him, and when the battle is finally won, he offers even Frieza the mercy the tyrant has never once shown another living soul. The most devastating force the universe had seen in a millennium, and it was summoned by love rather than hatred.</p>
+      <p class="description">The transformation remakes him from the ground up. His hair blazes gold, his eyes burn a piercing teal, and a corona of golden light erupts around him as every ounce of his already staggering strength, speed, and durability is multiplied many times over in an instant — turning a warrior Frieza had toyed with into the tyrant's undeniable better. All that came before remains his to command: the Kamehameha wave now loosed with world-shaking force, the ki mastery, the flight, the hard-won techniques of a lifetime and one death. But the golden power, for all its glory, was never the true measure of him. Frieza sought immortality and Vegeta craved the legend, and neither could grasp the simple truth that unlocked it: Goku became the Super Saiyan not to conquer, not to rule, and not even to win — but to avenge a fallen friend, and to protect everyone still standing behind him. And having touched the power of legend, he never once let it change who he was.</p>
+      <p class="quote">"You already know, don't you? I am a Saiyan who came from Earth in order to defeat you."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats — inline "(+X)" modifiers show what the transformation adds.
+           Tags/Links are shared across forms so they only appear once. -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">13,500</span></span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">290 <span class="stat-boost" title="Rage">+60</span></span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">280 <span class="stat-boost" title="Rage">+60</span></span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">150</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">98%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">10%<span class="stat-boost" title="Rage">+10%</span></span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">107<span class="stat-boost" title="Rage">+3</span></span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">15%</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">7</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+      </div>
+
+      <!-- Links — shared across all forms -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/dragon-ball-universe.html" class="pill">Dragon Ball Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/anchors-of-hope.html" class="pill">Anchors of Hope</a>
+          <a href="../links/saiyan.html" class="pill">Saiyan</a>
+          <a href="../links/z-fighters.html" class="pill">Z Fighters</a>
+          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
+          <a href="../links/parental-bond.html" class="pill">Parental Bond</a>
+          <a href="../links/transformation-boost.html" class="pill">Transformation Boost</a>
+          <a href="../links/fierce-combatant.html" class="pill">Fierce Combatant</a>
+          <a href="../links/echo-of-the-past.html" class="pill">Echo of the Past</a>
+        </div>
+      </div>
+
+      <!-- Tags — shared across all forms -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Airborne</span>
+          <span class="pill">Taunt</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">ATK Down</span>
+          <span class="pill">MAG Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Piercing</span>
+          <span class="pill">Extension</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">STA Support</span>
+        </div>
+      </div>
+
+      <!-- Best Partners -->
+<div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="krillin.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/krillin.jpg" alt="Krillin">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Krillin</strong>
+              <span class="real-name">Krillin</span>
+              <span class="synergy-name">Catalyst of Awakening</span>
+            </div>
+          </a>
+
+          <a href="frieza.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Frieza</strong>
+              <span class="real-name">Emperor Frieza</span>
+              <span class="synergy-name">The Legend He Feared</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Each form is a collapsible block — click a summary row to expand.</span>
+      </div>
+
+      <!-- LEADER ABILITY — shared, does not transform -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Power Only Rumored to Exist</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Supreme Power" or "Transformation Boost" allies gain +10% ATK and MAG in battle.</li>
+          <li>"Supreme Power" allies gain +12% MAX HP in battle.</li>
+        </ul>
+      </div>
+
+      <p class="form-note">Transformations are a full second sheet of abilities that <em>transform</em> the base kit — see the Catechism for the mechanic details. Leader Ability and Synergies are shared across forms and appear outside the form blocks.</p>
+
+      <!-- =============================================
+           BASE FORM — Kakarot (open by default)
+           ============================================= -->
+      <details class="form-block" open>
+        <summary class="form-summary">
+          <span class="form-badge">Base Form</span>
+          <div class="form-summary-text">
+            <div class="form-name">Super Saiyan</div>
+            <div class="form-tagline">Golden hair ablaze and eyes alight with cold fire, Goku ascends into the legend a thousand years in the making — his every power multiplied, his fury honed to a razor's edge rather than loosed.</div>
+          </div>
+          <span class="form-chevron">▾</span>
+        </summary>
+
+        <div class="form-body">
+
+          <!-- BASIC -->
+          <div class="section-divider">Basic Ability</div>
+          <div class="ability ability--basic">
+            <div class="ability-header">
+              <span class="ability-name">Fierce Swings</span>
+              <span class="ability-tag">Basic</span>
+            </div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+            <ul>
+              <li>Deals 180% ATK damage to the target.</li>
+            </ul>
+          </div>
+
+          <!-- SPECIALS -->
+          <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+          <div class="ability ability--special-1">
+            <div class="ability-header">
+              <span class="ability-name">Super Kamehameha</span>
+              <span class="ability-tag">Special 1</span>
+            </div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 30 · Cooldown: 3 turns · Range: 7</div>
+            <ul>
+              <li>Launches a beam 7 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+              <li>Deals 220% MAG damage to all enemies caught in the line.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-2">
+            <div class="ability-header">
+              <span class="ability-name">Super Meteor Smash</span>
+              <span class="ability-tag">Special 2</span>
+            </div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+            <ul>
+              <li>Deals 150% ATK damage to the target 3 times.</li>
+              <li>Self gains "Taunt" for 1 turn.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-3">
+            <div class="ability-header">
+              <span class="ability-name">Surging Ki</span>
+              <span class="ability-tag">Special 3</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: Self · Energy: 60 · Cooldown: 5 turns · Range: N/A</div>
+            <ul>
+              <li>Gains "Anger" for 2 turns.</li>
+              <li>Gains "Taunt" for 1 turn.</li>
+              <li>Restores 10% HP and 3 STA.</li>
+              <li>Protects self from the next incoming attack (nullifies all damage, does not trigger on evasion).</li>
+              <li>For 2 turns, 50% chance to Block temporarily upon receiving an attack.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--special-4">
+            <div class="ability-header">
+              <span class="ability-name">Cruelty Prevention</span>
+              <span class="ability-tag">Special 4</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: All Allies in Range · Energy: 60 · Cooldown: 3 turns · Range: 5</div>
+            <ul>
+              <li>Can only be used as the first action of the turn.</li>
+              <li>Stands by for the remainder of the turn.</li>
+              <li>If an ally within 5 panels is attacked by a melee attack (ultimates excluded, self excluded), the ally is saved from the attack.</li>
+              <li>Standby ends after 2 saves or upon expiration.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-special">
+            <div class="ability-header">
+              <span class="ability-name">Gut Punch</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 1</div>
+            <ul>
+              <li>Deals 400% ATK precise damage to the target.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-special">
+            <div class="ability-header">
+              <span class="ability-name">Shocking Speed</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 2 turns · Range: 7</div>
+            <ul>
+              <li>Locates self to the targeted panel.</li>
+              <li>Ignores elevation.</li>
+            </ul>
+          </div>
+
+          <!-- PASSIVES -->
+          <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+          <div class="ability ability--core-passive">
+            <div class="ability-header">
+              <span class="ability-name">Righteous Fury of the Fabled Super Saiyan</span>
+              <span class="ability-tag">Core Passive</span>
+            </div>
+            <ul>
+              <li>Transforms into "Enraged Super Saiyan" (if not already transformed, for the rest of battle) upon going below 20% HP for the first time.</li>
+              <li>Restores 20% HP upon going below 20% HP (of MAX HP, once per battle).</li>
+              <li>+20% ATK and MAG for the rest of battle if an ally dies (once only, does not stack with transformation).</li>
+              <li>+8% ATK and MAG for the rest of battle if Krillin dies (once only, does not stack with transformation).</li>
+              <li>Gains 2% ULT each time an attack is received (self only).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--passive">
+            <div class="ability-header">
+              <span class="ability-name">Transcendent Power to Overcome the Odds</span>
+              <span class="ability-tag">Passive 1</span>
+            </div>
+            <ul>
+              <li>Fierce Swings gains a 15% chance to apply "Taunt" to self for 1 turn.</li>
+              <li>Upon receiving an attack, 10% chance to counter with 200% ATK damage.</li>
+              <li>All melee attacks gain a 10% chance to inflict "Bruise" for 2 turns.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--passive">
+            <div class="ability-header">
+              <span class="ability-name">Last Ditch Effort</span>
+              <span class="ability-tag">Passive 2</span>
+            </div>
+            <ul>
+              <li>Reduces damage received by 8% while below 20% HP.</li>
+              <li>+2% DEF and RES upon receiving an attack (for the rest of battle, up to 20%).</li>
+              <li>+8% ATK and MAG while below 20% HP.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-passive">
+            <div class="ability-header">
+              <span class="ability-name">Clash on a Broken Battlefield</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <ul>
+              <li>+100% ATK and MAG against obstacles.</li>
+              <li>+1% SPD for each turn passed from start of battle (up to 10%).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-passive">
+            <div class="ability-header">
+              <span class="ability-name">Focused on the Fight</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <ul>
+              <li>Immune to "Taunt".</li>
+              <li>+10% ATK and MAG.</li>
+              <li>Fierce Swings extends into itself (once per turn).</li>
+            </ul>
+          </div>
+
+          <!-- ULTIMATUM -->
+          <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+          <div class="ability ability--ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Fatal Kamehameha</span>
+              <span class="ability-tag">ULTIMATUM 1</span>
+            </div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Range: 12 · Cost: 100% ULT</div>
+            <ul>
+              <li>Stands by for 2 turns.</li>
+              <li>Becomes airborne for the duration of standby (cannot be grounded).</li>
+              <li>Upon receiving an attack in standby, launches a beam 12 panels in the direction of the attacker, sweeping through a 3-panel-wide line.</li>
+              <li>Deals 800% MAG damage to all enemies caught in the line.</li>
+              <li>Deals an additional 500% MAG damage to any enemies in the line who are below 25% HP (of their MAX HP).</li>
+              <li>Standby ends upon launching the Fatal Kamehameha or upon expiration.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Second Chance to Change</span>
+              <span class="ability-tag">ULTIMATUM — Reserve</span>
+            </div>
+            <div class="ability-meta">Type: Support · Target: All Enemies in Range · Range: 5 · Cost: 100% ULT</div>
+            <ul>
+              <li>-70% ATK and MAG for 2 turns to all enemies within 5 panels.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- =============================================
+           TRANSFORMATION — Enraged Super Saiyan (closed by default)
+           ============================================= -->
+      <details class="form-block form-block--ss" id="form-rage">
+        <summary class="form-summary">
+          <span class="form-badge">Transformation</span>
+          <div class="form-summary-text">
+            <div class="form-name">Enraged Super Saiyan</div>
+            <div class="form-tagline">Grief and rage burn away the last of his restraint, driving the Super Saiyan to its very limit — every ounce of the legend's power unleashed at once by the gentlest heart in the universe, pushed at last past its breaking point.</div>
+          </div>
+          <span class="form-chevron">▾</span>
+        </summary>
+
+        <div class="form-body">
+
+          <!-- SS BASIC -->
+          <div class="section-divider">Basic Ability</div>
+          <div class="ability ability--ss-basic">
+            <div class="ability-header">
+              <span class="ability-name">Fierce Assault</span>
+              <span class="ability-tag">Basic</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Fierce Swings</strong> — the base ability is baseline and always active; this version replaces it while Enraged.</div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+            <ul>
+              <li>Deals 180% ATK damage to the target twice.</li>
+            </ul>
+          </div>
+
+          <!-- SS SPECIALS -->
+          <div class="section-divider">Special Abilities</div>
+
+          <div class="ability ability--ss-special-1">
+            <div class="ability-header">
+              <span class="ability-name">Enraged Super Kamehameha</span>
+              <span class="ability-tag">Special 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Super Kamehameha</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Energy: 30 · Cooldown: 3 turns · Range: 7</div>
+            <ul>
+              <li>Launches a beam 7 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+              <li>Deals 320% MAG damage to all enemies caught in the line.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-2">
+            <div class="ability-header">
+              <span class="ability-name">Golden Crash</span>
+              <span class="ability-tag">Special 2</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Super Meteor Smash</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+            <ul>
+              <li>Deals 200% ATK damage to the target 3 times.</li>
+              <li>Self gains "Taunt" for 1 turn.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-3">
+            <div class="ability-header">
+              <span class="ability-name">Saiyan Roar</span>
+              <span class="ability-tag">Special 3</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Surging Ki</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Support · Target: Self · Energy: 60 · Cooldown: 4 turns · Range: N/A</div>
+            <ul>
+              <li>Gains "Anger" for 2 turns.</li>
+              <li>Gains "Taunt" for 2 turns.</li>
+              <li>Restores 15% HP and 5 STA.</li>
+              <li>Protects self from the next incoming attack (nullifies all damage, does not trigger on evasion).</li>
+              <li>For 2 turns, 65% chance to Block temporarily upon receiving an attack.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-special-4">
+            <div class="ability-header">
+              <span class="ability-name">Protector of the Helpless</span>
+              <span class="ability-tag">Special 4</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Cruelty Prevention</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Support · Target: All Allies in Range · Energy: 60 · Cooldown: 3 turns · Range: 5</div>
+            <ul>
+              <li>Can only be used as the first action of the turn.</li>
+              <li>Stands by for the remainder of the turn.</li>
+              <li>If an ally within 5 panels is attacked by a melee attack (self excluded), the ally is saved from the attack.</li>
+              <li>Standby ends after 3 saves or upon expiration.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-special">
+            <div class="ability-header">
+              <span class="ability-name">Immeasurable Impact</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Gut Punch</strong>.</div>
+            <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 1</div>
+            <ul>
+              <li>Deals 600% ATK precise damage to the target.</li>
+              <li>Guaranteed to land.</li>
+              <li>Inflicts "Stun" for 1 turn if this attack dealt more than 25% HP (of the target's MAX HP).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-special">
+            <div class="ability-header">
+              <span class="ability-name">Unfathomable Speed</span>
+              <span class="ability-tag">Special — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Shocking Speed</strong>.</div>
+            <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 2 turns · Range: 9</div>
+            <ul>
+              <li>Locates self to the targeted panel.</li>
+              <li>Ignores elevation.</li>
+              <li>+5% SPD for 2 turns.</li>
+            </ul>
+          </div>
+
+          <!-- SS PASSIVES -->
+          <div class="section-divider">Passive Abilities</div>
+
+          <div class="ability ability--ss-core-passive">
+            <div class="ability-header">
+              <span class="ability-name">Unleashed Fury of the Fabled Super Saiyan</span>
+              <span class="ability-tag">Core Passive</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Righteous Fury of the Fabled Super Saiyan</strong> — the base core passive is always in effect; this version replaces it while transformed.</div>
+            <ul>
+              <li>Reduces damage received by 5%.</li>
+              <li>+20% ATK and MAG for the rest of battle if an ally dies (once only, does not stack with base form).</li>
+              <li>+8% ATK and MAG for the rest of battle if Krillin dies (once only, does not stack with base form).</li>
+              <li>Gains 2% ULT each time an attack is received (self only).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Transcendent Power to Overcome Evil</span>
+              <span class="ability-tag">Passive 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Transcendent Power to Overcome the Odds</strong> — the base passive must be in the active loadout to use this form.</div>
+            <ul>
+              <li>+10% ATK and MAG against Frieza.</li>
+              <li>Fierce Swings gains a 20% chance to apply "Taunt" to self for 1 turn.</li>
+              <li>Upon receiving an attack, 15% chance to counter with 200% ATK damage.</li>
+              <li>All melee attacks gain a 15% chance to inflict "Deep Bruise" for 2 turns.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Pushed to the Limit</span>
+              <span class="ability-tag">Passive 2</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Last Ditch Effort</strong> — the base passive must be in the active loadout to use this form.</div>
+            <ul>
+              <li>Reduces damage received by 8% while below 40% HP.</li>
+              <li>+1% ATK and MAG upon receiving an attack (for the rest of battle, up to 15%).</li>
+              <li>+8% DEF and RES while below 30% HP.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">Clash on a Shattered World</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Clash on a Broken Battlefield</strong>.</div>
+            <ul>
+              <li>+200% ATK and MAG against obstacles.</li>
+              <li>+5% ATK and MAG against "Galactic Invasion" enemies.</li>
+              <li>+1% EVA for each turn passed from transformation entry turn (up to 10%).</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-passive">
+            <div class="ability-header">
+              <span class="ability-name">One on One Battle</span>
+              <span class="ability-tag">Passive — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Focused on the Fight</strong>.</div>
+            <ul>
+              <li>Immune to "Taunt".</li>
+              <li>+10% ATK and MAG.</li>
+              <li>+3% ATK and MAG per enemy defeated (up to 15%).</li>
+              <li>Fierce Swings extends into itself (once per turn).</li>
+            </ul>
+          </div>
+
+          <!-- SS ULTIMATUM -->
+          <div class="section-divider">ULTIMATUM</div>
+
+          <div class="ability ability--ss-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Final Kamehameha</span>
+              <span class="ability-tag">ULTIMATUM 1</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Fatal Kamehameha</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Range: 12 · Cost: 100% ULT</div>
+            <ul>
+              <li>Self gains "Taunt" for 1 turn.</li>
+              <li>Stands by for 2 turns.</li>
+              <li>Becomes airborne for the duration of standby (cannot be grounded).</li>
+              <li>Upon receiving an attack in standby, launches a beam 12 panels in the direction of the attacker, sweeping through a 3-panel-wide line.</li>
+              <li>Deals 850% MAG damage to all enemies caught in the line.</li>
+              <li>Deals an additional 500% MAG damage to any enemies in the line who are below 25% HP (of their MAX HP).</li>
+              <li>Standby ends upon launching the Final Kamehameha or upon expiration.</li>
+            </ul>
+          </div>
+
+          <div class="ability ability--reserve ability--reserve-ss-ultimatum">
+            <div class="ability-header">
+              <span class="ability-name">Last Chance to Change</span>
+              <span class="ability-tag">ULTIMATUM — Reserve</span>
+            </div>
+            <div class="trans-override">Transforms <strong>Second Chance to Change</strong>.</div>
+            <div class="ability-meta">Type: Support · Target: All Enemies in Range · Range: 5 · Cost: 100% ULT</div>
+            <ul>
+              <li>-80% ATK and MAG for 2 turns to all enemies within 5 panels.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- SYNERGIES — shared across forms, do not transform -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Synergies are shared across both forms. Passive abilities granted by synergies persist between transformations.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/krillin.jpg" alt="Krillin">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Catalyst of Awakening</span>
+              <span class="synergy-partner-tag">w/ Krillin</span>
+            </div>
+            <p class="synergy-desc">Of all the cruelties Frieza committed, the one Goku could not bear was Krillin's. His oldest friend — the boy he'd trained beside under Master Roshi, the man who had followed him into every impossible fight without the power to survive them — snuffed out in an instant, for sport. Something broke in Goku in that moment that had never broken before, and from the grief of it rose the Super Saiyan. He did not transform for the Saiyans, nor for glory, nor even for himself. He became a legend because Frieza took Krillin — and some things, even a heart as gentle as Goku's, cannot forgive.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Storm of Fury</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Gains "Anger" for 2 turns whenever an ally (excluding self) is damaged (once per 2 turns).</li>
+              <li>Transforms into "Enraged Super Saiyan" (if not already transformed, for the rest of battle) when Krillin is defeated (once only).</li>
+              <li>+12% DEF and RES (for the rest of battle) when Krillin is defeated.</li>
+            </ul>
+            </div>
+          </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/frieza.jpg" alt="Frieza">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Legend He Feared</span>
+              <span class="synergy-partner-tag">w/ Frieza</span>
+            </div>
+            <p class="synergy-desc">Frieza is everything Goku has ever stood against, given a throne and a smile — a tyrant who murders worlds for sport, who exterminated Goku's people, and who took Krillin's life without the faintest flicker of remorse. It was that final cruelty that broke something loose in the gentlest heart in the universe and lit the golden fire of legend. Goku fights him not for vengeance alone but to end the terror he embodies, to stand between this monster and everyone still drawing breath behind him. And when it is over and the tyrant lies broken, Goku does the one thing Frieza can neither understand nor forgive — he offers him mercy, because even now, even here, that is who Goku chooses to be.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Combative Clash</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Goku (Super Saiyan)</span> · 30 EN</span>
+              <span class="syn-cost-chip"><span class="who">Frieza</span> · 30 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Melee · Target: All Enemies AOE · Cooldown: 3 turns · Range: 4</div>
+            <ul>
+              <li>Goku and Frieza clash (becoming adjacent to one another), each dealing 250% ATK damage to any enemy within 3 panels of where they clash.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Golden Bane of the Wicked</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+8% ATK and MAG against Frieza.</li>
+              <li>+5% ATK and MAG against "Villain" enemies.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/goku(super-saiyan).png" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/goku(super-saiyan,saiyan-armor).jpg" alt="Saiyan Armor">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Saiyan Armor</div>
+          <div class="costume-effect-label">Training in the Time Chamber — +6% DEF and RES</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/goku(super-saiyan,daima).jpg" alt="Daima">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Daima</div>
+          <div class="costume-effect-label">Returned Strength — +5% ATK and MAG after 5 turns pass from start of battle</div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
+          <span class="date">September 6, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Golden Crash</em> (Enraged) — now hits 3 times instead of 4 (600% ATK total, down from 800%).</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span>Transformation stat boosts reduced: ATK +110 → +60 and MAG +80 → +60 (Enraged ATK/MAG now 350 / 340).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Righteous Fury of the Fabled Super Saiyan</em> — the turn-8 automatic transformation trigger has been removed. Goku now transforms into Enraged Super Saiyan only upon first going below 20% HP, alongside the passive's existing 20% HP restore (a single "second wind" moment).</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Final Kamehameha</em> (Enraged ULTIMATUM) — self-applied "Taunt" shortened from 2 turns to 1, so the counter-beam is no longer near-self-guaranteed.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Gut Punch</em> / <em>Immeasurable Impact</em> — the "piercing damage" wording renamed to "Precise" to resolve a naming collision with the line-penetration term "Piercing." No mechanical change.</span>
+          </li>
+        </ul>
+        <p class="rationale">Launch tuning to keep the Enraged form a Defender power-spike rather than a role change. The base form was already fair; the transformation was lifting offense, sustain, and protection all at once, for free, on a guaranteed turn-8 timer. Trimming Golden Crash and the ATK/MAG boosts pulls his Enraged damage below Thor and Wonder Woman's ATK, and gating the transformation behind dropping below 20% HP turns the power spike into an earned, risk-based "second wind" — dramatic, thematic, and with real counterplay (burst him before he ignites, or chip him and he stays the modest base Defender). The Precise rename is a pure clarity fix.</p>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">TBD</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Goku (Super Saiyan) enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

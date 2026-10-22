@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Captain America — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #3b82f6; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #60a5fa;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #3b82f6;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #3b82f6;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #93c5fd;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Captain America theme — Flag Red / Patriot Blue / Star White / Gunmetal palette.
+       Blue = the suit, authority, command, the rallying force.
+       Red = the shield's stripes, urgency, impact, the flag's charge.
+       White/silver = vibranium, clean lines, strength under sustained fire.
+       Gunmetal = the soldier's discipline, the bash, brute physicality.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
+
+  .ability--leader {
+    background: #2563eb;          /* patriot blue — the suit, the symbol of command */
+    color: #03112e;
+  }
+
+  .ability--basic {
+    background: #111827;          /* near-black with navy tint — soldier discipline */
+    border: 1px solid #1e3a5f;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #60a5fa; }
+  .ability--basic .ability-tag  { color: #3b82f6; }
+  .ability--basic .ability-meta { color: #3b82f6; }
+
+  .ability--special-1 { background: #dc2626; color: #fee2e2; } /* flag red — the shield's stripes */
+  .ability--special-2 { background: #1d4ed8; color: #dbeafe; } /* vivid blue — Rally, the command */
+  .ability--special-3 { background: #1e3a8a; color: #bfdbfe; } /* deep navy — Charging Star, the charge */
+  .ability--special-4 { background: #374151; color: #f1f5f9; } /* gunmetal — Shield Bash, impact */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #2563eb; } /* patriot blue */
+  .ability--reserve-passive   { border-left-color: #94a3b8; } /* silver */
+  .ability--reserve-ultimatum { border-left-color: #991b1b; } /* deep crimson */
+
+  .ability--core-passive {
+    background: #0f172a;          /* darkest navy — the foundation, the man behind the shield */
+    color: #d0d3da;
+  }
+
+  .ability--passive {
+    background: #cbd5e1;          /* star white/silver — vibranium, clean and unyielding */
+    color: #1e293b;
+  }
+
+  .ability--ultimatum {
+    background: #991b1b;          /* deep crimson — the war cry */
+    color: #fde0e0;
+  }
+
+  .ability--synergy {
+    background: #5da8d6;          /* friendly cyan — connection */
+    color: #08203d;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #5da8d6; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(93, 168, 214, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #5da8d6; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7fc4ec;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #5da8d6; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #5da8d6; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(93, 168, 214, 0.1);
+    border: 1px solid rgba(93, 168, 214, 0.3);
+    color: #7fc4ec;
+  }
+  .syn-cost-chip .who { color: #7fc4ec; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #5da8d6; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(93, 168, 214, 0.15); color: #8fd0ee; border: 1px solid rgba(93, 168, 214, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5da8d6;
+    color: #0d0e11;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #7fc4ec;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/captain-america.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">No Surrender</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: AGL Gamma 1 Reversible Exchange OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/captain-america.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Captain America</h1>
+      <p class="subtitle">Steve Rogers</p>
+      <span class="role-badge">Defender</span>
+      <p class="description">A frail young man from the depths of the Great Depression transformed into a living legend by the Super-Soldier serum, Steve Rogers fights as Captain America — the Sentinel of Liberty and the unyielding conscience of a nation.</p>
+      <p class="description">Long before the serum made him strong, Steve Rogers was already the man worth saving. A sickly kid from the wrong side of Depression-era New York, turned away again and again from the army he was desperate to serve, he was chosen for Project Rebirth not for a body he didn't have but for the thing that couldn't be manufactured — a stubborn, bone-deep refusal to let the strong prey on the weak. That is the truth of Captain America: the serum didn't create a hero, it simply gave a good man the frame to match his heart. Frozen in the closing days of one war and thawed into a world that had moved on without him, he carries the weight of a man out of time and answers it with unshakable conviction, holding the country he loves not to what it is but to the promise of what it swore to be. Where others waver, he stands — the moral north the entire hero community sets its compass by — and when he's beaten down, cornered, and told to stay down, he rises with the same four words: I can do this all day.</p>
+      <p class="description">That will is carried by a body pushed to the absolute peak of human potential — strength, speed, stamina, agility, and endurance at the very ceiling of what a person can achieve — married to a lifetime of combat mastery and a tactical mind that reads a battlefield like a page. In his hands rests a concave disc of vibranium and steel, nearly indestructible and perfectly balanced, an instrument of both defense and offense that he wields as a natural extension of his will, hurling it to strike down foes and catch it clean on its return. Yet the shield was never the source of his strength, nor the serum. It's the ordinary courage of the kid from Brooklyn who never learned how to quit — the conviction that a single person standing firm for what's right can hold a line no army can break.</p>
+      <p class="quote">"I'll never stop believing that life is something most sacred, something to be sacrificed only for the greatest of causes...liberty!"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">14,200</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">340</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">20%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">106</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">9%</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/anchors-of-hope.html" class="pill">Anchors of Hope</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/super-soldier.html" class="pill">Super Soldier</a>
+          <a href="../links/avengers.html" class="pill">Avengers</a>
+          <a href="../links/new-avengers.html" class="pill">New Avengers</a>
+          <a href="../links/heroes-of-new-york.html" class="pill">Heroes of New York</a>
+          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/street-level.html" class="pill">Street Level</a>
+          <a href="../links/worthy.html" class="pill">Worthy</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Enemy Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Obstacle Bypass</span>
+          <span class="pill">Anti-Air</span>
+          <span class="pill">Taunt</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Cleanse</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Endurance</span>
+          <span class="pill">Death Prevention</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Forced Target</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">ACC Up</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Chain</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="iron-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Conviction and Compromise</span>
+            </div>
+          </a>
+
+          <a href="thor.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/thor.jpg" alt="Thor">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Thor</strong>
+              <span class="real-name">Thor Odinson</span>
+              <span class="synergy-name">Honor of the Worthy</span>
+            </div>
+          </a>
+          
+          <a href="spider-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Spider-Man</strong>
+              <span class="real-name">Peter Parker</span>
+              <span class="synergy-name">True North</span>
+            </div>
+          </a>
+
+          <a href="the-wasp.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Wasp</strong>
+              <span class="real-name">Janet Van Dyne</span>
+              <span class="synergy-name">Soul of the Avengers</span>
+            </div>
+          </a>
+
+          <a href="wonder-woman.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Wonder Woman</strong>
+              <span class="real-name">Diana of Themyscira</span>
+              <span class="synergy-name">Shield and Sword</span>
+            </div>
+          </a> 
+
+          <a href="superman.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/superman.jpg" alt="Superman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Superman</strong>
+              <span class="real-name">Clark Kent</span>
+              <span class="synergy-name">Paragons</span>
+            </div>
+          </a>
+
+          <a href="wolverine.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Wolverine</strong>
+              <span class="real-name">James "Logan" Howlett</span>
+              <span class="synergy-name">The Weight of War</span>
+            </div>
+          </a>
+
+          <a href="the-punisher.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Punisher</strong>
+              <span class="real-name">Francis Castle</span>
+              <span class="synergy-name">Unrequited Respect</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">The First Avenger</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Avengers" or "New Avengers" allies gain +10% MAX HP and +5% ATK in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Brooklyn Blows</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy or Obstacle · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 150% ATK damage to the target.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Shield Throw</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy + Chain (up to 4) · Energy: 35 · Cooldown: 2 turns · Range: 9</div>
+        <ul>
+          <li>Deals 200% ATK damage to the target.</li>
+          <li>Chains to another enemy if that enemy is within 4 panels (up to 4 times).</li>
+          <li>35% chance to inflict "Disorient" for 1 turn to any enemy damaged by this attack.</li>
+          <li>Cannot hit the same enemy twice within the same attack.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Rally</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Energy: 50 · Cooldown: 5 turns · Range: 6</div>
+        <ul>
+          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Charging Star</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: All Enemies in 1-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 8 panels (chosen direction)</div>
+        <ul>
+          <li>Charges 8 panels in any chosen direction from self, sweeping through a 1-panel-wide line.</li>
+          <li>Ignores elevation and gaps.</li>
+          <li>Deals 200% ATK damage to all enemies caught in the line.</li>
+          <li>Nullifies any counters received while dashing.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Shield Bash</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 35 · Cooldown: 2 turns · Range: 1</div>
+        <ul>
+          <li>Deals 400% ATK damage to the target.</li>
+          <li>Inflicts "Retribution" to the target for 2 turns.</li>
+          <li>Pushes the target in the direction of attack by 2 panels.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Prepare to Engage</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>+20% DEF and RES for 2 turns.</li>
+          <li>Gains "Taunt" for 2 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Stars and Stripes</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 3</div>
+        <ul>
+          <li>Deals 200% ATK damage to the target 3 times.</li>
+          <li>Can damage airborne targets.</li>
+          <li>Inflicts "Retribution" to the target for 1 turn.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Patriotic Symbol of Freedom</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>"Hero" allies gain +5% ATK and DEF.</li>
+          <li>Blocking negates 80% of ranged attack damage.</li>
+          <li>Gains 3% ULT each time an attack is received.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Supreme Super Soldier</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Ignores elevation differences when moving.</li>
+          <li>STA regen increased to 50% of MAX STA per turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Vibranium Shield</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction.</li>
+          <li>+5% DEF and RES.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Do This All Day</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Endures a fatal blow once per battle.</li>
+          <li>Gains "Indestructible" for 1 turn upon enduring a fatal blow.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">No Soldier Left Behind</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+10% DEF and RES while no ally is below 30% HP or defeated.</li>
+          <li>+5% DEF and RES while one ally is below 30% HP or defeated.</li>
+          <li>+7% DEF and RES per ally below 30% HP (includes defeated allies).</li>
+          <li>+5% ATK per ally below 30% HP (includes defeated allies).</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Assemble</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Allies · Range: 20 · Cost: 100% ULT</div>
+        <ul>
+          <li>All allies in range gain 30 EN and 4 STA.</li>
+          <li>All allies in range gain +10% EN and STA regeneration for 2 turns.</li>
+          <li>Grants "Confidence" and "Overflow" for 2 turns to all allies in range.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">No Surrender</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Cost: 100% ULT</div>
+        <ul>
+          <li>Cleanses all negative effects from self.</li>
+          <li>Gains "Indestructible" for 2 turns and "Taunt" for 3 turns.</li>
+          <li>For 3 turns, each attack received is countered with 200% ATK damage dealt to the attacker.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Conviction and Compromise</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">Steve and Tony forged the Avengers into the world's mightiest heroes shoulder to shoulder — the soldier's conviction and the futurist's vision holding the team's two poles in balance. But the very difference that made them stronger tore them apart when the question of registration turned brothers into enemies, and though that war has been mended more than once, Cap has never quite forgotten how easily the man he trusts most becomes the man he must fight.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Unibeam Dispersal</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Iron Man</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 5 turns · Range: 4</div>
+            <ul>
+              <li>Iron Man deals 400% MAG damage to all enemies within 4 panels of Captain America.</li>
+              <li>Inflicts "Sting" for 1 turn to all enemies damaged by Iron Man.</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Complex History</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK.</li>
+              <li>Deals 6% more damage to enemies that have dealt damage to Iron Man within the past 2 turns.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/thor.jpg" alt="Thor">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Honor of the Worthy</span>
+              <span class="synergy-partner-tag">w/ Thor</span>
+            </div>
+            <p class="synergy-desc">Steve has lifted Mjolnir in the darkest of hours, and he has never once let it go to his head — to him it was never proof of his own greatness, only a reminder of the standard he owes the world each day. He knows exactly what the gesture meant, coming from Thor, and he honors it the only way he knows how: by continuing, without fanfare, to be the man the hammer judged him to be. Between them runs the clean, uncomplicated trust of two warriors who lead by the same code — when Steve gives the word a god falls in beside him without question, and Steve would follow the thunder god into any storm in kind.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Bring the Hammer Down</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Thor</span> · 50 EN + 1 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies AOE · Cooldown: 6 turns · Range: 4</div>
+            <ul>
+              <li>Positions Thor 1 panel away from Captain America.</li>
+              <li>Thor inflicts "Stun" for 1 turn to all enemies within 1 panel of Captain America.</li>
+              <li>Thor has a 50% chance to inflict "Stun" to all enemies within 4 panels of Captain America.</li>
+              <li>All enemies within 4 panels of Captain America are launched by 2 panels (in the direction of attack).</li>
+              <li>Infliction chances on this ability are not affected by any increases.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Respect Amongst The Few Chosen</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Thor gains +5% DEF and RES.</li>
+              <li>+5% ATK and MAG to "Control of Nature" allies.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">True North</span>
+              <span class="synergy-partner-tag">w/ Spider-Man</span>
+            </div>
+            <p class="synergy-desc">When the rest of the world saw only a masked menace, Cap saw something rarer — a kid fighting at street level for people who'd never know his name, living out "with great power" more purely than heroes twice his age. He vouched for Peter, brought him into the Avengers, and when war split their ranks, took quiet pride in finding the young man had crossed the line to stand at his side.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shared Conviction</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% DEF and RES.</li>
+              <li>Reduces the cooldowns of Rally and Prepare to Engage by 1 turn if an ally is below 20% HP at the start of turn (once per 4 turns).</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-wasp.jpg" alt="The Wasp">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Soul of the Avengers</span>
+              <span class="synergy-partner-tag">w/ The Wasp</span>
+            </div>
+            <p class="synergy-desc">Janet van Dyne gave the Avengers their name and, through every era since, their heart — and Cap has stood beside her for all of it, the discipline to her warmth, the spine to her soul. He counts her among the precious few who've carried the team as long as he has, and there are no hands he'd sooner trust it to than hers.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Stings and Stripes</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Stars and Stripes</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 3</div>
+            <ul>
+              <li>Deals 200% ATK damage to the target 3 times.</li>
+              <li>Deals 100% MAG damage to the target 3 times.</li>
+              <li>30% chance to inflict "Shock" on the target for 2 turns.</li>
+              <li>Can damage airborne targets.</li>
+              <li>Inflicts "Retribution" to the target for 1 turn.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wonder-woman.jpg" alt="Wonder Woman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Shield and Sword</span>
+              <span class="synergy-partner-tag">w/ Wonder Woman</span>
+            </div>
+            <p class="synergy-desc">In Diana, Steve found the rarest of things — a warrior cut from the very same cloth as himself, who fights for peace rather than glory and leads by asking nothing she wouldn't give first. He recognized her at once, the way one soldier of conscience knows another, and the respect between them needed no words to take hold. She strikes where he shields, presses where he holds the line; standing together, the sword and the shield, they anchor a front that few forces in any world could ever hope to break.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Lead the Way</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Rally</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: All Allies in Range · Energy: 50 · Cooldown: 4 turns · Range: 6</div>
+            <ul>
+              <li>Grants "Confidence" and "Overflow" for 3 turns to all allies in range.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/superman.jpg" alt="Superman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Paragons</span>
+              <span class="synergy-partner-tag">w/ Superman</span>
+            </div>
+            <p class="synergy-desc">Two men of the same rare cloth — the soldier who was good long before he was ever strong, and the powerhouse who could rule the world and chooses instead to be humble and kind — Steve and Clark saw in each other the one thing that can't be taught: an incorruptible decency that leads by example rather than command. Where lesser heroes would size each other up as rivals, they found a brother and an equal, each the standard his own world measures itself against, and neither has ever once had to wonder whether the other would do the right thing.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Truth, Justice and the American Way</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+20% DEF and RES when Superman is defeated.</li>
+              <li>"Taunt" effects applied to self last 1 turn longer when Superman is below 60% HP.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Weight of War</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">Two soldiers who've seen more war than any man should, Cap and Logan understand each other in the wordless way only the battle-worn ever can. Steve has never made peace with the lengths Logan will go to — the lines he'll cross that Cap never will — but when the shooting starts, there are few he'd sooner have holding the line at his shoulder.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Shield Launch</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Captain America</span> · 20 EN</span>
+              <span class="syn-cost-chip"><span class="who">Wolverine</span> · 10 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Cooldown: 4 turns · Range: 5</div>
+            <ul>
+              <li>Only usable if Wolverine is within 1 panel of Captain America.</li>
+              <li>Captain America launches Wolverine to the targeted panel, ignoring elevation.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Unrequited Respect</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">To Frank Castle, Captain America is the last untarnished ideal — the one soldier he'd never dream of raising a hand against, even as Cap once beat him bloody for the murders he'd done in a war Cap would never sanction. Steve sees only a good soldier lost: a man who kept the discipline of the uniform and abandoned its conscience, and no reverence Frank offers will ever earn Captain America's blessing.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Anger at Unacceptable Methods</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Gains "Anger" for 3 turns whenever The Punisher defeats an enemy.</li>
+              <li>Support or ULTIMATUM effects given by self to The Punisher have their duration shortened by 1 turn.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/captain-america.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/captain-america(original).jpg" alt="Original">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Original</div>
+          <div class="costume-effect-label">Patriotic Punches — +5% ATK</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/captain-america(nomad).jpg" alt="Nomad">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Nomad</div>
+          <div class="costume-effect-label">A New Identity — +5% SPD, -7% DEF and RES</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/captain-america(ultimate).jpg" alt="Ultimate">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Ultimate</div>
+          <div class="costume-effect-label">A for America — +12% ATK against targets below 30% HP</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/captain-america(traitor).jpg" alt="Traitor">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Traitor</div>
+          <div class="costume-effect-label">Hail Hydra — All buffs affecting "Hero" allies will instead affect "Villain" allies</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.3</span>
+          <span class="date">August 12, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Bring the Hammer Down</em> (Honor of the Worthy synergy) — synced to Thor's sheet: the 50% Stun within 4 panels no longer benefits from Thor's infliction-chance increases, and the guaranteed Stun within 1 panel is now specified as 1 turn.</span>
+          </li>
+        </ul>
+        <p class="rationale">Consistency pass — the shared Dynamic Special now reads identically on both partners' sheets. See Thor v1.0.1 for the balance rationale.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.2</span>
+          <span class="date">July 11, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Complex History</em> (Iron Man synergy) — reworded the conditional damage bonus. Now reads: "Deals 6% more damage to enemies that have dealt damage to Iron Man within the past 2 turns" (previously keyed off an "Anti-Air" tag, which is a tag construct rather than a battlefield state).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>No Soldier Left Behind</em> — added <strong>+5% DEF and RES while one ally is below 30% HP or defeated</strong> to smooth the scaling. Previously the first ally casualty dropped his defensive bonus from +10% to +7%; the buff now increases monotonically as the team takes losses.</span>
+          </li>
+        </ul>
+        <p class="rationale">Both are clarity/consistency fixes with no intended power swing. Complex History's condition now describes something that actually happens in a fight — an enemy attacking Iron Man — reserving tag-based logic for links, and reinforcing the bond's "Cap answers for those who strike his oldest friend" flavor. No Soldier Left Behind's new tier closes a dead zone where losing the first ally briefly made Captain America less durable than a fully healthy team; the buff now scales up smoothly with the team's peril.</p>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.0.1</span>
+          <span class="date">May 26, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Shield Throw</em> — Cooldown increased from <strong>1 → 2 turns</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Prepare to Engage</em> — Removed the "30% chance to inflict Retribution on all attacks for 2 turns" line. DEF buff expanded to include RES: now grants <strong>+20% DEF and RES for 2 turns</strong>.</span>
+          </li>
+          <li class="nerf">
+            <span class="change-tag">Nerf</span>
+            <span><em>Stars and Stripes</em> — Per-hit damage reduced from <strong>220% → 200% ATK</strong> (600% ATK total, down from 660%).</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>No Soldier Left Behind</em> — Removed the infliction chance scaling line. Added a formation bonus: <strong>+10% DEF and RES while no ally is below 30% HP or defeated</strong>. Added <strong>+5% ATK per ally below 30% HP (includes defeated allies)</strong> alongside the existing +7% DEF and RES scaling.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>No Surrender</em> — Fully redesigned. Now a self-targeted support ULTIMATUM: <strong>cleanses all negative effects</strong>, grants <strong>Indestructible for 2 turns</strong> and <strong>Taunt for 3 turns</strong>, and counters every attack received for <strong>200% ATK damage</strong> to the attacker for 3 turns. Previous version dealt 600–1200% ATK damage to a single target.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><em>Vibranium Shield</em> — Wording clarified. Now reads: "Reduces damage of incoming ranged attacks by 40% while not blocking, waiting, or affected by a movement- or action-restricting infliction." No mechanical change.</span>
+          </li>
+        </ul>
+        <p class="rationale">Shield Throw's 1-turn cooldown allowed near-constant AoE pressure for its energy cost on a Defender, pushing it above the roster's multi-target efficiency baseline. Prepare to Engage had excessive Retribution density when combined with Shield Bash and Stars and Stripes; trading that proc for a full DEF/RES buff preserves the ability's value as a defensive stance without the control overlap. Stars and Stripes was an outlier in damage-per-energy for the role given that each hit calculates DEF separately. No Soldier Left Behind gained a formation bonus to create an incentive for proactive ally protection alongside the existing comeback scaling. No Surrender was redesigned to offer a distinct ULTIMATUM identity — a personal last-stand button — that competes meaningfully with Assemble in solo-carry and heavy-focus scenarios rather than duplicating its team-support function.</p>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Captain America enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>
