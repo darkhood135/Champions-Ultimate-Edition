@@ -863,6 +863,79 @@
     }
   }
 
+  /* ---------- SUMMON PORTRAITS (below theme player) ---------- */
+  .summon-portraits {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid #2c3038;
+  }
+
+  .summon-portraits-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .summon-portrait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .summon-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #f0f1f3;
+    cursor: pointer;
+  }
+
+  .summon-portrait-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .summon-portrait:hover .summon-portrait-image {
+    transform: scale(1.05);
+    border-color: #22c55e;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .summon-portrait-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .summon-portrait-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #86efac;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100px;
+  }
+
   /* ====================== THEME MUSIC PLAYER ====================== */
   /* Autoplay is attempted on load; if the browser blocks it, playback starts
      on the visitor's first interaction (see script at end of body). */
@@ -956,6 +1029,20 @@
           <div class="theme-source">Dragon Ball Z Dokkan Battle: PHY God of Destruction Toppo Active Skill OST</div>
         </div>
         <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/lord-voldemort.mp3"></audio>
+      </div>
+      <!-- Summons — links to each summon's sheet -->
+      <div class="summon-portraits">
+        <div class="summon-portraits-title">
+          <span>Summons</span>
+        </div>
+        <div class="summon-portrait-list">
+          <a href="../summons/nagini.html" class="summon-portrait" title="View Nagini">
+            <div class="summon-portrait-image">
+              <img src="../images/summon-images/nagini.jpg" alt="Nagini">
+            </div>
+            <div class="summon-portrait-label">Nagini</div>
+          </a>
+        </div>
       </div>
     </div>
 
