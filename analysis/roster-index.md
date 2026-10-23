@@ -4,7 +4,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **Stat line order:** `HP / ATK / MAG / HEAL / DEF / RES / ACC / CRIT%·CR% / SPD / EVA` (EN·STA·REGEN appended where notable). Transforming champions show base; transform deltas noted in parentheses.
 
-**Last updated:** 2026-10-21 (through Lord Voldemort v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-10-22 (through The Winter Soldier v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -21,7 +21,8 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Iron Man** — 7,700 / 210 / 390 / 0 / 120 / 120 / 99% / 150%·25% / 110 / 12% — tanky-for-role
 - **Vegeta** — 7,800 / 280 / 370 / 0 / 120 / 130 / 97% / 150%·25% / 108 / 15% — tanky-for-role
 - **Green Lantern** — 6,800 / 330 / 300 / 0 / 90 / 90 / 96% / 150%·10% / 113 / 25% — frail/evasive, ATK-scaling, airborne
-> Note: Iron Man & Vegeta both run tankier than the "frail Blaster" ideal; GL is the intended-frail one.
+- **The Winter Soldier** — 8,200 / 340 / 240 / 0 / 130 / 90 / 97% / 160%·20% / 107 / 15%, EN 100·STA 7, REGEN 2% — deliberately tanky close-range Blaster (melee/short-range AoE, endure in Core, EN-drain line, anti-air); trades some damage for bulk
+> Note: Iron Man & Vegeta both run tankier than the "frail Blaster" ideal; GL is the intended-frail one. The Winter Soldier is the intended-tanky one (top Blaster HP, slightly lower damage output).
 
 ### Berserker
 - **Deadpool** — 4,600 / 350 / 130 / 200 / 60 / 30 / 96% / 150%·20% / 110 / 35% — REGEN 12%, cooldown-ignore/HP-cost

@@ -169,9 +169,18 @@
     text-transform: uppercase;
     padding: 4px 7px;
     border-radius: 4px;
-    color: #ff8585;
     z-index: 2;
   }
+  .role-badge[data-role="Striker"]   { color: #ff8585; }
+  .role-badge[data-role="Blaster"]   { color: #f0894a; }
+  .role-badge[data-role="Defender"]  { color: #6bb4ff; }
+  .role-badge[data-role="Healer"]    { color: #5fd189; }
+  .role-badge[data-role="Booster"]   { color: #c084fc; }
+  .role-badge[data-role="Breaker"]   { color: #ffd680; }
+  .role-badge[data-role="Summoner"]  { color: #5fe0c8; }
+  .role-badge[data-role="Berserker"] { color: #ff5757; }
+  .role-badge[data-role="Plunderer"] { color: #ff7eb3; }
+
 
   .champion-name {
     position: absolute;
@@ -364,7 +373,7 @@
           <img src="../images/champion-images/spider-man.jpg" alt="Spider-Man">
         </div>
         <div class="champion-overlay"></div>
-        <div class="role-badge">Striker</div>
+        <div class="role-badge" data-role="Striker">Striker</div>
         <div class="champion-name">Spider-Man</div>
       </a>
 
@@ -373,7 +382,7 @@
           <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
         </div>
         <div class="champion-overlay"></div>
-        <div class="role-badge">Defender</div>
+        <div class="role-badge" data-role="Defender">Defender</div>
         <div class="champion-name">Captain America</div>
       </a>
 
@@ -393,6 +402,15 @@
         <div class="champion-overlay"></div>
         <div class="role-badge" data-role="Striker">Striker</div>
         <div class="champion-name">Wolverine</div>
+      </a>
+
+      <a href="../champions/the-winter-soldier.html" class="champion-card">
+        <div class="champion-image">
+          <img src="../images/champion-images/the-winter-soldier.jpg" alt="The Winter Soldier">
+        </div>
+        <div class="champion-overlay"></div>
+        <div class="role-badge" data-role="Blaster">Blaster</div>
+        <div class="champion-name">The Winter Soldier</div>
       </a>
 
     </div>

@@ -497,5 +497,21 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 
 ---
 
+## The Winter Soldier — Blaster (tanky close-range AoE; EN drain; endure)
+- Leader *One Man Army* — Firearm Expert/Street Level +12% ATK&MAG.
+- Basic *Vibranium Fist* — 160% ATK, push 2p (R1).
+- S1 *Tainted Voltage* — 120% MAG 8-long 1-wide line, Bruise + Sting 2t, enemies hit −10EN, self +1STA per enemy (20EN, CD1).
+- S2 *Ceaseless Gunfire* — 600% ATK 4-ahead 5-wide, 50% Bleed 2t (60EN, CD4).
+- S3 *Kraken Impact* — 320% ATK 3-ahead 3-wide (melee), +15EN per enemy (max 45) (50EN, CD3).
+- S4 *Mechanical Slam* — 200% ATK ×2 + 160% splash ≤2p of target (target excl.); hits & grounds airborne (40EN, CD2, R3).
+- [R] *Hidden Blade* — 300% ATK; Bleed 5t if target has no Bleed, otherwise Deep Wound 1t (20EN, CD3, R1). [R] *Sparking Malfunction* — all other CDs −2; lose 20% HP, cannot kill (30EN, CD4).
+- Core *Red Star* — endure once; half STA cost below 50% HP; +2% ULT per ability that damages ≥1 enemy (max 2% per ability).
+- P1 *Breaking Conditioning* — immune Brainwash/Imperius; received inflictions −1t (min 1).
+- P2 *Vibranium Guard* — while blocking: +35% DEF/RES vs ranged, +20% vs melee; +8% ATK 3t per attack received (max 4 in 3t).
+- [R] *Assassin's Arsenal* (Hidden Blade Deep Wound +1t; Ceaseless infliction +12%; restores 2% HP on damage, once per ability). [R] *Weapon of Hydra* (+10% ATK, +5% SPD, −15% MAX HP; can receive Villain buffs incl. Leader — currently dormant, no Villain Leader he qualifies for).
+- ULT *Eldritch Robotics* — 800% ATK to all enemies within a 4-panel square around self (R4). [R] *Surging Strength* — +10% ATK 1t, Overdrive 1t, cannot gain EN 1t.
+- Costumes: Classic +3% ATK; Rivals 30% Vibranium Fist extends (once/turn); Retro +2% ATK/MAG all allies; Cinematic +2% SPD; Captain America blocking negates 40% ranged damage.
+- Synergies (one-sided until partner sheets add them — see synergy-todo.md): Cap *Till the End of the Line* (Dynamic *Stars Crossed* 40EN each, CD6, R4: each 450% ATK, both +15% DEF/RES 2t, lower-EN partner +20EN; passive *Friends Through It All* +5% ATK ≤10p of Cap; on Cap's defeat Anger 3t + allies +8% DEF/RES 3t). Iron Man *Debts in Blood* (New Special *Protective Redirection*: Taunt 1t, +1t if Iron Man ≤3p; +30% DEF/RES 1t; 20EN, CD4). Wolverine *Men Out of Time* (*Berserk Impact* 350%, 15EN/enemy max 45; passive *The Cost of Getting Back Up*: endure while Wolverine not defeated, once, before Red Star). Batgirl *Weapons Unmade* (*Tracking Voltage* 160% MAG + Tracker 2t — feeds Batgirl's Tracker discount). Dracaena *The Harm They Didn't Choose* (passive *Living Proof*: RtR allies +6% ATK/MAG; +10% DEF/RES vs RtR enemies).
+
 ## Coverage
-All 32 implemented champions have an entry (backfilled 2026-10-21). New champions: add an entry in the same pass as their sheet is finalized.
+All 33 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22). New champions: add an entry in the same pass as their sheet is finalized.
