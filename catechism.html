@@ -532,6 +532,7 @@
         <a href="#floors" class="toc-link toc-sub-sub">Floors</a>
         <a href="#void-and-falling" class="toc-link toc-sub-sub">Void and Falling</a>
         <a href="#panel-occupancy" class="toc-link toc-sub-sub">Panel Occupancy</a>
+        <a href="#multi-panel-units" class="toc-link toc-sub-sub">Multi-Panel Units</a>
         <a href="#obstacle-states" class="toc-link toc-sub-sub">Obstacle States</a>
         <a href="#range-falloff" class="toc-link toc-sub-sub">Range Falloff</a>
         <a href="#line-abilities" class="toc-link toc-sub-sub">Line Abilities</a>
@@ -662,6 +663,7 @@
         <li><strong>CRIT RATE</strong>: Chance for a critical hit.</li>
         <li><strong>SPD</strong>: Decides movement order (higher SPD goes first).</li>
         <li><strong>EVA</strong>: Evasion. Chance to dodge an incoming attack.</li>
+        <li><strong>SIZE</strong>: The block of panels a unit occupies on the battlefield, written as length x width (e.g. <em>1x1</em>, <em>2x2</em>). Almost every Champion, Enemy and Summon is 1x1. Unlike other stats, SIZE is not affected by buffs or debuffs; only an ability that explicitly says so can change it. See <a href="#multi-panel-units">Multi-Panel Units</a>.</li>
       </ul>
 
       <h3 id="vitals">Vitals</h3>
@@ -802,6 +804,7 @@
         <li>CRIT</li>
         <li>CRIT RATE</li>
         <li>EVA</li>
+        <li>SIZE</li>
       </ul>
       <p>All Vitals (MAX EN, MAX STA, REGEN) are also static — changes to these come from passives, modifiers and status effects rather than upgrades.</p>
       <p>Boosts apply in the following order:</p>
@@ -1027,6 +1030,20 @@
         <li>If the <strong>originally occupying Champion has more HP, or an equal amount</strong>, the arriving Champion is stopped one panel short of their destination.</li>
       </ul>
       <p>A Champion and an obstacle likewise cannot share a panel. If an ability would place a Champion on a panel occupied by an obstacle, the Champion lands on the nearest adjacent valid panel instead.</p>
+
+      <h4 id="multi-panel-units">Multi-Panel Units</h4>
+      <p>A unit's <a href="#stats">SIZE</a> is the block of panels it occupies, its <strong>footprint</strong>, written as length x width. Most units are 1x1 and fill a single panel. A 2x2 unit, such as Cyborg's <em>Boom Tube</em>, fills a 2-by-2 square. The battlefield rules in this section are written for 1x1 units. A unit larger than 1x1 follows them with these adjustments:</p>
+      <ul>
+        <li><strong>Every panel is the unit.</strong> The unit occupies all of its panels at once. No other unit or obstacle can share any of them unless the unit's own kit says otherwise (Boom Tube's <em>Wormhole Between Galaxies</em> lets Champions step into its area, which teleports them away).</li>
+        <li><strong>Range and targeting.</strong> Range is measured to or from whichever panel of the footprint is closest. An ability can target the unit by targeting any of its panels.</li>
+        <li><strong>Area, line and domain abilities.</strong> The unit is affected if the area covers at least one of its panels, and it is affected only <strong>once per ability</strong> however many of its panels are covered. It counts as inside a <a href="#domain">domain</a> while any of its panels is inside. A self-centered "within N panels" area cast by a multi-panel unit is measured outward from the edge of its footprint and excludes the footprint itself.</li>
+        <li><strong>Movement.</strong> The footprint moves as one piece and keeps its shape. Moving one panel in any direction costs 1 STA, the same as for a 1x1 unit. Every panel the footprint passes through or lands on must be valid: no obstacles, no void, and all of its panels on the same elevation tier unless the unit is airborne. <a href="#elevation">Elevation</a>, <a href="#gap-jumping">gap jumping</a> and <a href="#floors">floor</a> rules apply to the footprint as a whole.</li>
+        <li><strong>Landing on occupied panels.</strong> The <a href="#panel-occupancy">Panel Occupancy</a> HP rule compares the arriving unit against each unit on the panels it would cover. If any of them has equal or more HP, the arriving unit stops one panel short. Otherwise each is displaced to the nearest valid panel outside the footprint, preferring the direction the arriving unit came from. A 1x1 unit landing on any panel of a multi-panel unit follows the normal rule.</li>
+        <li><strong>Pushes and falls.</strong> When a multi-panel unit is pushed or pulled, its whole footprint moves together and stops short if any of its panels would enter an obstacle or another unit. For <a href="#void-and-falling">Void and Falling</a>, it counts as standing on an edge panel if any of its panels is one, and after a fall it returns with its entire footprint just inside the edge.</li>
+        <li><strong>Spawning.</strong> A multi-panel summon must be placed with its whole footprint on valid panels. If it is spawned onto panels holding other units, its kit decides what happens (Boom Tube's <em>Sudden Banishment</em> teleports an enemy away). If the kit says nothing, the landing rule above applies.</li>
+        <li><strong>Changing SIZE.</strong> An ability that changes a unit's SIZE mid-battle must state how the new footprint is placed.</li>
+      </ul>
+      <p>Every current multi-panel unit is square, so a footprint's orientation does not yet matter. Which way length runs on the grid, and whether a footprint can rotate, will be defined when the first non-square unit is added.</p>
 
       <h4 id="obstacle-states">Obstacle States</h4>
       <p>Obstacles do not remain in their original state indefinitely once interacted with:</p>

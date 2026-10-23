@@ -4,6 +4,8 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **Stat line order:** `HP / ATK / MAG / HEAL / DEF / RES / ACC / CRIT%·CR% / SPD / EVA` (EN·STA·REGEN appended where notable). Transforming champions show base; transform deltas noted in parentheses.
 
+**SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (only Boom Tube is 2x2), so SIZE is not in the stat lines. Add it to a line only if a Champion is ever larger than 1x1.
+
 **Last updated:** 2026-10-22 (through The Winter Soldier v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
