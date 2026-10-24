@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hulk — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #4ade80; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #4ade80;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(74, 222, 128, 0.12);
+    color: #86efac;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #4ade80;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #4ade80;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #86efac;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Hulk theme — Gamma Green / Tattered Purple / Rage Red / Rubble Gray palette.
+       Gamma green = the radiation in his blood, the monster's skin, raw power.
+       Tattered purple = the torn trousers, the last thread of Bruce Banner.
+       Rage red = the anger that feeds him — the madder he gets, the stronger.
+       Rubble gray = shattered earth, the Gray Hulk, everything left in his wake.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
+
+  .ability--leader {
+    background: #6b21a8;          /* tattered purple — Man or Monster, Banner's hold on the beast */
+    color: #f3e8ff;
+  }
+
+  .ability--basic {
+    background: #0b140e;          /* near-black gamma green — Gamma Fist */
+    border: 1px solid #1f4d2c;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #86efac; }
+  .ability--basic .ability-tag  { color: #4fae72; }
+  .ability--basic .ability-meta { color: #4fae72; }
+
+  .ability--special-1 { background: #15803d; color: #dcfce7; } /* deep forest green — Monstrous Leap */
+  .ability--special-2 { background: #4ade80; color: #052e16; } /* bright gamma green — Thunder Clap (signature) */
+  .ability--special-3 { background: #b91c1c; color: #fee2e2; } /* rage red — Confronting Roar */
+  .ability--special-4 { background: #57534e; color: #f5f5f4; } /* rubble gray — Seismic Tsunami */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #4ade80; } /* gamma green */
+  .ability--reserve-passive   { border-left-color: #bbf7d0; } /* pale gamma mint */
+  .ability--reserve-ultimatum { border-left-color: #84cc16; } /* toxic lime */
+
+  .ability--core-passive {
+    background: #3b0a0a;          /* smoldering ember — Empowered by Anger, the rage engine */
+    color: #fecaca;
+  }
+
+  .ability--passive {
+    background: #bbf7d0;          /* pale gamma mint — the green heart beneath the fury */
+    color: #052e16;
+  }
+
+  .ability--ultimatum {
+    background: #365314;          /* deep toxic olive — Puny Creature, gamma at full burn */
+    color: #ecfccb;
+  }
+
+  .ability--synergy {
+    background: #e9d5ff;          /* pale lavender — connection */
+    color: #2e1065;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Spider-Man's palette — synergy cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #4ade80; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(74, 222, 128, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #4ade80; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #86efac;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #4ade80; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #4ade80; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: #bbf7d0;
+  }
+  .syn-cost-chip .who { color: #86efac; font-weight: 700; }
+
+  /* Type accents — gamma/mint/lime/rubble spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #15803d; } /* deep forest green */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(21, 128, 61, 0.2); color: #6ee7a0; border: 1px solid rgba(21, 128, 61, 0.45); }
+  .syn-ability--dynamic-special    { border-left-color: #4ade80; } /* gamma green */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(74, 222, 128, 0.15); color: #86efac; border: 1px solid rgba(74, 222, 128, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #bbf7d0; } /* pale gamma mint */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(187, 247, 208, 0.13); color: #d1fae5; border: 1px solid rgba(187, 247, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #84cc16; } /* toxic lime */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(132, 204, 22, 0.2); color: #bef264; border: 1px solid rgba(132, 204, 22, 0.5); }
+  .syn-ability--new-special        { border-left-color: #57534e; } /* rubble gray */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(120, 113, 108, 0.3); color: #c4bfba; border: 1px solid rgba(120, 113, 108, 0.55); }
+
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Autoplay is attempted on load; if the browser blocks it, playback starts
+     on the visitor's first interaction (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4ade80;
+    color: #052e16;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #bbf7d0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/the-hulk.jpg" alt="The Hulk">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (name) and .theme-source (original game it is from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/the-hulk.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Vessel of Anger</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ LR Power Awakening Piccolo Intro OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/the-hulk.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">The Hulk</h1>
+      <p class="subtitle">Robert Bruce Banner</p>
+      <span class="role-badge">Defender</span>
+      <p class="description">A brilliant nuclear physicist caught in the blast of his own gamma bomb, Dr. Bruce Banner now shares his body with the Hulk — a towering green giant of limitless rage, and the strongest one there is.</p>
+      <p class="description">Bruce Banner has spent most of his life running from a monster, and the hardest truth he has ever faced is that the monster was always a part of him. Long before the gamma bomb, he was a frightened boy in a house ruled by his father’s fists. He learned early that every tear and every flash of anger could set off something worse, so he buried them all as deep as they would go. He grew into a quiet, guarded man and one of the finest scientific minds of his generation, until the day a teenager wandered onto the testing range of the bomb he had built. Banner ran onto the field, threw the boy into a trench, and took the full force of the blast himself. That night, everything he had locked away came roaring out. The world has hunted the Hulk ever since: the army that once employed Banner, a public that calls him a menace, even the heroes he stood beside as a founding Avenger before he walked away. Only among the misfits of the Defenders has he found anything close to a place to belong. Through it all, the Hulk wants little more than what he has never been given, which is to be left alone. Yet again and again he finds himself standing between the innocent and something worse than himself. The uneasy truce between the man and the monster has slowly grown into something deeper: two halves of one soul learning that neither can survive without the other.</p>
+      <p class="description">The Hulk is a force of nature. Gamma radiation remakes Banner’s slight frame into a mountain of green muscle, and his strength has no known ceiling. The madder Hulk gets, the stronger Hulk gets, his power climbing with every surge of fury until he is shattering mountains and shrugging off blows that would level cities. A single bound carries him for miles, and a clap of his hands sends out a shockwave that flattens anything in its path. His gamma-charged body heals from nearly any wound in moments, endures the crushing deep of the ocean and the void of space, and refuses, time and again, to stay down. Behind it all is Banner’s own genius, among the greatest on Earth in the very radiation that made him. He has spent years trying to cure the Hulk, and longer still learning to understand him. The rage that first broke free to shield a frightened little boy was never only a curse. It was a protector all along, and it has never stopped standing guard over those who cannot protect themselves.</p>
+      <p class="quote">"Why do you attack Hulk? Hulk does not want to fight you. Hulk does not even know you!"</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">18,800</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">300</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">200</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">190</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">160</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">94%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">130%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">10%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">96</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">0%</span></div>
+        <div class="stat-row"><span class="label">SIZE</span><span class="value">2x2</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">80</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">5</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">2%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/monster.html" class="pill">Monster</a>
+          <a href="../links/avengers.html" class="pill">Avengers</a>
+          <a href="../links/defenders.html" class="pill">Defenders</a>
+          <a href="../links/supreme-power.html" class="pill">Supreme Power</a>
+          <a href="../links/incredible-intelligence.html" class="pill">Incredible Intelligence</a>
+          <a href="../links/second-nature.html" class="pill">Second Nature</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Enemy Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Anti-Air</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Taunt</span>
+          <span class="pill">Displacement Immunity</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Death Prevention</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Forced Target</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">DEF Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">RES Up</span>
+          <span class="pill">CRIT Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Area of Effect</span>
+          <span class="pill">Line Ability</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="thor.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/thor.jpg" alt="Thor">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Thor</strong>
+              <span class="real-name">Thor Odinson</span>
+              <span class="synergy-name">Storm and Fury</span>
+            </div>
+          </a>
+          
+          <a href="iron-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">Genius and Betrayal</span>
+            </div>
+          </a>
+          
+          <a href="wolverine.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Wolverine</strong>
+              <span class="real-name">James "Logan" Howlett</span>
+              <span class="synergy-name">Beasts Within</span>
+            </div>
+          </a>
+
+          <a href="goku(super-saiyan).html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Goku (Super Saiyan)</strong>
+              <span class="real-name">Son Goku · Kakarot</span>
+              <span class="synergy-name">Born of Rage</span>
+            </div>
+          </a> 
+
+          <a href="loki.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/loki.jpg" alt="Loki">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Loki</strong>
+              <span class="real-name">Loki Laufeyson</span>
+              <span class="synergy-name">Pawn of Mischief</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Man or Monster</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Second Nature" allies gain +18% ATK.</li>
+          <li>"Monster" allies gain +10% MAX HP.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Gamma Fist</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 150% ATK damage to the target.</li>
+          <li>Pushes the target in the direction of attack by 2 panels.</li>
+          <li>If the target crashes into another enemy, deals 100% ATK damage to both the target and the enemy involved.</li>
+          <li>If the target crashes into another enemy, the enemy involved is pushed in the direction of attack by 1 panel and the target takes their previous spot.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Monstrous Leap</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: 2x2 Area · Energy: 30 · Cooldown: 2 turns · Range: 6</div>
+        <ul>
+          <li>Relocates self to the targeted 2x2 area (4 panels), ignoring elevation.</li>
+          <li>Deals 300% ATK damage to all enemies within 2 panels of the landing area (enemies displaced by the landing are still hit).</li>
+          <li>Inflicts "Bruise" for 2 turns to all enemies hit.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Thunder Clap</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in 2-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 10</div>
+        <ul>
+          <li>Sends a shockwave 10 panels in any chosen direction from self, sweeping through a 2-panel-wide line.</li>
+          <li>Deals 300% MAG damage to all enemies caught in the line.</li>
+          <li>35% chance to ground airborne enemies caught in the line.</li>
+          <li>Inflicts "Paralyze" for 1 turn to the first enemy hit (the closest to self; self chooses if tied).</li>
+          <li>30% chance to inflict "Paralyze" for 1 turn to all other enemies caught in the line.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Confronting Roar</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 3 turns · Range: N/A</div>
+        <ul>
+          <li>If self has fewer than 5 stacks of "Mounting Rage", gains "Taunt" for 2 turns.</li>
+          <li>If self has 5 or more stacks of "Mounting Rage", restores 50 EN and 5 STA and gains "Might" for 2 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Seismic Tsunami</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: All Enemies in 2-Wide Line · Energy: 40 · Cooldown: 5 turns · Range: 5</div>
+        <ul>
+          <li>Rips debris from the ground 5 panels in any chosen direction from self, sweeping through a 2-panel-wide line.</li>
+          <li>Deals 420% ATK damage to all enemies caught in the line.</li>
+          <li>Inflicts "Bruise" for 2 turns to all enemies caught in the line.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Gamma Surge</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>+30% DEF and RES for 2 turns.</li>
+          <li>Restores 20% HP (of MAX HP).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Power Throw</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 20 · Cooldown: 3 turns · Range: 1</div>
+        <ul>
+          <li>If the target is 1x1, throws the target 6 panels in a chosen cardinal direction from its current panel, ignoring elevation. The target passes over everything in between and lands on the 6th panel.</li>
+          <li>If the target lands on an obstacle or another enemy, deals 300% ATK damage to both the target and what it hit, and the target lands on the nearest free adjacent panel.</li>
+          <li>If the target lands on a void panel, deals 400% ATK damage to the target and it falls (it cannot catch itself on the edge).</li>
+          <li>If the target lands on an empty panel, deals 180% ATK damage to the target. (If it lands on an ally, the target lands on the nearest free adjacent panel instead.)</li>
+          <li>If the target is larger than 1x1, deals 450% ATK damage to the target instead.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Empowered by Anger</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>Gains "Mounting Rage" for 5 turns when receiving an attack (once per ability).</li>
+          <li>Reduces damage received by 3% per stack of "Mounting Rage" on self (up to 45%).</li>
+          <li>Cannot be moved by enemy effects (except portals or teleportation).</li>
+          <li>Gains 2% ULT when receiving an attack (once per ability).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Green Heart of Empathy</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>-12% ATK and MAG.</li>
+          <li>All attacks inflict "Retribution" for 1 turn to their targets.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Strongest There Is</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>+10% CRIT RATE and +10% CRIT.</li>
+          <li>All buffs on self have their duration extended by 2 turns upon defeating an enemy.</li>
+          <li>Restores 5% HP (of MAX HP) and 20 EN upon defeating an enemy.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Desire for Solitude</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Gains 5% ULT when no allies or enemies are within 2 panels of self at the start of turn.</li>
+          <li>Restores 15% HP (of MAX HP) when no allies or enemies are within 3 panels of self at the start of turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Immeasurable Resistance</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Nullifies the first ULTIMATUM attack received, including ULTIMATUMs that are "guaranteed to land" (once per battle; the attacker's ULT is still spent).</li>
+          <li>Counters the nullified ULTIMATUM with 500% ATK damage if the attacker is within 2 panels.</li>
+          <li>+5% DEF and RES to all allies.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Puny Creature</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 1,000% ATK damage to the target.</li>
+          <li>Inflicts "Deep Bruise" for 2 turns to the target.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Immortal Hulk</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Cost: 100% ULT</div>
+        <ul>
+          <li>Gains persistent "Indestructible" for 2 turns.</li>
+          <li>Gains "Taunt" for 2 turns.</li>
+          <li>Inflicts "Retribution" for 2 turns to all enemies within 4 panels.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES -->
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/thor.jpg" alt="Thor">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Storm and Fury</span>
+              <span class="synergy-partner-tag">w/ Thor</span>
+            </div>
+            <p class="synergy-desc">Most of the world sees the Hulk and runs. Thor sees him and grins. They have clashed since the earliest days of the Avengers, the God of Thunder against the strongest one there is, in battles that leveled mountains and settled nothing, and the question of which of them is truly stronger has never been answered. For the Hulk, that is half the appeal. Thor is one of the precious few who can take everything he has and keep coming, and when the dust clears, the Asgardian claps him on the shoulder like a brother instead of chaining him like a beast. Hulk would never say it aloud, and he would deny it if asked, but there is something close to joy in a fight he doesn’t have to win, against someone who has always treated him as a warrior rather than a monster.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Thunder Wave</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Thunder Clap</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in 2-Wide Line · Energy: 30 · Cooldown: 2 turns · Range: 10</div>
+            <ul>
+              <li>Sends a shockwave 10 panels in any chosen direction from self, sweeping through a 2-panel-wide line.</li>
+              <li>Deals 300% MAG damage to all enemies caught in the line.</li>
+              <li>35% chance to ground airborne enemies caught in the line.</li>
+              <li>Inflicts "Paralyze" for 1 turn to the first enemy hit (the closest to self; self chooses if tied).</li>
+              <li>30% chance to inflict "Paralyze" for 1 turn to all other enemies caught in the line.</li>
+              <li>Inflicts "Shock" for 2 turns to all enemies caught in the line.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Clashing Against the Mightiest</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+8% ATK and MAG against "Supreme Power" enemies.</li>
+              <li>+3% ATK and MAG to "Supreme Power" allies (self excluded).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Genius and Betrayal</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">Banner and Stark were among the first to answer the call that formed the Avengers, and in each other they found something rare: a mind that could keep pace. Bruce admires Tony’s brilliance and drive, and Tony is one of the few who has ever seen the Hulk as a problem worth solving instead of a monster worth killing. But Tony solves problems his own way. He built the Hulkbuster armor for the day his friend lost control. When he and his secret council decided the Hulk was too dangerous for Earth, they tricked him onto a ship and launched him into the stars. The Hulk came home with an army and a grudge, and Iron Man was first on his list. Their friendship has never fully healed. They still fight side by side, two geniuses who respect each other completely and trust each other only so far.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Earth-Destroying Slam</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Monstrous Leap</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: 2x2 Area · Energy: 30 · Cooldown: 2 turns · Range: 9</div>
+            <ul>
+              <li>Relocates self to the targeted 2x2 area (4 panels), ignoring elevation.</li>
+              <li>Deals 350% ATK damage to all enemies within 2 panels of the landing area (enemies displaced by the landing are still hit).</li>
+              <li>Inflicts "Bruise" for 2 turns to all enemies hit by the 350% ATK damage.</li>
+              <li>Deals 200% MAG damage to all enemies within 4 panels of the landing area (this damage does not inflict "Bruise").</li>
+            </ul>
+          </div>
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Cold Revenge</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK and MAG against "Road to Redemption" enemies.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Beasts Within</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">The first time Logan came for him, he was an agent of the Canadian government, sent into the northern wilds to bring the Hulk down. He has been coming back ever since. Their fights are legend: claws that can cut through anything against skin that almost nothing can cut, two bodies that heal faster than either can break the other, and neither one with the sense to quit. The Hulk calls him a pest and means it. But Banner understands Logan better than almost anyone. Logan spends every day caging the animal inside him, and Banner has spent his whole life losing that same fight. Above all, the Hulk respects the little man for one thing: no matter how far he gets thrown, Logan always gets back up, and he always looks the Hulk in the eye when he does.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Fastball Special</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">The Hulk</span> · 10 EN</span>
+              <span class="syn-cost-chip"><span class="who">Wolverine</span> · 10 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Cooldown: 6 turns · Range: 10</div>
+            <ul>
+              <li>Only usable if Wolverine is within 1 panel of The Hulk.</li>
+              <li>The Hulk launches Wolverine to the targeted panel, ignoring elevation.</li>
+              <li>Wolverine gains "Pinpoint" upon landing.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Overpowering Roar</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Confronting Roar</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 10 · Cooldown: 3 turns · Range: N/A</div>
+            <ul>
+              <li>If self has fewer than 5 stacks of "Mounting Rage", gains "Taunt" for 2 turns.</li>
+              <li>If self has 5 or more stacks of "Mounting Rage", restores 50 EN and 5 STA and gains "Might" for 2 turns.</li>
+              <li>Restores 10% HP (of MAX HP).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Born of Rage</span>
+              <span class="synergy-partner-tag">w/ Goku (Super Saiyan)</span>
+            </div>
+            <p class="synergy-desc">In Goku, the Hulk met someone he could not make sense of: a man who smiles through every battle and asks strong opponents for a fight the way other people offer a handshake. He has asked the Hulk more times than anyone can count. Hulk keeps telling him no. Hulk does not want to fight. Yet Banner sees something familiar beneath the golden hair. The Super Saiyan was born the day Goku watched his best friend die and his grief turned to fury. It was the same kind of rage that first broke free to shield a frightened boy from a world he couldn’t survive alone. The difference is that Goku learned to carry that fury and set it down again at will, a peace Banner has chased for years. Every so often the Hulk gives in to a sparring match. It may be the only fight of his life where he gets to let go completely and nobody gets hurt.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Gamma Kamehameha</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Goku (Super Saiyan)</span> · 60 EN</span>
+              <span class="syn-cost-chip"><span class="who">The Hulk</span> · 20 EN + 2 STA</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in 3-Wide Line · Cooldown: 7 turns · Range: 7</div>
+            <ul>
+              <li>Only usable if The Hulk is within 2 panels of Goku (Super Saiyan).</li>
+              <li>Goku launches a beam 7 panels in any chosen direction from self, sweeping through a 3-panel-wide line.</li>
+              <li>Goku deals 300% MAG damage and Hulk deals 300% ATK damage to all enemies caught in the line.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/loki.jpg" alt="Loki">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Pawn of Mischief</span>
+              <span class="synergy-partner-tag">w/ Loki</span>
+            </div>
+            <p class="synergy-desc">The Avengers exist because Loki tried to use the Hulk. Hungry for revenge on his brother, the God of Mischief cast an illusion of the Hulk wrecking a railway, hoping to draw Thor into a battle that would finish him. Instead, the heroes who came running banded together as Earth’s Mightiest Heroes, with the Hulk among them. The Hulk has never forgotten being made a puppet. The whole world already treats him like a weapon to be aimed, and Loki is the one who actually tried to pull the trigger. The trickster still sees him as a blunt instrument, too simple to see through a lie. That is Loki’s mistake. The Hulk cares nothing for schemes or clever words, which makes him the one problem the liar can’t talk his way out of. And when Loki’s mouth runs too long, the Hulk has a very simple answer.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-ultimatum">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Puny God</span>
+              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Puny Creature</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+            <ul>
+              <li>Deals 1,150% ATK damage to the target.</li>
+              <li>Deals an additional 250% ATK damage to the target if the target is "Supreme Power".</li>
+              <li>Inflicts "Deep Bruise" for 2 turns to the target.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Green Bane of Asgardians</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Able to use Puny Creature (Puny God) on an allied Loki (cannot target a Loki Clone).</li>
+              <li>+10% DEF, RES, ATK and MAG for the rest of battle when Loki is defeated (once only).</li>
+              <li>Gains "Confidence" for 2 turns when Loki is defeated.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/the-hulk.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(modern).jpg" alt="Modern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Man in the Forest — +3% DEF and RES</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(gray).jpg" alt="Gray">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Gray</div>
+          <div class="costume-effect-label">Faded Colors — +7% MAG</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(joe-fixit).jpg" alt="Joe Fixit">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Joe Fixit</div>
+          <div class="costume-effect-label">Subconscious Third Identity — +3% MAX HP</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(blue).jpg" alt="Blue">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Blue</div>
+          <div class="costume-effect-label">Cosmic Power — Reduces damage received by 3%</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(cinematic).jpg" alt="Cinematic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Cinematic</div>
+          <div class="costume-effect-label">Always Angry — +2% ATK and MAG to "Avengers" allies</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(world-breaker).jpg" alt="World Breaker">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">World Breaker</div>
+          <div class="costume-effect-label">Shattering Strength — +5% ATK</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(green-scar).jpg" alt="Green Scar">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Green Scar</div>
+          <div class="costume-effect-label">Warbound — Can receive buffs granted to "Galactic Invasion" allies (including Leader Abilities)</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-hulk(maestro).jpg" alt="Maestro">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Maestro</div>
+          <div class="costume-effect-label">Conqueror of the World — Can receive buffs granted to "Villain" allies (including Leader Abilities)<div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry">
+        <div class="entry-meta">
+          <span class="version">v1.1.0</span>
+          <span class="date">October 23, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Empowered by Anger</strong> reworked &mdash; no longer starts at 70% damage reduction that drops by 5% per &ldquo;Mounting Rage&rdquo; stack. Now gains <strong>3% damage reduction per stack (up to 45%)</strong>, so the madder Hulk gets, the tougher he gets. &ldquo;Mounting Rage&rdquo; is now gained <strong>once per ability</strong> received, so multi-hit attacks no longer stack it per hit.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Empowered by Anger</strong> &mdash; ULT gain <strong>1% &rarr; 2%</strong> per attack received, now once per ability. &ldquo;Cannot be pushed or launched by enemies&rdquo; is now &ldquo;Cannot be moved by enemy effects (except portals or teleportation)&rdquo;.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Monstrous Leap</strong> &mdash; now targets a 2x2 landing area, ignores elevation and inflicts &ldquo;Bruise&rdquo; for 2 turns to all enemies hit. Also applies to <strong>Earth-Destroying Slam</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Thunder Clap</strong> &mdash; now hits all enemies in a <strong>2-wide line</strong> (range 10) instead of one target. Damage <strong>200% &rarr; 300%</strong> MAG. EN <strong>20 &rarr; 30</strong>. &ldquo;Paralyze&rdquo; is guaranteed only on the first enemy hit; every other enemy has a 30% chance.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Confronting Roar</strong> &mdash; at 5 or more stacks it no longer restores 12% HP. Instead it restores <strong>50 EN</strong> (was 30) and <strong>5 STA</strong> and grants &ldquo;Might&rdquo; for 2 turns.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Gamma Surge</strong> &mdash; no longer reduces damage by 12% for 3 attacks or grants &ldquo;Might&rdquo;. Now grants <strong>+30% DEF and RES</strong> for 2 turns and restores <strong>20% HP</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Power Throw</strong> &mdash; direction is now chosen (was random). The target is thrown over everything in between and lands 6 panels away. Landing on an obstacle or enemy deals 300% ATK to both. Landing on a void panel deals 400% ATK and the target falls. An empty panel still deals 180% ATK. Larger targets still take 450% ATK.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Green Heart of Empathy</strong> &mdash; ATK and MAG penalty <strong>-20% &rarr; -12%</strong>. No longer has a 30% chance not to gain &ldquo;Mounting Rage&rdquo;.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Strongest There Is</strong> &mdash; now also grants <strong>+10% CRIT RATE and +10% CRIT</strong>.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Desire for Solitude</strong> &mdash; HP restored <strong>10% &rarr; 15%</strong>.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span><strong>Immeasurable Resistance</strong> &mdash; the 20% (30% below 35% HP) chance to nullify ULTIMATUMs is now a <strong>guaranteed nullify of the first ULTIMATUM received</strong>, once per battle, and it works on ULTIMATUMs that are guaranteed to land. The 500% ATK counter now requires the attacker to be within 2 panels.</span>
+          </li>
+          <li class="buff">
+            <span class="change-tag">Buff</span>
+            <span><strong>Immortal Hulk</strong> &mdash; now also grants &ldquo;Taunt&rdquo; for 2 turns and inflicts &ldquo;Retribution&rdquo; for 2 turns to all enemies within 4 panels.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Synergies &mdash; <strong>Thunder Wave</strong> now mirrors Thunder Clap and adds &ldquo;Shock&rdquo; to all enemies hit (was 220% ATK single-target). <strong>Earth-Destroying Slam</strong>: outer shockwave <strong>50% MAG within 8 panels &rarr; 200% MAG within 4 panels</strong> (it does not inflict &ldquo;Bruise&rdquo;). <strong>Overpowering Roar</strong> now keeps Confronting Roar&rsquo;s effects and also restores 10% HP. <strong>Fastball Special</strong> now grants Wolverine &ldquo;Pinpoint&rdquo; on landing. <strong>Gamma Kamehameha</strong> now requires The Hulk to be within 2 panels of Goku. <strong>Green Bane of Asgardians</strong> now says the Loki must be an ally, not a Loki Clone.</span>
+          </li>
+          <li class="rework">
+            <span class="change-tag">Rework</span>
+            <span>Links &mdash; removed &ldquo;Tactical Mind&rdquo;.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>The Hulk enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

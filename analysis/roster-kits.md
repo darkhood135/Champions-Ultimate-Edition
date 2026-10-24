@@ -513,5 +513,19 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - Costumes: Classic +3% ATK; Rivals 30% Vibranium Fist extends (once/turn); Retro +2% ATK/MAG all allies; Cinematic +2% SPD; Captain America blocking negates 40% ranged damage.
 - Synergies (one-sided until partner sheets add them — see synergy-todo.md): Cap *Till the End of the Line* (Dynamic *Stars Crossed* 40EN each, CD6, R4: each 450% ATK, both +15% DEF/RES 2t, lower-EN partner +20EN; passive *Friends Through It All* +5% ATK ≤10p of Cap; on Cap's defeat Anger 3t + allies +8% DEF/RES 3t). Iron Man *Debts in Blood* (New Special *Protective Redirection*: Taunt 1t, +1t if Iron Man ≤3p; +30% DEF/RES 1t; 20EN, CD4). Wolverine *Men Out of Time* (*Berserk Impact* 350%, 15EN/enemy max 45; passive *The Cost of Getting Back Up*: endure while Wolverine not defeated, once, before Red Star). Batgirl *Weapons Unmade* (*Tracking Voltage* 160% MAG + Tracker 2t — feeds Batgirl's Tracker discount). Dracaena *The Harm They Didn't Choose* (passive *Living Proof*: RtR allies +6% ATK/MAG; +10% DEF/RES vs RtR enemies).
 
+## The Hulk — Defender (rage-ramp juggernaut; 2x2)
+- Leader *Man or Monster* — Second Nature +18% ATK; Monster +10% MAX HP (both links currently Hulk-only).
+- Basic *Gamma Fist* — 150% ATK, push 2p; crash into an enemy: 100% ATK to both, that enemy pushed 1p (R1).
+- S1 *Monstrous Leap* — land on a chosen 2x2 area, ignores elevation; 300% ATK to enemies ≤2p of landing area + Bruise 2t (30EN, CD2, R6).
+- S2 *Thunder Clap* — 300% MAG 2-wide line (any of 8 directions); 35% ground airborne; Paralyze 1t on first enemy hit, 30% on the rest (30EN, CD2, R10).
+- S3 *Confronting Roar* — <5 Rage: Taunt 2t; ≥5 Rage: +50EN, +5STA, Might 2t (10EN, CD3).
+- S4 *Seismic Tsunami* — 420% ATK 2-wide line + Bruise 2t (40EN, CD5, R5).
+- [R] *Gamma Surge* — +30% DEF/RES 2t, heal 20% HP (30EN, CD4). [R] *Power Throw* — 1x1 target thrown 6p in a chosen cardinal direction (arcs over everything): lands on obstacle/enemy 300% ATK to both; void 400% + forced fall; empty 180%; larger targets 450% instead (20EN, CD3, R1).
+- Core *Empowered by Anger* — Mounting Rage (+3% ATK/MAG, stackable, own 5t timers) once per ability received; +3% DR per stack (cap 45%); cannot be moved by enemy effects (except portals/teleports); +2% ULT per ability received.
+- P1 *Green Heart of Empathy* — −12% ATK/MAG; all attacks inflict Retribution 1t. P2 *Strongest There Is* — +10% CRIT RATE & CRIT; on kill: all buffs +2t, heal 5% HP, +20EN.
+- [R] *Desire for Solitude* (+5% ULT if nobody ≤2p; heal 15% if nobody ≤3p, at turn start). [R] *Immeasurable Resistance* (nullify first ULTIMATUM received, incl. guaranteed-to-land, once/battle; counter 500% ATK if attacker ≤2p; +5% DEF/RES all allies).
+- ULT *Puny Creature* — 1,000% ATK + Deep Bruise 2t (R1). [R] *Immortal Hulk* — persistent Indestructible 2t, Taunt 2t, Retribution 2t to enemies ≤4p.
+- Synergies: Thor *Storm and Fury* (*Thunder Wave* = Thunder Clap + Shock 2t to all hit; +8% ATK/MAG vs Supreme Power enemies, +3% to Supreme Power allies). Iron Man *Genius and Betrayal* (*Earth-Destroying Slam* R9, 350% ATK ≤2p + Bruise, 200% MAG ≤4p no Bruise; +5% ATK/MAG vs Road to Redemption). Wolverine *Beasts Within* (Dynamic *Fastball Special* 10EN each, launch Wolverine ≤1p to panel R10 ignoring elevation + Pinpoint; *Overpowering Roar* = Roar + 10% HP). Goku SS *Born of Rage* (Dynamic *Gamma Kamehameha* Goku 60EN, Hulk 20EN+2STA within 2p; 3-wide 7 line, 300% MAG + 300% ATK). Loki *Pawn of Mischief* (*Puny God* 1,150% +250% vs Supreme Power; can ULT an allied Loki (not clones); on Loki defeat +10% DEF/RES/ATK/MAG rest of battle + Confidence 2t).
+
 ## Coverage
-All 33 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22). New champions: add an entry in the same pass as their sheet is finalized.
+All 34 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23). New champions: add an entry in the same pass as their sheet is finalized.

@@ -1032,11 +1032,12 @@
       <p>A Champion and an obstacle likewise cannot share a panel. If an ability would place a Champion on a panel occupied by an obstacle, the Champion lands on the nearest adjacent valid panel instead.</p>
 
       <h4 id="multi-panel-units">Multi-Panel Units</h4>
-      <p>A unit's <a href="#stats">SIZE</a> is the block of panels it occupies, its <strong>footprint</strong>, written as length x width. Most units are 1x1 and fill a single panel. A 2x2 unit, such as Cyborg's <em>Boom Tube</em>, fills a 2-by-2 square. The battlefield rules in this section are written for 1x1 units. A unit larger than 1x1 follows them with these adjustments:</p>
+      <p>A unit's <a href="#stats">SIZE</a> is the block of panels it occupies, its <strong>footprint</strong>, written as length x width. Most units are 1x1 and fill a single panel. A 2x2 unit, such as The Hulk or Cyborg's <em>Boom Tube</em>, fills a 2-by-2 square. The battlefield rules in this section are written for 1x1 units. A unit larger than 1x1 follows them with these adjustments:</p>
       <ul>
         <li><strong>Every panel is the unit.</strong> The unit occupies all of its panels at once. No other unit or obstacle can share any of them unless the unit's own kit says otherwise (Boom Tube's <em>Wormhole Between Galaxies</em> lets Champions step into its area, which teleports them away).</li>
         <li><strong>Range and targeting.</strong> Range is measured to or from whichever panel of the footprint is closest. An ability can target the unit by targeting any of its panels.</li>
         <li><strong>Area, line and domain abilities.</strong> The unit is affected if the area covers at least one of its panels, and it is affected only <strong>once per ability</strong> however many of its panels are covered. It counts as inside a <a href="#domain">domain</a> while any of its panels is inside. A self-centered "within N panels" area cast by a multi-panel unit is measured outward from the edge of its footprint and excludes the footprint itself.</li>
+        <li><strong>Casting line abilities.</strong> A line ability cast by a multi-panel unit begins on the panels next to the edge of its footprint, never on the footprint itself. A 2-wide line from a 2x2 unit covers the two panels directly in front of its footprint at each step in a cardinal direction. In a diagonal direction it starts from the footprint&rsquo;s corner and follows the same staircase as a 3-wide diagonal line (the diagonal panel plus both flanking cardinal panels at each step), which is exactly the path the footprint would sweep sliding diagonally. All 8 directions stay valid. See <a href="#line-abilities">Line Abilities</a>; reference: The Hulk&rsquo;s <em>Seismic Tsunami</em> and <em>Thunder Clap</em>.</li>
         <li><strong>Movement.</strong> The footprint moves as one piece and keeps its shape. Moving one panel in any direction costs 1 STA, the same as for a 1x1 unit. Every panel the footprint passes through or lands on must be valid: no obstacles, no void, and all of its panels on the same elevation tier unless the unit is airborne. <a href="#elevation">Elevation</a>, <a href="#gap-jumping">gap jumping</a> and <a href="#floors">floor</a> rules apply to the footprint as a whole.</li>
         <li><strong>Landing on occupied panels.</strong> The <a href="#panel-occupancy">Panel Occupancy</a> HP rule compares the arriving unit against each unit on the panels it would cover. If any of them has equal or more HP, the arriving unit stops one panel short. Otherwise each is displaced to the nearest valid panel outside the footprint, preferring the direction the arriving unit came from. A 1x1 unit landing on any panel of a multi-panel unit follows the normal rule.</li>
         <li><strong>Pushes and falls.</strong> When a multi-panel unit is pushed or pulled, its whole footprint moves together and stops short if any of its panels would enter an obstacle or another unit. For <a href="#void-and-falling">Void and Falling</a>, it counts as standing on an edge panel if any of its panels is one, and after a fall it returns with its entire footprint just inside the edge.</li>
@@ -1078,6 +1079,7 @@
       <ul>
         <li><strong>Cardinal directions (N, S, E, W):</strong> The 3-panel width covers the central direction and one panel to each side at every step outward. A northward beam at range 1 covers the N, NW, and NE panels adjacent to the user.</li>
         <li><strong>Diagonal directions (NW, NE, SW, SE):</strong> The width is achieved by including both flanking cardinal panels at each step. A NW beam at range 1 covers the N, NW, and W panels adjacent to the user, with each subsequent step following the same staircase pattern.</li>
+        <li><strong>Multi-panel casters:</strong> A unit larger than 1x1 measures its line from the edge of its footprint. A 2x2 unit&rsquo;s 2-wide diagonal line uses this same staircase starting from its corner panel (see <a href="#multi-panel-units">Multi-Panel Units</a>).</li>
       </ul>
       <p>Champions caught anywhere within the swept area are affected, subject to normal line-of-sight and the standard ability calculation rules for each target.</p>
 
@@ -1331,6 +1333,12 @@
             <td>Restores 4% HP per turn.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square common"></span>Mounting Rage</div></td>
+            <td>+3% ATK and MAG.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label common">Common</span></td>
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square common"></span>Taunt</div></td>
@@ -1620,7 +1628,7 @@
 
       <h3 id="guaranteed-to-land">Guaranteed to Land</h3>
       <p>An ability that is <strong>guaranteed to land</strong> cannot miss and cannot be evaded: it ignores ACC and EVA and any evasion effects. It is also not stopped by effects that negate an attack — "Energy Barrier", "Shield Charm" and block negation (e.g. <em>"Blocking negates 80% of ranged attack damage"</em>) do not stop it.</p>
-      <p>The one exception is an effect that explicitly says it can evade guaranteed hits, which still works — for example Frieza's <em>Hurt for the First Time</em> (<em>"20% chance to evade attacks guaranteed to land while below 50% HP"</em>). Lord Voldemort's <em>Avada Kedavra</em> is the reference guaranteed-to-land ability.</p>
+      <p>The one exception is an effect that explicitly says it works against guaranteed hits, which still works — for example Frieza's <em>Hurt for the First Time</em> (<em>"20% chance to evade attacks guaranteed to land while below 50% HP"</em>) or The Hulk's <em>Immeasurable Resistance</em>, which nullifies the first ULTIMATUM he receives each battle, including one that is guaranteed to land. Lord Voldemort's <em>Avada Kedavra</em> is the reference guaranteed-to-land ability.</p>
       <p><em>Not to be confused with a guaranteed critical hit</em> ("Pinpoint", or a <a href="#precise">Precise</a> ability breaking a block), which decides whether a hit crits, not whether it lands. An ability can have either property without the other.</p>
 
       <h3 id="domain">Domain</h3>

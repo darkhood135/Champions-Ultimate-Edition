@@ -18,5 +18,10 @@ Synergies must be **mutual**: both Champions carry the bond on their own sheet (
 | Lord Voldemort | Neither Can Live | Harry Potter | Harry's side |
 | Lord Voldemort | The Prophecy They Made | Frieza | Frieza's side |
 | Lord Voldemort | The Shadow She Defied | Dracaena Malfoy | Dracaena's side |
+| The Hulk | Storm and Fury | Thor | Thor's side (Hulk's has Upgraded Special *Thunder Wave* + passive *Clashing Against the Mightiest*) |
+| The Hulk | Genius and Betrayal | Iron Man | Iron Man's side (Hulk's has Upgraded Special *Earth-Destroying Slam* + passive *Cold Revenge*) |
+| The Hulk | Beasts Within | Wolverine | Dynamic Special *Fastball Special* (must match on both sheets) + Wolverine's side (Hulk's has *Overpowering Roar*) |
+| The Hulk | Born of Rage | Goku (Super Saiyan) | Dynamic Special *Gamma Kamehameha* (must match on both sheets) + Goku's side |
+| The Hulk | Pawn of Mischief | Loki | Loki's side (Hulk's has Upgraded ULTIMATUM *Puny God* + passive *Green Bane of Asgardians*) |
 
 Note: the original to-do file from an earlier chat could not be found (not in the project folder or git history); this list was rebuilt from a full roster scan.

@@ -4,9 +4,9 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **Stat line order:** `HP / ATK / MAG / HEAL / DEF / RES / ACC / CRIT%·CR% / SPD / EVA` (EN·STA·REGEN appended where notable). Transforming champions show base; transform deltas noted in parentheses.
 
-**SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (only Boom Tube is 2x2), so SIZE is not in the stat lines. Add it to a line only if a Champion is ever larger than 1x1.
+**SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (The Hulk and Boom Tube are 2x2), so SIZE is only shown on lines where it isn't 1x1.
 
-**Last updated:** 2026-10-22 (through The Winter Soldier v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-10-23 (through The Hulk v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -40,8 +40,9 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Wonder Woman** — 14,200 / 370 / 210 / 0 / 170 / 160 / 98% / 175%·10% / 111 / 10% — warrior-tank
 - **Captain America** — 14,200 / 340 / 100 / 0 / 140 / 140 / 99% / 150%·20% / 106 / 9% — mitigation/team-buff
 - **Goku (Super Saiyan)** (↔ Enraged) — 13,500 / 290 / 280 / 0 / 140 / 150 / 98% / 150%·10% / 107 / 15% — Enraged: +60 ATK, +60 MAG, +10% CR, +3 SPD; transforms only below 20% HP
+- **The Hulk** — 18,800 / 300 / 200 / 0 / 190 / 160 / 94% / 130%·10% / 96 / 0%, EN 80·STA 5, REGEN 2%, **SIZE 2x2** — rage-ramp juggernaut: starts at 0% DR; each Mounting Rage stack (once per ability received, 5t each, own timers) = +3% DR (cap 45%) and +3% ATK/MAG (uncapped); slowest SPD, only 0% EVA, 2nd-lowest ACC; Retribution-on-every-attack engine (Green Heart), Taunt opener, Indestructible+Taunt+Retribution ULT
 - **Curly** — 10,000 / 170 / 150 / 0 / 140 / 120 / 98% / 120%·80% / 106 / 35% — lowest-HP Defender; evasion + scaling DEF/RES; pure protection, near-zero damage
-> Band: 13.5k–16.8k HP except Curly (10k, mitigation/evasion model).
+> Band: 13.5k–16.8k HP except Curly (10k, mitigation/evasion model) and The Hulk (18.8k, 2x2; durability ramps with Mounting Rage — weakest vs early burst, ~1.6–1.8× Superman's survival under sustained focus in sims).
 
 ## SUPPORTIVE
 
@@ -76,7 +77,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 ---
 
 ## Quick role bands (for meta/benchmarking)
-- **Defender HP:** 13.5k–16.8k (Curly is the 10k evasion/mitigation outlier).
+- **Defender HP:** 13.5k–16.8k (Curly is the 10k evasion/mitigation outlier; The Hulk is the 18.8k 2x2 ramp outlier). **Lowest SPD:** The Hulk 96. **Lowest EVA:** The Hulk 0%.
 - **Healer:** frail bodies (4.5k–6.2k), HEAL 300–420 (Anya top), high EVA.
 - **Breaker:** 4.8k–7.5k, mostly caster/control; low DEF common.
 - **Summoner:** 5.8k–9k; the summon carries much of the value.
