@@ -579,9 +579,11 @@
         <a href="#overhealth" class="toc-link toc-sub">Overhealth</a>
         <a href="#shared-hp" class="toc-link toc-sub">Shared HP</a>
         <a href="#resource-visibility" class="toc-link toc-sub">Resource Visibility</a>
+        <a href="#disguise" class="toc-link toc-sub">Disguise</a>
         <a href="#persistent" class="toc-link toc-sub">Persistent</a>
         <a href="#disabling" class="toc-link toc-sub">Disabling</a>
         <a href="#active-and-inert" class="toc-link toc-sub">Active and Inert</a>
+        <a href="#buffs" class="toc-link toc-sub">Buffs: Stat Buffs and Status Effects</a>
         <a href="#debuff-stacking" class="toc-link toc-sub">Debuff Stacking &amp; Stat Floor</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
       </nav>
@@ -903,6 +905,7 @@
       <h2>👥 Team Building</h2>
       <p>In normal battles, each team can have up to <strong>six Champions</strong>. These Champions have varying abilities, movesets, synergies, etc. which can be used in battle. Bringing Champions of various roles is important for variety and effective play.</p>
       <p>Each team has one leader which grants the team bonus stats (or even an ability) based on the character's Leader Ability. Every Champion has a leader ability but only one can be active at a time. Choose this leader ability wisely.</p>
+      <p><strong>One of each character per team.</strong> Champions who share the same real name cannot be on the same team, so a team can field only one Goku (of any form) and only one Vegeta. Champions who share a base name but have different real names are different characters and can team up freely: Spider-Man (Peter Parker) and Spider-Man (Miles Morales) can fight side by side. The rule applies to team building only. Copies created during battle, such as a Champion Mimic or Loki's <em>Stolen Power</em>, are not restricted by it.</p>
       <p>Every player has <strong>50 team slots</strong> (allowing for a significant amount of different teams)! Choices made regarding Champion abilities, skill allocations, artifacts and modifiers stay within a party so they don't have to be changed whenever they're switched to a different team.</p>
       <p>Champions can each be customized in-depth to allow for unique mixes and strengths. Ensuring each Champion has an artifact, a costume effect and their skill allocation maxed out is crucial for success in difficult battles.</p>
     </section>
@@ -1708,7 +1711,7 @@
         <li><strong>Damage draws from the one pool.</strong> Any damage dealt to the Champion or to any of its shared summons is subtracted from the single shared total. A hit on a summon costs the pool exactly what the same hit on the Champion would.</li>
         <li><strong>Shared summons cannot be picked off by damage alone.</strong> Because a summon keeps no separate health bar, striking it only drains the common pool — it cannot be individually defeated by damage while the pool still has HP.</li>
         <li><strong>Healing fills the shared pool.</strong> HP restored to any member is added to the one total (up to its maximum), so healing any body effectively heals the whole group.</li>
-        <li><strong>The maximum scales with the shared summons.</strong> The pool's ceiling is the Champion's MAX HP, which the granting kit raises per shared summon on the field — <em>Threads of Reincarnation</em> adds 5,000 MAX HP per summon, applied the instant it is summoned. When a shared summon leaves the field, its contribution to the maximum is removed and current HP is capped to the new, lower maximum.</li>
+        <li><strong>The maximum scales with the shared summons.</strong> The pool's ceiling is the Champion's MAX HP, which the granting kit raises per shared summon on the field — <em>Threads of Reincarnation</em> adds 4,000 MAX HP per summon, applied the instant it is summoned. When a shared summon leaves the field, its contribution to the maximum is removed and current HP is capped to the new, lower maximum.</li>
         <li><strong>Percentage-of-MAX-HP effects use the shared maximum.</strong> Any "% of MAX HP" cost, heal, or damage is calculated from the combined pool's (inflated) maximum — for example, Loki's <em>God of Mischief</em> restoring 2% MAX HP references the shared total.</li>
       </ul>
       <p>When the shared pool is emptied to 0, every member drawing from it is defeated at once, since none of them holds any independent health. Summons removed by other means — destroyed by their own Champion, replaced when a summon cap is reached, or cleared by an effect that removes the unit itself — simply leave the shared group; their share of the maximum is subtracted, but the pool is not otherwise depleted.</p>
@@ -1722,6 +1725,10 @@
         <li>Curly's <em>Pilot Vision</em> — <em>"Reveals the ULT percentage of the target for 1 turn."</em> (ULT only)</li>
       </ul>
       <p>Revealing is information only. It doesn't change the target's resources. Resource Reveal is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
+
+      <h3 id="disguise">Disguise</h3>
+      <p><strong>Disguise</strong> is a kit-granted state in which a unit is shown to enemies as another unit. Enemies see the disguise's stats, vitals and MAX HP in place of the unit's own, and the unit's current HP is shown <em>scaled</em> to the disguise's MAX HP (a Loki Clone at half health displays as 3,800 / 7,600). The canonical example is the Loki Clone's <em>Fading Mirage</em> (<em>"Disguised as Loki"</em>), which lets Loki's discreet position swaps work as a true shell game.</p>
+      <p>Disguise is information only. Every calculation still uses the unit's real stats, vitals and HP. Resource Reveal shows the unit's real current resources against the disguise's maximums, so it does not expose the disguise by itself. A disguise lasts as long as its source says; a Loki Clone's lasts until it is defeated.</p>
 
       <h3 id="persistent">Persistent</h3>
       <p><strong>Persistent</strong> is a <em>Champion amplifier</em> applied kit-by-kit — it is not a property of any status effect itself. No effect is inherently persistent. Instead, a Champion's kit may declare that certain effects become persistent for them, while that same effect on any other Champion behaves normally. The granting kit line always states which effects it covers and under what scope — for example, Superman's <em>Unmatched Compassion</em>: <em>"'Taunt' buffs applied to self are persistent."</em></p>
@@ -1747,6 +1754,10 @@
         <li><em>Molecular Breakdown</em> — <em>"Distributes active duplicates of any inert status effects applied to self to all allies within 3 panels... Nullifies any inert status effects applied to self."</em> He copies his inert effects out to allies as working (active) versions, then clears the frozen originals from himself.</li>
         <li><em>System Update</em> — <em>"All inert status effects on self become active."</em> Every frozen effect he holds switches on at once, beginning to work and to count down.</li>
       </ul>
+
+      <h3 id="buffs">Buffs: Stat Buffs and Status Effects</h3>
+      <p><strong>"Buffs" covers two kinds of positive effect.</strong> A <strong>status effect</strong> is a named effect from the Status Effects tables, such as "Might", "Stealth" or "Pinpoint". A <strong>stat buff</strong> is an unnamed stat change written directly into an ability, such as <em>"+10% ATK and MAG for 2 turns."</em></p>
+      <p><strong>Every positive status effect counts as a buff, but a stat buff never counts as a status effect.</strong> The wording of an ability decides which kind it touches. An effect that names <em>buffs</em> affects both: Wonder Woman's <em>Lasso of Truth</em> (<em>"Removes all buffs from the target"</em>) strips status effects and stat buffs alike. An effect that names <em>status effects</em> affects only named statuses: Black Widow's <em>False Memories</em> (<em>"All positive status effects gained are immediately made inert"</em>) freezes a "Pinpoint" or a "Stealth", but leaves an unnamed <em>"+20% ATK and MAG"</em> working normally.</p>
 
       <h3 id="debuff-stacking">Debuff Stacking &amp; Stat Floor</h3>
       <p><strong>All debuffs stack.</strong> Separate debuffs apply together, and so do <em>identical</em> effects that come from different sources. If two different Patronus summons each project <em>"-30% ATK and MAG to all enemies within 5 panels"</em>, an enemy standing in both auras takes both reductions: -60% ATK and MAG. Stat-lowering effects combine with every other in-game multiplier as described in <a href="#stat-calculations">Stat Calculations</a>. The <em>Stackable?</em> column in the Status Effects tables still decides what happens when the same named status is re-applied to a unit.</p>

@@ -4,7 +4,7 @@ Synergies must be **mutual**: both Champions carry the bond on their own sheet (
 
 **How to use:** when a partner sheet gets its side of a bond, delete that line. When a new Champion ships with synergies to existing Champions, add a line per bond. Re-check with a scan of every `champions/*.html` for `synergy-bond-name` / `synergy-partner-tag` pairs (a bond is one-sided if the partner's sheet has no block "w/ <this Champion>").
 
-**Last scanned:** 2026-10-22 (all 33 sheets). Best Partners entries for unbuilt Champions (e.g. Black Widow, Jill Valentine, Black Panther) are not tracked here until those Champions have sheets.
+**Last scanned:** 2026-10-22 (all 33 sheets); Black Widow's six bonds added 2026-10-24. Best Partners entries for unbuilt Champions (e.g. Jill Valentine, Black Panther) are not tracked here until those Champions have sheets.
 
 ## Missing reciprocals
 
@@ -23,5 +23,11 @@ Synergies must be **mutual**: both Champions carry the bond on their own sheet (
 | The Hulk | Beasts Within | Wolverine | Dynamic Special *Fastball Special* (must match on both sheets) + Wolverine's side (Hulk's has *Overpowering Roar*) |
 | The Hulk | Born of Rage | Goku (Super Saiyan) | Dynamic Special *Gamma Kamehameha* (must match on both sheets) + Goku's side |
 | The Hulk | Pawn of Mischief | Loki | Loki's side (Hulk's has Upgraded ULTIMATUM *Puny God* + passive *Green Bane of Asgardians*) |
+| Black Widow | What the Red Room Took | The Winter Soldier | Dynamic Special *Guns Trained, Together* (must match on both sheets) + Bucky's side (BW's has passive *Living Weapons*); he already lists her in Best Partners |
+| Black Widow | The First Assignment | Iron Man | Iron Man's side (BW's has Upgraded Special *True Sight*) |
+| Black Widow | Straight Answers | Captain America | Cap's side (BW's has Upgraded ULTIMATUM *The Alternative to Bloodshed* + passive *A Rare Truth*) |
+| Black Widow | Before the Widow | Wolverine | Wolverine's side (BW's has passive *A Lost Day in Madripoor*) |
+| Black Widow | No Masks Left | Batgirl | Batgirl's side (BW's has Upgraded Special *Widow's Claw*) |
+| Black Widow | The Side She Was Born To | Dracaena Malfoy | Dracaena's side (BW's has Upgraded Special *Disarming Batons*) |
 
 Note: the original to-do file from an earlier chat could not be found (not in the project folder or git history); this list was rebuilt from a full roster scan.

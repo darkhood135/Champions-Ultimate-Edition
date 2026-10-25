@@ -39,18 +39,18 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 ## Loki — Summoner (→ clones)
 - Leader *Asgard's Dread* — Reality Warper/Gifted/Road to Redemption +15% MAG&RES; Rampant Deception +10% MAX HP.
 - Basic *Staff Swing* — 120% ATK, 30% Sting 4t; Loki allies (clones) +10EN (R1).
-- S1 *Doppelganger* — summon Loki Clone (max 3; replaces oldest); 50% swap positions+resources; +1 CD to Gone Without a Trace (50EN, CD3, R6).
+- S1 *Doppelganger* — summon Loki Clone (max 3; replaces oldest); 50% swap positions+resources; +1 CD to Gone Without a Trace (50EN, CD4, R6).
 - S2 *Mystical Missile* — 320% MAG AoE (1p around target), 30% Sting 4t (30EN, CD1, R8).
-- S3 *Jotun Mist* — 300% MAG 2p around self AND all summons; 50% 3× Frost 2t (30EN, CD3).
+- S3 *Jotun Mist* — 300% MAG to enemies ≤2p of self AND of each summon, each enemy hit once per cast; 50% 3× Frost 2t (40EN, CD3).
 - S4 *Devious Exchange* — swap positions+resources with a clone (10EN, CD3, R14).
 - [R] *Disorienting Illusions* (attacks 50% Disorient / 20% Coercion, 2t). [R] *Gone Without a Trace* — destroy clones, +20% MAG each, Invisible 2t (persistent if 2+) (40EN, CD5).
 - Core *God of Mischief* — 2% MAX HP heal when a clone takes damage; 50% to shorten inflictions on self; −50% status damage; +2% ULT per self/summon damage.
 - P1 *Attacks from Unexpected Angles* — +8% infliction per clone; 20% Mystical Missile refunds 10EN to Loki allies.
-- P2 *Perfect Mimicry* — on ULT, clones become Champion Mimics of the ULT target 1t, +20% ATK/MAG.
-- [R] *Uncertain Allegiance* (can damage allies; damaging ally w/ special −1 CD Doppelganger & Devious Exchange). [R] *Threads of Reincarnation* (shared HP with summons; +5,000 MAX HP/summon; +3,000 HP on summon; −30% summon dmg).
-- ULT *Stolen Power* — transform into target (ally/enemy) 3t, start-of-battle state, +38% ULT/turn while transformed (R6). [R] *Endless Trickery* — Devious Exchange no CD 3t, +20% MAG self+summons.
-- Synergies: Thor *Love and Loathing* (Dynamic *Future of Asgard* Thor 400% MAG + 300% ATK, Loki 150% MAG, Loki Stealth 1t + 8STA, pull target toward Thor; Thor +8% MAG, +8% ATK/MAG while any enemy has Retribution). Wonder Woman *The Liar and the Lasso* (*Frosty Winds of Boreas* 300% MAG ≤3p of self & summons, 60% ×3 Frost 3t). Iron Man *Father of the Avengers* (New Special *Childish Outburst*: Anger 2t + 10EN, CD10; its CD −1 when Iron Man uses an ability ≤3p; +1STA/5EN when damaging Stark Industries/Avengers units, +5% MAG vs Avengers).
-- **Clone (Blaster, 5,000 HP, MAG 380):** Mystical Missile; Cruel Trick (+50% MAG if Loki hit target recently; explodes 250% MAG 2p on death; +20% infliction); Fading Mirage (no heal/buffs; dies with Loki, no explosion; persists until defeated).
+- P2 *Perfect Mimicry* — on Stolen Power, clones become Champion Mimics of the target 1t, limited to its Basic + passives; clones +20% ATK/MAG.
+- [R] *Uncertain Allegiance* (can damage allies; damaging ally w/ special −1 CD Doppelganger & Devious Exchange). [R] *Threads of Reincarnation* (shared HP with summons; +4,000 MAX HP/summon, applies to any form incl. Stolen Power; +1,500 HP on summon; −30% summon dmg).
+- ULT *Stolen Power* — transform into target (ally/enemy) 3t, start-of-battle state but at Loki's current HP%; no Link buffs; +38% ULT/turn while transformed; Loki defeated if the form is (copied endure/revive apply); on exit ULT → 0%, HP% & other resources kept (R6). [R] *Endless Trickery* — 3t: Devious Exchange costs no EN and has no cooldown (repeatable within a turn); +20% MAG self+summons.
+- Synergies: Thor *Love and Loathing* (Dynamic *Future of Asgard* Thor 400% MAG + 300% ATK, Loki 150% MAG, Loki Stealth 1t + 8STA, pull target toward Thor; Thor +8% MAG, +8% ATK/MAG while any enemy has Retribution). Wonder Woman *The Liar and the Lasso* (*Frosty Winds of Boreas* 300% MAG ≤3p of self & each summon, once per enemy, 60% ×3 Frost 3t, 40EN). Iron Man *Father of the Avengers* (New Special *Childish Outburst*: Anger 2t + 10EN, CD10; its CD −1 when Iron Man uses an ability ≤3p; +1STA/5EN when damaging Stark Industries/Avengers units, +5% MAG vs Avengers).
+- **Clone (Blaster, 5,000 HP, MAG 380):** Mystical Missile; Cruel Trick (+50% MAG if Loki hit target recently; explodes 250% MAG 2p on death; +20% infliction); Fading Mirage (no heal/buffs; dies with Loki, no explosion; persists until defeated; disguised as Loki — enemies see Loki's stats/vitals/MAX HP, HP shown scaled).
 
 ## Cyborg — Booster (inert battery)
 - Leader *The Bridge Between* — Mechanical Physiology +20% ATK&MAG.
@@ -101,19 +101,19 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - **Hover Pod (5,000 HP):** mount — rider airborne/can't melee; 70% of rider damage redirected to pod; +5 STA/turn; 3t.
 
 ## Krillin — Breaker (Senzu dispenser)
-- Leader *Breaking Past the Limits* — Human +12% ATK&MAG.
+- Leader *Breaking Past the Limits* — Human +8% ATK&MAG.
 - Basic *Rapid Attack* — 150% ATK (ranged R10).
 - S1 *Destructo Disc* — 380% MAG 15-long 3-wide line; +500% MAG to obstacles (60EN, CD3).
-- S2 *Solar Flare* — Blindness 2t + 50% MAG + 30% Stun, 3-wide line; +30% infliction vs >50% HP (50EN, CD4).
+- S2 *Solar Flare* — Blindness 2t + 50% MAG + 20% Stun 1t, 3-ahead 3-wide; +30% infliction vs >50% HP (50EN, CD4).
 - S3 *Fearful Warm-Up* — +80EN, +15% EVA 2t (20EN, CD3).
 - S4 *Senzu Bean* — grant a Senzu Bean item to an ally (10EN, CD9, R5).
-- [R] *Double Tsuihikidan* (600% MAG after 1t). [R] *Aerial Kamehameha* (400% MAG + 200% splash).
-- Core *Teachings of the Turtle School* — +10% MAG/+5% EVA when Goku ally; 30% −1 CD Solar Flare on damage; start with a Senzu Bean; +2% ULT per attack landed.
+- [R] *Double Tsuihikidan* (600% MAG after 1t, homing). [R] *Aerial Kamehameha* (400% MAG + 200% splash).
+- Core *Teachings of the Turtle School* — +10% MAG/+5% EVA when Goku or Goku (SS) ally; 30% −1 CD Solar Flare on damage; start with a Senzu Bean; +2% ULT per attack landed.
 - P1 *Fighting Despite Hesitations* — +10% ATK&MAG; +5% infliction when enemy ≤5p.
-- P2 *Strike at the Opening* — −1 CD Solar Flare when ally hits a Blind enemy; Solar Flare refreshed on ally ULT.
+- P2 *Strike at the Opening* — −1 CD Solar Flare when ally hits a Blind enemy (once per Solar Flare cast); Solar Flare refreshed on ally ULT.
 - [R] *Trusted Friend* (allies Anger 2t on his defeat; +10% MAG vs recently-ally-hit enemy). [R] *Prepared for the Worst* (Senzu CD −2; +4% EVA per defeated ally).
 - ULT *Supreme Solar Flare* — Stun + Blindness 2t + 150% MAG, 5-wide line (R4). [R] *Stash of Senzus* — grant Senzu to 2 random allies.
-- **Senzu Bean (item):** restore ALL HP + 200 EN + 20 STA (user, via Item action).
+- **Senzu Bean (item):** restores ALL HP the first time a given Champion eats one in a battle; that Champion's later beans restore up to 8,000 HP; always restores all EN & STA (user, via Item action).
 
 ## Curly — Defender (protection; many Tulpar forward-refs dormant)
 - Leader *Captain of the Damned* — Tulpar Crew +12% MAX HP, +15% ATK&DEF.
@@ -527,5 +527,21 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - ULT *Puny Creature* — 1,000% ATK + Deep Bruise 2t (R1). [R] *Immortal Hulk* — persistent Indestructible 2t, Taunt 2t, Retribution 2t to enemies ≤4p.
 - Synergies: Thor *Storm and Fury* (*Thunder Wave* = Thunder Clap + Shock 2t to all hit; +8% ATK/MAG vs Supreme Power enemies, +3% to Supreme Power allies). Iron Man *Genius and Betrayal* (*Earth-Destroying Slam* R9, 350% ATK ≤2p + Bruise, 200% MAG ≤4p no Bruise; +5% ATK/MAG vs Road to Redemption). Wolverine *Beasts Within* (Dynamic *Fastball Special* 10EN each, launch Wolverine ≤1p to panel R10 ignoring elevation + Pinpoint; *Overpowering Roar* = Roar + 10% HP). Goku SS *Born of Rage* (Dynamic *Gamma Kamehameha* Goku 60EN, Hulk 20EN+2STA within 2p; 3-wide 7 line, 300% MAG + 300% ATK). Loki *Pawn of Mischief* (*Puny God* 1,150% +250% vs Supreme Power; can ULT an allied Loki (not clones); on Loki defeat +10% DEF/RES/ATK/MAG rest of battle + Confidence 2t).
 
+## Black Widow — Striker (hybrid spy-striker; Shock; execute EN loop; inert buff-bank)
+- Leader *Built to Kill* — Super Soldier +15% ATK & +3% SPD; Rampant Deception +15% MAG & +3% EVA (she holds both links, so leading herself = +15% ATK/MAG, +3% SPD, +3% EVA).
+- Basic *Calculated Strikes* — 160% ATK, guaranteed crit (R1).
+- S1 *Dual Batons* — 120% ATK ×5, 20% Shock 2t per hit (30EN, CD2, R1).
+- S2 *Widow's Bite* — 350% MAG + 3 Shock stacks 2t (40EN, CD3, R6).
+- S3 *Widow's Line* — relocate to panel, ignores elevation; Stealth 1t (20EN, CD3, R8).
+- S4 *Red Room Rifle* — 700% ATK, guaranteed crit (60EN, CD5, R13).
+- [R] *Reliable Sidearm* — 300% MAG + 200% ATK (30EN, CD2, R6). [R] *Spy Optics* — can target Stealth/Invisible 2t; reveal resources of enemies ≤3p 1t; self +10% ATK/MAG 2t (30EN, CD4).
+- Core *Killer Instinct* — +10% ATK/MAG vs <50% HP targets; +20EN on damaging a <35% HP target (once/ability); ignores elevation when moving; +3% ULT per attack landed (once/ability).
+- P1 *False Memories* — positive status effects gained are made inert, except Stealth and Legendary/Mythic ones (e.g. Invisible, Indestructible, Impenetrable, Overdrive) (stat buffs unaffected); +2% ULT per status made inert; all inert positives activate on using an ULTIMATUM (affects it); Pinpoint 2t on kill.
+- P2 *Red in the Ledger* — +10% ATK/MAG 2t when an ally ≤5p drops below 35% HP (once per ally per 3 turns); +20% ATK/MAG 2t when an ally is defeated.
+- [R] *Enhanced Voltage* (Widow's Bite → 470% MAG + Paralyze 2t instead of Shock; CD +1). [R] *Agile Acrobatics* (+10% EVA, +5% SPD; +1 STA on landing an attack on an enemy that hasn't acted this turn, once/ability).
+- ULT *Deadly Precision* — 920% ATK, +15% damage per negative status on target (max +60%; stacks of one status count once) (R1). [R] *Tightening Cables* — 380% ATK + Constraint 2t (R3).
+- Costumes: Classic none; Retro +5% EVA, −10% DEF/RES (deliberate sidegrade); War Widow +5% CRIT & CR; Venomized +4% ATK.
+- Synergies (one-sided until partner sheets add them — see synergy-todo.md): Bucky *What the Red Room Took* (Dynamic *Guns Trained, Together* 30EN each, CD7, R8: each 450% ATK; passive *Living Weapons* +5% DEF/RES to Bucky, +5% ATK/MAG to Firearm Expert allies). Iron Man *The First Assignment* (*True Sight* = Spy Optics + enemies ≤3p −1 STA, reveal ≤5p 2t, +15% ATK/MAG). Cap *Straight Answers* (*The Alternative to Bloodshed* = Tightening Cables with persistent Constraint; passive *A Rare Truth*: reveal enemies ≤2p of Cap 1t, self +10EN when Cap uses a Support ability on himself). Wolverine *Before the Widow* (passive *A Lost Day in Madripoor*: Might+Technique 2t on Wolverine kill; Focus 1t if Wolverine ≤4p at turn start). Batgirl *No Masks Left* (*Widow's Claw* = Widow's Line with Stealth 2t, +1 stack <40% HP). Dracaena *The Side She Was Born To* (*Disarming Batons* = Dual Batons + target −15EN, random CD +1).
+
 ## Coverage
-All 34 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23). New champions: add an entry in the same pass as their sheet is finalized.
+All 35 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24). New champions: add an entry in the same pass as their sheet is finalized.

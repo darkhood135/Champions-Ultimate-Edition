@@ -1139,6 +1139,7 @@
         <div class="pill-group">
           <span class="pill">Position Swap</span>
           <span class="pill">Infliction Resist</span>
+          <span class="pill">Damage Reduction</span>
           <span class="pill">RES Down</span>
           <span class="pill">ACC Down</span>
           <span class="pill">Damage Over Time</span>
@@ -1231,7 +1232,7 @@
         <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
         <ul>
           <li>Deals 120% ATK damage to the target.</li>
-          <li>30% chance to inflict "Sting" to the target for 4 turns.</li>
+          <li>30% chance to inflict "Sting" on the target for 4 turns.</li>
           <li>Loki allies (clones included) restore 10 EN.</li>
         </ul>
       </div>
@@ -1244,11 +1245,11 @@
           <span class="ability-name">Doppelganger</span>
           <span class="ability-tag">Special 1</span>
         </div>
-        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 50 · Cooldown: 3 turns · Range: 6</div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 50 · Cooldown: 4 turns · Range: 6</div>
         <ul>
           <li>Summons a Loki Clone onto the targeted panel.</li>
-          <li>50% chance to discretely swap positions and resources (EN and STA) with the summoned clone.</li>
-          <li>Replaces an existing Loki Clone if 3 were already present on the battlefield (defeats the oldest, new spawns in normally).</li>
+          <li>50% chance to discreetly swap positions and resources (EN and STA) with the summoned clone.</li>
+          <li>Replaces an existing Loki Clone if 3 were already present on the battlefield (defeats the oldest; the new clone is summoned normally).</li>
           <li>Increases the cooldown of Gone Without a Trace by 1 turn.</li>
         </ul>
       </div>
@@ -1270,9 +1271,9 @@
           <span class="ability-name">Jotun Mist</span>
           <span class="ability-tag">Special 3</span>
         </div>
-        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 2</div>
+        <div class="ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 40 · Cooldown: 3 turns · Range: 2</div>
         <ul>
-          <li>Deals 300% MAG damage to any enemy 2 panels around self and all summons (must be summoned by self).</li>
+          <li>Deals 300% MAG damage to all enemies within 2 panels of self and of each summon (must be summoned by self); each enemy is damaged once per cast.</li>
           <li>50% chance to inflict 3 stacks of "Frost" for 2 turns to any enemies damaged (rolls once per stack).</li>
         </ul>
       </div>
@@ -1284,7 +1285,7 @@
         </div>
         <div class="ability-meta">Type: Support · Target: One Summon (summoned by self) · Energy: 10 · Cooldown: 3 turns · Range: 14</div>
         <ul>
-          <li>Discretely swaps positions and resources (EN and STA) with the summoned clone.</li>
+          <li>Discreetly swaps positions and resources (EN and STA) with the summoned clone.</li>
         </ul>
       </div>
 
@@ -1347,8 +1348,9 @@
           <span class="ability-tag">Passive 2</span>
         </div>
         <ul>
-          <li>Upon using ULTIMATUM, Loki Clones transform into Champion Mimics of the same Champion for 1 turn (maintaining current resources and HP).</li>
-          <li>+20% ATK and MAG when transformed.</li>
+          <li>Upon using Stolen Power, Loki Clones transform into Champion Mimics of the same Champion for 1 turn (maintaining current resources and HP).</li>
+          <li>Transformed clones can only use the copied Champion's Basic Ability and passives.</li>
+          <li>Transformed clones gain +20% ATK and MAG.</li>
         </ul>
       </div>
 
@@ -1359,7 +1361,7 @@
         </div>
         <ul>
           <li>Gains the ability to damage allies.</li>
-          <li>Damaging an ally with a special ability decreases the cooldowns of Doppelganger and Devious exchange by 1 turn.</li>
+          <li>Damaging an ally with a special ability decreases the cooldowns of Doppelganger and Devious Exchange by 1 turn.</li>
         </ul>
       </div>
 
@@ -1370,8 +1372,9 @@
         </div>
         <ul>
           <li>HP is shared between self and summons.</li>
-          <li>MAX HP is increased by 5,000 per summon on the battefield (must be summoned by self, instantly increases upon summoning).</li>
-          <li>Restores 3,000 HP upon summoning a Loki Clone.</li>
+          <li>MAX HP is increased by 4,000 per summon on the battlefield (must be summoned by self, instantly increases upon summoning).</li>
+          <li>The MAX HP increase applies to whichever form Loki is in, including Stolen Power transformations.</li>
+          <li>Restores 1,500 HP upon summoning a Loki Clone.</li>
           <li>Summon damage is decreased by 30%.</li>
         </ul>
       </div>
@@ -1386,10 +1389,12 @@
         </div>
         <div class="ability-meta">Type: Support · Target: One Ally or Enemy · Range: 6 · Cost: 100% ULT</div>
         <ul>
-          <li>Transforms into the target's Champion for 3 turns.</li>
-          <li>Transformation begins at a start-of-battle state.</li>
+          <li>Transforms into the target Champion for 3 turns.</li>
+          <li>Transformation begins at a start-of-battle state, except HP, which starts at Loki's current HP percentage.</li>
+          <li>The transformation does not gain buffs of any kind due to links.</li>
           <li>Passive ULT charge is increased to 38% per turn while transformed.</li>
-          <li>Upon exiting the transformation, MAX HP percentage and resources are retained.</li>
+          <li>Loki is defeated if the transformation is defeated (the copied kit's own endurance and revival effects still apply).</li>
+          <li>Upon exiting the transformation, ULT is reset to 0%; MAX HP percentage and all other resources are retained.</li>
         </ul>
       </div>
 
@@ -1400,7 +1405,7 @@
         </div>
         <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
         <ul>
-          <li>Devious Exchange has no cooldown for 3 turns.</li>
+          <li>For 3 turns, Devious Exchange costs no EN and has no cooldown.</li>
           <li>+20% MAG to self and summons for 3 turns.</li>
         </ul>
       </div>
@@ -1481,9 +1486,9 @@
               <span class="syn-type-badge">Upgraded Special</span>
             </div>
             <div class="syn-override">Overrides <strong>Jotun Mist</strong> — the base special must be in the active loadout to use this form.</div>
-            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 30 · Cooldown: 3 turns · Range: 3</div>
+            <div class="syn-ability-meta">Type: Ranged · Target: All Enemies in Range · Energy: 40 · Cooldown: 3 turns · Range: 3</div>
             <ul>
-              <li>Deals 300% MAG damage to any enemy 3 panels around self and all summons (must be summoned by self).</li>
+              <li>Deals 300% MAG damage to all enemies within 3 panels of self and of each summon (must be summoned by self); each enemy is damaged once per cast.</li>
               <li>60% chance to inflict 3 stacks of "Frost" for 3 turns to any enemies damaged (rolls once per stack).</li>
             </ul>
           </div>

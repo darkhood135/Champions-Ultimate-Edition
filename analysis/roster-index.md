@@ -6,7 +6,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (The Hulk and Boom Tube are 2x2), so SIZE is only shown on lines where it isn't 1x1.
 
-**Last updated:** 2026-10-23 (through The Hulk v1.1.0). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-10-25 (through Krillin re-critique). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -18,6 +18,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Wolverine** — 5,700 / 410 / 0 / 0 / 60 / 40 / 96% / 150%·20% / 100 / 15% — glass bruiser, REGEN 6%, Wild Fury (+50% ATK cap)
 - **Batgirl** — 7,200 / 360 / 140 / 0 / 110 / 70 / 98% / 175%·30% / 110 / 25%
 - **Harry Potter** — 7,600 / 120 / 400 / 0 / 80 / 170 / 97% / 175%·20% / 110 / 20%, EN 120·STA 7 — control-into-damage caster-striker; magic-tanky/physical-paper; revives once at 80%
+- **Black Widow** — 8,600 / 310 / 290 / 0 / 130 / 80 / 99% / 150%·30% / 114 / 20%, EN 100·STA 7, REGEN 1% — hybrid spy-striker; guaranteed-crit basic + Red Room Rifle; Shock via Batons/Bite (DoT ignores RES = her anti-tank tool); execute EN refund vs <35% HP; optional inert buff-bank (False Memories) cashed out by ULT; no survival valve beyond Widow's Line Stealth; low RES
 
 ### Blaster
 - **Iron Man** — 7,700 / 210 / 390 / 0 / 120 / 120 / 99% / 150%·25% / 110 / 12% — tanky-for-role
@@ -62,12 +63,12 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Cloak** — 6,400 / 190 / 330 / 0 / 90 / 110 / 97% / 150%·10% / 108 / 10%
 - **Miles Morales** — 7,300 / 310 / 270 / 0 / 100 / 90 / 97% / 175%·20% / 113 / 20%
 - **Batman** — 7,500 / 370 / 280 / 0 / 120 / 80 / 99% / 180%·25% / 108 / 15%
-- **Krillin** — 4,800 / 290 / 340 / 0 / 70 / 140 / 99% / 200%·35% / 115 / 40% — glass high-crit evasive; Senzu Bean dispenser
+- **Krillin** — 4,800 / 290 / 340 / 0 / 70 / 140 / 99% / 200%·35% / 115 / 40%, EN 120·STA 10, REGEN 4% — glass high-crit evasive (best average crit in roster, ×1.35); Solar Flare Blind/Stun loop (capped 2026-10-25); Senzu Bean dispenser (first bean per user = full HP, later ones ≤8,000 HP)
 - **Dracaena Malfoy** — 5,200 / 110 / 370 / 0 / 40 / 180 / 95% / 150%·50% / 112 / 35% — curse-lockdown caster, magic-tanky/physical-paper
 
 ### Summoner
 - **The Summoner** — 9,000 / 300 / 300 / 300 / 120 / 120 / 100% / 150%·20% / 110 / 10% — balanced toolbox, copies any champion
-- **Loki** — 7,600 / 190 / 380 / 0 / 60 / 120 / 97% / 150%·25% / 116 / 10% — illusion-swarm (clones)
+- **Loki** — 7,600 / 190 / 380 / 0 / 60 / 120 / 97% / 150%·25% / 116 / 10%, EN 120·STA 8, REGEN 3% — illusion-swarm: up to 3 persistent 5k-HP clones (Loki's MAG, disguised as him = true shell game); counterplay = find & kill Loki (clones die with him); Threads build = shared pool up to 19.6k (AoE hits each body); Stolen Power copies any Champion 3t at Loki's HP% (ULT resets on exit — loop closed 2026-10-25)
 - **Frieza** (Final ↔ Full Power) — 5,800 / 220 / 330 / 0 / 60 / 60 / 99% / 150%·5% / 114 / 30%, EN 150·STA 4 — Full Power: +3,000 HP, +80 ATK, +30 MAG, +70 DEF, +70 RES, +10% CR, −25% EVA (evasion→bulk restat); transforms below 10% HP
 
 ### Plunderer

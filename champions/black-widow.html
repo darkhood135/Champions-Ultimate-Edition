@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Widow — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #f0545b; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #e8373f;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(232, 55, 63, 0.12);
+    color: #f58a8f;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(232, 55, 63, 0.35);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #e8373f;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #e8373f;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #f58a8f;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     Black Widow theme — Widow Black / Hourglass Red / Widow's Bite Blue palette.
+       Widow black = the catsuit, the shadows, the Red Room's finished weapon.
+       Hourglass red = the insignia on her belt, the name she was built into.
+       Widow's Bite blue = the electrified batons and wrist gauntlets.
+       Gunmetal & cable steel = the rifle, the sidearm, the grapple line.
+       Romanoff auburn = her hair, the person beneath the programming.
+     Blue marks anything that shocks; steel marks her tools; red marks
+     what the Red Room made of her. */
+
+  .ability--leader {
+    background: #c41f2a;          /* hourglass red — built to kill */
+    color: #ffe2e4;
+  }
+
+  .ability--basic {
+    background: #141215;          /* widow black — clean, precise close quarters */
+    border: 1px solid #4a1d22;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #f26369; }
+  .ability--basic .ability-tag  { color: #a88b90; }
+  .ability--basic .ability-meta { color: #a88b90; }
+
+  .ability--special-1 { background: #2f86e8; color: #04162d; } /* baton blue — Dual Batons, sparking */
+  .ability--special-2 { background: #123b78; color: #cfe2ff; } /* deep voltage — the Widow's Bite discharge */
+  .ability--special-3 { background: #a7b0bb; color: #11151a; } /* cable steel — Widow's Line grapple */
+  .ability--special-4 { background: #33373e; color: #e7e9ee; } /* gunmetal — Red Room Rifle */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #2f86e8; } /* baton blue */
+  .ability--reserve-passive   { border-left-color: #b5502f; } /* auburn */
+  .ability--reserve-ultimatum { border-left-color: #a3161f; } /* red room crimson */
+
+  .ability--core-passive {
+    background: #170b0d;          /* widow black with a red hourglass glow — instinct */
+    color: #f2a9ae;
+  }
+
+  .ability--passive {
+    background: #9c3f26;          /* romanoff auburn — memory, temper, the person underneath */
+    color: #fde5dc;
+  }
+
+  .ability--ultimatum {
+    background: #6b0d16;          /* red room crimson — the weapon at full lethality */
+    color: #ffd6da;
+  }
+
+  .ability--synergy {
+    background: #16323d;          /* charged cyan, muted — connection */
+    color: #a9e3f2;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within Black Widow's palette — charged cyan for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #2b9fc0; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(54, 194, 230, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #36c2e6; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #86d9ef;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #36c2e6; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #36c2e6; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(54, 194, 230, 0.1);
+    border: 1px solid rgba(54, 194, 230, 0.3);
+    color: #c4ecf7;
+  }
+  .syn-cost-chip .who { color: #86d9ef; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #36c2e6; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(54, 194, 230, 0.15); color: #8fe2f5; border: 1px solid rgba(54, 194, 230, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Stacks under the portrait in the left hero column. Autoplay is
+     attempted on load; if the browser blocks it, playback starts on the
+     visitor's first interaction with the page (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8373f;            /* hourglass red */
+    color: #1a0608;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #f58a8f;                 /* hourglass light accent */
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/black-widow.jpg" alt="Black Widow">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (track name) and .theme-source (original game it's from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/black-widow.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">The Red Death</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: INT Majin Buu (Good) Intro OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/black-widow.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">Black Widow</h1>
+      <p class="subtitle">Natasha Romanoff</p>
+      <span class="role-badge">Striker</span>
+      <p class="description">
+        Molded by the Soviet Red Room into its deadliest weapon until she broke free to fight for the very world she was sent to deceive, Natasha Romanoff stands among the Avengers as the Black Widow — the most dangerous spy on Earth.
+      </p>
+      <p class="description">
+        Natasha Romanoff was never given the chance to become anyone; she was built. Orphaned in the burning ruins of Stalingrad as a child, Natalia Romanova was delivered into the Red Room, where girls were trained against one another until only the best were left standing, and where even her memories became tools of her handlers — a ballerina’s life she never truly lived, written over the one she had. She was taught that she was a mission and nothing more, and for years she believed it, until an assignment against Tony Stark brought her face to face with the heroes she had been sent to destroy. Clint Barton saw something in her worth reaching for, and her defection became the first decision that was ever entirely her own. She has served the Avengers and S.H.I.E.L.D. ever since, though never as the bright, banner-waving kind of hero. She takes on the work no one else will, in the places no one else will go, and she has never once asked to be forgiven for who she used to be. Behind the dry wit and the cool, unreadable composure is a woman fiercely and quietly loyal to the few she calls family, sworn that no other girl will be broken the way she was. She doesn’t ask anyone to call her a hero. She just keeps doing the work, paying back what she owes one debt at a time.
+      </p>
+      <p class="description">
+        Her body bears the Red Room’s craftsmanship as surely as her mind does. A Soviet answer to the Super-Soldier serum honed her strength, speed, agility and endurance to the edge of human limits, quickened her healing and held back the march of age, keeping her decades younger than the history she carries. On that frame rests a lifetime of training few on Earth can match: a dancer’s grace turned to lethal acrobatics, mastery of a dozen fighting styles, deadly marksmanship, and fluency in more languages than most people could name. Bracelets at her wrists house the Widow’s Bite, stingers that loose crackling bolts of electricity, alongside a grappling Widow’s Line that carries her across rooftops and through any gap in a defense. Yet her sharpest weapon has always been the mind behind them: her gift for reading everyone in a room, becoming whoever she needs to be, and finding the crack in every lock, alibi and lie. The Red Room set out to make the perfect weapon. It never imagined the day she would choose her own side.
+      </p>
+      <p class="quote">"We are not heroes. We are tools. And tools get used."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">8,600</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">310</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">290</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">130</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">80</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">150%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">30%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">114</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">20%</span></div>
+        <div class="stat-row"><span class="label">SIZE</span><span class="value">1x1</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">7</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">1%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/marvel-universe.html" class="pill">Marvel Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/super-soldier.html" class="pill">Super Soldier</a>
+          <a href="../links/avengers.html" class="pill">Avengers</a>
+          <a href="../links/new-avengers.html" class="pill">New Avengers</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+          <a href="../links/firearm-expert.html" class="pill">Firearm Expert</a>
+          <a href="../links/rampant-deception.html" class="pill">Rampant Deception</a>
+          <a href="../links/road-to-redemption.html" class="pill">Road to Redemption</a>
+          <a href="../links/street-level.html" class="pill">Street Level</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Elevation Bypass</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">CRIT Up</span>
+          <span class="pill">Stealth Application</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Inert</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">Resource Reveal</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="the-winter-soldier.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/the-winter-soldier.jpg" alt="The Winter Soldier">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Winter Soldier</strong>
+              <span class="real-name">James Buchanan "Bucky" Barnes</span>
+              <span class="synergy-name">What the Red Room Took</span>
+            </div>
+          </a>
+
+          <a href="iron-man.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Iron Man</strong>
+              <span class="real-name">Anthony Stark</span>
+              <span class="synergy-name">The First Assignment</span>
+            </div>
+          </a>
+
+          <a href="captain-america.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Captain America</strong>
+              <span class="real-name">Steve Rogers</span>
+              <span class="synergy-name">Straight Answers</span>
+            </div>
+          </a>
+
+          <a href="wolverine.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Wolverine</strong>
+              <span class="real-name">James "Logan" Howlett</span>
+              <span class="synergy-name">Before the Widow</span>
+            </div>
+          </a>
+
+          <a href="batgirl.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Batgirl</strong>
+              <span class="real-name">Cassandra Cain</span>
+              <span class="synergy-name">No Masks Left</span>
+            </div>
+          </a>
+
+          <a href="dracaena-malfoy.html" class="partner-card">
+            <div class="partner-image">
+              <img src="../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Dracaena Malfoy</strong>
+              <span class="real-name">Dracaena Lucius Malfoy</span>
+              <span class="synergy-name">The Side She Was Born To</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Built to Kill</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Super Soldier" allies gain +15% ATK and +3% SPD in battle.</li>
+          <li>"Rampant Deception" allies gain +15% MAG and +3% EVA in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Calculated Strikes</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 160% ATK damage to the target.</li>
+          <li>Guaranteed critical hit.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Dual Batons</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+        <ul>
+          <li>Deals 120% ATK damage to the target 5 times.</li>
+          <li>Each hit has a 20% chance to inflict "Shock" on the target for 2 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Widow's Bite</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 40 · Cooldown: 3 turns · Range: 6</div>
+        <ul>
+          <li>Deals 350% MAG damage to the target.</li>
+          <li>Inflicts 3 stacks of "Shock" for 2 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Widow's Line</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 8</div>
+        <ul>
+          <li>Relocates self to the targeted panel.</li>
+          <li>Ignores elevation.</li>
+          <li>Self gains "Stealth" for 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Red Room Rifle</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 60 · Cooldown: 5 turns · Range: 13</div>
+        <ul>
+          <li>Deals 700% ATK damage to the target.</li>
+          <li>Guaranteed critical hit.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Reliable Sidearm</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Ranged · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 6</div>
+        <ul>
+          <li>Deals 300% MAG damage to the target.</li>
+          <li>Deals 200% ATK damage to the target.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Spy Optics</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>Can target enemies with "Invisible" or "Stealth" for 2 turns.</li>
+          <li>Reveals the resources of all enemies within 3 panels of self for 1 turn.</li>
+          <li>Self gains +10% ATK and MAG for 2 turns.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Killer Instinct</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>+10% ATK and MAG when targeting an enemy below 50% HP.</li>
+          <li>Restores 20 EN when dealing damage to a target below 35% HP (once per ability).</li>
+          <li>Ignores elevation differences when moving.</li>
+          <li>Gains 3% ULT each time one of her attacks lands (once per ability).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">False Memories</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>All positive status effects gained are immediately made inert upon being received, except "Stealth" and Legendary or Mythic status effects.</li>
+          <li>Gains 2% ULT for each positive status effect made inert this way.</li>
+          <li>All positive inert status effects on self become active upon using an ULTIMATUM (affects that ability).</li>
+          <li>Gains "Pinpoint" for 2 turns upon defeating an enemy.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Red in the Ledger</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>+10% ATK and MAG for 2 turns when an ally within 5 panels drops below 35% HP (once per ally per 3 turns).</li>
+          <li>+20% ATK and MAG for 2 turns when an ally is defeated.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Enhanced Voltage</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Widow's Bite deals 470% MAG damage and inflicts "Paralyze" for 2 turns instead of "Shock".</li>
+          <li>Widow's Bite cooldown is increased by 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Agile Acrobatics</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+10% EVA.</li>
+          <li>+5% SPD.</li>
+          <li>Restores 1 STA upon landing an attack on an enemy that has not yet acted this turn (once per ability).</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Deadly Precision</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 920% ATK damage to the target.</li>
+          <li>+15% damage for each negative status effect on the target (max +60%; stacks of the same status effect count once).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Tightening Cables</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 3 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 380% ATK damage to the target.</li>
+          <li>Inflicts "Constraint" on the target for 2 turns.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-winter-soldier.jpg" alt="The Winter Soldier">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">What the Red Room Took</span>
+              <span class="synergy-partner-tag">w/ The Winter Soldier</span>
+            </div>
+            <p class="synergy-desc">Before he was a ghost story and before she was the Black Widow, James Barnes was the man the Red Room assigned to teach Natalia Romanova how to fight. Somewhere between the lessons they fell in love, the one thing in that place that was never on anyone’s orders. When their handlers found out, they took it the way they took everything else: they wiped it from both of them and sent them into the world as strangers. Natasha spent decades not knowing what she’d lost. When it finally came back, it came back in pieces, to two people who had each become someone else in the meantime. She doesn’t pretend they can pick up where they left off. But Bucky is the only person alive who knew her inside the Red Room and loved her anyway, and she has no intention of letting anyone take that from her twice.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Guns Trained, Together</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">Black Widow</span> · 30 EN</span>
+              <span class="syn-cost-chip"><span class="who">The Winter Soldier</span> · 30 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy · Cooldown: 7 turns · Range: 8</div>
+            <ul>
+              <li>Black Widow and The Winter Soldier each deal 450% ATK damage to the target.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Living Weapons</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% DEF and RES to The Winter Soldier.</li>
+              <li>+5% ATK and MAG to "Firearm Expert" allies.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/iron-man.jpg" alt="Iron Man">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The First Assignment</span>
+              <span class="synergy-partner-tag">w/ Iron Man</span>
+            </div>
+            <p class="synergy-desc">Tony Stark was the mark that brought Natasha to America. She was a Soviet spy sent to steal his secrets and sabotage his work, and she very nearly managed it. Since then she has studied the man more closely than almost anyone alive, closely enough to know that the arrogance is real, the genius is real, and the guilt beneath both runs deeper than he will ever say aloud. Tony has never entirely stopped glancing over his shoulder when she’s in the room. He jokes about it constantly, which is how he admits it. She respects him for that. He trusted her with his eyes open, knowing exactly what she was capable of, and in a life built on people trusting her blindly, she has come to value that kind of trust far more. Of every mission she ever ran against him, losing was the best thing that ever happened to her.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">True Sight</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Spy Optics</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+            <ul>
+              <li>Can target enemies with "Invisible" or "Stealth" for 2 turns.</li>
+              <li>All enemies within 3 panels of self lose 1 STA.</li>
+              <li>Reveals the resources of all enemies within 5 panels of self for 2 turns.</li>
+              <li>Self gains +15% ATK and MAG for 2 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/captain-america.jpg" alt="Captain America">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Straight Answers</span>
+              <span class="synergy-partner-tag">w/ Captain America</span>
+            </div>
+            <p class="synergy-desc">Natasha has a lie ready for everyone she meets, and Steve Rogers is one of the few people she no longer bothers to use one on. He is the most transparent man she has ever known, a soldier who says what he means and means what he says. To someone raised to treat every truth as a matter of circumstance, he was first a puzzle, then a provocation, and finally a relief. She pushes him on his idealism, his stubbornness, and the gap between the world he believes in and the one they actually work in, because someone has to, and he listens because she’s usually not wrong. He pushes back just as hard, holding her to the better instincts she insists she doesn’t have. Neither of them has ever quite won the argument. Both of them are better for having it.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-ultimatum">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">The Alternative to Bloodshed</span>
+              <span class="syn-type-badge">Upgraded ULTIMATUM</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Tightening Cables</strong> — the base ULTIMATUM must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Range: 3 · Cost: 100% ULT</div>
+            <ul>
+              <li>Deals 380% ATK damage to the target.</li>
+              <li>Inflicts persistent "Constraint" on the target for 2 turns.</li>
+            </ul>
+          </div>
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">A Rare Truth</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Reveals the resources of all enemies within 2 panels of Captain America for 1 turn (once per turn).</li>
+              <li>Self restores 10 EN whenever Captain America uses a Support ability on himself.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/wolverine.jpg" alt="Wolverine">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Before the Widow</span>
+              <span class="synergy-partner-tag">w/ Wolverine</span>
+            </div>
+            <p class="synergy-desc">Logan remembers a little girl in Madripoor in 1941, an orphan he and Steve Rogers pulled from the hands of the men hunting her and returned to the one guardian sworn to protect her. Natasha doesn’t remember it at all. The Red Room saw to that, the same way Weapon X carved holes in Logan’s own past, which makes him one of the last living witnesses to a childhood she can’t reach. Neither of them is the sentimental type. They have fought beside each other, against each other and around each other for decades, trading barbs the way old soldiers do. But every so often he’ll mention something about the kid she used to be. Natasha trusts almost no one’s version of her life, least of all her own, and she finds that she believes his.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">A Lost Day in Madripoor</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Gains "Might" and "Technique" for 2 turns whenever Wolverine defeats an enemy.</li>
+              <li>Gains "Focus" for 1 turn whenever Wolverine is within 4 panels of self at start of turn.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batgirl.jpg" alt="Batgirl">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">No Masks Left</span>
+              <span class="synergy-partner-tag">w/ Batgirl</span>
+            </div>
+            <p class="synergy-desc">Natasha speaks dozens of languages and can lie fluently in every one of them. Cassandra Cain was raised with no language but the body’s, and she reads it so perfectly that no lie survives her gaze. For the first time in her life, Natasha found herself across from someone she simply could not deceive. It unsettled her more than any enemy had in years, until she realized how restful it was. They were forged the same way, little girls trained into killers by people who saw nothing in them but a weapon. Cass rejected it with her whole heart and never wavered, and Natasha, who took far longer to find her way out, regards her with something close to awe. She keeps a quiet watch over the younger woman all the same. She swore that no one would ever do to another girl what was done to her, and Cass is the reminder of why that promise is worth keeping.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Widow's Claw</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Widow's Line</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 8</div>
+            <ul>
+              <li>Relocates self to the targeted panel.</li>
+              <li>Ignores elevation.</li>
+              <li>Self gains "Stealth" for 2 turns.</li>
+              <li>Self gains an additional stack of "Stealth" (for 2 turns) if below 40% HP.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Side She Was Born To</span>
+              <span class="synergy-partner-tag">w/ Dracaena Malfoy</span>
+            </div>
+            <p class="synergy-desc">Natasha recognized the performance the moment they met: the cultivated sneer, the cold poise, the cruelty worn like a uniform someone else had picked out. She wore the same one for years. Dracaena was raised to serve monsters for the sake of her family, and Natasha to serve a regime that never once asked her name. Both learned early that the mask was safer than the face beneath it, and both eventually turned their backs on the only side they had ever known. What Natasha offers is the part no one warns you about: defecting is not the end of it, the habits of the mask outlast the cause, and you will spend years being looked at sideways by the very people you came over to stand beside. She doesn’t soften any of it. She simply makes sure Dracaena never has to wonder whether someone in the room understands.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Disarming Batons</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Dual Batons</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 2 turns · Range: 1</div>
+            <ul>
+              <li>Deals 120% ATK damage to the target 5 times.</li>
+              <li>Each hit has a 20% chance to inflict "Shock" on the target for 2 turns.</li>
+              <li>The target loses 15 EN.</li>
+              <li>The target has a random cooldown increased by 1 turn.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/black-widow.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/black-widow(retro).jpg" alt="Retro">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Retro</div>
+          <div class="costume-effect-label">Brighter Than Intended — +5% EVA, -10% DEF and RES</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/black-widow(war-widow).jpg" alt="War Widow">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">War Widow</div>
+          <div class="costume-effect-label">Courtesy of Stark — +5% CRIT and CRIT RATE</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/black-widow(venomized).jpg" alt="Venomized">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Venomized</div>
+          <div class="costume-effect-label">Power Unfelt — +4% ATK</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">May 5, 2026</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>Black Widow enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    // Keep the play/pause icon in sync with actual playback state.
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      // Let clicks on the button be handled by the toggle itself.
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    // Manual play/pause; once the user clicks it, they're in control.
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    // Try to autoplay right away; on failure, arm the first-interaction fallback.
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>
