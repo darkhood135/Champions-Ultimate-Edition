@@ -586,6 +586,7 @@
         <a href="#buffs" class="toc-link toc-sub">Buffs: Stat Buffs and Status Effects</a>
         <a href="#debuff-stacking" class="toc-link toc-sub">Debuff Stacking &amp; Stat Floor</a>
         <a href="#elevation-bypass" class="toc-link toc-sub">Elevation Bypass</a>
+        <a href="#environmental-damage" class="toc-link toc-sub">Environmental Damage</a>
       </nav>
     </div>
   </aside>
@@ -1008,6 +1009,7 @@
       <p><strong>Descent STA cost:</strong> Dropping exactly 1 elevation (−1) carries no extra STA cost — only the normal 1 STA per panel applies. Dropping more than 1 elevation at a time costs an additional <strong>2 STA for each floor dropped beyond the first</strong>. A 3-floor drop, for example, costs 4 extra STA (2 floors beyond the first × 2 STA each). This extra cost can bring a Champion to exactly 0 STA and the descent is still permitted even if it would do so — a Champion entering a 3-floor drop with only 3 STA will reach the bottom at 0 STA. Airborne Champions and those who ignore elevation do not incur this extra STA cost when descending.</p>
       <p><strong>Visual note:</strong> An airborne Champion is displayed 1 elevation level above their ground panel. This is a visual representation only and does not affect range calculations or targeting rules.</p>
       <p><strong>Standable half-obstacles:</strong> Some half-obstacles explicitly permit a Champion to stand on top of them (e.g., the Brick Parapet). Standing on such an obstacle <strong>does not change the Champion's elevation tier</strong> — they remain at the same elevation as the floor beneath the obstacle. Half-obstacles provide no elevation advantage and do not affect line-of-sight or range calculations differently from a normal floor panel at that elevation.</p>
+      <p><strong>Stairs:</strong> Stairs connect two adjacent elevation tiers. Moving onto or off a Stairs panel costs the normal <strong>1 STA per panel</strong> with no surcharge (other access points, such as the Ladder on Brooklyn Rooftops, state their own cost). A Champion standing on Stairs <strong>counts as being on both connected tiers for targeting</strong>: they can target, and be targeted by, units on either tier without elevation restrictions, including with melee abilities. Reference: ACE Chemicals.</p>
 
       <h4 id="gap-jumping">Gap Jumping</h4>
       <p>A Champion can jump across a void gap of 1 or 2 panels wide at the same elevation, or across such a gap while descending to a lower elevation. The cost is the normal 1 STA to arrive at the destination panel plus <strong>2 STA per gap panel crossed</strong>. Crossing a 1-panel gap costs 3 STA total; a 2-panel gap costs 5 STA total. The gap panels themselves are not counted toward normal movement distance — only the destination panel and the gap surcharge.</p>
@@ -1025,6 +1027,8 @@
         <li>If a Champion is already standing on an edge panel and is then pushed into the void, they <strong>fall</strong>. Any playable Champion recovers from the fall, taking <strong>400 damage</strong> in the process and returning to the battlefield on the panel just inside the edge (one tile back onto the stage). Non-playable enemies such as minions are <strong>defeated outright</strong> by a fall with no recovery.</li>
       </ul>
       <p>The 400 damage applies only to a full fall — being pushed to an edge panel carries no HP cost on its own.</p>
+      <p><strong>Hazard falls:</strong> Some battlefields replace a fall with a hazard of their own, such as the Great Vat on ACE Chemicals, where a unit is <em>Submerged</em> instead of falling. These hazards follow the same edge-panel rule above (a unit not already on an edge panel catches itself), but apply the damage and effects stated on the battlefield page in place of the 400-damage fall.</p>
+      <p><strong>Sealed battlefields:</strong> A battlefield may state that its outer edge is wall rather than void. On a sealed battlefield nothing can fall off the map; a unit pushed into the edge simply stops on the edge panel.</p>
 
       <h4 id="panel-occupancy">Panel Occupancy</h4>
       <p>Two Champions cannot occupy the same panel simultaneously. If an ability would cause a Champion to land on a panel already occupied by another Champion, <strong>HP determines priority</strong>:</p>
@@ -1771,6 +1775,17 @@
         <li><strong>"Ignores elevation differences when targeting or moving"</strong> — the full variant. Includes everything above, and additionally removes elevation as a factor when selecting targets. The most notable implication: melee abilities (which would normally require the attacker and target to share an elevation tier) can reach targets at a different elevation — including airborne Champions — as though the height difference did not exist.</li>
       </ul>
       <p>Both forms are represented by the Elevation Bypass tag on a Champion sheet. Read the kit wording to determine which variant is in effect. Elevation Bypass is not a status effect and cannot be removed by enemy abilities unless a kit explicitly states otherwise.</p>
+
+      <h3 id="environmental-damage">Environmental Damage</h3>
+      <p><strong>Environmental damage</strong> is damage dealt by the battlefield itself rather than by an ability: falls, hazard tiles (e.g. Acid Spill), explosive containers (e.g. the Chemical Drum and Water Tower) and similar terrain. Battlefield pages call it out by name.</p>
+      <ul>
+        <li><strong>Flat and unmitigated.</strong> Like damage over time, it applies its stated value directly to HP and skips the attack calculation entirely: no CRIT roll, no ACC/EVA roll, no block multiplier and no DEF/RES subtraction.</li>
+        <li><strong>Not an attack.</strong> Effects that answer attacks do not apply: it cannot be evaded, countered, or negated by "Energy Barrier" or "Shield Charm", and it does not trigger "when receiving an attack" effects. Effects that prevent damage outright (e.g. "Impenetrable") and situational modifiers that reduce <em>all</em> damage still apply.</li>
+        <li><strong>No sides.</strong> It affects allies and enemies alike unless the hazard says otherwise.</li>
+        <li><strong>Fixed-stat inflictions.</strong> When a hazard inflicts a stat-scaling status (e.g. "Poison" from Acid Spill), it names a fixed stat value to use in place of an inflictor's stat.</li>
+        <li><strong>Credit.</strong> When a Champion's action triggers the damage (destroying a Chemical Drum, pushing an enemy into a hazard, opening a valve), the damage and any resulting defeat are credited to that Champion, including for the rule that the team who caused a mutual defeat wins. Damage from hazards no one triggered (a timed flood, a permanent spill) has no source.</li>
+      </ul>
+      <p>Reference: ACE Chemicals, whose Acid Spill, Chemical Drums and Great Vat all deal environmental damage.</p>
     </section>
 
   </main>

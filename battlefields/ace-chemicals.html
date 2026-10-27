@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE Chemicals — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #9ee34b; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .stage-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .stage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #9ee34b;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .universe-badge {
+    display: inline-block;
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(74, 163, 255, 0.3);
+    align-self: flex-start;
+  }
+
+  .universe-badge[data-universe="Marvel Universe"] {
+    background: rgba(255, 91, 91, 0.12);
+    color: #ff8585;
+    border-color: rgba(255, 91, 91, 0.3);
+  }
+
+  .universe-badge[data-universe="DC Universe"] {
+    background: rgba(74, 163, 255, 0.12);
+    color: #6bb4ff;
+    border-color: rgba(74, 163, 255, 0.3);
+  }
+
+  .universe-badge[data-universe="Multiversal"] {
+    background: rgba(192, 132, 252, 0.12);
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.3);
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #9ee34b;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAP SECTION ====================== */
+  .map-section {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 26px;
+    border: 1px solid #2c3038;
+    margin-bottom: 18px;
+  }
+
+  .map-section .section-divider {
+    margin: 0 0 18px;
+  }
+
+  /* Two-column layout — narrow key on left, maps on right */
+  .map-layout-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ---------- KEY / LEGEND (left column) ---------- */
+  .map-key {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 10px;
+    padding: 16px 18px 18px;
+    position: sticky;
+    top: 16px;
+  }
+
+  .map-key-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .key-group { margin-bottom: 14px; }
+  .key-group:last-child { margin-bottom: 0; }
+
+  .key-group-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #4f535c;
+    margin-bottom: 8px;
+  }
+
+  .key-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    color: #c5c8d0;
+    padding: 3px 0;
+    line-height: 1.3;
+  }
+
+  .key-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ---------- MAP FLOORS (right column) ---------- */
+  .map-floors {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .floor-block { min-width: 0; }
+
+  .floor-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px;
+    background: rgba(158, 227, 75, 0.1);
+    border: 1px solid rgba(158, 227, 75, 0.3);
+    border-radius: 6px;
+    color: #c4f07a;
+  }
+
+  .floor-label-suffix {
+    font-size: 9.5px;
+    color: #a3a8b3;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(158, 227, 75, 0.3);
+  }
+
+  .map-grid {
+    display: grid;
+    gap: 3px;
+    background: #0a0b0e;
+    border: 1px solid #2c3038;
+    border-radius: 8px;
+    padding: 10px;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  /* Stack for Floor 2 — ghost layer of Floor 1 beneath the upper floor */
+  .floor-stack {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .floor-stack .map-grid--ghost {
+    position: absolute;
+    inset: 0;
+    opacity: 0.22;
+    filter: saturate(0.35) blur(0.25px);
+    pointer-events: none;
+    z-index: 0;
+    /* Disable hover scaling on ghost panels */
+  }
+
+  .floor-stack .map-grid--ghost .panel { pointer-events: none; }
+
+  .floor-stack .map-grid--upper {
+    position: relative;
+    z-index: 1;
+    /* Subtle drop-shadow signals "raised above" */
+    box-shadow:
+      0 -2px 0 rgba(158, 227, 75, 0.15) inset,
+      0 4px 14px rgba(0, 0, 0, 0.45);
+    background: rgba(10, 11, 14, 0.92);
+  }
+
+  /* Upper-floor solid panels get a faint top highlight, emphasizing elevation */
+  .floor-stack .map-grid--upper .panel:not(.panel--void) {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+
+  .panel {
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    position: relative;
+    transition: transform 0.1s ease, outline 0.1s ease;
+  }
+
+  .panel:hover {
+    transform: scale(1.18);
+    outline: 1px solid #f0f1f3;
+    z-index: 2;
+  }
+
+  /* ========== PANEL TYPES ========== */
+  /* Structural — universal across every stage */
+  .panel--floor      { background: #2a3340; }
+  .panel--elevation-plus      { background: #e4aca2; }
+  .panel--elevation-minus      { background: #a2bce4; }
+  .panel--spawn-a    { background: #3b82f6; }
+  .panel--spawn-b    { background: #e11d48; }
+  .panel--item       { background: #facc15; }
+  .panel--void       { background: transparent; }
+  .panel--void:hover { transform: none; outline: none; }
+
+  /* Stage-specific — ACE Chemicals palette.
+     Panel, key swatch and obstacle card share one token per feature. */
+  .panel--wall            { background: #7c8aa3; }
+  .panel--silo            { background: #78716c; }
+  .panel--reactor         { background: #a8a29e; }
+  .panel--pipe-run        { background: #ec4899; }
+  .panel--vat             { background: #3f6212; }
+  .panel--drum            { background: #e2e8f0; }
+  .panel--stairs          { background: #f97316; }
+  .panel--gantry          { background: #2dd4bf; }
+  .panel--gantry-control  { background: #6366f1; }
+  .panel--console         { background: #a855f7; }
+  .panel--valve           { background: #d946ef; }
+  .panel--locker          { background: #7dd3fc; }
+  .panel--acid-spill      { background: #a3e635; }
+  .panel--catwalk         { background: #c2410c; }
+  /* Gantry panels show both positions; only one arm is ever extended */
+  .panel--gantry { box-shadow: inset 0 0 0 2px rgba(19, 78, 74, 0.85); }
+
+  /* ========== KEY SWATCH COLORS (must match panel colors) ========== */
+  .key-swatch--floor           { background: #2a3340; }
+  .key-swatch--elevation-plus  { background: #e4aca2; }
+  .key-swatch--spawn-a         { background: #3b82f6; }
+  .key-swatch--spawn-b         { background: #e11d48; }
+  .key-swatch--item            { background: #facc15; }
+  .key-swatch--wall            { background: #7c8aa3; }
+  .key-swatch--silo            { background: #78716c; }
+  .key-swatch--reactor         { background: #a8a29e; }
+  .key-swatch--pipe-run        { background: #ec4899; }
+  .key-swatch--vat             { background: #3f6212; }
+  .key-swatch--drum            { background: #e2e8f0; }
+  .key-swatch--stairs          { background: #f97316; }
+  .key-swatch--gantry          { background: #2dd4bf; }
+  .key-swatch--gantry-control  { background: #6366f1; }
+  .key-swatch--console         { background: #a855f7; }
+  .key-swatch--valve           { background: #d946ef; }
+  .key-swatch--locker          { background: #7dd3fc; }
+  .key-swatch--acid-spill      { background: #a3e635; }
+  .key-swatch--catwalk         { background: #c2410c; }
+  .key-swatch--gantry          { box-shadow: inset 0 0 0 2px rgba(19, 78, 74, 0.85); }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel-box {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(158, 227, 75, 0.1);
+    border-color: #9ee34b;
+    color: #f0f1f3;
+  }
+
+  /* Stage Rules list */
+  .rules-list { list-style: none; padding: 0; }
+  .rules-list li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    color: #c5c8d0;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .rules-list li:last-child { margin-bottom: 0; }
+  .rules-list li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: #9ee34b;
+    font-weight: 700;
+  }
+  .rules-list strong { color: #f0f1f3; font-weight: 700; }
+
+  /* Flood sector chips inside the Stage Rules */
+  .sector-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+  .sector-chip {
+    font-size: 11px; font-weight: 600; color: #d9f99d;
+    background: rgba(158, 227, 75, 0.08);
+    border: 1px solid rgba(158, 227, 75, 0.28);
+    border-radius: 6px; padding: 3px 9px;
+  }
+
+  .empty-note {
+    font-size: 13px; color: #6b7280; font-style: italic;
+    padding: 14px 18px; border: 1px dashed #2c3038; border-radius: 10px;
+  }
+
+  /* ====================== ITEMS ON MAP ====================== */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .item-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .item-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 4px;
+    line-height: 1.2;
+  }
+
+  .item-card:hover .item-image {
+    border-color: #9ee34b;
+    transform: scale(1.06);
+  }
+
+  .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .item-card:hover .item-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .item-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .item-tooltip .item-meta {
+    color: #c4f07a;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .item-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== OBSTACLES SECTION ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .obstacle {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .obstacle-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background: #0a0b0e;
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #f0f1f3;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  .obstacle-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hue strip on the icon matches the panel/key swatch */
+  .obstacle--wall            .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(124, 138, 163, 0.7); }
+  .obstacle--silo            .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(120, 113, 108, 0.7); }
+  .obstacle--reactor         .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(168, 162, 158, 0.7); }
+  .obstacle--pipe-run        .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(236, 72, 153, 0.7); }
+  .obstacle--vat             .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(63, 98, 18, 0.7); }
+  .obstacle--drum            .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(226, 232, 240, 0.7); }
+  .obstacle--stairs          .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(249, 115, 22, 0.7); }
+  .obstacle--gantry          .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(45, 212, 191, 0.7); }
+  .obstacle--gantry-control  .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(99, 102, 241, 0.7); }
+  .obstacle--console         .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(168, 85, 247, 0.7); }
+  .obstacle--valve           .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(217, 70, 239, 0.7); }
+  .obstacle--locker          .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(125, 211, 252, 0.7); }
+  .obstacle--acid-spill      .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(163, 230, 53, 0.7); }
+  .obstacle--catwalk         .obstacle-icon { box-shadow: inset 0 0 0 2px rgba(194, 65, 12, 0.7); }
+
+  .obstacle-body {
+    min-width: 0;
+  }
+
+  .obstacle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .obstacle-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .obstacle-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    white-space: nowrap;
+  }
+
+  .obstacle-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .obstacle ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .obstacle ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .obstacle ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== OBSTACLE COLOR VARIANTS ======================
+     One color per obstacle. The panel color, key swatch and card hue all
+     share a token so the eye can connect them at a glance. */
+
+  .obstacle--wall { background: #1e293b; color: #e2e8f0; }
+  .obstacle--wall .obstacle-tag { color: #94a3b8; }
+
+  .obstacle--silo { background: #292524; color: #f5f5f4; }
+  .obstacle--silo .obstacle-tag { color: #d6d3d1; }
+
+  .obstacle--reactor { background: #44403c; color: #fafaf9; }
+  .obstacle--reactor .obstacle-tag { color: #e7e5e4; }
+
+  .obstacle--pipe-run { background: #831843; color: #fce7f3; }
+  .obstacle--pipe-run .obstacle-tag { color: #f9a8d4; }
+
+  .obstacle--vat { background: #1a2e05; color: #ecfccb; }
+  .obstacle--vat .obstacle-tag { color: #a3e635; }
+
+  .obstacle--drum { background: #334155; color: #f1f5f9; }
+  .obstacle--drum .obstacle-tag { color: #e2e8f0; }
+
+  .obstacle--stairs { background: #7c2d12; color: #fed7aa; }
+  .obstacle--stairs .obstacle-tag { color: #fdba74; }
+
+  .obstacle--gantry { background: #134e4a; color: #ccfbf1; }
+  .obstacle--gantry .obstacle-tag { color: #5eead4; }
+
+  .obstacle--gantry-control { background: #312e81; color: #e0e7ff; }
+  .obstacle--gantry-control .obstacle-tag { color: #a5b4fc; }
+
+  .obstacle--console { background: #4c1d95; color: #ede9fe; }
+  .obstacle--console .obstacle-tag { color: #c4b5fd; }
+
+  .obstacle--valve { background: #701a75; color: #fae8ff; }
+  .obstacle--valve .obstacle-tag { color: #f0abfc; }
+
+  .obstacle--locker { background: #0c4a6e; color: #e0f2fe; }
+  .obstacle--locker .obstacle-tag { color: #7dd3fc; }
+
+  .obstacle--acid-spill { background: #365314; color: #ecfccb; }
+  .obstacle--acid-spill .obstacle-tag { color: #bef264; }
+
+  .obstacle--catwalk { background: #431407; color: #ffedd5; }
+  .obstacle--catwalk .obstacle-tag { color: #fb923c; }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #4aa3ff; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(74, 163, 255, 0.15); color: #6bb4ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .stage-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    /* Stack key above maps on narrow viewports */
+    .map-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .map-key { position: static; }
+  }
+
+  @media (max-width: 600px) {
+    .panel { width: 22px; height: 22px; }
+    .obstacle { grid-template-columns: 48px 1fr; gap: 14px; padding: 16px 18px; }
+    .obstacle-icon { width: 48px; height: 48px; font-size: 18px; }
+    .obstacle-header { flex-wrap: wrap; }
+    .obstacle-tag { white-space: normal; }
+    .items-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../battlefields.html" class="back-link">← Back to Battlefields</a>
+
+  <!-- =============================================
+       HERO BAR — Stage icon and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="stage-image">
+      <img src="../images/battlefields/ace-chemicals.jpg" alt="ACE Chemicals">
+    </div>
+
+    <div class="identity">
+      <h1 class="name">ACE Chemicals</h1>
+      <p class="subtitle">Gotham City, New Jersey</p>
+      <span class="universe-badge" data-universe="DC Universe">DC Universe</span>
+      <p class="description">
+        The ACE Chemicals processing plant on Gotham&rsquo;s industrial waterfront, closed for years and still leaking. Pipes hiss overhead, alarms nobody maintains still go off, and the Great Vat at the heart of the plant never quite drains. Raised catwalks and a rotating gantry are the only dry routes to the center, and every few turns the broken pumps flood another wing of the plant with acid. Hold the high ground and you decide who has to wade; lose it, and you&rsquo;d better have found a hazmat suit first.
+      </p>
+      <p class="quote">"I know where we are immediately. The chemical smell gives it away... Ace. Where he was born."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAP — Two-column section: key on left, floor grid on right.
+       Each .panel is one battlefield tile, colored by class.
+       The map mirrors west/east (Team A / Team B).
+       ============================================= -->
+  <section class="map-section">
+    <div class="section-divider">Map Layout</div>
+
+    <div class="map-layout-grid">
+
+      <!-- ============== LEGEND (left column) ============== -->
+      <aside class="map-key">
+        <div class="map-key-title">Legend</div>
+
+        <div class="key-group">
+          <div class="key-group-title">Structural</div>
+          <div class="key-item"><span class="key-swatch key-swatch--floor"></span>Floor</div>
+          <div class="key-item"><span class="key-swatch key-swatch--elevation-plus"></span>+1 Elevation</div>
+          <div class="key-item"><span class="key-swatch key-swatch--spawn-a"></span>Spawn · Team A</div>
+          <div class="key-item"><span class="key-swatch key-swatch--spawn-b"></span>Spawn · Team B</div>
+          <div class="key-item"><span class="key-swatch key-swatch--item"></span>Item Spawn</div>
+        </div>
+
+        <div class="key-group">
+          <div class="key-group-title">Stage Features</div>
+          <div class="key-item"><span class="key-swatch key-swatch--wall"></span>Plant Wall</div>
+          <div class="key-item"><span class="key-swatch key-swatch--silo"></span>Storage Silo</div>
+          <div class="key-item"><span class="key-swatch key-swatch--reactor"></span>Mixing Reactor</div>
+          <div class="key-item"><span class="key-swatch key-swatch--pipe-run"></span>Pipe Run</div>
+          <div class="key-item"><span class="key-swatch key-swatch--vat"></span>The Great Vat</div>
+          <div class="key-item"><span class="key-swatch key-swatch--drum"></span>Chemical Drum</div>
+          <div class="key-item"><span class="key-swatch key-swatch--stairs"></span>Stairs</div>
+          <div class="key-item"><span class="key-swatch key-swatch--gantry"></span>Rotating Gantry</div>
+          <div class="key-item"><span class="key-swatch key-swatch--gantry-control"></span>Gantry Control</div>
+          <div class="key-item"><span class="key-swatch key-swatch--console"></span>Flood Control Console</div>
+          <div class="key-item"><span class="key-swatch key-swatch--valve"></span>Pipe Valve</div>
+          <div class="key-item"><span class="key-swatch key-swatch--locker"></span>Hazmat Locker</div>
+          <div class="key-item"><span class="key-swatch key-swatch--acid-spill"></span>Acid Spill</div>
+          <div class="key-item"><span class="key-swatch key-swatch--catwalk"></span>Corroded Catwalk</div>
+        </div>
+      </aside>
+
+      <!-- ============== MAP FLOORS (right column) ============== -->
+      <div class="map-floors">
+
+        <!-- FLOOR 1 — The Plant (36 × 20) -->
+        <div class="floor-block">
+          <div class="floor-label">
+            <span>Floor 1 · The Plant</span>
+            <span class="floor-label-suffix">Sealed · No Void Edges</span>
+          </div>
+          <div class="map-grid" style="grid-template-columns: repeat(36, 22px);">
+            <!-- Row 1 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--valve" title="Pipe Valve"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--locker" title="Hazmat Locker"></div><div class="panel panel--locker" title="Hazmat Locker"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--valve" title="Pipe Valve"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 2 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Chemical Canister"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Chemical Canister"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 3 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 4 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 5 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 6 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 7 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--item" title="Item Spawn · Explosive Gel"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Explosive Gel"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 8 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--gantry-control" title="Gantry Control"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--gantry-control" title="Gantry Control"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 9 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--console" title="Flood Control Console"></div><div class="panel panel--console" title="Flood Control Console"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 10 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--reactor" title="Mixing Reactor"></div><div class="panel panel--reactor" title="Mixing Reactor"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 11 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--reactor" title="Mixing Reactor"></div><div class="panel panel--reactor" title="Mixing Reactor"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--gantry" title="Rotating Gantry (retracted at start)"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 12 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 13 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-a" title="Spawn · Team A"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--elevation-plus" title="+1 Elevation"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--spawn-b" title="Spawn · Team B"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 14 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Medkit"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Medkit"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 15 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--catwalk" title="Corroded Catwalk"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--vat" title="The Great Vat"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 16 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--stairs" title="Stairs"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 17 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--wall" title="Plant Wall"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--drum" title="Chemical Drum"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 18 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--acid-spill" title="Acid Spill"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 19 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Smoke Grenade"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--pipe-run" title="Pipe Run"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--item" title="Item Spawn · Smoke Grenade"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--silo" title="Storage Silo"></div><div class="panel panel--floor" title="Floor"></div>
+            <!-- Row 20 -->
+            <div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--valve" title="Pipe Valve"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--locker" title="Hazmat Locker"></div><div class="panel panel--locker" title="Hazmat Locker"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--valve" title="Pipe Valve"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div><div class="panel panel--floor" title="Floor"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       MAIN GRID — Layout / Stage Rules / Mode Rotation / Tags / Items | Obstacles
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Layout -->
+      <div class="panel-box">
+        <div class="panel-title">Layout</div>
+        <div class="stat-row"><span class="label">MAP SIZE</span><span class="value">36 × 20</span></div>
+        <div class="stat-row"><span class="label">FLOORS</span><span class="value">1</span></div>
+        <div class="stat-row"><span class="label">ITEM SPAWNS</span><span class="value">8</span></div>
+        <div class="stat-row"><span class="label">OBSTACLES</span><span class="value">19</span></div>
+        <div class="stat-row"><span class="label">HAZARDS</span><span class="value">13</span></div>
+        <div class="stat-row"><span class="label">INTERACTIVES</span><span class="value">10</span></div>
+        <div class="stat-row"><span class="label">ELEVATION TIERS</span><span class="value">2</span></div>
+        <div class="stat-row"><span class="label">SPECIAL TILES</span><span class="value">20</span></div>
+        <div class="stat-row"><span class="label">ENEMY SPAWNS</span><span class="value">0</span></div>
+      </div>
+
+      <!-- Stage Rules -->
+      <div class="panel-box">
+        <div class="panel-title">Stage Rules</div>
+        <ul class="rules-list">
+          <li><strong>Sealed Plant:</strong> The outer edge of the map is wall, not void &mdash; nothing falls off the map. The only fall on this battlefield is into the Great Vat.</li>
+          <li><strong>Chemical Floods:</strong> The plant is divided into five sectors:
+            <div class="sector-list">
+              <span class="sector-chip">West Bay</span><span class="sector-chip">East Bay</span><span class="sector-chip">North Corridor</span><span class="sector-chip">South Corridor</span><span class="sector-chip">Vat Hall floor</span>
+            </div>
+          </li>
+          <li><strong>Alarm:</strong> At the start of battle turn 3 the alarm sounds and the chosen sector&rsquo;s panels flash. The flood arrives at the start of turn 4 and lasts 2 battle turns. The cycle repeats every 3 battle turns (alarms on turns 3, 6, 9&hellip;).</li>
+          <li><strong>Flooding:</strong> While a sector is flooded, every elevation-0 panel in it is Acid Spill. Raised panels and Stairs never flood.</li>
+          <li><strong>Sector choice:</strong> The same sector never floods twice in a row, and the first flood can never target a spawn bay. Otherwise the sector is random, unless it was locked at the Flood Control Console.</li>
+          <li><strong>No respawns:</strong> Each item spawn tile holds one item per battle. Once it is picked up, nothing respawns there.</li>
+          <li><strong>Hazmat gear:</strong> Hazmat Suits only come from the two Hazmat Lockers; they never appear on item spawn tiles.</li>
+          <li><strong>Environmental damage:</strong> Damage from Acid Spill, Chemical Drums and the Great Vat is <a href="../catechism.html#environmental-damage" style="color:#c4f07a;">environmental damage</a> &mdash; flat, and it skips the attack calculation.</li>
+        </ul>
+      </div>
+
+      <!-- Mode Rotation -->
+      <div class="panel-box">
+        <div class="panel-title">Mode Rotation</div>
+        <div class="pill-group">
+          <a href="../battlefields.html#mode-main-story" class="pill">Main Story</a>
+          <a href="../battlefields.html#mode-event-story" class="pill">Event Story</a>
+          <a href="../battlefields.html#mode-arena" class="pill">Arena</a>
+          <a href="../battlefields.html#mode-danger-room" class="pill">Danger Room</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel-box">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Verticality</span>
+          <span class="pill">Destructible Obstacles</span>
+          <span class="pill">Environmental Damage</span>
+          <span class="pill">Item Spawns</span>
+          <span class="pill">Stage Events</span>
+          <span class="pill">Indoor</span>
+          <span class="pill">Special Tiles</span>
+        </div>
+      </div>
+
+      <!-- Items Available on Map -->
+      <div class="panel-box">
+        <div class="panel-title">Items on Map</div>
+        <div class="items-grid">
+
+          <a href="../items/hazmat-suit.html" class="item-card">
+            <div class="item-image"><img src="../images/item-images/hazmat-suit.png" alt="Hazmat Suit"></div>
+            <div class="item-tooltip">
+              <strong>Hazmat Suit</strong>
+              <span class="item-meta">Hazmat Lockers: 4 suits</span>
+            </div>
+          </a>
+          <a href="../items/chemical-canister.html" class="item-card">
+            <div class="item-image"><img src="../images/item-images/chemical-canister.png" alt="Chemical Canister"></div>
+            <div class="item-tooltip">
+              <strong>Chemical Canister</strong>
+              <span class="item-meta">Spawns: 2 tiles</span>
+            </div>
+          </a>
+          <a href="../items/explosive-gel.html" class="item-card">
+            <div class="item-image"><img src="../images/item-images/explosive-gel.png" alt="Explosive Gel"></div>
+            <div class="item-tooltip">
+              <strong>Explosive Gel</strong>
+              <span class="item-meta">Spawns: 2 tiles</span>
+            </div>
+          </a>
+          <a href="../items/smoke-grenade.html" class="item-card">
+            <div class="item-image"><img src="../images/item-images/smoke-grenade.png" alt="Smoke Grenade"></div>
+            <div class="item-tooltip">
+              <strong>Smoke Grenade</strong>
+              <span class="item-meta">Spawns: 2 tiles</span>
+            </div>
+          </a>
+          <a href="../items/medkit.html" class="item-card">
+            <div class="item-image"><img src="../images/item-images/medkit.png" alt="Medkit"></div>
+            <div class="item-tooltip">
+              <strong>Medkit</strong>
+              <span class="item-meta">Spawns: 2 tiles</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Obstacles &amp; Terrain</h2>
+        <span class="stack-note">Each obstacle's color matches its map panel and key swatch</span>
+      </div>
+
+      <div class="section-divider">Walls</div>
+
+      <div class="obstacle obstacle--wall">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/plant-wall.jpg" alt="Plant Wall">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Plant Wall</span>
+            <span class="obstacle-tag">Impassable Wall</span>
+          </div>
+          <div class="obstacle-meta">Footprint: Varying Sizes &middot; Blocks: Movement, Line of Sight, Projectiles &middot; HP: Indestructible</div>
+          <ul>
+            <li>Cannot be moved through, attacked through, flown over or destroyed by any means.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--silo">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/storage-silo.jpg" alt="Storage Silo">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Storage Silo</span>
+            <span class="obstacle-tag">Impassable Wall</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x2 panels &middot; Blocks: Movement, Line of Sight, Projectiles &middot; HP: Indestructible</div>
+          <ul>
+            <li>Cannot be moved through, attacked through or destroyed by any means.</li>
+            <li>The silos run to the ceiling: unlike the Water Tower, Champions with <em class="kw">Elevation Bypass</em> cannot path over them.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--reactor">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/mixing-reactor.jpg" alt="Mixing Reactor">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Mixing Reactor</span>
+            <span class="obstacle-tag">Impassable Wall</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x2 panels &middot; Blocks: Movement, Line of Sight, Projectiles &middot; HP: Indestructible</div>
+          <ul>
+            <li>The plant&rsquo;s central mixing machine. Cannot be moved through, attacked through or destroyed by any means.</li>
+            <li>Breaks line of sight across the central platform, so a Champion holding the center cannot cover both gantry decks from one panel.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--pipe-run">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/pipe-run.jpg" alt="Pipe Run">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Pipe Run</span>
+            <span class="obstacle-tag">Half Obstacle</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x1 panels &middot; Blocks: Line of Sight (Partial) &middot; HP: 400</div>
+          <ul>
+            <li>Cuts the accuracy of any ranged ability shot over it in half. If the attack misses the target, it&rsquo;ll hit the obstacle.</li>
+            <li>Champions may stand on top of this obstacle (this does not change their elevation tier).</li>
+            <li>When destroyed, the pipes rupture: both panels become <em class="kw">Acid Spill</em> for 2 battle turns.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider">Hazards</div>
+
+      <div class="obstacle obstacle--vat">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/the-great-vat.jpg" alt="The Great Vat">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">The Great Vat</span>
+            <span class="obstacle-tag">Hazard</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 48 panels (2-wide ring around the center) &middot; Blocks: Movement &middot; HP: Indestructible</div>
+          <ul>
+            <li>Behaves as <em class="kw">Void</em> for movement: it cannot be walked into, and the normal Gap Jumping rules apply (crossing the 2-wide vat between a gantry deck and the central platform costs 5 STA).</li>
+            <li>A unit pushed, pulled or knocked into the vat is <em class="kw">Submerged</em> instead of falling: it takes <em class="kw">1,200 damage</em>, is inflicted with <em class="kw">&quot;Vulnerable&quot;</em> for 1 turn and <em class="kw">&quot;Poison&quot;</em> for 2 turns (using a fixed ATK and MAG of 200 in place of the inflictor&rsquo;s stats), then returns on the vat-edge panel it was knocked from.</li>
+            <li>As with Void, a unit that was not standing on a vat-edge panel catches itself on the edge instead (no damage).</li>
+            <li>Non-playable enemies are defeated outright when Submerged.</li>
+            <li>Airborne Champions cannot be Submerged; if pushed into the vat, they stop on the edge panel.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--drum">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/chemical-drum.jpg" alt="Chemical Drum">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Chemical Drum</span>
+            <span class="obstacle-tag">Hazard &middot; Explosive Container</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel &middot; Blocks: Movement, Line of Sight (Partial) &middot; HP: 300</div>
+          <ul>
+            <li>Acts as a half obstacle: it cuts the accuracy of ranged abilities shot over it in half, and a missed attack hits the drum.</li>
+            <li>When destroyed, it explodes: every unit within <em class="kw">1 panel</em> (allies and enemies) takes <em class="kw">800 damage</em>, and those panels become <em class="kw">Acid Spill</em> for 2 battle turns.</li>
+            <li>Any other Chemical Drum within the blast detonates as well (chain reaction). Corroded Catwalk panels in the blast lose 1 Integrity.</li>
+            <li>All damage from the chain is credited to whoever destroyed the first drum.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider">Elevation Features</div>
+
+      <div class="obstacle obstacle--stairs">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/stairs.jpg" alt="Stairs">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Stairs</span>
+            <span class="obstacle-tag">Traversable Elevation</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel &middot; Connects: Elevation 0 and +1 &middot; HP: Indestructible</div>
+          <ul>
+            <li>Moving onto or off a Stairs panel costs the normal 1 STA per panel, with no surcharge.</li>
+            <li>A Champion standing on Stairs counts as being on <em class="kw">both</em> tiers for targeting: they can target, and be targeted by, units on either tier without elevation restrictions.</li>
+            <li>Stairs never flood.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider">Interactive Elements</div>
+
+      <div class="obstacle obstacle--gantry">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/rotating-gantry.jpg" alt="Rotating Gantry">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Rotating Gantry</span>
+            <span class="obstacle-tag">Interactive</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x2 panels &middot; Blocks: Nothing &middot; HP: Indestructible</div>
+          <ul>
+            <li>A +1 walkway that connects the central platform to one gantry deck at a time: West or East. Both possible positions are shown on the map.</li>
+            <li>Starts the battle <em class="kw">retracted</em>: both positions are Great Vat panels until a Gantry Control is used.</li>
+            <li>Moves at most <em class="kw">once per battle turn</em>, and never while a unit is standing on it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--gantry-control">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/gantry-control.jpg" alt="Gantry Control">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Gantry Control</span>
+            <span class="obstacle-tag">Interactive</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel &middot; Blocks: Movement &middot; HP: Indestructible</div>
+          <ul>
+            <li>A Champion adjacent to a Gantry Control may spend <em class="kw">2 STA</em> to swing the Rotating Gantry to this side, or to retract it if it is already extended to this side.</li>
+            <li>One Gantry Control sits on each gantry deck.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--console">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/flood-control-console.jpg" alt="Flood Control Console">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Flood Control Console</span>
+            <span class="obstacle-tag">Interactive</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x1 panels &middot; Blocks: Movement &middot; HP: Indestructible</div>
+          <ul>
+            <li>A Champion adjacent to the console may spend <em class="kw">2 STA</em> to lock in the sector for the <em class="kw">next</em> Chemical Flood. It cannot lock the sector that flooded most recently.</li>
+            <li>The last lock made before the alarm sounds wins.</li>
+            <li>Locking a sector does not shorten the warning: the alarm still gives every Champion one full turn of notice.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--valve">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/pipe-valve.jpg" alt="Pipe Valve">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Pipe Valve</span>
+            <span class="obstacle-tag">Interactive &middot; Cooldown</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel &middot; Blocks: Movement &middot; HP: Indestructible</div>
+          <ul>
+            <li>A Champion adjacent to a Pipe Valve may spend <em class="kw">2 STA</em> to spray acid east or west along the corridor in a 3-wide, 4-long line (covering the corridor&rsquo;s full width).</li>
+            <li>Panels in the line become <em class="kw">Acid Spill</em> for 2 battle turns. Units in the line take the spill&rsquo;s effect immediately (this counts as their entry for the turn).</li>
+            <li>Each valve then has a 3-battle-turn cooldown.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--locker">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/hazmat-locker.jpg" alt="Hazmat Locker">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Hazmat Locker</span>
+            <span class="obstacle-tag">Interactive &middot; Limited</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 2x1 panels &middot; Blocks: Movement &middot; HP: Indestructible</div>
+          <ul>
+            <li>A Champion adjacent to a locker may spend <em class="kw">1 STA</em> to take a <em class="kw">Hazmat Suit</em>. Each locker holds 2 suits (4 per battle).</li>
+            <li>A Champion can only carry one Hazmat Suit at a time.</li>
+            <li>An empty locker becomes an inert full obstacle.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider">Special Tiles</div>
+
+      <div class="obstacle obstacle--acid-spill">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/acid-spill.jpg" alt="Acid Spill">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Acid Spill</span>
+            <span class="obstacle-tag">Special Tile &middot; Environmental Damage</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel &middot; Blocks: Nothing &middot; HP: Indestructible</div>
+          <ul>
+            <li>A Champion who enters an Acid Spill (once per battle turn) or starts their turn on one takes <em class="kw">400 damage</em> and is inflicted with <em class="kw">&quot;Poison&quot;</em> for 2 turns (using a fixed ATK and MAG of 200 in place of the inflictor&rsquo;s stats).</li>
+            <li>Airborne Champions take half damage and are not inflicted with &quot;Poison&quot;.</li>
+            <li>A <em class="kw">Hazmat Suit</em> negates the damage and the infliction entirely.</li>
+            <li>The 12 permanent spills on the map are vat leaks. Floods, drums, valves, ruptured pipes and Chemical Canisters create temporary spills; a temporary spill on an existing spill refreshes its duration instead of stacking.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="obstacle obstacle--catwalk">
+        <div class="obstacle-icon">
+          <img src="../images/obstacles/corroded-catwalk.jpg" alt="Corroded Catwalk">
+        </div>
+        <div class="obstacle-body">
+          <div class="obstacle-header">
+            <span class="obstacle-name">Corroded Catwalk</span>
+            <span class="obstacle-tag">Special Tile</span>
+          </div>
+          <div class="obstacle-meta">Footprint: 1 panel (+1, over the Great Vat) &middot; Blocks: Nothing &middot; HP: Integrity 3</div>
+          <ul>
+            <li>Each time a non-airborne Champion enters a Corroded Catwalk panel, it loses 1 Integrity. Explosions and acid landing on it also remove 1.</li>
+            <li>At 0 Integrity the panel <em class="kw">collapses</em> once the current move resolves: any unit on it is Submerged, and the panel becomes part of the Great Vat for the rest of the battle.</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       CHANGELOG — filled from the release data once versions exist
+       ============================================= -->
+  <section class="changelog-section" data-changelog="battlefield:ace-chemicals">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Battlefield's release. Newest first.</p>
+
+    <div class="changelog-entries">
+      <p class="empty-note">No changes yet.</p>
+    </div>
+  </section>
+</div>
+</body>
+</html>
