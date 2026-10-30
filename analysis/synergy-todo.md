@@ -4,7 +4,7 @@ Synergies must be **mutual**: both Champions carry the bond on their own sheet (
 
 **How to use:** when a partner sheet gets its side of a bond, delete that line. When a new Champion ships with synergies to existing Champions, add a line per bond. Re-check with a scan of every `champions/*.html` for `synergy-bond-name` / `synergy-partner-tag` pairs (a bond is one-sided if the partner's sheet has no block "w/ <this Champion>").
 
-**Last scanned:** 2026-10-22 (all 33 sheets); Black Widow's six bonds added 2026-10-24. Best Partners entries for unbuilt Champions (e.g. Jill Valentine, Black Panther) are not tracked here until those Champions have sheets.
+**Last scanned:** 2026-10-22 (all 33 sheets); Black Widow's six bonds added 2026-10-24; The Shape's five bonds added 2026-10-29. Best Partners entries for unbuilt Champions (e.g. Jill Valentine, Black Panther) are not tracked here until those Champions have sheets.
 
 ## Missing reciprocals
 
@@ -29,5 +29,17 @@ Synergies must be **mutual**: both Champions carry the bond on their own sheet (
 | Black Widow | Before the Widow | Wolverine | Wolverine's side (BW's has passive *A Lost Day in Madripoor*) |
 | Black Widow | No Masks Left | Batgirl | Batgirl's side (BW's has Upgraded Special *Widow's Claw*) |
 | Black Widow | The Side She Was Born To | Dracaena Malfoy | Dracaena's side (BW's has Upgraded Special *Disarming Batons*) |
+| The Shape | Already Dead | The Punisher | Punisher's side (Shape's has Upgraded Special *Inability to Die*) |
+
+## Waiting on unbuilt partners
+
+Bonds on a built sheet whose partner has no sheet yet. Add each partner's side when their sheet is built, then delete the line.
+
+| Has the bond | Bond name | Partner (unbuilt) | Type of content to mirror |
+|---|---|---|---|
+| The Shape | The Real Thing | Ghostface | Dynamic Special *Slash to Impress* (must match on both sheets) + Ghostface's side |
+| The Shape | Two of a Kind | Jason | Jason's side (Shape's has Upgraded Special *Immovable Grasp*) |
+| The Shape | Nothing to Dream | Freddy | Freddy's side (Shape's has passive *Play With Your Food*) |
+| The Shape | No Punchline | The Joker | Joker's side (Shape's has passive *Evil Without Motive*) |
 
 Note: the original to-do file from an earlier chat could not be found (not in the project folder or git history); this list was rebuilt from a full roster scan.

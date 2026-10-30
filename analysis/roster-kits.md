@@ -543,5 +543,21 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - Costumes: Classic none; Retro +5% EVA, −10% DEF/RES (deliberate sidegrade); War Widow +5% CRIT & CR; Venomized +4% ATK.
 - Synergies (one-sided until partner sheets add them — see synergy-todo.md): Bucky *What the Red Room Took* (Dynamic *Guns Trained, Together* 30EN each, CD7, R8: each 450% ATK; passive *Living Weapons* +5% DEF/RES to Bucky, +5% ATK/MAG to Firearm Expert allies). Iron Man *The First Assignment* (*True Sight* = Spy Optics + enemies ≤3p −1 STA, reveal ≤5p 2t, +15% ATK/MAG). Cap *Straight Answers* (*The Alternative to Bloodshed* = Tightening Cables with persistent Constraint; passive *A Rare Truth*: reveal enemies ≤2p of Cap 1t, self +10EN when Cap uses a Support ability on himself). Wolverine *Before the Widow* (passive *A Lost Day in Madripoor*: Might+Technique 2t on Wolverine kill; Focus 1t if Wolverine ≤4p at turn start). Batgirl *No Masks Left* (*Widow's Claw* = Widow's Line with Stealth 2t, +1 stack <40% HP). Dracaena *The Side She Was Born To* (*Disarming Batons* = Dual Batons + target −15EN, random CD +1).
 
+## The Shape — Striker (stalker-slasher; Predator's Prey mark; double revival)
+- Leader *The Shape in the Shadows* — Unexplainable Motivations +20% ATK & DEF; Stalker in the Shadows +10% ATK & DEF (doesn't stack with the first; self-lead = +20%).
+- Basic *Slash* — 250% ATK, +60% vs Predator's Prey; 30% Bleed 2t (R1).
+- S1 *Watching from a Distance* — Predator's Prey + Anxiety 1t, +1t per 2 panels of distance (max 5t); can target behind an obstacle from its corner; +20EN/7% HP if within 1p of an Impassable Wall (20EN, CD4, R12).
+- S2 *Choking Grasp* — 1x1 target: Constraint 2t + 300% ATK once per turn while it lasts (on use + next turn start, separate attacks); >1x1 or Constraint fails: 500% instead; Prey 2t if >12% MAX HP total; self cannot act/evade until Constraint ends; ends if Shape is defeated (40EN, CD4, R1).
+- S3 *Emotionless Stabs* — 320% ATK ×3, 40% Bleed 2t per hit (50EN, CD2, R1).
+- S4 *Refusal to Die* — Indestructible 1t; heal 30% HP (30EN, CD4).
+- [R] *Into the Shadows* — relocate to panel if no enemy has LOS to self or the panel; otherwise +1 STA/30EN (20EN, CD2, R4). [R] *Staring Into Nothing* — first action only (before moving); standby rest of turn: any enemy action within 2p (incl. Move/Item/Block/Wait) → 500% ATK + cancelled; ends after 2 triggers (50EN, CD4).
+- Core *Evil Within* — immune to Deathbound; STA regen 100%; revive 25% after 1t, then 40% after 7t if defeated again (each once); cannot act 1t after reviving; +4% ULT per status inflicted (once per status per ability).
+- P1 *The Night He Came Home* — +1 MAX STA; +1 STA on dealing damage (once/ability).
+- P2 *Dying Light* — 20% less damage from attacks >3p away; +3% ATK per 10% of target's HP depleted.
+- [R] *Save The Best for Last* (+20% damage to enemies without Prey while any enemy has his Prey; +30% ATK when one enemy Champion remains). [R] *Emotionless Eyes* (immune to Terrify, Anxiety, Anger, Mounting Rage, Coercion; inflictions received −1t, min 1).
+- ULT *Brutalize* — 800% ATK, guaranteed crit, Deep Wound 1t (R1). [R] *Force of Nature* — Determination + Indestructible 3t.
+- Costumes: Classic none; Tattered +5% ATK, −2% SPD/ACC; Modern +5% CRIT RATE; Season of the Witch +6% MAX HP, +2% ATK.
+- Synergies (all one-sided until partners exist — see synergy-todo.md): Ghostface *The Real Thing* (Dynamic *Slash to Impress*: Shape free, Ghostface 50EN, CD4, R3, Shape ≤2p: Ghostface 450% ATK + Deep Wound 2t). Jason *Two of a Kind* (*Immovable Grasp* = Choking Grasp with persistent Constraint, 580% vs >1x1). Punisher *Already Dead* (*Inability to Die* = Refusal to Die with persistent Indestructible, 35% heal). Freddy *Nothing to Dream* (passive *Play With Your Food*: Terrify 1t on damaged targets, once/ability, no ULT gain; +10% SPD if an enemy ≤2p at turn start). Joker *No Punchline* (passive *Evil Without Motive*: +5% ATK to Psychotic Tendencies/Unexplainable Motivations allies; can receive Anchors of Ruin buffs incl. Leader).
+
 ## Coverage
-All 35 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24). New champions: add an entry in the same pass as their sheet is finalized.
+All 36 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24; The Shape added 2026-10-29).

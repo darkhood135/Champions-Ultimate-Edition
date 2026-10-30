@@ -6,7 +6,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (The Hulk and Boom Tube are 2x2), so SIZE is only shown on lines where it isn't 1x1.
 
-**Last updated:** 2026-10-25 (through Krillin re-critique). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-10-29 (through The Shape critique). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -19,6 +19,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Batgirl** — 7,200 / 360 / 140 / 0 / 110 / 70 / 98% / 175%·30% / 110 / 25%
 - **Harry Potter** — 7,600 / 120 / 400 / 0 / 80 / 170 / 97% / 175%·20% / 110 / 20%, EN 120·STA 7 — control-into-damage caster-striker; magic-tanky/physical-paper; revives once at 80%
 - **Black Widow** — 8,600 / 310 / 290 / 0 / 130 / 80 / 99% / 150%·30% / 114 / 20%, EN 100·STA 7, REGEN 1% — hybrid spy-striker; guaranteed-crit basic + Red Room Rifle; Shock via Batons/Bite (DoT ignores RES = her anti-tank tool); execute EN refund vs <35% HP; optional inert buff-bank (False Memories) cashed out by ULT; no survival valve beyond Widow's Line Stealth; low RES
+- **The Shape** — 9,000 / 350 / 100 / 0 / 140 / 20 / 96% / 175%·25% / 100 / 0%, EN 100·STA 2 (STA regen 100%), REGEN 5% — relentless stalker-slasher; highest Striker DEF, roster-lowest RES (tied Anya), 0% EVA; steady 2-panel walk with no burst movement; marks one target from range 12 (Predator's Prey = +30% damage from him, Anxiety) then closes; Choking Grasp 2t Constraint lock that also locks him (ends if he is defeated); double revival (25% after 1t, then 40% after 7t) + Deathbound immunity; Indestructible on Refusal to Die (1t) and Force of Nature ULT (3t). Lives alone ≈ 14.9k HP; counters = magic damage, CC, kiting, cleanse, Healing Reduction. Leader: +20% ATK/DEF to Unexplainable Motivations (self-lead), +10% to Stalker in the Shadows (also Batman, Winter Soldier, Black Widow)
 
 ### Blaster
 - **Iron Man** — 7,700 / 210 / 390 / 0 / 120 / 120 / 99% / 150%·25% / 110 / 12% — tanky-for-role
@@ -84,4 +85,4 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Summoner:** 5.8k–9k; the summon carries much of the value.
 - **Plunderer:** fragile, high ATK/CRIT, anti-ally or steal mechanics.
 - **Berserker:** 4.6k–9.2k HP; spends HP/safety for damage; each has a survival valve (endure, transform, Horcrux).
-- **Highest ATK:** Carnage 420, Wolverine 410. **Highest MAG:** Harry 400 / Iron Man 390 / Loki 380 / Punisher·Vegeta·Dracaena 370. **Highest CRIT mult:** Carnage/Krillin/Robin 200%. **Highest EVA:** Anya 45%, Robin 42%, Krillin 40%.
+- **Highest ATK:** Carnage 420, Wolverine 410. **Highest MAG:** Harry 400 / Iron Man 390 / Loki 380 / Punisher·Vegeta·Dracaena 370. **Highest CRIT mult:** Carnage/Krillin/Robin 200%. **Highest EVA:** Anya 45%, Robin 42%, Krillin 40%. **Lowest RES:** Anya / The Shape 20. **0% EVA:** The Hulk, The Shape.

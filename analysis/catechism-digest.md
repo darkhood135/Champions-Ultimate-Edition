@@ -12,6 +12,7 @@ Fast lookup for the Critique lane. Read this instead of grepping/reading `catech
 - **Stealth** (Epic) — untargetable by enemies; expires one stack at a time on attacking.
 - **Bloodlust** (Epic) — attacks inflict Bleed 2t; Bleed damage lifesteals 20%.
 - **Confidence** (Rare) — +20% ACC, +10% ATK & MAG.
+- **Determination** (Rare, stackable) — +2 MAX STA; excess STA kept after expiry.
 - **Pinpoint** (Rare) — next ability guaranteed crit; expires on use (one stack).
 - **Overflow** (Rare) — +30 MAX EN; excess EN kept after expiry.
 - **Dark Vessel** (Rare) — next attack inflicts Darkness 2t; expires on use.
@@ -27,10 +28,11 @@ Fast lookup for the Critique lane. Read this instead of grepping/reading `catech
 
 ## Hard/soft CC & control (negative)
 - **Brainwash** (Mythic) — all actions randomized (ability/target), within resource limits; can hit allies or enemies.
-- **Deathbound** (Mythic) — cannot be resurrected; stays on defeated units; a resurrection attempt is cancelled but still spends its resources.
+- **Deathbound** (Mythic) — cannot be resurrected; stays on defeated units; a resurrection attempt is cancelled but still spends its resources. Units immune to Deathbound (The Shape) can't be inflicted with it.
 - **Imperius Curse** (Mythic) — target joins inflictor's team for the duration (full control of its resources/abilities).
 - **Horcrux** (Legendary, non-stackable) — NEGATIVE status (inflicted). While active, the INFLICTOR cannot be defeated by any means (incl. Instant Defeat and HP costs) but still takes damage; the carrier is unaffected. Ends when its carrier is defeated. Removed by any cleanse, incl. from the carrier's own allies (Dark Seal absorbs a cleanse first). One per unit, but several carriers can exist at once; carriers can be Champions or summons (Nagini). Voldemort only.
 - **Stun** (Legendary) — cannot move or act.
+- **Predator's Prey** (Legendary) — the INFLICTOR deals +30% damage to the carrier (only the inflictor benefits). The Shape.
 - **Constraint** (Legendary) — cannot move or act.
 - **Duel** (Legendary) — can only target others inflicted with Duel.
 - **Frozen** (Legendary) — cannot act until hit (that hit is a guaranteed crit; ends the effect).
@@ -54,6 +56,7 @@ Fast lookup for the Critique lane. Read this instead of grepping/reading `catech
 - **Sharp Sting** (Rare) — −30% RES.
 - **Disorient** (Rare) — −25% ACC.
 - **Bruise** (Uncommon) — −15% DEF.
+- **Anxiety** (Uncommon, stackable) — −10% ACC & DEF.
 - **Sting** (Uncommon) — −15% RES.
 
 ## Damage-over-time
@@ -99,8 +102,10 @@ Fast lookup for the Critique lane. Read this instead of grepping/reading `catech
 - **Displacement Immunity** (tag, Mitigation; coined 2026-10-23) — cannot be moved (pushed, pulled, launched, thrown) by enemy effects. Holder: The Hulk (Empowered by Anger; portals/teleportation still work).
 - **"Attack received" vs. "once per ability"** — "when receiving an attack" triggers per hit (multi-hits trigger it multiple times) unless the effect adds "(once per ability)".
 - **Healing Reduction** (tag, Affliction; coined 2026-10-22) — an ENEMY is made to receive less or no healing ("receives X% less healing", "Deep Wound"). Self-inflicted drawbacks (Voldemort's "Receives 30% less healing", Deadpool's "Cannot receive healing") are NOT tagged. Holder: The Winter Soldier (Hidden Blade). Synergy-only sources untagged: Curly (Monitoring Gaze w/ Spider-Man), The Punisher (Final Deliverance w/ Wolverine).
-- **Revival** — "Resurrects self with X% HP after N turns": returns after N *complete* turns since death, on the panel where it fell (or nearest free standable panel); enemies can't prevent it unless an ability explicitly says so; on-defeat triggers fire on the original defeat only; summons that ended with the summoner don't return. Refs: Wolverine (Weapon X), Harry (The Boy Who Lived).
+- **Revival** — "Resurrects self with X% HP after N turns": returns after N *complete* turns since death, on the panel where it fell (or nearest free standable panel); enemies can't prevent it unless an ability explicitly says so; on-defeat triggers fire on the original defeat only; summons that ended with the summoner don't return. Refs: Wolverine (Weapon X), Harry (The Boy Who Lived). A kit may chain revivals (The Shape: 25% after 1t, then 40% after 7t) and be immune to Deathbound, the only revival counter.
 - **Disguise** (Catechism `#disguise`; added 2026-10-25) — unit is shown to enemies as another unit: the disguise's stats, vitals and MAX HP, with current HP scaled to that MAX HP; information only (real values used in all calculations); Resource Reveal does not expose it. Ref: Loki Clone (Fading Mirage).
+- **Line of Sight** (Catechism `#line-of-sight`; added 2026-10-29) — could the Champion "see" the unit/panel if it had infinite range. Full obstacles block it; half-obstacles don't; obscured or untargetable units (Stealth/Invisible) are never in LOS. Only matters when an ability names it. Ref: The Shape's Into the Shadows.
+- **Obstacle categories on sheets** (ruled 2026-10-29) — Champion pages may name battlefield obstacle categories directly (e.g. "Impassable Wall"); no Catechism entry needed.
 - **Resource Visibility** — enemy EN/STA/ULT hidden by default; "Resource Reveal" effects show them for the stated duration, sometimes only part of them (Harry's Lumos, Batgirl's Reading Every Move, Curly's Pilot Vision = ULT only, 1 turn).
 
 ## New-mechanic tags awaiting canonical taxonomy/filter entries (Curation queue)

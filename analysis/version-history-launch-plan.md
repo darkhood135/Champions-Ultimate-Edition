@@ -21,6 +21,7 @@ The site pretends to be a real live game: a v1.0.0 launch with a limited roster,
 | Tier lists | One per major / season release. Not per patch. |
 | Harry Potter | **Cut from launch.** Arrives in Act II or later (Cataclysm era), likely headlining v2.0.0. |
 | The Backrooms | **Cut from launch.** Late surprise crossover battlefield. |
+| Release caps per Season | **Standard:** up to 5 Champions, 1–2 battlefields. **Celebration** (anniversaries every 12 seasons): up to 10 Champions, up to 3 battlefields. Season-by-season plans live in `release-roadmap.md`. |
 
 ### Section names (confirmed)
 - Hub page / index tab: **Updates**
@@ -31,7 +32,7 @@ The site pretends to be a real live game: a v1.0.0 launch with a limited roster,
 ### 1a. In-fiction calendar
 - **Launch: v1.0.0 — April 28, 2027.**
 - **A new Season releases on the 28th of every month.**
-- Working assumption: launch *is* Season 1, so v1.0.0 = Season 1 (Apr 28, 2027), v1.1.0 = Season 2 (May 28, 2027), v1.2.0 = Season 3 (Jun 28, 2027), and so on. If you'd rather launch be "Season 0" with Season 1 on May 28, only the labels shift.
+- Launch *is* Season 1 (confirmed 2026-10-29): v1.0.0 = Season 1 (Apr 28, 2027), v1.1.0 = Season 2 (May 28, 2027), … Season 7 = Oct 28, 2027, Season 13 (1st anniversary) = Apr 28, 2028.
 - Patches (v1.x.y) can land on any date between two Season dates.
 - An expansion (v2.0.0 = Act II) also lands on a 28th and starts a new Season.
 
@@ -204,7 +205,6 @@ Hold until Act I is written. Likely needs: Act I story enemies, Flashpoint wave 
 
 ## 12. Open items
 - [ ] **On hold:** Tyler's Act I general plot draft → derive the Act I cast → finalize launch roster and enemies.
-- [ ] Confirm the calendar assumption (launch = Season 1 vs. Season 0).
 - [ ] Vision brief for battlefields, items and artifacts before Claude drafts candidates.
 
 ### Resolved 2026-10-26

@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shape — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #f4782a; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #f4782a;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(244, 120, 42, 0.12);
+    color: #f9a66c;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(244, 120, 42, 0.3);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #f4782a;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #f4782a;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #f9a66c;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     The Shape theme — Pumpkin Orange / Mask Bone / Coverall Navy / Blood Red palette.
+       Pumpkin orange = Halloween night, the jack-o'-lanterns of Haddonfield.
+       Mask bone = the blank, pale face; the watcher behind the hedge.
+       Coverall navy = the mechanic's jumpsuit, the dark between streetlights.
+       Blood red = the kitchen knife's work, saved for his kills.
+       Knife steel / autumn rust = the blade itself, and October's dead leaves. */
+
+  .ability--leader {
+    background: #e8711f;          /* pumpkin orange — The Shape in the Shadows */
+    color: #2a1205;
+  }
+
+  .ability--basic {
+    background: #17120f;          /* near-black with an ember tint — Slash */
+    border: 1px solid #4f2a12;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #f9a66c; }
+  .ability--basic .ability-tag  { color: #c9733a; }
+  .ability--basic .ability-meta { color: #c9733a; }
+
+  .ability--special-1 { background: #d6d0bf; color: #1f1c16; } /* mask bone — Watching from a Distance */
+  .ability--special-2 { background: #2b3a55; color: #d6e0ee; } /* coverall navy — Choking Grasp */
+  .ability--special-3 { background: #a11d1d; color: #fde0e0; } /* blood red — Emotionless Stabs */
+  .ability--special-4 { background: #808894; color: #0f1115; } /* knife steel — Refusal to Die */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #f4782a; } /* pumpkin orange */
+  .ability--reserve-passive   { border-left-color: #d6d0bf; } /* mask bone */
+  .ability--reserve-ultimatum { border-left-color: #7a1414; } /* dried blood */
+
+  .ability--core-passive {
+    background: #0f0f12;          /* the blackest eyes — Evil Within */
+    border: 1px solid #2c2a26;
+    color: #d6d0bf;
+  }
+
+  .ability--passive {
+    background: #8c4a1e;          /* autumn rust — Haddonfield's fallen leaves */
+    color: #fbe9dc;
+  }
+
+  .ability--ultimatum {
+    background: #7a1414;          /* dried blood — Brutalize */
+    color: #fde0e0;
+  }
+
+  .ability--synergy {
+    background: #f2a541;          /* candle amber — connection, the light inside the pumpkin */
+    color: #2a1805;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within The Shape's palette — candle amber for connection, blue for
+     specials, silver for passives, red for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #f2a541; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(242, 165, 65, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #f2a541; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8c98a;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #f2a541; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #f2a541; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(242, 165, 65, 0.1);
+    border: 1px solid rgba(242, 165, 65, 0.3);
+    color: #fbe3c0;
+  }
+  .syn-cost-chip .who { color: #f8c98a; font-weight: 700; }
+
+  /* Type accents */
+  .syn-ability--upgraded-special   { border-left-color: #4aa3ff; }
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(74, 163, 255, 0.15); color: #7dc0ff; border: 1px solid rgba(74, 163, 255, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #f2a541; }
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(242, 165, 65, 0.15); color: #f8c98a; border: 1px solid rgba(242, 165, 65, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #c5c8d0; }
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(197, 200, 208, 0.13); color: #d0d3da; border: 1px solid rgba(197, 200, 208, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #ff5b5b; }
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(255, 91, 91, 0.15); color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+  .syn-ability--new-special        { border-left-color: #2c5fcc; }
+  .syn-ability--new-special        .syn-type-badge { background: rgba(44, 95, 204, 0.18); color: #7d9dea; border: 1px solid rgba(44, 95, 204, 0.45); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Stacks under the portrait in the left hero column. Autoplay is
+     attempted on load; if the browser blocks it, playback starts on the
+     visitor's first interaction with the page (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4782a;            /* The Shape accent — pumpkin orange */
+    color: #1f0d02;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #f9a66c;                 /* The Shape light accent */
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/the-shape.jpg" alt="The Shape">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (track name) and .theme-source (original game it's from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/the-shape.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Halloween</div>
+          <div class="theme-source">Halloween Ends (Main Title)</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/the-shape.mp3"></audio>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">The Shape</h1>
+      <p class="subtitle">Michael Myers</p>
+      <span class="role-badge">Striker</span>
+      <p class="description">
+        Michael Myers was six years old when he murdered his sister on Halloween night, and the silent, motiveless evil that grew behind his eyes has stalked Haddonfield ever since as the relentless killer known as The Shape.
+      </p>
+      <p class="description">
+        Nothing in Michael Myers’s childhood explains him. He was an ordinary boy on an ordinary street in Haddonfield, Illinois, until Halloween night of 1963. That night he climbed the stairs of his family home in a clown costume and took a kitchen knife to his older sister, Judith. Then he walked out onto the front lawn and stood in silence before his stunned parents. He never gave a reason. He never gave anything at all. He was committed to Smith’s Grove Sanitarium and spent the next fifteen years without speaking a single word, staring at a wall. Dr. Sam Loomis tried to find the child he was sure was hiding somewhere inside, until he understood that there was no child to find, only something patient, waiting. On the night before Halloween in 1978, it stopped waiting. Michael escaped, stole a pale, featureless mask, and came home. He doesn’t hunt for money, revenge, or pleasure, and he doesn’t hate. Calling what drives him madness would give it a logic it doesn’t have. The Shape simply chooses, watches, and kills, and the lack of any why is the most frightening thing about him. The people he marks are no more guilty than anyone else: a babysitter glimpsed through a window, a family living in the house that was once his. No plea and no locked door will turn him away from them.
+      </p>
+      <p class="description">
+        No one has ever explained what Michael Myers is, and nothing has ever been able to end him. Whatever lives behind the mask gives him strength far beyond the body that carries it, enough to lift a grown man off his feet with one hand and pin him to a wall. His resilience borders on the impossible. He has been shot, stabbed, burned, and thrown from heights, and he rises again, often before his victims can catch their breath. The moment anyone looks away from the body, it’s gone. He never runs, because he doesn’t have to. He moves with slow, unhurried certainty, appearing in doorways and fading into hedgerows and dark closets as if the shadows were on his side. He kills with the simplest of tools, most often a kitchen knife, the same as the night it began. Yet his truest weapon is the dread he leaves behind. The Shape doesn’t need to be fast or clever, because he won’t stop and he can’t be bargained with, and somewhere out past the edge of the streetlight, he is already watching.
+      </p>
+      <p class="quote">"I met him, 15 years ago; I was told there was nothing left; no reason, no conscience, no understanding in even the most rudimentary sense of life or death, of good or evil, right or wrong. I met this... six-year-old child with this blank, pale, emotionless face, and... the blackest eyes - the Devil's eyes. I spent eight years trying to reach him, and then another seven trying to keep him locked up, because I realized that what was living behind that boy's eyes was purely and simply... evil."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">9,000</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">350</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">140</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">20</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">96%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">175%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">25%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">0%</span></div>
+        <div class="stat-row"><span class="label">SIZE</span><span class="value">1x1</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">2</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">5%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/dark-multiverse.html" class="pill">Dark Multiverse</a>
+          <a href="../links/villain.html" class="pill">Villain</a>
+          <a href="../links/unknown-species.html" class="pill">Unknown Species</a>
+          <a href="../links/slashers.html" class="pill">Slashers</a>
+          <a href="../links/unexplainable-motivations.html" class="pill">Unexplainable Motivations</a>
+          <a href="../links/stalker-in-the-shadows.html" class="pill">Stalker in the Shadows</a>
+          <a href="../links/vessel-for-destruction.html" class="pill">Vessel for Destruction</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Obstacle Bypass</span>
+          <span class="pill">Standby</span>
+          <span class="pill">Interrupt</span>
+          <span class="pill">Infliction Resist</span>
+          <span class="pill">Damage Reduction</span>
+          <span class="pill">Death Prevention</span>
+          <span class="pill">Revival</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">ACC Down</span>
+          <span class="pill">Stun</span>
+          <span class="pill">Vulnerability</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">Healing Reduction</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">CRIT Up</span>
+          <span class="pill">Healing</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Resource Refill</span>
+          <span class="pill">STA Support</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="ghostface.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/ghostface.jpg" alt="Ghostface">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Ghostface</strong>
+              <span class="real-name">Billy Loomis</span>
+              <span class="synergy-name">The Real Thing</span>
+            </div>
+          </a>
+
+          <a href="jason.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/jason.jpg" alt="Jason">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Jason</strong>
+              <span class="real-name">Jason Voorhees</span>
+              <span class="synergy-name">Two of a Kind</span>
+            </div>
+          </a>
+
+          <a href="the-punisher.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Punisher</strong>
+              <span class="real-name">Frank Castle</span>
+              <span class="synergy-name">Already Dead</span>
+            </div>
+          </a>
+
+          <a href="freddy.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/freddy.jpg" alt="Freddy">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Freddy</strong>
+              <span class="real-name">Freddy Krueger</span>
+              <span class="synergy-name">Nothing to Dream</span>
+            </div>
+          </a>
+
+          <a href="the-joker.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/the-joker.jpg" alt="The Joker">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Joker</strong>
+              <span class="real-name">"Jack Napier"</span>
+              <span class="synergy-name">No Punchline</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">The Shape in the Shadows</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Unexplainable Motivations" allies gain +20% ATK and DEF in battle.</li>
+          <li>"Stalker in the Shadows" allies gain +10% ATK and DEF in battle (does not stack with the bonus above).</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Slash</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 1</div>
+        <ul>
+          <li>Deals 250% ATK damage to the target.</li>
+          <li>Deals an additional 60% ATK damage to the target if the target has "Predator's Prey".</li>
+          <li>30% chance to inflict "Bleed" for 2 turns to the target.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Watching from a Distance</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 20 · Cooldown: 4 turns · Range: 12</div>
+        <ul>
+          <li>Can target enemies behind an obstacle if self is at a corner of that obstacle.</li>
+          <li>Inflicts "Predator's Prey" and "Anxiety" to the target for 1 turn.</li>
+          <li>The duration of these inflictions is increased by 1 turn for every 2 panels of distance between self and the target (up to 5 turns total).</li>
+          <li>Self restores 20 EN and 7% HP if self is within 1 panel of an Impassable Wall.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Choking Grasp</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 4 turns · Range: 1</div>
+        <ul>
+          <li>If the target is 1x1 size, inflicts "Constraint" on the target for 2 turns and deals 300% ATK damage to them once per turn while it lasts (on use, then at the start of the next turn). Each hit is a separate attack.</li>
+          <li>If the target is larger than 1x1 size, or "Constraint" fails to apply, deals 500% ATK damage to the target instead.</li>
+          <li>Inflicts "Predator's Prey" for 2 turns if the target takes more than 12% HP (of their MAX HP) in total from this ability.</li>
+          <li>Self cannot act or evade until the target no longer has "Constraint".</li>
+          <li>"Constraint" from this ability ends if self is defeated.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Emotionless Stabs</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 50 · Cooldown: 2 turns · Range: 1</div>
+        <ul>
+          <li>Deals 320% ATK damage to the target 3 times.</li>
+          <li>40% chance to inflict "Bleed" for 2 turns to the target, rolls once per damage instance.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Refusal to Die</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>Gains "Indestructible" for 1 turn.</li>
+          <li>Restores 30% HP (of MAX HP).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Into the Shadows</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 2 turns · Range: 4</div>
+        <ul>
+          <li>Relocates self to the targeted panel if no enemy has line of sight to self or to the targeted panel.</li>
+          <li>Otherwise, restores 1 STA and 30 EN.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Staring Into Nothing</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 50 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>Can only be used as the first action of the turn (before moving).</li>
+          <li>Stands by for the remainder of the turn.</li>
+          <li>If an enemy within 2 panels performs any action (including Move, Item, Block and Wait), deals 500% ATK damage to that enemy and cancels the action.</li>
+          <li>Standby ends after this effect triggers twice.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">Evil Within</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>Immune to "Deathbound".</li>
+          <li>STA regen increased to 100% of MAX STA per turn.</li>
+          <li>Resurrects self with 25% HP after 1 complete turn passes since death. If defeated again, resurrects self with 40% HP after 7 complete turns pass since that death (each once per battle).</li>
+          <li>Cannot act for 1 turn upon being resurrected.</li>
+          <li>Gains 4% ULT upon inflicting an enemy with a status effect (once per status per ability).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">The Night He Came Home</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>+1 MAX STA.</li>
+          <li>Restores 1 STA upon dealing damage (once per ability).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Dying Light</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Takes 20% less damage from attacks by enemies more than 3 panels away.</li>
+          <li>+3% ATK when targeting an enemy per 10% of their HP depleted (of their MAX HP).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Save The Best for Last</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Deals 20% more damage to enemies without "Predator's Prey" while any enemy has "Predator's Prey" inflicted by self.</li>
+          <li>+30% ATK when only one enemy Champion remains.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Emotionless Eyes</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Immune to "Terrify", "Anxiety", "Anger", "Mounting Rage" and "Coercion".</li>
+          <li>Inflictions received have their duration decreased by 1 turn (minimum of 1 turn).</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Brutalize</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 1 · Cost: 100% ULT</div>
+        <ul>
+          <li>Deals 800% ATK damage to the target.</li>
+          <li>Guaranteed critical hit.</li>
+          <li>Inflicts "Deep Wound" to the target for 1 turn.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Force of Nature</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Range: N/A · Cost: 100% ULT</div>
+        <ul>
+          <li>Gains "Determination" and "Indestructible" for 3 turns.</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/ghostface.jpg" alt="Ghostface">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Real Thing</span>
+              <span class="synergy-partner-tag">w/ Ghostface</span>
+            </div>
+            <p class="synergy-desc">Billy Loomis learned everything he knows from horror movies, and of all the monsters he studied, none ever loomed larger than the silent figure in the white mask. He even shares a surname with the doctor who spent fifteen years staring into Michael’s eyes. Now the Cataclysm has put the real thing in front of him. Stu can barely contain himself; Billy plays it cool, but he studies every step the Shape takes like a student at the feet of the master, and he has never wanted anyone’s approval more. Michael has never once looked his way. Billy tells himself that’s just part of the act.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Slash to Impress</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">The Shape</span> · None</span>
+              <span class="syn-cost-chip"><span class="who">Ghostface</span> · 50 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Cooldown: 4 turns · Range: 3</div>
+            <ul>
+              <li>Only usable if The Shape is within 2 panels of Ghostface.</li>
+              <li>Ghostface deals 450% ATK damage to the target.</li>
+              <li>Ghostface inflicts "Deep Wound" to the target for 2 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/jason.jpg" alt="Jason">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Two of a Kind</span>
+              <span class="synergy-partner-tag">w/ Jason</span>
+            </div>
+            <p class="synergy-desc">Put Michael Myers and Jason Voorhees in the same clearing and the night goes quiet. Each is the closest thing the other has to a reflection: two masked figures who never speak, never run, and never stay dead, each the walking ghost story of the small town that made him. But Jason kills for a reason. He carries a drowned boy’s grief and a mother’s last command, and he turns them on anyone who strays too near Crystal Lake. Michael has never had a reason at all. Neither gives up ground or says a word. They simply watch each other, two patient things that have each found something they cannot outwait.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Immovable Grasp</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Choking Grasp</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 4 turns · Range: 1</div>
+            <ul>
+              <li>If the target is 1x1 size, inflicts persistent "Constraint" on the target for 2 turns and deals 300% ATK damage to them once per turn while it lasts (on use, then at the start of the next turn). Each hit is a separate attack.</li>
+              <li>If the target is larger than 1x1 size, or "Constraint" fails to apply, deals 580% ATK damage to the target instead.</li>
+              <li>Inflicts "Predator's Prey" for 2 turns if the target takes more than 12% HP (of their MAX HP) in total from this ability.</li>
+              <li>Self cannot act or evade until the target no longer has "Constraint".</li>
+              <li>"Constraint" from this ability ends if self is defeated.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-punisher.jpg" alt="The Punisher">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Already Dead</span>
+              <span class="synergy-partner-tag">w/ The Punisher</span>
+            </div>
+            <p class="synergy-desc">Frank Castle has spent his war making the guilty answer for what they’ve done, and he has never found anything guiltier than Michael Myers. The Shape kills the innocent, the one line Frank would die before crossing, and he is the one target Frank’s war can’t finish. Frank has emptied magazine after magazine into him, and every time the Shape has stood back up and kept walking. There is no fear to break, no confession to beat out of him, no crew behind him to tear down. The guilty fear Frank because he will never stop coming. Michael is the first thing Frank has ever hunted that he can say the same about.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Inability to Die</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Refusal to Die</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+            <ul>
+              <li>Gains persistent "Indestructible" for 1 turn.</li>
+              <li>Restores 35% HP (of MAX HP).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/freddy.jpg" alt="Freddy">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Nothing to Dream</span>
+              <span class="synergy-partner-tag">w/ Freddy</span>
+            </div>
+            <p class="synergy-desc">Freddy Krueger lives on fear. He slips into his victims’ dreams, turns their worst nightmares into a playground, and grows stronger with every scream, and he never stops talking while he does it. Michael Myers is the one mind in the Cataclysm he can’t get into. Freddy has tried. He has prowled the edges of whatever passes for the Shape’s sleep and found nothing waiting there: no memory to twist, no terror to feed on, only the quiet behind the mask. It drives the Springwood Slasher up the wall. The man who built his name on being everyone’s worst nightmare has finally met someone who doesn’t have any.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Play With Your Food</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>Inflicts "Terrify" for 1 turn to any damaged targets (once per ability, does not count towards ULT gain).</li>
+              <li>+10% SPD if an enemy is within 2 panels of self at the start of turn.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-joker.jpg" alt="The Joker">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">No Punchline</span>
+              <span class="synergy-partner-tag">w/ The Joker</span>
+            </div>
+            <p class="synergy-desc">The Joker has always insisted that madness is just one bad day away, and that anyone pushed hard enough will laugh their way over the edge right along with him. Michael Myers is the joke he can’t make land. There was no bad day. There was an ordinary boy on an ordinary Halloween, and then there was the knife: no tragedy, no trauma, no setup at all, only the punchline, delivered without a smile. The Clown Prince of Crime is fascinated by him and offended in equal measure. He keeps performing for the Shape, hungry for an audience, and Michael keeps walking past him as though he weren’t there. For a man who needs the world to laugh, there is no worse insult.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Evil Without Motive</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK to "Psychotic Tendencies" or "Unexplainable Motivations" allies.</li>
+              <li>Can receive buffs granted to "Anchors of Ruin" allies (including Leader Abilities).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/the-shape.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-shape(tattered).jpg" alt="Tattered">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Tattered</div>
+          <div class="costume-effect-label">Bleeding Eyes — +5% ATK, -2% SPD and ACC</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-shape(modern).jpg" alt="Modern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Mask Built for Murder — +5% CRIT RATE</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-shape(season-of-the-witch).jpg" alt="Season of the Witch">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Season of the Witch</div>
+          <div class="costume-effect-label">Sins of Silver Shamrock — +6% MAX HP and +2% ATK</div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.6.0</span>
+          <span class="date">October 28th, 2027</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>The Shape enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    // Keep the play/pause icon in sync with actual playback state.
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      // Let clicks on the button be handled by the toggle itself.
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    // Manual play/pause; once the user clicks it, they're in control.
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    // Try to autoplay right away; on failure, arm the first-interaction fallback.
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

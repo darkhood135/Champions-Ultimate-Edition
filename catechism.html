@@ -535,6 +535,7 @@
         <a href="#multi-panel-units" class="toc-link toc-sub-sub">Multi-Panel Units</a>
         <a href="#obstacle-states" class="toc-link toc-sub-sub">Obstacle States</a>
         <a href="#range-falloff" class="toc-link toc-sub-sub">Range Falloff</a>
+        <a href="#line-of-sight" class="toc-link toc-sub-sub">Line of Sight</a>
         <a href="#line-abilities" class="toc-link toc-sub-sub">Line Abilities</a>
         <a href="#clash-battles" class="toc-link toc-sub">Clash Battles</a>
 
@@ -1081,6 +1082,15 @@
       <p>The falloff penalty is <strong>multiplicative</strong> with other ACC modifiers. For example, a long-range ability passing through a half-obstacle (−50% ACC) and fired beyond optimal range (−6% ACC) lands at <code>0.5 × 0.94 = 0.47</code> of its base accuracy, not <code>0.5 − 0.06</code>.</p>
       <p>This creates a meaningful tradeoff for snipers and long-range Blasters: a Champion <em>can</em> fire at maximum range, but is rewarded for closing into optimal range first.</p>
 
+      <h4 id="line-of-sight">Line of Sight</h4>
+      <p>A Champion has <strong>line of sight</strong> (LOS) to a unit or panel if it could feasibly "see" it, meaning it could target it if it had infinite range. Range never matters for LOS; only what stands in the way does.</p>
+      <ul>
+        <li><strong>Full obstacles block LOS.</strong> A unit behind a full obstacle (e.g. an Impassable Wall) is not in LOS of a Champion on the other side.</li>
+        <li><strong>Half-obstacles do not block LOS.</strong> They keep their normal effect on attacks passing through them, but a unit behind one can still be seen.</li>
+        <li><strong>Obscured or untargetable units are never in LOS.</strong> A unit that is obscured, or that the viewing Champion is unable to target (e.g. one with "Stealth" or "Invisible"), does not count as being in that Champion's LOS.</li>
+      </ul>
+      <p>LOS only matters when an ability names it. The Shape's <em>Into the Shadows</em> is the reference: it relocates him only if no enemy has line of sight to him or to the targeted panel.</p>
+
       <h4 id="line-abilities">Line Abilities</h4>
       <p>Some abilities target all enemies in a <strong>3-panel-wide line</strong> extending from the user in a chosen direction. The beam begins on the panel immediately adjacent to the user and extends outward — the user's own panel is never included. All 8 compass directions are valid.</p>
       <ul>
@@ -1288,6 +1298,12 @@
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Determination</div></td>
+            <td>Increases MAX STA by 2. Any exceeding STA will remain after status effect expiration.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Dark Vessel</div></td>
             <td>The next attack inflicts "Darkness" for 2 turns. Expires upon activation (one stack at a time).</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1375,7 +1391,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square mythic"></span>Deathbound</div></td>
-            <td>Cannot be resurrected. Remains even on defeated targets. Duration turns are dependent on the start of each battle turn. If an attempt of resurrection is made, it is cancelled while still consuming the resources.</td>
+            <td>Cannot be resurrected. Remains even on defeated targets. Duration turns are dependent on the start of each battle turn. If an attempt of resurrection is made, it is cancelled while still consuming the resources. Units immune to "Deathbound" cannot be inflicted with it.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label mythic">Mythic</span></td>
           </tr>
@@ -1400,6 +1416,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square legendary"></span>Duel</div></td>
             <td>Can only target other Champions inflicted with "Duel".</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Predator's Prey</div></td>
+            <td>The inflictor of this status effect deals 30% more damage to the carrier.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label legendary">Legendary</span></td>
           </tr>
@@ -1514,6 +1536,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Sting</div></td>
             <td>-15% RES.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Anxiety</div></td>
+            <td>-10% ACC and DEF.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>
@@ -1681,11 +1709,11 @@
         <li><strong>Timing.</strong> The Champion returns once the stated number of <em>complete</em> turns have passed since its defeat. The partial turn in which it fell does not count. Kits that say <em>"after N turns"</em> mean N complete turns.</li>
         <li><strong>HP.</strong> It returns at the stated percentage of its MAX HP.</li>
         <li><strong>Return panel.</strong> It returns on the panel where it was defeated. If that panel is occupied or can't be stood on, it returns on the nearest free panel that can be.</li>
-        <li><strong>Enemies cannot prevent it</strong> unless an ability explicitly states that it prevents revival.</li>
+        <li><strong>Enemies cannot prevent it</strong> unless an ability explicitly states that it prevents revival (e.g. "Deathbound"). A Champion immune to "Deathbound" (e.g. The Shape's <em>Evil Within</em>) cannot have its revival prevented this way.</li>
         <li><strong>"On defeat" triggers fire on the original defeat.</strong> Effects keyed to the Champion being defeated (its own, its allies' or its enemies') resolve when it falls and are not undone when it returns. The return is not a second defeat and does not fire them again.</li>
         <li><strong>Summons don't come back with it.</strong> Summons that end when their summoner is defeated (e.g. "Patronus (Potter)") are gone for good. Reviving the summoner does not restore them.</li>
       </ul>
-      <p>The reference examples are Wolverine's <em>Weapon X</em> (<em>"Resurrects self with 30% HP after 2 turns (once per battle)"</em>) and Harry Potter's <em>The Boy Who Lived</em> (<em>"Resurrects self with 80% HP after 3 complete turns pass since death (once per battle)"</em>). Revival is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
+      <p>The reference examples are Wolverine's <em>Weapon X</em> (<em>"Resurrects self with 30% HP after 2 turns (once per battle)"</em>) and Harry Potter's <em>The Boy Who Lived</em> (<em>"Resurrects self with 80% HP after 3 complete turns pass since death (once per battle)"</em>). A kit may chain more than one revival: The Shape's <em>Evil Within</em> resurrects him after 1 turn, then again after 7 turns if he is defeated a second time. Revival is tracked as a <a href="#links-and-tags">mechanic tag</a>.</p>
 
       <h3 id="taunt-retribution">Taunt + Retribution Interaction</h3>
       <p>When <strong>Taunt</strong> (a positive effect on the defending Champion) and <strong>Retribution</strong> (a negative infliction on an enemy) are active simultaneously, the following priority rule applies:</p>
