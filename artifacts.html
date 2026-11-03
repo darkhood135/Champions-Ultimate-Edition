@@ -283,10 +283,15 @@
     flex-shrink: 0;
   }
 
+  .artifact-image { position: relative; }
+
   .artifact-image img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: #0a0b0e; /* covers the initials fallback behind transparent PNGs */
   }
 
   .artifact--common    .artifact-image { border-color: rgba(184, 189, 200, 0.5); }
@@ -400,6 +405,41 @@
     color: #818cf8;
   }
 
+  /* ====================== ARTIFACT FOOTER ====================== */
+  .artifact-footer {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .artifact-sources { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .source-pill {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #a3a8b3;
+    background: #1c1d22;
+    border: 1px solid #2c3038;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .version-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #a5b4fc;
+    background: rgba(129, 140, 248, 0.08);
+    border: 1px solid rgba(129, 140, 248, 0.35);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: auto;
+  }
+
   em.kw { font-style: normal; font-weight: 700; color: #f0f1f3; }
 
   /* No results message */
@@ -439,7 +479,7 @@
   <div class="header-inner">
     <a href="index.html" class="back-link">← Back to home</a>
     <h1 class="page-title">Artifacts</h1>
-    <p class="page-subtitle">Modifier passives equipped to a Champion. Conditions reference a Link or Tag — meet them to equip. One per Champion.</p>
+    <p class="page-subtitle">Modifier passives equipped to a Champion. Conditions reference a Role, Link or Tag — meet them to equip. One per Champion.</p>
   </div>
 </header>
 
@@ -481,9 +521,14 @@
       <div class="filter-label">Equip Condition</div>
       <div class="filter-pills" data-category="equip">
         <button class="filter-pill" data-value="Universal">Universal</button>
+        <button class="filter-pill" data-value="Role">Role-restricted</button>
         <button class="filter-pill" data-value="Link">Link-restricted</button>
         <button class="filter-pill" data-value="Tag">Tag-restricted</button>
       </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Version</div>
+      <div class="filter-pills" data-category="version" id="version-pills"></div>
     </div>
     <div class="filter-group">
       <div class="filter-label">Source</div>
@@ -505,215 +550,774 @@
        Each .artifact card carries:
          data-name      — for search
          data-rarity    — Common | Uncommon | Rare | Epic | Legendary | Mythic
-         data-equip     — Universal | Link | Tag
-         data-source    — Game mode where it's earned
+         data-equip     — Universal | Role | Link | Tag (pipe-separated if several)
+         data-source    — Game mode(s) where it's earned, pipe-separated
+         data-version   — Release version, e.g. 1.0.0 (Version filter builds itself from these)
        ============================================= -->
   <div class="artifact-grid" id="artifact-grid">
 
     <!-- ============== COMMON ============== -->
     <div class="artifact artifact--common"
-         data-name="Reinforced Gloves" data-rarity="Common" data-equip="Universal" data-source="Main Story">
-      <div class="artifact-image"><img src="images/artifact-images/reinforced-gloves.png" alt="Reinforced Gloves"></div>
+         data-name="Reinforced Gloves" data-rarity="Common" data-equip="Universal" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">RG</span><img src="images/artifact-images/reinforced-gloves.png" alt="Reinforced Gloves" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
           <span class="artifact-name">Reinforced Gloves</span>
           <span class="rarity rarity--common">Common</span>
         </div>
-        <p class="artifact-description">Padded brawler's gloves stitched from durable leather and synthetic mesh. Standard issue for anyone who throws their hands for a living.</p>
+        <p class="artifact-description">Ordinary work gloves, double-stitched and padded across the knuckles. Nothing special, until the first punch lands and the hand behind it doesn&#39;t break.</p>
         <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
         <ul class="artifact-effects">
-          <li><em class="kw">+5% ATK while using a Basic Ability.</em></li>
+          <li><em class="kw">+4% ATK</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--common"
-         data-name="Field Glasses" data-rarity="Common" data-equip="Universal" data-source="Main Story">
-      <div class="artifact-image"><img src="images/artifact-images/field-glasses.jpg" alt="Field Glasses"></div>
+         data-name="Kevlar Vest" data-rarity="Common" data-equip="Universal" data-source="Main Story|Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">KV</span><img src="images/artifact-images/kevlar-vest.png" alt="Kevlar Vest" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Field Glasses</span>
+          <span class="artifact-name">Kevlar Vest</span>
           <span class="rarity rarity--common">Common</span>
         </div>
-        <p class="artifact-description">Compact tactical optics with a stabilized reticle. Lets a Champion size up the battlefield before committing to the swing.</p>
+        <p class="artifact-description">Standard-issue body armor, scuffed and a size too big. It won&#39;t stop everything, but it stops enough.</p>
         <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
         <ul class="artifact-effects">
-          <li><em class="kw">+5% ACC.</em></li>
+          <li><em class="kw">+4% DEF</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
+
+    <div class="artifact artifact--common"
+         data-name="Gauze" data-rarity="Common" data-equip="Universal" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">G</span><img src="images/artifact-images/gauze.png" alt="Gauze" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Gauze</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">A roll of sterile gauze. It won&#39;t close a wound on its own, but it keeps one closed.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+4% HEAL</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--common"
+         data-name="Sunglasses" data-rarity="Common" data-equip="Universal" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">S</span><img src="images/artifact-images/sunglasses.png" alt="Sunglasses" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Sunglasses</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">Cheap dark lenses. Hard to hit what you can&#39;t read, and nobody can read your eyes.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+2% EVA</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--common"
+         data-name="Reserve Ammo" data-rarity="Common" data-equip="Universal" data-source="Main Story|Flashpoint" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">RA</span><img src="images/artifact-images/reserve-ammo.png" alt="Reserve Ammo" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Reserve Ammo</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">A spare magazine tucked into a vest pocket. Anyone who has run dry mid-fight learns to carry one.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+10 MAX EN</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span><span class="source-pill">Flashpoint</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--common"
+         data-name="Running Shoes" data-rarity="Common" data-equip="Universal" data-source="Flashpoint" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">RS</span><img src="images/artifact-images/running-shoes.png" alt="Running Shoes" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Running Shoes</span>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+        <p class="artifact-description">Worn-in sneakers with fresh laces. Getting there first matters more than most fighters admit.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+3% SPD</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Flashpoint</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ============== UNCOMMON ============== -->
     <div class="artifact artifact--uncommon"
-         data-name="Med-Pouch" data-rarity="Uncommon" data-equip="Tag" data-source="Main Story">
-      <div class="artifact-image"><img src="images/artifact-images/med-pouch.png" alt="Med-Pouch"></div>
+         data-name="Police Badge" data-rarity="Uncommon" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">PB</span><img src="images/artifact-images/police-badge.png" alt="Police Badge" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Med-Pouch</span>
+          <span class="artifact-name">Police Badge</span>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
-        <p class="artifact-description">Modular field medic kit — sutures, plasma packs and a small stim-injector. Standardized so any battlefield medic can grab and go.</p>
-        <div class="artifact-meta"><span class="equip-pill">Tag</span> Champion must have the <strong>Healing</strong> tag.</div>
+        <p class="artifact-description">A department shield, polished from years of being shown at the door. It still opens most of them.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Law Enforcement</strong> link.</div>
         <ul class="artifact-effects">
-          <li>Healing applied to any ally restores an additional <em class="kw">+30% HEAL</em>.</li>
-          <li>Healing applied to an ally below 30% HP cleanses one <em class="kw">Common</em>-tier infliction.</li>
+          <li><em class="kw">+5% DEF</em> and <em class="kw">+3% SPD</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--uncommon"
-         data-name="Lock-Pick Set" data-rarity="Uncommon" data-equip="Link" data-source="Event Story">
-      <div class="artifact-image"><img src="images/artifact-images/lockpick.png" alt="Lock-Pick Set"></div>
+         data-name="Batarang" data-rarity="Uncommon" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">B</span><img src="images/artifact-images/batarang.png" alt="Batarang" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Lock-Pick Set</span>
+          <span class="artifact-name">Batarang</span>
           <span class="rarity rarity--uncommon">Uncommon</span>
         </div>
-        <p class="artifact-description">Wayne Industries prototype kit — bump key, tension bar, and a magnetic decoder. Gotham's solution to "we don't have time to wait for backup."</p>
+        <p class="artifact-description">A weighted, bat-shaped throwing blade, balanced to strike on the first throw. Batman never leaves one behind without a reason.</p>
         <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Bat-Family</strong> link.</div>
         <ul class="artifact-effects">
-          <li><em class="kw">Restores 1 STA</em> upon picking up an item (from an item spawn).</li>
-          <li>Item Spawns picked up by this Champion yield <em class="kw">+1 quantity</em>.</li>
+          <li><em class="kw">+6% MAG</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Photography Camera" data-rarity="Uncommon" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">PC</span><img src="images/artifact-images/photography-camera.png" alt="Photography Camera" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Photography Camera</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">Peter Parker&#39;s camera, the one that sold Spider-Man photos to the Daily Bugle. Taking the shot taught him to track a target through the chaos.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Web Warrior</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+8% ACC</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Aunt May&#39;s Wheat Cakes" data-rarity="Uncommon" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">AM</span><img src="images/artifact-images/aunt-mays-wheat-cakes.png" alt="Aunt May&#39;s Wheat Cakes" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Aunt May&#39;s Wheat Cakes</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">A stack of May Parker&#39;s wheat cakes, still warm. Every hero in Queens has been fed at that kitchen table at least once.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Heroes of New York</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+6% MAX HP</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Prowler&#39;s Glove" data-rarity="Uncommon" data-equip="Link" data-source="Danger Room" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">PG</span><img src="images/artifact-images/prowlers-glove.png" alt="Prowler&#39;s Glove" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Prowler&#39;s Glove</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">A clawed gauntlet from the suit of Aaron Davis, the Prowler and Miles Morales&#39;s uncle. A family legacy of a different kind.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Heir to the Mantle</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+5% CRIT RATE</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Danger Room</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Gamma Vial" data-rarity="Uncommon" data-equip="Role" data-source="Danger Room" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">GV</span><img src="images/artifact-images/gamma-vial.png" alt="Gamma Vial" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Gamma Vial</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">A sealed vial of Bruce Banner&#39;s gamma-irradiated blood, faintly glowing green. A single transfusion saved Jennifer Walters&#39;s life and made her a Hulk.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Defender</strong>.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+6% DEF</em> and <em class="kw">+6% RES</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Danger Room</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--uncommon"
+         data-name="Fluffy Unicorn" data-rarity="Uncommon" data-equip="Role" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">FU</span><img src="images/artifact-images/fluffy-unicorn.png" alt="Fluffy Unicorn" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Fluffy Unicorn</span>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+        <p class="artifact-description">Deadpool&#39;s plush unicorn: stuffed, sparkly, and somehow bloodstained. He swears it&#39;s his emotional support animal.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Berserker</strong>.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+10% ATK</em>.</li>
+          <li><em class="kw">-5% MAX HP</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ============== RARE ============== -->
     <div class="artifact artifact--rare"
-         data-name="Spider-Tracer" data-rarity="Rare" data-equip="Link" data-source="Event Story">
-      <div class="artifact-image"><img src="images/artifact-images/spider-tracer.png" alt="Spider-Tracer"></div>
+         data-name="Lock-Pick Set" data-rarity="Rare" data-equip="Universal" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">LS</span><img src="images/artifact-images/lock-pick-set.png" alt="Lock-Pick Set" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Spider-Tracer</span>
+          <span class="artifact-name">Lock-Pick Set</span>
           <span class="rarity rarity--rare">Rare</span>
         </div>
-        <p class="artifact-description">Adhesive radio bug small enough to land on a fly — Parker's own design. Once it's on you, the team knows where you are and how to hit you harder.</p>
-        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Web Warrior</strong> link.</div>
+        <p class="artifact-description">Tension wrench, a fan of picks and a rake, rolled up in a canvas pouch. Cuffs, cages, chains: everything that holds a person was made to be opened.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
         <ul class="artifact-effects">
-          <li>The first enemy this Champion damages each turn is inflicted with <em class="kw">"Tracker"</em> for 2 turns.</li>
-          <li><em class="kw">+5% ATK and MAG</em> against enemies inflicted with "Tracker".</li>
+          <li>Nullifies the first <em class="kw">&quot;Stun&quot;</em>, <em class="kw">&quot;Constraint&quot;</em>, <em class="kw">&quot;Frozen&quot;</em> or <em class="kw">&quot;Spider&#39;s Web&quot;</em> inflicted on this Champion each battle.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--rare"
-         data-name="Combat Harness" data-rarity="Rare" data-equip="Link" data-source="Main Story">
-      <div class="artifact-image"><img src="images/artifact-images/combat-harness.png" alt="Combat Harness"></div>
+         data-name="Wanted Poster" data-rarity="Rare" data-equip="Role" data-source="Flashpoint" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">WP</span><img src="images/artifact-images/wanted-poster.png" alt="Wanted Poster" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Combat Harness</span>
+          <span class="artifact-name">Wanted Poster</span>
           <span class="rarity rarity--rare">Rare</span>
         </div>
-        <p class="artifact-description">Reinforced webbing rig designed for serum-enhanced operators. The straps hold heavy ordnance steady; the plates carry hits that would put a regular soldier on the ground.</p>
-        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Super Soldier</strong> link.</div>
+        <p class="artifact-description">A creased bounty sheet with a face circled in red. Once the job has a name, all that&#39;s left is finishing it.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Striker</strong>.</div>
         <ul class="artifact-effects">
-          <li><em class="kw">+5% ATK and +5% DEF.</em></li>
-          <li>Restores <em class="kw">1 STA</em> at the end of the turn (once per turn) for the first 3 turns of battle.</li>
+          <li><em class="kw">+10% ATK</em> and <em class="kw">+10% MAG</em> against enemies below <em class="kw">50% HP</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Flashpoint</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Binoculars" data-rarity="Rare" data-equip="Role" data-source="Danger Room" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">B</span><img src="images/artifact-images/binoculars.png" alt="Binoculars" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Binoculars</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">Scuffed field binoculars with a cracked strap. Seeing the target first is half of hitting it.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Blaster</strong>.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+1 panel</em> of range on ranged abilities.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Danger Room</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Daily Bugle Front Page" data-rarity="Rare" data-equip="Role" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">DB</span><img src="images/artifact-images/daily-bugle-front-page.png" alt="Daily Bugle Front Page" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Daily Bugle Front Page</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">J. Jonah Jameson&#39;s latest front page, with another hero branded a menace in bold print. Nothing rattles a fighter like the whole city doubting them.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Breaker</strong>.</div>
+        <ul class="artifact-effects">
+          <li>The first enemy this Champion damages each turn is inflicted with <em class="kw">&quot;Anxiety&quot;</em> for 2 turns.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Medical Supplies" data-rarity="Rare" data-equip="Role" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">MS</span><img src="images/artifact-images/medical-supplies.png" alt="Medical Supplies" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Medical Supplies</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">A fully stocked field medkit: sutures, splints, antiseptic and painkillers. Everything a medic needs to keep a team standing one more round.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Healer</strong>.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+15% HEAL</em> when healing an ally below <em class="kw">50% HP</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Bat-Signal" data-rarity="Rare" data-equip="Role" data-source="Flashpoint" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">B</span><img src="images/artifact-images/bat-signal.png" alt="Bat-Signal" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Bat-Signal</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">Commissioner Gordon&#39;s searchlight, the bat symbol thrown across Gotham&#39;s clouds. When it lights up, everyone knows the fight has started.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Booster</strong>.</div>
+        <ul class="artifact-effects">
+          <li>At the start of battle, all allies gain <em class="kw">&quot;Focus&quot;</em> for 2 turns.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Flashpoint</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Burglar&#39;s Calling Card" data-rarity="Rare" data-equip="Role" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">BC</span><img src="images/artifact-images/burglars-calling-card.png" alt="Burglar&#39;s Calling Card" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Burglar&#39;s Calling Card</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">A playing card left behind at the scene, with nothing missing but the one thing that mattered. Thieves sign their work.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Plunderer</strong>.</div>
+        <ul class="artifact-effects">
+          <li>Whenever this Champion steals a buff, restores <em class="kw">10 EN</em> (once per turn).</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Signal Watch" data-rarity="Rare" data-equip="Role" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">SW</span><img src="images/artifact-images/signal-watch.png" alt="Signal Watch" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Signal Watch</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">Jimmy Olsen&#39;s wristwatch, rigged to emit a signal only Superman can hear. Press the button, and help is already on its way.</p>
+        <div class="artifact-meta"><span class="equip-pill">Role</span> Champion must be a <strong>Summoner</strong>.</div>
+        <ul class="artifact-effects">
+          <li>Summons summoned by this Champion gain <em class="kw">+10% ATK</em> and <em class="kw">+10% MAG</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--rare"
+         data-name="Scouter" data-rarity="Rare" data-equip="Link" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">S</span><img src="images/artifact-images/scouter.png" alt="Scouter" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Scouter</span>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+        <p class="artifact-description">A Frieza Force eyepiece that reads a target&#39;s power level at a glance. Elite soldiers learn to stop trusting it right before they lose.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Frieza Force</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+8% ACC</em>.</li>
+          <li><em class="kw">+8% ATK</em> and <em class="kw">+8% MAG</em> against enemies with a higher MAX HP than this Champion.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ============== EPIC ============== -->
     <div class="artifact artifact--epic"
-         data-name="Patriotic Resolve" data-rarity="Epic" data-equip="Link" data-source="Arena">
-      <div class="artifact-image"><img src="images/artifact-images/patriotic-resolve.png" alt="Patriotic Resolve"></div>
+         data-name="Green Kryptonite" data-rarity="Epic" data-equip="Universal" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">GK</span><img src="images/artifact-images/green-kryptonite.png" alt="Green Kryptonite" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Patriotic Resolve</span>
+          <span class="artifact-name">Green Kryptonite</span>
           <span class="rarity rarity--epic">Epic</span>
         </div>
-        <p class="artifact-description">An echo of the founding charter — what the team was built to be. Surfaces when an Avenger has already taken more than they should have and stands up anyway.</p>
-        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Avengers</strong> or <strong>New Avengers</strong> link.</div>
+        <p class="artifact-description">A glowing green shard of Superman&#39;s dead homeworld. Harmless to almost everyone, and poison to the strongest man alive just for standing near it.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
         <ul class="artifact-effects">
-          <li>The first time this Champion drops below <em class="kw">50% HP</em> in battle, gain <em class="kw">"Impenetrable"</em> for 1 turn.</li>
-          <li>Once per battle.</li>
+          <li><em class="kw">+20% ATK</em> and <em class="kw">+20% MAG</em> against <em class="kw">&quot;Kryptonian&quot;</em> enemies.</li>
+          <li><em class="kw">&quot;Kryptonian&quot;</em> enemies within 3 panels of this Champion have <em class="kw">-15% DEF</em> and <em class="kw">-15% RES</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--epic"
-         data-name="Cape Reinforcement" data-rarity="Epic" data-equip="Link" data-source="Event Story">
-      <div class="artifact-image"><img src="images/artifact-images/reinforced-cape.png" alt="Cape Reinforcement"></div>
+         data-name="Utility Belt" data-rarity="Epic" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">UB</span><img src="images/artifact-images/utility-belt.png" alt="Utility Belt" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Cape Reinforcement</span>
+          <span class="artifact-name">Utility Belt</span>
           <span class="rarity rarity--epic">Epic</span>
         </div>
-        <p class="artifact-description">Woven from indestructible Kryptonian fabric. The cape doesn't really protect the wearer — it just doesn't tear, which on Earth is a remarkable trait.</p>
-        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Kryptonian</strong> link.</div>
+        <p class="artifact-description">Batman&#39;s yellow utility belt, every pouch packed for a different emergency. Somewhere in there is the answer to almost any problem.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Bat-Family</strong> link.</div>
         <ul class="artifact-effects">
-          <li><em class="kw">+8% MAX HP.</em></li>
+          <li>Inventory starts each battle with <em class="kw">1 Smoke Grenade</em> and <em class="kw">1 Explosive Gel</em>.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
+
+    <div class="artifact artifact--epic"
+         data-name="Saiyan Battle Armor" data-rarity="Epic" data-equip="Link" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">SB</span><img src="images/artifact-images/saiyan-battle-armor.png" alt="Saiyan Battle Armor" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Saiyan Battle Armor</span>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+        <p class="artifact-description">Stretchable Frieza Force armor with flared shoulder guards. Saiyans come back stronger every time they survive a beating, and this armor was made to let them.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Saiyan</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+5% DEF</em>.</li>
+          <li>The first time this Champion drops below <em class="kw">30% HP</em> each battle, gains <em class="kw">+15% ATK, MAG, DEF and RES</em> for the rest of the battle.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--epic"
+         data-name="Turtle Shell" data-rarity="Epic" data-equip="Universal" data-source="Danger Room" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">TS</span><img src="images/artifact-images/turtle-shell.png" alt="Turtle Shell" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Turtle Shell</span>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+        <p class="artifact-description">The heavy training shell Master Roshi made Goku and Krillin wear for their lessons. Carrying it is miserable. Taking it off feels like flying.</p>
+        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">-15% SPD</em> for the first 3 turns of battle.</li>
+          <li>From turn 4 onward, the penalty is removed and this Champion gains <em class="kw">+10% ATK, MAG, DEF and RES</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Danger Room</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--epic"
+         data-name="Mother Box" data-rarity="Epic" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">MB</span><img src="images/artifact-images/mother-box.png" alt="Mother Box" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Mother Box</span>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+        <p class="artifact-description">A living New God computer from Apokolips and New Genesis. It thinks, heals, opens Boom Tubes, and adapts to protect whoever carries it.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Adaptive Measures</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+8% DEF</em> and <em class="kw">+8% RES</em>.</li>
+          <li>When receiving an attack, <em class="kw">10% chance</em> to gain <em class="kw">&quot;Energy Barrier&quot;</em> (once per turn).</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ============== LEGENDARY ============== -->
     <div class="artifact artifact--legendary"
-         data-name="Star-Spangled Banner" data-rarity="Legendary" data-equip="Link" data-source="Arena">
-      <div class="artifact-image">SB</div>
+         data-name="Avengers ID Card" data-rarity="Legendary" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">AI</span><img src="images/artifact-images/avengers-id-card.png" alt="Avengers ID Card" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Star-Spangled Banner</span>
+          <span class="artifact-name">Avengers ID Card</span>
           <span class="rarity rarity--legendary">Legendary</span>
         </div>
-        <p class="artifact-description">A standard carried into every fight where the team has been outnumbered and held the line anyway. Holding it on the field is a promise to the people watching.</p>
-        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Hero</strong> link.</div>
+        <p class="artifact-description">An Avengers priority card, signed off by the founding members. It opens any door in the Mansion and calls every member to the same fight.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Avengers</strong> link.</div>
         <ul class="artifact-effects">
-          <li>All <em class="kw">"Hero"</em> allies (including self) gain <em class="kw">+5% MAX HP</em> and <em class="kw">+5% ATK</em>.</li>
-          <li>If this Champion is also the team Leader, the Leader Ability's effects last for 1 extra turn when applicable.</li>
+          <li><em class="kw">+4% ATK, MAG, DEF and RES</em> for each other <em class="kw">&quot;Avengers&quot;</em> ally alive.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--legendary"
-         data-name="Wisdom of Solomon" data-rarity="Legendary" data-equip="Link" data-source="Crisis on Infinite Earths">
-      <div class="artifact-image">WS</div>
+         data-name="Watchtower Teleporter" data-rarity="Legendary" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">WT</span><img src="images/artifact-images/watchtower-teleporter.png" alt="Watchtower Teleporter" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Wisdom of Solomon</span>
+          <span class="artifact-name">Watchtower Teleporter</span>
           <span class="rarity rarity--legendary">Legendary</span>
         </div>
-        <p class="artifact-description">A relic touched by the mythic gift that powers the Champion of Magic — clarity in the middle of chaos. The Justice League keeps it where it can do the most good.</p>
+        <p class="artifact-description">A teleport beacon keyed to the Justice League Watchtower in orbit above Earth. Wherever a member is fighting, the rest are one beam away.</p>
         <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Justice League</strong> link.</div>
         <ul class="artifact-effects">
-          <li>This Champion gains <em class="kw">+5% to all stats</em> per ally alive (including self).</li>
-          <li>Defeated allies cap the bonus — once one is down, no further allies count toward the stack.</li>
+          <li>Once per battle, at the start of this Champion's turn, may teleport to an unoccupied panel adjacent to any <em class="kw">&quot;Justice League&quot;</em> ally (no STA cost).</li>
+          <li><em class="kw">+5% ATK</em> and <em class="kw">+5% MAG</em> while adjacent to a <em class="kw">&quot;Justice League&quot;</em> ally.</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
+
+    <div class="artifact artifact--legendary"
+         data-name="Captain America&#39;s Shield" data-rarity="Legendary" data-equip="Link" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">CA</span><img src="images/artifact-images/captain-americas-shield.png" alt="Captain America&#39;s Shield" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Captain America&#39;s Shield</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">The original triangular shield Steve Rogers carried into World War II, before the round one. Every soldier who saw it knew where to rally.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Super Soldier</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>Reduces damage received by <em class="kw">10%</em>.</li>
+          <li>While this Champion is blocking, adjacent allies take <em class="kw">15% less damage</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--legendary"
+         data-name="Arc Reactor" data-rarity="Legendary" data-equip="Link" data-source="Flashpoint" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">AR</span><img src="images/artifact-images/arc-reactor.png" alt="Arc Reactor" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Arc Reactor</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">An exact working replica of the reactor in Tony Stark&#39;s chest. Enough clean power to keep a heart beating or a whole suit of armor running.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Mechanical Physiology</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+12% MAX HP</em>.</li>
+          <li>EN regen is increased from <em class="kw">20%</em> to <em class="kw">30%</em> of MAX EN.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Flashpoint</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--legendary"
+         data-name="Stormbreaker" data-rarity="Legendary" data-equip="Link" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">S</span><img src="images/artifact-images/stormbreaker.png" alt="Stormbreaker" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Stormbreaker</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">The enchanted hammer Odin forged for Beta Ray Bill after the Korbinite proved himself worthy. It carries the same storm as Mjolnir.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Worthy</strong> link.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+8% ATK</em> and <em class="kw">+8% MAG</em>.</li>
+          <li>Attacks have a <em class="kw">25% chance</em> to inflict <em class="kw">&quot;Shock&quot;</em> for 2 turns.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--legendary"
+         data-name="Korin&#39;s Senzu Pouch" data-rarity="Legendary" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">KS</span><img src="images/artifact-images/korins-senzu-pouch.png" alt="Korin&#39;s Senzu Pouch" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Korin&#39;s Senzu Pouch</span>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+        <p class="artifact-description">A small cloth pouch of Senzu Beans grown by Korin atop his tower. The Z Fighters have won more than one fight with the last bean in the bag.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Z Fighters</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>Inventory starts each battle with <em class="kw">1 Senzu Bean</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ============== MYTHIC ============== -->
     <div class="artifact artifact--mythic"
-         data-name="Heart of the Multiverse" data-rarity="Mythic" data-equip="Universal" data-source="Crisis on Infinite Earths">
-      <div class="artifact-image">HM</div>
+         data-name="Radioactive Spider" data-rarity="Mythic" data-equip="Link" data-source="Danger Room" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">RS</span><img src="images/artifact-images/radioactive-spider.png" alt="Radioactive Spider" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Heart of the Multiverse</span>
+          <span class="artifact-name">Radioactive Spider</span>
           <span class="rarity rarity--mythic">Mythic</span>
         </div>
-        <p class="artifact-description">A crystallized fragment of the source from which every Earth's heroes draw. Holding it for too long has driven lesser Champions into burnout — most teams pass it around between battles.</p>
-        <div class="artifact-meta"><span class="equip-pill">Universal</span> Any Champion.</div>
+        <p class="artifact-description">The irradiated spider that bit a teenage Peter Parker on a school trip. One bite, and with it great power and great responsibility.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Web Warrior</strong> link.</div>
         <ul class="artifact-effects">
-          <li>At the start of battle, all allies (including self) gain <em class="kw">+10% ULT generation</em> for 3 turns.</li>
-          <li>The first ULTIMATUM used by an ally each battle costs <em class="kw">10% less ULT</em>.</li>
+          <li><em class="kw">+7% ATK</em> and <em class="kw">+7% MAG</em>.</li>
+          <li><em class="kw">+10% infliction chance</em> on all inflictions.</li>
+          <li>Whenever evading an attack, gains 1 stack of <em class="kw">&quot;Pinpoint&quot;</em> (once per turn).</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Danger Room</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
     <div class="artifact artifact--mythic"
-         data-name="Last Stand Locket" data-rarity="Mythic" data-equip="Tag" data-source="The Dark Dimension">
-      <div class="artifact-image">LL</div>
+         data-name="Four-Star Dragon Ball" data-rarity="Mythic" data-equip="Link" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">FD</span><img src="images/artifact-images/four-star-dragon-ball.png" alt="Four-Star Dragon Ball" onerror="this.remove()"></div>
       <div class="artifact-body">
         <div class="artifact-header">
-          <span class="artifact-name">Last Stand Locket</span>
+          <span class="artifact-name">Four-Star Dragon Ball</span>
           <span class="rarity rarity--mythic">Mythic</span>
         </div>
-        <p class="artifact-description">An heirloom forged for the kind of Champion who's already endured a fatal blow before — and intends to do it again. The metal warms when its wearer is about to need it.</p>
-        <div class="artifact-meta"><span class="equip-pill">Tag</span> Champion must have the <strong>Endurance</strong> tag.</div>
+        <p class="artifact-description">The four-star Dragon Ball, kept by Grandpa Gohan and passed down to Goku. One of seven orbs that can summon the Eternal Dragon Shenron.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Pure Heart</strong> link.</div>
         <ul class="artifact-effects">
-          <li>The first time this Champion endures a fatal blow each battle, gain <em class="kw">Indestructible</em> for 1 turn and <em class="kw">Overdrive</em> for 1 turn.</li>
-          <li>Cannot stack with other Endurance-style effects in the same activation window.</li>
+          <li><em class="kw">+10% MAX HP</em>.</li>
+          <li>Endures a fatal blow once per battle (<em class="kw">Endurance</em>).</li>
         </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--mythic"
+         data-name="Summoner&#39;s Staff" data-rarity="Mythic" data-equip="Link|Role" data-source="Main Story" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">SS</span><img src="images/artifact-images/summoners-staff.png" alt="Summoner&#39;s Staff" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Summoner&#39;s Staff</span>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+        <p class="artifact-description">The staff The Summoner uses to call Champions across the Multiverse. It anchors every summon and keeps the worlds from tearing apart.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span><span class="equip-pill">Role</span> Champion must have the <strong>Multiversal</strong> link and be a <strong>Summoner</strong>.</div>
+        <ul class="artifact-effects">
+          <li><em class="kw">+50 ATK</em>, <em class="kw">+50 MAG</em> and <em class="kw">+50 HEAL</em>.</li>
+          <li>Summons summoned by this Champion last <em class="kw">1 extra turn</em>.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Main Story</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="artifact artifact--mythic"
+         data-name="Tesseract" data-rarity="Mythic" data-equip="Link" data-source="Arena" data-version="1.0.0">
+      <div class="artifact-image"><span class="artifact-initials">T</span><img src="images/artifact-images/tesseract.png" alt="Tesseract" onerror="this.remove()"></div>
+      <div class="artifact-body">
+        <div class="artifact-header">
+          <span class="artifact-name">Tesseract</span>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+        <p class="artifact-description">The glowing blue cube that houses the Space Stone. Loki carried it out of S.H.I.E.L.D.&#39;s hands, and space has bent around its holder ever since.</p>
+        <div class="artifact-meta"><span class="equip-pill">Link</span> Champion must have the <strong>Villain</strong> link.</div>
+        <ul class="artifact-effects">
+          <li>Once per turn, may teleport to an unoccupied panel within <em class="kw">3 panels</em> without using STA.</li>
+        </ul>
+        <div class="artifact-footer">
+          <div class="artifact-sources"><span class="source-pill">Arena</span></div>
+          <span class="version-pill" title="Added in v1.0.0">v1.0.0</span>
+        </div>
       </div>
     </div>
 
@@ -737,21 +1341,38 @@
   const countEl      = document.getElementById('count');
   const totalEl      = document.getElementById('total');
   const cards        = Array.from(document.querySelectorAll('.artifact'));
+
+  // Build Version pills from the versions present on cards (oldest first)
+  const versionWrap = document.getElementById('version-pills');
+  const semver = v => v.split('.').map(Number);
+  [...new Set(cards.map(c => c.dataset.version).filter(Boolean))]
+    .sort((a, b) => { const x = semver(a), y = semver(b); for (let i = 0; i < 3; i++) if (x[i] !== y[i]) return x[i] - y[i]; return 0; })
+    .forEach(v => {
+      const b = document.createElement('button');
+      b.className = 'filter-pill';
+      b.dataset.value = 'v' + v;
+      b.textContent = 'v' + v;
+      versionWrap.appendChild(b);
+    });
+
   const pills        = Array.from(document.querySelectorAll('.filter-pill'));
   const noResults    = document.getElementById('no-results');
 
   // Active filters by category
-  const active = { rarity: new Set(), equip: new Set(), source: new Set() };
+  const active = { rarity: new Set(), equip: new Set(), version: new Set(), source: new Set() };
+  const CATS = ['rarity', 'equip', 'version', 'source'];
+  const list = s => (s || '').split('|').filter(Boolean);
+  const hasAny = (set, values) => values.some(v => set.has(v));
 
   totalEl.textContent = cards.length;
 
   function activeFilterCount() {
-    return active.rarity.size + active.equip.size + active.source.size;
+    return CATS.reduce((n, c) => n + active[c].size, 0);
   }
 
   function renderChips() {
     activeChips.innerHTML = '';
-    for (const category of ['rarity', 'equip', 'source']) {
+    for (const category of CATS) {
       for (const value of active[category]) {
         const chip = document.createElement('span');
         chip.className = 'chip';
@@ -762,11 +1383,9 @@
           active[category].delete(value);
           // Sync pill state
           const pill = document.querySelector(
-            `.filter-pill[data-value="${value}"]`
+            `.filter-pills[data-category="${category}"] .filter-pill[data-value="${value}"]`
           );
-          if (pill && pill.parentElement.dataset.category === category) {
-            pill.classList.remove('active');
-          }
+          if (pill) pill.classList.remove('active');
           applyFilters();
         });
         activeChips.appendChild(chip);
@@ -782,8 +1401,9 @@
       const name   = card.dataset.name.toLowerCase();
       const text   = card.textContent.toLowerCase();
       const rarity = card.dataset.rarity;
-      const equip  = card.dataset.equip;
-      const source = card.dataset.source;
+      const equip   = list(card.dataset.equip);
+      const source  = list(card.dataset.source);
+      const version = 'v' + (card.dataset.version || '');
 
       let match = true;
 
@@ -794,10 +1414,13 @@
       if (match && active.rarity.size > 0 && !active.rarity.has(rarity)) {
         match = false;
       }
-      if (match && active.equip.size > 0 && !active.equip.has(equip)) {
+      if (match && active.equip.size > 0 && !hasAny(active.equip, equip)) {
         match = false;
       }
-      if (match && active.source.size > 0 && !active.source.has(source)) {
+      if (match && active.version.size > 0 && !active.version.has(version)) {
+        match = false;
+      }
+      if (match && active.source.size > 0 && !hasAny(active.source, source)) {
         match = false;
       }
 
@@ -807,6 +1430,9 @@
 
     countEl.textContent = visible;
     noResults.style.display = visible === 0 ? 'block' : 'none';
+    if (cards.length === 0) {
+      noResults.innerHTML = '<strong>No artifacts yet</strong>New artifacts will appear here as they are added.';
+    }
 
     // Update filter count pill
     const n = activeFilterCount();
@@ -848,7 +1474,7 @@
   // Clear all
   clearBtn.addEventListener('click', () => {
     searchInput.value = '';
-    for (const cat of ['rarity', 'equip', 'source']) active[cat].clear();
+    for (const cat of CATS) active[cat].clear();
     pills.forEach(p => p.classList.remove('active'));
     applyFilters();
   });

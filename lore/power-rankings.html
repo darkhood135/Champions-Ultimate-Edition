@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power rankings &mdash; The Archive &mdash; Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="archive.css">
+</head>
+<!-- Multiversal page: uses the Worlds Entwined accent -->
+<body data-page="power-rankings" style="--accent:#a78bfa;">
+
+<div id="ax-header"></div>
+<noscript><p style="padding:10px 24px;color:#8a909b;font-size:13px;">The Power rankings need JavaScript. <a href="../lore.html">Back to Lore</a></p></noscript>
+
+<main class="ax-page">
+
+  <div class="ax-crumbs">
+    <a href="../index.html">Home</a><span class="sep">/</span><a data-link="the-archive"></a><span class="sep">/</span><span class="here">Power rankings</span>
+  </div>
+
+  <div class="ax-hero ax-hero--plain">
+    <div class="ax-hero-content">
+      <div class="ax-hero-kicker">
+        <span class="ax-pill ax-pill--accent">Multiversal</span>
+        <span class="ax-pill">All universes</span>
+      </div>
+      <h1 class="ax-title">Power rankings</h1>
+    </div>
+  </div>
+
+  <article class="ax-article" style="margin-top:22px">
+    <p class="ax-lead">Every character with a Power overview, on one shared multiversal scale. Each category runs from 1 to 10, and a rating means the same thing in every universe: a wizard&rsquo;s 3 and a Saiyan&rsquo;s 3 are the same 3. Click a column to sort, or filter by universe. These are story ratings, separate from gameplay stats.</p>
+    <div data-rankings></div>
+    <p style="font-size:13px;color:var(--dim);margin-top:12px">The table fills in automatically as character articles are written. Each character&rsquo;s ratings live in one place, the Archive&rsquo;s page index, so their article and this table always agree.</p>
+  </article>
+
+  <div class="ax-cats" style="margin-top:28px">
+    <b>Categories:</b>
+    <a data-link="cat-power">Power scale</a> <span class="bar">|</span>
+    <a data-link="characters"></a>
+  </div>
+
+</main>
+
+<footer class="ax-footer">
+  <span>Champions Ultimate Edition &middot; The Archive</span>
+  <span><a href="../lore.html">Lore home</a></span>
+</footer>
+
+<script src="../data/image-credits.js"></script>
+<script src="data/archive-index.js"></script>
+<script src="archive.js"></script>
+</body>
+</html>

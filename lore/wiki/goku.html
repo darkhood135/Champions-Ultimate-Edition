@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goku &mdash; The Archive &mdash; Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../archive.css">
+</head>
+<!-- Champion article: uses the Champion's own palette (champions/goku.html, Base form).
+     Goku has several Champion forms: the infobox and Power overview take each form's palette
+     when it is selected. Forms live in lore/data/archive-index.js (entry "goku", forms: [...]). -->
+<body data-page="goku" style="--accent:#f97316;">
+
+<div id="ax-header"></div>
+<noscript><p style="padding:10px 24px;color:#8a909b;font-size:13px;">The Archive&rsquo;s menus and search need JavaScript. <a href="../../lore.html">Back to Lore</a></p></noscript>
+
+<main class="ax-page">
+
+  <div class="ax-crumbs">
+    <a href="../../index.html">Home</a><span class="sep">/</span><a data-link="the-archive"></a><span class="sep">/</span><a data-link="characters"></a><span class="sep">/</span><span class="here">Goku</span>
+  </div>
+
+  <!-- ===== Title ===== -->
+  <div class="ax-hero ax-hero--plain">
+    <div class="ax-hero-content">
+      <div class="ax-hero-kicker">
+        <span class="ax-pill ax-pill--accent">Character</span>
+        <span class="ax-pill">Dragon Ball</span>
+        <span class="ax-pill">Saiyan</span>
+        <span class="ax-pill">Z Fighters</span>
+        <span class="ax-pill">Champion &middot; 7 forms</span>
+      </div>
+      <h1 class="ax-title">Goku</h1>
+    </div>
+  </div>
+
+  <!-- ===== Tabs ===== -->
+  <div class="ax-tabs" role="tablist">
+    <button class="ax-tab" data-tab="article" role="tab">Article</button>
+    <button class="ax-tab" data-tab="memories" role="tab">Memories<span class="n" data-count="anchor:goku"></span></button>
+    <button class="ax-tab" data-tab="gallery" role="tab">Gallery</button>
+  </div>
+
+  <!-- =====================================================================
+       ARTICLE
+       ===================================================================== -->
+  <section class="ax-panel" id="article">
+    <article class="ax-article">
+
+      <!-- Infobox (form switcher fills from the index) -->
+      <aside class="ax-infobox">
+        <div class="ax-ib-title"><div class="t">Son Goku</div><div class="s">Character</div></div>
+        <div data-forms></div>
+        <div class="ax-ib-image"><img data-form-img src="../../images/champion-images/goku.jpg" alt="Goku" data-zoom data-caption="Goku" style="object-position:top"></div>
+        <div class="ax-ib-caption" data-form-caption>Base &middot; Champion portrait</div>
+        <div class="ax-ib-credit" data-form-credit data-credit-for="images/champion-images/goku.jpg"></div>
+        <div class="ax-ib-formcard" data-form-card></div>
+        <div data-form-theme data-theme-audio="audio/champion-themes/goku.mp3" data-track="Arrival of Salvation" data-source="Dragon Ball Z Dokkan Battle: INT LR Goku Active Skill OST"></div>
+
+        <div class="ax-ib-group">Biographical</div>
+        <div class="ax-ib-row"><div class="l">Saiyan name</div><div class="v">Kakarot</div></div>
+        <div class="ax-ib-row"><div class="l">Born</div><div class="v">Age 737<br><span class="sub"><a data-link="planet-vegeta"></a></span></div></div>
+        <div class="ax-ib-row"><div class="l">Status</div><div class="v"><span class="ax-status--alive">Alive</span><br><span class="sub">Died twice (Age 761, Age 767); revived both times</span></div></div>
+        <div class="ax-ib-row"><div class="l">Occupation</div><div class="v">Martial artist<br><span class="sub">Radish farmer; Galactic Patrol (temporary)</span></div></div>
+        <div class="ax-ib-row"><div class="l">Residence</div><div class="v">Mount Paozu, <a data-link="earth-db">Earth</a></div></div>
+
+        <div class="ax-ib-group">Physical description</div>
+        <div class="ax-ib-row"><div class="l">Species</div><div class="v"><a data-link="saiyans">Saiyan</a></div></div>
+        <div class="ax-ib-row"><div class="l">Gender</div><div class="v">Male</div></div>
+        <div class="ax-ib-row"><div class="l">Hair</div><div class="v">Black, spiked <span class="sub">(changes with each form)</span></div></div>
+        <div class="ax-ib-row"><div class="l">Eyes</div><div class="v">Black</div></div>
+        <div class="ax-ib-row"><div class="l">Tail</div><div class="v">Removed <span class="sub">(by Kami)</span></div></div>
+
+        <div class="ax-ib-group">Fighting characteristics</div>
+        <div class="ax-ib-row"><div class="l">Schools</div><div class="v">Turtle School <span class="sub">(Master Roshi)</span><br>Kami, <a data-link="king-kai"></a>, <a data-link="whis"></a>, <a data-link="merus"></a></div></div>
+        <div class="ax-ib-row"><div class="l">Signature</div><div class="v">Kamehameha</div></div>
+        <div class="ax-ib-row"><div class="l">Fusions</div><div class="v">Vegito <span class="sub">(Potara)</span><br>Gogeta <span class="sub">(Fusion Dance)</span></div></div>
+
+        <div class="ax-ib-group">Family</div>
+        <div class="ax-ib-row"><div class="l">Parents</div><div class="v"><a data-link="bardock"></a> <span class="sub">(father, <span class="ax-status--deceased">deceased</span>)</span><br><a data-link="gine"></a> <span class="sub">(mother, <span class="ax-status--deceased">deceased</span>)</span></div></div>
+        <div class="ax-ib-row"><div class="l">Spouse</div><div class="v"><a data-link="chi-chi"></a></div></div>
+        <div class="ax-ib-row"><div class="l">Children</div><div class="v"><a data-link="gohan"></a> <span class="sub">(son)</span><br><a data-link="goten"></a> <span class="sub">(son)</span></div></div>
+        <div class="ax-ib-row"><div class="l">Relatives</div><div class="v"><a data-link="raditz"></a> <span class="sub">(brother, <span class="ax-status--deceased">deceased</span>)</span><br><a data-link="grandpa-gohan"></a> <span class="sub">(adoptive grandfather, <span class="ax-status--deceased">deceased</span>)</span><br><a data-link="pan"></a> <span class="sub">(granddaughter)</span><br><a data-link="videl"></a> <span class="sub">(daughter-in-law)</span><br><a data-link="ox-king"></a> <span class="sub">(father-in-law)</span></div></div>
+
+        <div class="ax-ib-group">Affiliation</div>
+        <div class="ax-ib-row"><div class="l">Groups</div><div class="v"><a data-link="z-fighters"></a><br>Team Universe 7 <span class="sub">(Tournament of Power)</span></div></div>
+        <div class="ax-ib-row"><div class="l">Formerly</div><div class="v">Galactic Patrol <span class="sub">(trainee)</span></div></div>
+
+        <div class="ax-ib-group">Story</div>
+        <div class="ax-ib-row"><div class="l">Universe</div><div class="v"><a data-link="dragon-ball"></a></div></div>
+        <div class="ax-ib-row"><div class="l">First appearance</div><div class="v"><a data-link="db-dragon-ball"></a></div></div>
+        <div class="ax-ib-row"><div class="l">Last (Apart)</div><div class="v"><a data-link="db-super-hero"></a></div></div>
+        <div class="ax-ib-row"><div class="l">Worlds Entwined</div><div class="v"><span class="sub">Not yet written</span></div></div>
+        <div class="ax-ib-row"><div class="l">Memories</div><div class="v"><a href="#memories" data-tab-link><span data-count="anchor:goku"></span> Memories</a></div></div>
+
+        <div class="ax-ib-group">Gameplay</div>
+        <div class="ax-ib-row"><div class="l">Champions</div><div class="v" data-form-champions></div></div>
+      </aside>
+
+      <div class="ax-quote">
+        <span class="mark">&ldquo;</span>
+        <blockquote>Kakarot&hellip; you&rsquo;re number one.<cite>&mdash; <a data-link="vegeta"></a>, <a data-link="db-buu-saga"></a></cite></blockquote>
+        <span class="mark close">&rdquo;</span>
+      </div>
+
+      <p class="ax-lead"><b>Son Goku</b> (born <b>Kakarot</b>, Age 737) is a <a data-link="saiyans">Saiyan</a> of <a data-link="dragon-ball"></a>, the younger son of <a data-link="bardock"></a> and <a data-link="gine"></a>, sent from <a data-link="planet-vegeta"></a> as a small child shortly before <a data-link="frieza"></a> destroyed it. Found in the mountains of Earth by the hermit <a data-link="grandpa-gohan">Gohan</a>, a blow to the head erased the ruthless instincts of his race, and he grew up a cheerful, guileless boy with a monkey&rsquo;s tail, a bottomless stomach and an untouchable gift for fighting.</p>
+
+      <p class="ax-lead">From a hunt for the seven <a data-link="the-dragon-balls">Dragon Balls</a> at twelve, Goku became the greatest defender Earth has ever had: the first <a data-link="super-saiyan">Super Saiyan</a> in a thousand years, a fighter who has died twice for his friends and come back stronger both times, and eventually a mortal who could stand among gods and master <a data-link="ultra-instinct">Ultra Instinct</a>, the technique of the Angels. He fights for the joy of it, but he has never fought for anything but others. The Archive splits his power across seven Champions; use the <b>Form</b> tabs in the infobox to see each one.</p>
+
+      <!-- Power overview: follows the form selected in the infobox (ratings per form live in the index) -->
+      <div data-power data-form-power>
+        <div class="ax-power-note">
+          <p>Each form is rated at the moment that defines it, not at Goku&rsquo;s peak. Base Goku of the Saiyan Saga already sits at planetary level: stronger than anything on the Wizarding World&rsquo;s scale by orders of magnitude, and in the same bracket as the Hulk at full fury or a Superman holding back. Every Super Saiyan grade raises the ceiling, and by Super Saiyan 2 and 3 he is in stellar territory, where only cosmic-tier Champions such as Thor at his strongest can trade blows with him.</p>
+          <p>With godly ki (Super Saiyan God and Blue) and Ultra Instinct he reaches universal tier: a clash between him and Beerus threatened the universe itself. What he never gains is reality-bending hax. He has no magic, no time manipulation and no mind powers beyond sensing ki, so Champions who rewrite rules (Doctor Strange, Scarlet Witch) remain genuinely dangerous to him. Ultra Instinct&rsquo;s 10 in Combat reflects a technique that only the Angels and the gods of destruction have mastered.</p>
+        </div>
+      </div>
+
+      <nav class="ax-toc" data-toc="article"></nav>
+
+      <!-- ================= HISTORY ================= -->
+      <h2>History</h2>
+
+      <h3>Worlds Apart</h3>
+
+      <h4>Origins (Age 737)</h4>
+      <p>The Saiyans were a warrior race who served the galactic tyrant <a data-link="frieza"></a> as planet brokers, clearing worlds of their inhabitants so they could be sold. Kakarot was born on Planet Vegeta to Bardock, a low-class soldier, and Gine, a gentle Saiyan who had left the front lines to work as a butcher. His elder brother, <a data-link="raditz"></a>, was already off on missions. At birth Kakarot&rsquo;s power level was too low for a frontline posting, and the Saiyans&rsquo; custom was to send such infants alone to planets whose people were weak enough for a child to wipe out.</p>
+      <p>When Frieza abruptly recalled every Saiyan to Planet Vegeta, Bardock suspected a trap. He and Gine stole a space pod and launched their son towards a distant, little-known world called Earth, officially as an infant conqueror, in truth to get him out of Frieza&rsquo;s reach. Bardock was right. Days later Frieza obliterated the planet and nearly every Saiyan on it, Kakarot&rsquo;s parents among them. Only a handful of Saiyans off-world survived: <a data-link="vegeta"></a>, the prince, his bodyguard Nappa, Raditz, and the boy hurtling towards Earth.</p>
+
+      <h4>Mount Paozu (Age 737&ndash;749)</h4>
+      <p>The pod came down in the mountains of Mount Paozu, where an old martial artist, Gohan, found a squalling baby with a tail. The boy was violent and impossible to handle until he fell into a ravine and struck his head. After that he was a different child: sweet-natured, trusting, and happy. Gohan named him Goku, raised him as his grandson, and taught him the martial arts. As a final gift he left Goku the <a data-link="the-dragon-balls">Four-Star Dragon Ball</a>, which Goku kept as a keepsake of his grandfather, and an extending staff, the Power Pole.</p>
+      <p>Gohan warned him never to look at the full moon. One night Goku did, and the Saiyan within him took over: he became a Great Ape, a giant rampaging beast, and crushed his grandfather to death. Goku never remembered it. He believed a monster had killed Grandpa Gohan, and lived alone in the mountains afterwards, hunting fish and wild animals. He had never seen a city, and had never met a girl.</p>
+
+      <h4>The search for the Dragon Balls (Age 749)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-dragon-ball"></a></div>
+      <p>At twelve, Goku met <a data-link="bulma"></a>, a brilliant and bad-tempered teenage inventor who was hunting the seven Dragon Balls to wish for a perfect boyfriend. She noticed the Four-Star Ball he kept by his grandfather&rsquo;s shrine and talked him into joining her. On the road they gathered a strange company: Oolong, a shapeshifting pig; Yamcha, a desert bandit too shy to talk to girls, and his partner Puar; and an old hermit, <a data-link="master-roshi"></a>, who gave Goku the Flying Nimbus, a cloud only the pure of heart can ride, in thanks for saving his sea turtle. At Fire Mountain, Goku watched Roshi put out a raging blaze with a single beam of ki, the Kamehameha, and copied it on the spot.</p>
+      <p>At the end of the hunt, the small-time villain Emperor Pilaf gathered the balls first. Oolong stole the wish out from under him by asking for a pair of panties. Pilaf imprisoned the group, and under the full moon Goku transformed into a Great Ape again, smashing the castle open before Yamcha cut off his tail.</p>
+
+      <h4>The Turtle School and the 21st Tournament (Age 749)</h4>
+      <p>Goku went back to Roshi to train, alongside a bald young monk named <a data-link="krillin"></a> who started as a rival and became the best friend he would ever have. For eight months Roshi worked them like farmhands: delivering milk, ploughing fields with their bare hands and swimming with sharks, all with heavy turtle shells on their backs. At the 21st World Martial Arts Tournament they burst onto the stage of the world&rsquo;s greatest fighters. Goku reached the final and lost narrowly to Jackie Chun, who was Roshi in disguise, entered to keep his students humble. Roshi destroyed the moon during the match to stop Goku&rsquo;s Great Ape form, and Goku&rsquo;s tail grew back again soon after.</p>
+
+      <h4>The Red Ribbon Army (Age 749&ndash;750)</h4>
+      <p>Setting out to find his grandfather&rsquo;s Four-Star Ball, Goku ran headlong into the Red Ribbon Army, a private military bent on gathering the Dragon Balls to conquer the world. Nobody had warned him that it was supposed to be impossible for one child to defeat an army. He scaled Muscle Tower in the snow, fought General Blue across a pirate cave, and was crushed by the assassin Mercenary Tao, the first opponent who nearly killed him. To beat Tao he climbed Korin&rsquo;s Tower, chasing the Sacred Water, and gained something more useful: a sense of how to make his body faster and his blows sharper. He returned, defeated Tao, and stormed the Red Ribbon headquarters alone. At Fortuneteller Baba&rsquo;s palace he faced her champion, a masked fighter who turned out to be Grandpa Gohan, briefly returned from the dead, and had one last joyful day with him.</p>
+
+      <h4>Tien and King Piccolo (Age 753)</h4>
+      <p>After three years of wandering and training, Goku returned for the 22nd Tournament. There he met <a data-link="tien-shinhan"></a> and Chiaotzu, students of Roshi&rsquo;s rival school, and lost the final to Tien when he struck a truck outside the ring a split second before Tien landed. Tien turned from a cold assassin into a lifelong friend during the match.</p>
+      <p>That night Krillin was murdered by Tambourine, a servant of the reborn demon <a data-link="king-piccolo"></a>. Goku hunted Piccolo down, lost, and nearly died. He climbed past Korin to drink the Ultra Divine Water, a poison that kills anyone unworthy of the power it awakens, survived it, and punched straight through King Piccolo&rsquo;s chest. Before he died, the demon spat out an egg: his son and reincarnation, <a data-link="piccolo"></a>.</p>
+
+      <h4>Kami&rsquo;s Lookout and the 23rd Tournament (Age 753&ndash;756)</h4>
+      <p>Goku spent three years training on the Lookout under Kami, the guardian of Earth and the good half of King Piccolo, and his attendant Mr. Popo, who taught him to fight without a wasted motion. Kami also removed his tail for good. At eighteen he returned to the 23rd Tournament unrecognisable. There he met Chi-Chi again, the daughter of the Ox-King whom he had rescued years before. As a boy he had promised to marry her without realising marriage was not a kind of food. He kept his word, agreeing to it in the middle of the ring. He then won the tournament, defeating Piccolo in a final that nearly levelled the stadium, and spared his life, because Kami and Piccolo shared one.</p>
+
+      <h4>Family life (Age 756&ndash;761)</h4>
+      <p>Goku and Chi-Chi settled on Mount Paozu. In Age 757 their son was born, and Goku named him <a data-link="gohan"></a> after his grandfather. Chi-Chi, who wanted her son to be a scholar rather than a brawler, ran the house; Goku fished, farmed, and trained. They were, for a little while, entirely ordinary.</p>
+
+      <h4>Raditz and the Saiyans (Age 761&ndash;762)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-saiyan-saga"></a></div>
+      <p>At a reunion at Kame House, an armoured stranger landed on Roshi&rsquo;s island and told Goku the truth: he was Kakarot, a Saiyan, and he had been sent to wipe out Earth. The stranger was his brother Raditz. When Goku refused to join him, Raditz kidnapped Gohan. Goku formed an uneasy alliance with Piccolo, and when even the two of them together could not beat Raditz, Goku locked his brother in a full nelson so that Piccolo could kill them both with the Special Beam Cannon.</p>
+      <p>In Other World, Kami arranged for Goku to train under King Kai, the North Kai, at the far end of Snake Way. Training under ten times Earth&rsquo;s gravity on King Kai&rsquo;s tiny planet, Goku learned the Kaioken and the Spirit Bomb. The Dragon Balls brought him back a year later, too late to save Yamcha, Tien, Chiaotzu or Piccolo from Vegeta and Nappa. He crushed Nappa without effort, then fought Vegeta himself: a brutal duel of Kaioken against the prince&rsquo;s Galick Gun, and then against Vegeta as a Great Ape. Gohan, Krillin and Yajirobe finished it together. With Vegeta beaten and helpless, Goku begged Krillin to let him go. He had found a rival.</p>
+
+      <h4>Namek and Frieza (Age 762)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-frieza-saga"></a></div>
+      <p>The Dragon Balls had died with Piccolo and Kami, so Gohan, Krillin and Bulma flew to <a data-link="namek"></a>, the Namekians&rsquo; homeworld, to find its own Dragon Balls. Goku followed in a ship of his own, training at a hundred times Earth&rsquo;s gravity on the way until his body broke and healed again and again. He arrived to find Frieza&rsquo;s elite Ginyu Force tearing his friends apart and broke the squad, even surviving Captain Ginyu stealing his body.</p>
+      <p>Frieza was another matter. He killed Vegeta before Goku&rsquo;s eyes, and Vegeta, dying, told him the truth about the Saiyans and begged him to avenge them. Goku buried the prince and fought on, through a Kaioken pushed to twenty times and a Spirit Bomb drawn from Namek and the surrounding planets, and neither was enough. Then Frieza destroyed Krillin in front of him. Goku became the first Super Saiyan in a thousand years: golden-haired, teal-eyed, and for the first time in his life truly angry. He overpowered Frieza while the planet collapsed around them, offered him mercy, gave him energy when the tyrant was cut in half by his own attack, and only struck him down when Frieza used it to attack him again. Goku escaped the exploding planet in one of the Ginyu Force&rsquo;s pods and landed on Yardrat, where he learned Instant Transmission.</p>
+
+      <h4>The Androids and Cell (Age 764&ndash;767)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-cell-saga"></a></div>
+      <p>When he came home, a young Super Saiyan from the future was already waiting for him. Future Trunks, Vegeta and Bulma&rsquo;s son, had killed Frieza and his father, King Cold, and brought a warning: in three years, androids built by the Red Ribbon Army&rsquo;s Dr. Gero would kill everyone, and Goku would die before them of a heart virus. He gave Goku the cure. When the androids came, the virus struck mid-fight, as promised, and Goku spent the first battles in bed.</p>
+      <p>Recovered, Goku took Gohan into the Hyperbolic Time Chamber and found a new path: rather than chasing higher grades of Super Saiyan, he mastered the form so completely that he could stay in it at rest, without strain. At the Cell Games he fought the perfect bio-android Cell to a standstill, then forfeited and named his eleven-year-old son as Earth&rsquo;s champion. Gohan became a Super Saiyan 2 and surpassed them all. When Cell tried to destroy Earth by self-destructing, Goku used Instant Transmission to take him to King Kai&rsquo;s planet, dying with him a second time. Cell survived, and Gohan killed him. Goku chose to stay dead, believing that the Earth&rsquo;s enemies came for him. Months later, Chi-Chi gave birth to their second son, <a data-link="goten"></a>.</p>
+
+      <h4>Seven years in Other World (Age 767&ndash;774)</h4>
+      <p>Allowed to keep his body after death for his heroism, Goku spent seven years training in Other World among the great fighters of the past. There, out of reach of anyone on Earth, he achieved the second grade of Super Saiyan and then a third, whose power came with a body-draining cost and a mane of hair down to his waist.</p>
+
+      <h4>Majin Buu (Age 774)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-buu-saga"></a></div>
+      <p>Fortuneteller Baba gave Goku a single day on Earth to attend the 25th Tournament, where he met Goten for the first time. The day went wrong. The wizard Babidi was reviving the ancient monster Majin Buu, and he took control of Vegeta, who let himself be possessed in order to force a rematch with Goku. Their fight released enough energy to complete Buu&rsquo;s revival. Vegeta later died trying to destroy Buu alone. Goku, his day nearly gone, unveiled Super Saiyan 3 to buy time and taught Goten and Trunks the Fusion Dance before returning to Other World.</p>
+      <p>The Old Kai gave his own life to restore Goku&rsquo;s so that he could return and fight again. Goku fused with Vegeta through the Potara earrings into Vegito, who outclassed Super Buu and then let himself be absorbed to rescue their friends from inside him. When the original, Kid Buu, emerged and destroyed the Earth, Goku and Vegeta fought him on the Sacred World of the Kais. With the Earth wished back by the Namekian Dragon Balls, Vegeta called on everyone on Earth to lend their energy to Goku&rsquo;s Spirit Bomb, and Mr. Satan talked the reluctant public into it; and Goku destroyed Kid Buu with it, asking that he be reborn one day as a good person so that they could fight again.</p>
+
+      <h4>Daima (after Age 774)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-daima"></a></div>
+      <p>Not long after the Buu crisis, <a data-link="gomah"></a>, the new Supreme Demon King of the Demon Realm, came to Earth with his aide Degesu and <a data-link="neva"></a>, an elderly Namekian who had created the Demon Realm&rsquo;s own Dragon Balls. Gomah used Earth&rsquo;s Dragon Balls to wish everyone who had fought Majin Buu into children. Goku, Vegeta and the <a data-link="supreme-kai"></a> crossed into the Demon Realm to undo the wish, guided by a mysterious young man named <a data-link="glorio"></a> and joined by a demon girl, Panzy.</p>
+      <p>The Demon Realm&rsquo;s Dragon Balls were guarded by the Tamagami, powerful guardians Neva had created, and Goku had to win his battles in a child&rsquo;s body. Gomah, meanwhile, seized the Evil Third Eye, which made him effectively unkillable. Goku revealed that he had been quietly developing a new form since the fight with Buu, and became a Super Saiyan 4: red-furred and wild-looking, but calmer and stronger than in any of his earlier grades. After Glorio&rsquo;s wish restored the group to their adult bodies, adult Super Saiyan 4 Goku overwhelmed Gomah, though only <a data-link="majin-kuu"></a>&rsquo;s intervention, prying the Third Eye loose, made him beatable. Gomah and Degesu were sealed away, and Majin Kuu became ruler of the Demon Realm.</p>
+
+      <h4>Beerus and the gods (Super)</h4>
+      <div class="ax-mainart">Main articles: <a data-link="db-battle-of-gods"></a>, <a data-link="db-resurrection-f"></a></div>
+      <p>Peace lasted until <a data-link="beerus"></a>, the God of Destruction of Universe 7, woke from a decades-long sleep after a prophetic dream of a &ldquo;Super Saiyan God&rdquo;. He swatted Super Saiyan 3 Goku aside in two blows. To meet him, Goku joined hands with five righteous Saiyans (Vegeta, Gohan, Goten, Trunks and Videl, pregnant with Pan) and became the Super Saiyan God. He lost, but he held his own long enough that Beerus, delighted, spared the Earth. Goku and Vegeta began training under Beerus&rsquo;s attendant and teacher, the Angel <a data-link="whis"></a>.</p>
+      <p>When Frieza&rsquo;s followers wished their master back to life, he trained for the first time in his life and returned with a golden form. Goku met him with a new state, the Super Saiyan God power wrapped in a Super Saiyan&rsquo;s shell: Super Saiyan Blue. Overconfident, Goku was shot from behind by one of Frieza&rsquo;s soldiers. Frieza destroyed the Earth in his fury; Whis rewound time three minutes, and Goku killed Frieza before he could do it again.</p>
+
+      <h4>Universe 6 and Future Trunks (Super)</h4>
+      <div class="ax-mainart">Main articles: <a data-link="db-universe-6"></a>, <a data-link="db-future-trunks"></a></div>
+      <p>Beerus&rsquo;s twin brother Champa, God of Destruction of Universe 6, challenged him to a tournament between their universes for the Super Dragon Balls. Goku fought Hit, a legendary assassin who could skip time, and ended their match by stepping out of the ring himself. The tournament caught the eye of <a data-link="zeno"></a>, the Omni-King who rules all twelve universes, who took an immediate liking to Goku.</p>
+      <p>Soon after, Future Trunks returned from his ruined timeline, hunted by a villain with Goku&rsquo;s face: Goku Black, the Supreme Kai apprentice <a data-link="zamasu"></a>, who had stolen Goku&rsquo;s body with the Super Dragon Balls to purge mortals from the multiverse. When Zamasu fused with his own immortal future self and became one with that world, Goku pressed the button Zeno had given him. Future Zeno erased the entire timeline. Goku brought him back to the present as a friend for the Zeno there.</p>
+
+      <h4>The Tournament of Power (Super)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-tournament-of-power"></a></div>
+      <p>Goku&rsquo;s eagerness to see the multiverse&rsquo;s strongest fighters gave Zeno an idea: a Tournament of Power between eight universes, in which every losing universe would be erased. Goku recruited Universe 7&rsquo;s team himself, even bringing Frieza back for the day and Android 17 out of retirement. In the ring he faced <a data-link="jiren"></a> of Universe 11, the strongest mortal in the multiverse. Trapped inside his own Spirit Bomb, Goku broke through into Ultra Instinct -Sign-, his body moving and dodging on its own. Later, at the edge of his life, he mastered it fully, his hair turning silver. Jiren was finally thrown from the ring when Goku and Frieza drove him out together, falling with him; Android 17 won the tournament and used the Super Dragon Balls to restore every erased universe.</p>
+
+      <h4>Broly (Super)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-broly"></a></div>
+      <p>Frieza brought a Saiyan exile named <a data-link="broly"></a> to Earth to kill Goku and Vegeta. Raised alone on a hostile planet, Broly had a power that grew without limit the longer he fought. Neither Saiyan could beat him alone, and Frieza&rsquo;s ex-soldiers watched as Goku and Vegeta finally accepted the Fusion Dance and became Gogeta. Before the fusion could kill him, Broly&rsquo;s friends wished him back to his planet. Goku later visited him there with supplies and the offer of a rematch.</p>
+
+      <h4>The Galactic Patrol Prisoner (Super)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-moro"></a></div>
+      <p>Goku and Vegeta joined the Galactic Patrol to stop Moro, an ancient sorcerer who devoured the life of entire planets. Overpowered by his magic, they trained separately: Vegeta on Yardrat, Goku with the Patrol agent Merus, who taught him to reach Ultra Instinct -Sign- at will. During the final battle on Earth, Merus broke an Angel&rsquo;s oath by fighting Moro himself, revealing that he was an Angel in training, and was erased for it. With the lesson Merus left behind, Goku mastered Ultra Instinct. Moro merged with the Earth itself; Goku, empowered by energy from <a data-link="uub"></a>, the reincarnation of Kid Buu, destroyed him.</p>
+
+      <h4>Granolah the Survivor (Super)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-granolah"></a></div>
+      <p>The Galactic Patrol sent Goku and Vegeta to stop <a data-link="granolah"></a>, the last of the Cerealians, a sniper who had used his people&rsquo;s Dragon Balls to become the strongest fighter in the universe and avenge his race, wiped out by the Saiyans and Frieza. In the middle of their fight Goku learned that his father, Bardock, had been on that planet decades before and had spared the infant Granolah, and had fought the Heeter warrior <a data-link="gas"></a> to protect him. Goku found a form of Ultra Instinct tempered by Saiyan instinct and beat Gas with Granolah. Then Frieza arrived, in a new black form, killed Gas, and defeated Goku and Vegeta with a single blow each.</p>
+
+      <h4>Super Hero (Super)</h4>
+      <div class="ax-mainart">Main article: <a data-link="db-super-hero"></a></div>
+      <p>While Goku and Vegeta trained on Beerus&rsquo;s planet, the revived Red Ribbon Army attacked Earth, and Gohan and Piccolo defeated it, Gohan by awakening an astonishing new power. Afterwards Goku sparred with his son in that new Beast form on Beerus&rsquo;s planet and told him that the Earth was in good hands with him there. This is where Goku&rsquo;s story in Worlds Apart ends.</p>
+
+      <h3>Worlds Entwined</h3>
+      <div class="ax-empty">Goku&rsquo;s story after the merge has not been written yet.</div>
+
+      <!-- ================= APPEARANCE ================= -->
+      <h2>Physical appearance</h2>
+      <p>Goku is a muscular man of average height with black eyes and spiked black hair that has kept exactly the same shape since he was a baby, as all Saiyan hair does. Saiyans age slowly and stay in their prime for decades, so in his forties he looks much as he did at twenty-five. As a child he had a brown monkey tail, which Kami removed for good. He almost always wears an orange martial arts gi over a blue undershirt with blue wristbands, a blue sash and boots, with the kanji of his current teacher on his chest and back: Roshi&rsquo;s &ldquo;Turtle&rdquo;, King Kai&rsquo;s symbol, and later his own &ldquo;Go&rdquo;. In the Super era he wears Whis&rsquo;s symbol, and on Galactic Patrol missions a version of the Patrol&rsquo;s uniform.</p>
+      <p>Each form changes him visibly. The Kaioken wraps him in a red aura. As a Super Saiyan his hair turns gold and stands up, and his eyes turn teal; the second grade sharpens the hair and adds crackling lightning; the third grows it to his waist and erases his eyebrows. Super Saiyan 4 brings red fur over his upper body, golden eyes ringed in red and wild black hair. Super Saiyan God makes him leaner, with red hair and eyes; Super Saiyan Blue, blue hair and eyes; and Ultra Instinct turns his eyes silver, then his hair.</p>
+
+      <!-- ================= PERSONALITY ================= -->
+      <h2>Personality and traits</h2>
+      <p>Goku is cheerful, simple and kind to a degree that baffles both friends and enemies. He takes people as they are, holds no grudges, and has almost no interest in money, status or anything he cannot eat or fight. He is not stupid, but he is profoundly uninterested in anything outside his own passions. He is naive about most of the world and astonishingly perceptive inside a fight, where he reads opponents, adapts mid-battle, and invents techniques on the spot.</p>
+      <p>His defining trait is his love of fighting. A strong opponent excites him in a way nothing else does, and this has repeatedly put others in danger. He let Vegeta go, gave Frieza energy, forfeited to Hit, and nudged Zeno towards the Tournament of Power, each time because he wanted to see how strong someone could become. His friends, Chi-Chi most of all, have long resented that he can be a careless father and husband. Yet his love of battle is never cruel. He fights to test himself, not to dominate, and every fight ends with an offer of friendship to anyone who will take it. Piccolo, Vegeta, Tien, Majin Buu and even Beerus became allies because Goku would not stop offering.</p>
+      <p>Goku is slow to anger and almost impossible to hate. When he truly is angry, it is because someone has hurt the people he loves. That anger made him a Super Saiyan. He is self-sacrificing to the point of recklessness: he has died for others twice and accepted a third death in the Cell Games without hesitation. He is also humble about it, quick to credit others and genuinely happy when his rivals, or his sons, surpass him.</p>
+
+      <!-- ================= ABILITIES ================= -->
+      <h2>Abilities and techniques</h2>
+
+      <h3>Saiyan physiology</h3>
+      <p>As a Saiyan, Goku has immense natural strength and an appetite to match. Saiyans grow dramatically stronger whenever they recover from near-fatal injuries, and his training has often deliberately exploited this. As a child he could become a Great Ape under the full moon, multiplying his power tenfold at the cost of his reason.</p>
+
+      <h3>Martial arts</h3>
+      <p>Goku is one of the greatest martial artists in his universe, trained by Grandpa Gohan, Master Roshi, Korin, Kami, King Kai, Whis and Merus. He fights mostly unarmed, with a fluid, improvisational style that absorbs whatever he sees. He copied the Kamehameha by watching it once, and later picked up the Solar Flare and others the same way. He reads opponents unusually well and often wins by learning from earlier defeats.</p>
+
+      <h3>Ki</h3>
+      <p>Goku can fly, fire energy blasts, sense other people&rsquo;s ki over vast distances, and conceal his own. Godly ki, which he gained as a Super Saiyan God, cannot be sensed by mortals at all.</p>
+      <h4>Kamehameha</h4>
+      <p>Master Roshi&rsquo;s signature technique, a wave of ki gathered in cupped hands. It is Goku&rsquo;s signature move, and he has fired it with his feet, redirected it in mid-air, and used it to kill the resurrected Frieza.</p>
+      <h4>Kaioken</h4>
+      <p>King Kai&rsquo;s technique, which multiplies everything about a fighter at once (strength, speed, ki) in a red aura, at the cost of shredding the user&rsquo;s body when pushed too far. Goku used it up to twenty times against Frieza. Later in life he layered it over Super Saiyan Blue.</p>
+      <h4>Spirit Bomb</h4>
+      <p>A sphere gathered from energy lent by every living thing nearby, from plants to planets. Only someone with a pure heart can wield it; to anyone evil it is lethal, but it passes harmlessly through the good. Goku used it to defeat Kid Buu with the help of everyone on Earth.</p>
+      <h4>Instant Transmission</h4>
+      <p>Learned on Yardrat, it lets Goku teleport instantly to anyone whose ki he can sense, anywhere in the universe, and to the other world.</p>
+
+      <h3>Fusion</h3>
+      <p>With Vegeta, Goku has fused into Vegito through the Potara earrings and into Gogeta through the Fusion Dance. Both fusions are far stronger than either Saiyan alone.</p>
+
+      <h3>Transformations</h3>
+      <p>Each of Goku&rsquo;s Champion forms is listed here, with the transformations they unlock. Choose a form in the infobox to see its portrait and Power overview.</p>
+      <h4>Super Saiyan</h4>
+      <p>The legendary transformation, triggered in Goku by fury at Krillin&rsquo;s death. It multiplies his base power many times over. Enraged, as on Namek, it is at its most ferocious; mastered in the Time Chamber, it costs him nothing to hold. <a href="#" data-show-form="ss" class="ax-showform">Show this form</a></p>
+      <h4>Super Saiyan 2 and 3</h4>
+      <p>Higher grades unlocked in Other World. Super Saiyan 2 doubles the first grade&rsquo;s power. Super Saiyan 3 quadruples it again, but drains his stamina at such a rate that he can hold it only briefly. <a href="#" data-show-form="ss3" class="ax-showform">Show Super Saiyan 3</a></p>
+      <h4>Super Saiyan 4</h4>
+      <p>A form developed in secret after the fight with Buu and first used against Gomah in the Demon Realm. It combines the primal power of the Great Ape with full control of himself. <a href="#" data-show-form="ss4" class="ax-showform">Show this form</a></p>
+      <h4>Super Saiyan God and Super Saiyan Blue</h4>
+      <p>Super Saiyan God, created by a ritual of six righteous Saiyans, gave Goku divine ki. Through Whis&rsquo;s training he learned to channel that ki inside a Super Saiyan transformation, creating Super Saiyan Blue. <a href="#" data-show-form="ssb" class="ax-showform">Show Super Saiyan Blue</a></p>
+      <h4>Ultra Instinct</h4>
+      <p>The technique of the Angels and the gods of destruction: the body moves and reacts by itself, without the delay of thought. Goku first reached the incomplete -Sign- state against Jiren, then mastered it, his hair turning silver. Against Gas he found a version of it guided by his own Saiyan instincts rather than calm. <a href="#" data-show-form="ui" class="ax-showform">Show this form</a></p>
+
+      <!-- ================= POSSESSIONS ================= -->
+      <h2>Possessions</h2>
+      <ul class="ax-list">
+        <li><b>Power Pole:</b> an extending staff given to him by Grandpa Gohan. He fought with it throughout his childhood.</li>
+        <li><b>Flying Nimbus:</b> Master Roshi&rsquo;s gift, a cloud only the pure of heart can ride. Goku has ridden it all his life.</li>
+        <li><b>Four-Star Dragon Ball:</b> his grandfather&rsquo;s keepsake, and the reason he joined Bulma.</li>
+        <li><b>Senzu beans:</b> magic beans grown by Korin that fully heal a fighter and fill his stomach for ten days.</li>
+        <li><b>Weighted clothing:</b> the heavy wristbands, boots and gi he wears to train.</li>
+        <li><b>Zeno&rsquo;s button:</b> a device for summoning the Omni-King, which he used to call Future Zeno.</li>
+      </ul>
+
+      <!-- ================= RELATIONSHIPS ================= -->
+      <h2>Relationships</h2>
+
+      <h3>Family</h3>
+      <p><b><a data-link="chi-chi"></a></b> is the fierce, devoted wife Goku married on a promise he did not understand at the time. She runs his life and their house, and she has never stopped resenting the fights that keep taking him away, even as she loves him. <b><a data-link="gohan"></a></b>, the son he named after his grandfather, has the greatest potential in the family and wants to be a scholar; Goku trusts him completely and is proudest of him when Gohan surpasses him. <b><a data-link="goten"></a></b> was born after Goku&rsquo;s death and was seven before they met. He adores his father and is the most like him. Goku&rsquo;s granddaughter <b><a data-link="pan"></a></b> takes after him too.</p>
+      <p>Goku never knew his parents. <b><a data-link="bardock"></a></b> and <b><a data-link="gine"></a></b> sent him away to save him and died with their planet. Only late in life did he learn something of his father, when Granolah told him how Bardock had spared him as a child. His brother <b><a data-link="raditz"></a></b> was the first enemy he died fighting. <b><a data-link="grandpa-gohan"></a></b> raised him, and Goku grieved him for years without knowing what had really happened.</p>
+
+      <h3>Vegeta</h3>
+      <p>Goku&rsquo;s rival for life. The Saiyan prince arrived as an enemy and despised the low-class warrior who kept outclassing him, but his rivalry with Goku slowly became the centre of his life. For Goku, Vegeta is the opponent who has pushed him further than anyone, and through Vegito and Gogeta the two have literally become one. He accepts Vegeta&rsquo;s pride and never takes it personally.</p>
+
+      <h3>Krillin</h3>
+      <p>His best friend since they trained together under Roshi as children. Krillin&rsquo;s first two deaths, at Tambourine&rsquo;s hands and then Frieza&rsquo;s, drove Goku to kill King Piccolo and to become a Super Saiyan. Goku has always seen in Krillin the proof that courage matters more than power.</p>
+
+      <h3>Bulma</h3>
+      <p>The first friend he made outside the mountains. Bulma introduced him to the world and has been the brains behind most of his adventures since, building his ships, his gravity chambers and his radar. She treats him like an exasperating younger brother.</p>
+
+      <h3>Piccolo</h3>
+      <p>Once his sworn enemy, the reincarnation of King Piccolo became Goku&rsquo;s ally against Raditz and then Gohan&rsquo;s mentor. Goku trusts him with his son&rsquo;s training, and later with Pan.</p>
+
+      <h3>Master Roshi</h3>
+      <p>Goku&rsquo;s first true teacher. Behind the old man&rsquo;s lechery Goku found the foundation of everything he does, and he still treats Roshi with real respect.</p>
+
+      <h3>Frieza</h3>
+      <p>The tyrant who destroyed his people and killed Krillin, and the one opponent Goku has truly hated. Even so, Goku spared him on Namek and later recruited him for the Tournament of Power, where they fought Jiren side by side. Frieza&rsquo;s hatred of Goku has only grown.</p>
+
+      <h3>Beerus and Whis</h3>
+      <p>The God of Destruction he challenged at their first meeting, and the Angel who became his teacher in the Super era. Goku treats both with the same easy friendliness he gives anyone, which alarms everyone else around him.</p>
+
+      <h3>Across the worlds</h3>
+      <p>Goku&rsquo;s Champion synergies point to bonds formed in Worlds Entwined: with <a data-link="krillin"></a> (Best Buddies of the Turtle School), <a data-link="vegeta"></a> (Rivalry to Last a Lifetime), <a data-link="superman"></a>, whose story is so like his own (Sons of Dying Worlds), and <a data-link="wonder-woman"></a>, who understands why he wants to fight (A Worthy Opponent). As a Super Saiyan he is tied to Krillin (Catalyst of Awakening) and <a data-link="frieza"></a> (The Legend He Feared). These relationships will be written with Worlds Entwined.</p>
+
+      <!-- ================= QUOTES ================= -->
+      <h2>Quotes</h2>
+      <h3>By Goku</h3>
+      <ul class="ax-quotes">
+        <li><q>You hate losing. You&rsquo;re not used to fighting someone stronger than you!</q><span class="by">&mdash; his Champion quote (Base)</span></li>
+        <li><q>You already know, don&rsquo;t you? I am a Saiyan who came from Earth in order to defeat you.</q><span class="by">&mdash; to Frieza on Namek, in <a data-link="db-frieza-saga"></a> &middot; Super Saiyan Champion quote</span></li>
+      </ul>
+      <h3>About Goku</h3>
+      <ul class="ax-quotes">
+        <li><q>Kakarot&hellip; you&rsquo;re number one.</q><span class="by">&mdash; <a data-link="vegeta"></a>, watching Goku fight Kid Buu, in <a data-link="db-buu-saga"></a></span></li>
+      </ul>
+      <div class="ax-empty">Goku has no Memories yet. More quotes will come from his Memories as they are written.</div>
+
+      <!-- ================= ETYMOLOGY ================= -->
+      <h2>Etymology</h2>
+      <p><i>Son Goku</i> is the Japanese reading of Sun Wukong, the Monkey King of the Chinese classic <i>Journey to the West</i>, on which the early <i>Dragon Ball</i> is loosely based; the monkey tail, the extending staff and the flying cloud all come from that story. The characters of <i>Goku</i> mean &ldquo;awakened to emptiness&rdquo;. His Saiyan name, <i>Kakarot</i>, is a pun on &ldquo;carrot&rdquo;: Saiyan names are puns on vegetables, from <i>Vegeta</i> to <i>Raditz</i> (radish) and <i>Bardock</i> (burdock).</p>
+
+      <!-- ================= CHANGES ================= -->
+      <h2>Changes from Canon</h2>
+      <ul class="ax-list">
+        <li>Goku&rsquo;s Worlds Apart story follows the original canon closely. More changes are planned later.</li>
+        <li><a data-link="db-daima"></a> takes place between the <a data-link="db-buu-saga"></a> and <i>Dragon Ball Super</i>, and his Super Saiyan 4 is the Daima form.</li>
+        <li>His story in Worlds Apart ends right after <a data-link="db-super-hero"></a>, where the <i>Dragon Ball Super</i> manga currently stops. Later events, and <i>Dragon Ball GT</i>, are not part of this continuity.</li>
+        <li>The Archive splits him into seven Champions, some with transformations of their own, rather than treating him as a single character.</li>
+      </ul>
+
+      <!-- ================= APPEARANCES ================= -->
+      <h2>Appearances</h2>
+      <div class="ax-appear">
+        <div>
+          <h4>Worlds Apart</h4>
+          <ul>
+            <li><a data-link="db-dragon-ball"></a> <span class="first">First appearance</span></li>
+            <li><a data-link="db-saiyan-saga"></a></li>
+            <li><a data-link="db-frieza-saga"></a></li>
+            <li><a data-link="db-cell-saga"></a></li>
+            <li><a data-link="db-buu-saga"></a></li>
+            <li><a data-link="db-daima"></a></li>
+            <li><a data-link="db-battle-of-gods"></a></li>
+            <li><a data-link="db-resurrection-f"></a></li>
+            <li><a data-link="db-universe-6"></a></li>
+            <li><a data-link="db-future-trunks"></a></li>
+            <li><a data-link="db-tournament-of-power"></a></li>
+            <li><a data-link="db-broly"></a></li>
+            <li><a data-link="db-moro"></a></li>
+            <li><a data-link="db-granolah"></a></li>
+            <li><a data-link="db-super-hero"></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Worlds Entwined</h4>
+          <ul><li><span class="role">Not yet written</span></li></ul>
+          <h4>Gameplay</h4>
+          <ul>
+            <li><a href="../../champions/goku.html">Goku</a> <span class="role">(Berserker)</span></li>
+            <li><a href="../../champions/goku(super-saiyan).html">Goku (Super Saiyan)</a> <span class="role">(Defender)</span></li>
+            <li><span class="ax-soon" title="Champion sheet not built yet">Goku (Super Saiyan 2)</span> <span class="role">(Booster)</span></li>
+            <li><span class="ax-soon" title="Champion sheet not built yet">Goku (Super Saiyan 3)</span> <span class="role">(Blaster)</span></li>
+            <li><span class="ax-soon" title="Champion sheet not built yet">Goku (Super Saiyan 4)</span> <span class="role">(Healer)</span></li>
+            <li><span class="ax-soon" title="Champion sheet not built yet">Goku (Super Saiyan God)</span> <span class="role">(Breaker)</span></li>
+            <li><span class="ax-soon" title="Champion sheet not built yet">Goku (Ultra Instinct -Sign-)</span> <span class="role">(Striker)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ================= TRIVIA ================= -->
+      <h2>Trivia</h2>
+      <ul class="ax-list">
+        <li>Goku has died twice in his own timeline (against Raditz and against Cell) and been brought back both times. In Future Trunks&rsquo;s timeline he died of the heart virus.</li>
+        <li>He was the first Super Saiyan in a thousand years and, through the ritual, the first Super Saiyan God of his era.</li>
+        <li>His Champion forms span every major era of his life, from the Saiyan Saga (Base) to the Tournament of Power (Ultra Instinct -Sign-).</li>
+        <li>Both of his Champion themes come from <i>Dragon Ball Z Dokkan Battle</i>.</li>
+        <li>He named his eldest son after the grandfather who raised him.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- =====================================================================
+       MEMORIES
+       ===================================================================== -->
+  <section class="ax-panel" id="memories">
+    <article class="ax-article">
+      <h2 style="margin-top:4px">Goku&rsquo;s Memories</h2>
+      <p>Memories told from Goku&rsquo;s point of view, grouped by story arc.</p>
+      <div data-memories-anchor="goku"></div>
+    </article>
+  </section>
+
+  <!-- =====================================================================
+       GALLERY
+       ===================================================================== -->
+  <section class="ax-panel" id="gallery">
+    <article class="ax-article">
+      <h2 style="margin-top:4px">Gallery</h2>
+
+      <h3>Champion art</h3>
+      <div class="ax-gallery">
+          <figure><img src="../../images/champion-images/goku.jpg" alt="Goku" data-zoom data-caption="Goku (Base)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Base <span class="sub">&middot; Berserker</span><br><a href="#" data-show-form="base" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(super-saiyan).png" alt="Goku (Super Saiyan)" data-zoom data-caption="Goku (Super Saiyan)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan <span class="sub">&middot; Defender</span><br><a href="#" data-show-form="ss" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(super-saiyan-2).jpg" alt="Goku (Super Saiyan 2)" data-zoom data-caption="Goku (Super Saiyan 2)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan 2 <span class="sub">&middot; Booster</span><br><a href="#" data-show-form="ss2" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(super-saiyan-3).jpg" alt="Goku (Super Saiyan 3)" data-zoom data-caption="Goku (Super Saiyan 3)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan 3 <span class="sub">&middot; Blaster</span><br><a href="#" data-show-form="ss3" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(super-saiyan-4).jpg" alt="Goku (Super Saiyan 4)" data-zoom data-caption="Goku (Super Saiyan 4)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan 4 <span class="sub">&middot; Healer</span><br><a href="#" data-show-form="ss4" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(super-saiyan-god).jpg" alt="Goku (Super Saiyan God)" data-zoom data-caption="Goku (Super Saiyan God)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan God <span class="sub">&middot; Breaker</span><br><a href="#" data-show-form="ssg" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/goku(ultra-instinct-sign).jpg" alt="Goku (Ultra Instinct -Sign-)" data-zoom data-caption="Goku (Ultra Instinct -Sign-)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Ultra Instinct -Sign- <span class="sub">&middot; Striker</span><br><a href="#" data-show-form="ui-sign" class="ax-showform">Show in infobox</a></figcaption></figure>
+      </div>
+      <h4 class="ax-gallery-sub">Transformations</h4>
+      <div class="ax-gallery">
+          <figure><img src="../../images/champion-images/transformations/goku(kaioken).jpg" alt="Kaioken" data-zoom data-caption="Kaioken (transformation of Base)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Kaioken <span class="sub">&middot; from Base</span><br><a href="#" data-show-form="kaioken" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/transformations/goku(super-saiyan,rage).jpg" alt="Super Saiyan (Rage)" data-zoom data-caption="Super Saiyan (Rage) (transformation of Super Saiyan)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan (Rage) <span class="sub">&middot; from Super Saiyan</span><br><a href="#" data-show-form="ss-rage" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/transformations/goku(super-saiyan-blue).jpg" alt="Super Saiyan Blue" data-zoom data-caption="Super Saiyan Blue (transformation of Super Saiyan God)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Super Saiyan Blue <span class="sub">&middot; from Super Saiyan God</span><br><a href="#" data-show-form="ssb" class="ax-showform">Show in infobox</a></figcaption></figure>
+          <figure><img src="../../images/champion-images/transformations/goku(ultra-instinct).jpg" alt="Ultra Instinct" data-zoom data-caption="Ultra Instinct (transformation of Ultra Instinct -Sign-)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Ultra Instinct <span class="sub">&middot; from UI -Sign-</span><br><a href="#" data-show-form="ui" class="ax-showform">Show in infobox</a></figcaption></figure>
+      </div>
+
+      <h3>Costumes</h3>
+      <div class="ax-gallery">
+          <figure><img src="../../images/champion-images/costumes/goku(tattered).jpg" alt="Tattered costume" data-zoom data-caption="Tattered costume (Uncommon, Base)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Tattered <span class="sub">&middot; Uncommon &middot; Base</span></figcaption></figure>
+          <figure><img src="../../images/champion-images/costumes/goku(first-encounter).jpg" alt="First Encounter costume" data-zoom data-caption="First Encounter costume (Rare, Base)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>First Encounter <span class="sub">&middot; Rare &middot; Base</span></figcaption></figure>
+          <figure><img src="../../images/champion-images/costumes/goku(super-saiyan,saiyan-armor).jpg" alt="Saiyan Armor costume" data-zoom data-caption="Saiyan Armor costume (Rare, Super Saiyan)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Saiyan Armor <span class="sub">&middot; Rare &middot; Super Saiyan</span></figcaption></figure>
+          <figure><img src="../../images/champion-images/costumes/goku(super-saiyan,daima).jpg" alt="Daima costume" data-zoom data-caption="Daima costume (Mythic, Super Saiyan)" loading="lazy" data-fallback="figure" style="object-position:top"><figcaption>Daima <span class="sub">&middot; Mythic &middot; Super Saiyan</span></figcaption></figure>
+      </div>
+
+      <h3>Memories</h3>
+      <div class="ax-empty">No Memory art yet.</div>
+    </article>
+  </section>
+
+  <!-- ===== Always visible: navbox + categories ===== -->
+  <div data-navbox="dragon-ball"></div>
+
+  <div class="ax-cats">
+    <b>Categories:</b>
+    <a data-link="characters"></a> <span class="bar">|</span>
+    <a data-link="dragon-ball"></a> <span class="bar">|</span>
+    <a data-link="saiyans"></a> <span class="bar">|</span>
+    <a data-link="z-fighters"></a> <span class="bar">|</span>
+    <a data-link="cat-champions">Champions</a>
+  </div>
+  <div class="ax-legend"><span class="ax-red">Red links</span> are articles that haven&rsquo;t been written yet.</div>
+
+</main>
+
+<footer class="ax-footer">
+  <span>Champions Ultimate Edition &middot; The Archive</span>
+  <span><a href="../../lore.html">Lore home</a></span>
+</footer>
+
+<script src="../../data/image-credits.js"></script>
+<script src="../data/archive-index.js"></script>
+<script src="../archive.js"></script>
+</body>
+</html>
