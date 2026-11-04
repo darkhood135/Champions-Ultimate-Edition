@@ -29,7 +29,12 @@ window.IMAGE_CREDITS = {
 
   /* ---------- Story banners ---------- */
   'images/lore/banners/the-sorcerers-stone.jpg':                { artist: 'Jim Kay',        url: 'https://www.creepyscrawlers.com' },
-  /* (other book banners not credited yet) */
+  'images/lore/banners/the-chamber-of-secrets.jpg':             { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
+  'images/lore/banners/the-prisoner-of-azkaban.jpg':            { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
+  'images/lore/banners/the-goblet-of-fire.jpg':                 { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
+  'images/lore/banners/the-order-of-the-phoenix.jpg':           { artist: 'Mary GrandPr\u00e9', url: 'https://www.marygrandpre.com' },
+  'images/lore/banners/the-half-blood-prince.jpg':              { artist: 'Mary GrandPr\u00e9', url: 'https://www.marygrandpre.com' },
+  /* (Deathly Hallows banner not credited yet) */
 
   /* ---------- Arc icons: Wizarding World (all seven by Olly Moss) ---------- */
   'images/lore/icons/the-sorcerers-stone-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
