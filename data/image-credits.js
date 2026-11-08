@@ -26,6 +26,8 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/hold-me-close.jpg':             { artist: '@THEMIMICHUU',   url: 'https://x.com/THEMIMICHUU' },
   'images/lore/banners/memories/never-depart.jpg':              { artist: '@kumorine_leo',  url: 'https://x.com/kumorine_leo' },
   'images/lore/banners/memories/faint-apology.jpg':             { artist: '@masoq095',      url: 'https://x.com/masoq095' },
+  'images/lore/banners/memories/to-speak-the-unspoken.jpg':     { artist: '@Mochavani_Art', url: 'https://x.com/Mochavani_Art' },
+  'images/lore/banners/memories/to-hear-the-unheard.jpg':       { artist: '@Mochavani_Art', url: 'https://x.com/Mochavani_Art' },
 
   /* ---------- Story banners ---------- */
   'images/lore/banners/the-sorcerers-stone.jpg':                { artist: 'Jim Kay',        url: 'https://www.creepyscrawlers.com' },
