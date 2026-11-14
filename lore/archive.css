@@ -350,6 +350,8 @@ a.ax-red:hover { text-decoration: underline dotted; }
 .ax-chip { font-size: 9.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; }
 .ax-chip--written { color: #6fd39a; background: rgba(13,14,17,0.75); border: 1px solid rgba(111,211,154,0.5); }
 .ax-chip--stub { color: var(--dim); background: rgba(13,14,17,0.75); border: 1px solid var(--border); }
+.ax-chip--mature { color: #f0b46a; background: rgba(13,14,17,0.75); border: 1px solid rgba(240,180,106,0.5); }
+.ax-mem-card .mature { position: absolute; top: 8px; left: 50px; z-index: 2; }
 
 /* ---------------------------------------------------------------------
    Gallery + lightbox
@@ -591,9 +593,6 @@ a.ax-uni:hover { text-decoration: none; border-color: var(--accent-line); }
 .ax-clist h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; margin: 0 0 6px; }
 .ax-clist h3 .n { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--dim); }
 .ax-clist .items { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; }
-.ax-classic { margin-top: 34px; padding: 16px 18px; border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); font-size: 14px; line-height: 1.6; }
-.ax-classic b { color: var(--text); }
-.ax-classic .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
 .ax-quicklinks { display: flex; flex-wrap: wrap; gap: 10px; }
 .ax-quicklinks a { padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--panel); font-size: 13.5px; font-weight: 600; }
 .ax-quicklinks a:hover { text-decoration: none; border-color: var(--accent-line); }
@@ -602,3 +601,5 @@ a.ax-uni:hover { text-decoration: none; border-color: var(--accent-line); }
 .ax-lib-bar input { accent-color: var(--accent); margin-right: 6px; }
 .written-only .ax-mem-card:has(.ax-chip--stub) { display: none; }
 @media (max-width: 720px) { .ax-halves { grid-template-columns: 1fr; } }
+.ax-gal-sub { font-size: 14px; margin: 18px 0 8px; color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
+.ax-gal-sub .n { font-size: 12px; font-weight: 500; color: var(--dim); }

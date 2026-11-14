@@ -275,9 +275,43 @@
     var por = anchor.image ? '<img class="por" src="' + ROOT + anchor.image + '" alt="' + esc(anchor.title || '') + '" loading="lazy">' : '<span class="por"></span>';
     return '<a class="ax-mem-card" href="' + href(m) + '">' +
       '<div class="art"' + art + '><span class="num">#' + num + '</span>' +
-      '<span class="status ax-chip ' + (m.written ? 'ax-chip--written">Written' : 'ax-chip--stub">Being written') + '</span></div>' +
+      '<span class="status ax-chip ' + (m.written ? 'ax-chip--written">Written' : 'ax-chip--stub">Being written') + '</span>' +
+      (m.mature ? '<span class="mature ax-chip ax-chip--mature" title="Contains an intimate scene (not explicit)">Mature</span>' : '') + '</div>' +
       '<div class="body">' + por + '<div><div class="t">' + esc(m.title) + '</div>' +
       '<div class="s">' + sub + '</div></div></div></a>';
+  }
+
+  /* Memory art galleries, built from each Memory's `banner` (and `cast`) in the index.
+       <div class="ax-gallery" data-memory-art="arc:the-goblet-of-fire"></div>   appends that arc's Memory art, story order
+       <div data-memory-art="anchor:dracaena-malfoy" data-own-label="Her Memories" data-cast-label="Memories she appears in"></div> */
+  function storyOrdered(list) {
+    var pos = {}; IDX.pages.forEach(function (p, i) { pos[p.id] = i; });
+    return list.slice().sort(function (a, b) {
+      var oa = (byId[a.arc] || {}).order || 0, ob = (byId[b.arc] || {}).order || 0;
+      return oa - ob || pos[a.id] - pos[b.id];
+    });
+  }
+  function artFig(m) {
+    return '<figure><img src="' + ROOT + m.banner + '" alt="' + esc(m.title) + '" data-zoom data-caption="' + esc(m.title) + '" loading="lazy" data-fallback="figure">' +
+      '<figcaption><a data-link="' + esc(m.id) + '"></a></figcaption></figure>';
+  }
+  function initMemoryArt() {
+    document.querySelectorAll('[data-memory-art]').forEach(function (box) {
+      var spec = box.getAttribute('data-memory-art').split(':'), kind = spec[0], id = spec[1];
+      var art = IDX.pages.filter(function (p) { return p.type === 'memory' && p.banner; });
+      if (kind === 'arc') {
+        box.insertAdjacentHTML('beforeend', art.filter(function (m) { return m.arc === id; }).map(artFig).join(''));
+        return;
+      }
+      var own = storyOrdered(art.filter(function (m) { return m.anchor === id; }));
+      var cast = storyOrdered(art.filter(function (m) { return m.anchor !== id && (m.cast || []).indexOf(id) >= 0; }));
+      var html = '';
+      [[box.getAttribute('data-own-label') || 'Own Memories', own], [box.getAttribute('data-cast-label') || 'Appears in', cast]].forEach(function (g) {
+        if (!g[1].length) return;
+        html += '<h4 class="ax-gal-sub">' + esc(g[0]) + ' <span class="n">' + g[1].length + '</span></h4><div class="ax-gallery">' + g[1].map(artFig).join('') + '</div>';
+      });
+      box.innerHTML = html || '<div class="ax-empty">No Memory art yet.</div>';
+    });
   }
 
   function initMemories() {
@@ -371,7 +405,7 @@
         var chip = a.status === 'built' ? '<span class="ax-chip ax-chip--written">Archive</span>'
                  : a.status === 'legacy' ? '<span class="ax-chip ax-chip--stub" title="Still on its pre-Archive page">Classic page</span>'
                  : '<span class="ax-chip ax-chip--stub">Not written</span>';
-        var inner = (a.icon ? '<img src="' + ROOT + a.icon + '" alt="" loading="lazy">' : '<span class="noicon">' + (a.order || '') + '</span>') +
+        var inner = (a.icon ? '<img src="' + ROOT + a.icon + '" alt="" loading="lazy">' : '<span class="noicon">' + (a.glyph || a.order || '') + '</span>') +
           '<div class="main"><div class="t">' + esc(a.title) + '</div><div class="s">' + esc(a.label || '') + (n ? ' &middot; ' + n + ' Memories (' + w + ' written)' : '') + '</div></div>' + chip;
         return exists(a) ? '<a class="ax-arc" href="' + href(a) + '">' + inner + '</a>' : '<div class="ax-arc is-planned">' + inner + '</div>';
       }).join('') || '<div class="ax-empty">No story arcs yet.</div>';
@@ -868,6 +902,7 @@
   /* ------------------------------------------------------------------ */
   renderHeader();
   initMemories();
+  initMemoryArt();
   initHubs();
   initSeq();
   initNavbox();

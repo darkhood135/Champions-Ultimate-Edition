@@ -3,55 +3,368 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>To Hear the Unheard — A Memory — Champions Ultimate Edition</title>
+<title>To Hear the Unheard &mdash; A Memory &mdash; Champions Ultimate Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing:border-box; margin:0; padding:0; }
-  :root { --bg:#0d0e11; --panel:#14161a; --border:#2c3038; --text:#f0f1f3; --muted:#c5c8d0;
-    --dim:#6b7280; --mem:#7cc0ff; --mem-bright:#a9d6ff; --mem-deep:rgba(124,192,255,0.14); }
+  :root {
+    --bg:#0d0e11; --panel:#14161a; --panel-2:#191b20; --border:#2c3038;
+    --text:#f0f1f3; --muted:#c5c8d0; --dim:#6b7280;
+    --mem:#7cc0ff; --mem-bright:#a9d6ff; --mem-deep:rgba(124,192,255,0.14);
+    --lore:#efb73f;
+  }
   body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     background:var(--bg); color:var(--text); min-height:100vh; padding:34px 28px 90px; }
-  .container { max-width:880px; margin:0 auto; }
-  .back-link { display:inline-block; color:var(--mem); text-decoration:none; font-size:13px; font-weight:600; margin-bottom:18px; transition:color .15s ease, transform .15s ease; }
+  .container { max-width:1120px; margin:0 auto; }
+
+  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:16px; letter-spacing:0.3px; line-height:1.7; }
+  .crumbs a { color:var(--dim); text-decoration:none; transition:color .15s ease; }
+  .crumbs a:hover { color:var(--mem-bright); }
+  .crumbs .sep { margin:0 7px; opacity:0.6; }
+  .crumbs .here { color:var(--muted); }
+  .back-link { display:inline-block; color:var(--mem); text-decoration:none; font-size:13px;
+    font-weight:600; margin-bottom:22px; transition:color .15s ease, transform .15s ease; }
   .back-link:hover { color:var(--mem-bright); transform:translateX(-3px); }
-  .crumbs { font-size:12.5px; color:var(--dim); margin-bottom:22px; }
-  .crumbs a { color:var(--dim); text-decoration:none; } .crumbs a:hover { color:var(--mem-bright); }
-  .crumbs .sep { margin:0 7px; opacity:0.6; } .crumbs .here { color:var(--muted); }
-  .mem-head { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
-  .portrait { width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:top center; border:2px solid var(--mem); flex-shrink:0; }
-  .portrait.glyph { display:flex; align-items:center; justify-content:center; font-family:'Spectral',Georgia,serif; font-size:26px; color:var(--mem); background:linear-gradient(145deg,#1b2733,#141a22); }
-  .mem-titles .name { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--dim); }
-  .mem-titles h1 { font-family:'Spectral',Georgia,serif; font-size:38px; font-weight:600; line-height:1.05; }
-  .mem-titles .sub { font-size:13px; color:var(--dim); margin-top:4px; } .mem-titles .sub b { color:var(--mem); font-weight:600; }
-  .lede { font-family:'Spectral',Georgia,serif; font-size:17px; line-height:1.7; color:#dfe2e8; margin:6px 0 18px; }
-  .lede em { color:#eef2f7; }
-  .stub { padding:16px 20px; border-radius:12px; background:var(--mem-deep); border:1px solid rgba(124,192,255,0.3); font-size:13px; color:var(--muted); line-height:1.6; }
-  .stub strong { color:var(--mem-bright); font-weight:600; }
+
+  .scene-banner { position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border);
+    height:300px; margin-bottom:28px; }
+  .scene-banner .fallback { position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(130% 120% at 25% 10%, rgba(124,192,255,0.20) 0%, transparent 55%),
+      radial-gradient(120% 120% at 90% 90%, rgba(239,183,63,0.12) 0%, transparent 50%),
+      linear-gradient(160deg,#15202c 0%,#121318 100%); }
+  .scene-banner .img { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; }
+  .scene-banner .vignette { position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(13,14,17,0.15) 0%, rgba(13,14,17,0.25) 70%, rgba(13,14,17,0.75) 100%); }
+  .scene-banner .label { position:absolute; bottom:12px; right:14px; z-index:2;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+
+  .mbody { display:grid; grid-template-columns:300px 1fr; gap:32px; align-items:start; }
+  .info { grid-column:1; grid-row:1; position:sticky; top:24px; }
+  .scene { grid-column:2; grid-row:1; }
+
+  .info-card { background:var(--panel); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+  .info-thumb { position:relative; height:120px; border-bottom:1px solid var(--border); }
+  .info-thumb .fallback { position:absolute; inset:0;
+    background:radial-gradient(120% 120% at 50% 20%, rgba(124,192,255,0.18) 0%, transparent 60%),
+      linear-gradient(160deg,#1a222c 0%,#15161a 100%); }
+  .info-thumb .img { position:absolute; inset:0; background-size:cover; background-position:center; }
+  .info-thumb .cap { position:absolute; bottom:8px; right:10px;
+    font-size:8.5px; letter-spacing:1.3px; text-transform:uppercase; color:var(--dim); opacity:0.6; }
+  .info-head { padding:16px 18px 6px; }
+  .info-head .k { font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--mem); }
+  .info-head .t { font-family:'Spectral',Georgia,serif; font-size:18px; font-weight:600; margin-top:3px; }
+  .info-list { padding:8px 18px 18px; }
+  .info-row { padding:10px 0; border-top:1px solid #23262c; }
+  .info-row:first-child { border-top:none; }
+  .info-row .lbl { font-size:10px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:var(--dim); margin-bottom:3px; }
+  .info-row .val { font-size:13px; color:var(--text); line-height:1.5; }
+  .info-row .val a { color:var(--mem); text-decoration:none; }
+  .info-row .val a:hover { color:var(--mem-bright); text-decoration:underline; }
+  .info-row .val .muted { color:var(--dim); font-style:italic; }
+  .char-chip { display:inline-flex; align-items:center; gap:7px; margin:3px 6px 3px 0;
+    padding:3px 9px 3px 3px; border-radius:999px; background:var(--panel-2); border:1px solid var(--border);
+    text-decoration:none; color:var(--text); font-size:12px; font-weight:500; }
+  .char-chip:hover { border-color:var(--mem); }
+  .char-chip img { width:20px; height:20px; border-radius:50%; object-fit:cover; object-position:top center; }
+  .char-chip .ini { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:9.5px; font-weight:700; color:var(--mem); background:#10161e; border:1px solid var(--border); }
+  .char-chip.anchor { border-color:var(--mem); }
+
+  .scene-head { display:flex; align-items:center; gap:18px; margin-bottom:8px; }
+  .scene-portrait { width:76px; height:76px; border-radius:50%; object-fit:cover; object-position:top center;
+    border:3px solid var(--mem); flex-shrink:0; box-shadow:0 0 0 4px rgba(124,192,255,0.12); }
+  .scene-portrait.glyph { display:flex; align-items:center; justify-content:center;
+    font-family:'Spectral',Georgia,serif; font-size:32px; color:var(--mem); background:linear-gradient(145deg,#1b2733,#141a22); }
+  .scene-titles .memlabel { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
+  .scene-titles h1 { font-family:'Spectral',Georgia,serif; font-size:40px; font-weight:600; line-height:1.03; }
+  .scene-titles .anchor-sub { font-size:14px; color:var(--dim); margin-top:6px; }
+  .scene-titles .anchor-sub b { color:var(--mem); font-weight:600; }
+
+  .scene-rule { height:1px; background:linear-gradient(90deg, var(--mem) 0%, transparent 70%); margin:22px 0 26px; opacity:0.5; }
+
+  .prose p { font-family:'Spectral',Georgia,serif; font-size:17.5px; line-height:1.78; color:#dfe2e8; margin-bottom:20px; }
+  .prose p.first::first-letter { font-size:54px; font-weight:600; float:left; line-height:0.82; padding:7px 11px 0 0; color:var(--mem); }
+  .prose em { color:#eef2f7; }
+  .scene-end { text-align:center; color:var(--mem); font-size:18px; margin:10px 0 6px; opacity:0.7; }
+
+  footer { text-align:center; margin-top:54px; padding-top:26px; border-top:1px solid var(--border); color:#4f535c; font-size:12.5px; }
+
+  @media (max-width:820px){
+    .mbody { grid-template-columns:1fr; }
+    .info, .scene { grid-column:1; grid-row:auto; }
+    .scene { order:1; } .info { order:2; position:static; }
+    .scene-titles h1 { font-size:32px; }
+    .scene-portrait { width:60px; height:60px; }
+  }
 </style>
 </head>
 <body>
 <div class="container">
+
   <a href="../worlds-apart/wizarding-world/the-order-of-the-phoenix.html" class="back-link">&larr; Back to The Order of the Phoenix</a>
   <div class="crumbs">
     <a href="../../index.html">Home</a><span class="sep">/</span><a href="../../lore.html">The Archive</a><span class="sep">/</span><a href="../worlds-apart/wizarding-world.html">The Wizarding World</a><span class="sep">/</span><a href="../worlds-apart/wizarding-world/the-order-of-the-phoenix.html">The Order of the Phoenix</a><span class="sep">/</span><span class="here">Memory</span>
   </div>
 
-  <div class="mem-head">
-    <img class="portrait" src="../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
-    <div class="mem-titles">
-      <div class="name">Memory</div>
-      <h1>To Hear the Unheard</h1>
-      <div class="sub"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</div>
+  <!-- ============ SCENE BANNER ============ -->
+  <div class="scene-banner">
+    <div class="fallback"></div>
+    <div class="img" style="background-image:url('../../images/lore/banners/memories/to-hear-the-unheard.jpg');"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- ============ TWO-COLUMN BODY ============ -->
+  <div class="mbody">
+
+    <!-- ---------- SCENE ---------- -->
+    <div class="scene">
+      <div class="scene-head">
+        <img class="scene-portrait" src="../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">
+        <div class="scene-titles">
+          <div class="memlabel">Memory</div>
+          <h1>To Hear the Unheard</h1>
+          <div class="anchor-sub"><b>Dracaena Malfoy</b> Memory &middot; The Wizarding World</div>
+        </div>
+      </div>
+      <div class="scene-rule"></div>
+
+      <div class="prose">
+        <p class="first">Dracaena leaned against the wall, boredom gripping her as she pondered. She&rsquo;d been assigned by Umbridge to patrol the Central Hall, walking back and forth aimlessly on the off-chance a student would show their face. She&rsquo;d already been there for at least an hour, though it had felt like decades to her. The only notable thing that had happened was when Peeves stopped by to annoy her, and she was quite glad he hadn&rsquo;t come back.</p>
+
+        <p>She hated needing to do this: the patrolling, the obedience. Sure, she had caused trouble on her own before, but none of it compared to what Umbridge demanded of her squad. She couldn&rsquo;t stand the actions she took to enforce the rules, but gritted her teeth regardless. Her parents needed her to maintain her reputation, since now was the most critical time of all. With the Dark Lord alive, the stakes had never been higher.</p>
+
+        <p>Her mind wandered to her parents, to their roles in his return. She&rsquo;d always been taught to see the Dark Lord as a king, one who would come back and claim his rightful throne. She&rsquo;d believed that once, but the boy in the glasses he&rsquo;d tried to kill, the kind half-bloods she&rsquo;d met and the damage caused by his followers had shown her the truth. The trouble was that, even knowing him as the enemy, she had nowhere to run. After all, her parents were Death Eaters, and she knew them well; they were certainly no heroes. But she also knew the love they held for her, and the love she returned. They were still her parents, and she was still a child. She had no choice but to follow what they wished of her.</p>
+
+        <p>As her thoughts escalated, she heard it: footsteps. Marching footsteps. She held her breath as she waited for them to turn the corner. When the footsteps reached her, she tilted her head towards the noise. No one.</p>
+
+        <p>At least, that&rsquo;s what he wanted her to believe.</p>
+
+        <p>&ldquo;I know you&rsquo;re there, Potter,&rdquo; she said, staring where she assumed he stood. When he failed to respond, she reached forward, annoyed, and yanked the cloak from his body. She tossed it aside without care and drew her wand, prepared to stun Potter if need be. Potter drew his to match in a hurry. He looked flustered and caught off guard, like he hadn&rsquo;t been expecting trouble. Dracaena scoffed, anger rising in her as she eyed him up and down.</p>
+
+        <p>&ldquo;You look like a mess, Potter. Spying on me again?&rdquo; She locked her eyes onto his face as though she could read straight through him.</p>
+
+        <p>&ldquo;No, Malfoy. It&rsquo;s not always about you,&rdquo; Potter responded, annoyed. She bit her lip in frustration; though she wouldn&rsquo;t admit it, that upset her a little.</p>
+
+        <p>Still, she knew about his nightly habits by now; this wasn&rsquo;t new to her. The night they visited the mirror together was still fresh in her mind, and the image it showed her just as much so. She often couldn&rsquo;t even believe it. Was he truly her greatest desire? She shrugged it off again, clearing it from her mind as she held her focus. Whatever they&rsquo;d had before didn&rsquo;t matter. This was an enemy. Potter was&hellip; an enemy.</p>
+
+        <p><em>But he isn&rsquo;t really, is he?</em></p>
+
+        <p>Dracaena lowered her wand a little as he began to lower his in turn. She didn&rsquo;t want to duel him if she didn&rsquo;t have to. &ldquo;To the mirror, then?&rdquo; she asked. Potter answered quickly. &ldquo;Yes&hellip; if you really need to know.&rdquo; He slipped his wand into his pocket.</p>
+
+        <p>Dracaena would&rsquo;ve loved, then and there, to let him off the hook. Or, better yet, to walk with him. But he had betrayed her; he had invited her to that ball knowing full well he was using her. And beyond that, she had orders to follow, though if she was honest, those came second. It was out of her hands, she told herself. It was out of her hands.</p>
+
+        <p>&ldquo;You&rsquo;re aware I need to report this, right?&rdquo; Her voice left her mouth with a hesitation, an uncomfortable silence filling the corridor. Potter&rsquo;s eyes widened slightly behind his round glasses, a light sense of betrayal in them. His response came out with patience, though she could tell he was upset. &ldquo;You don&rsquo;t have to.&rdquo;</p>
+
+        <p>&ldquo;I do,&rdquo; she snapped back immediately. &ldquo;I don&rsquo;t have a choice.&rdquo; He frowned, his gaze piercing her with conviction. She didn&rsquo;t want to be the villain, she didn&rsquo;t. But considering how he&rsquo;d treated her, she had no reason to show him any more patience.</p>
+
+        <p>&ldquo;Why do you always have a problem with me?&rdquo; His question struck her. The truth, in her eyes, was obvious: he was the boy who&rsquo;d opposed her, who&rsquo;d always been against her. The one she was told to hate. The one she&hellip; couldn&rsquo;t help but think about, anyway. He would never understand. So she snarled, baring her teeth. &ldquo;This shouldn&rsquo;t be news to you, idiot. Wandering around at night is against policy.&rdquo; She narrowed her eyes as Potter began again, his anger more and more apparent. &ldquo;But it&rsquo;s not about that, is it? It&rsquo;s never been about the rules for you. It&rsquo;s about me. Because you can hold this over me. You just want me out of the picture.&rdquo;</p>
+
+        <p>It wasn&rsquo;t entirely untrue. She liked being able to hold things over him, to tease him, to upset him. Not because she liked to see him hurt; far from it. She simply found it fun, and, in truth, he was the only one she liked to pick on. But things weren&rsquo;t so innocent anymore. Potter was meant to be enemy number one, and her emotions couldn&rsquo;t cloud her judgment any longer.</p>
+
+        <p>&ldquo;If I did, I would&rsquo;ve gotten rid of you years ago,&rdquo; she pushed out, a tad more cruel than she would&rsquo;ve liked. A long silence followed before Potter spoke again. &ldquo;Then why keep acting like this?&rdquo;</p>
+
+        <p>His ignorance lit anger in her. Why wouldn&rsquo;t he listen?</p>
+
+        <p>&ldquo;Because I have to. What do you not understand?&rdquo; She stomped her foot, frustrated. Potter spat out a response. &ldquo;I haven&rsquo;t even done anything bad! No one would even know I was here. You have a choice, and yet you still choose to&mdash;&rdquo;</p>
+
+        <p>Dracaena wouldn&rsquo;t deal with this anymore. Of course, leave it to Potter to have the nerve to lecture her about her choices. He&rsquo;d always been free: free to act, free to choose. &ldquo;That&rsquo;s easy to say from your side, Potter. You&rsquo;ve only ever needed to make the easy choices.&rdquo; She shook her head as Potter retorted.</p>
+
+        <p>&ldquo;How? Just because I&rsquo;ve been told every day since I got to this school that I&rsquo;m the one who needs to stop Voldemort, that doesn&rsquo;t mean it&rsquo;s not still on me to act&mdash;&rdquo;</p>
+
+        <p>&ldquo;Oh, poor Potter, a little bit of pressure from fellow students! I have duties to fulfill for my father&mdash;&rdquo; Potter&rsquo;s voice cut in before she could finish. &ldquo;So because you&rsquo;re afraid of your father, I can&rsquo;t hold you responsible for every time you&rsquo;ve attacked my friends? Bullied or harassed me for sport? I should just accept that because you &lsquo;need to do it&rsquo;? What about all the people you&rsquo;ve been abusing with your new gang?&rdquo;</p>
+
+        <p>His words disarmed her more than she would&rsquo;ve liked. She had done&hellip; quite a lot, to a lot of students, and even more so to Potter and his friends. More than she should have, or ever needed to. She tried to pretend he wasn&rsquo;t at least a little correct, that she didn&rsquo;t, in fact, still bear responsibility for her actions. But her pride and her anger wouldn&rsquo;t let him hold this over her. He had still betrayed her, though she wished it weren&rsquo;t true.</p>
+
+        <p>&ldquo;Oh, please, don&rsquo;t take the moral high ground with me! Acting as if you didn&rsquo;t manipulate me to get information on my father&mdash;&rdquo; Potter&rsquo;s eyes widened before he cut her off again.</p>
+
+        <p>&ldquo;Malfoy, I didn&rsquo;t invite you just to&mdash;&rdquo;</p>
+
+        <p>&ldquo;Oh, so you&rsquo;re calling your friends liars?&rdquo;</p>
+
+        <p>&ldquo;What are you even&mdash;&rdquo;</p>
+
+        <p>Dracaena boiled with rage. How dare he pretend otherwise? Without thinking, she blurted it out. &ldquo;I overheard them that night, when I took that little cloak of yours. You thought you could hide it from me, didn&rsquo;t you? I should&rsquo;ve known a peasant like you would try to take advantage of me.&rdquo; Potter&rsquo;s eyes softened just a little, she noticed, as he responded, less confrontational now.</p>
+
+        <p>&ldquo;Malfoy, I wouldn&rsquo;t have asked you if that was the only reason.&rdquo; His eyes looked genuine, she admitted to herself, but she couldn&rsquo;t dare to care. Those two were his best friends. All Potter was doing now was proving himself a good liar.</p>
+
+        <p>&ldquo;Right, because your word is trustworthy. You&rsquo;re despicable, Potter, daring to lecture me when&mdash;&rdquo;</p>
+
+        <p>&ldquo;Do you think I would do that?&rdquo; Potter roared, catching her completely off guard. She jumped a little; she hadn&rsquo;t seen him so upset in quite a while.</p>
+
+        <p><em>Was he really&hellip;?</em></p>
+
+        <p>She faltered for a moment, her words stuttering before she fired back. &ldquo;I think you just wanted information from me!&rdquo;</p>
+
+        <p>&ldquo;Really? Need I remind you that you asked me first? And the first thing you did was mock me because Chao turned me down!&rdquo; Like it was yesterday, that night flashed into her mind. She had asked him, in her usual, masked way. It was her fault it went the way it did, and she felt awful, both from the rejection and from how she&rsquo;d treated him. The pain stung her again as she recognized that&hellip; they had been alone. And she still chose to be cruel to him.</p>
+
+        <p><em>Responsible.</em></p>
+
+        <p>No. She&hellip; she may have made mistakes, but she still couldn&rsquo;t control her family, or who she had to follow. So she masked it with a snicker and a mocking grin. &ldquo;Can&rsquo;t handle teasing, Potter? I only pitied you anyway, never anything more. It looked good for my reputation to show mercy to such an idiot.&rdquo; Her own words sat like a pit in her stomach, untrue. She saw it in his face: the hurt he tried to hide.</p>
+
+        <p><em>You ruin everything.</em></p>
+
+        <p><em>No, but, he ruined it first! He&hellip; he&hellip;</em></p>
+
+        <p>As much as she liked to pretend, she couldn&rsquo;t truly blame him for lying to her, for using her for information. The moment she tried to hold over him had no real weight, she knew. If&hellip; he even had been using her at all. Potter&rsquo;s face burned red as she broke into a cold sweat.</p>
+
+        <p>&ldquo;Is that how you feel about me?&rdquo; Potter snarled, his face enraged. &ldquo;Clearly I made a mistake inviting you at all, since you seem to think so little of me!&rdquo;</p>
+
+        <p>His words stung. She&rsquo;d thought about that night more than she would&rsquo;ve liked to admit, and&hellip; did he really think he&rsquo;d made a mistake? Was he really&hellip; genuine when he&hellip;?</p>
+
+        <p><em>You&rsquo;re an awful waste of space, Malfoy.</em></p>
+
+        <p>She put on the mask again, holding onto her pride like a life jacket.</p>
+
+        <p>&ldquo;Keep on playing the victim, Potter! You lied to me! Why would they say those things if they weren&rsquo;t true?&rdquo;</p>
+
+        <p>&ldquo;That was their reason, it wasn&rsquo;t mine!&rdquo;</p>
+
+        <p>&ldquo;How convenient! I don&rsquo;t believe you!&rdquo;</p>
+
+        <p>&ldquo;Believe what you want, but it&rsquo;s the damn truth! It was my choice! But whatever, I don&rsquo;t care anymore. Hate me, despise me, I don&rsquo;t care. Just let me leave and I won&rsquo;t bother you ever again.&rdquo;</p>
+
+        <p>No, no, wait. No, she didn&rsquo;t hate him; surely he knew that? She didn&rsquo;t, she&mdash; Maybe she did believe him. No. She didn&rsquo;t, but&mdash; she only avoided him because&mdash;</p>
+
+        <p>She felt like she was malfunctioning as her conflicted thoughts fought for control. &ldquo;I&hellip; I can&rsquo;t do that, you idiot. I have rules to uphold and a group I&rsquo;m accountable t&mdash;&rdquo;</p>
+
+        <p>&ldquo;Why are you like this, Malfoy? Afraid your pride will be wounded when you get chewed out by Umbridge? God forbid she finds out you showed me grace&mdash;&rdquo; Potter shouted as she gritted her teeth, holding back tears.</p>
+
+        <p>&ldquo;It&rsquo;s not about that! It&rsquo;s not about any of that! If I had a choice&mdash;&rdquo;</p>
+
+        <p>&ldquo;Stop saying that! I&rsquo;m tired of it. Take some damn responsibility, for once.&rdquo;</p>
+
+        <p><em>He&rsquo;s right.</em></p>
+
+        <p>&ldquo;Recognize that you make these choices yourself!&rdquo;</p>
+
+        <p><em>He&rsquo;s right. He&rsquo;s right. He&rsquo;s ri&mdash;</em></p>
+
+        <p>&ldquo;Shut up!&rdquo; she screamed, a visceral scream straight from her soul. She had never screamed like that before. She couldn&rsquo;t bear it. To think any longer on her actions; she&rsquo;d done that enough already. Her only comfort was being able to cling to the fact that she didn&rsquo;t&hellip; she didn&rsquo;t have a&hellip;</p>
+
+        <p>&ldquo;You&rsquo;re a coward, Malfoy!&rdquo; Potter yelled.</p>
+
+        <p>She recoiled. He&rsquo;d never been so mean to her before. He&rsquo;d never been so&hellip;</p>
+
+        <p><em>Honest.</em></p>
+
+        <p>Potter lunged for his cloak on the floor, but Dracaena acted quickly. She fired at the cloak first. &ldquo;Accio!&rdquo; It flew into her hand as Potter nearly tripped, gasping.</p>
+
+        <p>&ldquo;Don&rsquo;t lecture me on what I am and what I&rsquo;m not!&rdquo; she shouted, pocketing the cloak violently. Potter stumbled over his words. &ldquo;But it&rsquo;s perfectly okay for you to lecture me and Hermione about our blood status and our&mdash;&rdquo;</p>
+
+        <p>She couldn&rsquo;t bear it any longer.</p>
+
+        <p>&ldquo;I know what I&rsquo;ve done, I know what I&rsquo;ve said! You think I don&rsquo;t hate myself for it?! You think I don&rsquo;t know?!&rdquo; she yelled, loud enough that someone might hear. Her vision clouded with tears as she kept her eyes on him. Her breathing felt difficult now as she shook, losing control of her emotions. Through her tears, she saw Potter&rsquo;s face turn regretful as he fell silent. They held each other&rsquo;s stare for so long that she felt the rift would never close. His mouth opened once again, and she dreaded what he&rsquo;d say next.</p>
+
+        <p>&ldquo;If you&rsquo;d just been a better person, we could&rsquo;ve been friends.&rdquo;</p>
+
+        <p>She felt like she was going to hurl. She wished they could have been, so badly. She couldn&rsquo;t pretend otherwise, though she tried every day. She wanted to know him. To be in his company. To trust him. But she couldn&rsquo;t, she couldn&rsquo;t, she&mdash;</p>
+
+        <p><em>But you could&rsquo;ve, if you&rsquo;d only chosen to be different. You could&rsquo;ve rebelled. Been someone better.</em></p>
+
+        <p>She breathed out in anguish as she tried to mask her expression. When she couldn&rsquo;t anymore, her face gave way to how she felt. Her lip quivered as she spoke, a soft admission leaving her as though she couldn&rsquo;t contain it. &ldquo;I&hellip; I would&rsquo;ve liked that.&rdquo;</p>
+
+        <p>She stared at the ground, uncomfortable, feeling more vulnerable and open than she&rsquo;d been in a long time, even with herself. When she found the confidence to look at him again, he looked moved, upset. He even looked like he might cry himself. But, like always, her duties gripped her by the neck. Her father&rsquo;s and mother&rsquo;s words lit in her like a fire, commanding her.</p>
+
+        <p><em>Do what you&rsquo;re supposed to do, Dracaena. He isn&rsquo;t your friend. He never will be. He never could&rsquo;ve been.</em></p>
+
+        <p>She let the mask fall back on as she spat out words with venom. &ldquo;But you&rsquo;re an ignorant fool for thinking it could ever be any different.&rdquo; Potter opened his mouth slightly, then stayed silent for quite a while.</p>
+
+        <p>&ldquo;Well then, I see that&hellip; we&rsquo;re not going to get anywhere here.&rdquo; Potter sighed, letting his hands fall to his sides as he looked her in the eyes. &ldquo;Do what you need to, then. Report me to Umbridge or&hellip; whatever you need to.&rdquo; Dracaena blinked. Once, then twice. &ldquo;I&hellip; you&rsquo;re&hellip;?&rdquo; He simply nodded.</p>
+
+        <p>Guilt struck her. Potter would rather relent for her benefit than fight her. Even with how she was, he always remained the reasonable one. She&rsquo;d always be the villain; she knew that now. She took a deep, unsteady breath as she realized the truth she&rsquo;d hidden from herself: Potter would never have truly taken advantage of her. It wasn&rsquo;t who he was. All he&rsquo;d ever done was put up with her and try to show her patience. Sure, it wasn&rsquo;t always perfect. But she put him through a lot, and&hellip;</p>
+
+        <p>It was time she made a choice of her own.</p>
+
+        <p>She took out his cloak and handed it to him, glancing away to hide her tears. She wouldn&rsquo;t hurt him this way, even if it meant she got in trouble. The two sides of her were always at war, but&hellip; she just couldn&rsquo;t do it. She couldn&rsquo;t, no matter how hard she pretended.</p>
+
+        <p>As Potter reached for the cloak, he hesitated, but she shut down his worries by shoving it further toward him. He pulled it from her grasp lightly and began to put it on, and she wished she could&rsquo;ve held his hand in hers. That part of her pleaded, pleaded for&hellip;</p>
+
+        <p><em>YOU&rsquo;RE NOT HIS FRIEND! YOU&rsquo;RE NOTHING MORE TO HIM THAN A NUISANCE!</em></p>
+
+        <p>Maybe it was true&hellip; but she needed to know.</p>
+
+        <p><em>Please, Harry, tell me&mdash;</em></p>
+
+        <p>She cleared her throat. &ldquo;Did&hellip; did you really choose to invite me, that night? It wasn&rsquo;t just some&hellip;&rdquo; Her voice came out soft, unfitting of a Malfoy. Potter hesitated for a moment before he opened his mouth, and she braced for impact.</p>
+
+        <p>&ldquo;I did. I&hellip; I wasn&rsquo;t even sure of it myself, at the time, but&hellip; I&hellip;&rdquo; His eyes met hers as she searched them for answers. He simply sighed and let out two final words. &ldquo;Goodnight, Malfoy.&rdquo; He threw the cloak on and left, marching down the hall. She held her gaze in his direction, a weight settling in her chest, before her eyes fell to her feet.</p>
+
+        <p>She&rsquo;d only ever made things worse, always choosing the wrong path. Always listening and relenting to orders, never growing a spine. Potter was right, and she was truly alone. Her own actions had isolated her from everyone: Ada, Potter&hellip; neither of them was afraid to call her out. But her own pride, her own mind&hellip; she felt broken, confused. Alone. Who would she talk to now? She didn&rsquo;t have either of them. She didn&rsquo;t have&hellip;</p>
+
+        <p>She checked the time and realized her patrol was over. She tried to steady herself and failed, crashing at last. She slid down the wall and became a mess of tears.</p>
+
+        <p><em>Alone. Alone, and it&rsquo;s your fault.</em></p>
+
+        <p><em>Alone.</em></p>
+
+      </div>
+
+      <div class="scene-end">&#10022;</div>
     </div>
+
+    <!-- ---------- INFO sidebar ---------- -->
+    <aside class="info">
+      <div class="info-card">
+        <div class="info-thumb">
+          <div class="fallback"></div>
+          <div class="img" style="background-image:url('../../images/lore/banners/memories/to-hear-the-unheard.jpg');"></div>
+        </div>
+        <div class="info-head">
+          <div class="k">Memory File</div>
+          <div class="t">To Hear the Unheard</div>
+        </div>
+        <div class="info-list">
+          <div class="info-row">
+            <div class="lbl">Anchor Character</div>
+            <div class="val">Dracaena Malfoy</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Origin</div>
+            <div class="val">The Wizarding World</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Source Arc</div>
+            <div class="val"><a href="../worlds-apart/wizarding-world/the-order-of-the-phoenix.html">The Order of the Phoenix</a> &middot; Year Five</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Paired Memory</div>
+            <div class="val"><a href="to-speak-the-unspoken.html">To Speak the Unspoken</a></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Image Artist</div>
+            <div class="val"><span class="muted">@Mochavani_Art</span></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Author</div>
+            <div class="val"><span class="muted">@DarkHood135</span></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Date Released</div>
+            <div class="val"><span class="muted">11/11/2026</span></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Appears In</div>
+            <div class="val"><a href="../worlds-apart/wizarding-world/the-order-of-the-phoenix.html">The Archive &middot; The Order of the Phoenix</a></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl">Characters Present</div>
+            <div class="val">
+              <a class="char-chip anchor" href="../wiki/dracaena-malfoy.html"><img src="../../images/champion-images/dracaena-malfoy.jpg" alt="Dracaena Malfoy">Dracaena Malfoy</a>
+              <a class="char-chip" href="../wiki/harry-potter.html"><img src="../../images/champion-images/harry-potter.jpg" alt="Harry Potter">Harry Potter</a>
+              <span class="muted" style="display:block; margin-top:6px; font-size:11.5px;">Each links to its Archive article.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
   </div>
 
-  <p class="lede">The same clash from her side &mdash; pierced because she can&rsquo;t deny a word of it, and left certain she has no one at all.</p>
+  <footer>Champions Ultimate Edition &middot; A Memory of The Archive</footer>
 
-  <div class="stub">
-    <strong>This Memory is being written.</strong> The full scene &mdash; banner, Info sidebar, and the chapter-depth vignette &mdash; will replace this placeholder. For now this confirms the inline link from the Chronicle spine resolves to its canonical page.
-  </div>
 </div>
 </body>
 </html>

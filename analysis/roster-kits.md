@@ -559,5 +559,42 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - Costumes: Classic none; Tattered +5% ATK, −2% SPD/ACC; Modern +5% CRIT RATE; Season of the Witch +6% MAX HP, +2% ATK.
 - Synergies (all one-sided until partners exist — see synergy-todo.md): Ghostface *The Real Thing* (Dynamic *Slash to Impress*: Shape free, Ghostface 50EN, CD4, R3, Shape ≤2p: Ghostface 450% ATK + Deep Wound 2t). Jason *Two of a Kind* (*Immovable Grasp* = Choking Grasp with persistent Constraint, 580% vs >1x1). Punisher *Already Dead* (*Inability to Die* = Refusal to Die with persistent Indestructible, 35% heal). Freddy *Nothing to Dream* (passive *Play With Your Food*: Terrify 1t on damaged targets, once/ability, no ULT gain; +10% SPD if an enemy ≤2p at turn start). Joker *No Punchline* (passive *Evil Without Motive*: +5% ATK to Psychotic Tendencies/Unexplainable Motivations allies; can receive Anchors of Ruin buffs incl. Leader).
 
+## The Flash — Striker (evasive target-switcher; Momentum; Whiplash; → Speedster Afterimage)
+- Leader *Fastest Man Alive* — Immeasurable Speed +12% ATK & MAG; Vessel of the Speed Force +10% SPD & +8% EVA (holds both, so self-lead = all four; Superman also holds Immeasurable Speed).
+- Basic *Quick Jabs* — 40% ATK ×6 (melee, R3).
+- S1 *Instant Assault* — 40% ATK ×12, 10% Bruise 2t per hit (40EN, CD2, R8).
+- S2 *Accelerate* — evade the next 3 attacks (whole ability, 2t); for 2t attacks inflict Whiplash 2t (once/ability) (30EN, CD4).
+- S3 *Transporting Dash* — relocate the nearest ally ≤3p to the target panel; self if none (20EN, CD3, R8).
+- S4 *Speed Blitz* — 550% ATK, guaranteed to land (30EN, CD3, R10).
+- [R] *Exposing Relocation* — 1x1 target: pulled adjacent + Whiplash 3t; larger: Vulnerable 3t (30EN, CD3, R7). [R] *Phasing Sprint* — straight-line relocate ≤6p; each enemy passed through −50EN, −4 STA, random CD +2 (30EN, CD3).
+- Core *The Scarlet Speedster* — 35% evade vs guaranteed hits; STA regen 50%, EN regen 40%; +2% ULT per evade.
+- P1 *Momentum Unbroken* — +4% ATK stack per ability (damaging or not) landed on a different enemy than the last; each stack 3t on its own timer; max 10 (+40%); lose all on repeating a target.
+- P2 *Initial Burst* — evade everything turn 1; +15% ATK & SPD for 5t (once).
+- [R] *Gauging the Threat* (+10% EVA vs attackers above 560 ATK or MAG; +5% SPD & ATK while any enemy has SPD above 120; Flashpoint pick with Initial Burst). [R] *Afterimage* (summons a Speedster Afterimage on the panel he leaves when relocating with an ability, or when one Move spends ≥7 STA).
+- ULT *Worldwide Fist* — Off-Field 1t (target revealed; no HP/EN/STA gain); returns adjacent to target: 1500% ATK + Vulnerable & Deep Bruise 2t; untargetable target → nearest targetable enemy ≤20p of his departure panel, else fizzles (R20). [R] *Respond and Rescue* — first action only; standby rest of turn: saves allies ≤8p from attacks (incl. guaranteed hits) + 500% ATK to attacker; ends after 3 saves (fatal-blow saves don't count, once per ally).
+- Summon *Speedster Afterimage* — 1 HP / 0 DEF / 0 RES, no actions; disguised as The Flash; 2 Disorient 2t on its killer; Disorient 1t to enemies ≤1p on defeat/expiry; can't be healed; lasts 2t, persists if Flash is defeated.
+- Costumes: Classic none; Modern +3% EVA; Old Man +4% SPD; Blue Lantern +3% ATK, can receive Lantern Corps buffs incl. Leader; Future +260 MAG, ATK abilities/buffs become MAG; Red Death +3% REGEN, +10% SPD below 80% HP.
+- Synergies (one-sided until partners add them — see synergy-todo.md): GL *The Brave and the Bold* (Dynamic *Lightning-Fast Beatdown*: Flash 50EN·3STA, GL 40EN, CD7, R6: Flash 400% ATK, GL 300% ATK + AoE 2p; New Special *Sparking Hope* ally +12% SPD 2t). Batman *A Father's Letter* (*Intimidating Relocation* = Exposing Relocation + Terrify 2t; passive *Friends Made Family* +5% ATK/MAG to Justice League allies, +5% SPD with another JL ally on field). Superman *Race to the Finish* (*Saving Dash* = Transporting Dash + relocated ally heals 6% HP & 20 EN; passive *Giving a Head Start* +6% SPD to Superman, +3% to other Immeasurable Speed allies). Summoner *Running from What Was* (*Magnify* = Accelerate with Whiplash window 3t + Light 2t to allies ≤3p).
+
+## Sonic — Striker (evasive taunt-speedster; Chaos Emeralds → Super Sonic)
+- Leader *The Blue Blur* — Team Sonic / Hedgehog / Immeasurable Speed +10% ATK, +6% SPD; Team Sonic also +10% MAX HP, +8% MAG.
+- Basic *Swift Beatdown* — 160% ATK; +4% SPD 2t (R3).
+- S1 *Homing Attack* — 380% ATK, guaranteed to land; +8% ATK 2t (30EN, CD2, R6, ranged).
+- S2 *Spin Dash* — dash 8p in a 1-wide line (relocates), ignores elevation & gaps, 380% ATK to all in line, nullifies counters received (50EN, CD4).
+- S3 *Blue Blitz* — 600% ATK + Bruise 2t; +6% SPD 2t (40EN, CD3, R5).
+- S4 *Boost* — all other cooldowns −1; +50% SPD 1t (30EN, CD4).
+- [R] *Finger Wag* — Retribution + Predictable 2t; +30 EN the first time the target uses an ability on him (20EN, CD3, R6). [R] *Drop Dash* — relocate to panel ignoring elevation; 280% ATK AoE 2p (30EN, CD2, R8).
+- Core *Fastest Thing Alive* — +15% EVA above 80% HP; ignores elevation moving; Chaos Emerald every 3 turns (not while transformed); cannot gain ULT passively; with Super Sonic slotted, ULT = 1/7 per emerald held by self + allies (100% at 7); with Gotta Go Fast slotted, +6% ULT per evade (once per ability).
+- P1 *Blue Guardian of Nature* — +10% DEF & RES; 50% for allies ≤3p to restore 10 EN when he receives or evades an attack (once per ability).
+- P2 *Beyond the Speed of Sound* — 30% evade vs guaranteed hits; +2% SPD per evade (rest of battle, cap 10%).
+- [R] *Scattered Rings* (40% for allies ≤3p to heal 6% HP when he's hit; he heals 6% HP on receiving an item). [R] *Rebellion Against Robotnik* (+8% DEF/RES to Team Sonic; +5% EVA to Hedgehog allies, self excluded).
+- ULT *Super Sonic* — only usable at 7 emeralds team-wide; transform 3t; destroys all emeralds; ULT set to 0% on detransform. [R] *Gotta Go Fast* — Overflow, Determination, Acceleration 3t to all allies (R16).
+- [T] Stats: +100 ATK, +150 MAG, +80 DEF/RES, +9 SPD, −30% EVA (→0%).
+- [T] Basic *Sustained Beatdown* 160% ×2, +6% SPD. S1 *Chaos Energy* 300% ATK + 140% MAG, guaranteed (30EN, CD1). S2 *Instantaneous Zip* 3-wide 8p dash line 500% ATK (40EN, CD2). S3 *Golden Barrage* 500% ×2 + Deep Bruise (40EN, CD3). S4 *Radiating Aura* +50% SPD/DEF/RES 1t, removes stat debuffs on self (20EN, CD3). [R] *Taunting Challenge* Anxiety + Retribution + Disorient 2t, +30 EN once the target uses an ability on him (20EN, CD3). [R] *Super Slam* 400% AoE 2p (30EN, CD2).
+- [T] Core *Strongest Thing Alive* — airborne, cannot be grounded; −50% damage received for 1t on transforming; +10% DEF/RES to all allies (self excluded); +100% ULT on a kill (once per battle). P1 *Golden Guardian* 50% Auto-Block + the ally-EN line. P2 *Beyond the Limits of Power* −30% damage from guaranteed hits; +2% ATK 3t per hit received (once per ability). [R] *Countdown to Normalcy* (+1t duration on a kill, once per battle; +60 EN on detransform). [R] *Animals Preventing Destruction* (+15% DEF/RES Team Sonic; +8% EVA Hedgehog, self excluded).
+- [T] ULT *Undefeatable* — +60 EN, +10 STA, Impenetrable 1t.
+- Costumes: Classic none; Modern +2 MAX STA; Boom +3% ACC & SPD to Comedic Genius allies; The Black Knight can receive Figures of Prophecy buffs incl. Leader; Cinematic +5% ATK & MAG to Human allies; Werehog +1 range to all applicable abilities, can receive Monster buffs incl. Leader.
+- Synergies: not yet implemented (Best Partners lists Flash, Goku (SS), Goku, Frieza, Summoner).
+
 ## Coverage
-All 36 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24; The Shape added 2026-10-29).
+All 37 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24; The Shape added 2026-10-29; The Flash added 2026-11-11).

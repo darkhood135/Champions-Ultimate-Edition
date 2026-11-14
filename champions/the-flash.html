@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Flash — Champions Ultimate Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0e11;
+    color: #f0f1f3;
+    line-height: 1.55;
+    padding: 36px 28px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  /* ====================== BACK LINK ====================== */
+  .back-link {
+    color: #a3a8b3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover { color: #e8341c; }
+
+  /* ====================== HERO BAR ====================== */
+  .hero-bar {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .character-image {
+    background: #17181c;
+    border-radius: 14px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    border: 1px solid #2c3038;
+    overflow: hidden;
+  }
+
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .identity {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 40px;
+    font-weight: 800;
+    color: #e8341c;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #a3a8b3;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    background: rgba(232, 52, 28, 0.12);
+    color: #ff8b6e;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1px solid rgba(232, 52, 28, 0.35);
+    align-self: flex-start;
+  }
+
+  .description {
+    color: #c5c8d0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #f0f1f3;
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 3px solid #e8341c;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====================== MAIN GRID ====================== */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+
+  .left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ====================== SIDE PANELS ====================== */
+  .panel {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #2c3038;
+  }
+
+  .panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .stat-row .label {
+    color: #a3a8b3;
+    font-weight: 500;
+  }
+
+  .stat-row .value {
+    color: #f0f1f3;
+    font-weight: 600;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d0d3da;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 6px;
+    border: 1px solid #2c3038;
+  }
+
+  a.pill {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  a.pill:hover {
+    background: rgba(74, 163, 255, 0.1);
+    border-color: #4aa3ff;
+    color: #f0f1f3;
+  }
+
+  /* ====================== BEST PARTNERS ====================== */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-top: 4px;
+  }
+
+  .partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .partner-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .partner-card:hover .partner-image {
+    border-color: #e8341c;
+    transform: scale(1.06);
+  }
+
+  .partner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0a0b0e;
+    border: 1px solid #3c4047;
+    border-radius: 8px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .partner-card:hover .partner-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .partner-tooltip strong {
+    color: #f0f1f3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .partner-tooltip .real-name {
+    color: #a3a8b3;
+    font-size: 11px;
+    font-style: italic;
+  }
+
+  .partner-tooltip .synergy-name {
+    color: #ff8b6e;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid #2c3038;
+    width: 100%;
+    text-align: center;
+  }
+
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #3c4047;
+  }
+
+  /* ====================== ABILITY CARDS ====================== */
+  .right-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 6px 0;
+  }
+
+  .right-col-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stack-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 6px 0;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2c3038;
+  }
+
+  .ability {
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid transparent;
+  }
+
+  .ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .ability-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .ability-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .ability-meta {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ability ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ability ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .ability ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    font-weight: 700;
+  }
+
+  .ability ul ul {
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .ability ul ul li {
+    font-size: 13px;
+  }
+
+  .ability ul li.condition {
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  em.kw { font-style: normal; font-weight: 700; }
+
+  /* ====================== ABILITY COLOR VARIANTS ======================
+     The Flash theme — Scarlet Suit / Lightning Gold / Speed Force Orange / Emblem White palette.
+       Scarlet = the suit, the Scarlet Speedster himself, max-impact moves.
+       Lightning gold = the bolt on his chest and the crackle trailing every step.
+       Speed Force orange = the streak and burn of raw momentum.
+       Emblem white = the circle of his chest emblem, his inherent gifts.
+     Each ability still gets a visually distinct treatment; the palette
+     just shifts what "distinct" means for this character. */
+
+  .ability--leader {
+    background: #e8341c;          /* scarlet suit — Fastest Man Alive */
+    color: #2b0703;
+  }
+
+  .ability--basic {
+    background: #170b09;          /* near-black scarlet — Quick Jabs */
+    border: 1px solid #6b1d12;
+    color: #f0f1f3;
+  }
+  .ability--basic .ability-name { color: #ff8b6e; }
+  .ability--basic .ability-tag  { color: #e0573a; }
+  .ability--basic .ability-meta { color: #e0573a; }
+
+  .ability--special-1 { background: #facc15; color: #3a2c02; } /* lightning yellow — Instant Assault */
+  .ability--special-2 { background: #c2410c; color: #ffedd5; } /* burnt Speed Force orange — Accelerate */
+  .ability--special-3 { background: #fb923c; color: #3b1503; } /* bright speed-streak orange — Transporting Dash */
+  .ability--special-4 { background: #f59e0b; color: #2e1a02; } /* emblem gold — Speed Blitz */
+
+  .ability--reserve {
+    background: #1c1d20;
+    border-left: 4px solid #444;
+    color: #c5c8d0;
+    opacity: 0.75;
+  }
+  .ability--reserve .ability-name { color: #f0f1f3; }
+  .ability--reserve .ability-tag,
+  .ability--reserve .ability-meta { color: #a3a8b3; }
+  .ability--reserve-special   { border-left-color: #facc15; } /* lightning yellow */
+  .ability--reserve-passive   { border-left-color: #f4ede4; } /* emblem white */
+  .ability--reserve-ultimatum { border-left-color: #b4140b; } /* deep scarlet */
+
+  .ability--core-passive {
+    background: #4c0f0b;          /* dark crimson — The Scarlet Speedster, the Speed Force within */
+    color: #ffd4c7;
+  }
+
+  .ability--passive {
+    background: #f4ede4;          /* emblem white — secondary inherent */
+    color: #2a0d08;
+  }
+
+  .ability--ultimatum {
+    background: #b4140b;          /* deep scarlet — Worldwide Fist, max impact */
+    color: #ffe2dc;
+  }
+
+  .ability--synergy {
+    background: #fde68a;          /* pale lightning gold — connection */
+    color: #3a2a05;
+  }
+
+  .ability--artifact {
+    background: #c98226;
+    color: #2a1808;
+  }
+
+  .ability--costume {
+    background: #b46aff;
+    color: #1d0a3b;
+  }
+
+  /* ====================== SYNERGY BLOCKS (revamped) ======================
+     Collapsible bond cards. The summary row shows the bond name, partner,
+     and a short description; expanding reveals the abilities the bond grants.
+     Each granted ability is typed (Upgraded / Dynamic / New) and colour-coded
+     within The Flash's palette — scarlet for connection, gold and orange for
+     specials, emblem white for passives, deep scarlet for ULTIMATUM overrides. */
+  .synergy-note {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 2px 6px 2px;
+    line-height: 1.45;
+  }
+
+  .synergy-block {
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+  .synergy-block[open] { border-color: #e8341c; }
+
+  .synergy-summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .synergy-summary::-webkit-details-marker { display: none; }
+  .synergy-summary:hover { background: rgba(232, 52, 28, 0.04); }
+
+  .synergy-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #2c3038;
+    background: #1c1d20;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .synergy-summary:hover .synergy-icon { transform: scale(1.05); }
+  .synergy-block[open] .synergy-icon { border-color: #e8341c; }
+  .synergy-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  .synergy-summary-text { flex: 1; min-width: 0; }
+  .synergy-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .synergy-summary .synergy-bond-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff8b6e;
+    letter-spacing: -0.2px;
+  }
+  .synergy-partner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+  }
+  .synergy-desc {
+    font-size: 13px;
+    color: #a3a8b3;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .synergy-chevron {
+    flex-shrink: 0;
+    color: #6b7280;
+    font-size: 13px;
+    transition: transform 0.2s ease, color 0.15s ease;
+  }
+  .synergy-block[open] .synergy-chevron { transform: rotate(180deg); color: #e8341c; }
+  .synergy-summary:hover .synergy-chevron { color: #c5c8d0; }
+
+  .synergy-body {
+    padding: 2px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid #2c3038;
+    margin-top: -1px;
+  }
+  .synergy-body-hint {
+    font-size: 11px;
+    font-style: italic;
+    color: #5a5f6b;
+    padding-top: 12px;
+  }
+
+  /* Revealed synergy ability cards */
+  .syn-ability {
+    background: #17181c;
+    border: 1px solid #2c3038;
+    border-left-width: 4px;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .syn-ability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .syn-ability-name { font-size: 15px; font-weight: 700; color: #f0f1f3; }
+  .syn-type-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .syn-override {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .syn-override strong { color: #a3a8b3; font-style: normal; font-weight: 700; }
+  .syn-ability-meta {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #a3a8b3;
+    margin-bottom: 8px;
+  }
+  .syn-ability ul { list-style: none; padding: 0; }
+  .syn-ability ul li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #c5c8d0;
+  }
+  .syn-ability ul li::before { content: '•'; position: absolute; left: 3px; color: #e8341c; }
+  .syn-ability ul li.ph { font-style: italic; color: #9aa0ab; }
+
+  /* Dynamic special dual opt-in cost chips */
+  .syn-dual-cost { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .syn-cost-chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    background: rgba(232, 52, 28, 0.1);
+    border: 1px solid rgba(232, 52, 28, 0.3);
+    color: #ffc4b5;
+  }
+  .syn-cost-chip .who { color: #ff8b6e; font-weight: 700; }
+
+  /* Type accents — gold / scarlet / white / orange spread, kept distinct from one another */
+  .syn-ability--upgraded-special   { border-left-color: #facc15; } /* lightning yellow */
+  .syn-ability--upgraded-special   .syn-type-badge { background: rgba(250, 204, 21, 0.15); color: #fde047; border: 1px solid rgba(250, 204, 21, 0.4); }
+  .syn-ability--dynamic-special    { border-left-color: #e8341c; } /* scarlet */
+  .syn-ability--dynamic-special    .syn-type-badge { background: rgba(232, 52, 28, 0.15); color: #ff8b6e; border: 1px solid rgba(232, 52, 28, 0.4); }
+  .syn-ability--new-passive        { border-left-color: #f4ede4; } /* emblem white */
+  .syn-ability--new-passive        .syn-type-badge { background: rgba(244, 237, 228, 0.13); color: #efe7dc; border: 1px solid rgba(244, 237, 228, 0.35); }
+  .syn-ability--upgraded-ultimatum { border-left-color: #b4140b; } /* deep scarlet */
+  .syn-ability--upgraded-ultimatum .syn-type-badge { background: rgba(180, 20, 11, 0.25); color: #ff7a6a; border: 1px solid rgba(180, 20, 11, 0.55); }
+  .syn-ability--new-special        { border-left-color: #ea580c; } /* Speed Force orange */
+  .syn-ability--new-special        .syn-type-badge { background: rgba(234, 88, 12, 0.2); color: #fb9a5c; border: 1px solid rgba(234, 88, 12, 0.45); }
+
+  /* ====================== COSTUMES SECTION ====================== */
+  .costumes-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    border: 1px solid #2c3038;
+  }
+
+  .costumes-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .costume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .costume-card {
+    background: #1c1d20;
+    border: 1px solid #2c3038;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .costume-card:hover {
+    transform: translateY(-2px);
+    border-color: #3c4047;
+  }
+
+  .costume-image {
+    aspect-ratio: 1 / 1;
+    background: #17181c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f535c;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .costume-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .costume-info {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .costume-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f1f3;
+    line-height: 1.3;
+  }
+
+  .costume-effect-label {
+    font-size: 11px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .rarity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  .rarity--common    { background: rgba(107, 114, 128, 0.18); color: #b8bdc8; border: 1px solid rgba(107, 114, 128, 0.4); }
+  .rarity--uncommon  { background: rgba(63, 177, 108, 0.18);  color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .rarity--rare      { background: rgba(54, 144, 238, 0.18);  color: #5fb0ff; border: 1px solid rgba(54, 144, 238, 0.4); }
+  .rarity--epic      { background: rgba(139, 63, 219, 0.18);  color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .rarity--legendary { background: rgba(239, 183, 63, 0.18);  color: #ffd680; border: 1px solid rgba(239, 183, 63, 0.4); }
+  .rarity--mythic    { background: rgba(214, 58, 58, 0.18);   color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+
+  /* ====================== CHANGELOG ====================== */
+  .changelog-section {
+    margin-top: 18px;
+    background: #14161a;
+    border-radius: 14px;
+    padding: 28px 32px;
+    border: 1px solid #2c3038;
+  }
+
+  .changelog-section .section-divider {
+    margin: 0 0 20px;
+  }
+
+  .changelog-intro {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .changelog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .changelog-entry {
+    background: #1c1d20;
+    border-radius: 10px;
+    padding: 16px 20px 18px;
+    border-left: 3px solid #2c3038;
+  }
+
+  .changelog-entry.release { border-left-color: #ff5b5b; }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .entry-meta .version {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f3;
+  }
+
+  .entry-meta .date {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .changes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  .changes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #c5c8d0;
+  }
+
+  .change-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .changes li.buff    .change-tag { background: rgba(63, 177, 108, 0.15); color: #5fd189; border: 1px solid rgba(63, 177, 108, 0.4); }
+  .changes li.nerf    .change-tag { background: rgba(214, 58, 58, 0.15);  color: #ff7878; border: 1px solid rgba(214, 58, 58, 0.4); }
+  .changes li.rework  .change-tag { background: rgba(139, 63, 219, 0.15); color: #b378f0; border: 1px solid rgba(139, 63, 219, 0.4); }
+  .changes li.release .change-tag { background: rgba(255, 91, 91, 0.15);  color: #ff8585; border: 1px solid rgba(255, 91, 91, 0.4); }
+
+  .rationale {
+    font-size: 12.5px;
+    color: #a3a8b3;
+    font-style: italic;
+    line-height: 1.55;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 2px solid #3c4047;
+    border-radius: 4px;
+  }
+
+  .rationale::before {
+    content: 'Rationale: ';
+    color: #6b7280;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  /* ====================== RESPONSIVE ====================== */
+  @media (max-width: 1000px) {
+    .hero-bar, .main-grid {
+      grid-template-columns: 1fr;
+    }
+    .character-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* ---------- SUMMON PORTRAITS (below theme player) ---------- */
+  .summon-portraits {
+    background: #14161a;
+    border-radius: 14px;
+    padding: 14px 16px 16px;
+    border: 1px solid #2c3038;
+  }
+
+  .summon-portraits-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2c3038;
+  }
+
+  .summon-portrait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .summon-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #f0f1f3;
+    cursor: pointer;
+  }
+
+  .summon-portrait-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #1c1d20;
+    border: 2px solid #2c3038;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .summon-portrait:hover .summon-portrait-image {
+    transform: scale(1.05);
+    border-color: #e8341c;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .summon-portrait-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .summon-portrait-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: #ffb4a1;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100px;
+  }
+
+  /* ====================== THEME MUSIC PLAYER ====================== */
+  /* Stacks under the portrait in the left hero column. Autoplay is
+     attempted on load; if the browser blocks it, playback starts on the
+     visitor's first interaction with the page (see script at end of body). */
+  .hero-left { align-self: start; display: flex; flex-direction: column; gap: 14px; }
+
+  .theme-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #14161a;
+    border: 1px solid #2c3038;
+    border-radius: 14px;
+    padding: 11px 14px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8341c;            /* The Flash accent */
+    color: #2b0703;
+    transition: transform 0.12s ease, filter 0.12s ease;
+  }
+  .theme-toggle:hover  { filter: brightness(1.1); transform: scale(1.05); }
+  .theme-toggle:active { transform: scale(0.96); }
+  .theme-toggle svg { width: 18px; height: 18px; display: block; fill: currentColor; }
+  .theme-toggle .icon-pause { display: none; }
+  .theme-player.playing .theme-toggle .icon-play  { display: none; }
+  .theme-player.playing .theme-toggle .icon-pause { display: block; }
+
+  .theme-meta { min-width: 0; flex: 1; }
+  .theme-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 3px;
+  }
+  .theme-track {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f0f1f3;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .theme-source {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #ffb4a1;                 /* The Flash light accent */
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <a href="../champions.html" class="back-link">← Back to Champions</a>
+
+  <!-- =============================================
+       HERO BAR — Character image and identity
+       ============================================= -->
+  <div class="hero-bar">
+    <div class="hero-left">
+      <div class="character-image">
+        <!-- Replace this span with: <img src="path/to/character-art.jpg" alt="Character"> -->
+        <img src="../images/champion-images/the-flash.jpg" alt="The Flash">
+      </div>
+
+      <!-- Champion theme music player. Drop the track at the data-theme / src path.
+           Fill in .theme-track (track name) and .theme-source (original game it's from). -->
+      <div class="theme-player" id="theme-player" data-theme="../audio/champion-themes/the-flash.mp3">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Play or pause theme">
+          <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="theme-meta">
+          <div class="theme-eyebrow">Theme</div>
+          <div class="theme-track">Blink of an Eye</div>
+          <div class="theme-source">Dragon Ball Z Dokkan Battle: TEQ SSJ4 Goku (Mini) (Daima) Active Skill OST</div>
+        </div>
+        <audio id="theme-audio" loop preload="auto" src="../audio/champion-themes/the-flash.mp3"></audio>
+      </div>
+      <!-- Summons — links to each summon's sheet -->
+      <div class="summon-portraits">
+        <div class="summon-portraits-title">
+          <span>Summons</span>
+        </div>
+        <div class="summon-portrait-list">
+          <a href="../summons/speedster-afterimage.html" class="summon-portrait" title="View Speedster Afterimage">
+            <div class="summon-portrait-image">
+              <img src="../images/summon-images/speedster-afterimage.jpg" alt="Speedster Afterimage">
+            </div>
+            <div class="summon-portrait-label">Speedster Afterimage</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="identity">
+      <h1 class="name">The Flash</h1>
+      <p class="subtitle">Barry Allen</p>
+      <span class="role-badge">Striker</span>
+      <p class="description">
+        Struck by a bolt of lightning that bound him to the Speed Force, forensic scientist Barry Allen guards Central City as the Flash — the Scarlet Speedster and the fastest man alive.
+      </p>
+      <p class="description">
+        Barry Allen was chasing the truth long before he could outrun anything. He was only a boy when his mother was murdered in their home and his father was convicted of a crime he did not commit, and the grief of that night set him on a single path: to become the kind of man who finds answers when no one else will look. He grew into a forensic scientist for the Central City Police Department — patient, meticulous, and famously late to everything — until a lightning strike shattered a shelf of chemicals over him in his lab and connected him to the Speed Force, the energy that drives all motion through creation. He has carried the mantle of the Flash ever since with an optimism that his losses should have broken and never did. That hope has cost him dearly. Once, given the power to undo the worst day of his life, he ran back through time to save his mother and returned to find the world fractured around his choice, and letting her go again was the hardest thing he has ever done. It left him with the conviction that defines him still: the past is not his to rewrite, only the people in front of him to save. And so he gives them everything — a hero who looks for the best in everyone he meets, friend and enemy alike, and has never stopped believing he’ll find it. 
+      </p>
+      <p class="description">
+        The Speed Force makes him the fastest man alive, and speed is only where it begins. Barry can cross a continent in a heartbeat and land a thousand blows before an opponent finishes a breath; his mind and senses race alongside his body, so that to him a speeding bullet hangs in the air like something to be plucked away. He can vibrate his molecules fast enough to pass through solid walls, heals in hours from wounds that would cripple others for months, and at his limits can outpace time itself, running into the past, the future, and the worlds that lie beside his own. Paired with a scientist’s mind that turns every fight into a problem to be solved, it makes him one of the most dangerous heroes in any universe. But the speed was never what made Barry Allen the Flash. It’s that he spends every second of it on someone else — the man who’s late for everything except the moment someone needs him.
+      </p>
+      <p class="quote">"Life is locomotion…if you're not moving, you're not living. But there comes a time when you've got to stop running away from things… and you've got to start running towards something, you've got to forge ahead. Keep moving. Even if your path isn't lit…trust that you'll find your way."</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN GRID — Stats / Vitals / Links / Tags | Kit
+       ============================================= -->
+  <div class="main-grid">
+
+    <!-- LEFT COLUMN ============================ -->
+    <aside class="left-col">
+
+      <!-- Stats -->
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stat-row"><span class="label">MAX HP</span><span class="value">5,200</span></div>
+        <div class="stat-row"><span class="label">ATK</span><span class="value">360</span></div>
+        <div class="stat-row"><span class="label">MAG</span><span class="value">100</span></div>
+        <div class="stat-row"><span class="label">HEAL</span><span class="value">0</span></div>
+        <div class="stat-row"><span class="label">DEF</span><span class="value">80</span></div>
+        <div class="stat-row"><span class="label">RES</span><span class="value">30</span></div>
+        <div class="stat-row"><span class="label">ACC</span><span class="value">99%</span></div>
+        <div class="stat-row"><span class="label">CRIT</span><span class="value">120%</span></div>
+        <div class="stat-row"><span class="label">CRIT RATE</span><span class="value">50%</span></div>
+        <div class="stat-row"><span class="label">SPD</span><span class="value">132</span></div>
+        <div class="stat-row"><span class="label">EVA</span><span class="value">50%</span></div>
+        <div class="stat-row"><span class="label">SIZE</span><span class="value">1x1</span></div>
+      </div>
+
+      <!-- Vitals -->
+      <div class="panel">
+        <div class="panel-title">Vitals</div>
+        <div class="stat-row"><span class="label">MAX EN</span><span class="value">120</span></div>
+        <div class="stat-row"><span class="label">MAX STA</span><span class="value">12</span></div>
+        <div class="stat-row"><span class="label">REGEN</span><span class="value">5%</span></div>
+      </div>
+
+      <!-- Links -->
+      <div class="panel">
+        <div class="panel-title">Links</div>
+        <div class="pill-group">
+          <a href="../links/dc-universe.html" class="pill">DC Universe</a>
+          <a href="../links/hero.html" class="pill">Hero</a>
+          <a href="../links/human.html" class="pill">Human</a>
+          <a href="../links/justice-league.html" class="pill">Justice League</a>
+          <a href="../links/vessel-of-the-speed-force.html" class="pill">Vessel of the Speed Force</a>
+          <a href="../links/comedic-genius.html" class="pill">Comedic Genius</a>
+          <a href="../links/immeasurable-speed.html" class="pill">Immeasurable Speed</a>
+          <a href="../links/pure-heart.html" class="pill">Pure Heart</a>
+          <a href="../links/tactical-mind.html" class="pill">Tactical Mind</a>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="panel">
+        <div class="panel-title">Tags</div>
+        <div class="pill-group">
+          <span class="pill">Self-Reposition</span>
+          <span class="pill">Ally Reposition</span>
+          <span class="pill">Enemy Reposition</span>
+          <span class="pill">Evasion</span>
+          <span class="pill">Counter</span>
+          <span class="pill">Standby</span>
+          <span class="pill">DEF Down</span>
+          <span class="pill">Vulnerability</span>
+          <span class="pill">Damage Over Time</span>
+          <span class="pill">EN Drain</span>
+          <span class="pill">STA Drain</span>
+          <span class="pill">Cooldown Increase</span>
+          <span class="pill">ATK Up</span>
+          <span class="pill">MAG Up</span>
+          <span class="pill">SPD Up</span>
+          <span class="pill">EVA Up</span>
+          <span class="pill">Multi-Hit</span>
+          <span class="pill">Guaranteed Hit</span>
+          <span class="pill">Summon</span>
+          <span class="pill">ULT Generation</span>
+          <span class="pill">Improved EN Gain</span>
+          <span class="pill">Improved STA Gain</span>
+        </div>
+      </div>
+
+      <!-- Best Partners — synergy connections (3 per row) -->
+      <div class="panel">
+        <div class="panel-title">Best Partners</div>
+        <div class="partners-grid">
+
+          <a href="green-lantern.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/green-lantern.jpg" alt="Green Lantern">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Green Lantern</strong>
+              <span class="real-name">Hal Jordan</span>
+              <span class="synergy-name">The Brave and the Bold</span>
+            </div>
+          </a>
+
+          <a href="batman.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/batman.jpg" alt="Batman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Batman</strong>
+              <span class="real-name">Bruce Wayne</span>
+              <span class="synergy-name">A Father's Letter</span>
+            </div>
+          </a>
+
+          <a href="superman.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/superman.jpg" alt="Superman">
+            </div>
+            <div class="partner-tooltip">
+              <strong>Superman</strong>
+              <span class="real-name">Clark Kent</span>
+              <span class="synergy-name">Race to the Finish</span>
+            </div>
+          </a>
+
+          <a href="the-summoner.html" class="partner-card">
+            <div class="partner-image">
+              <!-- <img src="path/to/miles.jpg" alt="Spider-Man (Miles Morales)"> -->
+              <img src="../images/champion-images/the-summoner.jpg" alt="The Summoner">
+            </div>
+            <div class="partner-tooltip">
+              <strong>The Summoner</strong>
+              <span class="real-name">Unknown</span>
+              <span class="synergy-name">Running from What Was</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN ============================ -->
+    <main class="right-col">
+
+      <div class="right-col-header">
+        <h2>Combat Kit</h2>
+        <span class="stack-note">Reserve cards = unlocked but not in active loadout</span>
+      </div>
+
+      <!-- LEADER ABILITY -->
+      <div class="section-divider">Leader Ability</div>
+      <div class="ability ability--leader">
+        <div class="ability-header">
+          <span class="ability-name">Fastest Man Alive</span>
+          <span class="ability-tag">Leader</span>
+        </div>
+        <ul>
+          <li>"Immeasurable Speed" allies gain +12% ATK and MAG in battle.</li>
+          <li>"Vessel of the Speed Force" allies gain +10% SPD and +8% EVA in battle.</li>
+        </ul>
+      </div>
+
+      <!-- BASIC ABILITY -->
+      <div class="section-divider">Basic Ability (Unique)</div>
+      <div class="ability ability--basic">
+        <div class="ability-header">
+          <span class="ability-name">Quick Jabs</span>
+          <span class="ability-tag">Basic</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: None · Cooldown: None · Range: 3</div>
+        <ul>
+          <li>Deals 40% ATK damage to the target 6 times.</li>
+        </ul>
+      </div>
+
+      <!-- SPECIAL ABILITIES -->
+      <div class="section-divider">Special Abilities (4 of 6 active)</div>
+
+      <div class="ability ability--special-1">
+        <div class="ability-header">
+          <span class="ability-name">Instant Assault</span>
+          <span class="ability-tag">Special 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 40 · Cooldown: 2 turns · Range: 8</div>
+        <ul>
+          <li>Deals 40% ATK damage to the target 12 times.</li>
+          <li>10% chance to inflict "Bruise" on the target for 2 turns, rolls on each damage instance.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-2">
+        <div class="ability-header">
+          <span class="ability-name">Accelerate</span>
+          <span class="ability-tag">Special 2</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+        <ul>
+          <li>Evades the next 3 received attacks (evades the whole ability, expires after 2 turns).</li>
+          <li>For 2 turns, attacks inflict "Whiplash" for 2 turns (once per ability).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-3">
+        <div class="ability-header">
+          <span class="ability-name">Transporting Dash</span>
+          <span class="ability-tag">Special 3</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 8</div>
+        <ul>
+          <li>Relocates the nearest ally within 3 panels of self (self excluded) to the targeted panel.</li>
+          <li>Relocates self instead if no ally is within 3 panels.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--special-4">
+        <div class="ability-header">
+          <span class="ability-name">Speed Blitz</span>
+          <span class="ability-tag">Special 4</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 10</div>
+        <ul>
+          <li>Deals 550% ATK damage to the target.</li>
+          <li>Guaranteed to land.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Exposing Relocation</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 7</div>
+        <ul>
+          <li>If the target's SIZE is 1x1, relocates the target to a panel adjacent to self and inflicts "Whiplash" on it for 3 turns.</li>
+          <li>If the target's SIZE is larger than 1x1, inflicts "Vulnerable" on the target for 3 turns.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-special">
+        <div class="ability-header">
+          <span class="ability-name">Phasing Sprint</span>
+          <span class="ability-tag">Special — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: One Panel · Energy: 30 · Cooldown: 3 turns · Range: 6</div>
+        <ul>
+          <li>Relocates self to the targeted panel in a straight line, phasing through any enemies on the panels in between (a 1-panel-wide line).</li>
+          <li>Any enemy phased through loses 50 EN and 4 STA.</li>
+          <li>Any enemy phased through has a random cooldown increased by 2 turns.</li>
+        </ul>
+      </div>
+
+      <!-- PASSIVE ABILITIES -->
+      <div class="section-divider">Passive Abilities (Core + 2 of 4 active)</div>
+
+      <div class="ability ability--core-passive">
+        <div class="ability-header">
+          <span class="ability-name">The Scarlet Speedster</span>
+          <span class="ability-tag">Core Passive</span>
+        </div>
+        <ul>
+          <li>35% chance to evade attacks guaranteed to land.</li>
+          <li>STA regen increased to 50% of MAX STA.</li>
+          <li>EN regen increased to 40% of MAX EN.</li>
+          <li>Gains 2% ULT each time an attack is evaded.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Momentum Unbroken</span>
+          <span class="ability-tag">Passive 1</span>
+        </div>
+        <ul>
+          <li>Gains a stack of +4% ATK when landing an ability (damaging or not) on an enemy other than the last enemy he landed an ability on (maximum of 10 stacks, up to +40% ATK).</li>
+          <li>Each stack lasts 3 turns (each stack keeps its own timer).</li>
+          <li>Loses all stacks after landing an ability on the same enemy as the last ability.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--passive">
+        <div class="ability-header">
+          <span class="ability-name">Initial Burst</span>
+          <span class="ability-tag">Passive 2</span>
+        </div>
+        <ul>
+          <li>Evades all attacks for 1 turn from start of battle (once only).</li>
+          <li>+15% ATK and SPD for 5 turns from start of battle (once only).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Gauging the Threat</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>+10% EVA when receiving an attack from an enemy with ATK or MAG higher than 560 (after all modifiers).</li>
+          <li>+5% SPD and ATK while any enemy has SPD higher than 120 (after all modifiers).</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-passive">
+        <div class="ability-header">
+          <span class="ability-name">Afterimage</span>
+          <span class="ability-tag">Passive — Reserve</span>
+        </div>
+        <ul>
+          <li>Summons a Speedster Afterimage on the panel he left when relocating self with an ability (only if he ends on a different panel).</li>
+          <li>Summons a Speedster Afterimage on the panel he left when spending 7 STA or more in a single use of Move.</li>
+        </ul>
+      </div>
+
+      <!-- ULTIMATUM -->
+      <div class="section-divider">ULTIMATUM (1 of 2 active)</div>
+
+      <div class="ability ability--ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Worldwide Fist</span>
+          <span class="ability-tag">ULTIMATUM 1</span>
+        </div>
+        <div class="ability-meta">Type: Melee · Target: One Enemy · Range: 20 · Cost: 100% ULT</div>
+        <ul>
+          <li>Goes "Off-Field" for 1 turn. The target is revealed to all enemies.</li>
+          <li>Cannot gain HP, EN or STA while Off-Field.</li>
+          <li>On returning, appears on a panel adjacent to the target and deals 1500% ATK damage to it.</li>
+          <li>Upon dealing damage, inflicts "Vulnerable" and "Deep Bruise" on the target for 2 turns.</li>
+          <li>If the target can't be targeted when he returns (defeated, "Stealth", "Invisible", or more than 20 panels from the panel he left), targets the nearest targetable enemy within 20 panels of that panel instead. If there is none, he returns to the panel he left and the ULTIMATUM is spent with no effect.</li>
+        </ul>
+      </div>
+
+      <div class="ability ability--reserve ability--reserve-ultimatum">
+        <div class="ability-header">
+          <span class="ability-name">Respond and Rescue</span>
+          <span class="ability-tag">ULTIMATUM — Reserve</span>
+        </div>
+        <div class="ability-meta">Type: Support · Target: All Allies in Range · Range: 8 · Cost: 100% ULT</div>
+        <ul>
+          <li>Can only be used as the first action of the turn.</li>
+          <li>Stands by for the remainder of the turn.</li>
+          <li>If an ally within 8 panels is attacked, the ally is saved from the attack (including attacks guaranteed to land).</li>
+          <li>Deals 500% ATK damage to the attacker.</li>
+          <li>Standby ends after 3 saves.</li>
+          <li>A save that prevents a fatal blow does not count toward the 3 saves (once per ally).</li>
+        </ul>
+      </div>
+
+      <!-- SYNERGIES (revamped collapsible format) -->
+      <div class="section-divider">Synergies</div>
+      <p class="synergy-note">Each bond is a collapsible card — click the row (or the ▾ arrow) to reveal the abilities that partner grants. A bond usually grants one ability, occasionally two.</p>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/green-lantern.jpg" alt="Green Lantern">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">The Brave and the Bold</span>
+              <span class="synergy-partner-tag">w/ Green Lantern</span>
+            </div>
+            <p class="synergy-desc">Hal Jordan is the closest thing Barry has to a brother, and on paper the two should never have gotten along. One is a buttoned-up police scientist who has never once been on time; the other is a cocky test pilot who has never met a rule he couldn’t break, and each has spent years telling the other exactly how wrong he’s living. But beneath the bickering runs the easiest trust either man has ever known. Hal makes Barry braver, Barry makes Hal think twice, and whether the fight is a rogue loose in Central City or a war between the stars, each knows without asking that the other is already on his way. Barry may be late to everything else in his life, but never to Hal, and with one running on willpower and the other on lightning, there is very little in any universe that can keep up with them.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--dynamic-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Lightning-Fast Beatdown</span>
+              <span class="syn-type-badge">Dynamic Special</span>
+            </div>
+            <div class="syn-override">Combo — both Champions must opt in; each spends their own resources on activation.</div>
+            <div class="syn-dual-cost">
+              <span class="syn-cost-chip"><span class="who">The Flash</span> · 50 EN · 3 STA</span>
+              <span class="syn-cost-chip"><span class="who">Green Lantern</span> · 40 EN</span>
+            </div>
+            <div class="syn-ability-meta">Type: Ranged · Target: One Enemy + AoE (2 panels) · Cooldown: 7 turns · Range: 6</div>
+            <ul>
+              <li>The Flash deals 400% ATK damage to the target.</li>
+              <li>Green Lantern deals 300% ATK damage to the target and all enemies within 2 panels of the target.</li>
+            </ul>
+          </div>
+
+          <div class="syn-ability syn-ability--new-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Sparking Hope</span>
+              <span class="syn-type-badge">New Special</span>
+            </div>
+            <div class="syn-override">Added on top of 4-special limit.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Ally (self excluded) · Energy: 20 · Cooldown: 4 turns · Range: 3</div>
+            <ul>
+              <li>The targeted ally gains +12% SPD for 2 turns.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/batman.jpg" alt="Batman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">A Father's Letter</span>
+              <span class="synergy-partner-tag">w/ Batman</span>
+            </div>
+            <p class="synergy-desc">Barry once lived through a world where young Bruce Wayne died in that alley instead of his parents. In that world, a grieving Thomas Wayne took up the cowl and made it something far crueler. When Barry ran the timeline back into place, he carried home the one thing that other Batman pressed into his hand: a letter from a father to the son he never got to watch grow up. It’s a debt Bruce has never known how to repay, and a kinship Barry never expected. Both men were made by a murdered parent, and both chose to answer that grief by chasing the truth. Batman respects few minds the way he respects Barry’s, a forensic scientist who can read a crime scene nearly as well as he can. Barry, for his part, is one of the very few who can still see, beneath the cowl, the man Thomas Wayne hoped his son would be.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Intimidating Relocation</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Exposing Relocation</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Enemy · Energy: 30 · Cooldown: 3 turns · Range: 7</div>
+            <ul>
+              <li>Inflicts "Terrify" to the target for 2 turns.</li>
+              <li>If the target's SIZE is 1x1, relocates the target to a panel adjacent to self and inflicts "Whiplash" on it for 3 turns.</li>
+              <li>If the target's SIZE is larger than 1x1, inflicts "Vulnerable" on the target for 3 turns.</li>
+            </ul>
+          </div>
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Friends Made Family</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+5% ATK and MAG to "Justice League" allies.</li>
+              <li>+5% SPD while at least one other "Justice League" ally is on the battlefield.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/superman.jpg" alt="Superman">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Race to the Finish</span>
+              <span class="synergy-partner-tag">w/ Superman</span>
+            </div>
+            <p class="synergy-desc">Barry and Clark have raced each other more times than either cares to count — around the world, across the solar system, once all the way to the end of the universe — and they still can’t agree on who won. It may be the friendliest rivalry in either man’s life: no grudges, no stakes beyond bragging rights, just two of the kindest heroes alive grinning at each other across the starting line like a pair of boys. Beneath it runs a deep and simple respect. Barry knows exactly what Superman means to the world, and Clark knows that Barry’s courage has never once depended on how fast he can run. Not that either of them will ever turn down one more race.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Saving Dash</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Transporting Dash</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: One Panel · Energy: 20 · Cooldown: 3 turns · Range: 8</div>
+            <ul>
+              <li>Relocates the nearest ally within 3 panels of self (self excluded) to the targeted panel.</li>
+              <li>Relocates self instead if no ally is within 3 panels.</li>
+              <li>The relocated ally (excludes self) restores 6% HP (of their MAX HP) and 20 EN.</li>
+            </ul>
+          </div>
+          
+          <div class="syn-ability syn-ability--new-passive">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Giving a Head Start</span>
+              <span class="syn-type-badge">New Passive</span>
+            </div>
+            <ul>
+              <li>+6% SPD to Superman.</li>
+              <li>+3% SPD to "Immeasurable Speed" allies (Superman and self excluded).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <details class="synergy-block">
+        <summary class="synergy-summary">
+          <div class="synergy-icon">
+            <img src="../images/champion-images/the-summoner.jpg" alt="The Summoner">
+          </div>
+          <div class="synergy-summary-text">
+            <div class="synergy-title-row">
+              <span class="synergy-bond-name">Running from What Was</span>
+              <span class="synergy-partner-tag">w/ The Summoner</span>
+            </div>
+            <p class="synergy-desc">Barry knows better than anyone what happens when one person decides they know how reality ought to go. He broke the timeline once to save his mother and woke into a world torn apart by that single act of love. So when he looks at the Summoner, a stranger whose fate seems tangled with every world at once, he sees a temptation he has already lived through and only barely survived. He doesn’t distrust them; Barry has never been able to distrust anyone who means well. But he worries, openly and often, and he asks the questions no one else thinks to: who decides what each world gets to keep, and who carries the weight when that choice turns out to be wrong? The Summoner listens. Barry can only hope they never have to learn the answer the way he did.</p>
+          </div>
+          <span class="synergy-chevron">▾</span>
+        </summary>
+        <div class="synergy-body">
+
+          <div class="syn-ability syn-ability--upgraded-special">
+            <div class="syn-ability-header">
+              <span class="syn-ability-name">Magnify</span>
+              <span class="syn-type-badge">Upgraded Special</span>
+            </div>
+            <div class="syn-override">Overrides <strong>Accelerate</strong> — the base special must be in the active loadout to use this form.</div>
+            <div class="syn-ability-meta">Type: Support · Target: Self · Energy: 30 · Cooldown: 4 turns · Range: N/A</div>
+            <ul>
+              <li>Evades the next 3 received attacks (evades the whole ability, expires after 2 turns).</li>
+              <li>For 3 turns, attacks inflict "Whiplash" for 2 turns (once per ability).</li>
+              <li>All allies within 3 panels of self gain "Light" for 2 turns (self excluded).</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       COSTUMES — Gallery of unlockable costumes
+       ============================================= -->
+  <section class="costumes-section">
+    <div class="section-divider">Costumes</div>
+    <div class="costume-grid">
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <!-- <img src="path/to/classic.jpg" alt="Classic Red & Blue"> -->
+          <img src="../images/champion-images/the-flash.jpg" alt="Classic">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Classic</div>
+          <div class="costume-effect-label">Default — No costume effect</div>
+          <span class="rarity rarity--common">Common</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-flash(modern).jpg" alt="Modern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Modern</div>
+          <div class="costume-effect-label">Untouchable — +3% EVA</div>
+          <span class="rarity rarity--uncommon">Uncommon</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-flash(old-man).jpg" alt="Old Man">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Old Man</div>
+          <div class="costume-effect-label">Speed Unceasing — +4% SPD</div>
+          <span class="rarity rarity--rare">Rare</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-flash(blue-lantern).jpg" alt="Blue Lantern">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Blue Lantern</div>
+          <div class="costume-effect-label">Chosen Hope — +3% ATK, can receive buffs granted to "Lantern Corps" allies (including Leader Abilities)</div>
+          <span class="rarity rarity--epic">Epic</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-flash(future).jpg" alt="Future">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Future</div>
+          <div class="costume-effect-label">Pure Energy — +260 MAG, all abilities that deal/buff ATK damage instead deal/buff MAG damage</div>
+          <span class="rarity rarity--legendary">Legendary</span>
+        </div>
+      </div>
+
+      <div class="costume-card">
+        <div class="costume-image">
+          <img src="../images/champion-images/costumes/the-flash(red-death).jpg" alt="Red Death">
+        </div>
+        <div class="costume-info">
+          <div class="costume-name">Red Death</div>
+          <div class="costume-effect-label">Buried Inside a Merged Mind — +3% REGEN, +10% SPD while below 80% HP</div>
+          <span class="rarity rarity--mythic">Mythic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       CHANGELOG — Balance history for this Champion
+       Tag classes on each <li>: buff | nerf | rework | release
+       ============================================= -->
+  <section class="changelog-section">
+    <div class="section-divider">Changelog</div>
+    <p class="changelog-intro">Balance changes since this Champion's release. Newest first.</p>
+
+    <div class="changelog-entries">
+
+      <div class="changelog-entry release">
+        <div class="entry-meta">
+          <span class="version">v1.0.0</span>
+          <span class="date">April 28, 2027</span>
+        </div>
+        <ul class="changes">
+          <li class="release">
+            <span class="change-tag">Release</span>
+            <span>The Flash enters the roster.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+  // Champion theme player: attempt autoplay on load; if blocked by the
+  // browser's autoplay policy, start on the visitor's first interaction.
+  (function () {
+    const player = document.getElementById('theme-player');
+    if (!player) return;
+    const audio  = document.getElementById('theme-audio');
+    const toggle = document.getElementById('theme-toggle');
+    audio.volume = 0.6;
+
+    // Keep the play/pause icon in sync with actual playback state.
+    audio.addEventListener('play',  () => player.classList.add('playing'));
+    audio.addEventListener('pause', () => player.classList.remove('playing'));
+
+    const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    function clearFallback() {
+      events.forEach(e => window.removeEventListener(e, firstInteraction));
+    }
+    function firstInteraction(e) {
+      // Let clicks on the button be handled by the toggle itself.
+      if (e && e.target && e.target.closest && e.target.closest('#theme-toggle')) return;
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+    }
+
+    // Manual play/pause; once the user clicks it, they're in control.
+    toggle.addEventListener('click', () => {
+      clearFallback();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    // Try to autoplay right away; on failure, arm the first-interaction fallback.
+    audio.play().then(clearFallback).catch(() => {
+      events.forEach(e => window.addEventListener(e, firstInteraction, { passive: true }));
+    });
+  })();
+</script>
+
+</body>
+</html>

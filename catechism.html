@@ -563,6 +563,7 @@
         <a href="#cooldown-increase" class="toc-link toc-sub">Cooldown Increase</a>
         <a href="#extension" class="toc-link toc-sub">Extension</a>
         <a href="#standby" class="toc-link toc-sub">Standby</a>
+      <a href="#off-field" class="toc-link toc-sub">Off-Field</a>
         <a href="#counter" class="toc-link toc-sub">Counter</a>
         <a href="#interrupt" class="toc-link toc-sub">Interrupt</a>
         <a href="#ability-nullifying" class="toc-link toc-sub">Ability Nullifying</a>
@@ -730,6 +731,7 @@
       </ul>
       <p>The <strong>Use</strong> action can be activated when a Champion is adjacent to an interactable object on the battlefield — a computer terminal, a button, a lever, or similar — that carries a triggered special effect. Activating it resolves the object's effect as described by the battlefield or mission context. Not every obstacle or object is interactable; only those explicitly flagged as such will respond to this action.</p>
       <p><strong>Blocking</strong> causes the Champion to be inactive until their next turn. While blocking, the Champion's <strong>DEF and RES are multiplied by 1.5x</strong> for incoming damage. There is danger, however: some abilities can break a Champion's block for the turn (called <em>Precise</em> abilities). Precise abilities are specialized anti-block attacks. When a Precise ability strikes a target that is currently blocking, it breaks that target's block for the turn, ignores the block's 1.5× DEF/RES multiplier, and lands as an automatic critical hit. Against a target that is not blocking, a Precise ability resolves as a normal attack — it does not gain a guaranteed critical hit. Blocking can only be chosen as the first ability used in the turn and will end the turn for that Champion.</p>
+      <p><strong>Auto-Block</strong> is a passive form of blocking granted by some kits (e.g. <em>"50% chance to Auto-Block each received ability"</em>). Each received ability rolls separately. When it succeeds, the Champion counts as blocking against that one ability only: their DEF and RES are multiplied by 1.5x for it, but they do not become inactive, their turn is not ended, and the block does not carry over to any other ability. Precise abilities break an auto-block like any other block: they ignore the 1.5x multiplier and land as an automatic critical hit.</p>
       <p><strong>Waiting</strong> causes the Champion to be inactive until their next turn with the benefit that, on the next turn, the Champion gains <strong>1.5x</strong> the EN, STA and HP regeneration they would normally. The block multiplier does not apply while waiting — only while blocking. Waiting can only be chosen as the first ability used in the turn and will end the turn for that Champion. Some kits trigger effects when the Champion Waits — for example, Deadpool's core passive increases Trickshot's cooldown by 3 turns each time he Waits — so Waiting is a hookable action, not only a regenerate-and-skip button.</p>
       <p><strong>Moving</strong> allows the Champion to move where it wishes (assuming they have the STA) without committing to an action. Consumes 1 STA per panel in the battlefield's grid. This ability won't cause a Champion's turn to end — another ability can be used immediately after. Elevation, gap-jumping, floor traversal and void interaction all affect how movement resolves — see <em>Elevation</em>, <em>Gap Jumping</em>, <em>Floors</em>, and <em>Void and Falling</em> in the Battle System section for the full rules.</p>
       <p><strong>Ending the turn</strong> will end your Champion's actions for the turn (acting as the "finished" button).</p>
@@ -1346,6 +1348,12 @@
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Acceleration</div></td>
+            <td>+8% SPD.</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Focus</div></td>
             <td>+20% ACC.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1480,6 +1488,12 @@
             <td><span class="tier-label epic">Epic</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square epic"></span>Predictable</div></td>
+            <td>The inflictor of this status effect gains +30% EVA against every ability the carrier uses on them (including area and line abilities that include them).</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label epic">Epic</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square epic"></span>Darkness</div></td>
             <td>All attacks received deal 10% more damage (calculated after defenses). Abilities with ranges have their range decreased by 2 panels (minimum of 1 panel).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1499,7 +1513,7 @@
           </tr>
           <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Retribution</div></td>
-            <td>Attacks performed can only target the inflictor of this status effect.</td>
+            <td>Attacks performed can only target the inflictor of this status effect. If the carrier has no ability it can use on the inflictor whatsoever (e.g. only melee abilities against an airborne inflictor), this status effect is nullified.</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
@@ -1576,6 +1590,12 @@
             <td><span class="tier-label uncommon">Uncommon</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square uncommon"></span>Whiplash</div></td>
+            <td>Deals 60% ATK damage per turn (using the inflictor's stat).</td>
+            <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
+            <td><span class="tier-label uncommon">Uncommon</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square uncommon"></span>Web</div></td>
             <td>Converts into Spider's Web at 50 stacks or more.</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1615,6 +1635,17 @@
       <h3 id="standby">Standby</h3>
       <p>A <strong>standby</strong> is a <em>reactionary state</em> granted by certain abilities (typically marked with phrasing like "stands by for the remainder of the turn"). While <em>standing by</em>, the Champion takes no further actions but holds a triggered effect — usually a reactive benefit such as intercepting an incoming attack, saving an ally, or returning a counter.</p>
       <p>Standby functions similarly to <strong>Block</strong> and <strong>Wait</strong>: the Champion <em>stands by</em> for the rest of the turn rather than continuing to act. Unlike those basic actions, the specific trigger and behavior of a standby is written into the ability that granted it, so each Champion's standby behaves differently. A standby's exit condition (one save, three counters, end of turn, etc.) is always specified in the granting ability.</p>
+
+      <h3 id="off-field">Off-Field</h3>
+      <p>A unit that goes <strong>Off-Field</strong> temporarily leaves the battlefield. Unlike a <a href="#standby">Standby</a>, the unit is not on the board at all, so nothing can reach it while it is away. While Off-Field, the unit:</p>
+      <ul>
+        <li>cannot be targeted, damaged or affected by anything: abilities, items, domains and area effects, its allies' effects included;</li>
+        <li>cannot act or move;</li>
+        <li>leaves its panel empty, so other units may move through or onto it;</li>
+        <li>does not count as "on the battlefield" for any condition, and is not defeated;</li>
+        <li>keeps its status effects on their timers, but their recurring effects do not apply (no damage-over-time, REGEN or "Regeneration" ticks).</li>
+      </ul>
+      <p>Its Leader Ability stays active, and its summons follow their own rules. It returns as its ability states, onto the nearest valid free panel if that panel is taken. An ability that sends a unit Off-Field must say how long it lasts, where the unit returns and what happens on its return. Whatever the unit does on returning resolves normally, so it can be blocked, evaded, interrupted or stopped by a Standby rescue. The reference is The Flash's <em>Worldwide Fist</em>, which reveals its target when he leaves so the enemy has a turn to prepare.</p>
 
       <h3 id="counter">Counter</h3>
       <p>A <strong>counter</strong> is a reactive attack that fires automatically in response to the Champion receiving an attack. Counters divide into two types:</p>
@@ -1663,7 +1694,8 @@
 
       <h3 id="guaranteed-to-land">Guaranteed to Land</h3>
       <p>An ability that is <strong>guaranteed to land</strong> cannot miss and cannot be evaded: it ignores ACC and EVA and any evasion effects. It is also not stopped by effects that negate an attack — "Energy Barrier", "Shield Charm" and block negation (e.g. <em>"Blocking negates 80% of ranged attack damage"</em>) do not stop it.</p>
-      <p>The one exception is an effect that explicitly says it works against guaranteed hits, which still works — for example Frieza's <em>Hurt for the First Time</em> (<em>"20% chance to evade attacks guaranteed to land while below 50% HP"</em>) or The Hulk's <em>Immeasurable Resistance</em>, which nullifies the first ULTIMATUM he receives each battle, including one that is guaranteed to land. Lord Voldemort's <em>Avada Kedavra</em> is the reference guaranteed-to-land ability.</p>
+      <p>The one exception is an effect that explicitly says it works against guaranteed hits, which still works — for example Frieza's <em>Hurt for the First Time</em> (<em>"20% chance to evade attacks guaranteed to land while below 50% HP"</em>) or The Hulk's <em>Immeasurable Resistance</em>, which nullifies the first ULTIMATUM he receives each battle, including one that is guaranteed to land. Lord Voldemort's <em>Avada Kedavra</em> is the reference guaranteed-to-land ability. Guaranteed to land is tracked as the <a href="#links-and-tags">mechanic tag</a> <strong>Guaranteed Hit</strong> (Offense).</p>
+      <p><strong>Hit priority.</strong> When these effects meet, each beats everything before it: <strong>evasion</strong> (EVA, evade effects) &lt; <strong>guaranteed to land</strong> &lt; <strong>effects that explicitly evade or nullify guaranteed hits</strong> (e.g. Frieza's <em>Hurt for the First Time</em>, The Flash's <em>The Scarlet Speedster</em>, The Hulk's <em>Immeasurable Resistance</em>) &lt; <strong>Standby rescues</strong>, a <a href="#standby">Standby</a> that saves an ally from an attack (e.g. Superman's <em>Soaring Save</em>, The Flash's <em>Respond and Rescue</em>). A Standby rescue stops a guaranteed hit even if the granting ability doesn't say so.</p>
       <p><em>Not to be confused with a guaranteed critical hit</em> ("Pinpoint", or a <a href="#precise">Precise</a> ability breaking a block), which decides whether a hit crits, not whether it lands. An ability can have either property without the other.</p>
 
       <h3 id="domain">Domain</h3>
@@ -1760,7 +1792,7 @@
 
       <h3 id="disguise">Disguise</h3>
       <p><strong>Disguise</strong> is a kit-granted state in which a unit is shown to enemies as another unit. Enemies see the disguise's stats, vitals and MAX HP in place of the unit's own, and the unit's current HP is shown <em>scaled</em> to the disguise's MAX HP (a Loki Clone at half health displays as 3,800 / 7,600). The canonical example is the Loki Clone's <em>Fading Mirage</em> (<em>"Disguised as Loki"</em>), which lets Loki's discreet position swaps work as a true shell game.</p>
-      <p>Disguise is information only. Every calculation still uses the unit's real stats, vitals and HP. Resource Reveal shows the unit's real current resources against the disguise's maximums, so it does not expose the disguise by itself. A disguise lasts as long as its source says; a Loki Clone's lasts until it is defeated.</p>
+      <p>Disguise is information only. Every calculation still uses the unit's real stats, vitals and HP. Resource Reveal shows the unit's real current resources against the disguise's maximums, so it does not expose the disguise by itself. A disguise lasts as long as its source says; a Loki Clone's lasts until it is defeated. The Flash's Speedster Afterimage is also disguised, as The Flash.</p>
 
       <h3 id="persistent">Persistent</h3>
       <p><strong>Persistent</strong> is a <em>Champion amplifier</em> applied kit-by-kit — it is not a property of any status effect itself. No effect is inherently persistent. Instead, a Champion's kit may declare that certain effects become persistent for them, while that same effect on any other Champion behaves normally. The granting kit line always states which effects it covers and under what scope — for example, Superman's <em>Unmatched Compassion</em>: <em>"'Taunt' buffs applied to self are persistent."</em></p>
