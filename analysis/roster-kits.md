@@ -594,7 +594,28 @@ Companion to `roster-index.md` (stats). Read a champion's entry here when a crit
 - [T] Core *Strongest Thing Alive* — airborne, cannot be grounded; −50% damage received for 1t on transforming; +10% DEF/RES to all allies (self excluded); +100% ULT on a kill (once per battle). P1 *Golden Guardian* 50% Auto-Block + the ally-EN line. P2 *Beyond the Limits of Power* −30% damage from guaranteed hits; +2% ATK 3t per hit received (once per ability). [R] *Countdown to Normalcy* (+1t duration on a kill, once per battle; +60 EN on detransform). [R] *Animals Preventing Destruction* (+15% DEF/RES Team Sonic; +8% EVA Hedgehog, self excluded).
 - [T] ULT *Undefeatable* — +60 EN, +10 STA, Impenetrable 1t.
 - Costumes: Classic none; Modern +2 MAX STA; Boom +3% ACC & SPD to Comedic Genius allies; The Black Knight can receive Figures of Prophecy buffs incl. Leader; Cinematic +5% ATK & MAG to Human allies; Werehog +1 range to all applicable abilities, can receive Monster buffs incl. Leader.
-- Synergies: not yet implemented (Best Partners lists Flash, Goku (SS), Goku, Frieza, Summoner).
+- Synergies: Shadow *Faker* (Dynamic *Black and Blue*, identical on both sheets; New Passive *Teamwork in Desperate Scenarios*: transforms into Super Sonic for 3t when Shadow transforms; Super Sonic slotted, no entry DR, Countdown can still extend him; +5% ATK & MAG to Shadow). Others unwritten (Flash, Goku (SS), Goku, Frieza, Summoner).
+
+## Shadow — Blaster (chaos hybrid; area control; Chaos Emeralds → Super Shadow; → Dark Rider)
+- Leader *The Ultimate Lifeform* — Team Dark +15% MAG & RES; Lab Experiment / Team Dark +12% MAX HP.
+- Basic *Rocket Kick* — 150% ATK; a random ability on cooldown −1 turn (R2, melee).
+- S1 *Pistol Fire* — 400% precise ATK, guaranteed crit (30EN, CD3, R7; usable while riding Dark Rider).
+- S2 *Chaos Control* — Chaos Control 2t to all enemies ≤3p (50EN, CD5).
+- S3 *Chaos Spear* — 15p 1-wide line, stops at the 2nd enemy: 320% MAG each (max 2) + 250% MAG burst on the 2nd enemy and all enemies ≤2p of it (50EN, CD3).
+- S4 *Chaos Blast* — 500% MAG to all enemies ≤3p; +150% MAG below 35% HP (70EN, CD5).
+- [R] *Chaos Boost* — 2 Focused Power 4t; +60 EN (30EN, CD3). [R] *Motorcycle* — summon + mount Dark Rider 2t (20EN, CD4).
+- Core *Project Shadow* — immune Poison & Bleed; +30% EVA below 35% HP; Chaos Emerald whenever one ability damages 2+ enemies (once per 2 turns; not while transformed); cannot gain ULT passively; with Super Shadow slotted, ULT = 1/7 per emerald held by self + allies; with Shadow Rifle slotted, +6% ULT per ability landed.
+- P1 *Hover Skates* — ignores elevation moving; +2% SPD & ATK 2t per 2 panels moved with Move (mounts included).
+- P2 *Doom Wings* — airborne 2t on Wait (once per 4 turns); blocking has 80% to reflect ranged attacks for 40% (takes no damage).
+- [R] *Memories of Maria* (+10 EN & 2 STA on healing from another Champion, REGEN excluded; +5% HP on receiving a buff from another Champion). [R] *G.U.N. Agent* (+5% CRIT RATE/ATK/MAG to Team Dark or Firearm Expert; +7% DEF/RES to Hedgehog).
+- ULT *Super Shadow* — only at 7 emeralds team-wide; 3t; destroys all emeralds. [R] *Shadow Rifle* — 25p line, 1,000% piercing precise MAG.
+- [T] Stats: +1,200 HP, +70 ATK, +50 MAG, +90 DEF, +60 RES, +15% CRIT RATE, −30% EVA.
+- [T] Basic *Super Rocket Kicks* 140% ×2. S1 *Chaos Slash* 500% precise auto-crit (30EN, CD2). S2 *Unbound Chaos Control* Timebound 1t + Chaos Control 2t ≤3p (50EN, CD3). S3 *Radiant Chaos Spear* 260% MAG line + 150% burst per enemy hit (40EN, CD1). S4 *Unbound Chaos Blast* first action, standby 1t (stun-immune), then 800% MAG ≤5p (70EN, CD4). [R] *Chaos Surge* 2 Focused Power 2t, +30 EN (10EN, CD3). [R] *Chaos Snap* relocate ≤12p (10EN, CD2).
+- [T] Core *Broken Inhibitors* — immune Poison & Bleed; airborne, cannot be grounded; −50% damage 1t on transforming; +10% ATK & MAG to allies (self excluded); +100% ULT on a kill (once per battle); ULT set to 0% on detransforming. P1 *Super Speed* −25% damage from slower attackers; +3% SPD & MAG per 2 panels moved. P2 *Harnessed Power of Black Doom* 15% to reflect ranged attacks while acting normally; blocking 80% reflect. [R] *Wish of Maria* (+20 EN & 3 STA on healing from another Champion; +6% HP on buff; +8% DEF/RES to Hero). [R] *Agent for the Sole Purpose of Salvation* (+7% CRIT RATE/ATK/MAG to Team Dark or Firearm Expert; +10% DR to Hedgehog, self excluded).
+- [T] ULT *All of Me* — +60 EN, +5 STA, Impenetrable 1t.
+- Summon *Dark Rider* (mount) — 3,200 HP, ATK 300, DEF 180, RES 20, STA 10 (+5/turn); takes 60% of ATK and 30% of MAG damage aimed at the rider; rider can only use Pistol Fire; dismounts on transforming; lasts 2t; can't be healed/buffed; if destroyed early, 200% ATK to all allies and enemies ≤1p (not Shadow).
+- Costumes: Modern none; Entwined +3% ATK & MAG to Firearm Expert allies; Cinematic +5% MAX HP.
+- Synergies: Sonic *Faker* (Dynamic *Black and Blue*: Shadow 40EN + Sonic 40EN, CD6, R6 — Chaos Control warps both beside the target; Sonic 350% ATK, Shadow 250% ATK + 200% MAG; Vulnerable 2t. New Passive *Teamwork in Desperate Scenarios*: transforms into Super Shadow for 3t when Sonic transforms (Super Shadow slotted; no entry DR); +5% ATK & MAG to Sonic). Mirrored on Sonic's sheet (Sonic-side passive transforms him when Shadow transforms; +5% ATK & MAG to Shadow). Best Partners also lists Vegeta, Winter Soldier, Voldemort, Summoner (unwritten).
 
 ## Coverage
 All 37 implemented champions have an entry (backfilled 2026-10-21; The Winter Soldier added 2026-10-22; The Hulk added 2026-10-23; Black Widow added 2026-10-24; The Shape added 2026-10-29; The Flash added 2026-11-11).

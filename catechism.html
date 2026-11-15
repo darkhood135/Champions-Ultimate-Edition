@@ -779,6 +779,8 @@
       <p><strong>Tags and Links are shared across all forms.</strong> They embody the entirety of the Champion rather than any single form, so they are listed once and never duplicated per form. On a sheet, the Tags and Links panels appear a single time.</p>
       <p><strong>Passives do transform.</strong> This is a key difference from synergies, which only ever touch Specials and ULTIMATUMs — a transformation reworks passive abilities as well. The one exception: a passive <em>granted by a synergy</em> persists unchanged across the transformation, since synergies themselves do not transform.</p>
       <p><strong>Transformations can raise stats and vitals.</strong> A form may add to MAX HP, ATK, and any other stat or vital. On sheets these increases are shown inline beside the affected stat as a coloured modifier matching the transformation's palette — for example, <em>MAX HP: 14,000 (+2,000)</em>, with the <em>(+2,000)</em> tinted to the form's colour.</p>
+      <p><strong>MAX HP changes carry into current HP.</strong> When a transformation raises MAX HP, current HP rises by the same amount. When the Champion detransforms, MAX HP returns to its base value and current HP is lowered only if it now exceeds that value.</p>
+      <p><strong>Transformed abilities keep their own cooldowns.</strong> Cooldowns do not carry over from the base abilities they transform. Entering a transformation resets it to a default state: every time a Champion transforms, each transformed ability starts on its normal cooldown minus two turns (minimum 0), exactly as abilities do at the start of a battle, unless the Champion&rsquo;s kit says otherwise.</p>
       <p><strong>A transformed ability is a distinct ability, not a modification of its base.</strong> This is the sharpest contrast with a synergy upgrade. A synergy upgrade <em>inherits the base ability's identity</em> and is strictly a modification of it (see Synergies, above). A transformed ability does not inherit anything: it may have a different Type, Target, Cost, Cooldown, Range, and an entirely different behaviour list. Treat the base ability and its transformed version as two separate abilities that happen to occupy the same slot.</p>
       <p><strong>Each Champion has exactly one transformation.</strong> There is no stacking, and no chained transformation trees — a Champion is either in their base form or in their single transformed form, never a second tier beyond it. This keeps the mechanic contained and readable.</p>
 
@@ -1306,6 +1308,12 @@
             <td><span class="tier-label rare">Rare</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square rare"></span>Focused Power</div></td>
+            <td>Next special ability deals 20% more damage (does not work on basic abilities). Expires upon activation (all stacks at once).</td>
+            <td class="stack-cell"><span class="stack-badge no">✓</span></td>
+            <td><span class="tier-label rare">Rare</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square rare"></span>Dark Vessel</div></td>
             <td>The next attack inflicts "Darkness" for 2 turns. Expires upon activation (one stack at a time).</td>
             <td class="stack-cell"><span class="stack-badge yes">✓</span></td>
@@ -1416,6 +1424,12 @@
             <td><span class="tier-label legendary">Legendary</span></td>
           </tr>
           <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Timebound</div></td>
+            <td>Cannot move or act.</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
             <td><div class="status-name"><span class="tier-square legendary"></span>Horcrux</div></td>
             <td>The inflictor of this status effect cannot be defeated by any means while it is active — including <a href="#instant-defeat">instant defeat</a> and HP costs — but still takes damage normally. It ends when its carrier is defeated. Each unit can carry only one, but several carriers (Champions or summons, such as Nagini) can exist at once. As a negative status it is removed by any cleanse, including one from the carrier's own allies ("Dark Seal" absorbs a cleanse first).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
@@ -1424,6 +1438,12 @@
           <tr>
             <td><div class="status-name"><span class="tier-square legendary"></span>Duel</div></td>
             <td>Can only target other Champions inflicted with "Duel".</td>
+            <td class="stack-cell"><span class="stack-badge no">✕</span></td>
+            <td><span class="tier-label legendary">Legendary</span></td>
+          </tr>
+          <tr>
+            <td><div class="status-name"><span class="tier-square legendary"></span>Chaos Control</div></td>
+            <td>-50% SPD, -25% ACC, consumes STA at double the rate (2 STA for 1 panel of movement).</td>
             <td class="stack-cell"><span class="stack-badge no">✕</span></td>
             <td><span class="tier-label legendary">Legendary</span></td>
           </tr>

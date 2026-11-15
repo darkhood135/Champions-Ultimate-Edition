@@ -6,7 +6,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 
 **SIZE:** every Champion, Enemy and Summon is **1x1** unless noted (The Hulk and Boom Tube are 2x2), so SIZE is only shown on lines where it isn't 1x1.
 
-**Last updated:** 2026-11-14 (through the Sonic critique). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
+**Last updated:** 2026-11-15 (through the Shadow critique). **Maintenance:** when a champion is added or re-tuned, update their one line here in the same pass as the sheet edit. One line changed = index stays current; no full-sheet re-reads needed next session.
 
 ---
 
@@ -28,6 +28,7 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Vegeta** — 7,800 / 280 / 370 / 0 / 120 / 130 / 97% / 150%·25% / 108 / 15% — tanky-for-role
 - **Green Lantern** — 6,800 / 330 / 300 / 0 / 90 / 90 / 96% / 150%·10% / 113 / 25% — frail/evasive, ATK-scaling, airborne
 - **The Winter Soldier** — 8,200 / 340 / 240 / 0 / 130 / 90 / 97% / 160%·20% / 107 / 15%, EN 100·STA 7, REGEN 2% — deliberately tanky close-range Blaster (melee/short-range AoE, endure in Core, EN-drain line, anti-air); trades some damage for bulk
+- **Shadow** (base ↔ Super Shadow) — 6,800 / 330 / 370 / 0 / 70 / 140 / 99% / 150%·35% / 129 / 30%, EN 150·STA 10, REGEN 4% — hybrid ATK/MAG chaos-Blaster; lowest Blaster DEF, highest Blaster RES/EVA/CRIT RATE; +30% EVA below 35% HP; area control (Chaos Control: −50% SPD, −25% ACC, double STA cost, 2t, r3, CD5); Chaos Blast 500% MAG r3 (+150% below 35% HP); Pistol Fire 400% precise auto-crit; Chaos Spear line + 2nd-enemy burst; Chaos Boost (+60 EN, 2× Focused Power); Dark Rider mount (60% ATK / 30% MAG damage redirect, 2t). **No passive ULT gain**: Super Shadow only at 7 Chaos Emeralds team-wide; he makes 1 per 2 turns from multi-enemy hits (≈turn 14 solo, ≈turn 9 with Sonic). Shadow Rifle alt-ULT: 1,000% piercing MAG line, +6% ULT per ability landed. Super Shadow (3t): +1,200 HP, +70 ATK, +50 MAG (420, roster-high), +90 DEF, +60 RES, +15% CRIT RATE, −30% EVA (→0%); airborne; 50% DR on transform turn; 25% DR vs slower enemies; Unbound Chaos Control = area Timebound 1t + Chaos Control (usable once per Super, from turn 2); Unbound Chaos Blast = standby then 800% MAG r5; +10% ATK/MAG to allies; kill → 100% ULT once per battle (All of Me: Impenetrable 1t + 60 EN/5 STA). Faker synergy: transforms with Sonic (3t, no entry DR). Leader: Team Dark +15% MAG & RES; Lab Experiment / Team Dark +12% MAX HP
 > Note: Iron Man & Vegeta both run tankier than the "frail Blaster" ideal; GL is the intended-frail one. The Winter Soldier is the intended-tanky one (top Blaster HP, slightly lower damage output).
 
 ### Berserker
@@ -87,4 +88,4 @@ Compact stat backbone for the **Critique** and **Meta Analysis** lanes. Read THI
 - **Summoner:** 5.8k–9k; the summon carries much of the value.
 - **Plunderer:** fragile, high ATK/CRIT, anti-ally or steal mechanics.
 - **Berserker:** 4.6k–9.2k HP; spends HP/safety for damage; each has a survival valve (endure, transform, Horcrux).
-- **Highest ATK:** Carnage 420, Wolverine 410. **Highest MAG:** Harry 400 / Iron Man 390 / Loki 380 / Punisher·Vegeta·Dracaena 370. **Highest CRIT mult:** Carnage/Krillin/Robin 200%. **Highest SPD:** The Flash 132, Sonic 131 (140 as Super Sonic). **Highest EVA:** The Flash 50%, Anya 45%, Robin 42%, Krillin 40%. **Lowest RES:** Anya / The Shape 20. **0% EVA:** The Hulk, The Shape.
+- **Highest ATK:** Carnage 420, Wolverine 410. **Highest MAG:** Super Shadow 420, Harry 400 / Iron Man 390 / Loki 380 / Punisher·Vegeta·Dracaena 370. **Highest CRIT mult:** Carnage/Krillin/Robin 200%. **Highest SPD:** The Flash 132, Sonic 131 (140 as Super Sonic). **Highest EVA:** The Flash 50%, Anya 45%, Robin 42%, Krillin 40%. **Lowest RES:** Anya / The Shape 20. **0% EVA:** The Hulk, The Shape.

@@ -57,7 +57,11 @@ Bonds named in a sheet's Best Partners panel whose synergy content isn't written
 | Sonic | Friends at First Fight | Goku | Both sides to write. |
 | Sonic | Every Cage Broken | Frieza | Both sides to write. |
 | Sonic | Live and Learn | The Summoner | Both sides to write. |
+| Shadow | Second to No One | Vegeta | Both sides to write. |
+| Shadow | Memories Not Their Own | The Winter Soldier | Both sides to write. |
+| Shadow | The Price of Forever | Lord Voldemort | Both sides to write. |
+| Shadow | Author of Himself | The Summoner | Both sides to write. |
 
-Sonic's bonds added 2026-11-14. Anything that grants Chaos Emeralds or ULT shortens Super Sonic's clock (he otherwise reaches 7 emeralds alone around turn 21).
+Sonic's bonds added 2026-11-14; Shadow's 2026-11-15 (his *Faker* bond with Sonic is written on both sheets). Anything that grants Chaos Emeralds or ULT shortens Super Sonic's clock (he otherwise reaches 7 emeralds alone around turn 21).
 
 Note: the original to-do file from an earlier chat could not be found (not in the project folder or git history); this list was rebuilt from a full roster scan.
