@@ -341,7 +341,9 @@ a.ax-red:hover { text-decoration: underline dotted; }
 .ax-mem-card .art { height: 96px; background: linear-gradient(150deg, #1d2a3a 0%, #121418 100%) center/cover; position: relative; }
 .ax-mem-card .art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(20,22,26,0.95) 100%); }
 .ax-mem-card .num { position: absolute; top: 8px; left: 8px; z-index: 2; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; color: var(--muted); background: rgba(13,14,17,0.75); border: 1px solid var(--border); padding: 2px 7px; border-radius: 999px; }
-.ax-mem-card .status { position: absolute; top: 8px; right: 8px; z-index: 2; }
+.ax-mem-card .corner { position: absolute; top: 8px; right: 8px; z-index: 2; display: flex; align-items: center; gap: 6px; }
+.ax-mem-card .corner .status { position: static; }
+.ax-mem-card .rt { font-size: 10.5px; font-weight: 600; letter-spacing: 0.5px; color: var(--muted); background: rgba(13,14,17,0.75); border: 1px solid var(--border); padding: 2px 7px; border-radius: 999px; }
 .ax-mem-card .body { display: flex; gap: 11px; align-items: center; padding: 0 13px 13px; margin-top: -20px; position: relative; z-index: 2; }
 .ax-mem-card .por { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--mem); background: #0b0c0f; flex-shrink: 0; }
 .ax-mem-card .t { font-size: 14.5px; font-weight: 700; line-height: 1.25; }

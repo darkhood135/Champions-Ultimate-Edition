@@ -269,13 +269,15 @@
   function memoriesOf(arc) { return IDX.pages.filter(function (p) { return p.type === 'memory' && p.arc === arc; }); }
   function memoriesBy(anchor) { return IDX.pages.filter(function (p) { return p.type === 'memory' && p.anchor === anchor; }); }
 
+  var READ_WPM = 230; /* reading speed for the ~N min on Memory cards; keep in step with analysis/memory_reading_time.py */
   function memCard(m, num, sub) {
     var anchor = byId[m.anchor] || {};
     var art = m.banner ? ' style="background-image:url(\'' + ROOT + m.banner + '\')"' : '';
     var por = anchor.image ? '<img class="por" src="' + ROOT + anchor.image + '" alt="' + esc(anchor.title || '') + '" loading="lazy">' : '<span class="por"></span>';
     return '<a class="ax-mem-card" href="' + href(m) + '">' +
       '<div class="art"' + art + '><span class="num">#' + num + '</span>' +
-      '<span class="status ax-chip ' + (m.written ? 'ax-chip--written">Written' : 'ax-chip--stub">Being written') + '</span>' +
+      '<span class="corner">' + (m.written && m.words ? '<span class="rt" title="' + m.words.toLocaleString('en-US') + ' words">~' + Math.max(1, Math.ceil(m.words / READ_WPM)) + ' min</span>' : '') +
+      '<span class="status ax-chip ' + (m.written ? 'ax-chip--written">Written' : 'ax-chip--stub">Being written') + '</span></span>' +
       (m.mature ? '<span class="mature ax-chip ax-chip--mature" title="Contains an intimate scene (not explicit)">Mature</span>' : '') + '</div>' +
       '<div class="body">' + por + '<div><div class="t">' + esc(m.title) + '</div>' +
       '<div class="s">' + sub + '</div></div></div></a>';
