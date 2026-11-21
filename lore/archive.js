@@ -278,7 +278,11 @@
       '<div class="art"' + art + '><span class="num">#' + num + '</span>' +
       '<span class="corner">' + (m.written && m.words ? '<span class="rt" title="' + m.words.toLocaleString('en-US') + ' words">~' + Math.max(1, Math.ceil(m.words / READ_WPM)) + ' min</span>' : '') +
       '<span class="status ax-chip ' + (m.written ? 'ax-chip--written">Written' : 'ax-chip--stub">Being written') + '</span></span>' +
-      (m.mature ? '<span class="mature ax-chip ax-chip--mature" title="Contains an intimate scene (not explicit)">Mature</span>' : '') + '</div>' +
+      (m.mature ? '<span class="mature ax-chip ax-chip--mature" title="Contains an intimate scene (not explicit)">Mature</span>' : '') +
+      ((m.favorite || m.rework) ? '<span class="labels">' +
+        (m.favorite ? '<span class="ax-label ax-label--fav" title="Author\u2019s favorite"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span>' : '') +
+        (m.rework ? '<span class="ax-label ax-label--rework" title="Rework planned: this Memory may be revised"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>' : '') +
+        '</span>' : '') + '</div>' +
       '<div class="body">' + por + '<div><div class="t">' + esc(m.title) + '</div>' +
       '<div class="s">' + sub + '</div></div></div></a>';
   }

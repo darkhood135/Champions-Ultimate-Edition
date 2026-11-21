@@ -354,6 +354,13 @@ a.ax-red:hover { text-decoration: underline dotted; }
 .ax-chip--stub { color: var(--dim); background: rgba(13,14,17,0.75); border: 1px solid var(--border); }
 .ax-chip--mature { color: #f0b46a; background: rgba(13,14,17,0.75); border: 1px solid rgba(240,180,106,0.5); }
 .ax-mem-card .mature { position: absolute; top: 8px; left: 50px; z-index: 2; }
+/* Author labels: favorite (star) and rework planned (clock), bottom-right of the card art */
+.ax-mem-card .labels { position: absolute; right: 8px; bottom: 26px; z-index: 2; display: flex; gap: 5px; }
+.ax-label { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(13,14,17,0.8); border: 1px solid var(--border); }
+.ax-label svg { width: 13px; height: 13px; }
+.ax-label--fav { color: #f2c94c; border-color: rgba(242,201,76,0.55); }
+.ax-label--fav svg { fill: currentColor; }
+.ax-label--rework { color: #9aa3b2; }
 
 /* ---------------------------------------------------------------------
    Gallery + lightbox

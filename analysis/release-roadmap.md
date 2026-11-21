@@ -49,7 +49,7 @@ Main Story Seasons (Act releases) aren't on the calendar yet; when one is schedu
 | **7** | **Oct 28, 2027** | **v1.6.0** | Standard | **Halloween: Icons of Horror** (planned) |
 | **8** | **Nov 28, 2027** | **v1.7.0** | Standard | **Mixed: Rivals** (planned) |
 | **9** | **Dec 28, 2027** | **v1.8.0** | Standard | **Gods and Legends** (God of War + Shazam / Black Adam; planned) |
-| **10** | **Jan 28, 2028** | **v1.9.0** | Standard | **The Man of Steel's World** (DC; planned, 2 slots open) |
+| **10** | **Jan 28, 2028** | **v1.9.0** | Standard | **The Man of Steel's World** (DC; planned) |
 | **11** | **Feb 28, 2028** | **v1.10.0** | Standard | **Mixed: Valentine's couples** (planned) |
 | **12** | **Mar 28, 2028** | **v1.11.0** | Standard | **Mixed: Cosmic** (planned) |
 | **13** | **Apr 28, 2028** | **v1.12.0** | **Celebration (Anniversary)** | **1st Anniversary = Act II, the Wizarding World** (planned if Act II is ready) |
@@ -116,7 +116,7 @@ Covered in full by `version-history-launch-plan.md`: 42 Champions (Marvel, DC, D
 | Android 17 | Striker | Placeholder |
 | Android 18 | Blaster | Placeholder |
 | Perfect Cell | Breaker | Placeholder |
-| Gohan | Striker | Placeholder (base form; also sets up Videl in Season 11) |
+| Gohan (Super Saiyan 2) | Blaster | Placeholder (his Cell Games form; base Gohan is in the launch roster) |
 
 - **Battlefield:** Cell Games Arena.
 - The Majin Buu saga is **not** in this season; it comes after this arc whenever Dragon Ball gets its next arc season.
@@ -210,7 +210,7 @@ Roles for unbuilt Champions are their current placeholder roles on champions.htm
 - **Halloween costumes for existing Champions** (optional): a live-game staple, and it gives the Season something for players who don't use the new characters.
 
 ### Deferred from this Season
-See the Backlog: Laurie Strode, Ash Williams, Billy the Puppet, Sawyer Residence, Badham Preschool.
+Laurie Strode, Ash Williams, Billy the Puppet, Sawyer Residence and Badham Preschool, now scheduled for Halloween #2 (Season 19).
 
 ---
 
@@ -249,15 +249,15 @@ Each pick is a rival to a launch Champion.
 
 ## Season 10: The Man of Steel's World (v1.9.0, Jan 28, 2028)
 
-**Theme:** Superman's world, villains included.
+**Theme:** Superman's world, villains included. Lex Luthor, Zod and Doomsday give him his three iconic villains.
 
 | Champion | Role | Status |
 |---|---|---|
 | Lex Luthor | Booster | Placeholder |
 | Supergirl | Striker | Placeholder |
 | Aquaman | Summoner | Placeholder |
-| *Open* (proposed: General Zod) | Striker | Replaces Shazam (moved to Season 9) |
-| *Open* (proposed: Doomsday) | Berserker | Replaces Black Adam (moved to Season 9) |
+| General Zod | Striker | Placeholder |
+| Doomsday | Berserker | Placeholder |
 
 - **Battlefield:** Fortress of Solitude.
 
@@ -271,7 +271,7 @@ Each pick is a rival to a launch Champion.
 | Rogue | Breaker | with Gambit |
 | Green Arrow | Blaster | with Black Canary |
 | Black Canary | Breaker | with Green Arrow |
-| Videl | Booster | with Gohan (Season 4) |
+| Videl | Booster | with Gohan (launch) |
 
 - The pairs are natural synergy candidates. A good season for couple costumes on existing Champions.
 - **Battlefield:** TBD.
