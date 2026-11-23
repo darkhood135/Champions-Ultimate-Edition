@@ -36,7 +36,7 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/happiest-with-you.jpg':              { artist: '@MaroonR19', url: 'https://x.com/MaroonR19' },
   'images/lore/banners/memories/the-beauty-beneath.jpg':             { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/for-one-song.jpg':                   { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
-  'images/lore/banners/memories/on-our-own.jpg':                     { artist: '@Sora_pesci', url: 'https://x.com/Sora_pesci' },
+  'images/lore/banners/memories/room-for-two.jpg':                   { artist: '@Sora_pesci', url: 'https://x.com/Sora_pesci' },
   'images/lore/banners/memories/the-superior-house.jpg':             { artist: '@MAFRN3', url: 'https://x.com/MAFRN3' },
   'images/lore/banners/memories/hollow-friendships.jpg':             { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/an-unexpected-acceptance.jpg':       { artist: '@nitekidoe', url: 'https://x.com/nitekidoe' },
@@ -54,7 +54,8 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/surprising-difference.jpg': { artist: '@spaz141', url: 'https://x.com/spaz141' },
   'images/lore/banners/memories/matching-scars.jpg': { artist: '@AikaAnarchy', url: 'https://x.com/AikaAnarchy' },
   'images/lore/banners/memories/the-better-player.jpg': { artist: '@AikaAnarchy', url: 'https://x.com/AikaAnarchy' },
-  'images/lore/banners/memories/skilled-seekers.jpg': { artist: '@ammonoid9', url: 'https://x.com/ammonoid9' },
+  'images/lore/banners/memories/skilled-seekers.jpg': { artist: '@SNovelite', url: 'https://x.com/SNovelite' },
+  'images/lore/banners/memories/behind-closed-doors.jpg': { artist: '@redteneri', url: 'https://x.com/redteneri' },
   'images/lore/banners/memories/to-gryffindor.jpg': { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
 
   /* ---------- Story banners ---------- */

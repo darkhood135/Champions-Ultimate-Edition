@@ -346,6 +346,7 @@ a.ax-red:hover { text-decoration: underline dotted; }
 .ax-mem-card .rt { font-size: 10.5px; font-weight: 600; letter-spacing: 0.5px; color: var(--muted); background: rgba(13,14,17,0.75); border: 1px solid var(--border); padding: 2px 7px; border-radius: 999px; }
 .ax-mem-card .body { display: flex; gap: 11px; align-items: center; padding: 0 13px 13px; margin-top: -20px; position: relative; z-index: 2; }
 .ax-mem-card .por { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--mem); background: #0b0c0f; flex-shrink: 0; }
+.ax-mem-card .por--glyph { display: inline-flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 19px; color: var(--mem); background: linear-gradient(145deg,#1b2733,#141a22); }
 .ax-mem-card .t { font-size: 14.5px; font-weight: 700; line-height: 1.25; }
 .ax-mem-card .s { font-size: 11.5px; color: var(--dim); }
 .ax-mem-card .s b { color: var(--mem); font-weight: 600; }

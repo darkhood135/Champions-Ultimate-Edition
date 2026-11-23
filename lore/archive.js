@@ -273,7 +273,7 @@
   function memCard(m, num, sub) {
     var anchor = byId[m.anchor] || {};
     var art = m.banner ? ' style="background-image:url(\'' + ROOT + m.banner + '\')"' : '';
-    var por = anchor.image ? '<img class="por" src="' + ROOT + anchor.image + '" alt="' + esc(anchor.title || '') + '" loading="lazy">' : '<span class="por"></span>';
+    var por = anchor.image ? '<img class="por" src="' + ROOT + anchor.image + '" alt="' + esc(anchor.title || '') + '" loading="lazy">' : '<span class="por por--glyph" aria-hidden="true">' + esc((anchor.title || '?').charAt(0)) + '</span>';
     return '<a class="ax-mem-card" href="' + href(m) + '">' +
       '<div class="art"' + art + '><span class="num">#' + num + '</span>' +
       '<span class="corner">' + (m.written && m.words ? '<span class="rt" title="' + m.words.toLocaleString('en-US') + ' words">~' + Math.max(1, Math.ceil(m.words / READ_WPM)) + ' min</span>' : '') +
