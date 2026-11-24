@@ -37,6 +37,7 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/the-beauty-beneath.jpg':             { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/for-one-song.jpg':                   { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/room-for-two.jpg':                   { artist: '@Sora_pesci', url: 'https://x.com/Sora_pesci' },
+  'images/lore/banners/memories/on-our-own.jpg':                     { artist: '@Grin2702',   url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/the-superior-house.jpg':             { artist: '@MAFRN3', url: 'https://x.com/MAFRN3' },
   'images/lore/banners/memories/hollow-friendships.jpg':             { artist: '@Grin2702', url: 'https://x.com/Grin2702' },
   'images/lore/banners/memories/an-unexpected-acceptance.jpg':       { artist: '@nitekidoe', url: 'https://x.com/nitekidoe' },
@@ -59,7 +60,7 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/to-gryffindor.jpg': { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
 
   /* ---------- Story banners ---------- */
-  'images/lore/banners/the-sorcerers-stone.jpg':                { artist: 'Jim Kay',        url: 'https://www.creepyscrawlers.com' },
+  'images/lore/banners/the-philosophers-stone.jpg':                { artist: 'Jim Kay',        url: 'https://www.creepyscrawlers.com' },
   'images/lore/banners/the-chamber-of-secrets.jpg':             { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
   'images/lore/banners/the-prisoner-of-azkaban.jpg':            { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
   'images/lore/banners/the-goblet-of-fire.jpg':                 { artist: 'Jonny Duddle',   url: 'https://www.arenaillustration.com/artists/jonny-duddle/' },
@@ -68,7 +69,7 @@ window.IMAGE_CREDITS = {
   /* (Deathly Hallows banner not credited yet) */
 
   /* ---------- Arc icons: Wizarding World (all seven by Olly Moss) ---------- */
-  'images/lore/icons/the-sorcerers-stone-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
+  'images/lore/icons/the-philosophers-stone-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
   'images/lore/icons/the-chamber-of-secrets-icon.jpg':          { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
   'images/lore/icons/the-prisoner-of-azkaban-icon.jpg':         { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
   'images/lore/icons/the-goblet-of-fire-icon.jpg':              { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
@@ -77,14 +78,16 @@ window.IMAGE_CREDITS = {
   'images/lore/icons/the-deathly-hallows-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
 
   /* ---------- Champion portraits, costumes, renders, summons ---------- */
-  'images/champion-images/dracaena-malfoy.jpg':                       { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
+  'images/champion-images/dracaena-malfoy.jpg':                       { artist: '@TaRinne',     url: 'https://x.com/TaRinne' },
   'images/champion-images/costumes/dracaena-malfoy(quidditch).jpg':   { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(broken).jpg':      { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(formal).jpg':      { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(gryffindor-scarf).jpg': { artist: '@NetQwrk', url: 'https://x.com/NetQwrk' },
-  'images/champion-images/renders/dracaena-malfoy(render-1).jpg':   { artist: '@Patricckk0', url: 'https://x.com/Patricckk0' },
-  'images/champion-images/renders/dracaena-malfoy(render-2).jpg':        { artist: '@Pencilkami', url: 'https://x.com/Pencilkami' },
-  /* dracaena-malfoy(render-3).jpg: source unknown, shows as Artist uncredited */
+  'images/champion-images/renders/dracaena-malfoy(render-1).jpg':        { artist: '@TaRinne',    url: 'https://x.com/TaRinne' },
+  'images/champion-images/renders/dracaena-malfoy(render-2).jpg':        { artist: '@Patricckk0', url: 'https://x.com/Patricckk0' },
+  'images/champion-images/renders/dracaena-malfoy(render-3).jpg':        { artist: '@propermint', url: 'https://x.com/propermint' },
+  'images/champion-images/renders/dracaena-malfoy(render-4).jpg':        { artist: '@shigokin',   url: 'https://x.com/shigokin' },
+  'images/champion-images/renders/dracaena-malfoy(render-5).jpg':        { artist: '@Orion_A2',   url: 'https://x.com/Orion_A2' },
   'images/summon-images/malfoy-patronus.jpg':                         { artist: '@MaroonR19',   url: 'https://x.com/MaroonR19' },
 
   /* ---------- Goku (official art) ---------- */
@@ -105,8 +108,27 @@ window.IMAGE_CREDITS = {
   'images/champion-images/costumes/goku(super-saiyan,daima).jpg':        { source: 'Dragon Ball Daima (anime)', url: 'https://dragonballdaima.com/en', owner: '©BIRD STUDIO/SHUEISHA, TOEI ANIMATION' },
   /* ---------- Harry Potter (and Hermione's portrait) ---------- */
   'images/champion-images/harry-potter.jpg':                             { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
+  'images/champion-images/renders/harry-potter(render-1).jpg':           { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
   'images/champion-images/hermione-granger.jpg':                         { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
   'images/champion-images/costumes/harry-potter(formal).jpg':            { artist: '@AikaAnarchy',    url: 'https://x.com/AikaAnarchy' },
   'images/summon-images/potter-patronus.jpg':                            { artist: 'maryquiZe',       url: 'https://www.deviantart.com/maryquize' },
-  'images/champion-images/costumes/harry-potter(quidditch).jpg':         { source: 'Harry Potter: Quidditch Champions', url: 'https://www.quidditchchampions.com/', owner: '© Warner Bros. Entertainment Inc. Publishing Rights © J.K. Rowling' }
+  'images/champion-images/costumes/harry-potter(quidditch).jpg':         { source: 'Harry Potter: Quidditch Champions', url: 'https://www.quidditchchampions.com/', owner: '© Warner Bros. Entertainment Inc. Publishing Rights © J.K. Rowling' },
+
+  /* ---------- Archive wiki articles (places, objects, systems) ---------- */
+  'images/lore/wiki/ancient-magic.jpg':                                   { source: 'Hogwarts Legacy', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/lore/wiki/potter-memorial.jpg':                                 { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
+  'images/lore/wiki/lily-potter.jpg':                                     { artist: 'viria13',  url: 'https://www.deviantart.com/viria13' },
+  'images/lore/wiki/james-potter.jpg':                                    { artist: 'SandraGN', url: 'https://www.deviantart.com/sandragn' },
+  'images/lore/wiki/ada-khumalo.jpg':                                     { source: 'Hogwarts Legacy (character creator)', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/lore/wiki/the-time-turner.jpg':                                 { source: 'The Noble Collection (official Harry Potter replica)', url: 'https://www.noblecollection.com/', owner: 'Harry Potter characters, names and related indicia are © & ™ Warner Bros. Entertainment Inc.' },
+  'images/lore/wiki/philosophers-stone.jpg':                              { source: 'The Noble Collection (official Harry Potter replica)', url: 'https://www.noblecollection.com/', owner: 'Harry Potter characters, names and related indicia are © & ™ Warner Bros. Entertainment Inc.' },
+  'images/lore/wiki/mirror-of-erised.jpg':                                { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
+  'images/lore/wiki/sorting-hat.jpg':                                     { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
+  'images/lore/wiki/fluffy.jpg':                                          { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
+  'images/lore/wiki/nicolas-flamel.jpg':                                  { source: 'Harry Potter: Hogwarts Mystery', url: 'https://www.harrypotterhogwartsmystery.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Mystery is published by Jam City under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/lore/wiki/love-potion.jpg':                                     { source: 'The Noble Collection (official Harry Potter replica)', url: 'https://www.noblecollection.com/', owner: 'Harry Potter characters, names and related indicia are © & ™ Warner Bros. Entertainment Inc.' },
+  'images/lore/wiki/amortentia.jpg':                                      { photo: 'Sweet Tea + Thyme', url: 'https://www.sweetteaandthyme.com/' },
+  'images/lore/wiki/sectumsempra.jpg':                                    { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
+  'images/lore/wiki/fiendfyre.jpg':                                       { source: 'Pottermore (official Wizarding World art)', url: 'https://www.wizardingworld.com', owner: '© Warner Bros. Entertainment Inc. Publishing Rights © J.K. Rowling' },
+  'images/lore/wiki/chao-zheng.jpg':                                      { artist: 'moonmistix', url: 'https://moonmistix.tumblr.com' }
 };

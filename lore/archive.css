@@ -613,3 +613,54 @@ a.ax-uni:hover { text-decoration: none; border-color: var(--accent-line); }
 @media (max-width: 720px) { .ax-halves { grid-template-columns: 1fr; } }
 .ax-gal-sub { font-size: 14px; margin: 18px 0 8px; color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
 .ax-gal-sub .n { font-size: 12px; font-weight: 500; color: var(--dim); }
+
+/* ---------------------------------------------------------------------
+   Wiki components (Fandom-style): in-text images, footnotes, See also
+   --------------------------------------------------------------------- */
+/* headings stop at floated images instead of running underneath them */
+.ax-article h2 { overflow: hidden; }
+
+/* in-text image ("thumb"): floats right by default */
+.ax-thumb {
+  float: right; clear: right; width: 250px; margin: 4px 0 16px 22px; background: var(--panel);
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.ax-thumb--left { float: left; clear: left; margin: 4px 22px 16px 0; }
+.ax-thumb--wide { width: 340px; }
+.ax-thumb img { display: block; width: 100%; height: auto; cursor: zoom-in; background: #0b0c0f; }
+.ax-thumb figcaption { padding: 8px 11px 9px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.ax-thumb figcaption .credit { display: block; margin-top: 3px; font-size: 11.5px; color: var(--dim); }
+.ax-thumb figcaption .credit.none { color: var(--faint); font-style: italic; }
+.ax-clear { clear: both; }
+
+/* footnotes ("<ref>") */
+sup.ax-ref { font-size: 0.68em; line-height: 0; vertical-align: super; margin-left: 1px; white-space: nowrap; }
+sup.ax-ref a { color: var(--accent-bright); font-family: var(--sans); }
+.ax-refs { list-style: none; counter-reset: none; font-size: 13px; line-height: 1.6; color: var(--muted); columns: 2 340px; column-gap: 34px; margin: 4px 0 10px; }
+.ax-refs li { break-inside: avoid; padding: 2px 0 4px 34px; position: relative; scroll-margin-top: 80px; }
+.ax-refs li .n { position: absolute; left: 0; color: var(--dim); font-variant-numeric: tabular-nums; }
+.ax-refs li .up, .ax-refs li .up a { color: var(--accent-bright); font-weight: 600; margin-right: 4px; }
+.ax-refs li .back a { font-size: 11px; font-weight: 600; margin-right: 3px; vertical-align: super; }
+.ax-refs li:target { background: var(--accent-soft); border-radius: 6px; }
+.ax-reftip {
+  position: absolute; z-index: 90; max-width: 360px; padding: 9px 12px; font-size: 12.5px; line-height: 1.5; color: var(--muted);
+  background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 10px 28px rgba(0,0,0,0.45); display: none;
+}
+.ax-reftip.show { display: block; }
+
+/* See also */
+.ax-seealso { columns: 2 260px; column-gap: 30px; padding-left: 20px; margin: 4px 0 14px; font-size: 14.5px; line-height: 1.8; }
+.ax-seealso li { break-inside: avoid; }
+.ax-seealso .sub { color: var(--dim); font-size: 13px; }
+
+/* Inline spoiler text (Trivia etc.; distinct from the .ax-spoiler notice box): blurred until hovered, focused or tapped */
+.ax-spoiler-text { filter: blur(5px); cursor: pointer; border-radius: 4px; background: rgba(255,255,255,.04); transition: filter .2s ease; }
+.ax-spoiler-text a { pointer-events: none; }
+.ax-spoiler-text:hover, .ax-spoiler-text:focus, .ax-spoiler-text.revealed { filter: none; background: none; }
+.ax-spoiler-text:hover a, .ax-spoiler-text:focus a, .ax-spoiler-text.revealed a { pointer-events: auto; }
+.ax-spoiler-text:focus { outline: 1px dashed var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .ax-spoiler-text { transition: none; } }
+
+@media (max-width: 820px) {
+  .ax-thumb, .ax-thumb--left, .ax-thumb--wide { float: none; width: 100%; max-width: 420px; margin: 6px auto 18px; }
+}

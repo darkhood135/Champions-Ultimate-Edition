@@ -20,7 +20,7 @@
   var TYPE_LABEL = {
     universe: 'Universe', portal: 'Portal', category: 'Category', library: 'Library', event: 'Event',
     story: 'Story', character: 'Character', location: 'Location', faction: 'Faction',
-    object: 'Object', system: 'System', memory: 'Memory', tool: 'Tool'
+    object: 'Object', ability: 'Ability', system: 'System', memory: 'Memory', tool: 'Tool'
   };
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -263,7 +263,7 @@
   }
 
   /* ------------------------------------------------------------------
-     Memories of an arc:  <div data-memories-arc="the-sorcerers-stone"></div>
+     Memories of an arc:  <div data-memories-arc="the-philosophers-stone"></div>
      Counts:              <span data-count="memories:<arc>[:written]"></span>
      ------------------------------------------------------------------ */
   function memoriesOf(arc) { return IDX.pages.filter(function (p) { return p.type === 'memory' && p.arc === arc; }); }
@@ -362,6 +362,8 @@
        <div data-char-cards="[universe]"></div>   built character cards
        <div data-char-list="[universe]"></div>    every character, built or planned, by universe
        <div data-arcs="[universe]"></div>         story arcs with icons + Memory counts
+       <div data-type-cards="<type>[:universe]">   built articles of any type, as cards
+       <div data-type-list="<type>[:universe]">    every article of that type, built or planned
        <div data-universe-tiles></div>            one tile per universe
        <div data-memory-library></div>            every Memory, by universe and arc
      ------------------------------------------------------------------ */
@@ -375,11 +377,8 @@
       .sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
   }
   function initHubs() {
-    document.querySelectorAll('[data-char-cards]').forEach(function (box) {
-      var uni = box.getAttribute('data-char-cards');
-      var list = charsOf(uni, true);
-      box.classList.add('ax-cards');
-      box.innerHTML = list.map(function (p) {
+    function cardsHTML(list) {
+      return list.map(function (p) {
         var u = byId[p.universe] || {};
         var img = p.image || (p.forms && p.forms[0].image);
         return '<a class="ax-ccard" href="' + href(p) + '" style="--cc:' + (p.color || u.color || 'var(--accent)') + '">' +
@@ -390,18 +389,39 @@
           '<div class="tags">' + (p.forms ? '<span class="ax-pill">' + p.forms.filter(function (f) { return f.kind === 'champion'; }).length + ' Champion forms</span>' : '') +
           (p.release && !(IDX.current && verCmp(p.release, IDX.current) <= 0) ? '<span class="ax-pill ax-pill--upcoming">Upcoming &middot; ' + esc(p.release) + '</span>' : '') +
           '</div></div></a>';
-      }).join('') || '<div class="ax-empty">No character articles yet.</div>';
+      }).join('');
+    }
+    function clistHTML(list, u) {
+      list = list.slice().sort(function (a, b) { return (exists(b) - exists(a)) || a.title.localeCompare(b.title); });
+      if (!list.length) return '';
+      return '<div class="ax-clist"><h3><span class="sw" style="background:' + u.color + '"></span>' + (exists(u) ? linkHTML(u.id) : esc(u.title)) +
+        '<span class="n">' + list.filter(exists).length + ' / ' + list.length + ' written</span></h3>' +
+        '<div class="items">' + list.map(function (p) { return linkHTML(p.id); }).join('') + '</div></div>';
+    }
+    document.querySelectorAll('[data-char-cards]').forEach(function (box) {
+      box.classList.add('ax-cards');
+      box.innerHTML = cardsHTML(charsOf(box.getAttribute('data-char-cards'), true)) || '<div class="ax-empty">No character articles yet.</div>';
     });
     document.querySelectorAll('[data-char-list]').forEach(function (box) {
       var only = box.getAttribute('data-char-list');
-      var unis = IDX.universes.filter(function (u) { return !only || u.id === only; });
-      box.innerHTML = unis.map(function (u) {
-        var list = charsOf(u.id).sort(function (a, b) { return (exists(b) - exists(a)) || a.title.localeCompare(b.title); });
-        if (!list.length) return '';
-        return '<div class="ax-clist"><h3><span class="sw" style="background:' + u.color + '"></span>' + (exists(u) ? linkHTML(u.id) : esc(u.title)) +
-          '<span class="n">' + list.filter(exists).length + ' / ' + list.length + ' written</span></h3>' +
-          '<div class="items">' + list.map(function (p) { return linkHTML(p.id); }).join('') + '</div></div>';
-      }).join('');
+      box.innerHTML = IDX.universes.filter(function (u) { return !only || u.id === only; })
+        .map(function (u) { return clistHTML(charsOf(u.id), u); }).join('');
+    });
+    /* Any other article type: data-type-cards / data-type-list = "<type>[:universe]"
+       (system, location, faction, object). Same views as the character ones. */
+    function typeArg(box, attr) { var a = box.getAttribute(attr).split(':'); return { type: a[0], uni: a[1] || '' }; }
+    function pagesOfType(type, uni, builtOnly) {
+      return IDX.pages.filter(function (p) { return p.type === type && (!uni || p.universe === uni) && (!builtOnly || exists(p)); });
+    }
+    document.querySelectorAll('[data-type-cards]').forEach(function (box) {
+      var a = typeArg(box, 'data-type-cards');
+      box.classList.add('ax-cards');
+      box.innerHTML = cardsHTML(pagesOfType(a.type, a.uni, true)) || '<div class="ax-empty">No articles written yet.</div>';
+    });
+    document.querySelectorAll('[data-type-list]').forEach(function (box) {
+      var a = typeArg(box, 'data-type-list');
+      box.innerHTML = IDX.universes.filter(function (u) { return !a.uni || u.id === a.uni; })
+        .map(function (u) { return clistHTML(pagesOfType(a.type, u.id), u); }).join('');
     });
     document.querySelectorAll('[data-arcs]').forEach(function (box) {
       var list = arcsOf(box.getAttribute('data-arcs'));
@@ -475,7 +495,7 @@
      ------------------------------------------------------------------ */
   var NAV_GROUPS = [
     ['story', 'Story arcs'], ['character', 'Characters'], ['location', 'Locations'],
-    ['faction', 'Factions'], ['object', 'Objects'], ['system', 'Systems']
+    ['faction', 'Factions'], ['object', 'Objects'], ['ability', 'Abilities'], ['system', 'Systems']
   ];
   function initNavbox() {
     document.querySelectorAll('[data-navbox]').forEach(function (box) {
@@ -864,8 +884,79 @@
   }
 
   /* ------------------------------------------------------------------
+     Footnotes (Fandom <ref>):
+       a claim.<sup data-ref>Source: <a data-link="the-deathly-hallows"></a>, "The Forest"</sup>
+       name one to reuse it:  <sup data-ref="forest">…</sup> … later <sup data-ref="forest"></sup>
+       the list:  <ol class="ax-refs" data-references></ol>  (under "Notes and references")
+     Numbers follow reading order; hovering a number shows its source.
+     ------------------------------------------------------------------ */
+  /* inline spoilers: <span class="ax-spoiler-text">…</span> blurred until hovered, focused or tapped */
+  function initSpoilers() {
+    document.querySelectorAll('.ax-spoiler-text').forEach(function (el) {
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'button');
+      el.setAttribute('aria-label', 'Spoiler: activate to reveal');
+      if (!el.title) el.title = 'Spoiler: hover or tap to reveal';
+      function reveal(e) {
+        if (el.classList.contains('revealed')) return;
+        e.preventDefault(); el.classList.add('revealed'); el.removeAttribute('role'); el.removeAttribute('aria-label');
+      }
+      el.addEventListener('click', reveal);
+      el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') reveal(e); });
+    });
+  }
+  function initRefs() {
+    var list = document.querySelector('[data-references]');
+    var sups = document.querySelectorAll('sup[data-ref]');
+    if (!list || !sups.length) return;
+    var byKey = {}, order = [];
+    sups.forEach(function (sup) {
+      var html = sup.innerHTML.trim();
+      var key = sup.getAttribute('data-ref') || html;
+      var r = byKey[key];
+      if (!r) { r = byKey[key] = { n: order.length + 1, html: html, uses: [] }; order.push(r); }
+      else if (!r.html && html) r.html = html;
+      var id = 'cite-ref-' + r.n + (r.uses.length ? '-' + r.uses.length : '');
+      r.uses.push(id);
+      sup.id = id;
+      sup.className = 'ax-ref';
+      sup.setAttribute('data-note', r.n);
+      sup.innerHTML = '<a href="#cite-note-' + r.n + '">[' + r.n + ']</a>';
+    });
+    list.innerHTML = order.map(function (r) {
+      var back = r.uses.length === 1
+        ? '<a class="up" href="#' + r.uses[0] + '" title="Back to the text">&uarr;</a>'
+        : '<span class="up">&uarr;</span><span class="back">' + r.uses.map(function (u, i) {
+            return '<a href="#' + u + '" title="Back to the text">' + String.fromCharCode(97 + i) + '</a>'; }).join('') + '</span>';
+      return '<li id="cite-note-' + r.n + '"><span class="n">' + r.n + '.</span>' + back + ' <span class="txt">' + (r.html || '<i>Source missing</i>') + '</span></li>';
+    }).join('');
+    var tip = document.createElement('div');
+    tip.className = 'ax-reftip';
+    document.body.appendChild(tip);
+    var hideT = null;
+    function hide() { tip.classList.remove('show'); }
+    document.querySelectorAll('sup.ax-ref').forEach(function (sup) {
+      sup.addEventListener('mouseenter', function () {
+        clearTimeout(hideT);
+        var li = document.getElementById('cite-note-' + sup.getAttribute('data-note'));
+        tip.innerHTML = li ? li.querySelector('.txt').innerHTML : '';
+        var r = sup.getBoundingClientRect();
+        tip.classList.add('show');
+        var w = tip.offsetWidth;
+        tip.style.left = Math.max(8, Math.min(r.left + window.scrollX - 12, window.scrollX + document.documentElement.clientWidth - w - 12)) + 'px';
+        tip.style.top = (r.bottom + window.scrollY + 6) + 'px';
+      });
+      sup.addEventListener('mouseleave', function () { hideT = setTimeout(hide, 250); });
+    });
+    tip.addEventListener('mouseenter', function () { clearTimeout(hideT); });
+    tip.addEventListener('mouseleave', hide);
+    window.addEventListener('scroll', hide, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------
      Image credits (data/image-credits.js, keyed by path from site root)
-     Gallery figures get an "Art by" line automatically.
+     Gallery figures and in-text images (<figure class="ax-thumb">) get an
+     "Art by" line automatically.
      ------------------------------------------------------------------ */
   var CREDITS = window.IMAGE_CREDITS || {};
   function creditFor(img) {
@@ -873,10 +964,11 @@
     if (ROOT && src.indexOf(ROOT) === 0) src = src.slice(ROOT.length);
     return CREDITS[src] || null;
   }
-  /* one line of credit markup: "Art by <artist>" or, for official art, "Official art: <source>" */
+  /* one line of credit markup: "Art by <artist>", "Official art: <source>" or, for a photograph, "Photo: <photo>" */
   function creditLine(c) {
     if (!c) return '';
     var a = '<a href="' + esc(c.url) + '" target="_blank" rel="noopener"' + (c.owner ? ' title="' + esc(c.owner) + '"' : '') + '>';
+    if (c.photo) return 'Photo: ' + a + esc(c.photo) + '</a>';
     return c.source ? 'Official art: ' + a + esc(c.source) + '</a>' : 'Art by ' + a + esc(c.artist) + '</a>';
   }
   function creditHTML(path) {
@@ -888,7 +980,7 @@
     document.querySelectorAll('[data-credit-for]').forEach(function (el) {
       el.innerHTML = creditHTML(el.getAttribute('data-credit-for'));
     });
-    document.querySelectorAll('.ax-gallery figure').forEach(function (fig) {
+    document.querySelectorAll('.ax-gallery figure, figure.ax-thumb').forEach(function (fig) {
       var img = fig.querySelector('img'), cap = fig.querySelector('figcaption');
       if (!img || !cap) return;
       var c = creditFor(img), line = document.createElement('span');
@@ -912,6 +1004,8 @@
   initHubs();
   initSeq();
   initNavbox();
+  initRefs();
+  initSpoilers();
   resolveLinks();
   initMemLinks();
   initTOC();
