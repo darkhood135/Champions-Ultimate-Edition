@@ -19,7 +19,7 @@
 
   var TYPE_LABEL = {
     universe: 'Universe', portal: 'Portal', category: 'Category', library: 'Library', event: 'Event',
-    story: 'Story', character: 'Character', location: 'Location', faction: 'Faction',
+    story: 'Story', character: 'Character', relationship: 'Relationship', location: 'Location', faction: 'Faction',
     object: 'Object', ability: 'Ability', system: 'System', memory: 'Memory', tool: 'Tool'
   };
 
@@ -34,6 +34,8 @@
     var label = esc(text || (e ? e.title : id));
     var cls = extraClass ? ' ' + extraClass : '';
     if (exists(e)) return '<a class="' + cls.trim() + '" href="' + href(e) + '">' + label + '</a>';
+    /* placeholders with a blurb get a hover card instead of the tooltip */
+    if (e && e.blurb) return '<a class="ax-red' + cls + '" data-link="' + esc(id) + '" aria-disabled="true">' + label + '</a>';
     return '<a class="ax-red' + cls + '" title="Not written yet" aria-disabled="true">' + label + '</a>';
   }
 
@@ -180,7 +182,7 @@
         return;
       }
       if (exists(e)) { el.setAttribute('href', href(e)); el.classList.remove('ax-red'); }
-      else { el.removeAttribute('href'); el.classList.add('ax-red'); el.setAttribute('title', 'Not written yet'); }
+      else { el.removeAttribute('href'); el.classList.add('ax-red'); if (!(e && e.blurb)) el.setAttribute('title', 'Not written yet'); }
     });
   }
 
@@ -268,6 +270,15 @@
      ------------------------------------------------------------------ */
   function memoriesOf(arc) { return IDX.pages.filter(function (p) { return p.type === 'memory' && p.arc === arc; }); }
   function memoriesBy(anchor) { return IDX.pages.filter(function (p) { return p.type === 'memory' && p.anchor === anchor; }); }
+  /* Memories in which every id in a comma list appears, as anchor or in cast */
+  function memoriesWith(ids) {
+    ids = String(ids).split(',').map(function (x) { return x.trim(); }).filter(Boolean);
+    return IDX.pages.filter(function (p) {
+      if (p.type !== 'memory') return false;
+      var who = [p.anchor].concat(p.cast || []);
+      return ids.every(function (id) { return who.indexOf(id) >= 0; });
+    });
+  }
 
   var READ_WPM = 230; /* reading speed for the ~N min on Memory cards; keep in step with analysis/memory_reading_time.py */
   function memCard(m, num, sub) {
@@ -347,10 +358,29 @@
       });
       box.innerHTML = html || '<div class="ax-empty">No Memories yet.</div>';
     });
-    /* counts:  memories:<arc>[:written]   anchor:<character>[:written] */
+    /* Memories that feature every listed character (as anchor or in cast), grouped by arc.
+       For relationship pages:  <div data-memories-with="harry-potter,dracaena-malfoy"></div>
+       Count:                   <span data-count="with:harry-potter,dracaena-malfoy[:written]"></span> */
+    document.querySelectorAll('[data-memories-with]').forEach(function (box) {
+      var list = memoriesWith(box.getAttribute('data-memories-with'));
+      var arcs = IDX.pages.filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+      var html = '';
+      arcs.forEach(function (arc) {
+        var inArc = list.filter(function (m) { return m.arc === arc.id; });
+        if (!inArc.length) return;
+        var all = memoriesOf(arc.id);
+        html += '<h3 class="ax-mem-arc" data-no-toc>' + linkHTML(arc.id) + '<span class="n">' + inArc.length + '</span></h3>' +
+          '<div class="ax-mem-grid">' + inArc.map(function (m) {
+            var anchor = byId[m.anchor] || {};
+            return memCard(m, all.indexOf(m) + 1, '<b>' + esc(anchor.title || '') + '</b> &middot; ' + esc(arc.label || ''));
+          }).join('') + '</div>';
+      });
+      box.innerHTML = html || '<div class="ax-empty">No Memories yet.</div>';
+    });
+    /* counts:  memories:<arc>[:written]   anchor:<character>[:written]   with:<a,b>[:written] */
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var parts = el.getAttribute('data-count').split(':');
-      var list = parts[0] === 'anchor' ? memoriesBy(parts[1]) : memoriesOf(parts[1]);
+      var list = parts[0] === 'anchor' ? memoriesBy(parts[1]) : parts[0] === 'with' ? memoriesWith(parts[1]) : memoriesOf(parts[1]);
       if (parts[2] === 'written') list = list.filter(function (m) { return m.written; });
       el.textContent = list.length;
     });
@@ -408,7 +438,7 @@
         .map(function (u) { return clistHTML(charsOf(u.id), u); }).join('');
     });
     /* Any other article type: data-type-cards / data-type-list = "<type>[:universe]"
-       (system, location, faction, object). Same views as the character ones. */
+       (system, location, faction, object, relationship). Same views as the character ones. */
     function typeArg(box, attr) { var a = box.getAttribute(attr).split(':'); return { type: a[0], uni: a[1] || '' }; }
     function pagesOfType(type, uni, builtOnly) {
       return IDX.pages.filter(function (p) { return p.type === type && (!uni || p.universe === uni) && (!builtOnly || exists(p)); });
@@ -494,7 +524,7 @@
      Navbox:  <div data-navbox="wizarding-world"></div>
      ------------------------------------------------------------------ */
   var NAV_GROUPS = [
-    ['story', 'Story arcs'], ['character', 'Characters'], ['location', 'Locations'],
+    ['story', 'Story arcs'], ['character', 'Characters'], ['relationship', 'Relationships'], ['location', 'Locations'],
     ['faction', 'Factions'], ['object', 'Objects'], ['ability', 'Abilities'], ['system', 'Systems']
   ];
   function initNavbox() {
@@ -841,22 +871,24 @@
     document.body.appendChild(card);
     var timer = null, current = null;
     function entryFor(a) {
-      if (a.closest('.ax-header, .ax-crumbs, .ax-menu, .ax-search-results, .ax-preview') || a.classList.contains('mem-link') || a.classList.contains('ax-red')) return null;
+      if (a.closest('.ax-header, .ax-crumbs, .ax-menu, .ax-search-results, .ax-preview') || a.classList.contains('mem-link')) return null;
       var id = a.getAttribute('data-link');
       var e = id ? byId[id] : null;
       if (!e) {
         var href = (a.getAttribute('href') || '').split('?')[0];
         IDX.pages.concat(IDX.universes).some(function (p) { if (exists(p) && href && href === ROOT + p.path) { e = p; return true; } return false; });
       }
+      if (a.classList.contains('ax-red')) return e && !exists(e) && e.blurb ? e : null;  /* placeholders: only with a blurb */
       return e && exists(e) && e.id !== PAGE && (e.blurb || e.image || e.icon || e.banner) ? e : null;
     }
     function show(a, e) {
-      var img = e.image || e.icon || e.banner;
+      var img = e.preview || e.image || e.icon || e.banner;
       var kick = [TYPE_LABEL[e.type] || '', e.universe ? uniTitle(e.universe) : '', e.anchor ? uniTitle(e.anchor) : ''].filter(Boolean).join(' \u00b7 ');
-      card.innerHTML = (img ? '<div class="pi" style="background-image:url(\'' + ROOT + img + '\')"></div>' : '') +
+      card.innerHTML = (img ? '<div class="pi" style="background-image:url(\'' + ROOT + img + '\')' + (e.previewPos ? ';background-position:' + esc(e.previewPos) : '') + '"></div>' : '') +
         '<div class="pb"><div class="pk">' + esc(kick) + '</div><div class="pt">' + esc(e.title) + '</div>' +
         (e.blurb ? '<div class="pd">' + esc(e.blurb) + '</div>' : '') +
-        (e.release && !(IDX.current && verCmp(e.release, IDX.current) <= 0) ? '<span class="ax-pill ax-pill--upcoming">Upcoming &middot; ' + esc(e.release) + '</span>' : '') + '</div>';
+        (e.release && !(IDX.current && verCmp(e.release, IDX.current) <= 0) ? '<span class="ax-pill ax-pill--upcoming">Upcoming &middot; ' + esc(e.release) + '</span>' : '') +
+        (!exists(e) ? '<span class="ax-chip ax-chip--stub">Not written yet</span>' : '') + '</div>';
       card.classList.toggle('has-img', !!img);
       var r = a.getBoundingClientRect(), w = 320;
       var left = Math.min(Math.max(8, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - w - 12);

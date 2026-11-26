@@ -26,6 +26,9 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/hold-me-close.jpg': { artist: '@Patricckk0', url: 'https://x.com/Patricckk0' },
   'images/lore/banners/memories/never-depart.jpg':              { artist: '@kumorine_leo',  url: 'https://x.com/kumorine_leo' },
   'images/lore/banners/memories/faint-apology.jpg': { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
+  'images/lore/banners/memories/trust-in-you.jpg': { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
+  'images/lore/banners/memories/in-another-life.jpg': { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
+  'images/lore/banners/memories/embracing-fate.jpg': { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
   'images/lore/banners/memories/to-speak-the-unspoken.jpg':     { artist: '@Mochavani_Art', url: 'https://x.com/Mochavani_Art' },
   'images/lore/banners/memories/to-hear-the-unheard.jpg':       { artist: '@Mochavani_Art', url: 'https://x.com/Mochavani_Art' },
   'images/lore/banners/memories/imprints-of-ignorance.jpg':          { artist: '@spaz141', url: 'https://x.com/spaz141' },
@@ -78,16 +81,17 @@ window.IMAGE_CREDITS = {
   'images/lore/icons/the-deathly-hallows-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
 
   /* ---------- Champion portraits, costumes, renders, summons ---------- */
-  'images/champion-images/dracaena-malfoy.jpg':                       { artist: '@TaRinne',     url: 'https://x.com/TaRinne' },
+  'images/champion-images/dracaena-malfoy.jpg':                       { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
   'images/champion-images/costumes/dracaena-malfoy(quidditch).jpg':   { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(broken).jpg':      { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(formal).jpg':      { artist: '@nitekidoe',   url: 'https://x.com/nitekidoe' },
   'images/champion-images/costumes/dracaena-malfoy(gryffindor-scarf).jpg': { artist: '@NetQwrk', url: 'https://x.com/NetQwrk' },
-  'images/champion-images/renders/dracaena-malfoy(render-1).jpg':        { artist: '@TaRinne',    url: 'https://x.com/TaRinne' },
-  'images/champion-images/renders/dracaena-malfoy(render-2).jpg':        { artist: '@Patricckk0', url: 'https://x.com/Patricckk0' },
-  'images/champion-images/renders/dracaena-malfoy(render-3).jpg':        { artist: '@propermint', url: 'https://x.com/propermint' },
-  'images/champion-images/renders/dracaena-malfoy(render-4).jpg':        { artist: '@shigokin',   url: 'https://x.com/shigokin' },
-  'images/champion-images/renders/dracaena-malfoy(render-5).jpg':        { artist: '@Orion_A2',   url: 'https://x.com/Orion_A2' },
+  'images/champion-images/renders/dracaena-malfoy(render-1).jpg':        { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/renders/dracaena-malfoy(render-2).jpg':        { artist: '@TaRinne',    url: 'https://x.com/TaRinne' },
+  'images/champion-images/renders/dracaena-malfoy(render-3).jpg':        { artist: '@Patricckk0', url: 'https://x.com/Patricckk0' },
+  'images/champion-images/renders/dracaena-malfoy(render-4).jpg':        { artist: '@propermint', url: 'https://x.com/propermint' },
+  'images/champion-images/renders/dracaena-malfoy(render-5).jpg':        { artist: '@shigokin',   url: 'https://x.com/shigokin' },
+  'images/champion-images/renders/dracaena-malfoy(render-6).jpg':        { artist: '@Orion_A2',   url: 'https://x.com/Orion_A2' },
   'images/summon-images/malfoy-patronus.jpg':                         { artist: '@MaroonR19',   url: 'https://x.com/MaroonR19' },
 
   /* ---------- Goku (official art) ---------- */
@@ -106,10 +110,14 @@ window.IMAGE_CREDITS = {
   'images/champion-images/costumes/goku(tattered).jpg':                  { source: 'Dragon Ball Z (anime)', url: 'https://en.dragon-ball-official.com/', owner: '©BIRD STUDIO/SHUEISHA, TOEI ANIMATION' },
   'images/champion-images/costumes/goku(super-saiyan,saiyan-armor).jpg': { source: 'Dragon Ball Z (anime)', url: 'https://en.dragon-ball-official.com/', owner: '©BIRD STUDIO/SHUEISHA, TOEI ANIMATION' },
   'images/champion-images/costumes/goku(super-saiyan,daima).jpg':        { source: 'Dragon Ball Daima (anime)', url: 'https://dragonballdaima.com/en', owner: '©BIRD STUDIO/SHUEISHA, TOEI ANIMATION' },
-  /* ---------- Harry Potter (and Hermione's portrait) ---------- */
-  'images/champion-images/harry-potter.jpg':                             { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
-  'images/champion-images/renders/harry-potter(render-1).jpg':           { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
-  'images/champion-images/hermione-granger.jpg':                         { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
+  /* ---------- Harry Potter (plus Hermione's and Ron's portraits) ---------- */
+  'images/champion-images/harry-potter.jpg':                             { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/renders/harry-potter(render-1).jpg':           { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/renders/harry-potter(render-2).jpg':           { artist: 'Angel_Moonlight', url: 'https://www.reddit.com/user/Angel_Moonlight' },
+  'images/champion-images/hermione-granger.jpg':                         { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/renders/hermione-granger(render-1).jpg':       { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/ron-weasley.jpg':                              { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
+  'images/champion-images/renders/ron-weasley(render-1).jpg':            { artist: '@Y4zzmyn_',   url: 'https://x.com/Y4zzmyn_' },
   'images/champion-images/costumes/harry-potter(formal).jpg':            { artist: '@AikaAnarchy',    url: 'https://x.com/AikaAnarchy' },
   'images/summon-images/potter-patronus.jpg':                            { artist: 'maryquiZe',       url: 'https://www.deviantart.com/maryquize' },
   'images/champion-images/costumes/harry-potter(quidditch).jpg':         { source: 'Harry Potter: Quidditch Champions', url: 'https://www.quidditchchampions.com/', owner: '© Warner Bros. Entertainment Inc. Publishing Rights © J.K. Rowling' },
@@ -130,5 +138,12 @@ window.IMAGE_CREDITS = {
   'images/lore/wiki/amortentia.jpg':                                      { photo: 'Sweet Tea + Thyme', url: 'https://www.sweetteaandthyme.com/' },
   'images/lore/wiki/sectumsempra.jpg':                                    { artist: '@SchwannitySan', url: 'https://x.com/SchwannitySan' },
   'images/lore/wiki/fiendfyre.jpg':                                       { source: 'Pottermore (official Wizarding World art)', url: 'https://www.wizardingworld.com', owner: '© Warner Bros. Entertainment Inc. Publishing Rights © J.K. Rowling' },
-  'images/lore/wiki/chao-zheng.jpg':                                      { artist: 'moonmistix', url: 'https://moonmistix.tumblr.com' }
+  'images/lore/wiki/chao-zheng.jpg':                                      { artist: 'moonmistix', url: 'https://moonmistix.tumblr.com' },
+
+  /* ---------- Archive wiki: relationships ---------- */
+  'images/lore/wiki/the-lion-and-the-serpent.jpg':                        { artist: '@LacanXG',   url: 'https://x.com/LacanXG' },
+  'images/lore/wiki/the-lion-and-the-serpent(gallery-1).jpg':             { artist: '@S20_TBL',   url: 'https://x.com/S20_TBL' },
+  'images/lore/wiki/houses-united.jpg':                                   { artist: '@Y4zzmyn_',  url: 'https://x.com/Y4zzmyn_' },
+  'images/lore/wiki/houses-united(gallery-1).jpg':                        { artist: '@Y4zzmyn_',  url: 'https://x.com/Y4zzmyn_' },
+  'images/lore/wiki/the-badger-and-the-eagle.jpg':                        { artist: 'alessiajontrunfio', url: 'https://www.reddit.com/user/alessiajontrunfio' }
 };
