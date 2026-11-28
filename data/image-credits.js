@@ -163,5 +163,14 @@ window.IMAGE_CREDITS = {
   'images/lore/wiki/the-lion-and-the-serpent(gallery-1).jpg':             { artist: '@S20_TBL',   url: 'https://x.com/S20_TBL' },
   'images/lore/wiki/houses-united.jpg':                                   { artist: '@Y4zzmyn_',  url: 'https://x.com/Y4zzmyn_' },
   'images/lore/wiki/houses-united(gallery-1).jpg':                        { artist: '@Y4zzmyn_',  url: 'https://x.com/Y4zzmyn_' },
-  'images/lore/wiki/the-badger-and-the-eagle.jpg':                        { artist: 'alessiajontrunfio', url: 'https://www.reddit.com/user/alessiajontrunfio' }
+  'images/lore/wiki/the-badger-and-the-eagle.jpg':                        { artist: 'alessiajontrunfio', url: 'https://www.reddit.com/user/alessiajontrunfio' },
+
+  /* ---------- Archive backdrops (lore/data/ambience.js) ----------
+     work – what the art comes from, shown after the artist
+     note – how the image was made, shown after the source            */
+  'images/backdrops/wizarding-world.webp':                                { source: 'Hogwarts Legacy', owner: 'Avalanche Software / Warner Bros. Games, 2023', note: 'in-game screenshot' },
+  'images/backdrops/multiversal.webp':                                    { artist: 'George P\u00e9rez', work: 'JLA/Avengers (Kurt Busiek & George P\u00e9rez, DC/Marvel, 2003)' },
+
+  /* ---------- Universe logos (lore/data/ambience.js) ---------- */
+  'images/lore/logos/wizarding-world.png':                                { source: 'Harry Potter logo', owner: '\u00a9 Warner Bros. Entertainment Inc.' }
 };

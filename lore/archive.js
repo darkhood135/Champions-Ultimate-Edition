@@ -9,9 +9,26 @@
   'use strict';
   document.documentElement.classList.add('js');
 
-  var ROOT = document.documentElement.getAttribute('data-root') || '';
+  /* ROOT and PAGE are re-read by init() on every page, including pages
+     swapped in by archive-shell.js (seamless navigation). */
+  var ROOT = '';
   var IDX = window.ARCHIVE_INDEX || { universes: [], pages: [] };
-  var PAGE = document.body.getAttribute('data-page') || '';
+  var PAGE = '';
+
+  /* document/window listeners go through on(): they are dropped by teardown()
+     so a swapped-in page never stacks duplicates. */
+  var CTRL = null;
+  function on(target, type, fn, opts) {
+    var o = (opts && typeof opts === 'object') ? Object.assign({}, opts) : { capture: !!opts };
+    if (CTRL) o.signal = CTRL.signal;
+    target.addEventListener(type, fn, o);
+  }
+  /* go to another page: through the shell when it is running, else a normal load */
+  function nav(url) {
+    if (window.ArchiveShell && window.ArchiveShell.go) window.ArchiveShell.go(url);
+    else location.href = url;
+  }
+  var THEMES = []; /* Champion theme players on the current page */
 
   var byId = {};
   IDX.universes.forEach(function (u) { u.type = 'universe'; byId[u.id] = u; });
@@ -102,7 +119,7 @@
         if (!was) item.classList.add('open');
       });
     });
-    document.addEventListener('click', function () {
+    on(document, 'click', function () {
       document.querySelectorAll('.ax-nav-item.open').forEach(function (o) { o.classList.remove('open'); });
     });
 
@@ -110,7 +127,7 @@
       a.addEventListener('click', function (ev) {
         ev.preventDefault();
         var pool = IDX.pages.filter(function (p) { return exists(p) && p.id !== PAGE && ['portal', 'category', 'library', 'tool'].indexOf(p.type) < 0; });
-        if (pool.length) location.href = href(pool[Math.floor(Math.random() * pool.length)]);
+        if (pool.length) nav(href(pool[Math.floor(Math.random() * pool.length)]));
       });
     });
 
@@ -161,10 +178,10 @@
         rows.forEach(function (r, i) { r.classList.toggle('active', i === active); });
       } else if (ev.key === 'Enter') {
         var go = rows[active >= 0 ? active : 0];
-        if (go) location.href = go.getAttribute('href');
+        if (go) nav(go.getAttribute('href'));
       } else if (ev.key === 'Escape') { box.classList.remove('show'); input.blur(); }
     });
-    document.addEventListener('click', function (ev) { if (!ev.target.closest('.ax-search')) box.classList.remove('show'); });
+    on(document, 'click', function (ev) { if (!ev.target.closest('.ax-search')) box.classList.remove('show'); });
   }
 
   /* ------------------------------------------------------------------
@@ -189,7 +206,7 @@
   /* inline Memory link: first tap on touch shows the tooltip, second follows */
   function initMemLinks() {
     var lastTouch = false;
-    document.addEventListener('pointerdown', function (e) { lastTouch = e.pointerType === 'touch'; }, true);
+    on(document, 'pointerdown', function (e) { lastTouch = e.pointerType === 'touch'; }, true);
     document.querySelectorAll('.mem-link').forEach(function (el) {
       el.setAttribute('tabindex', '0');
       el.addEventListener('click', function (e) {
@@ -200,7 +217,7 @@
         }
       });
     });
-    document.addEventListener('pointerdown', function (e) {
+    on(document, 'pointerdown', function (e) {
       if (!e.target.closest('.mem-link')) document.querySelectorAll('.mem-link.is-open').forEach(function (o) { o.classList.remove('is-open'); });
     });
   }
@@ -644,7 +661,7 @@
       });
     });
     lb.addEventListener('click', function (e) { if (!e.target.closest('a')) lb.classList.remove('show'); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('show'); });
+    on(document, 'keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('show'); });
   }
 
   /* ------------------------------------------------------------------
@@ -813,6 +830,7 @@
     var audio = new Audio(ROOT + box.getAttribute('data-theme-audio'));
     audio.loop = true; audio.volume = 0.6; audio.preload = 'none';
     box._audio = audio;
+    THEMES.push(audio);
     box.classList.add('ax-theme');
     box.innerHTML = '<button type="button" aria-label="Play theme">&#9654;</button><div><div class="k">Theme</div>' +
       '<div class="tr">' + esc(box.getAttribute('data-track') || 'Theme') + '</div>' +
@@ -824,7 +842,17 @@
       else { audio.pause(); set(false); }
     });
     audio.addEventListener('error', function () { if (box._audio !== audio) return; set(false); box.classList.add('missing'); btn.disabled = true; btn.title = 'Audio file not added yet'; });
+    /* the Archive music player (archive-music.js) pauses while a Champion theme plays */
+    audio.addEventListener('play', function () { themeEvent(true); });
+    audio.addEventListener('pause', function () { set(false); themeEvent(false); });
   }
+  function themeEvent(playing) {
+    var ev;
+    try { ev = new CustomEvent('archive:theme', { detail: { playing: playing } }); }
+    catch (e) { ev = document.createEvent('CustomEvent'); ev.initCustomEvent('archive:theme', false, false, { playing: playing }); }
+    document.dispatchEvent(ev);
+  }
+  function pauseThemes() { THEMES.forEach(function (a) { try { a.pause(); } catch (e) {} }); }
   function initTheme() {
     document.querySelectorAll('[data-theme-audio]').forEach(buildTheme);
   }
@@ -973,7 +1001,7 @@
       if (cr.bottom > window.innerHeight - 8) card.style.top = (r.top + window.scrollY - cr.height - 8) + 'px';
     }
     function hide() { clearTimeout(timer); card.classList.remove('show'); current = null; }
-    document.addEventListener('mouseover', function (ev) {
+    on(document, 'mouseover', function (ev) {
       var a = ev.target.closest && ev.target.closest('a');
       if (!a || a === current) return;
       var e = entryFor(a);
@@ -982,11 +1010,11 @@
       current = a;
       timer = setTimeout(function () { show(a, e); }, 280);
     });
-    document.addEventListener('mouseout', function (ev) {
+    on(document, 'mouseout', function (ev) {
       var a = ev.target.closest && ev.target.closest('a');
       if (a && a === current && !(ev.relatedTarget && a.contains(ev.relatedTarget))) hide();
     });
-    window.addEventListener('scroll', hide, { passive: true });
+    on(window, 'scroll', hide, { passive: true });
   }
 
   /* ------------------------------------------------------------------
@@ -1056,7 +1084,7 @@
     });
     tip.addEventListener('mouseenter', function () { clearTimeout(hideT); });
     tip.addEventListener('mouseleave', hide);
-    window.addEventListener('scroll', hide, { passive: true });
+    on(window, 'scroll', hide, { passive: true });
   }
 
   /* ------------------------------------------------------------------
@@ -1105,7 +1133,21 @@
     });
   }
 
-  /* ------------------------------------------------------------------ */
+  /* ------------------------------------------------------------------
+     Page setup. init() runs on load, and again (via archive-shell.js)
+     after every seamless page swap; teardown() runs before each swap.
+     ------------------------------------------------------------------ */
+  function teardown() {
+    if (CTRL) CTRL.abort();
+    CTRL = null;
+    THEMES.forEach(function (a) { try { a.pause(); } catch (e) {} });
+    THEMES = [];
+  }
+  function init() {
+    teardown();
+    CTRL = window.AbortController ? new AbortController() : null;
+    ROOT = document.documentElement.getAttribute('data-root') || '';
+    PAGE = document.body.getAttribute('data-page') || '';
   renderHeader();
   initMemories();
   initMemoryArt();
@@ -1127,4 +1169,15 @@
   initForms();
   initLightbox();
   initImageFallbacks();
+  }
+
+  window.ArchiveJS = { init: init, teardown: teardown, pauseThemes: pauseThemes };
+  init();
+
+  /* the persistent shell (seamless navigation, backdrops, music) */
+  if (!window.ArchiveShell && !document.querySelector('script[src$="archive-shell.js"]')) {
+    var sh = document.createElement('script');
+    sh.src = ROOT + 'lore/archive-shell.js';
+    document.body.appendChild(sh);
+  }
 })();
