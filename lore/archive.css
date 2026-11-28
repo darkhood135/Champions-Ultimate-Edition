@@ -599,6 +599,7 @@ a.ax-uni:hover { text-decoration: none; border-color: var(--accent-line); }
 .ax-uni .s { font-size: 12px; color: var(--dim); margin-top: 2px; }
 .ax-uni.is-planned { opacity: .5; }
 .ax-uni .soon { position: absolute; top: 10px; right: 10px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); }
+.ax-cattiles .ax-uni .n { margin-top: 6px; color: var(--muted); font-weight: 500; }
 .ax-clist { margin-bottom: 16px; }
 .ax-clist h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; margin: 0 0 6px; }
 .ax-clist h3 .n { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--dim); }

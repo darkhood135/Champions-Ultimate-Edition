@@ -109,7 +109,7 @@
     document.querySelectorAll('[data-random]').forEach(function (a) {
       a.addEventListener('click', function (ev) {
         ev.preventDefault();
-        var pool = IDX.pages.filter(function (p) { return exists(p) && p.id !== PAGE && p.type !== 'portal'; });
+        var pool = IDX.pages.filter(function (p) { return exists(p) && p.id !== PAGE && ['portal', 'category', 'library', 'tool'].indexOf(p.type) < 0; });
         if (pool.length) location.href = href(pool[Math.floor(Math.random() * pool.length)]);
       });
     });
@@ -396,6 +396,7 @@
        <div data-type-list="<type>[:universe]">    every article of that type, built or planned
        <div data-universe-tiles></div>            one tile per universe
        <div data-memory-library></div>            every Memory, by universe and arc
+       <div data-cat-index></div> · <div data-cat="<rule>"> · <div data-cat-cards="<rule>">  categories (see CAT_DEFS)
      ------------------------------------------------------------------ */
   function charsOf(uni, builtOnly) {
     return IDX.pages.filter(function (p) {
@@ -406,6 +407,48 @@
     return IDX.pages.filter(function (p) { return p.type === 'story' && p.half === 'apart' && (!uni || p.universe === uni); })
       .sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
   }
+  /* Categories (see initHubs). `rule` picks the pages; a category with its own page has an `id`,
+     the rest are browsed on the All categories page under #cat-<anchor>. */
+  var ARTICLE_TYPES = ['story', 'character', 'relationship', 'location', 'faction', 'object', 'ability', 'system', 'event'];
+  var CAT_DEFS = [
+    { group: 'Story and people', id: 'characters', title: 'Characters', rule: 'type:character', d: 'Every character, from the Champions to the people in their stories.' },
+    { group: 'Story and people', id: 'cat-story-arcs', title: 'Story arcs', rule: 'type:story', d: 'Each universe’s story, arc by arc, in story order.' },
+    { group: 'Story and people', anchor: 'relationships', title: 'Relationships', rule: 'type:relationship', d: 'Bonds and groups that shape the story, named in it or not.' },
+    { group: 'Story and people', id: 'memories', title: 'Memories', rule: 'memories', d: 'Scenes told from inside the story, each from one character’s point of view.' },
+    { group: 'Places and things', anchor: 'locations', title: 'Locations', rule: 'type:location', d: 'Castles, cities, worlds and the places between them.' },
+    { group: 'Places and things', anchor: 'factions', title: 'Factions', rule: 'type:faction', d: 'Houses, families, orders and armies.' },
+    { group: 'Places and things', anchor: 'objects', title: 'Objects', rule: 'type:object', d: 'Relics, wands, potions and enchanted things.' },
+    { group: 'Places and things', anchor: 'abilities', title: 'Abilities', rule: 'type:ability', d: 'Spells, curses, techniques and powers.' },
+    { group: 'Places and things', anchor: 'systems', title: 'Systems', rule: 'type:system', d: 'How each universe’s power works, and what it costs.' },
+    { group: 'Places and things', anchor: 'events', title: 'Events', rule: 'type:event', d: 'The turning points that reach across more than one world.' },
+    { group: 'Champions and the game', id: 'cat-champions', title: 'Champions', rule: 'champions', d: 'Characters in the Archive who are playable Champions.' },
+    { group: 'Champions and the game', id: 'cat-power', title: 'Power scale', rule: 'power', d: 'Characters rated on the one multiversal Power scale.' },
+    { group: 'Champions and the game', id: 'cat-upcoming', title: 'Upcoming', rule: 'upcoming', d: 'Articles covering story from a version that hasn’t been released yet.' }
+  ];
+  function releaseOf(p) { return p.release || (byId[p.universe] || {}).release || ''; }
+  function isUpcoming(p) { var r = releaseOf(p); return !!r && !(IDX.current && verCmp(r, IDX.current) <= 0); }
+  function catPages(rule) {
+    if (rule.indexOf('type:') === 0) { var t = rule.slice(5); return IDX.pages.filter(function (p) { return p.type === t; }); }
+    if (rule === 'champions') return IDX.pages.filter(function (p) { return p.type === 'character' && (p.champion || p.forms); });
+    if (rule === 'power') return IDX.pages.filter(function (p) { return p.type === 'character' && (p.power || p.forms); });
+    if (rule === 'upcoming') return IDX.pages.filter(function (p) { return ARTICLE_TYPES.indexOf(p.type) > -1 && exists(p) && isUpcoming(p); });
+    return [];
+  }
+  function catGroupsHTML(list, rule) {
+    var inOrder = rule === 'type:story';
+    var groups = IDX.universes.map(function (u) { return { u: u, items: list.filter(function (p) { return p.universe === u.id; }) }; });
+    var loose = list.filter(function (p) { return !p.universe || !byId[p.universe] || byId[p.universe].type !== 'universe'; });
+    if (loose.length) groups.push({ u: { title: 'Across the worlds', color: 'var(--entwined)' }, items: loose });
+    return groups.filter(function (g) { return g.items.length; }).map(function (g) {
+      var items = g.items.slice().sort(inOrder ? function (a, b) { return (a.order || 0) - (b.order || 0); }
+                                               : function (a, b) { return (exists(b) - exists(a)) || a.title.localeCompare(b.title); });
+      var w = items.filter(exists).length;
+      var n = rule === 'upcoming' ? items.length + (items.length === 1 ? ' article' : ' articles') : w + ' / ' + items.length + ' written';
+      return '<div class="ax-clist"><h3><span class="sw" style="background:' + g.u.color + '"></span>' + (g.u.id && exists(g.u) ? linkHTML(g.u.id) : esc(g.u.title)) +
+        '<span class="n">' + n + '</span></h3><div class="items">' + items.map(function (p) { return linkHTML(p.id); }).join('') + '</div></div>';
+    }).join('');
+  }
+
   function initHubs() {
     function cardsHTML(list) {
       return list.map(function (p) {
@@ -452,6 +495,37 @@
       var a = typeArg(box, 'data-type-list');
       box.innerHTML = IDX.universes.filter(function (u) { return !a.uni || u.id === a.uni; })
         .map(function (u) { return clistHTML(pagesOfType(a.type, u.id), u); }).join('');
+    });
+    /* ---- Categories ----
+       <div data-cat-index></div>    every category as a tile with counts, grouped
+       <div data-cat="<rule>"></div>  one category's pages, grouped by universe
+         rules: type:<type> · champions · power · upcoming (built articles only)
+       A page is Upcoming when its release, or its universe's, is newer than IDX.current. */
+    document.querySelectorAll('[data-cat-index]').forEach(function (box) {
+      var group = '', html = '', browse = '';
+      CAT_DEFS.forEach(function (c) {
+        if (c.group !== group) { html += (group ? '</div></section>' : '') + '<section class="ax-hub-section"><h2>' + esc(c.group) + '</h2><div class="ax-unis ax-cattiles">'; group = c.group; }
+        var list = c.rule === 'memories' ? IDX.pages.filter(function (p) { return p.type === 'memory'; }) : catPages(c.rule);
+        var done = c.rule === 'memories' ? list.filter(function (m) { return m.written; }).length : list.filter(exists).length;
+        var count = c.rule === 'upcoming' ? list.length + (list.length === 1 ? ' article' : ' articles')
+                  : c.rule === 'memories' ? list.length + ' Memories &middot; ' + done + ' written'
+                  : done + ' written &middot; ' + (list.length - done) + ' planned';
+        var target = c.id ? byId[c.id] : null;
+        var link = target && exists(target) ? href(target) : '#cat-' + c.anchor;
+        html += '<a class="ax-uni" href="' + link + '"><span class="bar" style="background:var(--accent)"></span>' +
+          '<div class="t">' + esc(c.title) + '</div><div class="s">' + esc(c.d) + '</div><div class="s n">' + count + '</div></a>';
+        if (!target) browse += '<section class="ax-hub-section" id="cat-' + c.anchor + '"><h2>' + esc(c.title) + '</h2><p class="intro">' + esc(c.d) +
+          ' Red links are articles that haven&rsquo;t been written yet.</p><div data-cat="' + c.rule + '"></div></section>';
+      });
+      box.innerHTML = html + '</div></section>' + browse;
+    });
+    document.querySelectorAll('[data-cat-cards]').forEach(function (box) {
+      box.classList.add('ax-cards');
+      box.innerHTML = cardsHTML(catPages(box.getAttribute('data-cat-cards')).filter(exists)) || '<div class="ax-empty">No articles written yet.</div>';
+    });
+    document.querySelectorAll('[data-cat]').forEach(function (box) {
+      var rule = box.getAttribute('data-cat');
+      box.innerHTML = catGroupsHTML(catPages(rule), rule) || '<div class="ax-empty">No pages in this category yet.</div>';
     });
     document.querySelectorAll('[data-arcs]').forEach(function (box) {
       var list = arcsOf(box.getAttribute('data-arcs'));
@@ -999,9 +1073,11 @@
   /* one line of credit markup: "Art by <artist>", "Official art: <source>" or, for a photograph, "Photo: <photo>" */
   function creditLine(c) {
     if (!c) return '';
-    var a = '<a href="' + esc(c.url) + '" target="_blank" rel="noopener"' + (c.owner ? ' title="' + esc(c.owner) + '"' : '') + '>';
-    if (c.photo) return 'Photo: ' + a + esc(c.photo) + '</a>';
-    return c.source ? 'Official art: ' + a + esc(c.source) + '</a>' : 'Art by ' + a + esc(c.artist) + '</a>';
+    /* no url (an artist with no known profile): plain text, no link */
+    var a = c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener"' + (c.owner ? ' title="' + esc(c.owner) + '"' : '') + '>' : '<span>';
+    var z = c.url ? '</a>' : '</span>';
+    if (c.photo) return 'Photo: ' + a + esc(c.photo) + z;
+    return c.source ? 'Official art: ' + a + esc(c.source) + z : 'Art by ' + a + esc(c.artist) + z;
   }
   function creditHTML(path) {
     var c = CREDITS[path];

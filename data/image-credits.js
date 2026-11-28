@@ -60,6 +60,7 @@ window.IMAGE_CREDITS = {
   'images/lore/banners/memories/the-better-player.jpg': { artist: '@AikaAnarchy', url: 'https://x.com/AikaAnarchy' },
   'images/lore/banners/memories/skilled-seekers.jpg': { artist: '@SNovelite', url: 'https://x.com/SNovelite' },
   'images/lore/banners/memories/behind-closed-doors.jpg': { artist: '@redteneri', url: 'https://x.com/redteneri' },
+  'images/lore/banners/memories/her-fathers-daughter.jpg': { artist: '@SNovelite', url: 'https://x.com/SNovelite' },
   'images/lore/banners/memories/to-gryffindor.jpg': { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
 
   /* ---------- Story banners ---------- */
@@ -73,6 +74,8 @@ window.IMAGE_CREDITS = {
 
   /* ---------- Arc icons: Wizarding World (all seven by Olly Moss) ---------- */
   'images/lore/icons/the-philosophers-stone-icon.jpg':             { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
+  'images/lore/icons/the-ancient-legacy-icon.jpg':                 { source: 'Hogwarts Legacy', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/lore/banners/the-ancient-legacy.jpg':                     { source: 'Hogwarts Legacy', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
   'images/lore/icons/the-chamber-of-secrets-icon.jpg':          { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
   'images/lore/icons/the-prisoner-of-azkaban-icon.jpg':         { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
   'images/lore/icons/the-goblet-of-fire-icon.jpg':              { artist: 'Olly Moss',      url: 'https://www.ollymoss.com' },
@@ -93,6 +96,18 @@ window.IMAGE_CREDITS = {
   'images/champion-images/renders/dracaena-malfoy(render-5).jpg':        { artist: '@shigokin',   url: 'https://x.com/shigokin' },
   'images/champion-images/renders/dracaena-malfoy(render-6).jpg':        { artist: '@Orion_A2',   url: 'https://x.com/Orion_A2' },
   'images/summon-images/malfoy-patronus.jpg':                         { artist: '@MaroonR19',   url: 'https://x.com/MaroonR19' },
+
+  /* ---------- Wizarding World Champions: portraits and render 1 (added 2026-11-26) ---------- */
+  'images/champion-images/dumbledore.jpg':                               { artist: 'hirenkoi', url: 'https://hirenkoi.tumblr.com/' },
+  'images/champion-images/renders/dumbledore(render-1).jpg':             { artist: 'hirenkoi', url: 'https://hirenkoi.tumblr.com/' },
+  'images/champion-images/severus-snape.jpg':                            { source: 'Wizarding World', url: 'https://www.harrypotter.com', owner: '© Warner Bros. Entertainment Inc. Harry Potter Publishing Rights © J.K. Rowling' },
+  'images/champion-images/renders/severus-snape(render-1).jpg':          { source: 'Wizarding World', url: 'https://www.harrypotter.com', owner: '© Warner Bros. Entertainment Inc. Harry Potter Publishing Rights © J.K. Rowling' },
+  'images/champion-images/neville-longbottom.jpg':                       { artist: 'Drew Winchester', url: 'https://drew-winchester.tumblr.com/' },
+  'images/champion-images/renders/neville-longbottom(render-1).jpg':     { artist: 'Drew Winchester', url: 'https://drew-winchester.tumblr.com/' },
+  'images/champion-images/lord-voldemort.jpg':                           { artist: 'Evivan', url: 'https://www.deviantart.com/evivan' },
+  'images/champion-images/renders/lord-voldemort(render-1).jpg':         { artist: 'Evivan', url: 'https://www.deviantart.com/evivan' },
+  'images/champion-images/hagrid.jpg':                                   { artist: 'Jim Kay', url: 'https://www.creepyscrawlers.com' },
+  'images/champion-images/renders/hagrid(render-1).jpg':                 { artist: 'Jim Kay', url: 'https://www.creepyscrawlers.com' },
 
   /* ---------- Goku (official art) ---------- */
   'images/champion-images/goku.jpg':                                     { source: 'Dragon Ball Legends', url: 'https://apps.apple.com/us/app/-/id1358222641', owner: '©BIRD STUDIO/SHUEISHA, TOEI ANIMATION, ©Bandai Namco Entertainment Inc.' },
@@ -128,6 +143,9 @@ window.IMAGE_CREDITS = {
   'images/lore/wiki/lily-potter.jpg':                                     { artist: 'viria13',  url: 'https://www.deviantart.com/viria13' },
   'images/lore/wiki/james-potter.jpg':                                    { artist: 'SandraGN', url: 'https://www.deviantart.com/sandragn' },
   'images/lore/wiki/ada-khumalo.jpg':                                     { source: 'Hogwarts Legacy (character creator)', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/champion-images/duplicity-magnaloid.jpg': { source: 'Hogwarts Legacy (character creator)', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/champion-images/costumes/duplicity-magnaloid(classic).jpg': { source: 'Hogwarts Legacy (character creator)', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
+  'images/champion-images/costumes/duplicity-magnaloid(first-year).jpg': { source: 'Hogwarts Legacy (character creator)', url: 'https://www.hogwartslegacy.com/', owner: '© Warner Bros. Entertainment Inc. Hogwarts Legacy is published by Warner Bros. Games under the Portkey Games label. Publishing Rights © J.K. Rowling' },
   'images/lore/wiki/the-time-turner.jpg':                                 { source: 'The Noble Collection (official Harry Potter replica)', url: 'https://www.noblecollection.com/', owner: 'Harry Potter characters, names and related indicia are © & ™ Warner Bros. Entertainment Inc.' },
   'images/lore/wiki/philosophers-stone.jpg':                              { source: 'The Noble Collection (official Harry Potter replica)', url: 'https://www.noblecollection.com/', owner: 'Harry Potter characters, names and related indicia are © & ™ Warner Bros. Entertainment Inc.' },
   'images/lore/wiki/mirror-of-erised.jpg':                                { source: 'Harry Potter official website', url: 'https://www.harrypotter.com' },
